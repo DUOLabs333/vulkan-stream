@@ -42,10 +42,10 @@ class RWError : public std::exception {
             json=readFromConn();
             
             if (currStruct()->uuid==-1){
-                currStruct()->uuid=json["uuid"].as_int64_t();
+                currStruct()->uuid=json["uuid"].as_uint64_t();
             }
             
-            if (static_cast<StreamType>(json["stream_type"].as_int64_t())==SYNC){
+            if (static_cast<StreamType>(json["stream_type"].as_uint64_t())==SYNC){
                 handle_sync_init(json);
             }
             else{

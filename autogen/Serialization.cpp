@@ -19,12 +19,14 @@ void serialize_Sync(json::map& json, Sync& sync){
     
     temp_vector.resize(sync.lengths.size());
     for (int i=0; i< sync.lengths.size(); i++){
+        debug_printf("Serialized length: %d\n", sync.lengths[i]);
         temp_vector[i]=sync.lengths[i];
     }
     json["lengths"]=temp_vector;
     
     temp_vector.resize(sync.starts.size());
     for (int i=0; i< sync.starts.size(); i++){
+        debug_printf("Serialized start: %d\n", sync.starts[i]);
         temp_vector[i]=sync.starts[i];
     }
     json["starts"]=temp_vector;
@@ -52,12 +54,14 @@ void deserialize_Sync(json::map& json, Sync& sync){
     sync.lengths.resize(temp_vector.size());
     for (int i=0; i < temp_vector.size(); i++){
         sync.lengths[i]=temp_vector[i].as_uint64_t();
+        debug_printf("Deerialized length: %d\n", sync.lengths[i]);
     }
     
     temp_vector=json["starts"].as_vector();
     sync.starts.resize(temp_vector.size());
     for (int i=0; i < temp_vector.size(); i++){
         sync.starts[i]=temp_vector[i].as_uint64_t();
+        debug_printf("Deserialized start: %d\n", sync.starts[i]);
     }
     
     temp_vector=json["buffers"].as_vector();
@@ -71,17 +75,17 @@ void deserialize_Sync(json::map& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkInternalAllocationNotification;
-uintptr_t PFN_vkVoidFunction;
 uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkInternalFreeNotification;
 uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
 uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
-uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkAllocationFunction;
 } pUserData_struct;
 
 PFN_vkVoidFunction handle_pNext(VkStructureType sType, bool serialize){
@@ -12897,7 +12901,7 @@ void deserialize_pNext(const json::map& json, void*& member ){
         return;
     }
     
-    auto deserialize_function=(void(*)(const json::map&, void*&))(handle_pNext(static_cast<VkStructureType>(json.at("sType").as_int64_t()),false));
+    auto deserialize_function=(void(*)(const json::map&, void*&))(handle_pNext(static_cast<VkStructureType>(json.at("sType").as_uint64_t()),false));
     
     return deserialize_function(json, member);
 
@@ -13661,8 +13665,9 @@ auto pNext_json=json::value();
         for(int WzFtmOV=0; WzFtmOV < 1; WzFtmOV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pNext[WzFtmOV]);
+            serialize_struct(temp_map, member.pNext[WzFtmOV]);
             arr_jFqDlbO[WzFtmOV]=temp_map;
+            return;
             }();
         }
         pNext_json=arr_jFqDlbO;}();
@@ -13706,8 +13711,9 @@ auto pNext_json=json::value();
         for(int zdqWKMj=0; zdqWKMj < 1; zdqWKMj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pNext[zdqWKMj]);
+            serialize_struct(temp_map, member.pNext[zdqWKMj]);
             arr_iGEwXrX[zdqWKMj]=temp_map;
+            return;
             }();
         }
         pNext_json=arr_iGEwXrX;}();
@@ -13986,15 +13992,17 @@ auto& maxDepth_json=json.at("maxDepth");
 auto offset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.offset);
+            serialize_struct(temp_map, member.offset);
             offset_json=temp_map;
+            return;
             }();
 json["offset"]=offset_json;
 auto extent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.extent);
+            serialize_struct(temp_map, member.extent);
             extent_json=temp_map;
+            return;
             }();
 json["extent"]=extent_json;
 }
@@ -14015,8 +14023,9 @@ auto& extent_json=json.at("extent");
 auto rect_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.rect);
+            serialize_struct(temp_map, member.rect);
             rect_json=temp_map;
+            return;
             }();
 json["rect"]=rect_json;
 auto baseArrayLayer_json=json::value();
@@ -14147,15 +14156,17 @@ json["pipelineCacheUUID"]=pipelineCacheUUID_json;
 auto limits_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.limits);
+            serialize_struct(temp_map, member.limits);
             limits_json=temp_map;
+            return;
             }();
 json["limits"]=limits_json;
 auto sparseProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.sparseProperties);
+            serialize_struct(temp_map, member.sparseProperties);
             sparseProperties_json=temp_map;
+            return;
             }();
 json["sparseProperties"]=sparseProperties_json;
 }
@@ -14373,8 +14384,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pApplicationName_json=json::value();
@@ -14575,36 +14587,41 @@ json["pUserData"]=pUserData_json;
 auto pfnAllocation_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_PFN_vkAllocationFunction(temp_map, member.pfnAllocation);
+            serialize_PFN_vkAllocationFunction(temp_map, member.pfnAllocation);
             pfnAllocation_json=temp_map;
+            return;
             }();
 json["pfnAllocation"]=pfnAllocation_json;
 auto pfnReallocation_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_PFN_vkReallocationFunction(temp_map, member.pfnReallocation);
+            serialize_PFN_vkReallocationFunction(temp_map, member.pfnReallocation);
             pfnReallocation_json=temp_map;
+            return;
             }();
 json["pfnReallocation"]=pfnReallocation_json;
 auto pfnFree_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_PFN_vkFreeFunction(temp_map, member.pfnFree);
+            serialize_PFN_vkFreeFunction(temp_map, member.pfnFree);
             pfnFree_json=temp_map;
+            return;
             }();
 json["pfnFree"]=pfnFree_json;
 auto pfnInternalAllocation_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_PFN_vkInternalAllocationNotification(temp_map, member.pfnInternalAllocation);
+            serialize_PFN_vkInternalAllocationNotification(temp_map, member.pfnInternalAllocation);
             pfnInternalAllocation_json=temp_map;
+            return;
             }();
 json["pfnInternalAllocation"]=pfnInternalAllocation_json;
 auto pfnInternalFree_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_PFN_vkInternalFreeNotification(temp_map, member.pfnInternalFree);
+            serialize_PFN_vkInternalFreeNotification(temp_map, member.pfnInternalFree);
             pfnInternalFree_json=temp_map;
+            return;
             }();
 json["pfnInternalFree"]=pfnInternalFree_json;
 }
@@ -14644,8 +14661,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -14741,8 +14759,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -14759,8 +14778,9 @@ auto pQueueCreateInfos_json=json::value();
         for(int sagHnZa=0; sagHnZa < member.queueCreateInfoCount; sagHnZa++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pQueueCreateInfos[sagHnZa]);
+            serialize_struct(temp_map, member.pQueueCreateInfos[sagHnZa]);
             arr_AyQtGcu[sagHnZa]=temp_map;
+            return;
             }();
         }
         pQueueCreateInfos_json=arr_AyQtGcu;}();
@@ -14813,8 +14833,9 @@ auto pEnabledFeatures_json=json::value();
         for(int ojHmheI=0; ojHmheI < 1; ojHmheI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pEnabledFeatures[ojHmheI]);
+            serialize_struct(temp_map, member.pEnabledFeatures[ojHmheI]);
             arr_dmLnFnT[ojHmheI]=temp_map;
+            return;
             }();
         }
         pEnabledFeatures_json=arr_dmLnFnT;}();
@@ -14956,8 +14977,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -14971,8 +14993,9 @@ auto pApplicationInfo_json=json::value();
         for(int fUoumfM=0; fUoumfM < 1; fUoumfM++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pApplicationInfo[fUoumfM]);
+            serialize_struct(temp_map, member.pApplicationInfo[fUoumfM]);
             arr_ZBfqvMJ[fUoumfM]=temp_map;
+            return;
             }();
         }
         pApplicationInfo_json=arr_ZBfqvMJ;}();
@@ -15139,8 +15162,9 @@ json["timestampValidBits"]=timestampValidBits_json;
 auto minImageTransferGranularity_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minImageTransferGranularity);
+            serialize_struct(temp_map, member.minImageTransferGranularity);
             minImageTransferGranularity_json=temp_map;
+            return;
             }();
 json["minImageTransferGranularity"]=minImageTransferGranularity_json;
 }
@@ -15192,8 +15216,9 @@ auto memoryTypes_json=json::value();
         for(int oIrFYub=0; oIrFYub < VK_MAX_MEMORY_TYPES; oIrFYub++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.memoryTypes[oIrFYub]);
+            serialize_struct(temp_map, member.memoryTypes[oIrFYub]);
             arr_zLhIRqf[oIrFYub]=temp_map;
+            return;
             }();
         }
         memoryTypes_json=arr_zLhIRqf;}();
@@ -15206,8 +15231,9 @@ auto memoryHeaps_json=json::value();
         for(int ByzKyHe=0; ByzKyHe < VK_MAX_MEMORY_HEAPS; ByzKyHe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.memoryHeaps[ByzKyHe]);
+            serialize_struct(temp_map, member.memoryHeaps[ByzKyHe]);
             arr_IqWNxdQ[ByzKyHe]=temp_map;
+            return;
             }();
         }
         memoryHeaps_json=arr_IqWNxdQ;}();
@@ -15261,8 +15287,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto allocationSize_json=json::value();
@@ -15364,8 +15391,9 @@ json["aspectMask"]=aspectMask_json;
 auto imageGranularity_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageGranularity);
+            serialize_struct(temp_map, member.imageGranularity);
             imageGranularity_json=temp_map;
+            return;
             }();
 json["imageGranularity"]=imageGranularity_json;
 auto flags_json=json::value();
@@ -15405,8 +15433,9 @@ auto& flags_json=json.at("flags");
 auto formatProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.formatProperties);
+            serialize_struct(temp_map, member.formatProperties);
             formatProperties_json=temp_map;
+            return;
             }();
 json["formatProperties"]=formatProperties_json;
 auto imageMipTailFirstLod_json=json::value();
@@ -15544,8 +15573,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memory_json=json::value();
@@ -15649,8 +15679,9 @@ auto& bufferFeatures_json=json.at("bufferFeatures");
 auto maxExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxExtent);
+            serialize_struct(temp_map, member.maxExtent);
             maxExtent_json=temp_map;
+            return;
             }();
 json["maxExtent"]=maxExtent_json;
 auto maxMipLevels_json=json::value();
@@ -15790,8 +15821,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto dstSet_json=json::value();
@@ -15817,8 +15849,9 @@ auto pImageInfo_json=json::value();
         for(int JKGzUnw=0; JKGzUnw < member.descriptorCount; JKGzUnw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pImageInfo[JKGzUnw]);
+            serialize_struct(temp_map, member.pImageInfo[JKGzUnw]);
             arr_hKyqMBA[JKGzUnw]=temp_map;
+            return;
             }();
         }
         pImageInfo_json=arr_hKyqMBA;}();
@@ -15831,8 +15864,9 @@ auto pBufferInfo_json=json::value();
         for(int HSNwtZm=0; HSNwtZm < member.descriptorCount; HSNwtZm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pBufferInfo[HSNwtZm]);
+            serialize_struct(temp_map, member.pBufferInfo[HSNwtZm]);
             arr_kkLJfgf[HSNwtZm]=temp_map;
+            return;
             }();
         }
         pBufferInfo_json=arr_kkLJfgf;}();
@@ -15947,8 +15981,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcSet_json=json::value();
@@ -16053,8 +16088,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto usage_json=json::value();
@@ -16097,8 +16133,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -16220,8 +16257,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -16485,8 +16523,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcAccessMask_json=json::value();
@@ -16542,8 +16581,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcAccessMask_json=json::value();
@@ -16656,8 +16696,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcAccessMask_json=json::value();
@@ -16684,8 +16725,9 @@ json["image"]=image_json;
 auto subresourceRange_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.subresourceRange);
+            serialize_struct(temp_map, member.subresourceRange);
             subresourceRange_json=temp_map;
+            return;
             }();
 json["subresourceRange"]=subresourceRange_json;
 }
@@ -16781,8 +16823,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -16797,8 +16840,9 @@ json["format"]=format_json;
 auto extent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.extent);
+            serialize_struct(temp_map, member.extent);
             extent_json=temp_map;
+            return;
             }();
 json["extent"]=extent_json;
 auto mipLevels_json=json::value();
@@ -17065,8 +17109,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -17084,15 +17129,17 @@ json["format"]=format_json;
 auto components_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.components);
+            serialize_struct(temp_map, member.components);
             components_json=temp_map;
+            return;
             }();
 json["components"]=components_json;
 auto subresourceRange_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.subresourceRange);
+            serialize_struct(temp_map, member.subresourceRange);
             subresourceRange_json=temp_map;
+            return;
             }();
 json["subresourceRange"]=subresourceRange_json;
 }
@@ -17269,22 +17316,25 @@ auto& flags_json=json.at("flags");
 auto subresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.subresource);
+            serialize_struct(temp_map, member.subresource);
             subresource_json=temp_map;
+            return;
             }();
 json["subresource"]=subresource_json;
 auto offset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.offset);
+            serialize_struct(temp_map, member.offset);
             offset_json=temp_map;
+            return;
             }();
 json["offset"]=offset_json;
 auto extent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.extent);
+            serialize_struct(temp_map, member.extent);
             extent_json=temp_map;
+            return;
             }();
 json["extent"]=extent_json;
 auto memory_json=json::value();
@@ -17351,8 +17401,9 @@ auto pBinds_json=json::value();
         for(int BPPAqwp=0; BPPAqwp < member.bindCount; BPPAqwp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pBinds[BPPAqwp]);
+            serialize_struct(temp_map, member.pBinds[BPPAqwp]);
             arr_lMooBUR[BPPAqwp]=temp_map;
+            return;
             }();
         }
         pBinds_json=arr_lMooBUR;}();
@@ -17401,8 +17452,9 @@ auto pBinds_json=json::value();
         for(int BPPAqwp=0; BPPAqwp < member.bindCount; BPPAqwp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pBinds[BPPAqwp]);
+            serialize_struct(temp_map, member.pBinds[BPPAqwp]);
             arr_lMooBUR[BPPAqwp]=temp_map;
+            return;
             }();
         }
         pBinds_json=arr_lMooBUR;}();
@@ -17451,8 +17503,9 @@ auto pBinds_json=json::value();
         for(int ThKtLXw=0; ThKtLXw < member.bindCount; ThKtLXw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pBinds[ThKtLXw]);
+            serialize_struct(temp_map, member.pBinds[ThKtLXw]);
             arr_mRRaRZD[ThKtLXw]=temp_map;
+            return;
             }();
         }
         pBinds_json=arr_mRRaRZD;}();
@@ -17493,8 +17546,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto waitSemaphoreCount_json=json::value();
@@ -17521,8 +17575,9 @@ auto pBufferBinds_json=json::value();
         for(int pwrymEJ=0; pwrymEJ < member.bufferBindCount; pwrymEJ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pBufferBinds[pwrymEJ]);
+            serialize_struct(temp_map, member.pBufferBinds[pwrymEJ]);
             arr_GgaLeag[pwrymEJ]=temp_map;
+            return;
             }();
         }
         pBufferBinds_json=arr_GgaLeag;}();
@@ -17538,8 +17593,9 @@ auto pImageOpaqueBinds_json=json::value();
         for(int HfKQHJK=0; HfKQHJK < member.imageOpaqueBindCount; HfKQHJK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pImageOpaqueBinds[HfKQHJK]);
+            serialize_struct(temp_map, member.pImageOpaqueBinds[HfKQHJK]);
             arr_uxLuNbq[HfKQHJK]=temp_map;
+            return;
             }();
         }
         pImageOpaqueBinds_json=arr_uxLuNbq;}();
@@ -17555,8 +17611,9 @@ auto pImageBinds_json=json::value();
         for(int amSYQzr=0; amSYQzr < member.imageBindCount; amSYQzr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pImageBinds[amSYQzr]);
+            serialize_struct(temp_map, member.pImageBinds[amSYQzr]);
             arr_DFKvcex[amSYQzr]=temp_map;
+            return;
             }();
         }
         pImageBinds_json=arr_DFKvcex;}();
@@ -17699,36 +17756,41 @@ auto& pSignalSemaphores_json=json.at("pSignalSemaphores");
 auto srcSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcSubresource);
+            serialize_struct(temp_map, member.srcSubresource);
             srcSubresource_json=temp_map;
+            return;
             }();
 json["srcSubresource"]=srcSubresource_json;
 auto srcOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcOffset);
+            serialize_struct(temp_map, member.srcOffset);
             srcOffset_json=temp_map;
+            return;
             }();
 json["srcOffset"]=srcOffset_json;
 auto dstSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstSubresource);
+            serialize_struct(temp_map, member.dstSubresource);
             dstSubresource_json=temp_map;
+            return;
             }();
 json["dstSubresource"]=dstSubresource_json;
 auto dstOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstOffset);
+            serialize_struct(temp_map, member.dstOffset);
             dstOffset_json=temp_map;
+            return;
             }();
 json["dstOffset"]=dstOffset_json;
 auto extent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.extent);
+            serialize_struct(temp_map, member.extent);
             extent_json=temp_map;
+            return;
             }();
 json["extent"]=extent_json;
 }
@@ -17761,8 +17823,9 @@ auto& extent_json=json.at("extent");
 auto srcSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcSubresource);
+            serialize_struct(temp_map, member.srcSubresource);
             srcSubresource_json=temp_map;
+            return;
             }();
 json["srcSubresource"]=srcSubresource_json;
 auto srcOffsets_json=json::value();
@@ -17770,8 +17833,9 @@ auto srcOffsets_json=json::value();
         for(int cffHdsm=0; cffHdsm < 2; cffHdsm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcOffsets[cffHdsm]);
+            serialize_struct(temp_map, member.srcOffsets[cffHdsm]);
             arr_HKFUgIx[cffHdsm]=temp_map;
+            return;
             }();
         }
         srcOffsets_json=arr_HKFUgIx;}();
@@ -17779,8 +17843,9 @@ json["srcOffsets"]=srcOffsets_json;
 auto dstSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstSubresource);
+            serialize_struct(temp_map, member.dstSubresource);
             dstSubresource_json=temp_map;
+            return;
             }();
 json["dstSubresource"]=dstSubresource_json;
 auto dstOffsets_json=json::value();
@@ -17788,8 +17853,9 @@ auto dstOffsets_json=json::value();
         for(int YmWWFoI=0; YmWWFoI < 2; YmWWFoI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstOffsets[YmWWFoI]);
+            serialize_struct(temp_map, member.dstOffsets[YmWWFoI]);
             arr_EYgKCdH[YmWWFoI]=temp_map;
+            return;
             }();
         }
         dstOffsets_json=arr_EYgKCdH;}();
@@ -17837,22 +17903,25 @@ json["bufferImageHeight"]=bufferImageHeight_json;
 auto imageSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageSubresource);
+            serialize_struct(temp_map, member.imageSubresource);
             imageSubresource_json=temp_map;
+            return;
             }();
 json["imageSubresource"]=imageSubresource_json;
 auto imageOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageOffset);
+            serialize_struct(temp_map, member.imageOffset);
             imageOffset_json=temp_map;
+            return;
             }();
 json["imageOffset"]=imageOffset_json;
 auto imageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageExtent);
+            serialize_struct(temp_map, member.imageExtent);
             imageExtent_json=temp_map;
+            return;
             }();
 json["imageExtent"]=imageExtent_json;
 }
@@ -17962,22 +18031,25 @@ json["bufferImageHeight"]=bufferImageHeight_json;
 auto imageSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageSubresource);
+            serialize_struct(temp_map, member.imageSubresource);
             imageSubresource_json=temp_map;
+            return;
             }();
 json["imageSubresource"]=imageSubresource_json;
 auto imageOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageOffset);
+            serialize_struct(temp_map, member.imageOffset);
             imageOffset_json=temp_map;
+            return;
             }();
 json["imageOffset"]=imageOffset_json;
 auto imageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageExtent);
+            serialize_struct(temp_map, member.imageExtent);
             imageExtent_json=temp_map;
+            return;
             }();
 json["imageExtent"]=imageExtent_json;
 }
@@ -18032,36 +18104,41 @@ auto& imageExtent_json=json.at("imageExtent");
 auto srcSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcSubresource);
+            serialize_struct(temp_map, member.srcSubresource);
             srcSubresource_json=temp_map;
+            return;
             }();
 json["srcSubresource"]=srcSubresource_json;
 auto srcOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcOffset);
+            serialize_struct(temp_map, member.srcOffset);
             srcOffset_json=temp_map;
+            return;
             }();
 json["srcOffset"]=srcOffset_json;
 auto dstSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstSubresource);
+            serialize_struct(temp_map, member.dstSubresource);
             dstSubresource_json=temp_map;
+            return;
             }();
 json["dstSubresource"]=dstSubresource_json;
 auto dstOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstOffset);
+            serialize_struct(temp_map, member.dstOffset);
             dstOffset_json=temp_map;
+            return;
             }();
 json["dstOffset"]=dstOffset_json;
 auto extent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.extent);
+            serialize_struct(temp_map, member.extent);
             extent_json=temp_map;
+            return;
             }();
 json["extent"]=extent_json;
 }
@@ -18097,8 +18174,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -18259,8 +18337,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -18277,8 +18356,9 @@ auto pBindings_json=json::value();
         for(int AzgmBbR=0; AzgmBbR < member.bindingCount; AzgmBbR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pBindings[AzgmBbR]);
+            serialize_struct(temp_map, member.pBindings[AzgmBbR]);
             arr_nJbEkUh[AzgmBbR]=temp_map;
+            return;
             }();
         }
         pBindings_json=arr_nJbEkUh;}();
@@ -18374,8 +18454,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -18395,8 +18476,9 @@ auto pPoolSizes_json=json::value();
         for(int YQeezfi=0; YQeezfi < member.poolSizeCount; YQeezfi++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pPoolSizes[YQeezfi]);
+            serialize_struct(temp_map, member.pPoolSizes[YQeezfi]);
             arr_LuBsymd[YQeezfi]=temp_map;
+            return;
             }();
         }
         pPoolSizes_json=arr_LuBsymd;}();
@@ -18469,8 +18551,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto descriptorPool_json=json::value();
@@ -18588,8 +18671,9 @@ auto pMapEntries_json=json::value();
         for(int kycorOP=0; kycorOP < member.mapEntryCount; kycorOP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pMapEntries[kycorOP]);
+            serialize_struct(temp_map, member.pMapEntries[kycorOP]);
             arr_yuDvmVn[kycorOP]=temp_map;
+            return;
             }();
         }
         pMapEntries_json=arr_yuDvmVn;}();
@@ -18674,8 +18758,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -18705,8 +18790,9 @@ auto pSpecializationInfo_json=json::value();
         for(int lSuLhWh=0; lSuLhWh < 1; lSuLhWh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSpecializationInfo[lSuLhWh]);
+            serialize_struct(temp_map, member.pSpecializationInfo[lSuLhWh]);
             arr_AfbichW[lSuLhWh]=temp_map;
+            return;
             }();
         }
         pSpecializationInfo_json=arr_AfbichW;}();
@@ -18788,8 +18874,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -18798,8 +18885,9 @@ json["flags"]=flags_json;
 auto stage_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.stage);
+            serialize_struct(temp_map, member.stage);
             stage_json=temp_map;
+            return;
             }();
 json["stage"]=stage_json;
 auto layout_json=json::value();
@@ -18866,8 +18954,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceAddress_json=json::value();
@@ -18936,8 +19025,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -19085,8 +19175,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -19103,8 +19194,9 @@ auto pVertexBindingDescriptions_json=json::value();
         for(int YjWVYZF=0; YjWVYZF < member.vertexBindingDescriptionCount; YjWVYZF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pVertexBindingDescriptions[YjWVYZF]);
+            serialize_struct(temp_map, member.pVertexBindingDescriptions[YjWVYZF]);
             arr_lPaHSpH[YjWVYZF]=temp_map;
+            return;
             }();
         }
         pVertexBindingDescriptions_json=arr_lPaHSpH;}();
@@ -19120,8 +19212,9 @@ auto pVertexAttributeDescriptions_json=json::value();
         for(int bjIoEiI=0; bjIoEiI < member.vertexAttributeDescriptionCount; bjIoEiI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pVertexAttributeDescriptions[bjIoEiI]);
+            serialize_struct(temp_map, member.pVertexAttributeDescriptions[bjIoEiI]);
             arr_vcvXgKV[bjIoEiI]=temp_map;
+            return;
             }();
         }
         pVertexAttributeDescriptions_json=arr_vcvXgKV;}();
@@ -19205,8 +19298,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -19275,8 +19369,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -19332,8 +19427,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -19350,8 +19446,9 @@ auto pViewports_json=json::value();
         for(int pPPmjfh=0; pPPmjfh < member.viewportCount; pPPmjfh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pViewports[pPPmjfh]);
+            serialize_struct(temp_map, member.pViewports[pPPmjfh]);
             arr_HeuXxgA[pPPmjfh]=temp_map;
+            return;
             }();
         }
         pViewports_json=arr_HeuXxgA;}();
@@ -19367,8 +19464,9 @@ auto pScissors_json=json::value();
         for(int pCcccJg=0; pCcccJg < member.scissorCount; pCcccJg++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pScissors[pCcccJg]);
+            serialize_struct(temp_map, member.pScissors[pCcccJg]);
             arr_jBCJAGW[pCcccJg]=temp_map;
+            return;
             }();
         }
         pScissors_json=arr_jBCJAGW;}();
@@ -19452,8 +19550,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -19626,8 +19725,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -19873,8 +19973,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -19897,8 +19998,9 @@ auto pAttachments_json=json::value();
         for(int oTEAAhc=0; oTEAAhc < member.attachmentCount; oTEAAhc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pAttachments[oTEAAhc]);
+            serialize_struct(temp_map, member.pAttachments[oTEAAhc]);
             arr_OXJBqJu[oTEAAhc]=temp_map;
+            return;
             }();
         }
         pAttachments_json=arr_OXJBqJu;}();
@@ -20002,8 +20104,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -20184,8 +20287,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -20209,15 +20313,17 @@ json["stencilTestEnable"]=stencilTestEnable_json;
 auto front_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.front);
+            serialize_struct(temp_map, member.front);
             front_json=temp_map;
+            return;
             }();
 json["front"]=front_json;
 auto back_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.back);
+            serialize_struct(temp_map, member.back);
             back_json=temp_map;
+            return;
             }();
 json["back"]=back_json;
 auto minDepthBounds_json=json::value();
@@ -20341,8 +20447,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -20359,8 +20466,9 @@ auto pStages_json=json::value();
         for(int AsBfcSb=0; AsBfcSb < member.stageCount; AsBfcSb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pStages[AsBfcSb]);
+            serialize_struct(temp_map, member.pStages[AsBfcSb]);
             arr_wJXHhmh[AsBfcSb]=temp_map;
+            return;
             }();
         }
         pStages_json=arr_wJXHhmh;}();
@@ -20373,8 +20481,9 @@ auto pVertexInputState_json=json::value();
         for(int tqmlCna=0; tqmlCna < 1; tqmlCna++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pVertexInputState[tqmlCna]);
+            serialize_struct(temp_map, member.pVertexInputState[tqmlCna]);
             arr_HopKlOv[tqmlCna]=temp_map;
+            return;
             }();
         }
         pVertexInputState_json=arr_HopKlOv;}();
@@ -20387,8 +20496,9 @@ auto pInputAssemblyState_json=json::value();
         for(int kCbcYVf=0; kCbcYVf < 1; kCbcYVf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pInputAssemblyState[kCbcYVf]);
+            serialize_struct(temp_map, member.pInputAssemblyState[kCbcYVf]);
             arr_XjVdyCj[kCbcYVf]=temp_map;
+            return;
             }();
         }
         pInputAssemblyState_json=arr_XjVdyCj;}();
@@ -20401,8 +20511,9 @@ auto pTessellationState_json=json::value();
         for(int IWxBQoq=0; IWxBQoq < 1; IWxBQoq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pTessellationState[IWxBQoq]);
+            serialize_struct(temp_map, member.pTessellationState[IWxBQoq]);
             arr_tdhGlVI[IWxBQoq]=temp_map;
+            return;
             }();
         }
         pTessellationState_json=arr_tdhGlVI;}();
@@ -20415,8 +20526,9 @@ auto pViewportState_json=json::value();
         for(int ZpMCSfw=0; ZpMCSfw < 1; ZpMCSfw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pViewportState[ZpMCSfw]);
+            serialize_struct(temp_map, member.pViewportState[ZpMCSfw]);
             arr_cLLBOfS[ZpMCSfw]=temp_map;
+            return;
             }();
         }
         pViewportState_json=arr_cLLBOfS;}();
@@ -20429,8 +20541,9 @@ auto pRasterizationState_json=json::value();
         for(int kapFwwJ=0; kapFwwJ < 1; kapFwwJ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRasterizationState[kapFwwJ]);
+            serialize_struct(temp_map, member.pRasterizationState[kapFwwJ]);
             arr_BUWxCGe[kapFwwJ]=temp_map;
+            return;
             }();
         }
         pRasterizationState_json=arr_BUWxCGe;}();
@@ -20443,8 +20556,9 @@ auto pMultisampleState_json=json::value();
         for(int plsEKGt=0; plsEKGt < 1; plsEKGt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pMultisampleState[plsEKGt]);
+            serialize_struct(temp_map, member.pMultisampleState[plsEKGt]);
             arr_oxWWlVc[plsEKGt]=temp_map;
+            return;
             }();
         }
         pMultisampleState_json=arr_oxWWlVc;}();
@@ -20457,8 +20571,9 @@ auto pDepthStencilState_json=json::value();
         for(int bzaPfwe=0; bzaPfwe < 1; bzaPfwe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDepthStencilState[bzaPfwe]);
+            serialize_struct(temp_map, member.pDepthStencilState[bzaPfwe]);
             arr_CoCyuaF[bzaPfwe]=temp_map;
+            return;
             }();
         }
         pDepthStencilState_json=arr_CoCyuaF;}();
@@ -20471,8 +20586,9 @@ auto pColorBlendState_json=json::value();
         for(int bapCcQg=0; bapCcQg < 1; bapCcQg++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pColorBlendState[bapCcQg]);
+            serialize_struct(temp_map, member.pColorBlendState[bapCcQg]);
             arr_fflbfZo[bapCcQg]=temp_map;
+            return;
             }();
         }
         pColorBlendState_json=arr_fflbfZo;}();
@@ -20485,8 +20601,9 @@ auto pDynamicState_json=json::value();
         for(int RNPowsf=0; RNPowsf < 1; RNPowsf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDynamicState[RNPowsf]);
+            serialize_struct(temp_map, member.pDynamicState[RNPowsf]);
             arr_iDMMizu[RNPowsf]=temp_map;
+            return;
             }();
         }
         pDynamicState_json=arr_iDMMizu;}();
@@ -20689,8 +20806,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -20905,8 +21023,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -20936,8 +21055,9 @@ auto pPushConstantRanges_json=json::value();
         for(int IhaFWFv=0; IhaFWFv < member.pushConstantRangeCount; IhaFWFv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pPushConstantRanges[IhaFWFv]);
+            serialize_struct(temp_map, member.pPushConstantRanges[IhaFWFv]);
             arr_doTQoKZ[IhaFWFv]=temp_map;
+            return;
             }();
         }
         pPushConstantRanges_json=arr_doTQoKZ;}();
@@ -21019,8 +21139,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -21258,8 +21379,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -21315,8 +21437,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto commandPool_json=json::value();
@@ -21377,8 +21500,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto renderPass_json=json::value();
@@ -21470,8 +21594,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -21485,8 +21610,9 @@ auto pInheritanceInfo_json=json::value();
         for(int bGTbYrK=0; bGTbYrK < 1; bGTbYrK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pInheritanceInfo[bGTbYrK]);
+            serialize_struct(temp_map, member.pInheritanceInfo[bGTbYrK]);
             arr_PAjnrNx[bGTbYrK]=temp_map;
+            return;
             }();
         }
         pInheritanceInfo_json=arr_PAjnrNx;}();
@@ -21539,8 +21665,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto renderPass_json=json::value();
@@ -21552,8 +21679,9 @@ json["framebuffer"]=framebuffer_json;
 auto renderArea_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.renderArea);
+            serialize_struct(temp_map, member.renderArea);
             renderArea_json=temp_map;
+            return;
             }();
 json["renderArea"]=renderArea_json;
 auto clearValueCount_json=json::value();
@@ -21567,8 +21695,9 @@ auto pClearValues_json=json::value();
         for(int rfbiVln=0; rfbiVln < member.clearValueCount; rfbiVln++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pClearValues[rfbiVln]);
+            serialize_struct(temp_map, member.pClearValues[rfbiVln]);
             arr_EjHFbnM[rfbiVln]=temp_map;
+            return;
             }();
         }
         pClearValues_json=arr_EjHFbnM;}();
@@ -21729,15 +21858,17 @@ auto& stencil_json=json.at("stencil");
 auto color_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.color);
+            serialize_struct(temp_map, member.color);
             color_json=temp_map;
+            return;
             }();
 json["color"]=color_json;
 auto depthStencil_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.depthStencil);
+            serialize_struct(temp_map, member.depthStencil);
             depthStencil_json=temp_map;
+            return;
             }();
 json["depthStencil"]=depthStencil_json;
 }
@@ -21764,8 +21895,9 @@ json["colorAttachment"]=colorAttachment_json;
 auto clearValue_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.clearValue);
+            serialize_struct(temp_map, member.clearValue);
             clearValue_json=temp_map;
+            return;
             }();
 json["clearValue"]=clearValue_json;
 }
@@ -21973,8 +22105,9 @@ auto pInputAttachments_json=json::value();
         for(int fcmsdlH=0; fcmsdlH < member.inputAttachmentCount; fcmsdlH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pInputAttachments[fcmsdlH]);
+            serialize_struct(temp_map, member.pInputAttachments[fcmsdlH]);
             arr_KLGwzOx[fcmsdlH]=temp_map;
+            return;
             }();
         }
         pInputAttachments_json=arr_KLGwzOx;}();
@@ -21990,8 +22123,9 @@ auto pColorAttachments_json=json::value();
         for(int NEsWaUO=0; NEsWaUO < member.colorAttachmentCount; NEsWaUO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pColorAttachments[NEsWaUO]);
+            serialize_struct(temp_map, member.pColorAttachments[NEsWaUO]);
             arr_PChCviG[NEsWaUO]=temp_map;
+            return;
             }();
         }
         pColorAttachments_json=arr_PChCviG;}();
@@ -22004,8 +22138,9 @@ auto pResolveAttachments_json=json::value();
         for(int HXoIIAZ=0; HXoIIAZ < member.colorAttachmentCount; HXoIIAZ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pResolveAttachments[HXoIIAZ]);
+            serialize_struct(temp_map, member.pResolveAttachments[HXoIIAZ]);
             arr_YtbBtCp[HXoIIAZ]=temp_map;
+            return;
             }();
         }
         pResolveAttachments_json=arr_YtbBtCp;}();
@@ -22018,8 +22153,9 @@ auto pDepthStencilAttachment_json=json::value();
         for(int CQzmEZj=0; CQzmEZj < 1; CQzmEZj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDepthStencilAttachment[CQzmEZj]);
+            serialize_struct(temp_map, member.pDepthStencilAttachment[CQzmEZj]);
             arr_irkynNl[CQzmEZj]=temp_map;
+            return;
             }();
         }
         pDepthStencilAttachment_json=arr_irkynNl;}();
@@ -22259,8 +22395,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -22277,8 +22414,9 @@ auto pAttachments_json=json::value();
         for(int EAnEZOy=0; EAnEZOy < member.attachmentCount; EAnEZOy++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pAttachments[EAnEZOy]);
+            serialize_struct(temp_map, member.pAttachments[EAnEZOy]);
             arr_eNXksbn[EAnEZOy]=temp_map;
+            return;
             }();
         }
         pAttachments_json=arr_eNXksbn;}();
@@ -22294,8 +22432,9 @@ auto pSubpasses_json=json::value();
         for(int fNtyFzh=0; fNtyFzh < member.subpassCount; fNtyFzh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSubpasses[fNtyFzh]);
+            serialize_struct(temp_map, member.pSubpasses[fNtyFzh]);
             arr_TnSUMFM[fNtyFzh]=temp_map;
+            return;
             }();
         }
         pSubpasses_json=arr_TnSUMFM;}();
@@ -22311,8 +22450,9 @@ auto pDependencies_json=json::value();
         for(int ivzxefA=0; ivzxefA < member.dependencyCount; ivzxefA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDependencies[ivzxefA]);
+            serialize_struct(temp_map, member.pDependencies[ivzxefA]);
             arr_IXOqlEN[ivzxefA]=temp_map;
+            return;
             }();
         }
         pDependencies_json=arr_IXOqlEN;}();
@@ -22417,8 +22557,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -22461,8 +22602,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -24732,8 +24874,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -24776,8 +24919,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -24859,8 +25003,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -25235,8 +25380,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto waitSemaphoreCount_json=json::value();
@@ -25399,15 +25545,17 @@ json["displayName"]=displayName_json;
 auto physicalDimensions_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.physicalDimensions);
+            serialize_struct(temp_map, member.physicalDimensions);
             physicalDimensions_json=temp_map;
+            return;
             }();
 json["physicalDimensions"]=physicalDimensions_json;
 auto physicalResolution_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.physicalResolution);
+            serialize_struct(temp_map, member.physicalResolution);
             physicalResolution_json=temp_map;
+            return;
             }();
 json["physicalResolution"]=physicalResolution_json;
 auto supportedTransforms_json=json::value();
@@ -25511,8 +25659,9 @@ auto& currentStackIndex_json=json.at("currentStackIndex");
 auto visibleRegion_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.visibleRegion);
+            serialize_struct(temp_map, member.visibleRegion);
             visibleRegion_json=temp_map;
+            return;
             }();
 json["visibleRegion"]=visibleRegion_json;
 auto refreshRate_json=json::value();
@@ -25545,8 +25694,9 @@ json["displayMode"]=displayMode_json;
 auto parameters_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.parameters);
+            serialize_struct(temp_map, member.parameters);
             parameters_json=temp_map;
+            return;
             }();
 json["parameters"]=parameters_json;
 }
@@ -25568,8 +25718,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -25578,8 +25729,9 @@ json["flags"]=flags_json;
 auto parameters_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.parameters);
+            serialize_struct(temp_map, member.parameters);
             parameters_json=temp_map;
+            return;
             }();
 json["parameters"]=parameters_json;
 }
@@ -25623,57 +25775,65 @@ json["supportedAlpha"]=supportedAlpha_json;
 auto minSrcPosition_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minSrcPosition);
+            serialize_struct(temp_map, member.minSrcPosition);
             minSrcPosition_json=temp_map;
+            return;
             }();
 json["minSrcPosition"]=minSrcPosition_json;
 auto maxSrcPosition_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxSrcPosition);
+            serialize_struct(temp_map, member.maxSrcPosition);
             maxSrcPosition_json=temp_map;
+            return;
             }();
 json["maxSrcPosition"]=maxSrcPosition_json;
 auto minSrcExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minSrcExtent);
+            serialize_struct(temp_map, member.minSrcExtent);
             minSrcExtent_json=temp_map;
+            return;
             }();
 json["minSrcExtent"]=minSrcExtent_json;
 auto maxSrcExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxSrcExtent);
+            serialize_struct(temp_map, member.maxSrcExtent);
             maxSrcExtent_json=temp_map;
+            return;
             }();
 json["maxSrcExtent"]=maxSrcExtent_json;
 auto minDstPosition_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minDstPosition);
+            serialize_struct(temp_map, member.minDstPosition);
             minDstPosition_json=temp_map;
+            return;
             }();
 json["minDstPosition"]=minDstPosition_json;
 auto maxDstPosition_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxDstPosition);
+            serialize_struct(temp_map, member.maxDstPosition);
             maxDstPosition_json=temp_map;
+            return;
             }();
 json["maxDstPosition"]=maxDstPosition_json;
 auto minDstExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minDstExtent);
+            serialize_struct(temp_map, member.minDstExtent);
             minDstExtent_json=temp_map;
+            return;
             }();
 json["minDstExtent"]=minDstExtent_json;
 auto maxDstExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxDstExtent);
+            serialize_struct(temp_map, member.maxDstExtent);
             maxDstExtent_json=temp_map;
+            return;
             }();
 json["maxDstExtent"]=maxDstExtent_json;
 }
@@ -25731,8 +25891,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -25759,8 +25920,9 @@ json["alphaMode"]=alphaMode_json;
 auto imageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageExtent);
+            serialize_struct(temp_map, member.imageExtent);
             imageExtent_json=temp_map;
+            return;
             }();
 json["imageExtent"]=imageExtent_json;
 }
@@ -25856,22 +26018,25 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcRect_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcRect);
+            serialize_struct(temp_map, member.srcRect);
             srcRect_json=temp_map;
+            return;
             }();
 json["srcRect"]=srcRect_json;
 auto dstRect_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstRect);
+            serialize_struct(temp_map, member.dstRect);
             dstRect_json=temp_map;
+            return;
             }();
 json["dstRect"]=dstRect_json;
 auto persistent_json=json::value();
@@ -25925,22 +26090,25 @@ json["maxImageCount"]=maxImageCount_json;
 auto currentExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.currentExtent);
+            serialize_struct(temp_map, member.currentExtent);
             currentExtent_json=temp_map;
+            return;
             }();
 json["currentExtent"]=currentExtent_json;
 auto minImageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minImageExtent);
+            serialize_struct(temp_map, member.minImageExtent);
             minImageExtent_json=temp_map;
+            return;
             }();
 json["minImageExtent"]=minImageExtent_json;
 auto maxImageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxImageExtent);
+            serialize_struct(temp_map, member.maxImageExtent);
             maxImageExtent_json=temp_map;
+            return;
             }();
 json["maxImageExtent"]=maxImageExtent_json;
 auto maxImageArrayLayers_json=json::value();
@@ -26053,8 +26221,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -26113,8 +26282,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -26206,8 +26376,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -26228,8 +26399,9 @@ json["imageColorSpace"]=imageColorSpace_json;
 auto imageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageExtent);
+            serialize_struct(temp_map, member.imageExtent);
             imageExtent_json=temp_map;
+            return;
             }();
 json["imageExtent"]=imageExtent_json;
 auto imageArrayLayers_json=json::value();
@@ -26441,8 +26613,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto waitSemaphoreCount_json=json::value();
@@ -26658,8 +26831,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -26668,8 +26842,9 @@ json["flags"]=flags_json;
 auto pfnCallback_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_PFN_vkDebugReportCallbackEXT(temp_map, member.pfnCallback);
+            serialize_PFN_vkDebugReportCallbackEXT(temp_map, member.pfnCallback);
             pfnCallback_json=temp_map;
+            return;
             }();
 json["pfnCallback"]=pfnCallback_json;
 
@@ -26722,8 +26897,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto disabledValidationCheckCount_json=json::value();
@@ -26793,8 +26969,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto enabledValidationFeatureCount_json=json::value();
@@ -26904,8 +27081,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto rasterizationOrder_json=json::value();
@@ -26948,8 +27126,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto objectType_json=json::value();
@@ -27032,8 +27211,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto objectType_json=json::value();
@@ -27148,8 +27328,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pMarkerName_json=json::value();
@@ -27227,8 +27408,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto dedicatedAllocation_json=json::value();
@@ -27271,8 +27453,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto dedicatedAllocation_json=json::value();
@@ -27315,8 +27498,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto image_json=json::value();
@@ -27353,8 +27537,9 @@ auto& buffer_json=json.at("buffer");
 auto imageFormatProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageFormatProperties);
+            serialize_struct(temp_map, member.imageFormatProperties);
             imageFormatProperties_json=temp_map;
+            return;
             }();
 json["imageFormatProperties"]=imageFormatProperties_json;
 auto externalMemoryFeatures_json=json::value();
@@ -27413,8 +27598,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleTypes_json=json::value();
@@ -27457,8 +27643,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleTypes_json=json::value();
@@ -27501,8 +27688,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceGeneratedCommands_json=json::value();
@@ -27545,8 +27733,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceGeneratedCompute_json=json::value();
@@ -27615,8 +27804,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto privateDataSlotRequestCount_json=json::value();
@@ -27659,8 +27849,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -27703,8 +27894,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto privateData_json=json::value();
@@ -27747,8 +27939,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxGraphicsShaderGroupCount_json=json::value();
@@ -27895,8 +28088,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxMultiDrawCount_json=json::value();
@@ -27939,8 +28133,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stageCount_json=json::value();
@@ -27954,8 +28149,9 @@ auto pStages_json=json::value();
         for(int AsBfcSb=0; AsBfcSb < member.stageCount; AsBfcSb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pStages[AsBfcSb]);
+            serialize_struct(temp_map, member.pStages[AsBfcSb]);
             arr_wJXHhmh[AsBfcSb]=temp_map;
+            return;
             }();
         }
         pStages_json=arr_wJXHhmh;}();
@@ -27968,8 +28164,9 @@ auto pVertexInputState_json=json::value();
         for(int tqmlCna=0; tqmlCna < 1; tqmlCna++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pVertexInputState[tqmlCna]);
+            serialize_struct(temp_map, member.pVertexInputState[tqmlCna]);
             arr_HopKlOv[tqmlCna]=temp_map;
+            return;
             }();
         }
         pVertexInputState_json=arr_HopKlOv;}();
@@ -27982,8 +28179,9 @@ auto pTessellationState_json=json::value();
         for(int IWxBQoq=0; IWxBQoq < 1; IWxBQoq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pTessellationState[IWxBQoq]);
+            serialize_struct(temp_map, member.pTessellationState[IWxBQoq]);
             arr_tdhGlVI[IWxBQoq]=temp_map;
+            return;
             }();
         }
         pTessellationState_json=arr_tdhGlVI;}();
@@ -28058,8 +28256,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto groupCount_json=json::value();
@@ -28073,8 +28272,9 @@ auto pGroups_json=json::value();
         for(int DKdqHYk=0; DKdqHYk < member.groupCount; DKdqHYk++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pGroups[DKdqHYk]);
+            serialize_struct(temp_map, member.pGroups[DKdqHYk]);
             arr_xbmYEqu[DKdqHYk]=temp_map;
+            return;
             }();
         }
         pGroups_json=arr_xbmYEqu;}();
@@ -28316,8 +28516,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto tokenType_json=json::value();
@@ -28536,8 +28737,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -28557,8 +28759,9 @@ auto pTokens_json=json::value();
         for(int PBaXRHm=0; PBaXRHm < member.tokenCount; PBaXRHm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pTokens[PBaXRHm]);
+            serialize_struct(temp_map, member.pTokens[PBaXRHm]);
             arr_fUkYdRn[PBaXRHm]=temp_map;
+            return;
             }();
         }
         pTokens_json=arr_fUkYdRn;}();
@@ -28671,8 +28874,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelineBindPoint_json=json::value();
@@ -28695,8 +28899,9 @@ auto pStreams_json=json::value();
         for(int DPlUWAU=0; DPlUWAU < member.streamCount; DPlUWAU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pStreams[DPlUWAU]);
+            serialize_struct(temp_map, member.pStreams[DPlUWAU]);
             arr_hAgHXtW[DPlUWAU]=temp_map;
+            return;
             }();
         }
         pStreams_json=arr_hAgHXtW;}();
@@ -28843,8 +29048,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelineBindPoint_json=json::value();
@@ -28910,8 +29116,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelineBindPoint_json=json::value();
@@ -28979,15 +29186,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto features_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.features);
+            serialize_struct(temp_map, member.features);
             features_json=temp_map;
+            return;
             }();
 json["features"]=features_json;
 }
@@ -29021,15 +29230,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto properties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.properties);
+            serialize_struct(temp_map, member.properties);
             properties_json=temp_map;
+            return;
             }();
 json["properties"]=properties_json;
 }
@@ -29063,15 +29274,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto formatProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.formatProperties);
+            serialize_struct(temp_map, member.formatProperties);
             formatProperties_json=temp_map;
+            return;
             }();
 json["formatProperties"]=formatProperties_json;
 }
@@ -29105,15 +29318,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageFormatProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageFormatProperties);
+            serialize_struct(temp_map, member.imageFormatProperties);
             imageFormatProperties_json=temp_map;
+            return;
             }();
 json["imageFormatProperties"]=imageFormatProperties_json;
 }
@@ -29147,8 +29362,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto format_json=json::value();
@@ -29243,15 +29459,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto queueFamilyProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.queueFamilyProperties);
+            serialize_struct(temp_map, member.queueFamilyProperties);
             queueFamilyProperties_json=temp_map;
+            return;
             }();
 json["queueFamilyProperties"]=queueFamilyProperties_json;
 }
@@ -29285,15 +29503,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memoryProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.memoryProperties);
+            serialize_struct(temp_map, member.memoryProperties);
             memoryProperties_json=temp_map;
+            return;
             }();
 json["memoryProperties"]=memoryProperties_json;
 }
@@ -29327,15 +29547,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto properties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.properties);
+            serialize_struct(temp_map, member.properties);
             properties_json=temp_map;
+            return;
             }();
 json["properties"]=properties_json;
 }
@@ -29369,8 +29591,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto format_json=json::value();
@@ -29465,8 +29688,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxPushDescriptors_json=json::value();
@@ -29568,8 +29792,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto driverID_json=json::value();
@@ -29592,8 +29817,9 @@ json["driverInfo"]=driverInfo_json;
 auto conformanceVersion_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.conformanceVersion);
+            serialize_struct(temp_map, member.conformanceVersion);
             conformanceVersion_json=temp_map;
+            return;
             }();
 json["conformanceVersion"]=conformanceVersion_json;
 }
@@ -29665,8 +29891,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchainCount_json=json::value();
@@ -29680,8 +29907,9 @@ auto pRegions_json=json::value();
         for(int FrDcLRd=0; FrDcLRd < member.swapchainCount; FrDcLRd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[FrDcLRd]);
+            serialize_struct(temp_map, member.pRegions[FrDcLRd]);
             arr_odKhLjV[FrDcLRd]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_odKhLjV;}();
@@ -29739,8 +29967,9 @@ auto pRectangles_json=json::value();
         for(int vGVwhpO=0; vGVwhpO < member.rectangleCount; vGVwhpO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRectangles[vGVwhpO]);
+            serialize_struct(temp_map, member.pRectangles[vGVwhpO]);
             arr_mTDiSim[vGVwhpO]=temp_map;
+            return;
             }();
         }
         pRectangles_json=arr_mTDiSim;}();
@@ -29776,15 +30005,17 @@ auto& pRectangles_json=json.at("pRectangles");
 auto offset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.offset);
+            serialize_struct(temp_map, member.offset);
             offset_json=temp_map;
+            return;
             }();
 json["offset"]=offset_json;
 auto extent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.extent);
+            serialize_struct(temp_map, member.extent);
             extent_json=temp_map;
+            return;
             }();
 json["extent"]=extent_json;
 auto layer_json=json::value();
@@ -29821,8 +30052,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto variablePointersStorageBuffer_json=json::value();
@@ -29924,8 +30156,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleType_json=json::value();
@@ -29968,15 +30201,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto externalMemoryProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.externalMemoryProperties);
+            serialize_struct(temp_map, member.externalMemoryProperties);
             externalMemoryProperties_json=temp_map;
+            return;
             }();
 json["externalMemoryProperties"]=externalMemoryProperties_json;
 }
@@ -30010,8 +30245,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -30080,15 +30316,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto externalMemoryProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.externalMemoryProperties);
+            serialize_struct(temp_map, member.externalMemoryProperties);
             externalMemoryProperties_json=temp_map;
+            return;
             }();
 json["externalMemoryProperties"]=externalMemoryProperties_json;
 }
@@ -30122,8 +30360,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceUUID_json=json::value();
@@ -30242,8 +30481,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleTypes_json=json::value();
@@ -30286,8 +30526,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleTypes_json=json::value();
@@ -30330,8 +30571,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleTypes_json=json::value();
@@ -30374,8 +30616,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleType_json=json::value();
@@ -30431,8 +30674,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memoryTypeBits_json=json::value();
@@ -30475,8 +30719,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memory_json=json::value();
@@ -30524,8 +30769,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleType_json=json::value();
@@ -30568,8 +30814,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto exportFromImportedHandleTypes_json=json::value();
@@ -30638,8 +30885,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleTypes_json=json::value();
@@ -30682,8 +30930,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto semaphore_json=json::value();
@@ -30757,8 +31006,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto semaphore_json=json::value();
@@ -30806,8 +31056,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleType_json=json::value();
@@ -30850,8 +31101,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto exportFromImportedHandleTypes_json=json::value();
@@ -30920,8 +31172,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleTypes_json=json::value();
@@ -30964,8 +31217,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fence_json=json::value();
@@ -31039,8 +31293,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fence_json=json::value();
@@ -31088,8 +31343,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto multiview_json=json::value();
@@ -31158,8 +31414,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxMultiviewViewCount_json=json::value();
@@ -31215,8 +31472,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto subpassCount_json=json::value();
@@ -31366,8 +31624,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto minImageCount_json=json::value();
@@ -31379,22 +31638,25 @@ json["maxImageCount"]=maxImageCount_json;
 auto currentExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.currentExtent);
+            serialize_struct(temp_map, member.currentExtent);
             currentExtent_json=temp_map;
+            return;
             }();
 json["currentExtent"]=currentExtent_json;
 auto minImageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minImageExtent);
+            serialize_struct(temp_map, member.minImageExtent);
             minImageExtent_json=temp_map;
+            return;
             }();
 json["minImageExtent"]=minImageExtent_json;
 auto maxImageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxImageExtent);
+            serialize_struct(temp_map, member.maxImageExtent);
             maxImageExtent_json=temp_map;
+            return;
             }();
 json["maxImageExtent"]=maxImageExtent_json;
 auto maxImageArrayLayers_json=json::value();
@@ -31534,8 +31796,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto powerState_json=json::value();
@@ -31578,8 +31841,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceEvent_json=json::value();
@@ -31622,8 +31886,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto displayEvent_json=json::value();
@@ -31666,8 +31931,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto surfaceCounters_json=json::value();
@@ -31710,8 +31976,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto physicalDeviceCount_json=json::value();
@@ -31780,8 +32047,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -31837,8 +32105,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto buffer_json=json::value();
@@ -31891,8 +32160,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceIndexCount_json=json::value();
@@ -31962,8 +32232,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto image_json=json::value();
@@ -32016,8 +32287,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceIndexCount_json=json::value();
@@ -32044,8 +32316,9 @@ auto pSplitInstanceBindRegions_json=json::value();
         for(int iUbVYoM=0; iUbVYoM < member.splitInstanceBindRegionCount; iUbVYoM++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSplitInstanceBindRegions[iUbVYoM]);
+            serialize_struct(temp_map, member.pSplitInstanceBindRegions[iUbVYoM]);
             arr_FsMIswf[iUbVYoM]=temp_map;
+            return;
             }();
         }
         pSplitInstanceBindRegions_json=arr_FsMIswf;}();
@@ -32125,8 +32398,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceMask_json=json::value();
@@ -32143,8 +32417,9 @@ auto pDeviceRenderAreas_json=json::value();
         for(int EOKQvdK=0; EOKQvdK < member.deviceRenderAreaCount; EOKQvdK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDeviceRenderAreas[EOKQvdK]);
+            serialize_struct(temp_map, member.pDeviceRenderAreas[EOKQvdK]);
             arr_FLwGcSx[EOKQvdK]=temp_map;
+            return;
             }();
         }
         pDeviceRenderAreas_json=arr_FLwGcSx;}();
@@ -32207,8 +32482,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceMask_json=json::value();
@@ -32251,8 +32527,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto waitSemaphoreCount_json=json::value();
@@ -32402,8 +32679,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto resourceDeviceIndex_json=json::value();
@@ -32459,8 +32737,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto presentMask_json=json::value();
@@ -32524,8 +32803,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchain_json=json::value();
@@ -32560,8 +32840,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchain_json=json::value();
@@ -32609,8 +32890,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchain_json=json::value();
@@ -32681,8 +32963,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchainCount_json=json::value();
@@ -32765,8 +33048,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto physicalDeviceCount_json=json::value();
@@ -32828,8 +33112,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto modes_json=json::value();
@@ -32957,8 +33242,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -32975,8 +33261,9 @@ auto pDescriptorUpdateEntries_json=json::value();
         for(int WgnFqqF=0; WgnFqqF < member.descriptorUpdateEntryCount; WgnFqqF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDescriptorUpdateEntries[WgnFqqF]);
+            serialize_struct(temp_map, member.pDescriptorUpdateEntries[WgnFqqF]);
             arr_BLOEwgs[WgnFqqF]=temp_map;
+            return;
             }();
         }
         pDescriptorUpdateEntries_json=arr_BLOEwgs;}();
@@ -33121,8 +33408,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto presentId_json=json::value();
@@ -33165,8 +33453,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchainCount_json=json::value();
@@ -33236,8 +33525,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto presentWait_json=json::value();
@@ -33280,36 +33570,41 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto displayPrimaryRed_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.displayPrimaryRed);
+            serialize_struct(temp_map, member.displayPrimaryRed);
             displayPrimaryRed_json=temp_map;
+            return;
             }();
 json["displayPrimaryRed"]=displayPrimaryRed_json;
 auto displayPrimaryGreen_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.displayPrimaryGreen);
+            serialize_struct(temp_map, member.displayPrimaryGreen);
             displayPrimaryGreen_json=temp_map;
+            return;
             }();
 json["displayPrimaryGreen"]=displayPrimaryGreen_json;
 auto displayPrimaryBlue_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.displayPrimaryBlue);
+            serialize_struct(temp_map, member.displayPrimaryBlue);
             displayPrimaryBlue_json=temp_map;
+            return;
             }();
 json["displayPrimaryBlue"]=displayPrimaryBlue_json;
 auto whitePoint_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.whitePoint);
+            serialize_struct(temp_map, member.whitePoint);
             whitePoint_json=temp_map;
+            return;
             }();
 json["whitePoint"]=whitePoint_json;
 auto maxLuminance_json=json::value();
@@ -33407,8 +33702,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto localDimmingSupport_json=json::value();
@@ -33451,8 +33747,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto localDimmingEnable_json=json::value();
@@ -33587,8 +33884,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchainCount_json=json::value();
@@ -33602,8 +33900,9 @@ auto pTimes_json=json::value();
         for(int rQvvJDb=0; rQvvJDb < member.swapchainCount; rQvvJDb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pTimes[rQvvJDb]);
+            serialize_struct(temp_map, member.pTimes[rQvvJDb]);
             arr_bWdteDC[rQvvJDb]=temp_map;
+            return;
             }();
         }
         pTimes_json=arr_bWdteDC;}();
@@ -33722,8 +34021,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto viewportWScalingEnable_json=json::value();
@@ -33740,8 +34040,9 @@ auto pViewportWScalings_json=json::value();
         for(int ApYwLDM=0; ApYwLDM < member.viewportCount; ApYwLDM++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pViewportWScalings[ApYwLDM]);
+            serialize_struct(temp_map, member.pViewportWScalings[ApYwLDM]);
             arr_mPSOmwe[ApYwLDM]=temp_map;
+            return;
             }();
         }
         pViewportWScalings_json=arr_mPSOmwe;}();
@@ -33863,8 +34164,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -33881,8 +34183,9 @@ auto pViewportSwizzles_json=json::value();
         for(int ftRPdsX=0; ftRPdsX < member.viewportCount; ftRPdsX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pViewportSwizzles[ftRPdsX]);
+            serialize_struct(temp_map, member.pViewportSwizzles[ftRPdsX]);
             arr_SkrWsuC[ftRPdsX]=temp_map;
+            return;
             }();
         }
         pViewportSwizzles_json=arr_SkrWsuC;}();
@@ -33945,8 +34248,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxDiscardRectangles_json=json::value();
@@ -33989,8 +34293,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -34010,8 +34315,9 @@ auto pDiscardRectangles_json=json::value();
         for(int tYocrha=0; tYocrha < member.discardRectangleCount; tYocrha++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDiscardRectangles[tYocrha]);
+            serialize_struct(temp_map, member.pDiscardRectangles[tYocrha]);
             arr_ZVpWtvh[tYocrha]=temp_map;
+            return;
             }();
         }
         pDiscardRectangles_json=arr_ZVpWtvh;}();
@@ -34084,8 +34390,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto perViewPositionAllComponents_json=json::value();
@@ -34174,8 +34481,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto aspectReferenceCount_json=json::value();
@@ -34189,8 +34497,9 @@ auto pAspectReferences_json=json::value();
         for(int uEBOsiT=0; uEBOsiT < member.aspectReferenceCount; uEBOsiT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pAspectReferences[uEBOsiT]);
+            serialize_struct(temp_map, member.pAspectReferences[uEBOsiT]);
             arr_oSwzVqm[uEBOsiT]=temp_map;
+            return;
             }();
         }
         pAspectReferences_json=arr_oSwzVqm;}();
@@ -34243,8 +34552,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto surface_json=json::value();
@@ -34279,15 +34589,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto surfaceCapabilities_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.surfaceCapabilities);
+            serialize_struct(temp_map, member.surfaceCapabilities);
             surfaceCapabilities_json=temp_map;
+            return;
             }();
 json["surfaceCapabilities"]=surfaceCapabilities_json;
 }
@@ -34321,15 +34633,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto surfaceFormat_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.surfaceFormat);
+            serialize_struct(temp_map, member.surfaceFormat);
             surfaceFormat_json=temp_map;
+            return;
             }();
 json["surfaceFormat"]=surfaceFormat_json;
 }
@@ -34363,15 +34677,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto displayProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.displayProperties);
+            serialize_struct(temp_map, member.displayProperties);
             displayProperties_json=temp_map;
+            return;
             }();
 json["displayProperties"]=displayProperties_json;
 }
@@ -34405,15 +34721,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto displayPlaneProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.displayPlaneProperties);
+            serialize_struct(temp_map, member.displayPlaneProperties);
             displayPlaneProperties_json=temp_map;
+            return;
             }();
 json["displayPlaneProperties"]=displayPlaneProperties_json;
 }
@@ -34447,15 +34765,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto displayModeProperties_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.displayModeProperties);
+            serialize_struct(temp_map, member.displayModeProperties);
             displayModeProperties_json=temp_map;
+            return;
             }();
 json["displayModeProperties"]=displayModeProperties_json;
 }
@@ -34489,8 +34809,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto mode_json=json::value();
@@ -34538,15 +34859,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto capabilities_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.capabilities);
+            serialize_struct(temp_map, member.capabilities);
             capabilities_json=temp_map;
+            return;
             }();
 json["capabilities"]=capabilities_json;
 }
@@ -34580,8 +34903,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto sharedPresentSupportedUsageFlags_json=json::value();
@@ -34624,8 +34948,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto storageBuffer16BitAccess_json=json::value();
@@ -34707,8 +35032,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto subgroupSize_json=json::value();
@@ -34790,8 +35116,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderSubgroupExtendedTypes_json=json::value();
@@ -34834,8 +35161,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto buffer_json=json::value();
@@ -34870,8 +35198,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pCreateInfo_json=json::value();
@@ -34882,8 +35211,9 @@ auto pCreateInfo_json=json::value();
         for(int iwONMow=0; iwONMow < 1; iwONMow++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pCreateInfo[iwONMow]);
+            serialize_struct(temp_map, member.pCreateInfo[iwONMow]);
             arr_RLcYbMX[iwONMow]=temp_map;
+            return;
             }();
         }
         pCreateInfo_json=arr_RLcYbMX;}();
@@ -34926,8 +35256,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto image_json=json::value();
@@ -34962,8 +35293,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto image_json=json::value();
@@ -34998,8 +35330,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pCreateInfo_json=json::value();
@@ -35010,8 +35343,9 @@ auto pCreateInfo_json=json::value();
         for(int WlalFpx=0; WlalFpx < 1; WlalFpx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pCreateInfo[WlalFpx]);
+            serialize_struct(temp_map, member.pCreateInfo[WlalFpx]);
             arr_ZehFYFR[WlalFpx]=temp_map;
+            return;
             }();
         }
         pCreateInfo_json=arr_ZehFYFR;}();
@@ -35067,15 +35401,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memoryRequirements_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.memoryRequirements);
+            serialize_struct(temp_map, member.memoryRequirements);
             memoryRequirements_json=temp_map;
+            return;
             }();
 json["memoryRequirements"]=memoryRequirements_json;
 }
@@ -35109,15 +35445,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memoryRequirements_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.memoryRequirements);
+            serialize_struct(temp_map, member.memoryRequirements);
             memoryRequirements_json=temp_map;
+            return;
             }();
 json["memoryRequirements"]=memoryRequirements_json;
 }
@@ -35151,8 +35489,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pointClippingBehavior_json=json::value();
@@ -35195,8 +35534,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto prefersDedicatedAllocation_json=json::value();
@@ -35252,8 +35592,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto image_json=json::value();
@@ -35293,8 +35634,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto usage_json=json::value();
@@ -35337,8 +35679,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto sliceOffset_json=json::value();
@@ -35394,8 +35737,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto domainOrigin_json=json::value();
@@ -35438,8 +35782,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto conversion_json=json::value();
@@ -35474,8 +35819,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto format_json=json::value();
@@ -35490,8 +35836,9 @@ json["ycbcrRange"]=ycbcrRange_json;
 auto components_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.components);
+            serialize_struct(temp_map, member.components);
             components_json=temp_map;
+            return;
             }();
 json["components"]=components_json;
 auto xChromaOffset_json=json::value();
@@ -35607,8 +35954,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto planeAspect_json=json::value();
@@ -35651,8 +35999,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto planeAspect_json=json::value();
@@ -35695,8 +36044,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto samplerYcbcrConversion_json=json::value();
@@ -35739,8 +36089,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto combinedImageSamplerDescriptorCount_json=json::value();
@@ -35783,8 +36134,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto supportsTextureGatherLODBiasAMD_json=json::value();
@@ -35827,8 +36179,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto buffer_json=json::value();
@@ -35889,8 +36242,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto protectedSubmit_json=json::value();
@@ -35933,8 +36287,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto protectedMemory_json=json::value();
@@ -35977,8 +36332,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto protectedNoFault_json=json::value();
@@ -36021,8 +36377,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -36091,8 +36448,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -36161,8 +36519,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto filterMinmaxSingleComponentFormats_json=json::value();
@@ -36251,8 +36610,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto sampleLocationsPerPixel_json=json::value();
@@ -36261,8 +36621,9 @@ json["sampleLocationsPerPixel"]=sampleLocationsPerPixel_json;
 auto sampleLocationGridSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.sampleLocationGridSize);
+            serialize_struct(temp_map, member.sampleLocationGridSize);
             sampleLocationGridSize_json=temp_map;
+            return;
             }();
 json["sampleLocationGridSize"]=sampleLocationGridSize_json;
 auto sampleLocationsCount_json=json::value();
@@ -36276,8 +36637,9 @@ auto pSampleLocations_json=json::value();
         for(int WDzeUCV=0; WDzeUCV < member.sampleLocationsCount; WDzeUCV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSampleLocations[WDzeUCV]);
+            serialize_struct(temp_map, member.pSampleLocations[WDzeUCV]);
             arr_hcJZIRe[WDzeUCV]=temp_map;
+            return;
             }();
         }
         pSampleLocations_json=arr_hcJZIRe;}();
@@ -36344,8 +36706,9 @@ json["attachmentIndex"]=attachmentIndex_json;
 auto sampleLocationsInfo_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.sampleLocationsInfo);
+            serialize_struct(temp_map, member.sampleLocationsInfo);
             sampleLocationsInfo_json=temp_map;
+            return;
             }();
 json["sampleLocationsInfo"]=sampleLocationsInfo_json;
 }
@@ -36375,8 +36738,9 @@ json["subpassIndex"]=subpassIndex_json;
 auto sampleLocationsInfo_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.sampleLocationsInfo);
+            serialize_struct(temp_map, member.sampleLocationsInfo);
             sampleLocationsInfo_json=temp_map;
+            return;
             }();
 json["sampleLocationsInfo"]=sampleLocationsInfo_json;
 }
@@ -36406,8 +36770,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto attachmentInitialSampleLocationsCount_json=json::value();
@@ -36421,8 +36786,9 @@ auto pAttachmentInitialSampleLocations_json=json::value();
         for(int DOhkhGy=0; DOhkhGy < member.attachmentInitialSampleLocationsCount; DOhkhGy++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pAttachmentInitialSampleLocations[DOhkhGy]);
+            serialize_struct(temp_map, member.pAttachmentInitialSampleLocations[DOhkhGy]);
             arr_uoyEAIr[DOhkhGy]=temp_map;
+            return;
             }();
         }
         pAttachmentInitialSampleLocations_json=arr_uoyEAIr;}();
@@ -36438,8 +36804,9 @@ auto pPostSubpassSampleLocations_json=json::value();
         for(int jURSdBS=0; jURSdBS < member.postSubpassSampleLocationsCount; jURSdBS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pPostSubpassSampleLocations[jURSdBS]);
+            serialize_struct(temp_map, member.pPostSubpassSampleLocations[jURSdBS]);
             arr_Xxtsvew[jURSdBS]=temp_map;
+            return;
             }();
         }
         pPostSubpassSampleLocations_json=arr_Xxtsvew;}();
@@ -36513,8 +36880,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto sampleLocationsEnable_json=json::value();
@@ -36523,8 +36891,9 @@ json["sampleLocationsEnable"]=sampleLocationsEnable_json;
 auto sampleLocationsInfo_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.sampleLocationsInfo);
+            serialize_struct(temp_map, member.sampleLocationsInfo);
             sampleLocationsInfo_json=temp_map;
+            return;
             }();
 json["sampleLocationsInfo"]=sampleLocationsInfo_json;
 }
@@ -36568,8 +36937,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto sampleLocationSampleCounts_json=json::value();
@@ -36578,8 +36948,9 @@ json["sampleLocationSampleCounts"]=sampleLocationSampleCounts_json;
 auto maxSampleLocationGridSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxSampleLocationGridSize);
+            serialize_struct(temp_map, member.maxSampleLocationGridSize);
             maxSampleLocationGridSize_json=temp_map;
+            return;
             }();
 json["maxSampleLocationGridSize"]=maxSampleLocationGridSize_json;
 auto sampleLocationCoordinateRange_json=json::value();
@@ -36670,15 +37041,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxSampleLocationGridSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxSampleLocationGridSize);
+            serialize_struct(temp_map, member.maxSampleLocationGridSize);
             maxSampleLocationGridSize_json=temp_map;
+            return;
             }();
 json["maxSampleLocationGridSize"]=maxSampleLocationGridSize_json;
 }
@@ -36712,8 +37085,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto reductionMode_json=json::value();
@@ -36756,8 +37130,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto advancedBlendCoherentOperations_json=json::value();
@@ -36800,8 +37175,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto multiDraw_json=json::value();
@@ -36844,8 +37220,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto advancedBlendMaxColorAttachments_json=json::value();
@@ -36953,8 +37330,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcPremultiplied_json=json::value();
@@ -37023,8 +37401,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto inlineUniformBlock_json=json::value();
@@ -37080,8 +37459,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxInlineUniformBlockSize_json=json::value();
@@ -37176,8 +37556,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto dataSize_json=json::value();
@@ -37253,8 +37634,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxInlineUniformBlockBindings_json=json::value();
@@ -37297,8 +37679,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -37407,8 +37790,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto viewFormatCount_json=json::value();
@@ -37478,8 +37862,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -37568,8 +37953,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto validationCache_json=json::value();
@@ -37604,8 +37990,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxPerSetDescriptors_json=json::value();
@@ -37661,8 +38048,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maintenance4_json=json::value();
@@ -37705,8 +38093,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxBufferSize_json=json::value();
@@ -37749,8 +38138,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maintenance5_json=json::value();
@@ -37793,8 +38183,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto earlyFragmentMultisampleCoverageAfterSampleCounting_json=json::value();
@@ -37902,8 +38293,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto viewMask_json=json::value();
@@ -38012,8 +38404,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto supported_json=json::value();
@@ -38056,8 +38449,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderDrawParameters_json=json::value();
@@ -38100,8 +38494,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderFloat16_json=json::value();
@@ -38157,8 +38552,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto denormBehaviorIndependence_json=json::value();
@@ -38409,8 +38805,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto hostQueryReset_json=json::value();
@@ -38525,8 +38922,9 @@ json["shaderStageMask"]=shaderStageMask_json;
 auto resourceUsage_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.resourceUsage);
+            serialize_struct(temp_map, member.resourceUsage);
             resourceUsage_json=temp_map;
+            return;
             }();
 json["resourceUsage"]=resourceUsage_json;
 auto numPhysicalVgprs_json=json::value();
@@ -38629,8 +39027,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto globalPriority_json=json::value();
@@ -38673,8 +39072,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto globalPriorityQuery_json=json::value();
@@ -38717,8 +39117,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto priorityCount_json=json::value();
@@ -38782,8 +39183,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto objectType_json=json::value();
@@ -38866,8 +39268,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto objectType_json=json::value();
@@ -38982,8 +39385,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pLabelName_json=json::value();
@@ -39129,8 +39533,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -39145,8 +39550,9 @@ json["messageType"]=messageType_json;
 auto pfnUserCallback_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_PFN_vkDebugUtilsMessengerCallbackEXT(temp_map, member.pfnUserCallback);
+            serialize_PFN_vkDebugUtilsMessengerCallbackEXT(temp_map, member.pfnUserCallback);
             pfnUserCallback_json=temp_map;
+            return;
             }();
 json["pfnUserCallback"]=pfnUserCallback_json;
 
@@ -39219,8 +39625,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -39260,8 +39667,9 @@ auto pQueueLabels_json=json::value();
         for(int ZZBwdpK=0; ZZBwdpK < member.queueLabelCount; ZZBwdpK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pQueueLabels[ZZBwdpK]);
+            serialize_struct(temp_map, member.pQueueLabels[ZZBwdpK]);
             arr_IpkStDc[ZZBwdpK]=temp_map;
+            return;
             }();
         }
         pQueueLabels_json=arr_IpkStDc;}();
@@ -39277,8 +39685,9 @@ auto pCmdBufLabels_json=json::value();
         for(int HKywEmj=0; HKywEmj < member.cmdBufLabelCount; HKywEmj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pCmdBufLabels[HKywEmj]);
+            serialize_struct(temp_map, member.pCmdBufLabels[HKywEmj]);
             arr_HLGbjmn[HKywEmj]=temp_map;
+            return;
             }();
         }
         pCmdBufLabels_json=arr_HLGbjmn;}();
@@ -39294,8 +39703,9 @@ auto pObjects_json=json::value();
         for(int GslpiKr=0; GslpiKr < member.objectCount; GslpiKr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pObjects[GslpiKr]);
+            serialize_struct(temp_map, member.pObjects[GslpiKr]);
             arr_hOsJpYV[GslpiKr]=temp_map;
+            return;
             }();
         }
         pObjects_json=arr_hOsJpYV;}();
@@ -39444,8 +39854,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceMemoryReport_json=json::value();
@@ -39556,8 +39967,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -39566,8 +39978,9 @@ json["flags"]=flags_json;
 auto pfnUserCallback_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_PFN_vkDeviceMemoryReportCallbackEXT(temp_map, member.pfnUserCallback);
+            serialize_PFN_vkDeviceMemoryReportCallbackEXT(temp_map, member.pfnUserCallback);
             pfnUserCallback_json=temp_map;
+            return;
             }();
 json["pfnUserCallback"]=pfnUserCallback_json;
 
@@ -39620,8 +40033,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -39742,8 +40156,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto handleType_json=json::value();
@@ -39819,8 +40234,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memoryTypeBits_json=json::value();
@@ -39863,8 +40279,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto minImportedHostPointerAlignment_json=json::value();
@@ -39907,8 +40324,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto primitiveOverestimationSize_json=json::value();
@@ -40055,8 +40473,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto timeDomain_json=json::value();
@@ -40099,8 +40518,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderEngineCount_json=json::value();
@@ -40312,8 +40732,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderCoreFeatures_json=json::value();
@@ -40369,8 +40790,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -40439,8 +40861,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderInputAttachmentArrayDynamicIndexing_json=json::value();
@@ -40730,8 +41153,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxUpdateAfterBindDescriptorsInAllPools_json=json::value();
@@ -41060,8 +41484,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto bindingCount_json=json::value();
@@ -41131,8 +41556,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto descriptorSetCount_json=json::value();
@@ -41202,8 +41628,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxVariableDescriptorCount_json=json::value();
@@ -41246,8 +41673,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -41394,8 +41822,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto attachment_json=json::value();
@@ -41464,8 +41893,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -41488,8 +41918,9 @@ auto pInputAttachments_json=json::value();
         for(int VNPAFPg=0; VNPAFPg < member.inputAttachmentCount; VNPAFPg++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pInputAttachments[VNPAFPg]);
+            serialize_struct(temp_map, member.pInputAttachments[VNPAFPg]);
             arr_qvnEIay[VNPAFPg]=temp_map;
+            return;
             }();
         }
         pInputAttachments_json=arr_qvnEIay;}();
@@ -41505,8 +41936,9 @@ auto pColorAttachments_json=json::value();
         for(int jocEaLc=0; jocEaLc < member.colorAttachmentCount; jocEaLc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pColorAttachments[jocEaLc]);
+            serialize_struct(temp_map, member.pColorAttachments[jocEaLc]);
             arr_apqFJnV[jocEaLc]=temp_map;
+            return;
             }();
         }
         pColorAttachments_json=arr_apqFJnV;}();
@@ -41519,8 +41951,9 @@ auto pResolveAttachments_json=json::value();
         for(int LkzezJz=0; LkzezJz < member.colorAttachmentCount; LkzezJz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pResolveAttachments[LkzezJz]);
+            serialize_struct(temp_map, member.pResolveAttachments[LkzezJz]);
             arr_QUTFZrq[LkzezJz]=temp_map;
+            return;
             }();
         }
         pResolveAttachments_json=arr_QUTFZrq;}();
@@ -41533,8 +41966,9 @@ auto pDepthStencilAttachment_json=json::value();
         for(int CCLGYro=0; CCLGYro < 1; CCLGYro++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDepthStencilAttachment[CCLGYro]);
+            serialize_struct(temp_map, member.pDepthStencilAttachment[CCLGYro]);
             arr_PirANyH[CCLGYro]=temp_map;
+            return;
             }();
         }
         pDepthStencilAttachment_json=arr_PirANyH;}();
@@ -41700,8 +42134,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcSubpass_json=json::value();
@@ -41835,8 +42270,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -41853,8 +42289,9 @@ auto pAttachments_json=json::value();
         for(int rRdEKKp=0; rRdEKKp < member.attachmentCount; rRdEKKp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pAttachments[rRdEKKp]);
+            serialize_struct(temp_map, member.pAttachments[rRdEKKp]);
             arr_vQFIUcn[rRdEKKp]=temp_map;
+            return;
             }();
         }
         pAttachments_json=arr_vQFIUcn;}();
@@ -41870,8 +42307,9 @@ auto pSubpasses_json=json::value();
         for(int GLIEOvQ=0; GLIEOvQ < member.subpassCount; GLIEOvQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSubpasses[GLIEOvQ]);
+            serialize_struct(temp_map, member.pSubpasses[GLIEOvQ]);
             arr_mAglqQf[GLIEOvQ]=temp_map;
+            return;
             }();
         }
         pSubpasses_json=arr_mAglqQf;}();
@@ -41887,8 +42325,9 @@ auto pDependencies_json=json::value();
         for(int haCEAGl=0; haCEAGl < member.dependencyCount; haCEAGl++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDependencies[haCEAGl]);
+            serialize_struct(temp_map, member.pDependencies[haCEAGl]);
             arr_OhQRmki[haCEAGl]=temp_map;
+            return;
             }();
         }
         pDependencies_json=arr_OhQRmki;}();
@@ -42033,8 +42472,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto contents_json=json::value();
@@ -42077,8 +42517,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 }
@@ -42108,8 +42549,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto timelineSemaphore_json=json::value();
@@ -42152,8 +42594,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxTimelineSemaphoreValueDifference_json=json::value();
@@ -42196,8 +42639,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto semaphoreType_json=json::value();
@@ -42253,8 +42697,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto waitSemaphoreValueCount_json=json::value();
@@ -42364,8 +42809,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -42467,8 +42913,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto semaphore_json=json::value();
@@ -42549,8 +42996,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto vertexBindingDivisorCount_json=json::value();
@@ -42564,8 +43012,9 @@ auto pVertexBindingDivisors_json=json::value();
         for(int LhiCzAa=0; LhiCzAa < member.vertexBindingDivisorCount; LhiCzAa++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pVertexBindingDivisors[LhiCzAa]);
+            serialize_struct(temp_map, member.pVertexBindingDivisors[LhiCzAa]);
             arr_MVUaEEo[LhiCzAa]=temp_map;
+            return;
             }();
         }
         pVertexBindingDivisors_json=arr_MVUaEEo;}();
@@ -42618,8 +43067,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxVertexAttribDivisor_json=json::value();
@@ -42662,8 +43112,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pciDomain_json=json::value();
@@ -42745,8 +43196,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto conditionalRenderingEnable_json=json::value();
@@ -42789,8 +43241,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto storageBuffer8BitAccess_json=json::value();
@@ -42859,8 +43312,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto conditionalRendering_json=json::value();
@@ -42916,8 +43370,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto vulkanMemoryModel_json=json::value();
@@ -42986,8 +43441,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderBufferInt64Atomics_json=json::value();
@@ -43043,8 +43499,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderBufferFloat32Atomics_json=json::value();
@@ -43230,8 +43687,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderBufferFloat16Atomics_json=json::value();
@@ -43417,8 +43875,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto vertexAttributeInstanceRateDivisor_json=json::value();
@@ -43474,8 +43933,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto checkpointExecutionStageMask_json=json::value();
@@ -43518,8 +43978,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stage_json=json::value();
@@ -43595,8 +44056,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto supportedDepthResolveModes_json=json::value();
@@ -43678,8 +44140,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto depthResolveMode_json=json::value();
@@ -43696,8 +44159,9 @@ auto pDepthStencilResolveAttachment_json=json::value();
         for(int qMMfkKF=0; qMMfkKF < 1; qMMfkKF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDepthStencilResolveAttachment[qMMfkKF]);
+            serialize_struct(temp_map, member.pDepthStencilResolveAttachment[qMMfkKF]);
             arr_ktDximy[qMMfkKF]=temp_map;
+            return;
             }();
         }
         pDepthStencilResolveAttachment_json=arr_ktDximy;}();
@@ -43760,8 +44224,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto decodeMode_json=json::value();
@@ -43804,8 +44269,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto decodeModeSharedExponent_json=json::value();
@@ -43848,8 +44314,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto transformFeedback_json=json::value();
@@ -43905,8 +44372,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxTransformFeedbackStreams_json=json::value();
@@ -44066,8 +44534,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -44123,8 +44592,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto representativeFragmentTest_json=json::value();
@@ -44167,8 +44637,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto representativeFragmentTestEnable_json=json::value();
@@ -44211,8 +44682,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto exclusiveScissor_json=json::value();
@@ -44255,8 +44727,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto exclusiveScissorCount_json=json::value();
@@ -44270,8 +44743,9 @@ auto pExclusiveScissors_json=json::value();
         for(int OubVbuK=0; OubVbuK < member.exclusiveScissorCount; OubVbuK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pExclusiveScissors[OubVbuK]);
+            serialize_struct(temp_map, member.pExclusiveScissors[OubVbuK]);
             arr_KfGvnWP[OubVbuK]=temp_map;
+            return;
             }();
         }
         pExclusiveScissors_json=arr_KfGvnWP;}();
@@ -44324,8 +44798,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto cornerSampledImage_json=json::value();
@@ -44368,8 +44843,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto computeDerivativeGroupQuads_json=json::value();
@@ -44425,8 +44901,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageFootprint_json=json::value();
@@ -44469,8 +44946,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto dedicatedAllocationImageAliasing_json=json::value();
@@ -44513,8 +44991,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto indirectCopy_json=json::value();
@@ -44557,8 +45036,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto supportedQueues_json=json::value();
@@ -44601,8 +45081,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memoryDecompression_json=json::value();
@@ -44645,8 +45126,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto decompressionMethods_json=json::value();
@@ -44749,8 +45231,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shadingRateImageEnable_json=json::value();
@@ -44767,8 +45250,9 @@ auto pShadingRatePalettes_json=json::value();
         for(int CvIbxCy=0; CvIbxCy < member.viewportCount; CvIbxCy++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pShadingRatePalettes[CvIbxCy]);
+            serialize_struct(temp_map, member.pShadingRatePalettes[CvIbxCy]);
             arr_mlKUZSn[CvIbxCy]=temp_map;
+            return;
             }();
         }
         pShadingRatePalettes_json=arr_mlKUZSn;}();
@@ -44831,8 +45315,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shadingRateImage_json=json::value();
@@ -44888,15 +45373,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shadingRateTexelSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.shadingRateTexelSize);
+            serialize_struct(temp_map, member.shadingRateTexelSize);
             shadingRateTexelSize_json=temp_map;
+            return;
             }();
 json["shadingRateTexelSize"]=shadingRateTexelSize_json;
 auto shadingRatePaletteSize_json=json::value();
@@ -44956,8 +45443,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto invocationMask_json=json::value();
@@ -45057,8 +45545,9 @@ auto pSampleLocations_json=json::value();
         for(int QOVVghW=0; QOVVghW < member.sampleLocationCount; QOVVghW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSampleLocations[QOVVghW]);
+            serialize_struct(temp_map, member.pSampleLocations[QOVVghW]);
             arr_LNrvynN[QOVVghW]=temp_map;
+            return;
             }();
         }
         pSampleLocations_json=arr_LNrvynN;}();
@@ -45117,8 +45606,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto sampleOrderType_json=json::value();
@@ -45135,8 +45625,9 @@ auto pCustomSampleOrders_json=json::value();
         for(int disPTmD=0; disPTmD < member.customSampleOrderCount; disPTmD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pCustomSampleOrders[disPTmD]);
+            serialize_struct(temp_map, member.pCustomSampleOrders[disPTmD]);
             arr_IojdMMd[disPTmD]=temp_map;
+            return;
             }();
         }
         pCustomSampleOrders_json=arr_IojdMMd;}();
@@ -45199,8 +45690,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto taskShader_json=json::value();
@@ -45256,8 +45748,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxDrawMeshTasksCount_json=json::value();
@@ -45505,8 +45998,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto taskShader_json=json::value();
@@ -45601,8 +46095,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxTaskWorkGroupTotalCount_json=json::value();
@@ -46074,8 +46569,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto type_json=json::value();
@@ -46170,8 +46666,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto type_json=json::value();
@@ -46299,8 +46796,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -46317,8 +46815,9 @@ auto pStages_json=json::value();
         for(int AsBfcSb=0; AsBfcSb < member.stageCount; AsBfcSb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pStages[AsBfcSb]);
+            serialize_struct(temp_map, member.pStages[AsBfcSb]);
             arr_wJXHhmh[AsBfcSb]=temp_map;
+            return;
             }();
         }
         pStages_json=arr_wJXHhmh;}();
@@ -46334,8 +46833,9 @@ auto pGroups_json=json::value();
         for(int PHmNpfn=0; PHmNpfn < member.groupCount; PHmNpfn++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pGroups[PHmNpfn]);
+            serialize_struct(temp_map, member.pGroups[PHmNpfn]);
             arr_eKNKIQz[PHmNpfn]=temp_map;
+            return;
             }();
         }
         pGroups_json=arr_eKNKIQz;}();
@@ -46455,8 +46955,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -46473,8 +46974,9 @@ auto pStages_json=json::value();
         for(int AsBfcSb=0; AsBfcSb < member.stageCount; AsBfcSb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pStages[AsBfcSb]);
+            serialize_struct(temp_map, member.pStages[AsBfcSb]);
             arr_wJXHhmh[AsBfcSb]=temp_map;
+            return;
             }();
         }
         pStages_json=arr_wJXHhmh;}();
@@ -46490,8 +46992,9 @@ auto pGroups_json=json::value();
         for(int PUlEUPD=0; PUlEUPD < member.groupCount; PUlEUPD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pGroups[PUlEUPD]);
+            serialize_struct(temp_map, member.pGroups[PUlEUPD]);
             arr_dkKcDyE[PUlEUPD]=temp_map;
+            return;
             }();
         }
         pGroups_json=arr_dkKcDyE;}();
@@ -46507,8 +47010,9 @@ auto pLibraryInfo_json=json::value();
         for(int cyEoVpU=0; cyEoVpU < 1; cyEoVpU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pLibraryInfo[cyEoVpU]);
+            serialize_struct(temp_map, member.pLibraryInfo[cyEoVpU]);
             arr_qbgGauk[cyEoVpU]=temp_map;
+            return;
             }();
         }
         pLibraryInfo_json=arr_qbgGauk;}();
@@ -46521,8 +47025,9 @@ auto pLibraryInterface_json=json::value();
         for(int tjYViYt=0; tjYViYt < 1; tjYViYt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pLibraryInterface[tjYViYt]);
+            serialize_struct(temp_map, member.pLibraryInterface[tjYViYt]);
             arr_eOoROKo[tjYViYt]=temp_map;
+            return;
             }();
         }
         pLibraryInterface_json=arr_eOoROKo;}();
@@ -46535,8 +47040,9 @@ auto pDynamicState_json=json::value();
         for(int RNPowsf=0; RNPowsf < 1; RNPowsf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDynamicState[RNPowsf]);
+            serialize_struct(temp_map, member.pDynamicState[RNPowsf]);
             arr_iDMMizu[RNPowsf]=temp_map;
+            return;
             }();
         }
         pDynamicState_json=arr_iDMMizu;}();
@@ -46686,8 +47192,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto vertexData_json=json::value();
@@ -46836,8 +47343,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto aabbData_json=json::value();
@@ -46908,15 +47416,17 @@ auto& offset_json=json.at("offset");
 auto triangles_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.triangles);
+            serialize_struct(temp_map, member.triangles);
             triangles_json=temp_map;
+            return;
             }();
 json["triangles"]=triangles_json;
 auto aabbs_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.aabbs);
+            serialize_struct(temp_map, member.aabbs);
             aabbs_json=temp_map;
+            return;
             }();
 json["aabbs"]=aabbs_json;
 }
@@ -46940,8 +47450,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto geometryType_json=json::value();
@@ -46950,8 +47461,9 @@ json["geometryType"]=geometryType_json;
 auto geometry_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.geometry);
+            serialize_struct(temp_map, member.geometry);
             geometry_json=temp_map;
+            return;
             }();
 json["geometry"]=geometry_json;
 auto flags_json=json::value();
@@ -47008,8 +47520,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto type_json=json::value();
@@ -47032,8 +47545,9 @@ auto pGeometries_json=json::value();
         for(int NWQDElF=0; NWQDElF < member.geometryCount; NWQDElF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pGeometries[NWQDElF]);
+            serialize_struct(temp_map, member.pGeometries[NWQDElF]);
             arr_vgMFzCl[NWQDElF]=temp_map;
+            return;
             }();
         }
         pGeometries_json=arr_vgMFzCl;}();
@@ -47116,8 +47630,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto compactedSize_json=json::value();
@@ -47126,8 +47641,9 @@ json["compactedSize"]=compactedSize_json;
 auto info_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.info);
+            serialize_struct(temp_map, member.info);
             info_json=temp_map;
+            return;
             }();
 json["info"]=info_json;
 }
@@ -47171,8 +47687,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto accelerationStructure_json=json::value();
@@ -47265,8 +47782,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto accelerationStructureCount_json=json::value();
@@ -47328,8 +47846,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto accelerationStructureCount_json=json::value();
@@ -47391,8 +47910,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto type_json=json::value();
@@ -47440,8 +47960,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto accelerationStructure_json=json::value();
@@ -47536,8 +48057,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto rayTracingPipeline_json=json::value();
@@ -47632,8 +48154,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto rayQuery_json=json::value();
@@ -47676,8 +48199,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxGeometryCount_json=json::value();
@@ -47811,8 +48335,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderGroupHandleSize_json=json::value();
@@ -47946,8 +48471,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderGroupHandleSize_json=json::value();
@@ -48362,8 +48888,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto rayTracingMaintenance1_json=json::value();
@@ -48419,8 +48946,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto drmFormatModifierCount_json=json::value();
@@ -48434,8 +48962,9 @@ auto pDrmFormatModifierProperties_json=json::value();
         for(int BRMKPmI=0; BRMKPmI < member.drmFormatModifierCount; BRMKPmI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDrmFormatModifierProperties[BRMKPmI]);
+            serialize_struct(temp_map, member.pDrmFormatModifierProperties[BRMKPmI]);
             arr_VcNefkq[BRMKPmI]=temp_map;
+            return;
             }();
         }
         pDrmFormatModifierProperties_json=arr_VcNefkq;}();
@@ -48534,8 +49063,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto drmFormatModifier_json=json::value();
@@ -48631,8 +49161,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto drmFormatModifierCount_json=json::value();
@@ -48702,8 +49233,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto drmFormatModifier_json=json::value();
@@ -48720,8 +49252,9 @@ auto pPlaneLayouts_json=json::value();
         for(int nhHhqug=0; nhHhqug < member.drmFormatModifierPlaneCount; nhHhqug++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pPlaneLayouts[nhHhqug]);
+            serialize_struct(temp_map, member.pPlaneLayouts[nhHhqug]);
             arr_QRGNGnb[nhHhqug]=temp_map;
+            return;
             }();
         }
         pPlaneLayouts_json=arr_QRGNGnb;}();
@@ -48784,8 +49317,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto drmFormatModifier_json=json::value();
@@ -48828,8 +49362,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stencilUsage_json=json::value();
@@ -48872,8 +49407,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto overallocationBehavior_json=json::value();
@@ -48916,8 +49452,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fragmentDensityMap_json=json::value();
@@ -48986,8 +49523,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fragmentDensityMapDeferred_json=json::value();
@@ -49030,8 +49568,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fragmentDensityMapOffset_json=json::value();
@@ -49074,22 +49613,25 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto minFragmentDensityTexelSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minFragmentDensityTexelSize);
+            serialize_struct(temp_map, member.minFragmentDensityTexelSize);
             minFragmentDensityTexelSize_json=temp_map;
+            return;
             }();
 json["minFragmentDensityTexelSize"]=minFragmentDensityTexelSize_json;
 auto maxFragmentDensityTexelSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxFragmentDensityTexelSize);
+            serialize_struct(temp_map, member.maxFragmentDensityTexelSize);
             maxFragmentDensityTexelSize_json=temp_map;
+            return;
             }();
 json["maxFragmentDensityTexelSize"]=maxFragmentDensityTexelSize_json;
 auto fragmentDensityInvocations_json=json::value();
@@ -49140,8 +49682,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto subsampledLoads_json=json::value();
@@ -49223,15 +49766,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fragmentDensityOffsetGranularity_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.fragmentDensityOffsetGranularity);
+            serialize_struct(temp_map, member.fragmentDensityOffsetGranularity);
             fragmentDensityOffsetGranularity_json=temp_map;
+            return;
             }();
 json["fragmentDensityOffsetGranularity"]=fragmentDensityOffsetGranularity_json;
 }
@@ -49265,15 +49810,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fragmentDensityMapAttachment_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.fragmentDensityMapAttachment);
+            serialize_struct(temp_map, member.fragmentDensityMapAttachment);
             fragmentDensityMapAttachment_json=temp_map;
+            return;
             }();
 json["fragmentDensityMapAttachment"]=fragmentDensityMapAttachment_json;
 }
@@ -49307,8 +49854,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fragmentDensityOffsetCount_json=json::value();
@@ -49322,8 +49870,9 @@ auto pFragmentDensityOffsets_json=json::value();
         for(int WMsPool=0; WMsPool < member.fragmentDensityOffsetCount; WMsPool++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pFragmentDensityOffsets[WMsPool]);
+            serialize_struct(temp_map, member.pFragmentDensityOffsets[WMsPool]);
             arr_cwxXEeQ[WMsPool]=temp_map;
+            return;
             }();
         }
         pFragmentDensityOffsets_json=arr_cwxXEeQ;}();
@@ -49376,8 +49925,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto scalarBlockLayout_json=json::value();
@@ -49420,8 +49970,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto supportsProtected_json=json::value();
@@ -49464,8 +50015,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto uniformBufferStandardLayout_json=json::value();
@@ -49508,8 +50060,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto depthClipEnable_json=json::value();
@@ -49552,8 +50105,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -49609,8 +50163,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto heapBudget_json=json::value();
@@ -49682,8 +50237,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memoryPriority_json=json::value();
@@ -49726,8 +50282,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto priority_json=json::value();
@@ -49770,8 +50327,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pageableDeviceLocalMemory_json=json::value();
@@ -49814,8 +50372,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto bufferDeviceAddress_json=json::value();
@@ -49884,8 +50443,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto bufferDeviceAddress_json=json::value();
@@ -49954,8 +50514,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto buffer_json=json::value();
@@ -49990,8 +50551,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto opaqueCaptureAddress_json=json::value();
@@ -50034,8 +50596,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceAddress_json=json::value();
@@ -50078,8 +50641,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageViewType_json=json::value();
@@ -50122,8 +50686,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto filterCubic_json=json::value();
@@ -50179,8 +50744,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imagelessFramebuffer_json=json::value();
@@ -50223,8 +50789,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto attachmentImageInfoCount_json=json::value();
@@ -50238,8 +50805,9 @@ auto pAttachmentImageInfos_json=json::value();
         for(int KZYqupS=0; KZYqupS < member.attachmentImageInfoCount; KZYqupS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pAttachmentImageInfos[KZYqupS]);
+            serialize_struct(temp_map, member.pAttachmentImageInfos[KZYqupS]);
             arr_uyGGMQY[KZYqupS]=temp_map;
+            return;
             }();
         }
         pAttachmentImageInfos_json=arr_uyGGMQY;}();
@@ -50292,8 +50860,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -50428,8 +50997,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto attachmentCount_json=json::value();
@@ -50491,8 +51061,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto textureCompressionASTC_HDR_json=json::value();
@@ -50535,8 +51106,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto cooperativeMatrix_json=json::value();
@@ -50592,8 +51164,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto cooperativeMatrixSupportedStages_json=json::value();
@@ -50636,8 +51209,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto MSize_json=json::value();
@@ -50771,8 +51345,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto ycbcrImageArrays_json=json::value();
@@ -50815,8 +51390,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageView_json=json::value();
@@ -50869,8 +51445,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceAddress_json=json::value();
@@ -50959,8 +51536,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pPipelineCreationFeedback_json=json::value();
@@ -50971,8 +51549,9 @@ auto pPipelineCreationFeedback_json=json::value();
         for(int Xwezzqt=0; Xwezzqt < 1; Xwezzqt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pPipelineCreationFeedback[Xwezzqt]);
+            serialize_struct(temp_map, member.pPipelineCreationFeedback[Xwezzqt]);
             arr_bLfUuds[Xwezzqt]=temp_map;
+            return;
             }();
         }
         pPipelineCreationFeedback_json=arr_bLfUuds;}();
@@ -50988,8 +51567,9 @@ auto pPipelineStageCreationFeedbacks_json=json::value();
         for(int xcJecwD=0; xcJecwD < member.pipelineStageCreationFeedbackCount; xcJecwD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pPipelineStageCreationFeedbacks[xcJecwD]);
+            serialize_struct(temp_map, member.pPipelineStageCreationFeedbacks[xcJecwD]);
             arr_RxVpsqW[xcJecwD]=temp_map;
+            return;
             }();
         }
         pPipelineStageCreationFeedbacks_json=arr_RxVpsqW;}();
@@ -51053,8 +51633,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto presentBarrier_json=json::value();
@@ -51097,8 +51678,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto presentBarrierSupported_json=json::value();
@@ -51141,8 +51723,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto presentBarrierEnable_json=json::value();
@@ -51185,8 +51768,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto performanceCounterQueryPools_json=json::value();
@@ -51242,8 +51826,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto allowCommandBufferQueryCopies_json=json::value();
@@ -51286,8 +51871,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto unit_json=json::value();
@@ -51377,8 +51963,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -51484,8 +52071,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto queueFamilyIndex_json=json::value();
@@ -51653,8 +52241,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -51710,8 +52299,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto counterPassIndex_json=json::value();
@@ -51754,8 +52344,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -51798,8 +52389,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto coverageReductionMode_json=json::value();
@@ -51842,8 +52434,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -51899,8 +52492,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto coverageReductionMode_json=json::value();
@@ -51982,8 +52576,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderIntegerFunctions2_json=json::value();
@@ -52112,8 +52707,9 @@ json["type"]=type_json;
 auto data_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.data);
+            serialize_struct(temp_map, member.data);
             data_json=temp_map;
+            return;
             }();
 json["data"]=data_json;
 }
@@ -52209,8 +52805,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 
@@ -52249,8 +52846,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto performanceCountersSampling_json=json::value();
@@ -52293,8 +52891,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto marker_json=json::value();
@@ -52337,8 +52936,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto marker_json=json::value();
@@ -52381,8 +52981,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto type_json=json::value();
@@ -52451,8 +53052,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto type_json=json::value();
@@ -52495,8 +53097,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderSubgroupClock_json=json::value();
@@ -52552,8 +53155,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto indexTypeUint8_json=json::value();
@@ -52596,8 +53200,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderSMCount_json=json::value();
@@ -52653,8 +53258,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderSMBuiltins_json=json::value();
@@ -52697,8 +53303,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fragmentShaderSampleInterlock_json=json::value();
@@ -52767,8 +53374,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto separateDepthStencilLayouts_json=json::value();
@@ -52811,8 +53419,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stencilLayout_json=json::value();
@@ -52855,8 +53464,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto primitiveTopologyListRestart_json=json::value();
@@ -52912,8 +53522,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stencilInitialLayout_json=json::value();
@@ -52969,8 +53580,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelineExecutableInfo_json=json::value();
@@ -53013,8 +53625,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipeline_json=json::value();
@@ -53049,8 +53662,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stages_json=json::value();
@@ -53148,8 +53762,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipeline_json=json::value();
@@ -53256,8 +53871,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto name_json=json::value();
@@ -53280,8 +53896,9 @@ json["format"]=format_json;
 auto value_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.value);
+            serialize_struct(temp_map, member.value);
             value_json=temp_map;
+            return;
             }();
 json["value"]=value_json;
 }
@@ -53353,8 +53970,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto name_json=json::value();
@@ -53485,8 +54103,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderDemoteToHelperInvocation_json=json::value();
@@ -53529,8 +54148,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto texelBufferAlignment_json=json::value();
@@ -53573,8 +54193,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto storageTexelBufferOffsetAlignmentBytes_json=json::value();
@@ -53656,8 +54277,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto subgroupSizeControl_json=json::value();
@@ -53713,8 +54335,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto minSubgroupSize_json=json::value();
@@ -53796,8 +54419,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto requiredSubgroupSize_json=json::value();
@@ -53840,8 +54464,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto renderPass_json=json::value();
@@ -53889,8 +54514,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxSubpassShadingWorkgroupSizeAspectRatio_json=json::value();
@@ -53933,8 +54559,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxWorkGroupCount_json=json::value();
@@ -54032,8 +54659,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto opaqueCaptureAddress_json=json::value();
@@ -54076,8 +54704,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memory_json=json::value();
@@ -54112,8 +54741,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto rectangularLines_json=json::value();
@@ -54221,8 +54851,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto lineSubPixelPrecisionBits_json=json::value();
@@ -54265,8 +54896,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto lineRasterizationMode_json=json::value();
@@ -54348,8 +54980,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelineCreationCacheControl_json=json::value();
@@ -54392,8 +55025,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto storageBuffer16BitAccess_json=json::value();
@@ -54579,8 +55213,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceUUID_json=json::value();
@@ -54829,8 +55464,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto samplerMirrorClampToEdge_json=json::value();
@@ -55471,8 +56107,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto driverID_json=json::value();
@@ -55495,8 +56132,9 @@ json["driverInfo"]=driverInfo_json;
 auto conformanceVersion_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.conformanceVersion);
+            serialize_struct(temp_map, member.conformanceVersion);
             conformanceVersion_json=temp_map;
+            return;
             }();
 json["conformanceVersion"]=conformanceVersion_json;
 auto denormBehaviorIndependence_json=json::value();
@@ -56192,8 +56830,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto robustImageAccess_json=json::value();
@@ -56418,8 +57057,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto minSubgroupSize_json=json::value();
@@ -57034,8 +57674,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto compilerControlFlags_json=json::value();
@@ -57078,8 +57719,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceCoherentMemory_json=json::value();
@@ -57122,8 +57764,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto name_json=json::value();
@@ -57250,15 +57893,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto customBorderColor_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.customBorderColor);
+            serialize_struct(temp_map, member.customBorderColor);
             customBorderColor_json=temp_map;
+            return;
             }();
 json["customBorderColor"]=customBorderColor_json;
 auto format_json=json::value();
@@ -57305,8 +57950,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxCustomBorderColorSamplers_json=json::value();
@@ -57349,8 +57995,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto customBorderColors_json=json::value();
@@ -57406,15 +58053,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto components_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.components);
+            serialize_struct(temp_map, member.components);
             components_json=temp_map;
+            return;
             }();
 json["components"]=components_json;
 auto srgb_json=json::value();
@@ -57461,8 +58110,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto borderColorSwizzle_json=json::value();
@@ -57624,8 +58274,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto vertexFormat_json=json::value();
@@ -57634,8 +58285,9 @@ json["vertexFormat"]=vertexFormat_json;
 auto vertexData_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.vertexData);
+            serialize_struct(temp_map, member.vertexData);
             vertexData_json=temp_map;
+            return;
             }();
 json["vertexData"]=vertexData_json;
 auto vertexStride_json=json::value();
@@ -57650,15 +58302,17 @@ json["indexType"]=indexType_json;
 auto indexData_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.indexData);
+            serialize_struct(temp_map, member.indexData);
             indexData_json=temp_map;
+            return;
             }();
 json["indexData"]=indexData_json;
 auto transformData_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.transformData);
+            serialize_struct(temp_map, member.transformData);
             transformData_json=temp_map;
+            return;
             }();
 json["transformData"]=transformData_json;
 }
@@ -57740,15 +58394,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto data_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.data);
+            serialize_struct(temp_map, member.data);
             data_json=temp_map;
+            return;
             }();
 json["data"]=data_json;
 auto stride_json=json::value();
@@ -57795,8 +58451,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto arrayOfPointers_json=json::value();
@@ -57805,8 +58462,9 @@ json["arrayOfPointers"]=arrayOfPointers_json;
 auto data_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.data);
+            serialize_struct(temp_map, member.data);
             data_json=temp_map;
+            return;
             }();
 json["data"]=data_json;
 }
@@ -57847,22 +58505,25 @@ auto& data_json=json.at("data");
 auto triangles_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.triangles);
+            serialize_struct(temp_map, member.triangles);
             triangles_json=temp_map;
+            return;
             }();
 json["triangles"]=triangles_json;
 auto aabbs_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.aabbs);
+            serialize_struct(temp_map, member.aabbs);
             aabbs_json=temp_map;
+            return;
             }();
 json["aabbs"]=aabbs_json;
 auto instances_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.instances);
+            serialize_struct(temp_map, member.instances);
             instances_json=temp_map;
+            return;
             }();
 json["instances"]=instances_json;
 }
@@ -57890,8 +58551,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto geometryType_json=json::value();
@@ -57900,8 +58562,9 @@ json["geometryType"]=geometryType_json;
 auto geometry_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.geometry);
+            serialize_struct(temp_map, member.geometry);
             geometry_json=temp_map;
+            return;
             }();
 json["geometry"]=geometry_json;
 auto flags_json=json::value();
@@ -57958,8 +58621,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto type_json=json::value();
@@ -57988,8 +58652,9 @@ auto pGeometries_json=json::value();
         for(int zAgFHZV=0; zAgFHZV < member.geometryCount; zAgFHZV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pGeometries[zAgFHZV]);
+            serialize_struct(temp_map, member.pGeometries[zAgFHZV]);
             arr_vwbQOKz[zAgFHZV]=temp_map;
+            return;
             }();
         }
         pGeometries_json=arr_vwbQOKz;}();
@@ -58007,8 +58672,9 @@ auto ppGeometries_json=json::value();
         for(int BbpFYeD=0; BbpFYeD < 1; BbpFYeD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.ppGeometries[uKdXAxa][BbpFYeD]);
+            serialize_struct(temp_map, member.ppGeometries[uKdXAxa][BbpFYeD]);
             arr_xCWURfT[BbpFYeD]=temp_map;
+            return;
             }();
         }
         arr_rkrDVjE[uKdXAxa]=arr_xCWURfT;}();
@@ -58018,8 +58684,9 @@ json["ppGeometries"]=ppGeometries_json;
 auto scratchData_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.scratchData);
+            serialize_struct(temp_map, member.scratchData);
             scratchData_json=temp_map;
+            return;
             }();
 json["scratchData"]=scratchData_json;
 }
@@ -58185,8 +58852,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto createFlags_json=json::value();
@@ -58404,8 +59072,9 @@ auto& matrix_json=json.at("matrix");
 auto transform_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.transform);
+            serialize_struct(temp_map, member.transform);
             transform_json=temp_map;
+            return;
             }();
 json["transform"]=transform_json;
 auto instanceCustomIndex_json=json::value();
@@ -58490,8 +59159,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto accelerationStructure_json=json::value();
@@ -58526,8 +59196,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pVersionData_json=json::value();
@@ -58584,8 +59255,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto src_json=json::value();
@@ -58638,8 +59310,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto src_json=json::value();
@@ -58648,8 +59321,9 @@ json["src"]=src_json;
 auto dst_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dst);
+            serialize_struct(temp_map, member.dst);
             dst_json=temp_map;
+            return;
             }();
 json["dst"]=dst_json;
 auto mode_json=json::value();
@@ -58698,15 +59372,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto src_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.src);
+            serialize_struct(temp_map, member.src);
             src_json=temp_map;
+            return;
             }();
 json["src"]=src_json;
 auto dst_json=json::value();
@@ -58758,8 +59434,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxPipelineRayPayloadSize_json=json::value();
@@ -58815,8 +59492,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto libraryCount_json=json::value();
@@ -58878,8 +59556,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto extendedDynamicState_json=json::value();
@@ -58922,8 +59601,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto extendedDynamicState2_json=json::value();
@@ -58992,8 +59672,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto extendedDynamicState3TessellationDomainOrigin_json=json::value();
@@ -59426,8 +60107,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto dynamicPrimitiveTopologyUnrestricted_json=json::value();
@@ -59627,8 +60309,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto transform_json=json::value();
@@ -59671,8 +60354,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto transform_json=json::value();
@@ -59715,8 +60399,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto transform_json=json::value();
@@ -59725,8 +60410,9 @@ json["transform"]=transform_json;
 auto renderArea_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.renderArea);
+            serialize_struct(temp_map, member.renderArea);
             renderArea_json=temp_map;
+            return;
             }();
 json["renderArea"]=renderArea_json;
 }
@@ -59770,8 +60456,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto diagnosticsConfig_json=json::value();
@@ -59814,8 +60501,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -59858,8 +60546,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderZeroInitializeWorkgroupMemory_json=json::value();
@@ -59902,8 +60591,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderSubgroupUniformControlFlow_json=json::value();
@@ -59946,8 +60636,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto robustBufferAccess2_json=json::value();
@@ -60016,8 +60707,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto robustStorageBufferAccessSizeAlignment_json=json::value();
@@ -60073,8 +60765,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto robustImageAccess_json=json::value();
@@ -60117,8 +60810,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto workgroupMemoryExplicitLayout_json=json::value();
@@ -60200,8 +60894,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto formatA4R4G4B4_json=json::value();
@@ -60257,8 +60952,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto subpassShading_json=json::value();
@@ -60301,8 +60997,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto clustercullingShader_json=json::value();
@@ -60358,8 +61055,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcOffset_json=json::value();
@@ -60428,43 +61126,49 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcSubresource);
+            serialize_struct(temp_map, member.srcSubresource);
             srcSubresource_json=temp_map;
+            return;
             }();
 json["srcSubresource"]=srcSubresource_json;
 auto srcOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcOffset);
+            serialize_struct(temp_map, member.srcOffset);
             srcOffset_json=temp_map;
+            return;
             }();
 json["srcOffset"]=srcOffset_json;
 auto dstSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstSubresource);
+            serialize_struct(temp_map, member.dstSubresource);
             dstSubresource_json=temp_map;
+            return;
             }();
 json["dstSubresource"]=dstSubresource_json;
 auto dstOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstOffset);
+            serialize_struct(temp_map, member.dstOffset);
             dstOffset_json=temp_map;
+            return;
             }();
 json["dstOffset"]=dstOffset_json;
 auto extent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.extent);
+            serialize_struct(temp_map, member.extent);
             extent_json=temp_map;
+            return;
             }();
 json["extent"]=extent_json;
 }
@@ -60514,15 +61218,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcSubresource);
+            serialize_struct(temp_map, member.srcSubresource);
             srcSubresource_json=temp_map;
+            return;
             }();
 json["srcSubresource"]=srcSubresource_json;
 auto srcOffsets_json=json::value();
@@ -60530,8 +61236,9 @@ auto srcOffsets_json=json::value();
         for(int cffHdsm=0; cffHdsm < 2; cffHdsm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcOffsets[cffHdsm]);
+            serialize_struct(temp_map, member.srcOffsets[cffHdsm]);
             arr_HKFUgIx[cffHdsm]=temp_map;
+            return;
             }();
         }
         srcOffsets_json=arr_HKFUgIx;}();
@@ -60539,8 +61246,9 @@ json["srcOffsets"]=srcOffsets_json;
 auto dstSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstSubresource);
+            serialize_struct(temp_map, member.dstSubresource);
             dstSubresource_json=temp_map;
+            return;
             }();
 json["dstSubresource"]=dstSubresource_json;
 auto dstOffsets_json=json::value();
@@ -60548,8 +61256,9 @@ auto dstOffsets_json=json::value();
         for(int YmWWFoI=0; YmWWFoI < 2; YmWWFoI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstOffsets[YmWWFoI]);
+            serialize_struct(temp_map, member.dstOffsets[YmWWFoI]);
             arr_EYgKCdH[YmWWFoI]=temp_map;
+            return;
             }();
         }
         dstOffsets_json=arr_EYgKCdH;}();
@@ -60605,8 +61314,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto bufferOffset_json=json::value();
@@ -60621,22 +61331,25 @@ json["bufferImageHeight"]=bufferImageHeight_json;
 auto imageSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageSubresource);
+            serialize_struct(temp_map, member.imageSubresource);
             imageSubresource_json=temp_map;
+            return;
             }();
 json["imageSubresource"]=imageSubresource_json;
 auto imageOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageOffset);
+            serialize_struct(temp_map, member.imageOffset);
             imageOffset_json=temp_map;
+            return;
             }();
 json["imageOffset"]=imageOffset_json;
 auto imageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageExtent);
+            serialize_struct(temp_map, member.imageExtent);
             imageExtent_json=temp_map;
+            return;
             }();
 json["imageExtent"]=imageExtent_json;
 }
@@ -60708,43 +61421,49 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcSubresource);
+            serialize_struct(temp_map, member.srcSubresource);
             srcSubresource_json=temp_map;
+            return;
             }();
 json["srcSubresource"]=srcSubresource_json;
 auto srcOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srcOffset);
+            serialize_struct(temp_map, member.srcOffset);
             srcOffset_json=temp_map;
+            return;
             }();
 json["srcOffset"]=srcOffset_json;
 auto dstSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstSubresource);
+            serialize_struct(temp_map, member.dstSubresource);
             dstSubresource_json=temp_map;
+            return;
             }();
 json["dstSubresource"]=dstSubresource_json;
 auto dstOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstOffset);
+            serialize_struct(temp_map, member.dstOffset);
             dstOffset_json=temp_map;
+            return;
             }();
 json["dstOffset"]=dstOffset_json;
 auto extent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.extent);
+            serialize_struct(temp_map, member.extent);
             extent_json=temp_map;
+            return;
             }();
 json["extent"]=extent_json;
 }
@@ -60794,8 +61513,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcBuffer_json=json::value();
@@ -60815,8 +61535,9 @@ auto pRegions_json=json::value();
         for(int PyHvXgN=0; PyHvXgN < member.regionCount; PyHvXgN++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[PyHvXgN]);
+            serialize_struct(temp_map, member.pRegions[PyHvXgN]);
             arr_VOOmlwa[PyHvXgN]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_VOOmlwa;}();
@@ -60873,8 +61594,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcImage_json=json::value();
@@ -60900,8 +61622,9 @@ auto pRegions_json=json::value();
         for(int ldqasfX=0; ldqasfX < member.regionCount; ldqasfX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[ldqasfX]);
+            serialize_struct(temp_map, member.pRegions[ldqasfX]);
             arr_eEkCrMz[ldqasfX]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_eEkCrMz;}();
@@ -60978,8 +61701,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcImage_json=json::value();
@@ -61005,8 +61729,9 @@ auto pRegions_json=json::value();
         for(int vKsiEIA=0; vKsiEIA < member.regionCount; vKsiEIA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[vKsiEIA]);
+            serialize_struct(temp_map, member.pRegions[vKsiEIA]);
             arr_bLXCajV[vKsiEIA]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_bLXCajV;}();
@@ -61096,8 +61821,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcBuffer_json=json::value();
@@ -61120,8 +61846,9 @@ auto pRegions_json=json::value();
         for(int mhPmJjS=0; mhPmJjS < member.regionCount; mhPmJjS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[mhPmJjS]);
+            serialize_struct(temp_map, member.pRegions[mhPmJjS]);
             arr_BFqlBiQ[mhPmJjS]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_BFqlBiQ;}();
@@ -61188,8 +61915,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcImage_json=json::value();
@@ -61212,8 +61940,9 @@ auto pRegions_json=json::value();
         for(int mhPmJjS=0; mhPmJjS < member.regionCount; mhPmJjS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[mhPmJjS]);
+            serialize_struct(temp_map, member.pRegions[mhPmJjS]);
             arr_BFqlBiQ[mhPmJjS]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_BFqlBiQ;}();
@@ -61280,8 +62009,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcImage_json=json::value();
@@ -61307,8 +62037,9 @@ auto pRegions_json=json::value();
         for(int gYVnlSs=0; gYVnlSs < member.regionCount; gYVnlSs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[gYVnlSs]);
+            serialize_struct(temp_map, member.pRegions[gYVnlSs]);
             arr_sJBzdaX[gYVnlSs]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_sJBzdaX;}();
@@ -61385,8 +62116,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderImageInt64Atomics_json=json::value();
@@ -61442,8 +62174,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pFragmentShadingRateAttachment_json=json::value();
@@ -61454,8 +62187,9 @@ auto pFragmentShadingRateAttachment_json=json::value();
         for(int EhVdyFn=0; EhVdyFn < 1; EhVdyFn++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pFragmentShadingRateAttachment[EhVdyFn]);
+            serialize_struct(temp_map, member.pFragmentShadingRateAttachment[EhVdyFn]);
             arr_srAaFCv[EhVdyFn]=temp_map;
+            return;
             }();
         }
         pFragmentShadingRateAttachment_json=arr_srAaFCv;}();
@@ -61463,8 +62197,9 @@ json["pFragmentShadingRateAttachment"]=pFragmentShadingRateAttachment_json;
 auto shadingRateAttachmentTexelSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.shadingRateAttachmentTexelSize);
+            serialize_struct(temp_map, member.shadingRateAttachmentTexelSize);
             shadingRateAttachmentTexelSize_json=temp_map;
+            return;
             }();
 json["shadingRateAttachmentTexelSize"]=shadingRateAttachmentTexelSize_json;
 }
@@ -61509,15 +62244,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fragmentSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.fragmentSize);
+            serialize_struct(temp_map, member.fragmentSize);
             fragmentSize_json=temp_map;
+            return;
             }();
 json["fragmentSize"]=fragmentSize_json;
 auto combinerOps_json=json::value();
@@ -61572,8 +62309,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelineFragmentShadingRate_json=json::value();
@@ -61642,22 +62380,25 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto minFragmentShadingRateAttachmentTexelSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minFragmentShadingRateAttachmentTexelSize);
+            serialize_struct(temp_map, member.minFragmentShadingRateAttachmentTexelSize);
             minFragmentShadingRateAttachmentTexelSize_json=temp_map;
+            return;
             }();
 json["minFragmentShadingRateAttachmentTexelSize"]=minFragmentShadingRateAttachmentTexelSize_json;
 auto maxFragmentShadingRateAttachmentTexelSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxFragmentShadingRateAttachmentTexelSize);
+            serialize_struct(temp_map, member.maxFragmentShadingRateAttachmentTexelSize);
             maxFragmentShadingRateAttachmentTexelSize_json=temp_map;
+            return;
             }();
 json["maxFragmentShadingRateAttachmentTexelSize"]=maxFragmentShadingRateAttachmentTexelSize_json;
 auto maxFragmentShadingRateAttachmentTexelSizeAspectRatio_json=json::value();
@@ -61675,8 +62416,9 @@ json["fragmentShadingRateNonTrivialCombinerOps"]=fragmentShadingRateNonTrivialCo
 auto maxFragmentSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxFragmentSize);
+            serialize_struct(temp_map, member.maxFragmentSize);
             maxFragmentSize_json=temp_map;
+            return;
             }();
 json["maxFragmentSize"]=maxFragmentSize_json;
 auto maxFragmentSizeAspectRatio_json=json::value();
@@ -61888,8 +62630,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto sampleCounts_json=json::value();
@@ -61898,8 +62641,9 @@ json["sampleCounts"]=sampleCounts_json;
 auto fragmentSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.fragmentSize);
+            serialize_struct(temp_map, member.fragmentSize);
             fragmentSize_json=temp_map;
+            return;
             }();
 json["fragmentSize"]=fragmentSize_json;
 }
@@ -61943,8 +62687,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderTerminateInvocation_json=json::value();
@@ -61987,8 +62732,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fragmentShadingRateEnums_json=json::value();
@@ -62057,8 +62803,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxFragmentShadingRateInvocationCount_json=json::value();
@@ -62101,8 +62848,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shadingRateType_json=json::value();
@@ -62179,8 +62927,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto accelerationStructureSize_json=json::value();
@@ -62249,8 +62998,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto image2DViewOf3D_json=json::value();
@@ -62306,8 +63056,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageSlicedViewOf3D_json=json::value();
@@ -62350,8 +63101,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto attachmentFeedbackLoopDynamicState_json=json::value();
@@ -62394,8 +63146,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto mutableDescriptorType_json=json::value();
@@ -62485,8 +63238,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto mutableDescriptorTypeListCount_json=json::value();
@@ -62500,8 +63254,9 @@ auto pMutableDescriptorTypeLists_json=json::value();
         for(int oOYbFEO=0; oOYbFEO < member.mutableDescriptorTypeListCount; oOYbFEO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pMutableDescriptorTypeLists[oOYbFEO]);
+            serialize_struct(temp_map, member.pMutableDescriptorTypeLists[oOYbFEO]);
             arr_oiOuQBO[oOYbFEO]=temp_map;
+            return;
             }();
         }
         pMutableDescriptorTypeLists_json=arr_oiOuQBO;}();
@@ -62554,8 +63309,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto depthClipControl_json=json::value();
@@ -62598,8 +63354,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto negativeOneToOne_json=json::value();
@@ -62642,8 +63399,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto vertexInputDynamicState_json=json::value();
@@ -62686,8 +63444,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto externalMemoryRDMA_json=json::value();
@@ -62730,8 +63489,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto binding_json=json::value();
@@ -62813,8 +63573,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto location_json=json::value();
@@ -62896,8 +63657,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto colorWriteEnable_json=json::value();
@@ -62940,8 +63702,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto attachmentCount_json=json::value();
@@ -63011,8 +63774,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcStageMask_json=json::value();
@@ -63094,8 +63858,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcStageMask_json=json::value();
@@ -63128,8 +63893,9 @@ json["image"]=image_json;
 auto subresourceRange_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.subresourceRange);
+            serialize_struct(temp_map, member.subresourceRange);
             subresourceRange_json=temp_map;
+            return;
             }();
 json["subresourceRange"]=subresourceRange_json;
 }
@@ -63245,8 +64011,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto srcStageMask_json=json::value();
@@ -63385,8 +64152,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto dependencyFlags_json=json::value();
@@ -63403,8 +64171,9 @@ auto pMemoryBarriers_json=json::value();
         for(int EtCwghm=0; EtCwghm < member.memoryBarrierCount; EtCwghm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pMemoryBarriers[EtCwghm]);
+            serialize_struct(temp_map, member.pMemoryBarriers[EtCwghm]);
             arr_uYqXDjV[EtCwghm]=temp_map;
+            return;
             }();
         }
         pMemoryBarriers_json=arr_uYqXDjV;}();
@@ -63420,8 +64189,9 @@ auto pBufferMemoryBarriers_json=json::value();
         for(int PpUXYmj=0; PpUXYmj < member.bufferMemoryBarrierCount; PpUXYmj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pBufferMemoryBarriers[PpUXYmj]);
+            serialize_struct(temp_map, member.pBufferMemoryBarriers[PpUXYmj]);
             arr_lZorhiU[PpUXYmj]=temp_map;
+            return;
             }();
         }
         pBufferMemoryBarriers_json=arr_lZorhiU;}();
@@ -63437,8 +64207,9 @@ auto pImageMemoryBarriers_json=json::value();
         for(int jZqCPSq=0; jZqCPSq < member.imageMemoryBarrierCount; jZqCPSq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pImageMemoryBarriers[jZqCPSq]);
+            serialize_struct(temp_map, member.pImageMemoryBarriers[jZqCPSq]);
             arr_ELVGTei[jZqCPSq]=temp_map;
+            return;
             }();
         }
         pImageMemoryBarriers_json=arr_ELVGTei;}();
@@ -63543,8 +64314,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto semaphore_json=json::value();
@@ -63618,8 +64390,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto commandBuffer_json=json::value();
@@ -63667,8 +64440,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -63685,8 +64459,9 @@ auto pWaitSemaphoreInfos_json=json::value();
         for(int LVzoqvo=0; LVzoqvo < member.waitSemaphoreInfoCount; LVzoqvo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pWaitSemaphoreInfos[LVzoqvo]);
+            serialize_struct(temp_map, member.pWaitSemaphoreInfos[LVzoqvo]);
             arr_GVgDjlB[LVzoqvo]=temp_map;
+            return;
             }();
         }
         pWaitSemaphoreInfos_json=arr_GVgDjlB;}();
@@ -63702,8 +64477,9 @@ auto pCommandBufferInfos_json=json::value();
         for(int prIDUIM=0; prIDUIM < member.commandBufferInfoCount; prIDUIM++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pCommandBufferInfos[prIDUIM]);
+            serialize_struct(temp_map, member.pCommandBufferInfos[prIDUIM]);
             arr_fhIgJVd[prIDUIM]=temp_map;
+            return;
             }();
         }
         pCommandBufferInfos_json=arr_fhIgJVd;}();
@@ -63719,8 +64495,9 @@ auto pSignalSemaphoreInfos_json=json::value();
         for(int UBaqqLs=0; UBaqqLs < member.signalSemaphoreInfoCount; UBaqqLs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSignalSemaphoreInfos[UBaqqLs]);
+            serialize_struct(temp_map, member.pSignalSemaphoreInfos[UBaqqLs]);
             arr_WqkNqnQ[UBaqqLs]=temp_map;
+            return;
             }();
         }
         pSignalSemaphoreInfos_json=arr_WqkNqnQ;}();
@@ -63825,8 +64602,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto checkpointExecutionStageMask_json=json::value();
@@ -63869,8 +64647,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stage_json=json::value();
@@ -63946,8 +64725,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto synchronization2_json=json::value();
@@ -63990,8 +64770,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto hostImageCopy_json=json::value();
@@ -64034,8 +64815,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto copySrcLayoutCount_json=json::value();
@@ -64179,8 +64961,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pHostPointer_json=json::value();
@@ -64205,22 +64988,25 @@ json["memoryImageHeight"]=memoryImageHeight_json;
 auto imageSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageSubresource);
+            serialize_struct(temp_map, member.imageSubresource);
             imageSubresource_json=temp_map;
+            return;
             }();
 json["imageSubresource"]=imageSubresource_json;
 auto imageOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageOffset);
+            serialize_struct(temp_map, member.imageOffset);
             imageOffset_json=temp_map;
+            return;
             }();
 json["imageOffset"]=imageOffset_json;
 auto imageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageExtent);
+            serialize_struct(temp_map, member.imageExtent);
             imageExtent_json=temp_map;
+            return;
             }();
 json["imageExtent"]=imageExtent_json;
 }
@@ -64302,8 +65088,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pHostPointer_json=json::value();
@@ -64328,22 +65115,25 @@ json["memoryImageHeight"]=memoryImageHeight_json;
 auto imageSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageSubresource);
+            serialize_struct(temp_map, member.imageSubresource);
             imageSubresource_json=temp_map;
+            return;
             }();
 json["imageSubresource"]=imageSubresource_json;
 auto imageOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageOffset);
+            serialize_struct(temp_map, member.imageOffset);
             imageOffset_json=temp_map;
+            return;
             }();
 json["imageOffset"]=imageOffset_json;
 auto imageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageExtent);
+            serialize_struct(temp_map, member.imageExtent);
             imageExtent_json=temp_map;
+            return;
             }();
 json["imageExtent"]=imageExtent_json;
 }
@@ -64425,8 +65215,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -64449,8 +65240,9 @@ auto pRegions_json=json::value();
         for(int yOYELJC=0; yOYELJC < member.regionCount; yOYELJC++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[yOYELJC]);
+            serialize_struct(temp_map, member.pRegions[yOYELJC]);
             arr_TpKEHMr[yOYELJC]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_TpKEHMr;}();
@@ -64525,8 +65317,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -64549,8 +65342,9 @@ auto pRegions_json=json::value();
         for(int RazZKkE=0; RazZKkE < member.regionCount; RazZKkE++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[RazZKkE]);
+            serialize_struct(temp_map, member.pRegions[RazZKkE]);
             arr_JnLERzC[RazZKkE]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_JnLERzC;}();
@@ -64625,8 +65419,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -64655,8 +65450,9 @@ auto pRegions_json=json::value();
         for(int ldqasfX=0; ldqasfX < member.regionCount; ldqasfX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[ldqasfX]);
+            serialize_struct(temp_map, member.pRegions[ldqasfX]);
             arr_eEkCrMz[ldqasfX]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_eEkCrMz;}();
@@ -64743,8 +65539,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto image_json=json::value();
@@ -64759,8 +65556,9 @@ json["newLayout"]=newLayout_json;
 auto subresourceRange_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.subresourceRange);
+            serialize_struct(temp_map, member.subresourceRange);
             subresourceRange_json=temp_map;
+            return;
             }();
 json["subresourceRange"]=subresourceRange_json;
 }
@@ -64816,8 +65614,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto size_json=json::value();
@@ -64860,8 +65659,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto optimalDeviceAccess_json=json::value();
@@ -64917,8 +65717,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto primitivesGeneratedQuery_json=json::value();
@@ -64987,8 +65788,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto legacyDithering_json=json::value();
@@ -65031,8 +65833,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto multisampledRenderToSingleSampled_json=json::value();
@@ -65075,8 +65878,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto optimal_json=json::value();
@@ -65119,8 +65923,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto multisampledRenderToSingleSampledEnable_json=json::value();
@@ -65176,8 +65981,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelineProtectedAccess_json=json::value();
@@ -65220,8 +66026,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto videoCodecOperations_json=json::value();
@@ -65264,8 +66071,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto queryResultStatusSupport_json=json::value();
@@ -65308,8 +66116,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto profileCount_json=json::value();
@@ -65323,8 +66132,9 @@ auto pProfiles_json=json::value();
         for(int qLsWZEU=0; qLsWZEU < member.profileCount; qLsWZEU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pProfiles[qLsWZEU]);
+            serialize_struct(temp_map, member.pProfiles[qLsWZEU]);
             arr_ZBtGgqD[qLsWZEU]=temp_map;
+            return;
             }();
         }
         pProfiles_json=arr_ZBtGgqD;}();
@@ -65377,8 +66187,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageUsage_json=json::value();
@@ -65421,8 +66232,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto format_json=json::value();
@@ -65431,8 +66243,9 @@ json["format"]=format_json;
 auto componentMapping_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.componentMapping);
+            serialize_struct(temp_map, member.componentMapping);
             componentMapping_json=temp_map;
+            return;
             }();
 json["componentMapping"]=componentMapping_json;
 auto imageCreateFlags_json=json::value();
@@ -65528,8 +66341,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto videoCodecOperation_json=json::value();
@@ -65611,8 +66425,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -65627,22 +66442,25 @@ json["minBitstreamBufferSizeAlignment"]=minBitstreamBufferSizeAlignment_json;
 auto pictureAccessGranularity_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pictureAccessGranularity);
+            serialize_struct(temp_map, member.pictureAccessGranularity);
             pictureAccessGranularity_json=temp_map;
+            return;
             }();
 json["pictureAccessGranularity"]=pictureAccessGranularity_json;
 auto minCodedExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minCodedExtent);
+            serialize_struct(temp_map, member.minCodedExtent);
             minCodedExtent_json=temp_map;
+            return;
             }();
 json["minCodedExtent"]=minCodedExtent_json;
 auto maxCodedExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxCodedExtent);
+            serialize_struct(temp_map, member.maxCodedExtent);
             maxCodedExtent_json=temp_map;
+            return;
             }();
 json["maxCodedExtent"]=maxCodedExtent_json;
 auto maxDpbSlots_json=json::value();
@@ -65654,8 +66472,9 @@ json["maxActiveReferencePictures"]=maxActiveReferencePictures_json;
 auto stdHeaderVersion_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.stdHeaderVersion);
+            serialize_struct(temp_map, member.stdHeaderVersion);
             stdHeaderVersion_json=temp_map;
+            return;
             }();
 json["stdHeaderVersion"]=stdHeaderVersion_json;
 }
@@ -65751,8 +66570,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memoryBindIndex_json=json::value();
@@ -65761,8 +66581,9 @@ json["memoryBindIndex"]=memoryBindIndex_json;
 auto memoryRequirements_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.memoryRequirements);
+            serialize_struct(temp_map, member.memoryRequirements);
             memoryRequirements_json=temp_map;
+            return;
             }();
 json["memoryRequirements"]=memoryRequirements_json;
 }
@@ -65806,8 +66627,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memoryBindIndex_json=json::value();
@@ -65881,22 +66703,25 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto codedOffset_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.codedOffset);
+            serialize_struct(temp_map, member.codedOffset);
             codedOffset_json=temp_map;
+            return;
             }();
 json["codedOffset"]=codedOffset_json;
 auto codedExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.codedExtent);
+            serialize_struct(temp_map, member.codedExtent);
             codedExtent_json=temp_map;
+            return;
             }();
 json["codedExtent"]=codedExtent_json;
 auto baseArrayLayer_json=json::value();
@@ -65952,8 +66777,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto slotIndex_json=json::value();
@@ -65967,8 +66793,9 @@ auto pPictureResource_json=json::value();
         for(int fEARCkB=0; fEARCkB < 1; fEARCkB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pPictureResource[fEARCkB]);
+            serialize_struct(temp_map, member.pPictureResource[fEARCkB]);
             arr_djEoQBi[fEARCkB]=temp_map;
+            return;
             }();
         }
         pPictureResource_json=arr_djEoQBi;}();
@@ -66021,8 +66848,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -66065,8 +66893,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto videoUsageHints_json=json::value();
@@ -66109,8 +66938,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -66128,8 +66958,9 @@ json["srcBufferRange"]=srcBufferRange_json;
 auto dstPictureResource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dstPictureResource);
+            serialize_struct(temp_map, member.dstPictureResource);
             dstPictureResource_json=temp_map;
+            return;
             }();
 json["dstPictureResource"]=dstPictureResource_json;
 auto pSetupReferenceSlot_json=json::value();
@@ -66140,8 +66971,9 @@ auto pSetupReferenceSlot_json=json::value();
         for(int ISkkOBc=0; ISkkOBc < 1; ISkkOBc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSetupReferenceSlot[ISkkOBc]);
+            serialize_struct(temp_map, member.pSetupReferenceSlot[ISkkOBc]);
             arr_uwnCvBq[ISkkOBc]=temp_map;
+            return;
             }();
         }
         pSetupReferenceSlot_json=arr_uwnCvBq;}();
@@ -66157,8 +66989,9 @@ auto pReferenceSlots_json=json::value();
         for(int EWeFaQj=0; EWeFaQj < member.referenceSlotCount; EWeFaQj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pReferenceSlots[EWeFaQj]);
+            serialize_struct(temp_map, member.pReferenceSlots[EWeFaQj]);
             arr_hNUTaci[EWeFaQj]=temp_map;
+            return;
             }();
         }
         pReferenceSlots_json=arr_hNUTaci;}();
@@ -66258,8 +67091,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stdProfileIdc_json=json::value();
@@ -66307,8 +67141,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxLevelIdc_json=json::value();
@@ -66317,8 +67152,9 @@ json["maxLevelIdc"]=maxLevelIdc_json;
 auto fieldOffsetGranularity_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.fieldOffsetGranularity);
+            serialize_struct(temp_map, member.fieldOffsetGranularity);
             fieldOffsetGranularity_json=temp_map;
+            return;
             }();
 json["fieldOffsetGranularity"]=fieldOffsetGranularity_json;
 }
@@ -66354,8 +67190,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stdSPSCount_json=json::value();
@@ -66433,8 +67270,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxStdSPSCount_json=json::value();
@@ -66451,8 +67289,9 @@ auto pParametersAddInfo_json=json::value();
         for(int wbcEpkz=0; wbcEpkz < 1; wbcEpkz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pParametersAddInfo[wbcEpkz]);
+            serialize_struct(temp_map, member.pParametersAddInfo[wbcEpkz]);
             arr_xlxjnfg[wbcEpkz]=temp_map;
+            return;
             }();
         }
         pParametersAddInfo_json=arr_xlxjnfg;}();
@@ -66515,8 +67354,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pStdPictureInfo_json=json::value();
@@ -66597,8 +67437,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pStdReferenceInfo_json=json::value();
@@ -66639,8 +67480,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stdProfileIdc_json=json::value();
@@ -66675,8 +67517,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxLevelIdc_json=json::value();
@@ -66711,8 +67554,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto stdVPSCount_json=json::value();
@@ -66814,8 +67658,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxStdVPSCount_json=json::value();
@@ -66835,8 +67680,9 @@ auto pParametersAddInfo_json=json::value();
         for(int xyeBndZ=0; xyeBndZ < 1; xyeBndZ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pParametersAddInfo[xyeBndZ]);
+            serialize_struct(temp_map, member.pParametersAddInfo[xyeBndZ]);
             arr_HwLlplh[xyeBndZ]=temp_map;
+            return;
             }();
         }
         pParametersAddInfo_json=arr_HwLlplh;}();
@@ -66909,8 +67755,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pStdPictureInfo_json=json::value();
@@ -66991,8 +67838,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pStdReferenceInfo_json=json::value();
@@ -67033,8 +67881,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto queueFamilyIndex_json=json::value();
@@ -67051,8 +67900,9 @@ auto pVideoProfile_json=json::value();
         for(int HIFOwAq=0; HIFOwAq < 1; HIFOwAq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pVideoProfile[HIFOwAq]);
+            serialize_struct(temp_map, member.pVideoProfile[HIFOwAq]);
             arr_cYUybNt[HIFOwAq]=temp_map;
+            return;
             }();
         }
         pVideoProfile_json=arr_cYUybNt;}();
@@ -67063,8 +67913,9 @@ json["pictureFormat"]=pictureFormat_json;
 auto maxCodedExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxCodedExtent);
+            serialize_struct(temp_map, member.maxCodedExtent);
             maxCodedExtent_json=temp_map;
+            return;
             }();
 json["maxCodedExtent"]=maxCodedExtent_json;
 auto referencePictureFormat_json=json::value();
@@ -67084,8 +67935,9 @@ auto pStdHeaderVersion_json=json::value();
         for(int aRJLlXo=0; aRJLlXo < 1; aRJLlXo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pStdHeaderVersion[aRJLlXo]);
+            serialize_struct(temp_map, member.pStdHeaderVersion[aRJLlXo]);
             arr_UhuMWfc[aRJLlXo]=temp_map;
+            return;
             }();
         }
         pStdHeaderVersion_json=arr_UhuMWfc;}();
@@ -67203,8 +68055,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -67257,8 +68110,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto updateSequenceCount_json=json::value();
@@ -67301,8 +68155,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -67325,8 +68180,9 @@ auto pReferenceSlots_json=json::value();
         for(int EWeFaQj=0; EWeFaQj < member.referenceSlotCount; EWeFaQj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pReferenceSlots[EWeFaQj]);
+            serialize_struct(temp_map, member.pReferenceSlots[EWeFaQj]);
             arr_hNUTaci[EWeFaQj]=temp_map;
+            return;
             }();
         }
         pReferenceSlots_json=arr_hNUTaci;}();
@@ -67393,8 +68249,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -67437,8 +68294,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -67481,8 +68339,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto inheritedViewportScissor2D_json=json::value();
@@ -67525,8 +68384,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto viewportScissor2D_json=json::value();
@@ -67543,8 +68403,9 @@ auto pViewportDepths_json=json::value();
         for(int choYOAw=0; choYOAw < 1; choYOAw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pViewportDepths[choYOAw]);
+            serialize_struct(temp_map, member.pViewportDepths[choYOAw]);
             arr_aQtsLfD[choYOAw]=temp_map;
+            return;
             }();
         }
         pViewportDepths_json=arr_aQtsLfD;}();
@@ -67607,8 +68468,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto ycbcr2plane444Formats_json=json::value();
@@ -67651,8 +68513,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto provokingVertexLast_json=json::value();
@@ -67708,8 +68571,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto provokingVertexModePerPipeline_json=json::value();
@@ -67765,8 +68629,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto provokingVertexMode_json=json::value();
@@ -67809,8 +68674,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto dataSize_json=json::value();
@@ -67886,8 +68752,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto module_json=json::value();
@@ -67949,8 +68816,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto function_json=json::value();
@@ -68196,8 +69064,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto descriptorBuffer_json=json::value();
@@ -68279,8 +69148,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto combinedImageSamplerDescriptorSingleArray_json=json::value();
@@ -68739,8 +69609,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto combinedImageSamplerDensityMapDescriptorSize_json=json::value();
@@ -68783,8 +69654,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto address_json=json::value();
@@ -68853,8 +69725,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto address_json=json::value();
@@ -68910,8 +69783,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto buffer_json=json::value();
@@ -68958,8 +69832,9 @@ auto pCombinedImageSampler_json=json::value();
         for(int PCbwOXN=0; PCbwOXN < 1; PCbwOXN++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pCombinedImageSampler[PCbwOXN]);
+            serialize_struct(temp_map, member.pCombinedImageSampler[PCbwOXN]);
             arr_SFaLpUw[PCbwOXN]=temp_map;
+            return;
             }();
         }
         pCombinedImageSampler_json=arr_SFaLpUw;}();
@@ -68972,8 +69847,9 @@ auto pInputAttachmentImage_json=json::value();
         for(int UtkaHCy=0; UtkaHCy < 1; UtkaHCy++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pInputAttachmentImage[UtkaHCy]);
+            serialize_struct(temp_map, member.pInputAttachmentImage[UtkaHCy]);
             arr_JmELAzk[UtkaHCy]=temp_map;
+            return;
             }();
         }
         pInputAttachmentImage_json=arr_JmELAzk;}();
@@ -68986,8 +69862,9 @@ auto pSampledImage_json=json::value();
         for(int oasCmla=0; oasCmla < 1; oasCmla++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSampledImage[oasCmla]);
+            serialize_struct(temp_map, member.pSampledImage[oasCmla]);
             arr_qOHCftC[oasCmla]=temp_map;
+            return;
             }();
         }
         pSampledImage_json=arr_qOHCftC;}();
@@ -69000,8 +69877,9 @@ auto pStorageImage_json=json::value();
         for(int cYaYUCx=0; cYaYUCx < 1; cYaYUCx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pStorageImage[cYaYUCx]);
+            serialize_struct(temp_map, member.pStorageImage[cYaYUCx]);
             arr_pmyozer[cYaYUCx]=temp_map;
+            return;
             }();
         }
         pStorageImage_json=arr_pmyozer;}();
@@ -69014,8 +69892,9 @@ auto pUniformTexelBuffer_json=json::value();
         for(int pkFuwJH=0; pkFuwJH < 1; pkFuwJH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pUniformTexelBuffer[pkFuwJH]);
+            serialize_struct(temp_map, member.pUniformTexelBuffer[pkFuwJH]);
             arr_OIDlzqo[pkFuwJH]=temp_map;
+            return;
             }();
         }
         pUniformTexelBuffer_json=arr_OIDlzqo;}();
@@ -69028,8 +69907,9 @@ auto pStorageTexelBuffer_json=json::value();
         for(int hVYviCs=0; hVYviCs < 1; hVYviCs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pStorageTexelBuffer[hVYviCs]);
+            serialize_struct(temp_map, member.pStorageTexelBuffer[hVYviCs]);
             arr_xtbpyML[hVYviCs]=temp_map;
+            return;
             }();
         }
         pStorageTexelBuffer_json=arr_xtbpyML;}();
@@ -69042,8 +69922,9 @@ auto pUniformBuffer_json=json::value();
         for(int UnVRNnp=0; UnVRNnp < 1; UnVRNnp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pUniformBuffer[UnVRNnp]);
+            serialize_struct(temp_map, member.pUniformBuffer[UnVRNnp]);
             arr_kxqZNdO[UnVRNnp]=temp_map;
+            return;
             }();
         }
         pUniformBuffer_json=arr_kxqZNdO;}();
@@ -69056,8 +69937,9 @@ auto pStorageBuffer_json=json::value();
         for(int dBYVCtY=0; dBYVCtY < 1; dBYVCtY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pStorageBuffer[dBYVCtY]);
+            serialize_struct(temp_map, member.pStorageBuffer[dBYVCtY]);
             arr_UxtFGfq[dBYVCtY]=temp_map;
+            return;
             }();
         }
         pStorageBuffer_json=arr_UxtFGfq;}();
@@ -69185,8 +70067,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto type_json=json::value();
@@ -69195,8 +70078,9 @@ json["type"]=type_json;
 auto data_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.data);
+            serialize_struct(temp_map, member.data);
             data_json=temp_map;
+            return;
             }();
 json["data"]=data_json;
 }
@@ -69240,8 +70124,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto buffer_json=json::value();
@@ -69276,8 +70161,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto image_json=json::value();
@@ -69312,8 +70198,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageView_json=json::value();
@@ -69348,8 +70235,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto sampler_json=json::value();
@@ -69384,8 +70272,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto accelerationStructure_json=json::value();
@@ -69425,8 +70314,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto opaqueCaptureDescriptorData_json=json::value();
@@ -69489,8 +70379,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderIntegerDotProduct_json=json::value();
@@ -69533,8 +70424,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto integerDotProduct8BitUnsignedAccelerated_json=json::value();
@@ -69954,8 +70846,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto hasPrimary_json=json::value();
@@ -70063,8 +70956,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto fragmentShaderBarycentric_json=json::value();
@@ -70107,8 +71001,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto triStripVertexOrderIndependentOfProvokingVertex_json=json::value();
@@ -70151,8 +71046,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto rayTracingMotionBlur_json=json::value();
@@ -70208,15 +71104,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto vertexData_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.vertexData);
+            serialize_struct(temp_map, member.vertexData);
             vertexData_json=temp_map;
+            return;
             }();
 json["vertexData"]=vertexData_json;
 }
@@ -70250,8 +71148,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxInstances_json=json::value();
@@ -70519,15 +71418,17 @@ auto& tz_json=json.at("tz");
 auto transformT0_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.transformT0);
+            serialize_struct(temp_map, member.transformT0);
             transformT0_json=temp_map;
+            return;
             }();
 json["transformT0"]=transformT0_json;
 auto transformT1_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.transformT1);
+            serialize_struct(temp_map, member.transformT1);
             transformT1_json=temp_map;
+            return;
             }();
 json["transformT1"]=transformT1_json;
 auto instanceCustomIndex_json=json::value();
@@ -70613,15 +71514,17 @@ auto& accelerationStructureReference_json=json.at("accelerationStructureReferenc
 auto transformT0_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.transformT0);
+            serialize_struct(temp_map, member.transformT0);
             transformT0_json=temp_map;
+            return;
             }();
 json["transformT0"]=transformT0_json;
 auto transformT1_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.transformT1);
+            serialize_struct(temp_map, member.transformT1);
             transformT1_json=temp_map;
+            return;
             }();
 json["transformT1"]=transformT1_json;
 auto instanceCustomIndex_json=json::value();
@@ -70707,22 +71610,25 @@ auto& accelerationStructureReference_json=json.at("accelerationStructureReferenc
 auto staticInstance_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.staticInstance);
+            serialize_struct(temp_map, member.staticInstance);
             staticInstance_json=temp_map;
+            return;
             }();
 json["staticInstance"]=staticInstance_json;
 auto matrixMotionInstance_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.matrixMotionInstance);
+            serialize_struct(temp_map, member.matrixMotionInstance);
             matrixMotionInstance_json=temp_map;
+            return;
             }();
 json["matrixMotionInstance"]=matrixMotionInstance_json;
 auto srtMotionInstance_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.srtMotionInstance);
+            serialize_struct(temp_map, member.srtMotionInstance);
             srtMotionInstance_json=temp_map;
+            return;
             }();
 json["srtMotionInstance"]=srtMotionInstance_json;
 }
@@ -70753,8 +71659,9 @@ json["flags"]=flags_json;
 auto data_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.data);
+            serialize_struct(temp_map, member.data);
             data_json=temp_map;
+            return;
             }();
 json["data"]=data_json;
 }
@@ -70794,8 +71701,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto memory_json=json::value();
@@ -70843,8 +71751,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto formatRgba10x6WithoutYCbCrSampler_json=json::value();
@@ -70887,8 +71796,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto linearTilingFeatures_json=json::value();
@@ -70957,8 +71867,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto drmFormatModifierCount_json=json::value();
@@ -70972,8 +71883,9 @@ auto pDrmFormatModifierProperties_json=json::value();
         for(int fYwCOAr=0; fYwCOAr < member.drmFormatModifierCount; fYwCOAr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDrmFormatModifierProperties[fYwCOAr]);
+            serialize_struct(temp_map, member.pDrmFormatModifierProperties[fYwCOAr]);
             arr_IlDDRWk[fYwCOAr]=temp_map;
+            return;
             }();
         }
         pDrmFormatModifierProperties_json=arr_IlDDRWk;}();
@@ -71072,8 +71984,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto viewMask_json=json::value();
@@ -71182,8 +72095,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -71192,8 +72106,9 @@ json["flags"]=flags_json;
 auto renderArea_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.renderArea);
+            serialize_struct(temp_map, member.renderArea);
             renderArea_json=temp_map;
+            return;
             }();
 json["renderArea"]=renderArea_json;
 auto layerCount_json=json::value();
@@ -71213,8 +72128,9 @@ auto pColorAttachments_json=json::value();
         for(int MqTvXsu=0; MqTvXsu < member.colorAttachmentCount; MqTvXsu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pColorAttachments[MqTvXsu]);
+            serialize_struct(temp_map, member.pColorAttachments[MqTvXsu]);
             arr_zOjumrr[MqTvXsu]=temp_map;
+            return;
             }();
         }
         pColorAttachments_json=arr_zOjumrr;}();
@@ -71227,8 +72143,9 @@ auto pDepthAttachment_json=json::value();
         for(int DKeqxaZ=0; DKeqxaZ < 1; DKeqxaZ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDepthAttachment[DKeqxaZ]);
+            serialize_struct(temp_map, member.pDepthAttachment[DKeqxaZ]);
             arr_zCcjFNg[DKeqxaZ]=temp_map;
+            return;
             }();
         }
         pDepthAttachment_json=arr_zCcjFNg;}();
@@ -71241,8 +72158,9 @@ auto pStencilAttachment_json=json::value();
         for(int JyQYSGl=0; JyQYSGl < 1; JyQYSGl++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pStencilAttachment[JyQYSGl]);
+            serialize_struct(temp_map, member.pStencilAttachment[JyQYSGl]);
             arr_NEEZdlG[JyQYSGl]=temp_map;
+            return;
             }();
         }
         pStencilAttachment_json=arr_NEEZdlG;}();
@@ -71351,8 +72269,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageView_json=json::value();
@@ -71379,8 +72298,9 @@ json["storeOp"]=storeOp_json;
 auto clearValue_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.clearValue);
+            serialize_struct(temp_map, member.clearValue);
             clearValue_json=temp_map;
+            return;
             }();
 json["clearValue"]=clearValue_json;
 }
@@ -71468,8 +72388,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageView_json=json::value();
@@ -71481,8 +72402,9 @@ json["imageLayout"]=imageLayout_json;
 auto shadingRateAttachmentTexelSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.shadingRateAttachmentTexelSize);
+            serialize_struct(temp_map, member.shadingRateAttachmentTexelSize);
             shadingRateAttachmentTexelSize_json=temp_map;
+            return;
             }();
 json["shadingRateAttachmentTexelSize"]=shadingRateAttachmentTexelSize_json;
 }
@@ -71528,8 +72450,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageView_json=json::value();
@@ -71577,8 +72500,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto dynamicRendering_json=json::value();
@@ -71621,8 +72545,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -71757,8 +72682,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto colorAttachmentCount_json=json::value();
@@ -71841,8 +72767,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto perViewAttributes_json=json::value();
@@ -71898,8 +72825,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto minLod_json=json::value();
@@ -71942,8 +72870,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto minLod_json=json::value();
@@ -71986,8 +72915,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto rasterizationOrderColorAttachmentAccess_json=json::value();
@@ -72056,8 +72986,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto linearColorAttachment_json=json::value();
@@ -72100,8 +73031,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto graphicsPipelineLibrary_json=json::value();
@@ -72144,8 +73076,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto graphicsPipelineLibraryFastLinking_json=json::value();
@@ -72201,8 +73134,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -72245,8 +73179,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto descriptorSetHostMapping_json=json::value();
@@ -72289,8 +73224,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto descriptorSetLayout_json=json::value();
@@ -72338,8 +73274,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto descriptorOffset_json=json::value();
@@ -72395,8 +73332,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderModuleIdentifier_json=json::value();
@@ -72439,8 +73377,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderModuleIdentifierAlgorithmUUID_json=json::value();
@@ -72491,8 +73430,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto identifierSize_json=json::value();
@@ -72562,8 +73502,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto identifierSize_json=json::value();
@@ -72627,8 +73568,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -72711,8 +73653,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageCompressionControl_json=json::value();
@@ -72755,8 +73698,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageCompressionFlags_json=json::value();
@@ -72812,8 +73756,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageCompressionControlSwapchain_json=json::value();
@@ -72856,15 +73801,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto imageSubresource_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.imageSubresource);
+            serialize_struct(temp_map, member.imageSubresource);
             imageSubresource_json=temp_map;
+            return;
             }();
 json["imageSubresource"]=imageSubresource_json;
 }
@@ -72898,15 +73845,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto subresourceLayout_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.subresourceLayout);
+            serialize_struct(temp_map, member.subresourceLayout);
             subresourceLayout_json=temp_map;
+            return;
             }();
 json["subresourceLayout"]=subresourceLayout_json;
 }
@@ -72940,8 +73889,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto disallowMerging_json=json::value();
@@ -73004,8 +73954,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pRenderPassFeedback_json=json::value();
@@ -73016,8 +73967,9 @@ auto pRenderPassFeedback_json=json::value();
         for(int nNbsIPU=0; nNbsIPU < 1; nNbsIPU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRenderPassFeedback[nNbsIPU]);
+            serialize_struct(temp_map, member.pRenderPassFeedback[nNbsIPU]);
             arr_JjvUXSK[nNbsIPU]=temp_map;
+            return;
             }();
         }
         pRenderPassFeedback_json=arr_JjvUXSK;}();
@@ -73114,8 +74066,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pSubpassFeedback_json=json::value();
@@ -73126,8 +74079,9 @@ auto pSubpassFeedback_json=json::value();
         for(int ETwKPnx=0; ETwKPnx < 1; ETwKPnx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSubpassFeedback[ETwKPnx]);
+            serialize_struct(temp_map, member.pSubpassFeedback[ETwKPnx]);
             arr_TraKUUQ[ETwKPnx]=temp_map;
+            return;
             }();
         }
         pSubpassFeedback_json=arr_TraKUUQ;}();
@@ -73170,8 +74124,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto subpassMergeFeedback_json=json::value();
@@ -73214,8 +74169,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto type_json=json::value();
@@ -73241,8 +74197,9 @@ auto pUsageCounts_json=json::value();
         for(int fcbtTBG=0; fcbtTBG < member.usageCountsCount; fcbtTBG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pUsageCounts[fcbtTBG]);
+            serialize_struct(temp_map, member.pUsageCounts[fcbtTBG]);
             arr_ISbbbyT[fcbtTBG]=temp_map;
+            return;
             }();
         }
         pUsageCounts_json=arr_ISbbbyT;}();
@@ -73260,8 +74217,9 @@ auto ppUsageCounts_json=json::value();
         for(int bFKrJKe=0; bFKrJKe < 1; bFKrJKe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.ppUsageCounts[kPEvNon][bFKrJKe]);
+            serialize_struct(temp_map, member.ppUsageCounts[kPEvNon][bFKrJKe]);
             arr_epKIoAu[bFKrJKe]=temp_map;
+            return;
             }();
         }
         arr_tKtvYXX[kPEvNon]=arr_epKIoAu;}();
@@ -73271,22 +74229,25 @@ json["ppUsageCounts"]=ppUsageCounts_json;
 auto data_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.data);
+            serialize_struct(temp_map, member.data);
             data_json=temp_map;
+            return;
             }();
 json["data"]=data_json;
 auto scratchData_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.scratchData);
+            serialize_struct(temp_map, member.scratchData);
             scratchData_json=temp_map;
+            return;
             }();
 json["scratchData"]=scratchData_json;
 auto triangleArray_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.triangleArray);
+            serialize_struct(temp_map, member.triangleArray);
             triangleArray_json=temp_map;
+            return;
             }();
 json["triangleArray"]=triangleArray_json;
 auto triangleArrayStride_json=json::value();
@@ -73412,8 +74373,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto createFlags_json=json::value();
@@ -73513,8 +74475,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pVersionData_json=json::value();
@@ -73571,8 +74534,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto src_json=json::value();
@@ -73625,8 +74589,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto src_json=json::value();
@@ -73635,8 +74600,9 @@ json["src"]=src_json;
 auto dst_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.dst);
+            serialize_struct(temp_map, member.dst);
             dst_json=temp_map;
+            return;
             }();
 json["dst"]=dst_json;
 auto mode_json=json::value();
@@ -73685,15 +74651,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto src_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.src);
+            serialize_struct(temp_map, member.src);
             src_json=temp_map;
+            return;
             }();
 json["src"]=src_json;
 auto dst_json=json::value();
@@ -73745,8 +74713,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto micromapSize_json=json::value();
@@ -73907,8 +74876,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto micromap_json=json::value();
@@ -73977,8 +74947,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxOpacity2StateSubdivisionLevel_json=json::value();
@@ -74034,8 +75005,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto indexType_json=json::value();
@@ -74044,8 +75016,9 @@ json["indexType"]=indexType_json;
 auto indexBuffer_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.indexBuffer);
+            serialize_struct(temp_map, member.indexBuffer);
             indexBuffer_json=temp_map;
+            return;
             }();
 json["indexBuffer"]=indexBuffer_json;
 auto indexStride_json=json::value();
@@ -74065,8 +75038,9 @@ auto pUsageCounts_json=json::value();
         for(int fcbtTBG=0; fcbtTBG < member.usageCountsCount; fcbtTBG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pUsageCounts[fcbtTBG]);
+            serialize_struct(temp_map, member.pUsageCounts[fcbtTBG]);
             arr_ISbbbyT[fcbtTBG]=temp_map;
+            return;
             }();
         }
         pUsageCounts_json=arr_ISbbbyT;}();
@@ -74084,8 +75058,9 @@ auto ppUsageCounts_json=json::value();
         for(int bFKrJKe=0; bFKrJKe < 1; bFKrJKe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.ppUsageCounts[kPEvNon][bFKrJKe]);
+            serialize_struct(temp_map, member.ppUsageCounts[kPEvNon][bFKrJKe]);
             arr_epKIoAu[bFKrJKe]=temp_map;
+            return;
             }();
         }
         arr_tKtvYXX[kPEvNon]=arr_epKIoAu;}();
@@ -74197,8 +75172,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelineIdentifier_json=json::value();
@@ -74249,8 +75225,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelinePropertiesIdentifier_json=json::value();
@@ -74293,8 +75270,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderEarlyAndLateFragmentTests_json=json::value();
@@ -74337,8 +75315,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto acquireUnmodifiedMemory_json=json::value();
@@ -74381,8 +75360,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto nonSeamlessCubeMap_json=json::value();
@@ -74425,8 +75405,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelineRobustness_json=json::value();
@@ -74469,8 +75450,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto storageBuffers_json=json::value();
@@ -74552,8 +75534,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto defaultRobustnessStorageBuffers_json=json::value();
@@ -74635,22 +75618,25 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto filterCenter_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.filterCenter);
+            serialize_struct(temp_map, member.filterCenter);
             filterCenter_json=temp_map;
+            return;
             }();
 json["filterCenter"]=filterCenter_json;
 auto filterSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.filterSize);
+            serialize_struct(temp_map, member.filterSize);
             filterSize_json=temp_map;
+            return;
             }();
 json["filterSize"]=filterSize_json;
 auto numPhases_json=json::value();
@@ -74701,8 +75687,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto textureSampleWeighted_json=json::value();
@@ -74771,8 +75758,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxWeightFilterPhases_json=json::value();
@@ -74781,22 +75769,25 @@ json["maxWeightFilterPhases"]=maxWeightFilterPhases_json;
 auto maxWeightFilterDimension_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxWeightFilterDimension);
+            serialize_struct(temp_map, member.maxWeightFilterDimension);
             maxWeightFilterDimension_json=temp_map;
+            return;
             }();
 json["maxWeightFilterDimension"]=maxWeightFilterDimension_json;
 auto maxBlockMatchRegion_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxBlockMatchRegion);
+            serialize_struct(temp_map, member.maxBlockMatchRegion);
             maxBlockMatchRegion_json=temp_map;
+            return;
             }();
 json["maxBlockMatchRegion"]=maxBlockMatchRegion_json;
 auto maxBoxFilterBlockSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxBoxFilterBlockSize);
+            serialize_struct(temp_map, member.maxBoxFilterBlockSize);
             maxBoxFilterBlockSize_json=temp_map;
+            return;
             }();
 json["maxBoxFilterBlockSize"]=maxBoxFilterBlockSize_json;
 }
@@ -74848,8 +75839,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto tileProperties_json=json::value();
@@ -74892,29 +75884,33 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto tileSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.tileSize);
+            serialize_struct(temp_map, member.tileSize);
             tileSize_json=temp_map;
+            return;
             }();
 json["tileSize"]=tileSize_json;
 auto apronSize_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.apronSize);
+            serialize_struct(temp_map, member.apronSize);
             apronSize_json=temp_map;
+            return;
             }();
 json["apronSize"]=apronSize_json;
 auto origin_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.origin);
+            serialize_struct(temp_map, member.origin);
             origin_json=temp_map;
+            return;
             }();
 json["origin"]=origin_json;
 }
@@ -74956,8 +75952,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto amigoProfiling_json=json::value();
@@ -75000,8 +75997,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto firstDrawTimestamp_json=json::value();
@@ -75057,8 +76055,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto attachmentFeedbackLoopLayout_json=json::value();
@@ -75101,8 +76100,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto depthClampZeroOne_json=json::value();
@@ -75145,8 +76145,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto reportAddressBinding_json=json::value();
@@ -75189,8 +76190,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -75272,8 +76274,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto opticalFlow_json=json::value();
@@ -75316,8 +76319,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto supportedOutputGridSizes_json=json::value();
@@ -75490,8 +76494,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto usage_json=json::value();
@@ -75534,8 +76539,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto format_json=json::value();
@@ -75578,8 +76584,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto width_json=json::value();
@@ -75726,8 +76733,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto id_json=json::value();
@@ -75816,8 +76824,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -75834,8 +76843,9 @@ auto pRegions_json=json::value();
         for(int tsobRzD=0; tsobRzD < member.regionCount; tsobRzD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pRegions[tsobRzD]);
+            serialize_struct(temp_map, member.pRegions[tsobRzD]);
             arr_xyUxORq[tsobRzD]=temp_map;
+            return;
             }();
         }
         pRegions_json=arr_xyUxORq;}();
@@ -75898,8 +76908,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto deviceFault_json=json::value();
@@ -76055,8 +77066,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto addressInfoCount_json=json::value();
@@ -76125,8 +77137,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto description_json=json::value();
@@ -76144,8 +77157,9 @@ auto pAddressInfos_json=json::value();
         for(int ypOCYMK=0; ypOCYMK < 1; ypOCYMK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pAddressInfos[ypOCYMK]);
+            serialize_struct(temp_map, member.pAddressInfos[ypOCYMK]);
             arr_UnNfNMF[ypOCYMK]=temp_map;
+            return;
             }();
         }
         pAddressInfos_json=arr_UnNfNMF;}();
@@ -76158,8 +77172,9 @@ auto pVendorInfos_json=json::value();
         for(int GvWjMmU=0; GvWjMmU < 1; GvWjMmU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pVendorInfos[GvWjMmU]);
+            serialize_struct(temp_map, member.pVendorInfos[GvWjMmU]);
             arr_wWSNRSk[GvWjMmU]=temp_map;
+            return;
             }();
         }
         pVendorInfos_json=arr_wWSNRSk;}();
@@ -76418,8 +77433,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pipelineLibraryGroupHandles_json=json::value();
@@ -76462,8 +77478,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto depthBiasConstantFactor_json=json::value();
@@ -76532,8 +77549,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto depthBiasRepresentation_json=json::value();
@@ -76661,8 +77679,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderCoreMask_json=json::value();
@@ -76731,8 +77750,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderCoreBuiltins_json=json::value();
@@ -76775,8 +77795,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -76955,8 +77976,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto frameBoundary_json=json::value();
@@ -76999,8 +78021,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto dynamicRenderingUnusedAttachments_json=json::value();
@@ -77043,8 +78066,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto presentMode_json=json::value();
@@ -77087,8 +78111,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto supportedPresentScaling_json=json::value();
@@ -77103,15 +78128,17 @@ json["supportedPresentGravityY"]=supportedPresentGravityY_json;
 auto minScaledImageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.minScaledImageExtent);
+            serialize_struct(temp_map, member.minScaledImageExtent);
             minScaledImageExtent_json=temp_map;
+            return;
             }();
 json["minScaledImageExtent"]=minScaledImageExtent_json;
 auto maxScaledImageExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxScaledImageExtent);
+            serialize_struct(temp_map, member.maxScaledImageExtent);
             maxScaledImageExtent_json=temp_map;
+            return;
             }();
 json["maxScaledImageExtent"]=maxScaledImageExtent_json;
 }
@@ -77179,8 +78206,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto presentModeCount_json=json::value();
@@ -77250,8 +78278,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchainMaintenance1_json=json::value();
@@ -77294,8 +78323,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchainCount_json=json::value();
@@ -77357,8 +78387,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto presentModeCount_json=json::value();
@@ -77428,8 +78459,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchainCount_json=json::value();
@@ -77499,8 +78531,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto scalingBehavior_json=json::value();
@@ -77569,8 +78602,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto swapchain_json=json::value();
@@ -77645,8 +78679,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto depthBiasControl_json=json::value();
@@ -77728,8 +78763,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto rayTracingInvocationReorder_json=json::value();
@@ -77772,8 +78808,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto rayTracingInvocationReorderReorderingHint_json=json::value();
@@ -77816,8 +78853,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -77826,8 +78864,9 @@ json["flags"]=flags_json;
 auto pfnGetInstanceProcAddr_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_PFN_vkGetInstanceProcAddrLUNARG(temp_map, member.pfnGetInstanceProcAddr);
+            serialize_PFN_vkGetInstanceProcAddrLUNARG(temp_map, member.pfnGetInstanceProcAddr);
             pfnGetInstanceProcAddr_json=temp_map;
+            return;
             }();
 json["pfnGetInstanceProcAddr"]=pfnGetInstanceProcAddr_json;
 }
@@ -77871,8 +78910,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto mode_json=json::value();
@@ -77889,8 +78929,9 @@ auto pDrivers_json=json::value();
         for(int pnnfRRV=0; pnnfRRV < member.driverCount; pnnfRRV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pDrivers[pnnfRRV]);
+            serialize_struct(temp_map, member.pDrivers[pnnfRRV]);
             arr_buhBPRp[pnnfRRV]=temp_map;
+            return;
             }();
         }
         pDrivers_json=arr_buhBPRp;}();
@@ -77953,8 +78994,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto multiviewPerViewViewports_json=json::value();
@@ -77997,8 +79039,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto rayTracingPositionFetch_json=json::value();
@@ -78041,8 +79084,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pCreateInfo_json=json::value();
@@ -78053,8 +79097,9 @@ auto pCreateInfo_json=json::value();
         for(int WlalFpx=0; WlalFpx < 1; WlalFpx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pCreateInfo[WlalFpx]);
+            serialize_struct(temp_map, member.pCreateInfo[WlalFpx]);
             arr_ZehFYFR[WlalFpx]=temp_map;
+            return;
             }();
         }
         pCreateInfo_json=arr_ZehFYFR;}();
@@ -78067,8 +79112,9 @@ auto pSubresource_json=json::value();
         for(int qYYdFsm=0; qYYdFsm < 1; qYYdFsm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSubresource[qYYdFsm]);
+            serialize_struct(temp_map, member.pSubresource[qYYdFsm]);
             arr_zPrqsJG[qYYdFsm]=temp_map;
+            return;
             }();
         }
         pSubresource_json=arr_zPrqsJG;}();
@@ -78122,8 +79168,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pixelRate_json=json::value();
@@ -78192,8 +79239,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto multiviewPerViewRenderAreas_json=json::value();
@@ -78236,8 +79284,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto perViewRenderAreaCount_json=json::value();
@@ -78251,8 +79300,9 @@ auto pPerViewRenderAreas_json=json::value();
         for(int KBPTIPg=0; KBPTIPg < member.perViewRenderAreaCount; KBPTIPg++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pPerViewRenderAreas[KBPTIPg]);
+            serialize_struct(temp_map, member.pPerViewRenderAreas[KBPTIPg]);
             arr_YFtcppG[KBPTIPg]=temp_map;
+            return;
             }();
         }
         pPerViewRenderAreas_json=arr_YFtcppG;}();
@@ -78305,8 +79355,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto pQueriedLowLatencyData_json=json::value();
@@ -78369,8 +79420,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -78444,8 +79496,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -78493,8 +79546,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderObject_json=json::value();
@@ -78537,8 +79591,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderBinaryUUID_json=json::value();
@@ -78602,8 +79657,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto flags_json=json::value();
@@ -78668,8 +79724,9 @@ auto pPushConstantRanges_json=json::value();
         for(int IhaFWFv=0; IhaFWFv < member.pushConstantRangeCount; IhaFWFv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pPushConstantRanges[IhaFWFv]);
+            serialize_struct(temp_map, member.pPushConstantRanges[IhaFWFv]);
             arr_doTQoKZ[IhaFWFv]=temp_map;
+            return;
             }();
         }
         pPushConstantRanges_json=arr_doTQoKZ;}();
@@ -78682,8 +79739,9 @@ auto pSpecializationInfo_json=json::value();
         for(int lSuLhWh=0; lSuLhWh < 1; lSuLhWh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.pSpecializationInfo[lSuLhWh]);
+            serialize_struct(temp_map, member.pSpecializationInfo[lSuLhWh]);
             arr_AfbichW[lSuLhWh]=temp_map;
+            return;
             }();
         }
         pSpecializationInfo_json=arr_AfbichW;}();
@@ -78853,8 +79911,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderTileImageColorReadAccess_json=json::value();
@@ -78923,8 +79982,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto shaderTileImageCoherentReadAccelerated_json=json::value();
@@ -78993,8 +80053,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto cooperativeMatrix_json=json::value();
@@ -79050,8 +80111,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto MSize_json=json::value();
@@ -79198,8 +80260,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto cooperativeMatrixSupportedStages_json=json::value();
@@ -79242,8 +80305,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto cubicRangeClamp_json=json::value();
@@ -79286,8 +80350,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto ycbcrDegamma_json=json::value();
@@ -79330,8 +80395,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto enableYDegamma_json=json::value();
@@ -79387,8 +80453,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto selectableCubicWeights_json=json::value();
@@ -79431,8 +80498,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto cubicWeights_json=json::value();
@@ -79475,8 +80543,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto cubicWeights_json=json::value();
@@ -79519,8 +80588,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto textureBlockMatch2_json=json::value();
@@ -79563,15 +80633,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto maxBlockMatchWindow_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.maxBlockMatchWindow);
+            serialize_struct(temp_map, member.maxBlockMatchWindow);
             maxBlockMatchWindow_json=temp_map;
+            return;
             }();
 json["maxBlockMatchWindow"]=maxBlockMatchWindow_json;
 }
@@ -79605,15 +80677,17 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto windowExtent_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, member.windowExtent);
+            serialize_struct(temp_map, member.windowExtent);
             windowExtent_json=temp_map;
+            return;
             }();
 json["windowExtent"]=windowExtent_json;
 auto windowCompareMode_json=json::value();
@@ -79660,8 +80734,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto descriptorPoolOverallocation_json=json::value();
@@ -79704,8 +80779,9 @@ json["sType"]=sType_json;
 auto pNext_json=json::value();
 [&](){
             auto temp_map=json::map();
-            return serialize_pNext(temp_map, member.pNext);
+            serialize_pNext(temp_map, member.pNext);
             pNext_json=temp_map;
+            return;
             }();
 json["pNext"]=pNext_json;
 auto underlyingAPI_json=json::value();
@@ -81048,8 +82124,9 @@ std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsM
         for(int cgqXeou=0; cgqXeou < 1; cgqXeou++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCallbackData[cgqXeou]);
+            serialize_struct(temp_map, pCallbackData[cgqXeou]);
             arr_ELbGsuC[cgqXeou]=temp_map;
+            return;
             }();
         }
         json["pCallbackData"]=arr_ELbGsuC;}();
@@ -81196,8 +82273,9 @@ json.clear();
         for(int cgqXeou=0; cgqXeou < 1; cgqXeou++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCallbackData[cgqXeou]);
+            serialize_struct(temp_map, pCallbackData[cgqXeou]);
             arr_ELbGsuC[cgqXeou]=temp_map;
+            return;
             }();
         }
         json["pCallbackData"]=arr_ELbGsuC;}();
@@ -81243,8 +82321,9 @@ std::map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemory
         for(int QJmpCRq=0; QJmpCRq < 1; QJmpCRq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCallbackData[QJmpCRq]);
+            serialize_struct(temp_map, pCallbackData[QJmpCRq]);
             arr_dvgiwmM[QJmpCRq]=temp_map;
+            return;
             }();
         }
         json["pCallbackData"]=arr_dvgiwmM;}();
@@ -81341,8 +82420,9 @@ json.clear();
         for(int QJmpCRq=0; QJmpCRq < 1; QJmpCRq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCallbackData[QJmpCRq]);
+            serialize_struct(temp_map, pCallbackData[QJmpCRq]);
             arr_dvgiwmM[QJmpCRq]=temp_map;
+            return;
             }();
         }
         json["pCallbackData"]=arr_dvgiwmM;}();

@@ -69,12 +69,14 @@ void serialize_Sync(json::map& json, Sync& sync){
     
     temp_vector.resize(sync.lengths.size());
     for (int i=0; i< sync.lengths.size(); i++){
+        debug_printf("Serialized length: %d\\n", sync.lengths[i]);
         temp_vector[i]=sync.lengths[i];
     }
     json["lengths"]=temp_vector;
     
     temp_vector.resize(sync.starts.size());
     for (int i=0; i< sync.starts.size(); i++){
+        debug_printf("Serialized start: %d\\n", sync.starts[i]);
         temp_vector[i]=sync.starts[i];
     }
     json["starts"]=temp_vector;
@@ -102,12 +104,14 @@ void deserialize_Sync(json::map& json, Sync& sync){
     sync.lengths.resize(temp_vector.size());
     for (int i=0; i < temp_vector.size(); i++){
         sync.lengths[i]=temp_vector[i].as_uint64_t();
+        debug_printf("Deerialized length: %d\\n", sync.lengths[i]);
     }
     
     temp_vector=json["starts"].as_vector();
     sync.starts.resize(temp_vector.size());
     for (int i=0; i < temp_vector.size(); i++){
         sync.starts[i]=temp_vector[i].as_uint64_t();
+        debug_printf("Deserialized start: %d\\n", sync.starts[i]);
     }
     
     temp_vector=json["buffers"].as_vector();
@@ -196,7 +200,7 @@ void deserialize_pNext(const json::map& json, void*& member ){
         return;
     }
     
-    auto deserialize_function=(void(*)(const json::map&, void*&))(handle_pNext(static_cast<VkStructureType>(json.at("sType").as_int64_t()),false));
+    auto deserialize_function=(void(*)(const json::map&, void*&))(handle_pNext(static_cast<VkStructureType>(json.at("sType").as_uint64_t()),false));
     
     return deserialize_function(json, member);
 

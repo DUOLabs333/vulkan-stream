@@ -188,8 +188,9 @@ def convert(variable, value, info, serialize, initialize=False):
         if serialize:
             result+=f"""
             auto temp_map=json::map();
-            return serialize_{kind}(temp_map, {variable});
+            serialize_{kind}(temp_map, {variable});
             {value}=temp_map;
+            return;
             """
         else:
             if kind=="funcpointer":

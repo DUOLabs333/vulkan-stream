@@ -79,7 +79,7 @@ VkInstance* pInstance;
         call_function=(PFN_vkCreateInstance)get_instance_proc_addr(parent,"vkCreateInstance");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateInstance)get_device_proc_addr(parent,"vkCreateInstance");
     }  
     
@@ -137,8 +137,9 @@ json.clear();
         for(int pSiEPar=0; pSiEPar < 1; pSiEPar++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[pSiEPar]);
+            serialize_struct(temp_map, pCreateInfo[pSiEPar]);
             arr_yCteunD[pSiEPar]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_yCteunD;}();
@@ -149,8 +150,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -164,7 +166,7 @@ json.clear();
         json["pInstance"]=arr_GanofFb;}();
 
 
-        json["stream_type"]=VKCREATEINSTANCE;
+        json["stream_type"]=static_cast<int>(VKCREATEINSTANCE);
         writeToConn(json);
     }
 
@@ -195,7 +197,7 @@ VkInstance instance;
         call_function=(PFN_vkDestroyInstance)get_instance_proc_addr(parent,"vkDestroyInstance");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyInstance)get_device_proc_addr(parent,"vkDestroyInstance");
     }  
     
@@ -212,14 +214,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYINSTANCE;
+        json["stream_type"]=static_cast<int>(VKDESTROYINSTANCE);
         writeToConn(json);
     }
 
@@ -265,7 +268,7 @@ VkPhysicalDevice* pPhysicalDevices;
         call_function=(PFN_vkEnumeratePhysicalDevices)get_instance_proc_addr(parent,"vkEnumeratePhysicalDevices");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkEnumeratePhysicalDevices)get_device_proc_addr(parent,"vkEnumeratePhysicalDevices");
     }  
     
@@ -294,7 +297,7 @@ json.clear();
         json["pPhysicalDevices"]=arr_ZSQNUNc;}();
 
 
-        json["stream_type"]=VKENUMERATEPHYSICALDEVICES;
+        json["stream_type"]=static_cast<int>(VKENUMERATEPHYSICALDEVICES);
         writeToConn(json);
     }
 
@@ -331,7 +334,7 @@ VkDevice device;
         call_function=(PFN_vkGetDeviceProcAddr)get_instance_proc_addr(parent,"vkGetDeviceProcAddr");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceProcAddr)get_device_proc_addr(parent,"vkGetDeviceProcAddr");
     }  
     
@@ -352,7 +355,7 @@ json["result"]=(uintptr_t)result;
         json["pName"]=arr_XCtfitt;}();
 
 
-        json["stream_type"]=VKGETDEVICEPROCADDR;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEPROCADDR);
         writeToConn(json);
     }
 
@@ -389,7 +392,7 @@ VkInstance instance;
         call_function=(PFN_vkGetInstanceProcAddr)get_instance_proc_addr(parent,"vkGetInstanceProcAddr");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetInstanceProcAddr)get_device_proc_addr(parent,"vkGetInstanceProcAddr");
     }  
     
@@ -411,7 +414,7 @@ json["result"]=(uintptr_t)result;
         json["pName"]=arr_XCtfitt;}();
 
 
-        json["stream_type"]=VKGETINSTANCEPROCADDR;
+        json["stream_type"]=static_cast<int>(VKGETINSTANCEPROCADDR);
         writeToConn(json);
     }
 
@@ -442,7 +445,7 @@ VkPhysicalDeviceProperties* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceProperties)get_instance_proc_addr(parent,"vkGetPhysicalDeviceProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceProperties");
     }  
     
@@ -459,14 +462,15 @@ json.clear();
         for(int RBAofpr=0; RBAofpr < 1; RBAofpr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[RBAofpr]);
+            serialize_struct(temp_map, pProperties[RBAofpr]);
             arr_rSttUuQ[RBAofpr]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_rSttUuQ;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEPROPERTIES);
         writeToConn(json);
     }
 
@@ -514,7 +518,7 @@ VkQueueFamilyProperties* pQueueFamilyProperties;
         call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties)get_instance_proc_addr(parent,"vkGetPhysicalDeviceQueueFamilyProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceQueueFamilyProperties");
     }  
     
@@ -539,14 +543,15 @@ json.clear();
         for(int WYdxXmB=0; WYdxXmB < *pQueueFamilyPropertyCount; WYdxXmB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pQueueFamilyProperties[WYdxXmB]);
+            serialize_struct(temp_map, pQueueFamilyProperties[WYdxXmB]);
             arr_ixxluvk[WYdxXmB]=temp_map;
+            return;
             }();
         }
         json["pQueueFamilyProperties"]=arr_ixxluvk;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES);
         writeToConn(json);
     }
 
@@ -577,7 +582,7 @@ VkPhysicalDeviceMemoryProperties* pMemoryProperties;
         call_function=(PFN_vkGetPhysicalDeviceMemoryProperties)get_instance_proc_addr(parent,"vkGetPhysicalDeviceMemoryProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceMemoryProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceMemoryProperties");
     }  
     
@@ -594,14 +599,15 @@ json.clear();
         for(int iqfYjRc=0; iqfYjRc < 1; iqfYjRc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryProperties[iqfYjRc]);
+            serialize_struct(temp_map, pMemoryProperties[iqfYjRc]);
             arr_cVJWqPt[iqfYjRc]=temp_map;
+            return;
             }();
         }
         json["pMemoryProperties"]=arr_cVJWqPt;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEMEMORYPROPERTIES);
         writeToConn(json);
     }
 
@@ -632,7 +638,7 @@ VkPhysicalDeviceFeatures* pFeatures;
         call_function=(PFN_vkGetPhysicalDeviceFeatures)get_instance_proc_addr(parent,"vkGetPhysicalDeviceFeatures");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceFeatures)get_device_proc_addr(parent,"vkGetPhysicalDeviceFeatures");
     }  
     
@@ -649,14 +655,15 @@ json.clear();
         for(int IqPoadP=0; IqPoadP < 1; IqPoadP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFeatures[IqPoadP]);
+            serialize_struct(temp_map, pFeatures[IqPoadP]);
             arr_MNJcbZO[IqPoadP]=temp_map;
+            return;
             }();
         }
         json["pFeatures"]=arr_MNJcbZO;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEFEATURES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEFEATURES);
         writeToConn(json);
     }
 
@@ -697,7 +704,7 @@ VkFormatProperties* pFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceFormatProperties)get_instance_proc_addr(parent,"vkGetPhysicalDeviceFormatProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceFormatProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceFormatProperties");
     }  
     
@@ -715,14 +722,15 @@ json.clear();
         for(int CLkwuSw=0; CLkwuSw < 1; CLkwuSw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFormatProperties[CLkwuSw]);
+            serialize_struct(temp_map, pFormatProperties[CLkwuSw]);
             arr_ktGodop[CLkwuSw]=temp_map;
+            return;
             }();
         }
         json["pFormatProperties"]=arr_ktGodop;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEFORMATPROPERTIES);
         writeToConn(json);
     }
 
@@ -803,7 +811,7 @@ VkImageFormatProperties* pImageFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties)get_instance_proc_addr(parent,"vkGetPhysicalDeviceImageFormatProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceImageFormatProperties");
     }  
     
@@ -826,14 +834,15 @@ json.clear();
         for(int hhYjZOs=0; hhYjZOs < 1; hhYjZOs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageFormatProperties[hhYjZOs]);
+            serialize_struct(temp_map, pImageFormatProperties[hhYjZOs]);
             arr_sBgMBXU[hhYjZOs]=temp_map;
+            return;
             }();
         }
         json["pImageFormatProperties"]=arr_sBgMBXU;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES);
         writeToConn(json);
     }
 
@@ -884,7 +893,7 @@ VkDevice* pDevice;
         call_function=(PFN_vkCreateDevice)get_instance_proc_addr(parent,"vkCreateDevice");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateDevice)get_device_proc_addr(parent,"vkCreateDevice");
     }  
     
@@ -933,8 +942,9 @@ json.clear();
         for(int Ktbkccz=0; Ktbkccz < 1; Ktbkccz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[Ktbkccz]);
+            serialize_struct(temp_map, pCreateInfo[Ktbkccz]);
             arr_TuuJAwt[Ktbkccz]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_TuuJAwt;}();
@@ -945,8 +955,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -960,7 +971,7 @@ json.clear();
         json["pDevice"]=arr_WTIobJE;}();
 
 
-        json["stream_type"]=VKCREATEDEVICE;
+        json["stream_type"]=static_cast<int>(VKCREATEDEVICE);
         writeToConn(json);
     }
 
@@ -991,7 +1002,7 @@ VkDevice device;
         call_function=(PFN_vkDestroyDevice)get_instance_proc_addr(parent,"vkDestroyDevice");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyDevice)get_device_proc_addr(parent,"vkDestroyDevice");
     }  
     
@@ -1008,14 +1019,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYDEVICE;
+        json["stream_type"]=static_cast<int>(VKDESTROYDEVICE);
         writeToConn(json);
     }
 
@@ -1050,7 +1062,7 @@ uint32_t* pApiVersion;
         call_function=(PFN_vkEnumerateInstanceVersion)get_instance_proc_addr(parent,"vkEnumerateInstanceVersion");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkEnumerateInstanceVersion)get_device_proc_addr(parent,"vkEnumerateInstanceVersion");
     }  
     
@@ -1070,7 +1082,7 @@ json.clear();
         json["pApiVersion"]=arr_qBCKjKo;}();
 
 
-        json["stream_type"]=VKENUMERATEINSTANCEVERSION;
+        json["stream_type"]=static_cast<int>(VKENUMERATEINSTANCEVERSION);
         writeToConn(json);
     }
 
@@ -1116,7 +1128,7 @@ VkLayerProperties* pProperties;
         call_function=(PFN_vkEnumerateInstanceLayerProperties)get_instance_proc_addr(parent,"vkEnumerateInstanceLayerProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkEnumerateInstanceLayerProperties)get_device_proc_addr(parent,"vkEnumerateInstanceLayerProperties");
     }  
     
@@ -1141,14 +1153,15 @@ json.clear();
         for(int AVcpYdO=0; AVcpYdO < *pPropertyCount; AVcpYdO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[AVcpYdO]);
+            serialize_struct(temp_map, pProperties[AVcpYdO]);
             arr_AKGITwD[AVcpYdO]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_AKGITwD;}();
 
 
-        json["stream_type"]=VKENUMERATEINSTANCELAYERPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKENUMERATEINSTANCELAYERPROPERTIES);
         writeToConn(json);
     }
 
@@ -1211,7 +1224,7 @@ VkExtensionProperties* pProperties;
         call_function=(PFN_vkEnumerateInstanceExtensionProperties)get_instance_proc_addr(parent,"vkEnumerateInstanceExtensionProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkEnumerateInstanceExtensionProperties)get_device_proc_addr(parent,"vkEnumerateInstanceExtensionProperties");
     }  
     
@@ -1244,14 +1257,15 @@ json.clear();
         for(int oiKhvHw=0; oiKhvHw < *pPropertyCount; oiKhvHw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[oiKhvHw]);
+            serialize_struct(temp_map, pProperties[oiKhvHw]);
             arr_yJzeHZb[oiKhvHw]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_yJzeHZb;}();
 
 
-        json["stream_type"]=VKENUMERATEINSTANCEEXTENSIONPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKENUMERATEINSTANCEEXTENSIONPROPERTIES);
         writeToConn(json);
     }
 
@@ -1299,7 +1313,7 @@ VkLayerProperties* pProperties;
         call_function=(PFN_vkEnumerateDeviceLayerProperties)get_instance_proc_addr(parent,"vkEnumerateDeviceLayerProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkEnumerateDeviceLayerProperties)get_device_proc_addr(parent,"vkEnumerateDeviceLayerProperties");
     }  
     
@@ -1325,14 +1339,15 @@ json.clear();
         for(int AVcpYdO=0; AVcpYdO < *pPropertyCount; AVcpYdO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[AVcpYdO]);
+            serialize_struct(temp_map, pProperties[AVcpYdO]);
             arr_AKGITwD[AVcpYdO]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_AKGITwD;}();
 
 
-        json["stream_type"]=VKENUMERATEDEVICELAYERPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKENUMERATEDEVICELAYERPROPERTIES);
         writeToConn(json);
     }
 
@@ -1397,7 +1412,7 @@ VkExtensionProperties* pProperties;
         call_function=(PFN_vkEnumerateDeviceExtensionProperties)get_instance_proc_addr(parent,"vkEnumerateDeviceExtensionProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkEnumerateDeviceExtensionProperties)get_device_proc_addr(parent,"vkEnumerateDeviceExtensionProperties");
     }  
     
@@ -1431,14 +1446,15 @@ json.clear();
         for(int oiKhvHw=0; oiKhvHw < *pPropertyCount; oiKhvHw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[oiKhvHw]);
+            serialize_struct(temp_map, pProperties[oiKhvHw]);
             arr_yJzeHZb[oiKhvHw]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_yJzeHZb;}();
 
 
-        json["stream_type"]=VKENUMERATEDEVICEEXTENSIONPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKENUMERATEDEVICEEXTENSIONPROPERTIES);
         writeToConn(json);
     }
 
@@ -1487,7 +1503,7 @@ VkQueue* pQueue;
         call_function=(PFN_vkGetDeviceQueue)get_instance_proc_addr(parent,"vkGetDeviceQueue");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceQueue)get_device_proc_addr(parent,"vkGetDeviceQueue");
     }  
     
@@ -1509,7 +1525,7 @@ json.clear();
         json["pQueue"]=arr_rYZbcEA;}();
 
 
-        json["stream_type"]=VKGETDEVICEQUEUE;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEQUEUE);
         writeToConn(json);
     }
 
@@ -1552,7 +1568,7 @@ VkFence fence;
         call_function=(PFN_vkQueueSubmit)get_instance_proc_addr(parent,"vkQueueSubmit");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkQueueSubmit)get_device_proc_addr(parent,"vkQueueSubmit");
     }  
     
@@ -1571,15 +1587,16 @@ json.clear();
         for(int FrUhwZA=0; FrUhwZA < submitCount; FrUhwZA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubmits[FrUhwZA]);
+            serialize_struct(temp_map, pSubmits[FrUhwZA]);
             arr_kYcwgKD[FrUhwZA]=temp_map;
+            return;
             }();
         }
         json["pSubmits"]=arr_kYcwgKD;}();
 [&](){serialize_VkFence(json["fence"],fence);}();
 
 
-        json["stream_type"]=VKQUEUESUBMIT;
+        json["stream_type"]=static_cast<int>(VKQUEUESUBMIT);
         writeToConn(json);
     }
 
@@ -1599,7 +1616,7 @@ VkQueue queue;
         call_function=(PFN_vkQueueWaitIdle)get_instance_proc_addr(parent,"vkQueueWaitIdle");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkQueueWaitIdle)get_device_proc_addr(parent,"vkQueueWaitIdle");
     }  
     
@@ -1612,7 +1629,7 @@ json.clear();
 [&](){serialize_VkQueue(json["queue"],queue);}();
 
 
-        json["stream_type"]=VKQUEUEWAITIDLE;
+        json["stream_type"]=static_cast<int>(VKQUEUEWAITIDLE);
         writeToConn(json);
     }
 
@@ -1632,7 +1649,7 @@ VkDevice device;
         call_function=(PFN_vkDeviceWaitIdle)get_instance_proc_addr(parent,"vkDeviceWaitIdle");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDeviceWaitIdle)get_device_proc_addr(parent,"vkDeviceWaitIdle");
     }  
     
@@ -1645,7 +1662,7 @@ json.clear();
 [&](){serialize_VkDevice(json["device"],device);}();
 
 
-        json["stream_type"]=VKDEVICEWAITIDLE;
+        json["stream_type"]=static_cast<int>(VKDEVICEWAITIDLE);
         writeToConn(json);
     }
 
@@ -1696,7 +1713,7 @@ VkDeviceMemory* pMemory;
         call_function=(PFN_vkAllocateMemory)get_instance_proc_addr(parent,"vkAllocateMemory");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkAllocateMemory)get_device_proc_addr(parent,"vkAllocateMemory");
     }  
     
@@ -1714,8 +1731,9 @@ json.clear();
         for(int MAXIAGO=0; MAXIAGO < 1; MAXIAGO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocateInfo[MAXIAGO]);
+            serialize_struct(temp_map, pAllocateInfo[MAXIAGO]);
             arr_NGCHnPz[MAXIAGO]=temp_map;
+            return;
             }();
         }
         json["pAllocateInfo"]=arr_NGCHnPz;}();
@@ -1726,8 +1744,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -1741,7 +1760,7 @@ json.clear();
         json["pMemory"]=arr_JqUSUSb;}();
 
 
-        json["stream_type"]=VKALLOCATEMEMORY;
+        json["stream_type"]=static_cast<int>(VKALLOCATEMEMORY);
         writeToConn(json);
     }
 
@@ -1774,7 +1793,7 @@ VkDeviceMemory memory;
         call_function=(PFN_vkFreeMemory)get_instance_proc_addr(parent,"vkFreeMemory");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkFreeMemory)get_device_proc_addr(parent,"vkFreeMemory");
     }  
     
@@ -1792,14 +1811,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKFREEMEMORY;
+        json["stream_type"]=static_cast<int>(VKFREEMEMORY);
         writeToConn(json);
     }
 
@@ -1878,7 +1898,7 @@ void** ppData;
         call_function=(PFN_vkMapMemory)get_instance_proc_addr(parent,"vkMapMemory");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkMapMemory)get_device_proc_addr(parent,"vkMapMemory");
     }  
     
@@ -1924,7 +1944,7 @@ json.clear();
         #endif
         
 
-        json["stream_type"]=VKMAPMEMORY;
+        json["stream_type"]=static_cast<int>(VKMAPMEMORY);
         writeToConn(json);
     }
 
@@ -1946,7 +1966,7 @@ VkDeviceMemory memory;
         call_function=(PFN_vkUnmapMemory)get_instance_proc_addr(parent,"vkUnmapMemory");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkUnmapMemory)get_device_proc_addr(parent,"vkUnmapMemory");
     }  
     
@@ -1959,7 +1979,7 @@ json.clear();
 [&](){serialize_VkDeviceMemory(json["memory"],memory);}();
 
 
-        json["stream_type"]=VKUNMAPMEMORY;
+        json["stream_type"]=static_cast<int>(VKUNMAPMEMORY);
         writeToConn(json);
     }
 
@@ -2000,7 +2020,7 @@ uint32_t memoryRangeCount;
         call_function=(PFN_vkFlushMappedMemoryRanges)get_instance_proc_addr(parent,"vkFlushMappedMemoryRanges");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkFlushMappedMemoryRanges)get_device_proc_addr(parent,"vkFlushMappedMemoryRanges");
     }  
     
@@ -2019,14 +2039,15 @@ json.clear();
         for(int GdhGpVL=0; GdhGpVL < memoryRangeCount; GdhGpVL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRanges[GdhGpVL]);
+            serialize_struct(temp_map, pMemoryRanges[GdhGpVL]);
             arr_sKDZFVw[GdhGpVL]=temp_map;
+            return;
             }();
         }
         json["pMemoryRanges"]=arr_sKDZFVw;}();
 
 
-        json["stream_type"]=VKFLUSHMAPPEDMEMORYRANGES;
+        json["stream_type"]=static_cast<int>(VKFLUSHMAPPEDMEMORYRANGES);
         writeToConn(json);
     }
 
@@ -2067,7 +2088,7 @@ uint32_t memoryRangeCount;
         call_function=(PFN_vkInvalidateMappedMemoryRanges)get_instance_proc_addr(parent,"vkInvalidateMappedMemoryRanges");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkInvalidateMappedMemoryRanges)get_device_proc_addr(parent,"vkInvalidateMappedMemoryRanges");
     }  
     
@@ -2086,14 +2107,15 @@ json.clear();
         for(int GdhGpVL=0; GdhGpVL < memoryRangeCount; GdhGpVL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRanges[GdhGpVL]);
+            serialize_struct(temp_map, pMemoryRanges[GdhGpVL]);
             arr_sKDZFVw[GdhGpVL]=temp_map;
+            return;
             }();
         }
         json["pMemoryRanges"]=arr_sKDZFVw;}();
 
 
-        json["stream_type"]=VKINVALIDATEMAPPEDMEMORYRANGES;
+        json["stream_type"]=static_cast<int>(VKINVALIDATEMAPPEDMEMORYRANGES);
         writeToConn(json);
     }
 
@@ -2132,7 +2154,7 @@ VkDeviceSize* pCommittedMemoryInBytes;
         call_function=(PFN_vkGetDeviceMemoryCommitment)get_instance_proc_addr(parent,"vkGetDeviceMemoryCommitment");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceMemoryCommitment)get_device_proc_addr(parent,"vkGetDeviceMemoryCommitment");
     }  
     
@@ -2153,7 +2175,7 @@ json.clear();
         json["pCommittedMemoryInBytes"]=arr_BkHcKeY;}();
 
 
-        json["stream_type"]=VKGETDEVICEMEMORYCOMMITMENT;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEMEMORYCOMMITMENT);
         writeToConn(json);
     }
 
@@ -2186,7 +2208,7 @@ VkMemoryRequirements* pMemoryRequirements;
         call_function=(PFN_vkGetBufferMemoryRequirements)get_instance_proc_addr(parent,"vkGetBufferMemoryRequirements");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetBufferMemoryRequirements)get_device_proc_addr(parent,"vkGetBufferMemoryRequirements");
     }  
     
@@ -2204,14 +2226,15 @@ json.clear();
         for(int VeirrNu=0; VeirrNu < 1; VeirrNu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[VeirrNu]);
+            serialize_struct(temp_map, pMemoryRequirements[VeirrNu]);
             arr_qQjUyYD[VeirrNu]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_qQjUyYD;}();
 
 
-        json["stream_type"]=VKGETBUFFERMEMORYREQUIREMENTS;
+        json["stream_type"]=static_cast<int>(VKGETBUFFERMEMORYREQUIREMENTS);
         writeToConn(json);
     }
 
@@ -2245,7 +2268,7 @@ VkDeviceSize memoryOffset;
         call_function=(PFN_vkBindBufferMemory)get_instance_proc_addr(parent,"vkBindBufferMemory");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkBindBufferMemory)get_device_proc_addr(parent,"vkBindBufferMemory");
     }  
     
@@ -2261,7 +2284,7 @@ json.clear();
 [&](){[&](){json["memoryOffset"]=static_cast<uint>(memoryOffset);}();}();
 
 
-        json["stream_type"]=VKBINDBUFFERMEMORY;
+        json["stream_type"]=static_cast<int>(VKBINDBUFFERMEMORY);
         writeToConn(json);
     }
 
@@ -2294,7 +2317,7 @@ VkMemoryRequirements* pMemoryRequirements;
         call_function=(PFN_vkGetImageMemoryRequirements)get_instance_proc_addr(parent,"vkGetImageMemoryRequirements");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageMemoryRequirements)get_device_proc_addr(parent,"vkGetImageMemoryRequirements");
     }  
     
@@ -2312,14 +2335,15 @@ json.clear();
         for(int VeirrNu=0; VeirrNu < 1; VeirrNu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[VeirrNu]);
+            serialize_struct(temp_map, pMemoryRequirements[VeirrNu]);
             arr_qQjUyYD[VeirrNu]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_qQjUyYD;}();
 
 
-        json["stream_type"]=VKGETIMAGEMEMORYREQUIREMENTS;
+        json["stream_type"]=static_cast<int>(VKGETIMAGEMEMORYREQUIREMENTS);
         writeToConn(json);
     }
 
@@ -2353,7 +2377,7 @@ VkDeviceSize memoryOffset;
         call_function=(PFN_vkBindImageMemory)get_instance_proc_addr(parent,"vkBindImageMemory");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkBindImageMemory)get_device_proc_addr(parent,"vkBindImageMemory");
     }  
     
@@ -2369,7 +2393,7 @@ json.clear();
 [&](){[&](){json["memoryOffset"]=static_cast<uint>(memoryOffset);}();}();
 
 
-        json["stream_type"]=VKBINDIMAGEMEMORY;
+        json["stream_type"]=static_cast<int>(VKBINDIMAGEMEMORY);
         writeToConn(json);
     }
 
@@ -2419,7 +2443,7 @@ VkSparseImageMemoryRequirements* pSparseMemoryRequirements;
         call_function=(PFN_vkGetImageSparseMemoryRequirements)get_instance_proc_addr(parent,"vkGetImageSparseMemoryRequirements");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageSparseMemoryRequirements)get_device_proc_addr(parent,"vkGetImageSparseMemoryRequirements");
     }  
     
@@ -2445,14 +2469,15 @@ json.clear();
         for(int HKRWUBR=0; HKRWUBR < *pSparseMemoryRequirementCount; HKRWUBR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSparseMemoryRequirements[HKRWUBR]);
+            serialize_struct(temp_map, pSparseMemoryRequirements[HKRWUBR]);
             arr_gCgbiZM[HKRWUBR]=temp_map;
+            return;
             }();
         }
         json["pSparseMemoryRequirements"]=arr_gCgbiZM;}();
 
 
-        json["stream_type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS;
+        json["stream_type"]=static_cast<int>(VKGETIMAGESPARSEMEMORYREQUIREMENTS);
         writeToConn(json);
     }
 
@@ -2550,7 +2575,7 @@ VkSparseImageFormatProperties* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties)get_instance_proc_addr(parent,"vkGetPhysicalDeviceSparseImageFormatProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceSparseImageFormatProperties");
     }  
     
@@ -2580,14 +2605,15 @@ json.clear();
         for(int BOLcXca=0; BOLcXca < *pPropertyCount; BOLcXca++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[BOLcXca]);
+            serialize_struct(temp_map, pProperties[BOLcXca]);
             arr_jINYdYP[BOLcXca]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_jINYdYP;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES);
         writeToConn(json);
     }
 
@@ -2630,7 +2656,7 @@ VkFence fence;
         call_function=(PFN_vkQueueBindSparse)get_instance_proc_addr(parent,"vkQueueBindSparse");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkQueueBindSparse)get_device_proc_addr(parent,"vkQueueBindSparse");
     }  
     
@@ -2649,15 +2675,16 @@ json.clear();
         for(int ujBkVap=0; ujBkVap < bindInfoCount; ujBkVap++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindInfo[ujBkVap]);
+            serialize_struct(temp_map, pBindInfo[ujBkVap]);
             arr_eUGJCxJ[ujBkVap]=temp_map;
+            return;
             }();
         }
         json["pBindInfo"]=arr_eUGJCxJ;}();
 [&](){serialize_VkFence(json["fence"],fence);}();
 
 
-        json["stream_type"]=VKQUEUEBINDSPARSE;
+        json["stream_type"]=static_cast<int>(VKQUEUEBINDSPARSE);
         writeToConn(json);
     }
 
@@ -2708,7 +2735,7 @@ VkFence* pFence;
         call_function=(PFN_vkCreateFence)get_instance_proc_addr(parent,"vkCreateFence");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateFence)get_device_proc_addr(parent,"vkCreateFence");
     }  
     
@@ -2726,8 +2753,9 @@ json.clear();
         for(int kPSKeJY=0; kPSKeJY < 1; kPSKeJY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[kPSKeJY]);
+            serialize_struct(temp_map, pCreateInfo[kPSKeJY]);
             arr_qbBwXza[kPSKeJY]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_qbBwXza;}();
@@ -2738,8 +2766,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -2753,7 +2782,7 @@ json.clear();
         json["pFence"]=arr_SJohVKr;}();
 
 
-        json["stream_type"]=VKCREATEFENCE;
+        json["stream_type"]=static_cast<int>(VKCREATEFENCE);
         writeToConn(json);
     }
 
@@ -2786,7 +2815,7 @@ VkFence fence;
         call_function=(PFN_vkDestroyFence)get_instance_proc_addr(parent,"vkDestroyFence");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyFence)get_device_proc_addr(parent,"vkDestroyFence");
     }  
     
@@ -2804,14 +2833,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYFENCE;
+        json["stream_type"]=static_cast<int>(VKDESTROYFENCE);
         writeToConn(json);
     }
 
@@ -2850,7 +2880,7 @@ uint32_t fenceCount;
         call_function=(PFN_vkResetFences)get_instance_proc_addr(parent,"vkResetFences");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkResetFences)get_device_proc_addr(parent,"vkResetFences");
     }  
     
@@ -2872,7 +2902,7 @@ json.clear();
         json["pFences"]=arr_UUllwqV;}();
 
 
-        json["stream_type"]=VKRESETFENCES;
+        json["stream_type"]=static_cast<int>(VKRESETFENCES);
         writeToConn(json);
     }
 
@@ -2894,7 +2924,7 @@ VkFence fence;
         call_function=(PFN_vkGetFenceStatus)get_instance_proc_addr(parent,"vkGetFenceStatus");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetFenceStatus)get_device_proc_addr(parent,"vkGetFenceStatus");
     }  
     
@@ -2908,7 +2938,7 @@ json.clear();
 [&](){serialize_VkFence(json["fence"],fence);}();
 
 
-        json["stream_type"]=VKGETFENCESTATUS;
+        json["stream_type"]=static_cast<int>(VKGETFENCESTATUS);
         writeToConn(json);
     }
 
@@ -2967,7 +2997,7 @@ uint64_t timeout;
         call_function=(PFN_vkWaitForFences)get_instance_proc_addr(parent,"vkWaitForFences");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkWaitForFences)get_device_proc_addr(parent,"vkWaitForFences");
     }  
     
@@ -2996,7 +3026,7 @@ json.clear();
             
 
 
-        json["stream_type"]=VKWAITFORFENCES;
+        json["stream_type"]=static_cast<int>(VKWAITFORFENCES);
         writeToConn(json);
     }
 
@@ -3047,7 +3077,7 @@ VkSemaphore* pSemaphore;
         call_function=(PFN_vkCreateSemaphore)get_instance_proc_addr(parent,"vkCreateSemaphore");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateSemaphore)get_device_proc_addr(parent,"vkCreateSemaphore");
     }  
     
@@ -3065,8 +3095,9 @@ json.clear();
         for(int TzTYDbe=0; TzTYDbe < 1; TzTYDbe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[TzTYDbe]);
+            serialize_struct(temp_map, pCreateInfo[TzTYDbe]);
             arr_hQVwpIP[TzTYDbe]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_hQVwpIP;}();
@@ -3077,8 +3108,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -3092,7 +3124,7 @@ json.clear();
         json["pSemaphore"]=arr_rvNHvxY;}();
 
 
-        json["stream_type"]=VKCREATESEMAPHORE;
+        json["stream_type"]=static_cast<int>(VKCREATESEMAPHORE);
         writeToConn(json);
     }
 
@@ -3125,7 +3157,7 @@ VkSemaphore semaphore;
         call_function=(PFN_vkDestroySemaphore)get_instance_proc_addr(parent,"vkDestroySemaphore");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroySemaphore)get_device_proc_addr(parent,"vkDestroySemaphore");
     }  
     
@@ -3143,14 +3175,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYSEMAPHORE;
+        json["stream_type"]=static_cast<int>(VKDESTROYSEMAPHORE);
         writeToConn(json);
     }
 
@@ -3201,7 +3234,7 @@ VkEvent* pEvent;
         call_function=(PFN_vkCreateEvent)get_instance_proc_addr(parent,"vkCreateEvent");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateEvent)get_device_proc_addr(parent,"vkCreateEvent");
     }  
     
@@ -3219,8 +3252,9 @@ json.clear();
         for(int ThfQKZW=0; ThfQKZW < 1; ThfQKZW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[ThfQKZW]);
+            serialize_struct(temp_map, pCreateInfo[ThfQKZW]);
             arr_wqWioqo[ThfQKZW]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_wqWioqo;}();
@@ -3231,8 +3265,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -3246,7 +3281,7 @@ json.clear();
         json["pEvent"]=arr_edObbrc;}();
 
 
-        json["stream_type"]=VKCREATEEVENT;
+        json["stream_type"]=static_cast<int>(VKCREATEEVENT);
         writeToConn(json);
     }
 
@@ -3279,7 +3314,7 @@ VkEvent event;
         call_function=(PFN_vkDestroyEvent)get_instance_proc_addr(parent,"vkDestroyEvent");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyEvent)get_device_proc_addr(parent,"vkDestroyEvent");
     }  
     
@@ -3297,14 +3332,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYEVENT;
+        json["stream_type"]=static_cast<int>(VKDESTROYEVENT);
         writeToConn(json);
     }
 
@@ -3326,7 +3362,7 @@ VkEvent event;
         call_function=(PFN_vkGetEventStatus)get_instance_proc_addr(parent,"vkGetEventStatus");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetEventStatus)get_device_proc_addr(parent,"vkGetEventStatus");
     }  
     
@@ -3340,7 +3376,7 @@ json.clear();
 [&](){serialize_VkEvent(json["event"],event);}();
 
 
-        json["stream_type"]=VKGETEVENTSTATUS;
+        json["stream_type"]=static_cast<int>(VKGETEVENTSTATUS);
         writeToConn(json);
     }
 
@@ -3362,7 +3398,7 @@ VkEvent event;
         call_function=(PFN_vkSetEvent)get_instance_proc_addr(parent,"vkSetEvent");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkSetEvent)get_device_proc_addr(parent,"vkSetEvent");
     }  
     
@@ -3376,7 +3412,7 @@ json.clear();
 [&](){serialize_VkEvent(json["event"],event);}();
 
 
-        json["stream_type"]=VKSETEVENT;
+        json["stream_type"]=static_cast<int>(VKSETEVENT);
         writeToConn(json);
     }
 
@@ -3398,7 +3434,7 @@ VkEvent event;
         call_function=(PFN_vkResetEvent)get_instance_proc_addr(parent,"vkResetEvent");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkResetEvent)get_device_proc_addr(parent,"vkResetEvent");
     }  
     
@@ -3412,7 +3448,7 @@ json.clear();
 [&](){serialize_VkEvent(json["event"],event);}();
 
 
-        json["stream_type"]=VKRESETEVENT;
+        json["stream_type"]=static_cast<int>(VKRESETEVENT);
         writeToConn(json);
     }
 
@@ -3463,7 +3499,7 @@ VkQueryPool* pQueryPool;
         call_function=(PFN_vkCreateQueryPool)get_instance_proc_addr(parent,"vkCreateQueryPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateQueryPool)get_device_proc_addr(parent,"vkCreateQueryPool");
     }  
     
@@ -3481,8 +3517,9 @@ json.clear();
         for(int SvYxRUl=0; SvYxRUl < 1; SvYxRUl++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[SvYxRUl]);
+            serialize_struct(temp_map, pCreateInfo[SvYxRUl]);
             arr_AOuTZQo[SvYxRUl]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_AOuTZQo;}();
@@ -3493,8 +3530,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -3508,7 +3546,7 @@ json.clear();
         json["pQueryPool"]=arr_uEjfPmz;}();
 
 
-        json["stream_type"]=VKCREATEQUERYPOOL;
+        json["stream_type"]=static_cast<int>(VKCREATEQUERYPOOL);
         writeToConn(json);
     }
 
@@ -3541,7 +3579,7 @@ VkQueryPool queryPool;
         call_function=(PFN_vkDestroyQueryPool)get_instance_proc_addr(parent,"vkDestroyQueryPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyQueryPool)get_device_proc_addr(parent,"vkDestroyQueryPool");
     }  
     
@@ -3559,14 +3597,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYQUERYPOOL;
+        json["stream_type"]=static_cast<int>(VKDESTROYQUERYPOOL);
         writeToConn(json);
     }
 
@@ -3658,7 +3697,7 @@ VkQueryResultFlags flags;
         call_function=(PFN_vkGetQueryPoolResults)get_instance_proc_addr(parent,"vkGetQueryPoolResults");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetQueryPoolResults)get_device_proc_addr(parent,"vkGetQueryPoolResults");
     }  
     
@@ -3688,7 +3727,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=static_cast<int>(flags);}();}();}();
 
 
-        json["stream_type"]=VKGETQUERYPOOLRESULTS;
+        json["stream_type"]=static_cast<int>(VKGETQUERYPOOLRESULTS);
         writeToConn(json);
     }
 
@@ -3730,7 +3769,7 @@ uint32_t queryCount;
         call_function=(PFN_vkResetQueryPool)get_instance_proc_addr(parent,"vkResetQueryPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkResetQueryPool)get_device_proc_addr(parent,"vkResetQueryPool");
     }  
     
@@ -3745,7 +3784,7 @@ json.clear();
 [&](){json["queryCount"]=static_cast<uint>(queryCount);}();
 
 
-        json["stream_type"]=VKRESETQUERYPOOL;
+        json["stream_type"]=static_cast<int>(VKRESETQUERYPOOL);
         writeToConn(json);
     }
 
@@ -3796,7 +3835,7 @@ VkBuffer* pBuffer;
         call_function=(PFN_vkCreateBuffer)get_instance_proc_addr(parent,"vkCreateBuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateBuffer)get_device_proc_addr(parent,"vkCreateBuffer");
     }  
     
@@ -3814,8 +3853,9 @@ json.clear();
         for(int XkzMxbI=0; XkzMxbI < 1; XkzMxbI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[XkzMxbI]);
+            serialize_struct(temp_map, pCreateInfo[XkzMxbI]);
             arr_YapwvbL[XkzMxbI]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_YapwvbL;}();
@@ -3826,8 +3866,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -3841,7 +3882,7 @@ json.clear();
         json["pBuffer"]=arr_cIWQmjJ;}();
 
 
-        json["stream_type"]=VKCREATEBUFFER;
+        json["stream_type"]=static_cast<int>(VKCREATEBUFFER);
         writeToConn(json);
     }
 
@@ -3874,7 +3915,7 @@ VkBuffer buffer;
         call_function=(PFN_vkDestroyBuffer)get_instance_proc_addr(parent,"vkDestroyBuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyBuffer)get_device_proc_addr(parent,"vkDestroyBuffer");
     }  
     
@@ -3892,14 +3933,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYBUFFER;
+        json["stream_type"]=static_cast<int>(VKDESTROYBUFFER);
         writeToConn(json);
     }
 
@@ -3950,7 +3992,7 @@ VkBufferView* pView;
         call_function=(PFN_vkCreateBufferView)get_instance_proc_addr(parent,"vkCreateBufferView");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateBufferView)get_device_proc_addr(parent,"vkCreateBufferView");
     }  
     
@@ -3968,8 +4010,9 @@ json.clear();
         for(int cSdiRJj=0; cSdiRJj < 1; cSdiRJj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[cSdiRJj]);
+            serialize_struct(temp_map, pCreateInfo[cSdiRJj]);
             arr_SvrkcZl[cSdiRJj]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_SvrkcZl;}();
@@ -3980,8 +4023,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -3995,7 +4039,7 @@ json.clear();
         json["pView"]=arr_FoBLnTF;}();
 
 
-        json["stream_type"]=VKCREATEBUFFERVIEW;
+        json["stream_type"]=static_cast<int>(VKCREATEBUFFERVIEW);
         writeToConn(json);
     }
 
@@ -4028,7 +4072,7 @@ VkBufferView bufferView;
         call_function=(PFN_vkDestroyBufferView)get_instance_proc_addr(parent,"vkDestroyBufferView");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyBufferView)get_device_proc_addr(parent,"vkDestroyBufferView");
     }  
     
@@ -4046,14 +4090,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYBUFFERVIEW;
+        json["stream_type"]=static_cast<int>(VKDESTROYBUFFERVIEW);
         writeToConn(json);
     }
 
@@ -4104,7 +4149,7 @@ VkImage* pImage;
         call_function=(PFN_vkCreateImage)get_instance_proc_addr(parent,"vkCreateImage");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateImage)get_device_proc_addr(parent,"vkCreateImage");
     }  
     
@@ -4122,8 +4167,9 @@ json.clear();
         for(int pRwmwcF=0; pRwmwcF < 1; pRwmwcF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[pRwmwcF]);
+            serialize_struct(temp_map, pCreateInfo[pRwmwcF]);
             arr_TpPCnAy[pRwmwcF]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_TpPCnAy;}();
@@ -4134,8 +4180,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -4149,7 +4196,7 @@ json.clear();
         json["pImage"]=arr_YGmHGGw;}();
 
 
-        json["stream_type"]=VKCREATEIMAGE;
+        json["stream_type"]=static_cast<int>(VKCREATEIMAGE);
         writeToConn(json);
     }
 
@@ -4182,7 +4229,7 @@ VkImage image;
         call_function=(PFN_vkDestroyImage)get_instance_proc_addr(parent,"vkDestroyImage");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyImage)get_device_proc_addr(parent,"vkDestroyImage");
     }  
     
@@ -4200,14 +4247,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYIMAGE;
+        json["stream_type"]=static_cast<int>(VKDESTROYIMAGE);
         writeToConn(json);
     }
 
@@ -4251,7 +4299,7 @@ VkSubresourceLayout* pLayout;
         call_function=(PFN_vkGetImageSubresourceLayout)get_instance_proc_addr(parent,"vkGetImageSubresourceLayout");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageSubresourceLayout)get_device_proc_addr(parent,"vkGetImageSubresourceLayout");
     }  
     
@@ -4269,8 +4317,9 @@ json.clear();
         for(int trrMzRH=0; trrMzRH < 1; trrMzRH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubresource[trrMzRH]);
+            serialize_struct(temp_map, pSubresource[trrMzRH]);
             arr_bNRLlpX[trrMzRH]=temp_map;
+            return;
             }();
         }
         json["pSubresource"]=arr_bNRLlpX;}();
@@ -4281,14 +4330,15 @@ json.clear();
         for(int jGHmbXh=0; jGHmbXh < 1; jGHmbXh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLayout[jGHmbXh]);
+            serialize_struct(temp_map, pLayout[jGHmbXh]);
             arr_JAFsVvP[jGHmbXh]=temp_map;
+            return;
             }();
         }
         json["pLayout"]=arr_JAFsVvP;}();
 
 
-        json["stream_type"]=VKGETIMAGESUBRESOURCELAYOUT;
+        json["stream_type"]=static_cast<int>(VKGETIMAGESUBRESOURCELAYOUT);
         writeToConn(json);
     }
 
@@ -4339,7 +4389,7 @@ VkImageView* pView;
         call_function=(PFN_vkCreateImageView)get_instance_proc_addr(parent,"vkCreateImageView");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateImageView)get_device_proc_addr(parent,"vkCreateImageView");
     }  
     
@@ -4357,8 +4407,9 @@ json.clear();
         for(int HNOogbj=0; HNOogbj < 1; HNOogbj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[HNOogbj]);
+            serialize_struct(temp_map, pCreateInfo[HNOogbj]);
             arr_TYfFrkP[HNOogbj]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_TYfFrkP;}();
@@ -4369,8 +4420,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -4384,7 +4436,7 @@ json.clear();
         json["pView"]=arr_GCwrdnq;}();
 
 
-        json["stream_type"]=VKCREATEIMAGEVIEW;
+        json["stream_type"]=static_cast<int>(VKCREATEIMAGEVIEW);
         writeToConn(json);
     }
 
@@ -4417,7 +4469,7 @@ VkImageView imageView;
         call_function=(PFN_vkDestroyImageView)get_instance_proc_addr(parent,"vkDestroyImageView");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyImageView)get_device_proc_addr(parent,"vkDestroyImageView");
     }  
     
@@ -4435,14 +4487,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYIMAGEVIEW;
+        json["stream_type"]=static_cast<int>(VKDESTROYIMAGEVIEW);
         writeToConn(json);
     }
 
@@ -4493,7 +4546,7 @@ VkShaderModule* pShaderModule;
         call_function=(PFN_vkCreateShaderModule)get_instance_proc_addr(parent,"vkCreateShaderModule");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateShaderModule)get_device_proc_addr(parent,"vkCreateShaderModule");
     }  
     
@@ -4511,8 +4564,9 @@ json.clear();
         for(int dKxemXH=0; dKxemXH < 1; dKxemXH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[dKxemXH]);
+            serialize_struct(temp_map, pCreateInfo[dKxemXH]);
             arr_iSZUILM[dKxemXH]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_iSZUILM;}();
@@ -4523,8 +4577,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -4538,7 +4593,7 @@ json.clear();
         json["pShaderModule"]=arr_FaKUyxw;}();
 
 
-        json["stream_type"]=VKCREATESHADERMODULE;
+        json["stream_type"]=static_cast<int>(VKCREATESHADERMODULE);
         writeToConn(json);
     }
 
@@ -4571,7 +4626,7 @@ VkShaderModule shaderModule;
         call_function=(PFN_vkDestroyShaderModule)get_instance_proc_addr(parent,"vkDestroyShaderModule");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyShaderModule)get_device_proc_addr(parent,"vkDestroyShaderModule");
     }  
     
@@ -4589,14 +4644,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYSHADERMODULE;
+        json["stream_type"]=static_cast<int>(VKDESTROYSHADERMODULE);
         writeToConn(json);
     }
 
@@ -4647,7 +4703,7 @@ VkPipelineCache* pPipelineCache;
         call_function=(PFN_vkCreatePipelineCache)get_instance_proc_addr(parent,"vkCreatePipelineCache");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreatePipelineCache)get_device_proc_addr(parent,"vkCreatePipelineCache");
     }  
     
@@ -4665,8 +4721,9 @@ json.clear();
         for(int iWdFkeP=0; iWdFkeP < 1; iWdFkeP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[iWdFkeP]);
+            serialize_struct(temp_map, pCreateInfo[iWdFkeP]);
             arr_wTXOYfz[iWdFkeP]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_wTXOYfz;}();
@@ -4677,8 +4734,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -4692,7 +4750,7 @@ json.clear();
         json["pPipelineCache"]=arr_mogHiwV;}();
 
 
-        json["stream_type"]=VKCREATEPIPELINECACHE;
+        json["stream_type"]=static_cast<int>(VKCREATEPIPELINECACHE);
         writeToConn(json);
     }
 
@@ -4725,7 +4783,7 @@ VkPipelineCache pipelineCache;
         call_function=(PFN_vkDestroyPipelineCache)get_instance_proc_addr(parent,"vkDestroyPipelineCache");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyPipelineCache)get_device_proc_addr(parent,"vkDestroyPipelineCache");
     }  
     
@@ -4743,14 +4801,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYPIPELINECACHE;
+        json["stream_type"]=static_cast<int>(VKDESTROYPIPELINECACHE);
         writeToConn(json);
     }
 
@@ -4809,7 +4868,7 @@ void* pData;
         call_function=(PFN_vkGetPipelineCacheData)get_instance_proc_addr(parent,"vkGetPipelineCacheData");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPipelineCacheData)get_device_proc_addr(parent,"vkGetPipelineCacheData");
     }  
     
@@ -4842,7 +4901,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETPIPELINECACHEDATA;
+        json["stream_type"]=static_cast<int>(VKGETPIPELINECACHEDATA);
         writeToConn(json);
     }
 
@@ -4883,7 +4942,7 @@ uint32_t srcCacheCount;
         call_function=(PFN_vkMergePipelineCaches)get_instance_proc_addr(parent,"vkMergePipelineCaches");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkMergePipelineCaches)get_device_proc_addr(parent,"vkMergePipelineCaches");
     }  
     
@@ -4906,7 +4965,7 @@ json.clear();
         json["pSrcCaches"]=arr_DmqfOOL;}();
 
 
-        json["stream_type"]=VKMERGEPIPELINECACHES;
+        json["stream_type"]=static_cast<int>(VKMERGEPIPELINECACHES);
         writeToConn(json);
     }
 
@@ -4969,7 +5028,7 @@ VkPipeline* pPipelines;
         call_function=(PFN_vkCreateGraphicsPipelines)get_instance_proc_addr(parent,"vkCreateGraphicsPipelines");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateGraphicsPipelines)get_device_proc_addr(parent,"vkCreateGraphicsPipelines");
     }  
     
@@ -4989,8 +5048,9 @@ json.clear();
         for(int wqGiARr=0; wqGiARr < createInfoCount; wqGiARr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[wqGiARr]);
+            serialize_struct(temp_map, pCreateInfos[wqGiARr]);
             arr_juQDvLY[wqGiARr]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_juQDvLY;}();
@@ -5001,8 +5061,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -5016,7 +5077,7 @@ json.clear();
         json["pPipelines"]=arr_wuOYMDC;}();
 
 
-        json["stream_type"]=VKCREATEGRAPHICSPIPELINES;
+        json["stream_type"]=static_cast<int>(VKCREATEGRAPHICSPIPELINES);
         writeToConn(json);
     }
 
@@ -5079,7 +5140,7 @@ VkPipeline* pPipelines;
         call_function=(PFN_vkCreateComputePipelines)get_instance_proc_addr(parent,"vkCreateComputePipelines");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateComputePipelines)get_device_proc_addr(parent,"vkCreateComputePipelines");
     }  
     
@@ -5099,8 +5160,9 @@ json.clear();
         for(int NsFJrJk=0; NsFJrJk < createInfoCount; NsFJrJk++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[NsFJrJk]);
+            serialize_struct(temp_map, pCreateInfos[NsFJrJk]);
             arr_eqiaDas[NsFJrJk]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_eqiaDas;}();
@@ -5111,8 +5173,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -5126,7 +5189,7 @@ json.clear();
         json["pPipelines"]=arr_wuOYMDC;}();
 
 
-        json["stream_type"]=VKCREATECOMPUTEPIPELINES;
+        json["stream_type"]=static_cast<int>(VKCREATECOMPUTEPIPELINES);
         writeToConn(json);
     }
 
@@ -5159,7 +5222,7 @@ VkExtent2D* pMaxWorkgroupSize;
         call_function=(PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI)get_instance_proc_addr(parent,"vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI)get_device_proc_addr(parent,"vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI");
     }  
     
@@ -5178,14 +5241,15 @@ json.clear();
         for(int WdbibPk=0; WdbibPk < 1; WdbibPk++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMaxWorkgroupSize[WdbibPk]);
+            serialize_struct(temp_map, pMaxWorkgroupSize[WdbibPk]);
             arr_QJRQgTX[WdbibPk]=temp_map;
+            return;
             }();
         }
         json["pMaxWorkgroupSize"]=arr_QJRQgTX;}();
 
 
-        json["stream_type"]=VKGETDEVICESUBPASSSHADINGMAXWORKGROUPSIZEHUAWEI;
+        json["stream_type"]=static_cast<int>(VKGETDEVICESUBPASSSHADINGMAXWORKGROUPSIZEHUAWEI);
         writeToConn(json);
     }
 
@@ -5218,7 +5282,7 @@ VkPipeline pipeline;
         call_function=(PFN_vkDestroyPipeline)get_instance_proc_addr(parent,"vkDestroyPipeline");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyPipeline)get_device_proc_addr(parent,"vkDestroyPipeline");
     }  
     
@@ -5236,14 +5300,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYPIPELINE;
+        json["stream_type"]=static_cast<int>(VKDESTROYPIPELINE);
         writeToConn(json);
     }
 
@@ -5294,7 +5359,7 @@ VkPipelineLayout* pPipelineLayout;
         call_function=(PFN_vkCreatePipelineLayout)get_instance_proc_addr(parent,"vkCreatePipelineLayout");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreatePipelineLayout)get_device_proc_addr(parent,"vkCreatePipelineLayout");
     }  
     
@@ -5312,8 +5377,9 @@ json.clear();
         for(int AdWYCmn=0; AdWYCmn < 1; AdWYCmn++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[AdWYCmn]);
+            serialize_struct(temp_map, pCreateInfo[AdWYCmn]);
             arr_iyZpkhm[AdWYCmn]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_iyZpkhm;}();
@@ -5324,8 +5390,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -5339,7 +5406,7 @@ json.clear();
         json["pPipelineLayout"]=arr_NheDZho;}();
 
 
-        json["stream_type"]=VKCREATEPIPELINELAYOUT;
+        json["stream_type"]=static_cast<int>(VKCREATEPIPELINELAYOUT);
         writeToConn(json);
     }
 
@@ -5372,7 +5439,7 @@ VkPipelineLayout pipelineLayout;
         call_function=(PFN_vkDestroyPipelineLayout)get_instance_proc_addr(parent,"vkDestroyPipelineLayout");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyPipelineLayout)get_device_proc_addr(parent,"vkDestroyPipelineLayout");
     }  
     
@@ -5390,14 +5457,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYPIPELINELAYOUT;
+        json["stream_type"]=static_cast<int>(VKDESTROYPIPELINELAYOUT);
         writeToConn(json);
     }
 
@@ -5448,7 +5516,7 @@ VkSampler* pSampler;
         call_function=(PFN_vkCreateSampler)get_instance_proc_addr(parent,"vkCreateSampler");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateSampler)get_device_proc_addr(parent,"vkCreateSampler");
     }  
     
@@ -5466,8 +5534,9 @@ json.clear();
         for(int yMsdBPh=0; yMsdBPh < 1; yMsdBPh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[yMsdBPh]);
+            serialize_struct(temp_map, pCreateInfo[yMsdBPh]);
             arr_xWlqrLm[yMsdBPh]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_xWlqrLm;}();
@@ -5478,8 +5547,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -5493,7 +5563,7 @@ json.clear();
         json["pSampler"]=arr_nEROYrx;}();
 
 
-        json["stream_type"]=VKCREATESAMPLER;
+        json["stream_type"]=static_cast<int>(VKCREATESAMPLER);
         writeToConn(json);
     }
 
@@ -5526,7 +5596,7 @@ VkSampler sampler;
         call_function=(PFN_vkDestroySampler)get_instance_proc_addr(parent,"vkDestroySampler");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroySampler)get_device_proc_addr(parent,"vkDestroySampler");
     }  
     
@@ -5544,14 +5614,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYSAMPLER;
+        json["stream_type"]=static_cast<int>(VKDESTROYSAMPLER);
         writeToConn(json);
     }
 
@@ -5602,7 +5673,7 @@ VkDescriptorSetLayout* pSetLayout;
         call_function=(PFN_vkCreateDescriptorSetLayout)get_instance_proc_addr(parent,"vkCreateDescriptorSetLayout");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateDescriptorSetLayout)get_device_proc_addr(parent,"vkCreateDescriptorSetLayout");
     }  
     
@@ -5620,8 +5691,9 @@ json.clear();
         for(int tUGauKK=0; tUGauKK < 1; tUGauKK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[tUGauKK]);
+            serialize_struct(temp_map, pCreateInfo[tUGauKK]);
             arr_dFRsqIW[tUGauKK]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_dFRsqIW;}();
@@ -5632,8 +5704,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -5647,7 +5720,7 @@ json.clear();
         json["pSetLayout"]=arr_iCAhOCt;}();
 
 
-        json["stream_type"]=VKCREATEDESCRIPTORSETLAYOUT;
+        json["stream_type"]=static_cast<int>(VKCREATEDESCRIPTORSETLAYOUT);
         writeToConn(json);
     }
 
@@ -5680,7 +5753,7 @@ VkDescriptorSetLayout descriptorSetLayout;
         call_function=(PFN_vkDestroyDescriptorSetLayout)get_instance_proc_addr(parent,"vkDestroyDescriptorSetLayout");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyDescriptorSetLayout)get_device_proc_addr(parent,"vkDestroyDescriptorSetLayout");
     }  
     
@@ -5698,14 +5771,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYDESCRIPTORSETLAYOUT;
+        json["stream_type"]=static_cast<int>(VKDESTROYDESCRIPTORSETLAYOUT);
         writeToConn(json);
     }
 
@@ -5756,7 +5830,7 @@ VkDescriptorPool* pDescriptorPool;
         call_function=(PFN_vkCreateDescriptorPool)get_instance_proc_addr(parent,"vkCreateDescriptorPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateDescriptorPool)get_device_proc_addr(parent,"vkCreateDescriptorPool");
     }  
     
@@ -5774,8 +5848,9 @@ json.clear();
         for(int XgrRVVh=0; XgrRVVh < 1; XgrRVVh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[XgrRVVh]);
+            serialize_struct(temp_map, pCreateInfo[XgrRVVh]);
             arr_fChMCRL[XgrRVVh]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_fChMCRL;}();
@@ -5786,8 +5861,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -5801,7 +5877,7 @@ json.clear();
         json["pDescriptorPool"]=arr_zvYCksx;}();
 
 
-        json["stream_type"]=VKCREATEDESCRIPTORPOOL;
+        json["stream_type"]=static_cast<int>(VKCREATEDESCRIPTORPOOL);
         writeToConn(json);
     }
 
@@ -5834,7 +5910,7 @@ VkDescriptorPool descriptorPool;
         call_function=(PFN_vkDestroyDescriptorPool)get_instance_proc_addr(parent,"vkDestroyDescriptorPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyDescriptorPool)get_device_proc_addr(parent,"vkDestroyDescriptorPool");
     }  
     
@@ -5852,14 +5928,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYDESCRIPTORPOOL;
+        json["stream_type"]=static_cast<int>(VKDESTROYDESCRIPTORPOOL);
         writeToConn(json);
     }
 
@@ -5891,7 +5968,7 @@ VkDescriptorPoolResetFlags flags;
         call_function=(PFN_vkResetDescriptorPool)get_instance_proc_addr(parent,"vkResetDescriptorPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkResetDescriptorPool)get_device_proc_addr(parent,"vkResetDescriptorPool");
     }  
     
@@ -5906,7 +5983,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=static_cast<int>(flags);}();}();}();
 
 
-        json["stream_type"]=VKRESETDESCRIPTORPOOL;
+        json["stream_type"]=static_cast<int>(VKRESETDESCRIPTORPOOL);
         writeToConn(json);
     }
 
@@ -5946,7 +6023,7 @@ VkDescriptorSet* pDescriptorSets;
         call_function=(PFN_vkAllocateDescriptorSets)get_instance_proc_addr(parent,"vkAllocateDescriptorSets");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkAllocateDescriptorSets)get_device_proc_addr(parent,"vkAllocateDescriptorSets");
     }  
     
@@ -5964,8 +6041,9 @@ json.clear();
         for(int jTINpTr=0; jTINpTr < 1; jTINpTr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocateInfo[jTINpTr]);
+            serialize_struct(temp_map, pAllocateInfo[jTINpTr]);
             arr_yVqYJHW[jTINpTr]=temp_map;
+            return;
             }();
         }
         json["pAllocateInfo"]=arr_yVqYJHW;}();
@@ -5979,7 +6057,7 @@ json.clear();
         json["pDescriptorSets"]=arr_hwQSDBT;}();
 
 
-        json["stream_type"]=VKALLOCATEDESCRIPTORSETS;
+        json["stream_type"]=static_cast<int>(VKALLOCATEDESCRIPTORSETS);
         writeToConn(json);
     }
 
@@ -6020,7 +6098,7 @@ uint32_t descriptorSetCount;
         call_function=(PFN_vkFreeDescriptorSets)get_instance_proc_addr(parent,"vkFreeDescriptorSets");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkFreeDescriptorSets)get_device_proc_addr(parent,"vkFreeDescriptorSets");
     }  
     
@@ -6043,7 +6121,7 @@ json.clear();
         json["pDescriptorSets"]=arr_JZNsxgK;}();
 
 
-        json["stream_type"]=VKFREEDESCRIPTORSETS;
+        json["stream_type"]=static_cast<int>(VKFREEDESCRIPTORSETS);
         writeToConn(json);
     }
 
@@ -6105,7 +6183,7 @@ uint32_t descriptorCopyCount;
         call_function=(PFN_vkUpdateDescriptorSets)get_instance_proc_addr(parent,"vkUpdateDescriptorSets");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkUpdateDescriptorSets)get_device_proc_addr(parent,"vkUpdateDescriptorSets");
     }  
     
@@ -6123,8 +6201,9 @@ json.clear();
         for(int qJACxKx=0; qJACxKx < descriptorWriteCount; qJACxKx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDescriptorWrites[qJACxKx]);
+            serialize_struct(temp_map, pDescriptorWrites[qJACxKx]);
             arr_AuOrFWk[qJACxKx]=temp_map;
+            return;
             }();
         }
         json["pDescriptorWrites"]=arr_AuOrFWk;}();
@@ -6136,14 +6215,15 @@ json.clear();
         for(int ryeXdkw=0; ryeXdkw < descriptorCopyCount; ryeXdkw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDescriptorCopies[ryeXdkw]);
+            serialize_struct(temp_map, pDescriptorCopies[ryeXdkw]);
             arr_WWZDhqd[ryeXdkw]=temp_map;
+            return;
             }();
         }
         json["pDescriptorCopies"]=arr_WWZDhqd;}();
 
 
-        json["stream_type"]=VKUPDATEDESCRIPTORSETS;
+        json["stream_type"]=static_cast<int>(VKUPDATEDESCRIPTORSETS);
         writeToConn(json);
     }
 
@@ -6194,7 +6274,7 @@ VkFramebuffer* pFramebuffer;
         call_function=(PFN_vkCreateFramebuffer)get_instance_proc_addr(parent,"vkCreateFramebuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateFramebuffer)get_device_proc_addr(parent,"vkCreateFramebuffer");
     }  
     
@@ -6212,8 +6292,9 @@ json.clear();
         for(int jMLqpUb=0; jMLqpUb < 1; jMLqpUb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[jMLqpUb]);
+            serialize_struct(temp_map, pCreateInfo[jMLqpUb]);
             arr_LBIrWmz[jMLqpUb]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_LBIrWmz;}();
@@ -6224,8 +6305,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -6239,7 +6321,7 @@ json.clear();
         json["pFramebuffer"]=arr_xECXRAK;}();
 
 
-        json["stream_type"]=VKCREATEFRAMEBUFFER;
+        json["stream_type"]=static_cast<int>(VKCREATEFRAMEBUFFER);
         writeToConn(json);
     }
 
@@ -6272,7 +6354,7 @@ VkFramebuffer framebuffer;
         call_function=(PFN_vkDestroyFramebuffer)get_instance_proc_addr(parent,"vkDestroyFramebuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyFramebuffer)get_device_proc_addr(parent,"vkDestroyFramebuffer");
     }  
     
@@ -6290,14 +6372,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYFRAMEBUFFER;
+        json["stream_type"]=static_cast<int>(VKDESTROYFRAMEBUFFER);
         writeToConn(json);
     }
 
@@ -6348,7 +6431,7 @@ VkRenderPass* pRenderPass;
         call_function=(PFN_vkCreateRenderPass)get_instance_proc_addr(parent,"vkCreateRenderPass");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateRenderPass)get_device_proc_addr(parent,"vkCreateRenderPass");
     }  
     
@@ -6366,8 +6449,9 @@ json.clear();
         for(int oHJSJzU=0; oHJSJzU < 1; oHJSJzU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[oHJSJzU]);
+            serialize_struct(temp_map, pCreateInfo[oHJSJzU]);
             arr_upxhtZe[oHJSJzU]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_upxhtZe;}();
@@ -6378,8 +6462,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -6393,7 +6478,7 @@ json.clear();
         json["pRenderPass"]=arr_ZwdXTfx;}();
 
 
-        json["stream_type"]=VKCREATERENDERPASS;
+        json["stream_type"]=static_cast<int>(VKCREATERENDERPASS);
         writeToConn(json);
     }
 
@@ -6426,7 +6511,7 @@ VkRenderPass renderPass;
         call_function=(PFN_vkDestroyRenderPass)get_instance_proc_addr(parent,"vkDestroyRenderPass");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyRenderPass)get_device_proc_addr(parent,"vkDestroyRenderPass");
     }  
     
@@ -6444,14 +6529,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYRENDERPASS;
+        json["stream_type"]=static_cast<int>(VKDESTROYRENDERPASS);
         writeToConn(json);
     }
 
@@ -6484,7 +6570,7 @@ VkExtent2D* pGranularity;
         call_function=(PFN_vkGetRenderAreaGranularity)get_instance_proc_addr(parent,"vkGetRenderAreaGranularity");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetRenderAreaGranularity)get_device_proc_addr(parent,"vkGetRenderAreaGranularity");
     }  
     
@@ -6502,14 +6588,15 @@ json.clear();
         for(int tgiNLQL=0; tgiNLQL < 1; tgiNLQL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGranularity[tgiNLQL]);
+            serialize_struct(temp_map, pGranularity[tgiNLQL]);
             arr_VvmWHYL[tgiNLQL]=temp_map;
+            return;
             }();
         }
         json["pGranularity"]=arr_VvmWHYL;}();
 
 
-        json["stream_type"]=VKGETRENDERAREAGRANULARITY;
+        json["stream_type"]=static_cast<int>(VKGETRENDERAREAGRANULARITY);
         writeToConn(json);
     }
 
@@ -6551,7 +6638,7 @@ VkExtent2D* pGranularity;
         call_function=(PFN_vkGetRenderingAreaGranularityKHR)get_instance_proc_addr(parent,"vkGetRenderingAreaGranularityKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetRenderingAreaGranularityKHR)get_device_proc_addr(parent,"vkGetRenderingAreaGranularityKHR");
     }  
     
@@ -6568,8 +6655,9 @@ json.clear();
         for(int WRYBJDa=0; WRYBJDa < 1; WRYBJDa++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRenderingAreaInfo[WRYBJDa]);
+            serialize_struct(temp_map, pRenderingAreaInfo[WRYBJDa]);
             arr_QFvDqfG[WRYBJDa]=temp_map;
+            return;
             }();
         }
         json["pRenderingAreaInfo"]=arr_QFvDqfG;}();
@@ -6580,14 +6668,15 @@ json.clear();
         for(int tgiNLQL=0; tgiNLQL < 1; tgiNLQL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGranularity[tgiNLQL]);
+            serialize_struct(temp_map, pGranularity[tgiNLQL]);
             arr_VvmWHYL[tgiNLQL]=temp_map;
+            return;
             }();
         }
         json["pGranularity"]=arr_VvmWHYL;}();
 
 
-        json["stream_type"]=VKGETRENDERINGAREAGRANULARITYKHR;
+        json["stream_type"]=static_cast<int>(VKGETRENDERINGAREAGRANULARITYKHR);
         writeToConn(json);
     }
 
@@ -6638,7 +6727,7 @@ VkCommandPool* pCommandPool;
         call_function=(PFN_vkCreateCommandPool)get_instance_proc_addr(parent,"vkCreateCommandPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateCommandPool)get_device_proc_addr(parent,"vkCreateCommandPool");
     }  
     
@@ -6656,8 +6745,9 @@ json.clear();
         for(int ubLLexW=0; ubLLexW < 1; ubLLexW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[ubLLexW]);
+            serialize_struct(temp_map, pCreateInfo[ubLLexW]);
             arr_ISnaSOj[ubLLexW]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_ISnaSOj;}();
@@ -6668,8 +6758,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -6683,7 +6774,7 @@ json.clear();
         json["pCommandPool"]=arr_ohCGecZ;}();
 
 
-        json["stream_type"]=VKCREATECOMMANDPOOL;
+        json["stream_type"]=static_cast<int>(VKCREATECOMMANDPOOL);
         writeToConn(json);
     }
 
@@ -6716,7 +6807,7 @@ VkCommandPool commandPool;
         call_function=(PFN_vkDestroyCommandPool)get_instance_proc_addr(parent,"vkDestroyCommandPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyCommandPool)get_device_proc_addr(parent,"vkDestroyCommandPool");
     }  
     
@@ -6734,14 +6825,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYCOMMANDPOOL;
+        json["stream_type"]=static_cast<int>(VKDESTROYCOMMANDPOOL);
         writeToConn(json);
     }
 
@@ -6773,7 +6865,7 @@ VkCommandPoolResetFlags flags;
         call_function=(PFN_vkResetCommandPool)get_instance_proc_addr(parent,"vkResetCommandPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkResetCommandPool)get_device_proc_addr(parent,"vkResetCommandPool");
     }  
     
@@ -6788,7 +6880,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=static_cast<int>(flags);}();}();}();
 
 
-        json["stream_type"]=VKRESETCOMMANDPOOL;
+        json["stream_type"]=static_cast<int>(VKRESETCOMMANDPOOL);
         writeToConn(json);
     }
 
@@ -6828,7 +6920,7 @@ VkCommandBuffer* pCommandBuffers;
         call_function=(PFN_vkAllocateCommandBuffers)get_instance_proc_addr(parent,"vkAllocateCommandBuffers");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkAllocateCommandBuffers)get_device_proc_addr(parent,"vkAllocateCommandBuffers");
     }  
     
@@ -6846,8 +6938,9 @@ json.clear();
         for(int VMrKYrr=0; VMrKYrr < 1; VMrKYrr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocateInfo[VMrKYrr]);
+            serialize_struct(temp_map, pAllocateInfo[VMrKYrr]);
             arr_ZURucFE[VMrKYrr]=temp_map;
+            return;
             }();
         }
         json["pAllocateInfo"]=arr_ZURucFE;}();
@@ -6861,7 +6954,7 @@ json.clear();
         json["pCommandBuffers"]=arr_WZYlBGU;}();
 
 
-        json["stream_type"]=VKALLOCATECOMMANDBUFFERS;
+        json["stream_type"]=static_cast<int>(VKALLOCATECOMMANDBUFFERS);
         writeToConn(json);
     }
 
@@ -6902,7 +6995,7 @@ uint32_t commandBufferCount;
         call_function=(PFN_vkFreeCommandBuffers)get_instance_proc_addr(parent,"vkFreeCommandBuffers");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkFreeCommandBuffers)get_device_proc_addr(parent,"vkFreeCommandBuffers");
     }  
     
@@ -6924,7 +7017,7 @@ json.clear();
         json["pCommandBuffers"]=arr_PdRlpEO;}();
 
 
-        json["stream_type"]=VKFREECOMMANDBUFFERS;
+        json["stream_type"]=static_cast<int>(VKFREECOMMANDBUFFERS);
         writeToConn(json);
     }
 
@@ -6955,7 +7048,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkBeginCommandBuffer)get_instance_proc_addr(parent,"vkBeginCommandBuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkBeginCommandBuffer)get_device_proc_addr(parent,"vkBeginCommandBuffer");
     }  
     
@@ -6973,14 +7066,15 @@ json.clear();
         for(int MlslWJM=0; MlslWJM < 1; MlslWJM++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBeginInfo[MlslWJM]);
+            serialize_struct(temp_map, pBeginInfo[MlslWJM]);
             arr_cULABHU[MlslWJM]=temp_map;
+            return;
             }();
         }
         json["pBeginInfo"]=arr_cULABHU;}();
 
 
-        json["stream_type"]=VKBEGINCOMMANDBUFFER;
+        json["stream_type"]=static_cast<int>(VKBEGINCOMMANDBUFFER);
         writeToConn(json);
     }
 
@@ -7000,7 +7094,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkEndCommandBuffer)get_instance_proc_addr(parent,"vkEndCommandBuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkEndCommandBuffer)get_device_proc_addr(parent,"vkEndCommandBuffer");
     }  
     
@@ -7013,7 +7107,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["stream_type"]=VKENDCOMMANDBUFFER;
+        json["stream_type"]=static_cast<int>(VKENDCOMMANDBUFFER);
         writeToConn(json);
     }
 
@@ -7043,7 +7137,7 @@ VkCommandBufferResetFlags flags;
         call_function=(PFN_vkResetCommandBuffer)get_instance_proc_addr(parent,"vkResetCommandBuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkResetCommandBuffer)get_device_proc_addr(parent,"vkResetCommandBuffer");
     }  
     
@@ -7057,7 +7151,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=static_cast<int>(flags);}();}();}();
 
 
-        json["stream_type"]=VKRESETCOMMANDBUFFER;
+        json["stream_type"]=static_cast<int>(VKRESETCOMMANDBUFFER);
         writeToConn(json);
     }
 
@@ -7089,7 +7183,7 @@ VkPipeline pipeline;
         call_function=(PFN_vkCmdBindPipeline)get_instance_proc_addr(parent,"vkCmdBindPipeline");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindPipeline)get_device_proc_addr(parent,"vkCmdBindPipeline");
     }  
     
@@ -7103,7 +7197,7 @@ json.clear();
 [&](){serialize_VkPipeline(json["pipeline"],pipeline);}();
 
 
-        json["stream_type"]=VKCMDBINDPIPELINE;
+        json["stream_type"]=static_cast<int>(VKCMDBINDPIPELINE);
         writeToConn(json);
     }
 
@@ -7133,7 +7227,7 @@ VkImageAspectFlags aspectMask;
         call_function=(PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT)get_instance_proc_addr(parent,"vkCmdSetAttachmentFeedbackLoopEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT)get_device_proc_addr(parent,"vkCmdSetAttachmentFeedbackLoopEnableEXT");
     }  
     
@@ -7146,7 +7240,7 @@ json.clear();
 [&](){[&](){[&](){json["aspectMask"]=static_cast<int>(aspectMask);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETATTACHMENTFEEDBACKLOOPENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETATTACHMENTFEEDBACKLOOPENABLEEXT);
         writeToConn(json);
     }
 
@@ -7197,7 +7291,7 @@ uint32_t viewportCount;
         call_function=(PFN_vkCmdSetViewport)get_instance_proc_addr(parent,"vkCmdSetViewport");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetViewport)get_device_proc_addr(parent,"vkCmdSetViewport");
     }  
     
@@ -7216,14 +7310,15 @@ json.clear();
         for(int HAuJlzw=0; HAuJlzw < viewportCount; HAuJlzw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pViewports[HAuJlzw]);
+            serialize_struct(temp_map, pViewports[HAuJlzw]);
             arr_SyYryUE[HAuJlzw]=temp_map;
+            return;
             }();
         }
         json["pViewports"]=arr_SyYryUE;}();
 
 
-        json["stream_type"]=VKCMDSETVIEWPORT;
+        json["stream_type"]=static_cast<int>(VKCMDSETVIEWPORT);
         writeToConn(json);
     }
 
@@ -7274,7 +7369,7 @@ uint32_t scissorCount;
         call_function=(PFN_vkCmdSetScissor)get_instance_proc_addr(parent,"vkCmdSetScissor");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetScissor)get_device_proc_addr(parent,"vkCmdSetScissor");
     }  
     
@@ -7293,14 +7388,15 @@ json.clear();
         for(int XBYGvVT=0; XBYGvVT < scissorCount; XBYGvVT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pScissors[XBYGvVT]);
+            serialize_struct(temp_map, pScissors[XBYGvVT]);
             arr_RpUaBcS[XBYGvVT]=temp_map;
+            return;
             }();
         }
         json["pScissors"]=arr_RpUaBcS;}();
 
 
-        json["stream_type"]=VKCMDSETSCISSOR;
+        json["stream_type"]=static_cast<int>(VKCMDSETSCISSOR);
         writeToConn(json);
     }
 
@@ -7330,7 +7426,7 @@ float lineWidth;
         call_function=(PFN_vkCmdSetLineWidth)get_instance_proc_addr(parent,"vkCmdSetLineWidth");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetLineWidth)get_device_proc_addr(parent,"vkCmdSetLineWidth");
     }  
     
@@ -7343,7 +7439,7 @@ json.clear();
 [&](){json["lineWidth"]=static_cast<float>(lineWidth);}();
 
 
-        json["stream_type"]=VKCMDSETLINEWIDTH;
+        json["stream_type"]=static_cast<int>(VKCMDSETLINEWIDTH);
         writeToConn(json);
     }
 
@@ -7393,7 +7489,7 @@ float depthBiasSlopeFactor;
         call_function=(PFN_vkCmdSetDepthBias)get_instance_proc_addr(parent,"vkCmdSetDepthBias");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthBias)get_device_proc_addr(parent,"vkCmdSetDepthBias");
     }  
     
@@ -7408,7 +7504,7 @@ json.clear();
 [&](){json["depthBiasSlopeFactor"]=static_cast<float>(depthBiasSlopeFactor);}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHBIAS;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHBIAS);
         writeToConn(json);
     }
 
@@ -7442,7 +7538,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdSetBlendConstants)get_instance_proc_addr(parent,"vkCmdSetBlendConstants");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetBlendConstants)get_device_proc_addr(parent,"vkCmdSetBlendConstants");
     }  
     
@@ -7459,7 +7555,7 @@ json.clear();
         json["blendConstants"]=arr_HTjCZtj;}();
 
 
-        json["stream_type"]=VKCMDSETBLENDCONSTANTS;
+        json["stream_type"]=static_cast<int>(VKCMDSETBLENDCONSTANTS);
         writeToConn(json);
     }
 
@@ -7499,7 +7595,7 @@ float maxDepthBounds;
         call_function=(PFN_vkCmdSetDepthBounds)get_instance_proc_addr(parent,"vkCmdSetDepthBounds");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthBounds)get_device_proc_addr(parent,"vkCmdSetDepthBounds");
     }  
     
@@ -7513,7 +7609,7 @@ json.clear();
 [&](){json["maxDepthBounds"]=static_cast<float>(maxDepthBounds);}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHBOUNDS;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHBOUNDS);
         writeToConn(json);
     }
 
@@ -7553,7 +7649,7 @@ uint32_t compareMask;
         call_function=(PFN_vkCmdSetStencilCompareMask)get_instance_proc_addr(parent,"vkCmdSetStencilCompareMask");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetStencilCompareMask)get_device_proc_addr(parent,"vkCmdSetStencilCompareMask");
     }  
     
@@ -7567,7 +7663,7 @@ json.clear();
 [&](){json["compareMask"]=static_cast<uint>(compareMask);}();
 
 
-        json["stream_type"]=VKCMDSETSTENCILCOMPAREMASK;
+        json["stream_type"]=static_cast<int>(VKCMDSETSTENCILCOMPAREMASK);
         writeToConn(json);
     }
 
@@ -7607,7 +7703,7 @@ uint32_t writeMask;
         call_function=(PFN_vkCmdSetStencilWriteMask)get_instance_proc_addr(parent,"vkCmdSetStencilWriteMask");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetStencilWriteMask)get_device_proc_addr(parent,"vkCmdSetStencilWriteMask");
     }  
     
@@ -7621,7 +7717,7 @@ json.clear();
 [&](){json["writeMask"]=static_cast<uint>(writeMask);}();
 
 
-        json["stream_type"]=VKCMDSETSTENCILWRITEMASK;
+        json["stream_type"]=static_cast<int>(VKCMDSETSTENCILWRITEMASK);
         writeToConn(json);
     }
 
@@ -7661,7 +7757,7 @@ uint32_t reference;
         call_function=(PFN_vkCmdSetStencilReference)get_instance_proc_addr(parent,"vkCmdSetStencilReference");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetStencilReference)get_device_proc_addr(parent,"vkCmdSetStencilReference");
     }  
     
@@ -7675,7 +7771,7 @@ json.clear();
 [&](){json["reference"]=static_cast<uint>(reference);}();
 
 
-        json["stream_type"]=VKCMDSETSTENCILREFERENCE;
+        json["stream_type"]=static_cast<int>(VKCMDSETSTENCILREFERENCE);
         writeToConn(json);
     }
 
@@ -7763,7 +7859,7 @@ uint32_t dynamicOffsetCount;
         call_function=(PFN_vkCmdBindDescriptorSets)get_instance_proc_addr(parent,"vkCmdBindDescriptorSets");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindDescriptorSets)get_device_proc_addr(parent,"vkCmdBindDescriptorSets");
     }  
     
@@ -7796,7 +7892,7 @@ json.clear();
         json["pDynamicOffsets"]=arr_Zetuxcc;}();
 
 
-        json["stream_type"]=VKCMDBINDDESCRIPTORSETS;
+        json["stream_type"]=static_cast<int>(VKCMDBINDDESCRIPTORSETS);
         writeToConn(json);
     }
 
@@ -7838,7 +7934,7 @@ VkIndexType indexType;
         call_function=(PFN_vkCmdBindIndexBuffer)get_instance_proc_addr(parent,"vkCmdBindIndexBuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindIndexBuffer)get_device_proc_addr(parent,"vkCmdBindIndexBuffer");
     }  
     
@@ -7853,7 +7949,7 @@ json.clear();
 [&](){[&](){[&](){json["indexType"]=static_cast<int>(indexType);}();}();}();
 
 
-        json["stream_type"]=VKCMDBINDINDEXBUFFER;
+        json["stream_type"]=static_cast<int>(VKCMDBINDINDEXBUFFER);
         writeToConn(json);
     }
 
@@ -7919,7 +8015,7 @@ uint32_t bindingCount;
         call_function=(PFN_vkCmdBindVertexBuffers)get_instance_proc_addr(parent,"vkCmdBindVertexBuffers");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindVertexBuffers)get_device_proc_addr(parent,"vkCmdBindVertexBuffers");
     }  
     
@@ -7949,7 +8045,7 @@ json.clear();
         json["pOffsets"]=arr_YvpyTDd;}();
 
 
-        json["stream_type"]=VKCMDBINDVERTEXBUFFERS;
+        json["stream_type"]=static_cast<int>(VKCMDBINDVERTEXBUFFERS);
         writeToConn(json);
     }
 
@@ -8009,7 +8105,7 @@ uint32_t firstInstance;
         call_function=(PFN_vkCmdDraw)get_instance_proc_addr(parent,"vkCmdDraw");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDraw)get_device_proc_addr(parent,"vkCmdDraw");
     }  
     
@@ -8025,7 +8121,7 @@ json.clear();
 [&](){json["firstInstance"]=static_cast<uint>(firstInstance);}();
 
 
-        json["stream_type"]=VKCMDDRAW;
+        json["stream_type"]=static_cast<int>(VKCMDDRAW);
         writeToConn(json);
     }
 
@@ -8095,7 +8191,7 @@ uint32_t firstInstance;
         call_function=(PFN_vkCmdDrawIndexed)get_instance_proc_addr(parent,"vkCmdDrawIndexed");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawIndexed)get_device_proc_addr(parent,"vkCmdDrawIndexed");
     }  
     
@@ -8112,7 +8208,7 @@ json.clear();
 [&](){json["firstInstance"]=static_cast<uint>(firstInstance);}();
 
 
-        json["stream_type"]=VKCMDDRAWINDEXED;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWINDEXED);
         writeToConn(json);
     }
 
@@ -8183,7 +8279,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDrawMultiEXT)get_instance_proc_addr(parent,"vkCmdDrawMultiEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawMultiEXT)get_device_proc_addr(parent,"vkCmdDrawMultiEXT");
     }  
     
@@ -8201,8 +8297,9 @@ json.clear();
         for(int xJCsgzh=0; xJCsgzh < drawCount; xJCsgzh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVertexInfo[xJCsgzh]);
+            serialize_struct(temp_map, pVertexInfo[xJCsgzh]);
             arr_NmVssTF[xJCsgzh]=temp_map;
+            return;
             }();
         }
         json["pVertexInfo"]=arr_NmVssTF;}();
@@ -8211,7 +8308,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDDRAWMULTIEXT;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWMULTIEXT);
         writeToConn(json);
     }
 
@@ -8299,7 +8396,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDrawMultiIndexedEXT)get_instance_proc_addr(parent,"vkCmdDrawMultiIndexedEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawMultiIndexedEXT)get_device_proc_addr(parent,"vkCmdDrawMultiIndexedEXT");
     }  
     
@@ -8317,8 +8414,9 @@ json.clear();
         for(int FmfkOAV=0; FmfkOAV < drawCount; FmfkOAV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pIndexInfo[FmfkOAV]);
+            serialize_struct(temp_map, pIndexInfo[FmfkOAV]);
             arr_OvAOCiL[FmfkOAV]=temp_map;
+            return;
             }();
         }
         json["pIndexInfo"]=arr_OvAOCiL;}();
@@ -8335,7 +8433,7 @@ json.clear();
         json["pVertexOffset"]=arr_PavgIEG;}();
 
 
-        json["stream_type"]=VKCMDDRAWMULTIINDEXEDEXT;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWMULTIINDEXEDEXT);
         writeToConn(json);
     }
 
@@ -8387,7 +8485,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDrawIndirect)get_instance_proc_addr(parent,"vkCmdDrawIndirect");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawIndirect)get_device_proc_addr(parent,"vkCmdDrawIndirect");
     }  
     
@@ -8403,7 +8501,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDDRAWINDIRECT;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWINDIRECT);
         writeToConn(json);
     }
 
@@ -8455,7 +8553,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDrawIndexedIndirect)get_instance_proc_addr(parent,"vkCmdDrawIndexedIndirect");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawIndexedIndirect)get_device_proc_addr(parent,"vkCmdDrawIndexedIndirect");
     }  
     
@@ -8471,7 +8569,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDDRAWINDEXEDINDIRECT;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWINDEXEDINDIRECT);
         writeToConn(json);
     }
 
@@ -8521,7 +8619,7 @@ uint32_t groupCountZ;
         call_function=(PFN_vkCmdDispatch)get_instance_proc_addr(parent,"vkCmdDispatch");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDispatch)get_device_proc_addr(parent,"vkCmdDispatch");
     }  
     
@@ -8536,7 +8634,7 @@ json.clear();
 [&](){json["groupCountZ"]=static_cast<uint>(groupCountZ);}();
 
 
-        json["stream_type"]=VKCMDDISPATCH;
+        json["stream_type"]=static_cast<int>(VKCMDDISPATCH);
         writeToConn(json);
     }
 
@@ -8568,7 +8666,7 @@ VkDeviceSize offset;
         call_function=(PFN_vkCmdDispatchIndirect)get_instance_proc_addr(parent,"vkCmdDispatchIndirect");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDispatchIndirect)get_device_proc_addr(parent,"vkCmdDispatchIndirect");
     }  
     
@@ -8582,7 +8680,7 @@ json.clear();
 [&](){[&](){json["offset"]=static_cast<uint>(offset);}();}();
 
 
-        json["stream_type"]=VKCMDDISPATCHINDIRECT;
+        json["stream_type"]=static_cast<int>(VKCMDDISPATCHINDIRECT);
         writeToConn(json);
     }
 
@@ -8602,7 +8700,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdSubpassShadingHUAWEI)get_instance_proc_addr(parent,"vkCmdSubpassShadingHUAWEI");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSubpassShadingHUAWEI)get_device_proc_addr(parent,"vkCmdSubpassShadingHUAWEI");
     }  
     
@@ -8614,7 +8712,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["stream_type"]=VKCMDSUBPASSSHADINGHUAWEI;
+        json["stream_type"]=static_cast<int>(VKCMDSUBPASSSHADINGHUAWEI);
         writeToConn(json);
     }
 
@@ -8664,7 +8762,7 @@ uint32_t groupCountZ;
         call_function=(PFN_vkCmdDrawClusterHUAWEI)get_instance_proc_addr(parent,"vkCmdDrawClusterHUAWEI");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawClusterHUAWEI)get_device_proc_addr(parent,"vkCmdDrawClusterHUAWEI");
     }  
     
@@ -8679,7 +8777,7 @@ json.clear();
 [&](){json["groupCountZ"]=static_cast<uint>(groupCountZ);}();
 
 
-        json["stream_type"]=VKCMDDRAWCLUSTERHUAWEI;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWCLUSTERHUAWEI);
         writeToConn(json);
     }
 
@@ -8711,7 +8809,7 @@ VkDeviceSize offset;
         call_function=(PFN_vkCmdDrawClusterIndirectHUAWEI)get_instance_proc_addr(parent,"vkCmdDrawClusterIndirectHUAWEI");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawClusterIndirectHUAWEI)get_device_proc_addr(parent,"vkCmdDrawClusterIndirectHUAWEI");
     }  
     
@@ -8725,7 +8823,7 @@ json.clear();
 [&](){[&](){json["offset"]=static_cast<uint>(offset);}();}();
 
 
-        json["stream_type"]=VKCMDDRAWCLUSTERINDIRECTHUAWEI;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWCLUSTERINDIRECTHUAWEI);
         writeToConn(json);
     }
 
@@ -8757,7 +8855,7 @@ VkPipeline pipeline;
         call_function=(PFN_vkCmdUpdatePipelineIndirectBufferNV)get_instance_proc_addr(parent,"vkCmdUpdatePipelineIndirectBufferNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdUpdatePipelineIndirectBufferNV)get_device_proc_addr(parent,"vkCmdUpdatePipelineIndirectBufferNV");
     }  
     
@@ -8771,7 +8869,7 @@ json.clear();
 [&](){serialize_VkPipeline(json["pipeline"],pipeline);}();
 
 
-        json["stream_type"]=VKCMDUPDATEPIPELINEINDIRECTBUFFERNV;
+        json["stream_type"]=static_cast<int>(VKCMDUPDATEPIPELINEINDIRECTBUFFERNV);
         writeToConn(json);
     }
 
@@ -8816,7 +8914,7 @@ uint32_t regionCount;
         call_function=(PFN_vkCmdCopyBuffer)get_instance_proc_addr(parent,"vkCmdCopyBuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyBuffer)get_device_proc_addr(parent,"vkCmdCopyBuffer");
     }  
     
@@ -8836,14 +8934,15 @@ json.clear();
         for(int IaMuFrO=0; IaMuFrO < regionCount; IaMuFrO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[IaMuFrO]);
+            serialize_struct(temp_map, pRegions[IaMuFrO]);
             arr_McSYWcQ[IaMuFrO]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_McSYWcQ;}();
 
 
-        json["stream_type"]=VKCMDCOPYBUFFER;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYBUFFER);
         writeToConn(json);
     }
 
@@ -8908,7 +9007,7 @@ uint32_t regionCount;
         call_function=(PFN_vkCmdCopyImage)get_instance_proc_addr(parent,"vkCmdCopyImage");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyImage)get_device_proc_addr(parent,"vkCmdCopyImage");
     }  
     
@@ -8930,14 +9029,15 @@ json.clear();
         for(int TvxHvSV=0; TvxHvSV < regionCount; TvxHvSV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[TvxHvSV]);
+            serialize_struct(temp_map, pRegions[TvxHvSV]);
             arr_HMPixWj[TvxHvSV]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_HMPixWj;}();
 
 
-        json["stream_type"]=VKCMDCOPYIMAGE;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYIMAGE);
         writeToConn(json);
     }
 
@@ -9012,7 +9112,7 @@ VkFilter filter;
         call_function=(PFN_vkCmdBlitImage)get_instance_proc_addr(parent,"vkCmdBlitImage");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBlitImage)get_device_proc_addr(parent,"vkCmdBlitImage");
     }  
     
@@ -9034,15 +9134,16 @@ json.clear();
         for(int YEXYPDJ=0; YEXYPDJ < regionCount; YEXYPDJ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[YEXYPDJ]);
+            serialize_struct(temp_map, pRegions[YEXYPDJ]);
             arr_dQsoHhP[YEXYPDJ]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_dQsoHhP;}();
 [&](){[&](){[&](){json["filter"]=static_cast<int>(filter);}();}();}();
 
 
-        json["stream_type"]=VKCMDBLITIMAGE;
+        json["stream_type"]=static_cast<int>(VKCMDBLITIMAGE);
         writeToConn(json);
     }
 
@@ -9097,7 +9198,7 @@ uint32_t regionCount;
         call_function=(PFN_vkCmdCopyBufferToImage)get_instance_proc_addr(parent,"vkCmdCopyBufferToImage");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyBufferToImage)get_device_proc_addr(parent,"vkCmdCopyBufferToImage");
     }  
     
@@ -9118,14 +9219,15 @@ json.clear();
         for(int yuuZKOo=0; yuuZKOo < regionCount; yuuZKOo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[yuuZKOo]);
+            serialize_struct(temp_map, pRegions[yuuZKOo]);
             arr_igZnVsu[yuuZKOo]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_igZnVsu;}();
 
 
-        json["stream_type"]=VKCMDCOPYBUFFERTOIMAGE;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYBUFFERTOIMAGE);
         writeToConn(json);
     }
 
@@ -9180,7 +9282,7 @@ uint32_t regionCount;
         call_function=(PFN_vkCmdCopyImageToBuffer)get_instance_proc_addr(parent,"vkCmdCopyImageToBuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyImageToBuffer)get_device_proc_addr(parent,"vkCmdCopyImageToBuffer");
     }  
     
@@ -9201,14 +9303,15 @@ json.clear();
         for(int yuuZKOo=0; yuuZKOo < regionCount; yuuZKOo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[yuuZKOo]);
+            serialize_struct(temp_map, pRegions[yuuZKOo]);
             arr_igZnVsu[yuuZKOo]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_igZnVsu;}();
 
 
-        json["stream_type"]=VKCMDCOPYIMAGETOBUFFER;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYIMAGETOBUFFER);
         writeToConn(json);
     }
 
@@ -9258,7 +9361,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdCopyMemoryIndirectNV)get_instance_proc_addr(parent,"vkCmdCopyMemoryIndirectNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyMemoryIndirectNV)get_device_proc_addr(parent,"vkCmdCopyMemoryIndirectNV");
     }  
     
@@ -9273,7 +9376,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDCOPYMEMORYINDIRECTNV;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYMEMORYINDIRECTNV);
         writeToConn(json);
     }
 
@@ -9346,7 +9449,7 @@ VkImageLayout dstImageLayout;
         call_function=(PFN_vkCmdCopyMemoryToImageIndirectNV)get_instance_proc_addr(parent,"vkCmdCopyMemoryToImageIndirectNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyMemoryToImageIndirectNV)get_device_proc_addr(parent,"vkCmdCopyMemoryToImageIndirectNV");
     }  
     
@@ -9368,14 +9471,15 @@ json.clear();
         for(int OfGHasS=0; OfGHasS < copyCount; OfGHasS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageSubresources[OfGHasS]);
+            serialize_struct(temp_map, pImageSubresources[OfGHasS]);
             arr_hVMAkcO[OfGHasS]=temp_map;
+            return;
             }();
         }
         json["pImageSubresources"]=arr_hVMAkcO;}();
 
 
-        json["stream_type"]=VKCMDCOPYMEMORYTOIMAGEINDIRECTNV;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYMEMORYTOIMAGEINDIRECTNV);
         writeToConn(json);
     }
 
@@ -9437,7 +9541,7 @@ VkDeviceSize dataSize;
         call_function=(PFN_vkCmdUpdateBuffer)get_instance_proc_addr(parent,"vkCmdUpdateBuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdUpdateBuffer)get_device_proc_addr(parent,"vkCmdUpdateBuffer");
     }  
     
@@ -9463,7 +9567,7 @@ json.clear();
         json["pData"]=arr_ZUZjIQc;}();}();
 
 
-        json["stream_type"]=VKCMDUPDATEBUFFER;
+        json["stream_type"]=static_cast<int>(VKCMDUPDATEBUFFER);
         writeToConn(json);
     }
 
@@ -9515,7 +9619,7 @@ uint32_t data;
         call_function=(PFN_vkCmdFillBuffer)get_instance_proc_addr(parent,"vkCmdFillBuffer");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdFillBuffer)get_device_proc_addr(parent,"vkCmdFillBuffer");
     }  
     
@@ -9531,7 +9635,7 @@ json.clear();
 [&](){json["data"]=static_cast<uint>(data);}();
 
 
-        json["stream_type"]=VKCMDFILLBUFFER;
+        json["stream_type"]=static_cast<int>(VKCMDFILLBUFFER);
         writeToConn(json);
     }
 
@@ -9595,7 +9699,7 @@ uint32_t rangeCount;
         call_function=(PFN_vkCmdClearColorImage)get_instance_proc_addr(parent,"vkCmdClearColorImage");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdClearColorImage)get_device_proc_addr(parent,"vkCmdClearColorImage");
     }  
     
@@ -9614,8 +9718,9 @@ json.clear();
         for(int ldPlUDi=0; ldPlUDi < 1; ldPlUDi++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pColor[ldPlUDi]);
+            serialize_struct(temp_map, pColor[ldPlUDi]);
             arr_SGRyjqE[ldPlUDi]=temp_map;
+            return;
             }();
         }
         json["pColor"]=arr_SGRyjqE;}();
@@ -9627,14 +9732,15 @@ json.clear();
         for(int IZgopUD=0; IZgopUD < rangeCount; IZgopUD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRanges[IZgopUD]);
+            serialize_struct(temp_map, pRanges[IZgopUD]);
             arr_BisbUqU[IZgopUD]=temp_map;
+            return;
             }();
         }
         json["pRanges"]=arr_BisbUqU;}();
 
 
-        json["stream_type"]=VKCMDCLEARCOLORIMAGE;
+        json["stream_type"]=static_cast<int>(VKCMDCLEARCOLORIMAGE);
         writeToConn(json);
     }
 
@@ -9698,7 +9804,7 @@ uint32_t rangeCount;
         call_function=(PFN_vkCmdClearDepthStencilImage)get_instance_proc_addr(parent,"vkCmdClearDepthStencilImage");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdClearDepthStencilImage)get_device_proc_addr(parent,"vkCmdClearDepthStencilImage");
     }  
     
@@ -9717,8 +9823,9 @@ json.clear();
         for(int jJUemfv=0; jJUemfv < 1; jJUemfv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDepthStencil[jJUemfv]);
+            serialize_struct(temp_map, pDepthStencil[jJUemfv]);
             arr_gYzlVps[jJUemfv]=temp_map;
+            return;
             }();
         }
         json["pDepthStencil"]=arr_gYzlVps;}();
@@ -9730,14 +9837,15 @@ json.clear();
         for(int IZgopUD=0; IZgopUD < rangeCount; IZgopUD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRanges[IZgopUD]);
+            serialize_struct(temp_map, pRanges[IZgopUD]);
             arr_BisbUqU[IZgopUD]=temp_map;
+            return;
             }();
         }
         json["pRanges"]=arr_BisbUqU;}();
 
 
-        json["stream_type"]=VKCMDCLEARDEPTHSTENCILIMAGE;
+        json["stream_type"]=static_cast<int>(VKCMDCLEARDEPTHSTENCILIMAGE);
         writeToConn(json);
     }
 
@@ -9799,7 +9907,7 @@ uint32_t rectCount;
         call_function=(PFN_vkCmdClearAttachments)get_instance_proc_addr(parent,"vkCmdClearAttachments");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdClearAttachments)get_device_proc_addr(parent,"vkCmdClearAttachments");
     }  
     
@@ -9817,8 +9925,9 @@ json.clear();
         for(int BsFiayf=0; BsFiayf < attachmentCount; BsFiayf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAttachments[BsFiayf]);
+            serialize_struct(temp_map, pAttachments[BsFiayf]);
             arr_fOlilkR[BsFiayf]=temp_map;
+            return;
             }();
         }
         json["pAttachments"]=arr_fOlilkR;}();
@@ -9830,14 +9939,15 @@ json.clear();
         for(int HncrKEH=0; HncrKEH < rectCount; HncrKEH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRects[HncrKEH]);
+            serialize_struct(temp_map, pRects[HncrKEH]);
             arr_cgJwUFb[HncrKEH]=temp_map;
+            return;
             }();
         }
         json["pRects"]=arr_cgJwUFb;}();
 
 
-        json["stream_type"]=VKCMDCLEARATTACHMENTS;
+        json["stream_type"]=static_cast<int>(VKCMDCLEARATTACHMENTS);
         writeToConn(json);
     }
 
@@ -9902,7 +10012,7 @@ uint32_t regionCount;
         call_function=(PFN_vkCmdResolveImage)get_instance_proc_addr(parent,"vkCmdResolveImage");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdResolveImage)get_device_proc_addr(parent,"vkCmdResolveImage");
     }  
     
@@ -9924,14 +10034,15 @@ json.clear();
         for(int UbqELUx=0; UbqELUx < regionCount; UbqELUx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[UbqELUx]);
+            serialize_struct(temp_map, pRegions[UbqELUx]);
             arr_OGNZeww[UbqELUx]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_OGNZeww;}();
 
 
-        json["stream_type"]=VKCMDRESOLVEIMAGE;
+        json["stream_type"]=static_cast<int>(VKCMDRESOLVEIMAGE);
         writeToConn(json);
     }
 
@@ -9963,7 +10074,7 @@ VkPipelineStageFlags stageMask;
         call_function=(PFN_vkCmdSetEvent)get_instance_proc_addr(parent,"vkCmdSetEvent");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetEvent)get_device_proc_addr(parent,"vkCmdSetEvent");
     }  
     
@@ -9977,7 +10088,7 @@ json.clear();
 [&](){[&](){[&](){json["stageMask"]=static_cast<int>(stageMask);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETEVENT;
+        json["stream_type"]=static_cast<int>(VKCMDSETEVENT);
         writeToConn(json);
     }
 
@@ -10009,7 +10120,7 @@ VkPipelineStageFlags stageMask;
         call_function=(PFN_vkCmdResetEvent)get_instance_proc_addr(parent,"vkCmdResetEvent");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdResetEvent)get_device_proc_addr(parent,"vkCmdResetEvent");
     }  
     
@@ -10023,7 +10134,7 @@ json.clear();
 [&](){[&](){[&](){json["stageMask"]=static_cast<int>(stageMask);}();}();}();
 
 
-        json["stream_type"]=VKCMDRESETEVENT;
+        json["stream_type"]=static_cast<int>(VKCMDRESETEVENT);
         writeToConn(json);
     }
 
@@ -10145,7 +10256,7 @@ uint32_t imageMemoryBarrierCount;
         call_function=(PFN_vkCmdWaitEvents)get_instance_proc_addr(parent,"vkCmdWaitEvents");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdWaitEvents)get_device_proc_addr(parent,"vkCmdWaitEvents");
     }  
     
@@ -10174,8 +10285,9 @@ json.clear();
         for(int JhnlCAW=0; JhnlCAW < memoryBarrierCount; JhnlCAW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryBarriers[JhnlCAW]);
+            serialize_struct(temp_map, pMemoryBarriers[JhnlCAW]);
             arr_fXDYoDs[JhnlCAW]=temp_map;
+            return;
             }();
         }
         json["pMemoryBarriers"]=arr_fXDYoDs;}();
@@ -10187,8 +10299,9 @@ json.clear();
         for(int aFMQios=0; aFMQios < bufferMemoryBarrierCount; aFMQios++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBufferMemoryBarriers[aFMQios]);
+            serialize_struct(temp_map, pBufferMemoryBarriers[aFMQios]);
             arr_FmJTDmX[aFMQios]=temp_map;
+            return;
             }();
         }
         json["pBufferMemoryBarriers"]=arr_FmJTDmX;}();
@@ -10200,14 +10313,15 @@ json.clear();
         for(int trWYSmx=0; trWYSmx < imageMemoryBarrierCount; trWYSmx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageMemoryBarriers[trWYSmx]);
+            serialize_struct(temp_map, pImageMemoryBarriers[trWYSmx]);
             arr_nkkvvYR[trWYSmx]=temp_map;
+            return;
             }();
         }
         json["pImageMemoryBarriers"]=arr_nkkvvYR;}();
 
 
-        json["stream_type"]=VKCMDWAITEVENTS;
+        json["stream_type"]=static_cast<int>(VKCMDWAITEVENTS);
         writeToConn(json);
     }
 
@@ -10320,7 +10434,7 @@ uint32_t imageMemoryBarrierCount;
         call_function=(PFN_vkCmdPipelineBarrier)get_instance_proc_addr(parent,"vkCmdPipelineBarrier");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdPipelineBarrier)get_device_proc_addr(parent,"vkCmdPipelineBarrier");
     }  
     
@@ -10341,8 +10455,9 @@ json.clear();
         for(int JhnlCAW=0; JhnlCAW < memoryBarrierCount; JhnlCAW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryBarriers[JhnlCAW]);
+            serialize_struct(temp_map, pMemoryBarriers[JhnlCAW]);
             arr_fXDYoDs[JhnlCAW]=temp_map;
+            return;
             }();
         }
         json["pMemoryBarriers"]=arr_fXDYoDs;}();
@@ -10354,8 +10469,9 @@ json.clear();
         for(int aFMQios=0; aFMQios < bufferMemoryBarrierCount; aFMQios++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBufferMemoryBarriers[aFMQios]);
+            serialize_struct(temp_map, pBufferMemoryBarriers[aFMQios]);
             arr_FmJTDmX[aFMQios]=temp_map;
+            return;
             }();
         }
         json["pBufferMemoryBarriers"]=arr_FmJTDmX;}();
@@ -10367,14 +10483,15 @@ json.clear();
         for(int trWYSmx=0; trWYSmx < imageMemoryBarrierCount; trWYSmx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageMemoryBarriers[trWYSmx]);
+            serialize_struct(temp_map, pImageMemoryBarriers[trWYSmx]);
             arr_nkkvvYR[trWYSmx]=temp_map;
+            return;
             }();
         }
         json["pImageMemoryBarriers"]=arr_nkkvvYR;}();
 
 
-        json["stream_type"]=VKCMDPIPELINEBARRIER;
+        json["stream_type"]=static_cast<int>(VKCMDPIPELINEBARRIER);
         writeToConn(json);
     }
 
@@ -10416,7 +10533,7 @@ VkQueryControlFlags flags;
         call_function=(PFN_vkCmdBeginQuery)get_instance_proc_addr(parent,"vkCmdBeginQuery");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBeginQuery)get_device_proc_addr(parent,"vkCmdBeginQuery");
     }  
     
@@ -10431,7 +10548,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=static_cast<int>(flags);}();}();}();
 
 
-        json["stream_type"]=VKCMDBEGINQUERY;
+        json["stream_type"]=static_cast<int>(VKCMDBEGINQUERY);
         writeToConn(json);
     }
 
@@ -10463,7 +10580,7 @@ uint32_t query;
         call_function=(PFN_vkCmdEndQuery)get_instance_proc_addr(parent,"vkCmdEndQuery");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdEndQuery)get_device_proc_addr(parent,"vkCmdEndQuery");
     }  
     
@@ -10477,7 +10594,7 @@ json.clear();
 [&](){json["query"]=static_cast<uint>(query);}();
 
 
-        json["stream_type"]=VKCMDENDQUERY;
+        json["stream_type"]=static_cast<int>(VKCMDENDQUERY);
         writeToConn(json);
     }
 
@@ -10508,7 +10625,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdBeginConditionalRenderingEXT)get_instance_proc_addr(parent,"vkCmdBeginConditionalRenderingEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBeginConditionalRenderingEXT)get_device_proc_addr(parent,"vkCmdBeginConditionalRenderingEXT");
     }  
     
@@ -10525,14 +10642,15 @@ json.clear();
         for(int KETgcvj=0; KETgcvj < 1; KETgcvj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pConditionalRenderingBegin[KETgcvj]);
+            serialize_struct(temp_map, pConditionalRenderingBegin[KETgcvj]);
             arr_guEoeuh[KETgcvj]=temp_map;
+            return;
             }();
         }
         json["pConditionalRenderingBegin"]=arr_guEoeuh;}();
 
 
-        json["stream_type"]=VKCMDBEGINCONDITIONALRENDERINGEXT;
+        json["stream_type"]=static_cast<int>(VKCMDBEGINCONDITIONALRENDERINGEXT);
         writeToConn(json);
     }
 
@@ -10552,7 +10670,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdEndConditionalRenderingEXT)get_instance_proc_addr(parent,"vkCmdEndConditionalRenderingEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdEndConditionalRenderingEXT)get_device_proc_addr(parent,"vkCmdEndConditionalRenderingEXT");
     }  
     
@@ -10564,7 +10682,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["stream_type"]=VKCMDENDCONDITIONALRENDERINGEXT;
+        json["stream_type"]=static_cast<int>(VKCMDENDCONDITIONALRENDERINGEXT);
         writeToConn(json);
     }
 
@@ -10606,7 +10724,7 @@ uint32_t queryCount;
         call_function=(PFN_vkCmdResetQueryPool)get_instance_proc_addr(parent,"vkCmdResetQueryPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdResetQueryPool)get_device_proc_addr(parent,"vkCmdResetQueryPool");
     }  
     
@@ -10621,7 +10739,7 @@ json.clear();
 [&](){json["queryCount"]=static_cast<uint>(queryCount);}();
 
 
-        json["stream_type"]=VKCMDRESETQUERYPOOL;
+        json["stream_type"]=static_cast<int>(VKCMDRESETQUERYPOOL);
         writeToConn(json);
     }
 
@@ -10663,7 +10781,7 @@ uint32_t query;
         call_function=(PFN_vkCmdWriteTimestamp)get_instance_proc_addr(parent,"vkCmdWriteTimestamp");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdWriteTimestamp)get_device_proc_addr(parent,"vkCmdWriteTimestamp");
     }  
     
@@ -10678,7 +10796,7 @@ json.clear();
 [&](){json["query"]=static_cast<uint>(query);}();
 
 
-        json["stream_type"]=VKCMDWRITETIMESTAMP;
+        json["stream_type"]=static_cast<int>(VKCMDWRITETIMESTAMP);
         writeToConn(json);
     }
 
@@ -10752,7 +10870,7 @@ VkQueryResultFlags flags;
         call_function=(PFN_vkCmdCopyQueryPoolResults)get_instance_proc_addr(parent,"vkCmdCopyQueryPoolResults");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyQueryPoolResults)get_device_proc_addr(parent,"vkCmdCopyQueryPoolResults");
     }  
     
@@ -10771,7 +10889,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=static_cast<int>(flags);}();}();}();
 
 
-        json["stream_type"]=VKCMDCOPYQUERYPOOLRESULTS;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYQUERYPOOLRESULTS);
         writeToConn(json);
     }
 
@@ -10843,7 +10961,7 @@ uint32_t size;
         call_function=(PFN_vkCmdPushConstants)get_instance_proc_addr(parent,"vkCmdPushConstants");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdPushConstants)get_device_proc_addr(parent,"vkCmdPushConstants");
     }  
     
@@ -10870,7 +10988,7 @@ json.clear();
         json["pValues"]=arr_xbuPmvw;}();}();
 
 
-        json["stream_type"]=VKCMDPUSHCONSTANTS;
+        json["stream_type"]=static_cast<int>(VKCMDPUSHCONSTANTS);
         writeToConn(json);
     }
 
@@ -10911,7 +11029,7 @@ VkSubpassContents contents;
         call_function=(PFN_vkCmdBeginRenderPass)get_instance_proc_addr(parent,"vkCmdBeginRenderPass");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBeginRenderPass)get_device_proc_addr(parent,"vkCmdBeginRenderPass");
     }  
     
@@ -10928,15 +11046,16 @@ json.clear();
         for(int lCAvoJt=0; lCAvoJt < 1; lCAvoJt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRenderPassBegin[lCAvoJt]);
+            serialize_struct(temp_map, pRenderPassBegin[lCAvoJt]);
             arr_XtnTubd[lCAvoJt]=temp_map;
+            return;
             }();
         }
         json["pRenderPassBegin"]=arr_XtnTubd;}();
 [&](){[&](){[&](){json["contents"]=static_cast<int>(contents);}();}();}();
 
 
-        json["stream_type"]=VKCMDBEGINRENDERPASS;
+        json["stream_type"]=static_cast<int>(VKCMDBEGINRENDERPASS);
         writeToConn(json);
     }
 
@@ -10966,7 +11085,7 @@ VkSubpassContents contents;
         call_function=(PFN_vkCmdNextSubpass)get_instance_proc_addr(parent,"vkCmdNextSubpass");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdNextSubpass)get_device_proc_addr(parent,"vkCmdNextSubpass");
     }  
     
@@ -10979,7 +11098,7 @@ json.clear();
 [&](){[&](){[&](){json["contents"]=static_cast<int>(contents);}();}();}();
 
 
-        json["stream_type"]=VKCMDNEXTSUBPASS;
+        json["stream_type"]=static_cast<int>(VKCMDNEXTSUBPASS);
         writeToConn(json);
     }
 
@@ -10999,7 +11118,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdEndRenderPass)get_instance_proc_addr(parent,"vkCmdEndRenderPass");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdEndRenderPass)get_device_proc_addr(parent,"vkCmdEndRenderPass");
     }  
     
@@ -11011,7 +11130,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["stream_type"]=VKCMDENDRENDERPASS;
+        json["stream_type"]=static_cast<int>(VKCMDENDRENDERPASS);
         writeToConn(json);
     }
 
@@ -11050,7 +11169,7 @@ uint32_t commandBufferCount;
         call_function=(PFN_vkCmdExecuteCommands)get_instance_proc_addr(parent,"vkCmdExecuteCommands");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdExecuteCommands)get_device_proc_addr(parent,"vkCmdExecuteCommands");
     }  
     
@@ -11071,7 +11190,7 @@ json.clear();
         json["pCommandBuffers"]=arr_PdRlpEO;}();
 
 
-        json["stream_type"]=VKCMDEXECUTECOMMANDS;
+        json["stream_type"]=static_cast<int>(VKCMDEXECUTECOMMANDS);
         writeToConn(json);
     }
 
@@ -11119,7 +11238,7 @@ VkDisplayPropertiesKHR* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceDisplayPropertiesKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceDisplayPropertiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceDisplayPropertiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceDisplayPropertiesKHR");
     }  
     
@@ -11145,14 +11264,15 @@ json.clear();
         for(int ULwTWiE=0; ULwTWiE < *pPropertyCount; ULwTWiE++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[ULwTWiE]);
+            serialize_struct(temp_map, pProperties[ULwTWiE]);
             arr_jKVTjSh[ULwTWiE]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_jKVTjSh;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEDISPLAYPROPERTIESKHR);
         writeToConn(json);
     }
 
@@ -11200,7 +11320,7 @@ VkDisplayPlanePropertiesKHR* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
     }  
     
@@ -11226,14 +11346,15 @@ json.clear();
         for(int yGKhOKS=0; yGKhOKS < *pPropertyCount; yGKhOKS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[yGKhOKS]);
+            serialize_struct(temp_map, pProperties[yGKhOKS]);
             arr_TBQSgXa[yGKhOKS]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_TBQSgXa;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIESKHR);
         writeToConn(json);
     }
 
@@ -11289,7 +11410,7 @@ VkDisplayKHR* pDisplays;
         call_function=(PFN_vkGetDisplayPlaneSupportedDisplaysKHR)get_instance_proc_addr(parent,"vkGetDisplayPlaneSupportedDisplaysKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDisplayPlaneSupportedDisplaysKHR)get_device_proc_addr(parent,"vkGetDisplayPlaneSupportedDisplaysKHR");
     }  
     
@@ -11319,7 +11440,7 @@ json.clear();
         json["pDisplays"]=arr_zfKAWAH;}();
 
 
-        json["stream_type"]=VKGETDISPLAYPLANESUPPORTEDDISPLAYSKHR;
+        json["stream_type"]=static_cast<int>(VKGETDISPLAYPLANESUPPORTEDDISPLAYSKHR);
         writeToConn(json);
     }
 
@@ -11369,7 +11490,7 @@ VkDisplayModePropertiesKHR* pProperties;
         call_function=(PFN_vkGetDisplayModePropertiesKHR)get_instance_proc_addr(parent,"vkGetDisplayModePropertiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDisplayModePropertiesKHR)get_device_proc_addr(parent,"vkGetDisplayModePropertiesKHR");
     }  
     
@@ -11396,14 +11517,15 @@ json.clear();
         for(int MCBnXbq=0; MCBnXbq < *pPropertyCount; MCBnXbq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[MCBnXbq]);
+            serialize_struct(temp_map, pProperties[MCBnXbq]);
             arr_kllbUBl[MCBnXbq]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_kllbUBl;}();
 
 
-        json["stream_type"]=VKGETDISPLAYMODEPROPERTIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETDISPLAYMODEPROPERTIESKHR);
         writeToConn(json);
     }
 
@@ -11456,7 +11578,7 @@ VkDisplayModeKHR* pMode;
         call_function=(PFN_vkCreateDisplayModeKHR)get_instance_proc_addr(parent,"vkCreateDisplayModeKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateDisplayModeKHR)get_device_proc_addr(parent,"vkCreateDisplayModeKHR");
     }  
     
@@ -11475,8 +11597,9 @@ json.clear();
         for(int UOiSdEd=0; UOiSdEd < 1; UOiSdEd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[UOiSdEd]);
+            serialize_struct(temp_map, pCreateInfo[UOiSdEd]);
             arr_mQflhNS[UOiSdEd]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_mQflhNS;}();
@@ -11487,8 +11610,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -11502,7 +11626,7 @@ json.clear();
         json["pMode"]=arr_CHqKWyT;}();
 
 
-        json["stream_type"]=VKCREATEDISPLAYMODEKHR;
+        json["stream_type"]=static_cast<int>(VKCREATEDISPLAYMODEKHR);
         writeToConn(json);
     }
 
@@ -11545,7 +11669,7 @@ VkDisplayPlaneCapabilitiesKHR* pCapabilities;
         call_function=(PFN_vkGetDisplayPlaneCapabilitiesKHR)get_instance_proc_addr(parent,"vkGetDisplayPlaneCapabilitiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDisplayPlaneCapabilitiesKHR)get_device_proc_addr(parent,"vkGetDisplayPlaneCapabilitiesKHR");
     }  
     
@@ -11565,14 +11689,15 @@ json.clear();
         for(int aOxwnlc=0; aOxwnlc < 1; aOxwnlc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCapabilities[aOxwnlc]);
+            serialize_struct(temp_map, pCapabilities[aOxwnlc]);
             arr_HrzVMCr[aOxwnlc]=temp_map;
+            return;
             }();
         }
         json["pCapabilities"]=arr_HrzVMCr;}();
 
 
-        json["stream_type"]=VKGETDISPLAYPLANECAPABILITIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETDISPLAYPLANECAPABILITIESKHR);
         writeToConn(json);
     }
 
@@ -11623,7 +11748,7 @@ VkSurfaceKHR* pSurface;
         call_function=(PFN_vkCreateDisplayPlaneSurfaceKHR)get_instance_proc_addr(parent,"vkCreateDisplayPlaneSurfaceKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateDisplayPlaneSurfaceKHR)get_device_proc_addr(parent,"vkCreateDisplayPlaneSurfaceKHR");
     }  
     
@@ -11641,8 +11766,9 @@ json.clear();
         for(int KAVLDOd=0; KAVLDOd < 1; KAVLDOd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[KAVLDOd]);
+            serialize_struct(temp_map, pCreateInfo[KAVLDOd]);
             arr_pnrRUFC[KAVLDOd]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_pnrRUFC;}();
@@ -11653,8 +11779,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -11668,7 +11795,7 @@ json.clear();
         json["pSurface"]=arr_zGtWguc;}();
 
 
-        json["stream_type"]=VKCREATEDISPLAYPLANESURFACEKHR;
+        json["stream_type"]=static_cast<int>(VKCREATEDISPLAYPLANESURFACEKHR);
         writeToConn(json);
     }
 
@@ -11729,7 +11856,7 @@ VkSwapchainKHR* pSwapchains;
         call_function=(PFN_vkCreateSharedSwapchainsKHR)get_instance_proc_addr(parent,"vkCreateSharedSwapchainsKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateSharedSwapchainsKHR)get_device_proc_addr(parent,"vkCreateSharedSwapchainsKHR");
     }  
     
@@ -11748,8 +11875,9 @@ json.clear();
         for(int KSXdUUO=0; KSXdUUO < swapchainCount; KSXdUUO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[KSXdUUO]);
+            serialize_struct(temp_map, pCreateInfos[KSXdUUO]);
             arr_GXhEUBn[KSXdUUO]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_GXhEUBn;}();
@@ -11760,8 +11888,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -11775,7 +11904,7 @@ json.clear();
         json["pSwapchains"]=arr_UlEaWkU;}();
 
 
-        json["stream_type"]=VKCREATESHAREDSWAPCHAINSKHR;
+        json["stream_type"]=static_cast<int>(VKCREATESHAREDSWAPCHAINSKHR);
         writeToConn(json);
     }
 
@@ -11808,7 +11937,7 @@ VkSurfaceKHR surface;
         call_function=(PFN_vkDestroySurfaceKHR)get_instance_proc_addr(parent,"vkDestroySurfaceKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroySurfaceKHR)get_device_proc_addr(parent,"vkDestroySurfaceKHR");
     }  
     
@@ -11826,14 +11955,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYSURFACEKHR;
+        json["stream_type"]=static_cast<int>(VKDESTROYSURFACEKHR);
         writeToConn(json);
     }
 
@@ -11882,7 +12012,7 @@ VkBool32* pSupported;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceSupportKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceSurfaceSupportKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceSurfaceSupportKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceSupportKHR");
     }  
     
@@ -11905,7 +12035,7 @@ json.clear();
         json["pSupported"]=arr_SEnYPHg;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICESURFACESUPPORTKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICESURFACESUPPORTKHR);
         writeToConn(json);
     }
 
@@ -11938,7 +12068,7 @@ VkSurfaceCapabilitiesKHR* pSurfaceCapabilities;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
     }  
     
@@ -11957,14 +12087,15 @@ json.clear();
         for(int MvYVwuP=0; MvYVwuP < 1; MvYVwuP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceCapabilities[MvYVwuP]);
+            serialize_struct(temp_map, pSurfaceCapabilities[MvYVwuP]);
             arr_mjTYhnS[MvYVwuP]=temp_map;
+            return;
             }();
         }
         json["pSurfaceCapabilities"]=arr_mjTYhnS;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICESURFACECAPABILITIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICESURFACECAPABILITIESKHR);
         writeToConn(json);
     }
 
@@ -12014,7 +12145,7 @@ VkSurfaceFormatKHR* pSurfaceFormats;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceFormatsKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceSurfaceFormatsKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceSurfaceFormatsKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceFormatsKHR");
     }  
     
@@ -12041,14 +12172,15 @@ json.clear();
         for(int sioXabq=0; sioXabq < *pSurfaceFormatCount; sioXabq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceFormats[sioXabq]);
+            serialize_struct(temp_map, pSurfaceFormats[sioXabq]);
             arr_FttXsVA[sioXabq]=temp_map;
+            return;
             }();
         }
         json["pSurfaceFormats"]=arr_FttXsVA;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICESURFACEFORMATSKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICESURFACEFORMATSKHR);
         writeToConn(json);
     }
 
@@ -12104,7 +12236,7 @@ VkPresentModeKHR* pPresentModes;
         call_function=(PFN_vkGetPhysicalDeviceSurfacePresentModesKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceSurfacePresentModesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceSurfacePresentModesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfacePresentModesKHR");
     }  
     
@@ -12134,7 +12266,7 @@ json.clear();
         json["pPresentModes"]=arr_hrNyEFX;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICESURFACEPRESENTMODESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICESURFACEPRESENTMODESKHR);
         writeToConn(json);
     }
 
@@ -12185,7 +12317,7 @@ VkSwapchainKHR* pSwapchain;
         call_function=(PFN_vkCreateSwapchainKHR)get_instance_proc_addr(parent,"vkCreateSwapchainKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateSwapchainKHR)get_device_proc_addr(parent,"vkCreateSwapchainKHR");
     }  
     
@@ -12203,8 +12335,9 @@ json.clear();
         for(int RzLCOHt=0; RzLCOHt < 1; RzLCOHt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[RzLCOHt]);
+            serialize_struct(temp_map, pCreateInfo[RzLCOHt]);
             arr_egkAfIq[RzLCOHt]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_egkAfIq;}();
@@ -12215,8 +12348,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -12229,8 +12363,12 @@ json.clear();
         }
         json["pSwapchain"]=arr_vaTnpgr;}();
 
+        auto& imageExtent1=json["pCreateInfo"].as_vector()[0].as_map().at("imageExtent").as_map();
+        debug_printf("Swapchain extent: %d, %d\n", imageExtent1.at("width").as_uint64_t(), imageExtent1.at("height").as_uint64_t());
+        
 
-        json["stream_type"]=VKCREATESWAPCHAINKHR;
+
+        json["stream_type"]=static_cast<int>(VKCREATESWAPCHAINKHR);
         writeToConn(json);
     }
 
@@ -12263,7 +12401,7 @@ VkSwapchainKHR swapchain;
         call_function=(PFN_vkDestroySwapchainKHR)get_instance_proc_addr(parent,"vkDestroySwapchainKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroySwapchainKHR)get_device_proc_addr(parent,"vkDestroySwapchainKHR");
     }  
     
@@ -12281,14 +12419,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYSWAPCHAINKHR;
+        json["stream_type"]=static_cast<int>(VKDESTROYSWAPCHAINKHR);
         writeToConn(json);
     }
 
@@ -12336,7 +12475,7 @@ VkImage* pSwapchainImages;
         call_function=(PFN_vkGetSwapchainImagesKHR)get_instance_proc_addr(parent,"vkGetSwapchainImagesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetSwapchainImagesKHR)get_device_proc_addr(parent,"vkGetSwapchainImagesKHR");
     }  
     
@@ -12366,7 +12505,7 @@ json.clear();
         json["pSwapchainImages"]=arr_KNYDiQo;}();
 
 
-        json["stream_type"]=VKGETSWAPCHAINIMAGESKHR;
+        json["stream_type"]=static_cast<int>(VKGETSWAPCHAINIMAGESKHR);
         writeToConn(json);
     }
 
@@ -12419,7 +12558,7 @@ uint32_t* pImageIndex;
         call_function=(PFN_vkAcquireNextImageKHR)get_instance_proc_addr(parent,"vkAcquireNextImageKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkAcquireNextImageKHR)get_device_proc_addr(parent,"vkAcquireNextImageKHR");
     }  
     
@@ -12444,7 +12583,7 @@ json.clear();
         json["pImageIndex"]=arr_oSqpNfH;}();
 
 
-        json["stream_type"]=VKACQUIRENEXTIMAGEKHR;
+        json["stream_type"]=static_cast<int>(VKACQUIRENEXTIMAGEKHR);
         writeToConn(json);
     }
 
@@ -12475,7 +12614,7 @@ VkQueue queue;
         call_function=(PFN_vkQueuePresentKHR)get_instance_proc_addr(parent,"vkQueuePresentKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkQueuePresentKHR)get_device_proc_addr(parent,"vkQueuePresentKHR");
     }  
     
@@ -12493,14 +12632,15 @@ json.clear();
         for(int EKHdNlu=0; EKHdNlu < 1; EKHdNlu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPresentInfo[EKHdNlu]);
+            serialize_struct(temp_map, pPresentInfo[EKHdNlu]);
             arr_EyhZHrS[EKHdNlu]=temp_map;
+            return;
             }();
         }
         json["pPresentInfo"]=arr_EyhZHrS;}();
 
 
-        json["stream_type"]=VKQUEUEPRESENTKHR;
+        json["stream_type"]=static_cast<int>(VKQUEUEPRESENTKHR);
         writeToConn(json);
     }
 
@@ -12551,7 +12691,7 @@ VkSurfaceKHR* pSurface;
         call_function=(PFN_vkCreateXlibSurfaceKHR)get_instance_proc_addr(parent,"vkCreateXlibSurfaceKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateXlibSurfaceKHR)get_device_proc_addr(parent,"vkCreateXlibSurfaceKHR");
     }  
     
@@ -12569,8 +12709,9 @@ json.clear();
         for(int sMWpcdX=0; sMWpcdX < 1; sMWpcdX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[sMWpcdX]);
+            serialize_struct(temp_map, pCreateInfo[sMWpcdX]);
             arr_xAdBgFR[sMWpcdX]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_xAdBgFR;}();
@@ -12581,8 +12722,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -12596,7 +12738,7 @@ json.clear();
         json["pSurface"]=arr_zGtWguc;}();
 
 
-        json["stream_type"]=VKCREATEXLIBSURFACEKHR;
+        json["stream_type"]=static_cast<int>(VKCREATEXLIBSURFACEKHR);
         writeToConn(json);
     }
 
@@ -12633,7 +12775,7 @@ VisualID visualID;
         call_function=(PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceXlibPresentationSupportKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceXlibPresentationSupportKHR");
     }  
     
@@ -12652,7 +12794,7 @@ json.clear();
 [&](){json["visualID"]=(uintptr_t)visualID;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEXLIBPRESENTATIONSUPPORTKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEXLIBPRESENTATIONSUPPORTKHR);
         writeToConn(json);
     }
 
@@ -12703,7 +12845,7 @@ VkSurfaceKHR* pSurface;
         call_function=(PFN_vkCreateXcbSurfaceKHR)get_instance_proc_addr(parent,"vkCreateXcbSurfaceKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateXcbSurfaceKHR)get_device_proc_addr(parent,"vkCreateXcbSurfaceKHR");
     }  
     
@@ -12721,8 +12863,9 @@ json.clear();
         for(int DeNvCZU=0; DeNvCZU < 1; DeNvCZU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[DeNvCZU]);
+            serialize_struct(temp_map, pCreateInfo[DeNvCZU]);
             arr_yvWYCbg[DeNvCZU]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_yvWYCbg;}();
@@ -12733,8 +12876,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -12748,7 +12892,7 @@ json.clear();
         json["pSurface"]=arr_zGtWguc;}();
 
 
-        json["stream_type"]=VKCREATEXCBSURFACEKHR;
+        json["stream_type"]=static_cast<int>(VKCREATEXCBSURFACEKHR);
         writeToConn(json);
     }
 
@@ -12785,7 +12929,7 @@ xcb_visualid_t visual_id;
         call_function=(PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceXcbPresentationSupportKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceXcbPresentationSupportKHR");
     }  
     
@@ -12804,7 +12948,7 @@ json.clear();
 [&](){json["visual_id"]=(uintptr_t)visual_id;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEXCBPRESENTATIONSUPPORTKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEXCBPRESENTATIONSUPPORTKHR);
         writeToConn(json);
     }
 
@@ -12855,7 +12999,7 @@ VkDebugReportCallbackEXT* pCallback;
         call_function=(PFN_vkCreateDebugReportCallbackEXT)get_instance_proc_addr(parent,"vkCreateDebugReportCallbackEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateDebugReportCallbackEXT)get_device_proc_addr(parent,"vkCreateDebugReportCallbackEXT");
     }  
     
@@ -12873,8 +13017,9 @@ json.clear();
         for(int BsRBklZ=0; BsRBklZ < 1; BsRBklZ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[BsRBklZ]);
+            serialize_struct(temp_map, pCreateInfo[BsRBklZ]);
             arr_YvgjHhM[BsRBklZ]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_YvgjHhM;}();
@@ -12885,8 +13030,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -12900,7 +13046,7 @@ json.clear();
         json["pCallback"]=arr_qwLilWz;}();
 
 
-        json["stream_type"]=VKCREATEDEBUGREPORTCALLBACKEXT;
+        json["stream_type"]=static_cast<int>(VKCREATEDEBUGREPORTCALLBACKEXT);
         writeToConn(json);
     }
 
@@ -12933,7 +13079,7 @@ VkDebugReportCallbackEXT callback;
         call_function=(PFN_vkDestroyDebugReportCallbackEXT)get_instance_proc_addr(parent,"vkDestroyDebugReportCallbackEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyDebugReportCallbackEXT)get_device_proc_addr(parent,"vkDestroyDebugReportCallbackEXT");
     }  
     
@@ -12951,14 +13097,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYDEBUGREPORTCALLBACKEXT;
+        json["stream_type"]=static_cast<int>(VKDESTROYDEBUGREPORTCALLBACKEXT);
         writeToConn(json);
     }
 
@@ -13062,7 +13209,7 @@ int32_t messageCode;
         call_function=(PFN_vkDebugReportMessageEXT)get_instance_proc_addr(parent,"vkDebugReportMessageEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDebugReportMessageEXT)get_device_proc_addr(parent,"vkDebugReportMessageEXT");
     }  
     
@@ -13095,7 +13242,7 @@ json.clear();
         json["pMessage"]=arr_rGBBIki;}();
 
 
-        json["stream_type"]=VKDEBUGREPORTMESSAGEEXT;
+        json["stream_type"]=static_cast<int>(VKDEBUGREPORTMESSAGEEXT);
         writeToConn(json);
     }
 
@@ -13126,7 +13273,7 @@ VkDevice device;
         call_function=(PFN_vkDebugMarkerSetObjectNameEXT)get_instance_proc_addr(parent,"vkDebugMarkerSetObjectNameEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDebugMarkerSetObjectNameEXT)get_device_proc_addr(parent,"vkDebugMarkerSetObjectNameEXT");
     }  
     
@@ -13144,14 +13291,15 @@ json.clear();
         for(int VlhHang=0; VlhHang < 1; VlhHang++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pNameInfo[VlhHang]);
+            serialize_struct(temp_map, pNameInfo[VlhHang]);
             arr_WQmILKl[VlhHang]=temp_map;
+            return;
             }();
         }
         json["pNameInfo"]=arr_WQmILKl;}();
 
 
-        json["stream_type"]=VKDEBUGMARKERSETOBJECTNAMEEXT;
+        json["stream_type"]=static_cast<int>(VKDEBUGMARKERSETOBJECTNAMEEXT);
         writeToConn(json);
     }
 
@@ -13182,7 +13330,7 @@ VkDevice device;
         call_function=(PFN_vkDebugMarkerSetObjectTagEXT)get_instance_proc_addr(parent,"vkDebugMarkerSetObjectTagEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDebugMarkerSetObjectTagEXT)get_device_proc_addr(parent,"vkDebugMarkerSetObjectTagEXT");
     }  
     
@@ -13200,14 +13348,15 @@ json.clear();
         for(int fibGciH=0; fibGciH < 1; fibGciH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pTagInfo[fibGciH]);
+            serialize_struct(temp_map, pTagInfo[fibGciH]);
             arr_uESKIxS[fibGciH]=temp_map;
+            return;
             }();
         }
         json["pTagInfo"]=arr_uESKIxS;}();
 
 
-        json["stream_type"]=VKDEBUGMARKERSETOBJECTTAGEXT;
+        json["stream_type"]=static_cast<int>(VKDEBUGMARKERSETOBJECTTAGEXT);
         writeToConn(json);
     }
 
@@ -13238,7 +13387,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdDebugMarkerBeginEXT)get_instance_proc_addr(parent,"vkCmdDebugMarkerBeginEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDebugMarkerBeginEXT)get_device_proc_addr(parent,"vkCmdDebugMarkerBeginEXT");
     }  
     
@@ -13255,14 +13404,15 @@ json.clear();
         for(int MSMqdqs=0; MSMqdqs < 1; MSMqdqs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMarkerInfo[MSMqdqs]);
+            serialize_struct(temp_map, pMarkerInfo[MSMqdqs]);
             arr_sUKpmoY[MSMqdqs]=temp_map;
+            return;
             }();
         }
         json["pMarkerInfo"]=arr_sUKpmoY;}();
 
 
-        json["stream_type"]=VKCMDDEBUGMARKERBEGINEXT;
+        json["stream_type"]=static_cast<int>(VKCMDDEBUGMARKERBEGINEXT);
         writeToConn(json);
     }
 
@@ -13282,7 +13432,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdDebugMarkerEndEXT)get_instance_proc_addr(parent,"vkCmdDebugMarkerEndEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDebugMarkerEndEXT)get_device_proc_addr(parent,"vkCmdDebugMarkerEndEXT");
     }  
     
@@ -13294,7 +13444,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["stream_type"]=VKCMDDEBUGMARKERENDEXT;
+        json["stream_type"]=static_cast<int>(VKCMDDEBUGMARKERENDEXT);
         writeToConn(json);
     }
 
@@ -13325,7 +13475,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdDebugMarkerInsertEXT)get_instance_proc_addr(parent,"vkCmdDebugMarkerInsertEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDebugMarkerInsertEXT)get_device_proc_addr(parent,"vkCmdDebugMarkerInsertEXT");
     }  
     
@@ -13342,14 +13492,15 @@ json.clear();
         for(int MSMqdqs=0; MSMqdqs < 1; MSMqdqs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMarkerInfo[MSMqdqs]);
+            serialize_struct(temp_map, pMarkerInfo[MSMqdqs]);
             arr_sUKpmoY[MSMqdqs]=temp_map;
+            return;
             }();
         }
         json["pMarkerInfo"]=arr_sUKpmoY;}();
 
 
-        json["stream_type"]=VKCMDDEBUGMARKERINSERTEXT;
+        json["stream_type"]=static_cast<int>(VKCMDDEBUGMARKERINSERTEXT);
         writeToConn(json);
     }
 
@@ -13440,7 +13591,7 @@ VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV)get_instance_proc_addr(parent,"vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV)get_device_proc_addr(parent,"vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
     }  
     
@@ -13464,14 +13615,15 @@ json.clear();
         for(int CfNLqMF=0; CfNLqMF < 1; CfNLqMF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalImageFormatProperties[CfNLqMF]);
+            serialize_struct(temp_map, pExternalImageFormatProperties[CfNLqMF]);
             arr_gXHGwln[CfNLqMF]=temp_map;
+            return;
             }();
         }
         json["pExternalImageFormatProperties"]=arr_gXHGwln;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALIMAGEFORMATPROPERTIESNV;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEEXTERNALIMAGEFORMATPROPERTIESNV);
         writeToConn(json);
     }
 
@@ -13512,7 +13664,7 @@ VkBool32 isPreprocessed;
         call_function=(PFN_vkCmdExecuteGeneratedCommandsNV)get_instance_proc_addr(parent,"vkCmdExecuteGeneratedCommandsNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdExecuteGeneratedCommandsNV)get_device_proc_addr(parent,"vkCmdExecuteGeneratedCommandsNV");
     }  
     
@@ -13530,14 +13682,15 @@ json.clear();
         for(int breVZQP=0; breVZQP < 1; breVZQP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGeneratedCommandsInfo[breVZQP]);
+            serialize_struct(temp_map, pGeneratedCommandsInfo[breVZQP]);
             arr_mvZtJqS[breVZQP]=temp_map;
+            return;
             }();
         }
         json["pGeneratedCommandsInfo"]=arr_mvZtJqS;}();
 
 
-        json["stream_type"]=VKCMDEXECUTEGENERATEDCOMMANDSNV;
+        json["stream_type"]=static_cast<int>(VKCMDEXECUTEGENERATEDCOMMANDSNV);
         writeToConn(json);
     }
 
@@ -13568,7 +13721,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdPreprocessGeneratedCommandsNV)get_instance_proc_addr(parent,"vkCmdPreprocessGeneratedCommandsNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdPreprocessGeneratedCommandsNV)get_device_proc_addr(parent,"vkCmdPreprocessGeneratedCommandsNV");
     }  
     
@@ -13585,14 +13738,15 @@ json.clear();
         for(int breVZQP=0; breVZQP < 1; breVZQP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGeneratedCommandsInfo[breVZQP]);
+            serialize_struct(temp_map, pGeneratedCommandsInfo[breVZQP]);
             arr_mvZtJqS[breVZQP]=temp_map;
+            return;
             }();
         }
         json["pGeneratedCommandsInfo"]=arr_mvZtJqS;}();
 
 
-        json["stream_type"]=VKCMDPREPROCESSGENERATEDCOMMANDSNV;
+        json["stream_type"]=static_cast<int>(VKCMDPREPROCESSGENERATEDCOMMANDSNV);
         writeToConn(json);
     }
 
@@ -13634,7 +13788,7 @@ uint32_t groupIndex;
         call_function=(PFN_vkCmdBindPipelineShaderGroupNV)get_instance_proc_addr(parent,"vkCmdBindPipelineShaderGroupNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindPipelineShaderGroupNV)get_device_proc_addr(parent,"vkCmdBindPipelineShaderGroupNV");
     }  
     
@@ -13649,7 +13803,7 @@ json.clear();
 [&](){json["groupIndex"]=static_cast<uint>(groupIndex);}();
 
 
-        json["stream_type"]=VKCMDBINDPIPELINESHADERGROUPNV;
+        json["stream_type"]=static_cast<int>(VKCMDBINDPIPELINESHADERGROUPNV);
         writeToConn(json);
     }
 
@@ -13691,7 +13845,7 @@ VkMemoryRequirements2* pMemoryRequirements;
         call_function=(PFN_vkGetGeneratedCommandsMemoryRequirementsNV)get_instance_proc_addr(parent,"vkGetGeneratedCommandsMemoryRequirementsNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetGeneratedCommandsMemoryRequirementsNV)get_device_proc_addr(parent,"vkGetGeneratedCommandsMemoryRequirementsNV");
     }  
     
@@ -13708,8 +13862,9 @@ json.clear();
         for(int suoLDtj=0; suoLDtj < 1; suoLDtj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[suoLDtj]);
+            serialize_struct(temp_map, pInfo[suoLDtj]);
             arr_bVjZkmU[suoLDtj]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_bVjZkmU;}();
@@ -13720,14 +13875,15 @@ json.clear();
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
 
 
-        json["stream_type"]=VKGETGENERATEDCOMMANDSMEMORYREQUIREMENTSNV;
+        json["stream_type"]=static_cast<int>(VKGETGENERATEDCOMMANDSMEMORYREQUIREMENTSNV);
         writeToConn(json);
     }
 
@@ -13778,7 +13934,7 @@ VkIndirectCommandsLayoutNV* pIndirectCommandsLayout;
         call_function=(PFN_vkCreateIndirectCommandsLayoutNV)get_instance_proc_addr(parent,"vkCreateIndirectCommandsLayoutNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateIndirectCommandsLayoutNV)get_device_proc_addr(parent,"vkCreateIndirectCommandsLayoutNV");
     }  
     
@@ -13796,8 +13952,9 @@ json.clear();
         for(int TPVCKbG=0; TPVCKbG < 1; TPVCKbG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[TPVCKbG]);
+            serialize_struct(temp_map, pCreateInfo[TPVCKbG]);
             arr_EQPGiEt[TPVCKbG]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_EQPGiEt;}();
@@ -13808,8 +13965,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -13823,7 +13981,7 @@ json.clear();
         json["pIndirectCommandsLayout"]=arr_lGdEoyU;}();
 
 
-        json["stream_type"]=VKCREATEINDIRECTCOMMANDSLAYOUTNV;
+        json["stream_type"]=static_cast<int>(VKCREATEINDIRECTCOMMANDSLAYOUTNV);
         writeToConn(json);
     }
 
@@ -13856,7 +14014,7 @@ VkIndirectCommandsLayoutNV indirectCommandsLayout;
         call_function=(PFN_vkDestroyIndirectCommandsLayoutNV)get_instance_proc_addr(parent,"vkDestroyIndirectCommandsLayoutNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyIndirectCommandsLayoutNV)get_device_proc_addr(parent,"vkDestroyIndirectCommandsLayoutNV");
     }  
     
@@ -13874,14 +14032,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYINDIRECTCOMMANDSLAYOUTNV;
+        json["stream_type"]=static_cast<int>(VKDESTROYINDIRECTCOMMANDSLAYOUTNV);
         writeToConn(json);
     }
 
@@ -13912,7 +14071,7 @@ VkPhysicalDeviceFeatures2* pFeatures;
         call_function=(PFN_vkGetPhysicalDeviceFeatures2)get_instance_proc_addr(parent,"vkGetPhysicalDeviceFeatures2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceFeatures2)get_device_proc_addr(parent,"vkGetPhysicalDeviceFeatures2");
     }  
     
@@ -13929,14 +14088,15 @@ json.clear();
         for(int AlewVZE=0; AlewVZE < 1; AlewVZE++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFeatures[AlewVZE]);
+            serialize_struct(temp_map, pFeatures[AlewVZE]);
             arr_QUwriqy[AlewVZE]=temp_map;
+            return;
             }();
         }
         json["pFeatures"]=arr_QUwriqy;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEFEATURES2;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEFEATURES2);
         writeToConn(json);
     }
 
@@ -13967,7 +14127,7 @@ VkPhysicalDeviceProperties2* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceProperties2)get_instance_proc_addr(parent,"vkGetPhysicalDeviceProperties2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceProperties2)get_device_proc_addr(parent,"vkGetPhysicalDeviceProperties2");
     }  
     
@@ -13984,14 +14144,15 @@ json.clear();
         for(int pxUpVYV=0; pxUpVYV < 1; pxUpVYV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[pxUpVYV]);
+            serialize_struct(temp_map, pProperties[pxUpVYV]);
             arr_oZVBLox[pxUpVYV]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_oZVBLox;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEPROPERTIES2;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEPROPERTIES2);
         writeToConn(json);
     }
 
@@ -14032,7 +14193,7 @@ VkFormatProperties2* pFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceFormatProperties2)get_instance_proc_addr(parent,"vkGetPhysicalDeviceFormatProperties2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceFormatProperties2)get_device_proc_addr(parent,"vkGetPhysicalDeviceFormatProperties2");
     }  
     
@@ -14050,14 +14211,15 @@ json.clear();
         for(int VZFdkqX=0; VZFdkqX < 1; VZFdkqX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFormatProperties[VZFdkqX]);
+            serialize_struct(temp_map, pFormatProperties[VZFdkqX]);
             arr_RNYTnLU[VZFdkqX]=temp_map;
+            return;
             }();
         }
         json["pFormatProperties"]=arr_RNYTnLU;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES2;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEFORMATPROPERTIES2);
         writeToConn(json);
     }
 
@@ -14099,7 +14261,7 @@ VkImageFormatProperties2* pImageFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2)get_instance_proc_addr(parent,"vkGetPhysicalDeviceImageFormatProperties2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2)get_device_proc_addr(parent,"vkGetPhysicalDeviceImageFormatProperties2");
     }  
     
@@ -14117,8 +14279,9 @@ json.clear();
         for(int YAeYFEt=0; YAeYFEt < 1; YAeYFEt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageFormatInfo[YAeYFEt]);
+            serialize_struct(temp_map, pImageFormatInfo[YAeYFEt]);
             arr_MpVGyYe[YAeYFEt]=temp_map;
+            return;
             }();
         }
         json["pImageFormatInfo"]=arr_MpVGyYe;}();
@@ -14129,14 +14292,15 @@ json.clear();
         for(int NQfBHSv=0; NQfBHSv < 1; NQfBHSv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageFormatProperties[NQfBHSv]);
+            serialize_struct(temp_map, pImageFormatProperties[NQfBHSv]);
             arr_wmAZzRc[NQfBHSv]=temp_map;
+            return;
             }();
         }
         json["pImageFormatProperties"]=arr_wmAZzRc;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2);
         writeToConn(json);
     }
 
@@ -14184,7 +14348,7 @@ VkQueueFamilyProperties2* pQueueFamilyProperties;
         call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties2)get_instance_proc_addr(parent,"vkGetPhysicalDeviceQueueFamilyProperties2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties2)get_device_proc_addr(parent,"vkGetPhysicalDeviceQueueFamilyProperties2");
     }  
     
@@ -14209,14 +14373,15 @@ json.clear();
         for(int UxEWlik=0; UxEWlik < *pQueueFamilyPropertyCount; UxEWlik++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pQueueFamilyProperties[UxEWlik]);
+            serialize_struct(temp_map, pQueueFamilyProperties[UxEWlik]);
             arr_NqmNsHw[UxEWlik]=temp_map;
+            return;
             }();
         }
         json["pQueueFamilyProperties"]=arr_NqmNsHw;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2);
         writeToConn(json);
     }
 
@@ -14247,7 +14412,7 @@ VkPhysicalDeviceMemoryProperties2* pMemoryProperties;
         call_function=(PFN_vkGetPhysicalDeviceMemoryProperties2)get_instance_proc_addr(parent,"vkGetPhysicalDeviceMemoryProperties2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceMemoryProperties2)get_device_proc_addr(parent,"vkGetPhysicalDeviceMemoryProperties2");
     }  
     
@@ -14264,14 +14429,15 @@ json.clear();
         for(int tFDFCkf=0; tFDFCkf < 1; tFDFCkf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryProperties[tFDFCkf]);
+            serialize_struct(temp_map, pMemoryProperties[tFDFCkf]);
             arr_nJXNYGt[tFDFCkf]=temp_map;
+            return;
             }();
         }
         json["pMemoryProperties"]=arr_nJXNYGt;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES2;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEMEMORYPROPERTIES2);
         writeToConn(json);
     }
 
@@ -14330,7 +14496,7 @@ VkSparseImageFormatProperties2* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2)get_instance_proc_addr(parent,"vkGetPhysicalDeviceSparseImageFormatProperties2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2)get_device_proc_addr(parent,"vkGetPhysicalDeviceSparseImageFormatProperties2");
     }  
     
@@ -14347,8 +14513,9 @@ json.clear();
         for(int cvknnOe=0; cvknnOe < 1; cvknnOe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFormatInfo[cvknnOe]);
+            serialize_struct(temp_map, pFormatInfo[cvknnOe]);
             arr_nZOUWlt[cvknnOe]=temp_map;
+            return;
             }();
         }
         json["pFormatInfo"]=arr_nZOUWlt;}();
@@ -14367,14 +14534,15 @@ json.clear();
         for(int lIrIGCv=0; lIrIGCv < *pPropertyCount; lIrIGCv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[lIrIGCv]);
+            serialize_struct(temp_map, pProperties[lIrIGCv]);
             arr_YaLkATe[lIrIGCv]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_YaLkATe;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2);
         writeToConn(json);
     }
 
@@ -14437,7 +14605,7 @@ uint32_t descriptorWriteCount;
         call_function=(PFN_vkCmdPushDescriptorSetKHR)get_instance_proc_addr(parent,"vkCmdPushDescriptorSetKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdPushDescriptorSetKHR)get_device_proc_addr(parent,"vkCmdPushDescriptorSetKHR");
     }  
     
@@ -14458,14 +14626,15 @@ json.clear();
         for(int qJACxKx=0; qJACxKx < descriptorWriteCount; qJACxKx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDescriptorWrites[qJACxKx]);
+            serialize_struct(temp_map, pDescriptorWrites[qJACxKx]);
             arr_AuOrFWk[qJACxKx]=temp_map;
+            return;
             }();
         }
         json["pDescriptorWrites"]=arr_AuOrFWk;}();
 
 
-        json["stream_type"]=VKCMDPUSHDESCRIPTORSETKHR;
+        json["stream_type"]=static_cast<int>(VKCMDPUSHDESCRIPTORSETKHR);
         writeToConn(json);
     }
 
@@ -14497,7 +14666,7 @@ VkCommandPoolTrimFlags flags;
         call_function=(PFN_vkTrimCommandPool)get_instance_proc_addr(parent,"vkTrimCommandPool");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkTrimCommandPool)get_device_proc_addr(parent,"vkTrimCommandPool");
     }  
     
@@ -14511,7 +14680,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=static_cast<int>(flags);}();}();}();
 
 
-        json["stream_type"]=VKTRIMCOMMANDPOOL;
+        json["stream_type"]=static_cast<int>(VKTRIMCOMMANDPOOL);
         writeToConn(json);
     }
 
@@ -14553,7 +14722,7 @@ VkExternalBufferProperties* pExternalBufferProperties;
         call_function=(PFN_vkGetPhysicalDeviceExternalBufferProperties)get_instance_proc_addr(parent,"vkGetPhysicalDeviceExternalBufferProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceExternalBufferProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceExternalBufferProperties");
     }  
     
@@ -14570,8 +14739,9 @@ json.clear();
         for(int XeSwNaV=0; XeSwNaV < 1; XeSwNaV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalBufferInfo[XeSwNaV]);
+            serialize_struct(temp_map, pExternalBufferInfo[XeSwNaV]);
             arr_VbIxQJg[XeSwNaV]=temp_map;
+            return;
             }();
         }
         json["pExternalBufferInfo"]=arr_VbIxQJg;}();
@@ -14582,14 +14752,15 @@ json.clear();
         for(int ufvutei=0; ufvutei < 1; ufvutei++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalBufferProperties[ufvutei]);
+            serialize_struct(temp_map, pExternalBufferProperties[ufvutei]);
             arr_oXzExYk[ufvutei]=temp_map;
+            return;
             }();
         }
         json["pExternalBufferProperties"]=arr_oXzExYk;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES);
         writeToConn(json);
     }
 
@@ -14637,7 +14808,7 @@ int* pFd;
         call_function=(PFN_vkGetMemoryFdKHR)get_instance_proc_addr(parent,"vkGetMemoryFdKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetMemoryFdKHR)get_device_proc_addr(parent,"vkGetMemoryFdKHR");
     }  
     
@@ -14655,8 +14826,9 @@ json.clear();
         for(int oZoTEJx=0; oZoTEJx < 1; oZoTEJx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGetFdInfo[oZoTEJx]);
+            serialize_struct(temp_map, pGetFdInfo[oZoTEJx]);
             arr_imCbcqk[oZoTEJx]=temp_map;
+            return;
             }();
         }
         json["pGetFdInfo"]=arr_imCbcqk;}();
@@ -14670,7 +14842,7 @@ json.clear();
         json["pFd"]=arr_iYlwGBh;}();
 
 
-        json["stream_type"]=VKGETMEMORYFDKHR;
+        json["stream_type"]=static_cast<int>(VKGETMEMORYFDKHR);
         writeToConn(json);
     }
 
@@ -14721,7 +14893,7 @@ VkMemoryFdPropertiesKHR* pMemoryFdProperties;
         call_function=(PFN_vkGetMemoryFdPropertiesKHR)get_instance_proc_addr(parent,"vkGetMemoryFdPropertiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetMemoryFdPropertiesKHR)get_device_proc_addr(parent,"vkGetMemoryFdPropertiesKHR");
     }  
     
@@ -14741,14 +14913,15 @@ json.clear();
         for(int UpKTZRJ=0; UpKTZRJ < 1; UpKTZRJ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryFdProperties[UpKTZRJ]);
+            serialize_struct(temp_map, pMemoryFdProperties[UpKTZRJ]);
             arr_tzzZhYk[UpKTZRJ]=temp_map;
+            return;
             }();
         }
         json["pMemoryFdProperties"]=arr_tzzZhYk;}();
 
 
-        json["stream_type"]=VKGETMEMORYFDPROPERTIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETMEMORYFDPROPERTIESKHR);
         writeToConn(json);
     }
 
@@ -14806,7 +14979,7 @@ VkRemoteAddressNV* pAddress;
         call_function=(PFN_vkGetMemoryRemoteAddressNV)get_instance_proc_addr(parent,"vkGetMemoryRemoteAddressNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetMemoryRemoteAddressNV)get_device_proc_addr(parent,"vkGetMemoryRemoteAddressNV");
     }  
     
@@ -14824,8 +14997,9 @@ json.clear();
         for(int tlzypUU=0; tlzypUU < 1; tlzypUU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryGetRemoteAddressInfo[tlzypUU]);
+            serialize_struct(temp_map, pMemoryGetRemoteAddressInfo[tlzypUU]);
             arr_JYmQngD[tlzypUU]=temp_map;
+            return;
             }();
         }
         json["pMemoryGetRemoteAddressInfo"]=arr_JYmQngD;}();
@@ -14849,7 +15023,7 @@ json.clear();
         json["pAddress"]=arr_LTIxmQF;}();
 
 
-        json["stream_type"]=VKGETMEMORYREMOTEADDRESSNV;
+        json["stream_type"]=static_cast<int>(VKGETMEMORYREMOTEADDRESSNV);
         writeToConn(json);
     }
 
@@ -14891,7 +15065,7 @@ VkExternalSemaphoreProperties* pExternalSemaphoreProperties;
         call_function=(PFN_vkGetPhysicalDeviceExternalSemaphoreProperties)get_instance_proc_addr(parent,"vkGetPhysicalDeviceExternalSemaphoreProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceExternalSemaphoreProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceExternalSemaphoreProperties");
     }  
     
@@ -14908,8 +15082,9 @@ json.clear();
         for(int VMbMUUS=0; VMbMUUS < 1; VMbMUUS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalSemaphoreInfo[VMbMUUS]);
+            serialize_struct(temp_map, pExternalSemaphoreInfo[VMbMUUS]);
             arr_qgIgkyH[VMbMUUS]=temp_map;
+            return;
             }();
         }
         json["pExternalSemaphoreInfo"]=arr_qgIgkyH;}();
@@ -14920,14 +15095,15 @@ json.clear();
         for(int rKjPzGR=0; rKjPzGR < 1; rKjPzGR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalSemaphoreProperties[rKjPzGR]);
+            serialize_struct(temp_map, pExternalSemaphoreProperties[rKjPzGR]);
             arr_yLCjbDt[rKjPzGR]=temp_map;
+            return;
             }();
         }
         json["pExternalSemaphoreProperties"]=arr_yLCjbDt;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES);
         writeToConn(json);
     }
 
@@ -14975,7 +15151,7 @@ int* pFd;
         call_function=(PFN_vkGetSemaphoreFdKHR)get_instance_proc_addr(parent,"vkGetSemaphoreFdKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetSemaphoreFdKHR)get_device_proc_addr(parent,"vkGetSemaphoreFdKHR");
     }  
     
@@ -14993,8 +15169,9 @@ json.clear();
         for(int dBynwwO=0; dBynwwO < 1; dBynwwO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGetFdInfo[dBynwwO]);
+            serialize_struct(temp_map, pGetFdInfo[dBynwwO]);
             arr_fyTHWII[dBynwwO]=temp_map;
+            return;
             }();
         }
         json["pGetFdInfo"]=arr_fyTHWII;}();
@@ -15008,7 +15185,7 @@ json.clear();
         json["pFd"]=arr_iYlwGBh;}();
 
 
-        json["stream_type"]=VKGETSEMAPHOREFDKHR;
+        json["stream_type"]=static_cast<int>(VKGETSEMAPHOREFDKHR);
         writeToConn(json);
     }
 
@@ -15039,7 +15216,7 @@ VkDevice device;
         call_function=(PFN_vkImportSemaphoreFdKHR)get_instance_proc_addr(parent,"vkImportSemaphoreFdKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkImportSemaphoreFdKHR)get_device_proc_addr(parent,"vkImportSemaphoreFdKHR");
     }  
     
@@ -15057,14 +15234,15 @@ json.clear();
         for(int kfpLCyT=0; kfpLCyT < 1; kfpLCyT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImportSemaphoreFdInfo[kfpLCyT]);
+            serialize_struct(temp_map, pImportSemaphoreFdInfo[kfpLCyT]);
             arr_vWNEWeX[kfpLCyT]=temp_map;
+            return;
             }();
         }
         json["pImportSemaphoreFdInfo"]=arr_vWNEWeX;}();
 
 
-        json["stream_type"]=VKIMPORTSEMAPHOREFDKHR;
+        json["stream_type"]=static_cast<int>(VKIMPORTSEMAPHOREFDKHR);
         writeToConn(json);
     }
 
@@ -15106,7 +15284,7 @@ VkExternalFenceProperties* pExternalFenceProperties;
         call_function=(PFN_vkGetPhysicalDeviceExternalFenceProperties)get_instance_proc_addr(parent,"vkGetPhysicalDeviceExternalFenceProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceExternalFenceProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceExternalFenceProperties");
     }  
     
@@ -15123,8 +15301,9 @@ json.clear();
         for(int ApMvCYQ=0; ApMvCYQ < 1; ApMvCYQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalFenceInfo[ApMvCYQ]);
+            serialize_struct(temp_map, pExternalFenceInfo[ApMvCYQ]);
             arr_DSVeGvM[ApMvCYQ]=temp_map;
+            return;
             }();
         }
         json["pExternalFenceInfo"]=arr_DSVeGvM;}();
@@ -15135,14 +15314,15 @@ json.clear();
         for(int VoSEUdo=0; VoSEUdo < 1; VoSEUdo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalFenceProperties[VoSEUdo]);
+            serialize_struct(temp_map, pExternalFenceProperties[VoSEUdo]);
             arr_nPbItsj[VoSEUdo]=temp_map;
+            return;
             }();
         }
         json["pExternalFenceProperties"]=arr_nPbItsj;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES);
         writeToConn(json);
     }
 
@@ -15190,7 +15370,7 @@ int* pFd;
         call_function=(PFN_vkGetFenceFdKHR)get_instance_proc_addr(parent,"vkGetFenceFdKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetFenceFdKHR)get_device_proc_addr(parent,"vkGetFenceFdKHR");
     }  
     
@@ -15208,8 +15388,9 @@ json.clear();
         for(int DYSusBe=0; DYSusBe < 1; DYSusBe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGetFdInfo[DYSusBe]);
+            serialize_struct(temp_map, pGetFdInfo[DYSusBe]);
             arr_mgmOmEV[DYSusBe]=temp_map;
+            return;
             }();
         }
         json["pGetFdInfo"]=arr_mgmOmEV;}();
@@ -15223,7 +15404,7 @@ json.clear();
         json["pFd"]=arr_iYlwGBh;}();
 
 
-        json["stream_type"]=VKGETFENCEFDKHR;
+        json["stream_type"]=static_cast<int>(VKGETFENCEFDKHR);
         writeToConn(json);
     }
 
@@ -15254,7 +15435,7 @@ VkDevice device;
         call_function=(PFN_vkImportFenceFdKHR)get_instance_proc_addr(parent,"vkImportFenceFdKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkImportFenceFdKHR)get_device_proc_addr(parent,"vkImportFenceFdKHR");
     }  
     
@@ -15272,14 +15453,15 @@ json.clear();
         for(int QSUnAUF=0; QSUnAUF < 1; QSUnAUF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImportFenceFdInfo[QSUnAUF]);
+            serialize_struct(temp_map, pImportFenceFdInfo[QSUnAUF]);
             arr_PmxwQMO[QSUnAUF]=temp_map;
+            return;
             }();
         }
         json["pImportFenceFdInfo"]=arr_PmxwQMO;}();
 
 
-        json["stream_type"]=VKIMPORTFENCEFDKHR;
+        json["stream_type"]=static_cast<int>(VKIMPORTFENCEFDKHR);
         writeToConn(json);
     }
 
@@ -15301,7 +15483,7 @@ VkDisplayKHR display;
         call_function=(PFN_vkReleaseDisplayEXT)get_instance_proc_addr(parent,"vkReleaseDisplayEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkReleaseDisplayEXT)get_device_proc_addr(parent,"vkReleaseDisplayEXT");
     }  
     
@@ -15315,7 +15497,7 @@ json.clear();
 [&](){serialize_VkDisplayKHR(json["display"],display);}();
 
 
-        json["stream_type"]=VKRELEASEDISPLAYEXT;
+        json["stream_type"]=static_cast<int>(VKRELEASEDISPLAYEXT);
         writeToConn(json);
     }
 
@@ -15348,7 +15530,7 @@ VkDisplayKHR display;
         call_function=(PFN_vkDisplayPowerControlEXT)get_instance_proc_addr(parent,"vkDisplayPowerControlEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDisplayPowerControlEXT)get_device_proc_addr(parent,"vkDisplayPowerControlEXT");
     }  
     
@@ -15367,14 +15549,15 @@ json.clear();
         for(int xtIgTXd=0; xtIgTXd < 1; xtIgTXd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDisplayPowerInfo[xtIgTXd]);
+            serialize_struct(temp_map, pDisplayPowerInfo[xtIgTXd]);
             arr_MrfcjyV[xtIgTXd]=temp_map;
+            return;
             }();
         }
         json["pDisplayPowerInfo"]=arr_MrfcjyV;}();
 
 
-        json["stream_type"]=VKDISPLAYPOWERCONTROLEXT;
+        json["stream_type"]=static_cast<int>(VKDISPLAYPOWERCONTROLEXT);
         writeToConn(json);
     }
 
@@ -15425,7 +15608,7 @@ VkFence* pFence;
         call_function=(PFN_vkRegisterDeviceEventEXT)get_instance_proc_addr(parent,"vkRegisterDeviceEventEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkRegisterDeviceEventEXT)get_device_proc_addr(parent,"vkRegisterDeviceEventEXT");
     }  
     
@@ -15443,8 +15626,9 @@ json.clear();
         for(int JNqwWzK=0; JNqwWzK < 1; JNqwWzK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDeviceEventInfo[JNqwWzK]);
+            serialize_struct(temp_map, pDeviceEventInfo[JNqwWzK]);
             arr_PBonFka[JNqwWzK]=temp_map;
+            return;
             }();
         }
         json["pDeviceEventInfo"]=arr_PBonFka;}();
@@ -15455,8 +15639,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -15470,7 +15655,7 @@ json.clear();
         json["pFence"]=arr_SJohVKr;}();
 
 
-        json["stream_type"]=VKREGISTERDEVICEEVENTEXT;
+        json["stream_type"]=static_cast<int>(VKREGISTERDEVICEEVENTEXT);
         writeToConn(json);
     }
 
@@ -15523,7 +15708,7 @@ VkFence* pFence;
         call_function=(PFN_vkRegisterDisplayEventEXT)get_instance_proc_addr(parent,"vkRegisterDisplayEventEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkRegisterDisplayEventEXT)get_device_proc_addr(parent,"vkRegisterDisplayEventEXT");
     }  
     
@@ -15542,8 +15727,9 @@ json.clear();
         for(int ZywgBIl=0; ZywgBIl < 1; ZywgBIl++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDisplayEventInfo[ZywgBIl]);
+            serialize_struct(temp_map, pDisplayEventInfo[ZywgBIl]);
             arr_EEWRWgk[ZywgBIl]=temp_map;
+            return;
             }();
         }
         json["pDisplayEventInfo"]=arr_EEWRWgk;}();
@@ -15554,8 +15740,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -15569,7 +15756,7 @@ json.clear();
         json["pFence"]=arr_SJohVKr;}();
 
 
-        json["stream_type"]=VKREGISTERDISPLAYEVENTEXT;
+        json["stream_type"]=static_cast<int>(VKREGISTERDISPLAYEVENTEXT);
         writeToConn(json);
     }
 
@@ -15618,7 +15805,7 @@ uint64_t* pCounterValue;
         call_function=(PFN_vkGetSwapchainCounterEXT)get_instance_proc_addr(parent,"vkGetSwapchainCounterEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetSwapchainCounterEXT)get_device_proc_addr(parent,"vkGetSwapchainCounterEXT");
     }  
     
@@ -15641,7 +15828,7 @@ json.clear();
         json["pCounterValue"]=arr_VmPfCNz;}();
 
 
-        json["stream_type"]=VKGETSWAPCHAINCOUNTEREXT;
+        json["stream_type"]=static_cast<int>(VKGETSWAPCHAINCOUNTEREXT);
         writeToConn(json);
     }
 
@@ -15674,7 +15861,7 @@ VkSurfaceCapabilities2EXT* pSurfaceCapabilities;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT)get_instance_proc_addr(parent,"vkGetPhysicalDeviceSurfaceCapabilities2EXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceCapabilities2EXT");
     }  
     
@@ -15693,14 +15880,15 @@ json.clear();
         for(int QJCcfVY=0; QJCcfVY < 1; QJCcfVY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceCapabilities[QJCcfVY]);
+            serialize_struct(temp_map, pSurfaceCapabilities[QJCcfVY]);
             arr_KYzynfJ[QJCcfVY]=temp_map;
+            return;
             }();
         }
         json["pSurfaceCapabilities"]=arr_KYzynfJ;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2EXT;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICESURFACECAPABILITIES2EXT);
         writeToConn(json);
     }
 
@@ -15748,7 +15936,7 @@ VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties;
         call_function=(PFN_vkEnumeratePhysicalDeviceGroups)get_instance_proc_addr(parent,"vkEnumeratePhysicalDeviceGroups");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkEnumeratePhysicalDeviceGroups)get_device_proc_addr(parent,"vkEnumeratePhysicalDeviceGroups");
     }  
     
@@ -15774,14 +15962,15 @@ json.clear();
         for(int LorZWUi=0; LorZWUi < *pPhysicalDeviceGroupCount; LorZWUi++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPhysicalDeviceGroupProperties[LorZWUi]);
+            serialize_struct(temp_map, pPhysicalDeviceGroupProperties[LorZWUi]);
             arr_kSmADNy[LorZWUi]=temp_map;
+            return;
             }();
         }
         json["pPhysicalDeviceGroupProperties"]=arr_kSmADNy;}();
 
 
-        json["stream_type"]=VKENUMERATEPHYSICALDEVICEGROUPS;
+        json["stream_type"]=static_cast<int>(VKENUMERATEPHYSICALDEVICEGROUPS);
         writeToConn(json);
     }
 
@@ -15848,7 +16037,7 @@ VkPeerMemoryFeatureFlags* pPeerMemoryFeatures;
         call_function=(PFN_vkGetDeviceGroupPeerMemoryFeatures)get_instance_proc_addr(parent,"vkGetDeviceGroupPeerMemoryFeatures");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceGroupPeerMemoryFeatures)get_device_proc_addr(parent,"vkGetDeviceGroupPeerMemoryFeatures");
     }  
     
@@ -15871,7 +16060,7 @@ json.clear();
         json["pPeerMemoryFeatures"]=arr_IMNDPVx;}();
 
 
-        json["stream_type"]=VKGETDEVICEGROUPPEERMEMORYFEATURES;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEGROUPPEERMEMORYFEATURES);
         writeToConn(json);
     }
 
@@ -15912,7 +16101,7 @@ uint32_t bindInfoCount;
         call_function=(PFN_vkBindBufferMemory2)get_instance_proc_addr(parent,"vkBindBufferMemory2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkBindBufferMemory2)get_device_proc_addr(parent,"vkBindBufferMemory2");
     }  
     
@@ -15931,14 +16120,15 @@ json.clear();
         for(int DbCSPHR=0; DbCSPHR < bindInfoCount; DbCSPHR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindInfos[DbCSPHR]);
+            serialize_struct(temp_map, pBindInfos[DbCSPHR]);
             arr_NWunNSr[DbCSPHR]=temp_map;
+            return;
             }();
         }
         json["pBindInfos"]=arr_NWunNSr;}();
 
 
-        json["stream_type"]=VKBINDBUFFERMEMORY2;
+        json["stream_type"]=static_cast<int>(VKBINDBUFFERMEMORY2);
         writeToConn(json);
     }
 
@@ -15979,7 +16169,7 @@ uint32_t bindInfoCount;
         call_function=(PFN_vkBindImageMemory2)get_instance_proc_addr(parent,"vkBindImageMemory2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkBindImageMemory2)get_device_proc_addr(parent,"vkBindImageMemory2");
     }  
     
@@ -15998,14 +16188,15 @@ json.clear();
         for(int TInZfLo=0; TInZfLo < bindInfoCount; TInZfLo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindInfos[TInZfLo]);
+            serialize_struct(temp_map, pBindInfos[TInZfLo]);
             arr_FifZmRy[TInZfLo]=temp_map;
+            return;
             }();
         }
         json["pBindInfos"]=arr_FifZmRy;}();
 
 
-        json["stream_type"]=VKBINDIMAGEMEMORY2;
+        json["stream_type"]=static_cast<int>(VKBINDIMAGEMEMORY2);
         writeToConn(json);
     }
 
@@ -16035,7 +16226,7 @@ uint32_t deviceMask;
         call_function=(PFN_vkCmdSetDeviceMask)get_instance_proc_addr(parent,"vkCmdSetDeviceMask");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDeviceMask)get_device_proc_addr(parent,"vkCmdSetDeviceMask");
     }  
     
@@ -16048,7 +16239,7 @@ json.clear();
 [&](){json["deviceMask"]=static_cast<uint>(deviceMask);}();
 
 
-        json["stream_type"]=VKCMDSETDEVICEMASK;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEVICEMASK);
         writeToConn(json);
     }
 
@@ -16079,7 +16270,7 @@ VkDeviceGroupPresentCapabilitiesKHR* pDeviceGroupPresentCapabilities;
         call_function=(PFN_vkGetDeviceGroupPresentCapabilitiesKHR)get_instance_proc_addr(parent,"vkGetDeviceGroupPresentCapabilitiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceGroupPresentCapabilitiesKHR)get_device_proc_addr(parent,"vkGetDeviceGroupPresentCapabilitiesKHR");
     }  
     
@@ -16097,14 +16288,15 @@ json.clear();
         for(int HHoUQIw=0; HHoUQIw < 1; HHoUQIw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDeviceGroupPresentCapabilities[HHoUQIw]);
+            serialize_struct(temp_map, pDeviceGroupPresentCapabilities[HHoUQIw]);
             arr_gEodIfI[HHoUQIw]=temp_map;
+            return;
             }();
         }
         json["pDeviceGroupPresentCapabilities"]=arr_gEodIfI;}();
 
 
-        json["stream_type"]=VKGETDEVICEGROUPPRESENTCAPABILITIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEGROUPPRESENTCAPABILITIESKHR);
         writeToConn(json);
     }
 
@@ -16143,7 +16335,7 @@ VkDeviceGroupPresentModeFlagsKHR* pModes;
         call_function=(PFN_vkGetDeviceGroupSurfacePresentModesKHR)get_instance_proc_addr(parent,"vkGetDeviceGroupSurfacePresentModesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceGroupSurfacePresentModesKHR)get_device_proc_addr(parent,"vkGetDeviceGroupSurfacePresentModesKHR");
     }  
     
@@ -16165,7 +16357,7 @@ json.clear();
         json["pModes"]=arr_RUtBuZy;}();
 
 
-        json["stream_type"]=VKGETDEVICEGROUPSURFACEPRESENTMODESKHR;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEGROUPSURFACEPRESENTMODESKHR);
         writeToConn(json);
     }
 
@@ -16213,7 +16405,7 @@ uint32_t* pImageIndex;
         call_function=(PFN_vkAcquireNextImage2KHR)get_instance_proc_addr(parent,"vkAcquireNextImage2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkAcquireNextImage2KHR)get_device_proc_addr(parent,"vkAcquireNextImage2KHR");
     }  
     
@@ -16231,8 +16423,9 @@ json.clear();
         for(int QzLRJum=0; QzLRJum < 1; QzLRJum++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAcquireInfo[QzLRJum]);
+            serialize_struct(temp_map, pAcquireInfo[QzLRJum]);
             arr_plPbild[QzLRJum]=temp_map;
+            return;
             }();
         }
         json["pAcquireInfo"]=arr_plPbild;}();
@@ -16246,7 +16439,7 @@ json.clear();
         json["pImageIndex"]=arr_oSqpNfH;}();
 
 
-        json["stream_type"]=VKACQUIRENEXTIMAGE2KHR;
+        json["stream_type"]=static_cast<int>(VKACQUIRENEXTIMAGE2KHR);
         writeToConn(json);
     }
 
@@ -16326,7 +16519,7 @@ uint32_t groupCountZ;
         call_function=(PFN_vkCmdDispatchBase)get_instance_proc_addr(parent,"vkCmdDispatchBase");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDispatchBase)get_device_proc_addr(parent,"vkCmdDispatchBase");
     }  
     
@@ -16344,7 +16537,7 @@ json.clear();
 [&](){json["groupCountZ"]=static_cast<uint>(groupCountZ);}();
 
 
-        json["stream_type"]=VKCMDDISPATCHBASE;
+        json["stream_type"]=static_cast<int>(VKCMDDISPATCHBASE);
         writeToConn(json);
     }
 
@@ -16394,7 +16587,7 @@ VkRect2D* pRects;
         call_function=(PFN_vkGetPhysicalDevicePresentRectanglesKHR)get_instance_proc_addr(parent,"vkGetPhysicalDevicePresentRectanglesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDevicePresentRectanglesKHR)get_device_proc_addr(parent,"vkGetPhysicalDevicePresentRectanglesKHR");
     }  
     
@@ -16421,14 +16614,15 @@ json.clear();
         for(int LNnHsjT=0; LNnHsjT < *pRectCount; LNnHsjT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRects[LNnHsjT]);
+            serialize_struct(temp_map, pRects[LNnHsjT]);
             arr_BxIGDMm[LNnHsjT]=temp_map;
+            return;
             }();
         }
         json["pRects"]=arr_BxIGDMm;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEPRESENTRECTANGLESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEPRESENTRECTANGLESKHR);
         writeToConn(json);
     }
 
@@ -16479,7 +16673,7 @@ VkDescriptorUpdateTemplate* pDescriptorUpdateTemplate;
         call_function=(PFN_vkCreateDescriptorUpdateTemplate)get_instance_proc_addr(parent,"vkCreateDescriptorUpdateTemplate");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateDescriptorUpdateTemplate)get_device_proc_addr(parent,"vkCreateDescriptorUpdateTemplate");
     }  
     
@@ -16497,8 +16691,9 @@ json.clear();
         for(int bDXkRSI=0; bDXkRSI < 1; bDXkRSI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[bDXkRSI]);
+            serialize_struct(temp_map, pCreateInfo[bDXkRSI]);
             arr_GOaQfzV[bDXkRSI]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_GOaQfzV;}();
@@ -16509,8 +16704,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -16524,7 +16720,7 @@ json.clear();
         json["pDescriptorUpdateTemplate"]=arr_wchWplA;}();
 
 
-        json["stream_type"]=VKCREATEDESCRIPTORUPDATETEMPLATE;
+        json["stream_type"]=static_cast<int>(VKCREATEDESCRIPTORUPDATETEMPLATE);
         writeToConn(json);
     }
 
@@ -16557,7 +16753,7 @@ VkDescriptorUpdateTemplate descriptorUpdateTemplate;
         call_function=(PFN_vkDestroyDescriptorUpdateTemplate)get_instance_proc_addr(parent,"vkDestroyDescriptorUpdateTemplate");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyDescriptorUpdateTemplate)get_device_proc_addr(parent,"vkDestroyDescriptorUpdateTemplate");
     }  
     
@@ -16575,14 +16771,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYDESCRIPTORUPDATETEMPLATE;
+        json["stream_type"]=static_cast<int>(VKDESTROYDESCRIPTORUPDATETEMPLATE);
         writeToConn(json);
     }
 
@@ -16626,7 +16823,7 @@ VkDescriptorUpdateTemplate descriptorUpdateTemplate;
         call_function=(PFN_vkUpdateDescriptorSetWithTemplate)get_instance_proc_addr(parent,"vkUpdateDescriptorSetWithTemplate");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkUpdateDescriptorSetWithTemplate)get_device_proc_addr(parent,"vkUpdateDescriptorSetWithTemplate");
     }  
     
@@ -16651,7 +16848,7 @@ json.clear();
         json["pData"]=arr_ZUZjIQc;}();}();
 
 
-        json["stream_type"]=VKUPDATEDESCRIPTORSETWITHTEMPLATE;
+        json["stream_type"]=static_cast<int>(VKUPDATEDESCRIPTORSETWITHTEMPLATE);
         writeToConn(json);
     }
 
@@ -16705,7 +16902,7 @@ uint32_t set;
         call_function=(PFN_vkCmdPushDescriptorSetWithTemplateKHR)get_instance_proc_addr(parent,"vkCmdPushDescriptorSetWithTemplateKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdPushDescriptorSetWithTemplateKHR)get_device_proc_addr(parent,"vkCmdPushDescriptorSetWithTemplateKHR");
     }  
     
@@ -16731,7 +16928,7 @@ json.clear();
         json["pData"]=arr_ZUZjIQc;}();}();
 
 
-        json["stream_type"]=VKCMDPUSHDESCRIPTORSETWITHTEMPLATEKHR;
+        json["stream_type"]=static_cast<int>(VKCMDPUSHDESCRIPTORSETWITHTEMPLATEKHR);
         writeToConn(json);
     }
 
@@ -16781,7 +16978,7 @@ uint32_t swapchainCount;
         call_function=(PFN_vkSetHdrMetadataEXT)get_instance_proc_addr(parent,"vkSetHdrMetadataEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkSetHdrMetadataEXT)get_device_proc_addr(parent,"vkSetHdrMetadataEXT");
     }  
     
@@ -16807,14 +17004,15 @@ json.clear();
         for(int qGnEfca=0; qGnEfca < swapchainCount; qGnEfca++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMetadata[qGnEfca]);
+            serialize_struct(temp_map, pMetadata[qGnEfca]);
             arr_gUCeGgy[qGnEfca]=temp_map;
+            return;
             }();
         }
         json["pMetadata"]=arr_gUCeGgy;}();
 
 
-        json["stream_type"]=VKSETHDRMETADATAEXT;
+        json["stream_type"]=static_cast<int>(VKSETHDRMETADATAEXT);
         writeToConn(json);
     }
 
@@ -16836,7 +17034,7 @@ VkSwapchainKHR swapchain;
         call_function=(PFN_vkGetSwapchainStatusKHR)get_instance_proc_addr(parent,"vkGetSwapchainStatusKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetSwapchainStatusKHR)get_device_proc_addr(parent,"vkGetSwapchainStatusKHR");
     }  
     
@@ -16850,7 +17048,7 @@ json.clear();
 [&](){serialize_VkSwapchainKHR(json["swapchain"],swapchain);}();
 
 
-        json["stream_type"]=VKGETSWAPCHAINSTATUSKHR;
+        json["stream_type"]=static_cast<int>(VKGETSWAPCHAINSTATUSKHR);
         writeToConn(json);
     }
 
@@ -16883,7 +17081,7 @@ VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties;
         call_function=(PFN_vkGetRefreshCycleDurationGOOGLE)get_instance_proc_addr(parent,"vkGetRefreshCycleDurationGOOGLE");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetRefreshCycleDurationGOOGLE)get_device_proc_addr(parent,"vkGetRefreshCycleDurationGOOGLE");
     }  
     
@@ -16902,14 +17100,15 @@ json.clear();
         for(int NSFWKiB=0; NSFWKiB < 1; NSFWKiB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDisplayTimingProperties[NSFWKiB]);
+            serialize_struct(temp_map, pDisplayTimingProperties[NSFWKiB]);
             arr_nDUaeZL[NSFWKiB]=temp_map;
+            return;
             }();
         }
         json["pDisplayTimingProperties"]=arr_nDUaeZL;}();
 
 
-        json["stream_type"]=VKGETREFRESHCYCLEDURATIONGOOGLE;
+        json["stream_type"]=static_cast<int>(VKGETREFRESHCYCLEDURATIONGOOGLE);
         writeToConn(json);
     }
 
@@ -16959,7 +17158,7 @@ VkPastPresentationTimingGOOGLE* pPresentationTimings;
         call_function=(PFN_vkGetPastPresentationTimingGOOGLE)get_instance_proc_addr(parent,"vkGetPastPresentationTimingGOOGLE");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPastPresentationTimingGOOGLE)get_device_proc_addr(parent,"vkGetPastPresentationTimingGOOGLE");
     }  
     
@@ -16986,14 +17185,15 @@ json.clear();
         for(int CzbyDFb=0; CzbyDFb < *pPresentationTimingCount; CzbyDFb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPresentationTimings[CzbyDFb]);
+            serialize_struct(temp_map, pPresentationTimings[CzbyDFb]);
             arr_CGvQjMK[CzbyDFb]=temp_map;
+            return;
             }();
         }
         json["pPresentationTimings"]=arr_CGvQjMK;}();
 
 
-        json["stream_type"]=VKGETPASTPRESENTATIONTIMINGGOOGLE;
+        json["stream_type"]=static_cast<int>(VKGETPASTPRESENTATIONTIMINGGOOGLE);
         writeToConn(json);
     }
 
@@ -17044,7 +17244,7 @@ uint32_t viewportCount;
         call_function=(PFN_vkCmdSetViewportWScalingNV)get_instance_proc_addr(parent,"vkCmdSetViewportWScalingNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetViewportWScalingNV)get_device_proc_addr(parent,"vkCmdSetViewportWScalingNV");
     }  
     
@@ -17063,14 +17263,15 @@ json.clear();
         for(int GRZXlou=0; GRZXlou < viewportCount; GRZXlou++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pViewportWScalings[GRZXlou]);
+            serialize_struct(temp_map, pViewportWScalings[GRZXlou]);
             arr_gZVGKnq[GRZXlou]=temp_map;
+            return;
             }();
         }
         json["pViewportWScalings"]=arr_gZVGKnq;}();
 
 
-        json["stream_type"]=VKCMDSETVIEWPORTWSCALINGNV;
+        json["stream_type"]=static_cast<int>(VKCMDSETVIEWPORTWSCALINGNV);
         writeToConn(json);
     }
 
@@ -17121,7 +17322,7 @@ uint32_t discardRectangleCount;
         call_function=(PFN_vkCmdSetDiscardRectangleEXT)get_instance_proc_addr(parent,"vkCmdSetDiscardRectangleEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDiscardRectangleEXT)get_device_proc_addr(parent,"vkCmdSetDiscardRectangleEXT");
     }  
     
@@ -17140,14 +17341,15 @@ json.clear();
         for(int WtUHHLW=0; WtUHHLW < discardRectangleCount; WtUHHLW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDiscardRectangles[WtUHHLW]);
+            serialize_struct(temp_map, pDiscardRectangles[WtUHHLW]);
             arr_uUeweOj[WtUHHLW]=temp_map;
+            return;
             }();
         }
         json["pDiscardRectangles"]=arr_uUeweOj;}();
 
 
-        json["stream_type"]=VKCMDSETDISCARDRECTANGLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETDISCARDRECTANGLEEXT);
         writeToConn(json);
     }
 
@@ -17177,7 +17379,7 @@ VkBool32 discardRectangleEnable;
         call_function=(PFN_vkCmdSetDiscardRectangleEnableEXT)get_instance_proc_addr(parent,"vkCmdSetDiscardRectangleEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDiscardRectangleEnableEXT)get_device_proc_addr(parent,"vkCmdSetDiscardRectangleEnableEXT");
     }  
     
@@ -17190,7 +17392,7 @@ json.clear();
 [&](){[&](){json["discardRectangleEnable"]=static_cast<uint>(discardRectangleEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETDISCARDRECTANGLEENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETDISCARDRECTANGLEENABLEEXT);
         writeToConn(json);
     }
 
@@ -17220,7 +17422,7 @@ VkDiscardRectangleModeEXT discardRectangleMode;
         call_function=(PFN_vkCmdSetDiscardRectangleModeEXT)get_instance_proc_addr(parent,"vkCmdSetDiscardRectangleModeEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDiscardRectangleModeEXT)get_device_proc_addr(parent,"vkCmdSetDiscardRectangleModeEXT");
     }  
     
@@ -17233,7 +17435,7 @@ json.clear();
 [&](){[&](){[&](){json["discardRectangleMode"]=static_cast<int>(discardRectangleMode);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETDISCARDRECTANGLEMODEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETDISCARDRECTANGLEMODEEXT);
         writeToConn(json);
     }
 
@@ -17264,7 +17466,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdSetSampleLocationsEXT)get_instance_proc_addr(parent,"vkCmdSetSampleLocationsEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetSampleLocationsEXT)get_device_proc_addr(parent,"vkCmdSetSampleLocationsEXT");
     }  
     
@@ -17281,14 +17483,15 @@ json.clear();
         for(int XjGOezZ=0; XjGOezZ < 1; XjGOezZ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSampleLocationsInfo[XjGOezZ]);
+            serialize_struct(temp_map, pSampleLocationsInfo[XjGOezZ]);
             arr_KfRxBlJ[XjGOezZ]=temp_map;
+            return;
             }();
         }
         json["pSampleLocationsInfo"]=arr_KfRxBlJ;}();
 
 
-        json["stream_type"]=VKCMDSETSAMPLELOCATIONSEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETSAMPLELOCATIONSEXT);
         writeToConn(json);
     }
 
@@ -17329,7 +17532,7 @@ VkMultisamplePropertiesEXT* pMultisampleProperties;
         call_function=(PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT)get_instance_proc_addr(parent,"vkGetPhysicalDeviceMultisamplePropertiesEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT)get_device_proc_addr(parent,"vkGetPhysicalDeviceMultisamplePropertiesEXT");
     }  
     
@@ -17347,14 +17550,15 @@ json.clear();
         for(int xJhEIjr=0; xJhEIjr < 1; xJhEIjr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMultisampleProperties[xJhEIjr]);
+            serialize_struct(temp_map, pMultisampleProperties[xJhEIjr]);
             arr_IduiRHb[xJhEIjr]=temp_map;
+            return;
             }();
         }
         json["pMultisampleProperties"]=arr_IduiRHb;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEMULTISAMPLEPROPERTIESEXT;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEMULTISAMPLEPROPERTIESEXT);
         writeToConn(json);
     }
 
@@ -17396,7 +17600,7 @@ VkSurfaceCapabilities2KHR* pSurfaceCapabilities;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceSurfaceCapabilities2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceCapabilities2KHR");
     }  
     
@@ -17414,8 +17618,9 @@ json.clear();
         for(int yiVsRWe=0; yiVsRWe < 1; yiVsRWe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceInfo[yiVsRWe]);
+            serialize_struct(temp_map, pSurfaceInfo[yiVsRWe]);
             arr_kqlTDpj[yiVsRWe]=temp_map;
+            return;
             }();
         }
         json["pSurfaceInfo"]=arr_kqlTDpj;}();
@@ -17426,14 +17631,15 @@ json.clear();
         for(int Baebpht=0; Baebpht < 1; Baebpht++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceCapabilities[Baebpht]);
+            serialize_struct(temp_map, pSurfaceCapabilities[Baebpht]);
             arr_JfroxEi[Baebpht]=temp_map;
+            return;
             }();
         }
         json["pSurfaceCapabilities"]=arr_JfroxEi;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2KHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICESURFACECAPABILITIES2KHR);
         writeToConn(json);
     }
 
@@ -17492,7 +17698,7 @@ VkSurfaceFormat2KHR* pSurfaceFormats;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceFormats2KHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceSurfaceFormats2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceSurfaceFormats2KHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceFormats2KHR");
     }  
     
@@ -17510,8 +17716,9 @@ json.clear();
         for(int yiVsRWe=0; yiVsRWe < 1; yiVsRWe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceInfo[yiVsRWe]);
+            serialize_struct(temp_map, pSurfaceInfo[yiVsRWe]);
             arr_kqlTDpj[yiVsRWe]=temp_map;
+            return;
             }();
         }
         json["pSurfaceInfo"]=arr_kqlTDpj;}();
@@ -17530,14 +17737,15 @@ json.clear();
         for(int lVrVWxA=0; lVrVWxA < *pSurfaceFormatCount; lVrVWxA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceFormats[lVrVWxA]);
+            serialize_struct(temp_map, pSurfaceFormats[lVrVWxA]);
             arr_AuCicsY[lVrVWxA]=temp_map;
+            return;
             }();
         }
         json["pSurfaceFormats"]=arr_AuCicsY;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICESURFACEFORMATS2KHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICESURFACEFORMATS2KHR);
         writeToConn(json);
     }
 
@@ -17585,7 +17793,7 @@ VkDisplayProperties2KHR* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceDisplayProperties2KHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceDisplayProperties2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceDisplayProperties2KHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceDisplayProperties2KHR");
     }  
     
@@ -17611,14 +17819,15 @@ json.clear();
         for(int IPCMyur=0; IPCMyur < *pPropertyCount; IPCMyur++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[IPCMyur]);
+            serialize_struct(temp_map, pProperties[IPCMyur]);
             arr_WgClQQW[IPCMyur]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_WgClQQW;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIES2KHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEDISPLAYPROPERTIES2KHR);
         writeToConn(json);
     }
 
@@ -17666,7 +17875,7 @@ VkDisplayPlaneProperties2KHR* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceDisplayPlaneProperties2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceDisplayPlaneProperties2KHR");
     }  
     
@@ -17692,14 +17901,15 @@ json.clear();
         for(int KJvijjP=0; KJvijjP < *pPropertyCount; KJvijjP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[KJvijjP]);
+            serialize_struct(temp_map, pProperties[KJvijjP]);
             arr_oqLTQEe[KJvijjP]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_oqLTQEe;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIES2KHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIES2KHR);
         writeToConn(json);
     }
 
@@ -17749,7 +17959,7 @@ VkDisplayModeProperties2KHR* pProperties;
         call_function=(PFN_vkGetDisplayModeProperties2KHR)get_instance_proc_addr(parent,"vkGetDisplayModeProperties2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDisplayModeProperties2KHR)get_device_proc_addr(parent,"vkGetDisplayModeProperties2KHR");
     }  
     
@@ -17776,14 +17986,15 @@ json.clear();
         for(int gThvzcU=0; gThvzcU < *pPropertyCount; gThvzcU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[gThvzcU]);
+            serialize_struct(temp_map, pProperties[gThvzcU]);
             arr_LvUqkhm[gThvzcU]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_LvUqkhm;}();
 
 
-        json["stream_type"]=VKGETDISPLAYMODEPROPERTIES2KHR;
+        json["stream_type"]=static_cast<int>(VKGETDISPLAYMODEPROPERTIES2KHR);
         writeToConn(json);
     }
 
@@ -17825,7 +18036,7 @@ VkDisplayPlaneCapabilities2KHR* pCapabilities;
         call_function=(PFN_vkGetDisplayPlaneCapabilities2KHR)get_instance_proc_addr(parent,"vkGetDisplayPlaneCapabilities2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDisplayPlaneCapabilities2KHR)get_device_proc_addr(parent,"vkGetDisplayPlaneCapabilities2KHR");
     }  
     
@@ -17843,8 +18054,9 @@ json.clear();
         for(int iEdZMtQ=0; iEdZMtQ < 1; iEdZMtQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDisplayPlaneInfo[iEdZMtQ]);
+            serialize_struct(temp_map, pDisplayPlaneInfo[iEdZMtQ]);
             arr_rwBYAlG[iEdZMtQ]=temp_map;
+            return;
             }();
         }
         json["pDisplayPlaneInfo"]=arr_rwBYAlG;}();
@@ -17855,14 +18067,15 @@ json.clear();
         for(int wDZGRHI=0; wDZGRHI < 1; wDZGRHI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCapabilities[wDZGRHI]);
+            serialize_struct(temp_map, pCapabilities[wDZGRHI]);
             arr_perBkIp[wDZGRHI]=temp_map;
+            return;
             }();
         }
         json["pCapabilities"]=arr_perBkIp;}();
 
 
-        json["stream_type"]=VKGETDISPLAYPLANECAPABILITIES2KHR;
+        json["stream_type"]=static_cast<int>(VKGETDISPLAYPLANECAPABILITIES2KHR);
         writeToConn(json);
     }
 
@@ -17904,7 +18117,7 @@ VkMemoryRequirements2* pMemoryRequirements;
         call_function=(PFN_vkGetBufferMemoryRequirements2)get_instance_proc_addr(parent,"vkGetBufferMemoryRequirements2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetBufferMemoryRequirements2)get_device_proc_addr(parent,"vkGetBufferMemoryRequirements2");
     }  
     
@@ -17921,8 +18134,9 @@ json.clear();
         for(int XaVdoIX=0; XaVdoIX < 1; XaVdoIX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[XaVdoIX]);
+            serialize_struct(temp_map, pInfo[XaVdoIX]);
             arr_xrBSgMU[XaVdoIX]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_xrBSgMU;}();
@@ -17933,14 +18147,15 @@ json.clear();
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
 
 
-        json["stream_type"]=VKGETBUFFERMEMORYREQUIREMENTS2;
+        json["stream_type"]=static_cast<int>(VKGETBUFFERMEMORYREQUIREMENTS2);
         writeToConn(json);
     }
 
@@ -17982,7 +18197,7 @@ VkMemoryRequirements2* pMemoryRequirements;
         call_function=(PFN_vkGetImageMemoryRequirements2)get_instance_proc_addr(parent,"vkGetImageMemoryRequirements2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageMemoryRequirements2)get_device_proc_addr(parent,"vkGetImageMemoryRequirements2");
     }  
     
@@ -17999,8 +18214,9 @@ json.clear();
         for(int xSwhhlO=0; xSwhhlO < 1; xSwhhlO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[xSwhhlO]);
+            serialize_struct(temp_map, pInfo[xSwhhlO]);
             arr_OVesMNt[xSwhhlO]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_OVesMNt;}();
@@ -18011,14 +18227,15 @@ json.clear();
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
 
 
-        json["stream_type"]=VKGETIMAGEMEMORYREQUIREMENTS2;
+        json["stream_type"]=static_cast<int>(VKGETIMAGEMEMORYREQUIREMENTS2);
         writeToConn(json);
     }
 
@@ -18077,7 +18294,7 @@ VkSparseImageMemoryRequirements2* pSparseMemoryRequirements;
         call_function=(PFN_vkGetImageSparseMemoryRequirements2)get_instance_proc_addr(parent,"vkGetImageSparseMemoryRequirements2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageSparseMemoryRequirements2)get_device_proc_addr(parent,"vkGetImageSparseMemoryRequirements2");
     }  
     
@@ -18094,8 +18311,9 @@ json.clear();
         for(int DnuwqwS=0; DnuwqwS < 1; DnuwqwS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[DnuwqwS]);
+            serialize_struct(temp_map, pInfo[DnuwqwS]);
             arr_frlqZZl[DnuwqwS]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_frlqZZl;}();
@@ -18114,14 +18332,15 @@ json.clear();
         for(int QTojQNx=0; QTojQNx < *pSparseMemoryRequirementCount; QTojQNx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSparseMemoryRequirements[QTojQNx]);
+            serialize_struct(temp_map, pSparseMemoryRequirements[QTojQNx]);
             arr_vCRbLVA[QTojQNx]=temp_map;
+            return;
             }();
         }
         json["pSparseMemoryRequirements"]=arr_vCRbLVA;}();
 
 
-        json["stream_type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS2;
+        json["stream_type"]=static_cast<int>(VKGETIMAGESPARSEMEMORYREQUIREMENTS2);
         writeToConn(json);
     }
 
@@ -18163,7 +18382,7 @@ VkMemoryRequirements2* pMemoryRequirements;
         call_function=(PFN_vkGetDeviceBufferMemoryRequirements)get_instance_proc_addr(parent,"vkGetDeviceBufferMemoryRequirements");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceBufferMemoryRequirements)get_device_proc_addr(parent,"vkGetDeviceBufferMemoryRequirements");
     }  
     
@@ -18180,8 +18399,9 @@ json.clear();
         for(int sabbuKR=0; sabbuKR < 1; sabbuKR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[sabbuKR]);
+            serialize_struct(temp_map, pInfo[sabbuKR]);
             arr_LbYKRdp[sabbuKR]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_LbYKRdp;}();
@@ -18192,14 +18412,15 @@ json.clear();
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
 
 
-        json["stream_type"]=VKGETDEVICEBUFFERMEMORYREQUIREMENTS;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEBUFFERMEMORYREQUIREMENTS);
         writeToConn(json);
     }
 
@@ -18241,7 +18462,7 @@ VkMemoryRequirements2* pMemoryRequirements;
         call_function=(PFN_vkGetDeviceImageMemoryRequirements)get_instance_proc_addr(parent,"vkGetDeviceImageMemoryRequirements");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceImageMemoryRequirements)get_device_proc_addr(parent,"vkGetDeviceImageMemoryRequirements");
     }  
     
@@ -18258,8 +18479,9 @@ json.clear();
         for(int Hfcgcwr=0; Hfcgcwr < 1; Hfcgcwr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[Hfcgcwr]);
+            serialize_struct(temp_map, pInfo[Hfcgcwr]);
             arr_dGiJKQX[Hfcgcwr]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_dGiJKQX;}();
@@ -18270,14 +18492,15 @@ json.clear();
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
 
 
-        json["stream_type"]=VKGETDEVICEIMAGEMEMORYREQUIREMENTS;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEIMAGEMEMORYREQUIREMENTS);
         writeToConn(json);
     }
 
@@ -18336,7 +18559,7 @@ VkSparseImageMemoryRequirements2* pSparseMemoryRequirements;
         call_function=(PFN_vkGetDeviceImageSparseMemoryRequirements)get_instance_proc_addr(parent,"vkGetDeviceImageSparseMemoryRequirements");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceImageSparseMemoryRequirements)get_device_proc_addr(parent,"vkGetDeviceImageSparseMemoryRequirements");
     }  
     
@@ -18353,8 +18576,9 @@ json.clear();
         for(int Hfcgcwr=0; Hfcgcwr < 1; Hfcgcwr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[Hfcgcwr]);
+            serialize_struct(temp_map, pInfo[Hfcgcwr]);
             arr_dGiJKQX[Hfcgcwr]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_dGiJKQX;}();
@@ -18373,14 +18597,15 @@ json.clear();
         for(int QTojQNx=0; QTojQNx < *pSparseMemoryRequirementCount; QTojQNx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSparseMemoryRequirements[QTojQNx]);
+            serialize_struct(temp_map, pSparseMemoryRequirements[QTojQNx]);
             arr_vCRbLVA[QTojQNx]=temp_map;
+            return;
             }();
         }
         json["pSparseMemoryRequirements"]=arr_vCRbLVA;}();
 
 
-        json["stream_type"]=VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS);
         writeToConn(json);
     }
 
@@ -18431,7 +18656,7 @@ VkSamplerYcbcrConversion* pYcbcrConversion;
         call_function=(PFN_vkCreateSamplerYcbcrConversion)get_instance_proc_addr(parent,"vkCreateSamplerYcbcrConversion");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateSamplerYcbcrConversion)get_device_proc_addr(parent,"vkCreateSamplerYcbcrConversion");
     }  
     
@@ -18449,8 +18674,9 @@ json.clear();
         for(int zgqBgkX=0; zgqBgkX < 1; zgqBgkX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[zgqBgkX]);
+            serialize_struct(temp_map, pCreateInfo[zgqBgkX]);
             arr_kLHhxUL[zgqBgkX]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_kLHhxUL;}();
@@ -18461,8 +18687,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -18476,7 +18703,7 @@ json.clear();
         json["pYcbcrConversion"]=arr_joRRIst;}();
 
 
-        json["stream_type"]=VKCREATESAMPLERYCBCRCONVERSION;
+        json["stream_type"]=static_cast<int>(VKCREATESAMPLERYCBCRCONVERSION);
         writeToConn(json);
     }
 
@@ -18509,7 +18736,7 @@ VkSamplerYcbcrConversion ycbcrConversion;
         call_function=(PFN_vkDestroySamplerYcbcrConversion)get_instance_proc_addr(parent,"vkDestroySamplerYcbcrConversion");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroySamplerYcbcrConversion)get_device_proc_addr(parent,"vkDestroySamplerYcbcrConversion");
     }  
     
@@ -18527,14 +18754,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYSAMPLERYCBCRCONVERSION;
+        json["stream_type"]=static_cast<int>(VKDESTROYSAMPLERYCBCRCONVERSION);
         writeToConn(json);
     }
 
@@ -18574,7 +18802,7 @@ VkQueue* pQueue;
         call_function=(PFN_vkGetDeviceQueue2)get_instance_proc_addr(parent,"vkGetDeviceQueue2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceQueue2)get_device_proc_addr(parent,"vkGetDeviceQueue2");
     }  
     
@@ -18591,8 +18819,9 @@ json.clear();
         for(int ubuvbaB=0; ubuvbaB < 1; ubuvbaB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pQueueInfo[ubuvbaB]);
+            serialize_struct(temp_map, pQueueInfo[ubuvbaB]);
             arr_bNCRimR[ubuvbaB]=temp_map;
+            return;
             }();
         }
         json["pQueueInfo"]=arr_bNCRimR;}();
@@ -18606,7 +18835,7 @@ json.clear();
         json["pQueue"]=arr_rYZbcEA;}();
 
 
-        json["stream_type"]=VKGETDEVICEQUEUE2;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEQUEUE2);
         writeToConn(json);
     }
 
@@ -18657,7 +18886,7 @@ VkValidationCacheEXT* pValidationCache;
         call_function=(PFN_vkCreateValidationCacheEXT)get_instance_proc_addr(parent,"vkCreateValidationCacheEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateValidationCacheEXT)get_device_proc_addr(parent,"vkCreateValidationCacheEXT");
     }  
     
@@ -18675,8 +18904,9 @@ json.clear();
         for(int XeWuaSR=0; XeWuaSR < 1; XeWuaSR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[XeWuaSR]);
+            serialize_struct(temp_map, pCreateInfo[XeWuaSR]);
             arr_ZCXiwLp[XeWuaSR]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_ZCXiwLp;}();
@@ -18687,8 +18917,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -18702,7 +18933,7 @@ json.clear();
         json["pValidationCache"]=arr_oYoDWhC;}();
 
 
-        json["stream_type"]=VKCREATEVALIDATIONCACHEEXT;
+        json["stream_type"]=static_cast<int>(VKCREATEVALIDATIONCACHEEXT);
         writeToConn(json);
     }
 
@@ -18735,7 +18966,7 @@ VkValidationCacheEXT validationCache;
         call_function=(PFN_vkDestroyValidationCacheEXT)get_instance_proc_addr(parent,"vkDestroyValidationCacheEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyValidationCacheEXT)get_device_proc_addr(parent,"vkDestroyValidationCacheEXT");
     }  
     
@@ -18753,14 +18984,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYVALIDATIONCACHEEXT;
+        json["stream_type"]=static_cast<int>(VKDESTROYVALIDATIONCACHEEXT);
         writeToConn(json);
     }
 
@@ -18819,7 +19051,7 @@ void* pData;
         call_function=(PFN_vkGetValidationCacheDataEXT)get_instance_proc_addr(parent,"vkGetValidationCacheDataEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetValidationCacheDataEXT)get_device_proc_addr(parent,"vkGetValidationCacheDataEXT");
     }  
     
@@ -18852,7 +19084,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETVALIDATIONCACHEDATAEXT;
+        json["stream_type"]=static_cast<int>(VKGETVALIDATIONCACHEDATAEXT);
         writeToConn(json);
     }
 
@@ -18893,7 +19125,7 @@ uint32_t srcCacheCount;
         call_function=(PFN_vkMergeValidationCachesEXT)get_instance_proc_addr(parent,"vkMergeValidationCachesEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkMergeValidationCachesEXT)get_device_proc_addr(parent,"vkMergeValidationCachesEXT");
     }  
     
@@ -18916,7 +19148,7 @@ json.clear();
         json["pSrcCaches"]=arr_xXUlTaQ;}();
 
 
-        json["stream_type"]=VKMERGEVALIDATIONCACHESEXT;
+        json["stream_type"]=static_cast<int>(VKMERGEVALIDATIONCACHESEXT);
         writeToConn(json);
     }
 
@@ -18958,7 +19190,7 @@ VkDescriptorSetLayoutSupport* pSupport;
         call_function=(PFN_vkGetDescriptorSetLayoutSupport)get_instance_proc_addr(parent,"vkGetDescriptorSetLayoutSupport");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDescriptorSetLayoutSupport)get_device_proc_addr(parent,"vkGetDescriptorSetLayoutSupport");
     }  
     
@@ -18975,8 +19207,9 @@ json.clear();
         for(int tUGauKK=0; tUGauKK < 1; tUGauKK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[tUGauKK]);
+            serialize_struct(temp_map, pCreateInfo[tUGauKK]);
             arr_dFRsqIW[tUGauKK]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_dFRsqIW;}();
@@ -18987,14 +19220,15 @@ json.clear();
         for(int UvZyHDI=0; UvZyHDI < 1; UvZyHDI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSupport[UvZyHDI]);
+            serialize_struct(temp_map, pSupport[UvZyHDI]);
             arr_xgzGluH[UvZyHDI]=temp_map;
+            return;
             }();
         }
         json["pSupport"]=arr_xgzGluH;}();
 
 
-        json["stream_type"]=VKGETDESCRIPTORSETLAYOUTSUPPORT;
+        json["stream_type"]=static_cast<int>(VKGETDESCRIPTORSETLAYOUTSUPPORT);
         writeToConn(json);
     }
 
@@ -19073,7 +19307,7 @@ void* pInfo;
         call_function=(PFN_vkGetShaderInfoAMD)get_instance_proc_addr(parent,"vkGetShaderInfoAMD");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetShaderInfoAMD)get_device_proc_addr(parent,"vkGetShaderInfoAMD");
     }  
     
@@ -19108,7 +19342,7 @@ json.clear();
         json["pInfo"]=arr_UHSCjHI;}();}();
 
 
-        json["stream_type"]=VKGETSHADERINFOAMD;
+        json["stream_type"]=static_cast<int>(VKGETSHADERINFOAMD);
         writeToConn(json);
     }
 
@@ -19140,7 +19374,7 @@ VkBool32 localDimmingEnable;
         call_function=(PFN_vkSetLocalDimmingAMD)get_instance_proc_addr(parent,"vkSetLocalDimmingAMD");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkSetLocalDimmingAMD)get_device_proc_addr(parent,"vkSetLocalDimmingAMD");
     }  
     
@@ -19154,7 +19388,7 @@ json.clear();
 [&](){[&](){json["localDimmingEnable"]=static_cast<uint>(localDimmingEnable);}();}();
 
 
-        json["stream_type"]=VKSETLOCALDIMMINGAMD;
+        json["stream_type"]=static_cast<int>(VKSETLOCALDIMMINGAMD);
         writeToConn(json);
     }
 
@@ -19208,7 +19442,7 @@ VkTimeDomainEXT* pTimeDomains;
         call_function=(PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT)get_instance_proc_addr(parent,"vkGetPhysicalDeviceCalibrateableTimeDomainsEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT)get_device_proc_addr(parent,"vkGetPhysicalDeviceCalibrateableTimeDomainsEXT");
     }  
     
@@ -19237,7 +19471,7 @@ json.clear();
         json["pTimeDomains"]=arr_fMkUaJq;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICECALIBRATEABLETIMEDOMAINSEXT;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICECALIBRATEABLETIMEDOMAINSEXT);
         writeToConn(json);
     }
 
@@ -19312,7 +19546,7 @@ uint64_t* pMaxDeviation;
         call_function=(PFN_vkGetCalibratedTimestampsEXT)get_instance_proc_addr(parent,"vkGetCalibratedTimestampsEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetCalibratedTimestampsEXT)get_device_proc_addr(parent,"vkGetCalibratedTimestampsEXT");
     }  
     
@@ -19331,8 +19565,9 @@ json.clear();
         for(int aXwwgcz=0; aXwwgcz < timestampCount; aXwwgcz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pTimestampInfos[aXwwgcz]);
+            serialize_struct(temp_map, pTimestampInfos[aXwwgcz]);
             arr_XQeyMsT[aXwwgcz]=temp_map;
+            return;
             }();
         }
         json["pTimestampInfos"]=arr_XQeyMsT;}();
@@ -19354,7 +19589,7 @@ json.clear();
         json["pMaxDeviation"]=arr_zQmthvJ;}();
 
 
-        json["stream_type"]=VKGETCALIBRATEDTIMESTAMPSEXT;
+        json["stream_type"]=static_cast<int>(VKGETCALIBRATEDTIMESTAMPSEXT);
         writeToConn(json);
     }
 
@@ -19385,7 +19620,7 @@ VkDevice device;
         call_function=(PFN_vkSetDebugUtilsObjectNameEXT)get_instance_proc_addr(parent,"vkSetDebugUtilsObjectNameEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkSetDebugUtilsObjectNameEXT)get_device_proc_addr(parent,"vkSetDebugUtilsObjectNameEXT");
     }  
     
@@ -19403,14 +19638,15 @@ json.clear();
         for(int sXDrIfX=0; sXDrIfX < 1; sXDrIfX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pNameInfo[sXDrIfX]);
+            serialize_struct(temp_map, pNameInfo[sXDrIfX]);
             arr_gpHzyjV[sXDrIfX]=temp_map;
+            return;
             }();
         }
         json["pNameInfo"]=arr_gpHzyjV;}();
 
 
-        json["stream_type"]=VKSETDEBUGUTILSOBJECTNAMEEXT;
+        json["stream_type"]=static_cast<int>(VKSETDEBUGUTILSOBJECTNAMEEXT);
         writeToConn(json);
     }
 
@@ -19441,7 +19677,7 @@ VkDevice device;
         call_function=(PFN_vkSetDebugUtilsObjectTagEXT)get_instance_proc_addr(parent,"vkSetDebugUtilsObjectTagEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkSetDebugUtilsObjectTagEXT)get_device_proc_addr(parent,"vkSetDebugUtilsObjectTagEXT");
     }  
     
@@ -19459,14 +19695,15 @@ json.clear();
         for(int lQZzjnQ=0; lQZzjnQ < 1; lQZzjnQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pTagInfo[lQZzjnQ]);
+            serialize_struct(temp_map, pTagInfo[lQZzjnQ]);
             arr_jMraQzd[lQZzjnQ]=temp_map;
+            return;
             }();
         }
         json["pTagInfo"]=arr_jMraQzd;}();
 
 
-        json["stream_type"]=VKSETDEBUGUTILSOBJECTTAGEXT;
+        json["stream_type"]=static_cast<int>(VKSETDEBUGUTILSOBJECTTAGEXT);
         writeToConn(json);
     }
 
@@ -19497,7 +19734,7 @@ VkQueue queue;
         call_function=(PFN_vkQueueBeginDebugUtilsLabelEXT)get_instance_proc_addr(parent,"vkQueueBeginDebugUtilsLabelEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkQueueBeginDebugUtilsLabelEXT)get_device_proc_addr(parent,"vkQueueBeginDebugUtilsLabelEXT");
     }  
     
@@ -19514,14 +19751,15 @@ json.clear();
         for(int XxFTlct=0; XxFTlct < 1; XxFTlct++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLabelInfo[XxFTlct]);
+            serialize_struct(temp_map, pLabelInfo[XxFTlct]);
             arr_GvONoAl[XxFTlct]=temp_map;
+            return;
             }();
         }
         json["pLabelInfo"]=arr_GvONoAl;}();
 
 
-        json["stream_type"]=VKQUEUEBEGINDEBUGUTILSLABELEXT;
+        json["stream_type"]=static_cast<int>(VKQUEUEBEGINDEBUGUTILSLABELEXT);
         writeToConn(json);
     }
 
@@ -19541,7 +19779,7 @@ VkQueue queue;
         call_function=(PFN_vkQueueEndDebugUtilsLabelEXT)get_instance_proc_addr(parent,"vkQueueEndDebugUtilsLabelEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkQueueEndDebugUtilsLabelEXT)get_device_proc_addr(parent,"vkQueueEndDebugUtilsLabelEXT");
     }  
     
@@ -19553,7 +19791,7 @@ json.clear();
 [&](){serialize_VkQueue(json["queue"],queue);}();
 
 
-        json["stream_type"]=VKQUEUEENDDEBUGUTILSLABELEXT;
+        json["stream_type"]=static_cast<int>(VKQUEUEENDDEBUGUTILSLABELEXT);
         writeToConn(json);
     }
 
@@ -19584,7 +19822,7 @@ VkQueue queue;
         call_function=(PFN_vkQueueInsertDebugUtilsLabelEXT)get_instance_proc_addr(parent,"vkQueueInsertDebugUtilsLabelEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkQueueInsertDebugUtilsLabelEXT)get_device_proc_addr(parent,"vkQueueInsertDebugUtilsLabelEXT");
     }  
     
@@ -19601,14 +19839,15 @@ json.clear();
         for(int XxFTlct=0; XxFTlct < 1; XxFTlct++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLabelInfo[XxFTlct]);
+            serialize_struct(temp_map, pLabelInfo[XxFTlct]);
             arr_GvONoAl[XxFTlct]=temp_map;
+            return;
             }();
         }
         json["pLabelInfo"]=arr_GvONoAl;}();
 
 
-        json["stream_type"]=VKQUEUEINSERTDEBUGUTILSLABELEXT;
+        json["stream_type"]=static_cast<int>(VKQUEUEINSERTDEBUGUTILSLABELEXT);
         writeToConn(json);
     }
 
@@ -19639,7 +19878,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdBeginDebugUtilsLabelEXT)get_instance_proc_addr(parent,"vkCmdBeginDebugUtilsLabelEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBeginDebugUtilsLabelEXT)get_device_proc_addr(parent,"vkCmdBeginDebugUtilsLabelEXT");
     }  
     
@@ -19656,14 +19895,15 @@ json.clear();
         for(int XxFTlct=0; XxFTlct < 1; XxFTlct++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLabelInfo[XxFTlct]);
+            serialize_struct(temp_map, pLabelInfo[XxFTlct]);
             arr_GvONoAl[XxFTlct]=temp_map;
+            return;
             }();
         }
         json["pLabelInfo"]=arr_GvONoAl;}();
 
 
-        json["stream_type"]=VKCMDBEGINDEBUGUTILSLABELEXT;
+        json["stream_type"]=static_cast<int>(VKCMDBEGINDEBUGUTILSLABELEXT);
         writeToConn(json);
     }
 
@@ -19683,7 +19923,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdEndDebugUtilsLabelEXT)get_instance_proc_addr(parent,"vkCmdEndDebugUtilsLabelEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdEndDebugUtilsLabelEXT)get_device_proc_addr(parent,"vkCmdEndDebugUtilsLabelEXT");
     }  
     
@@ -19695,7 +19935,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["stream_type"]=VKCMDENDDEBUGUTILSLABELEXT;
+        json["stream_type"]=static_cast<int>(VKCMDENDDEBUGUTILSLABELEXT);
         writeToConn(json);
     }
 
@@ -19726,7 +19966,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdInsertDebugUtilsLabelEXT)get_instance_proc_addr(parent,"vkCmdInsertDebugUtilsLabelEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdInsertDebugUtilsLabelEXT)get_device_proc_addr(parent,"vkCmdInsertDebugUtilsLabelEXT");
     }  
     
@@ -19743,14 +19983,15 @@ json.clear();
         for(int XxFTlct=0; XxFTlct < 1; XxFTlct++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLabelInfo[XxFTlct]);
+            serialize_struct(temp_map, pLabelInfo[XxFTlct]);
             arr_GvONoAl[XxFTlct]=temp_map;
+            return;
             }();
         }
         json["pLabelInfo"]=arr_GvONoAl;}();
 
 
-        json["stream_type"]=VKCMDINSERTDEBUGUTILSLABELEXT;
+        json["stream_type"]=static_cast<int>(VKCMDINSERTDEBUGUTILSLABELEXT);
         writeToConn(json);
     }
 
@@ -19801,7 +20042,7 @@ VkDebugUtilsMessengerEXT* pMessenger;
         call_function=(PFN_vkCreateDebugUtilsMessengerEXT)get_instance_proc_addr(parent,"vkCreateDebugUtilsMessengerEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateDebugUtilsMessengerEXT)get_device_proc_addr(parent,"vkCreateDebugUtilsMessengerEXT");
     }  
     
@@ -19819,8 +20060,9 @@ json.clear();
         for(int uDOYkhP=0; uDOYkhP < 1; uDOYkhP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[uDOYkhP]);
+            serialize_struct(temp_map, pCreateInfo[uDOYkhP]);
             arr_alrnjyY[uDOYkhP]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_alrnjyY;}();
@@ -19831,8 +20073,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -19846,7 +20089,7 @@ json.clear();
         json["pMessenger"]=arr_INDwqtI;}();
 
 
-        json["stream_type"]=VKCREATEDEBUGUTILSMESSENGEREXT;
+        json["stream_type"]=static_cast<int>(VKCREATEDEBUGUTILSMESSENGEREXT);
         writeToConn(json);
     }
 
@@ -19879,7 +20122,7 @@ VkDebugUtilsMessengerEXT messenger;
         call_function=(PFN_vkDestroyDebugUtilsMessengerEXT)get_instance_proc_addr(parent,"vkDestroyDebugUtilsMessengerEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyDebugUtilsMessengerEXT)get_device_proc_addr(parent,"vkDestroyDebugUtilsMessengerEXT");
     }  
     
@@ -19897,14 +20140,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYDEBUGUTILSMESSENGEREXT;
+        json["stream_type"]=static_cast<int>(VKDESTROYDEBUGUTILSMESSENGEREXT);
         writeToConn(json);
     }
 
@@ -19955,7 +20199,7 @@ VkDebugUtilsMessageTypeFlagsEXT messageTypes;
         call_function=(PFN_vkSubmitDebugUtilsMessageEXT)get_instance_proc_addr(parent,"vkSubmitDebugUtilsMessageEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkSubmitDebugUtilsMessageEXT)get_device_proc_addr(parent,"vkSubmitDebugUtilsMessageEXT");
     }  
     
@@ -19974,14 +20218,15 @@ json.clear();
         for(int YuXULtv=0; YuXULtv < 1; YuXULtv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCallbackData[YuXULtv]);
+            serialize_struct(temp_map, pCallbackData[YuXULtv]);
             arr_kahfHKb[YuXULtv]=temp_map;
+            return;
             }();
         }
         json["pCallbackData"]=arr_kahfHKb;}();
 
 
-        json["stream_type"]=VKSUBMITDEBUGUTILSMESSAGEEXT;
+        json["stream_type"]=static_cast<int>(VKSUBMITDEBUGUTILSMESSAGEEXT);
         writeToConn(json);
     }
 
@@ -20042,7 +20287,7 @@ VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties;
         call_function=(PFN_vkGetMemoryHostPointerPropertiesEXT)get_instance_proc_addr(parent,"vkGetMemoryHostPointerPropertiesEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetMemoryHostPointerPropertiesEXT)get_device_proc_addr(parent,"vkGetMemoryHostPointerPropertiesEXT");
     }  
     
@@ -20072,14 +20317,15 @@ json.clear();
         for(int hqDeAHT=0; hqDeAHT < 1; hqDeAHT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryHostPointerProperties[hqDeAHT]);
+            serialize_struct(temp_map, pMemoryHostPointerProperties[hqDeAHT]);
             arr_CBNxdHG[hqDeAHT]=temp_map;
+            return;
             }();
         }
         json["pMemoryHostPointerProperties"]=arr_CBNxdHG;}();
 
 
-        json["stream_type"]=VKGETMEMORYHOSTPOINTERPROPERTIESEXT;
+        json["stream_type"]=static_cast<int>(VKGETMEMORYHOSTPOINTERPROPERTIESEXT);
         writeToConn(json);
     }
 
@@ -20131,7 +20377,7 @@ uint32_t marker;
         call_function=(PFN_vkCmdWriteBufferMarkerAMD)get_instance_proc_addr(parent,"vkCmdWriteBufferMarkerAMD");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdWriteBufferMarkerAMD)get_device_proc_addr(parent,"vkCmdWriteBufferMarkerAMD");
     }  
     
@@ -20147,7 +20393,7 @@ json.clear();
 [&](){json["marker"]=static_cast<uint>(marker);}();
 
 
-        json["stream_type"]=VKCMDWRITEBUFFERMARKERAMD;
+        json["stream_type"]=static_cast<int>(VKCMDWRITEBUFFERMARKERAMD);
         writeToConn(json);
     }
 
@@ -20198,7 +20444,7 @@ VkRenderPass* pRenderPass;
         call_function=(PFN_vkCreateRenderPass2)get_instance_proc_addr(parent,"vkCreateRenderPass2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateRenderPass2)get_device_proc_addr(parent,"vkCreateRenderPass2");
     }  
     
@@ -20216,8 +20462,9 @@ json.clear();
         for(int SgbVidQ=0; SgbVidQ < 1; SgbVidQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[SgbVidQ]);
+            serialize_struct(temp_map, pCreateInfo[SgbVidQ]);
             arr_cDssBor[SgbVidQ]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_cDssBor;}();
@@ -20228,8 +20475,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -20243,7 +20491,7 @@ json.clear();
         json["pRenderPass"]=arr_ZwdXTfx;}();
 
 
-        json["stream_type"]=VKCREATERENDERPASS2;
+        json["stream_type"]=static_cast<int>(VKCREATERENDERPASS2);
         writeToConn(json);
     }
 
@@ -20285,7 +20533,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdBeginRenderPass2)get_instance_proc_addr(parent,"vkCmdBeginRenderPass2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBeginRenderPass2)get_device_proc_addr(parent,"vkCmdBeginRenderPass2");
     }  
     
@@ -20302,8 +20550,9 @@ json.clear();
         for(int lCAvoJt=0; lCAvoJt < 1; lCAvoJt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRenderPassBegin[lCAvoJt]);
+            serialize_struct(temp_map, pRenderPassBegin[lCAvoJt]);
             arr_XtnTubd[lCAvoJt]=temp_map;
+            return;
             }();
         }
         json["pRenderPassBegin"]=arr_XtnTubd;}();
@@ -20314,14 +20563,15 @@ json.clear();
         for(int nzkBQUL=0; nzkBQUL < 1; nzkBQUL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubpassBeginInfo[nzkBQUL]);
+            serialize_struct(temp_map, pSubpassBeginInfo[nzkBQUL]);
             arr_yxkVVDb[nzkBQUL]=temp_map;
+            return;
             }();
         }
         json["pSubpassBeginInfo"]=arr_yxkVVDb;}();
 
 
-        json["stream_type"]=VKCMDBEGINRENDERPASS2;
+        json["stream_type"]=static_cast<int>(VKCMDBEGINRENDERPASS2);
         writeToConn(json);
     }
 
@@ -20363,7 +20613,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdNextSubpass2)get_instance_proc_addr(parent,"vkCmdNextSubpass2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdNextSubpass2)get_device_proc_addr(parent,"vkCmdNextSubpass2");
     }  
     
@@ -20380,8 +20630,9 @@ json.clear();
         for(int nzkBQUL=0; nzkBQUL < 1; nzkBQUL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubpassBeginInfo[nzkBQUL]);
+            serialize_struct(temp_map, pSubpassBeginInfo[nzkBQUL]);
             arr_yxkVVDb[nzkBQUL]=temp_map;
+            return;
             }();
         }
         json["pSubpassBeginInfo"]=arr_yxkVVDb;}();
@@ -20392,14 +20643,15 @@ json.clear();
         for(int oMdHEHu=0; oMdHEHu < 1; oMdHEHu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubpassEndInfo[oMdHEHu]);
+            serialize_struct(temp_map, pSubpassEndInfo[oMdHEHu]);
             arr_mmmwoMH[oMdHEHu]=temp_map;
+            return;
             }();
         }
         json["pSubpassEndInfo"]=arr_mmmwoMH;}();
 
 
-        json["stream_type"]=VKCMDNEXTSUBPASS2;
+        json["stream_type"]=static_cast<int>(VKCMDNEXTSUBPASS2);
         writeToConn(json);
     }
 
@@ -20430,7 +20682,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdEndRenderPass2)get_instance_proc_addr(parent,"vkCmdEndRenderPass2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdEndRenderPass2)get_device_proc_addr(parent,"vkCmdEndRenderPass2");
     }  
     
@@ -20447,14 +20699,15 @@ json.clear();
         for(int oMdHEHu=0; oMdHEHu < 1; oMdHEHu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubpassEndInfo[oMdHEHu]);
+            serialize_struct(temp_map, pSubpassEndInfo[oMdHEHu]);
             arr_mmmwoMH[oMdHEHu]=temp_map;
+            return;
             }();
         }
         json["pSubpassEndInfo"]=arr_mmmwoMH;}();
 
 
-        json["stream_type"]=VKCMDENDRENDERPASS2;
+        json["stream_type"]=static_cast<int>(VKCMDENDRENDERPASS2);
         writeToConn(json);
     }
 
@@ -20493,7 +20746,7 @@ uint64_t* pValue;
         call_function=(PFN_vkGetSemaphoreCounterValue)get_instance_proc_addr(parent,"vkGetSemaphoreCounterValue");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetSemaphoreCounterValue)get_device_proc_addr(parent,"vkGetSemaphoreCounterValue");
     }  
     
@@ -20515,7 +20768,7 @@ json.clear();
         json["pValue"]=arr_xnMrErb;}();
 
 
-        json["stream_type"]=VKGETSEMAPHORECOUNTERVALUE;
+        json["stream_type"]=static_cast<int>(VKGETSEMAPHORECOUNTERVALUE);
         writeToConn(json);
     }
 
@@ -20556,7 +20809,7 @@ uint64_t timeout;
         call_function=(PFN_vkWaitSemaphores)get_instance_proc_addr(parent,"vkWaitSemaphores");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkWaitSemaphores)get_device_proc_addr(parent,"vkWaitSemaphores");
     }  
     
@@ -20574,15 +20827,16 @@ json.clear();
         for(int hsOLCWG=0; hsOLCWG < 1; hsOLCWG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pWaitInfo[hsOLCWG]);
+            serialize_struct(temp_map, pWaitInfo[hsOLCWG]);
             arr_xzakrWz[hsOLCWG]=temp_map;
+            return;
             }();
         }
         json["pWaitInfo"]=arr_xzakrWz;}();
 [&](){json["timeout"]=static_cast<uint>(timeout);}();
 
 
-        json["stream_type"]=VKWAITSEMAPHORES;
+        json["stream_type"]=static_cast<int>(VKWAITSEMAPHORES);
         writeToConn(json);
     }
 
@@ -20613,7 +20867,7 @@ VkDevice device;
         call_function=(PFN_vkSignalSemaphore)get_instance_proc_addr(parent,"vkSignalSemaphore");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkSignalSemaphore)get_device_proc_addr(parent,"vkSignalSemaphore");
     }  
     
@@ -20631,14 +20885,15 @@ json.clear();
         for(int MYLvJyX=0; MYLvJyX < 1; MYLvJyX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSignalInfo[MYLvJyX]);
+            serialize_struct(temp_map, pSignalInfo[MYLvJyX]);
             arr_WdRQTJS[MYLvJyX]=temp_map;
+            return;
             }();
         }
         json["pSignalInfo"]=arr_WdRQTJS;}();
 
 
-        json["stream_type"]=VKSIGNALSEMAPHORE;
+        json["stream_type"]=static_cast<int>(VKSIGNALSEMAPHORE);
         writeToConn(json);
     }
 
@@ -20702,7 +20957,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDrawIndirectCount)get_instance_proc_addr(parent,"vkCmdDrawIndirectCount");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawIndirectCount)get_device_proc_addr(parent,"vkCmdDrawIndirectCount");
     }  
     
@@ -20720,7 +20975,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDDRAWINDIRECTCOUNT;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWINDIRECTCOUNT);
         writeToConn(json);
     }
 
@@ -20784,7 +21039,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDrawIndexedIndirectCount)get_instance_proc_addr(parent,"vkCmdDrawIndexedIndirectCount");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawIndexedIndirectCount)get_device_proc_addr(parent,"vkCmdDrawIndexedIndirectCount");
     }  
     
@@ -20802,7 +21057,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDDRAWINDEXEDINDIRECTCOUNT;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWINDEXEDINDIRECTCOUNT);
         writeToConn(json);
     }
 
@@ -20842,7 +21097,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdSetCheckpointNV)get_instance_proc_addr(parent,"vkCmdSetCheckpointNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetCheckpointNV)get_device_proc_addr(parent,"vkCmdSetCheckpointNV");
     }  
     
@@ -20865,7 +21120,7 @@ json.clear();
         json["pCheckpointMarker"]=arr_eBRjtYz;}();}();
 
 
-        json["stream_type"]=VKCMDSETCHECKPOINTNV;
+        json["stream_type"]=static_cast<int>(VKCMDSETCHECKPOINTNV);
         writeToConn(json);
     }
 
@@ -20913,7 +21168,7 @@ VkCheckpointDataNV* pCheckpointData;
         call_function=(PFN_vkGetQueueCheckpointDataNV)get_instance_proc_addr(parent,"vkGetQueueCheckpointDataNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetQueueCheckpointDataNV)get_device_proc_addr(parent,"vkGetQueueCheckpointDataNV");
     }  
     
@@ -20938,14 +21193,15 @@ json.clear();
         for(int TfFHlNo=0; TfFHlNo < *pCheckpointDataCount; TfFHlNo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCheckpointData[TfFHlNo]);
+            serialize_struct(temp_map, pCheckpointData[TfFHlNo]);
             arr_gxwhODc[TfFHlNo]=temp_map;
+            return;
             }();
         }
         json["pCheckpointData"]=arr_gxwhODc;}();
 
 
-        json["stream_type"]=VKGETQUEUECHECKPOINTDATANV;
+        json["stream_type"]=static_cast<int>(VKGETQUEUECHECKPOINTDATANV);
         writeToConn(json);
     }
 
@@ -21028,7 +21284,7 @@ uint32_t bindingCount;
         call_function=(PFN_vkCmdBindTransformFeedbackBuffersEXT)get_instance_proc_addr(parent,"vkCmdBindTransformFeedbackBuffersEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindTransformFeedbackBuffersEXT)get_device_proc_addr(parent,"vkCmdBindTransformFeedbackBuffersEXT");
     }  
     
@@ -21066,7 +21322,7 @@ json.clear();
         json["pSizes"]=arr_OwyEmcF;}();
 
 
-        json["stream_type"]=VKCMDBINDTRANSFORMFEEDBACKBUFFERSEXT;
+        json["stream_type"]=static_cast<int>(VKCMDBINDTRANSFORMFEEDBACKBUFFERSEXT);
         writeToConn(json);
     }
 
@@ -21132,7 +21388,7 @@ uint32_t counterBufferCount;
         call_function=(PFN_vkCmdBeginTransformFeedbackEXT)get_instance_proc_addr(parent,"vkCmdBeginTransformFeedbackEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBeginTransformFeedbackEXT)get_device_proc_addr(parent,"vkCmdBeginTransformFeedbackEXT");
     }  
     
@@ -21162,7 +21418,7 @@ json.clear();
         json["pCounterBufferOffsets"]=arr_AiSbQbQ;}();
 
 
-        json["stream_type"]=VKCMDBEGINTRANSFORMFEEDBACKEXT;
+        json["stream_type"]=static_cast<int>(VKCMDBEGINTRANSFORMFEEDBACKEXT);
         writeToConn(json);
     }
 
@@ -21228,7 +21484,7 @@ uint32_t counterBufferCount;
         call_function=(PFN_vkCmdEndTransformFeedbackEXT)get_instance_proc_addr(parent,"vkCmdEndTransformFeedbackEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdEndTransformFeedbackEXT)get_device_proc_addr(parent,"vkCmdEndTransformFeedbackEXT");
     }  
     
@@ -21258,7 +21514,7 @@ json.clear();
         json["pCounterBufferOffsets"]=arr_AiSbQbQ;}();
 
 
-        json["stream_type"]=VKCMDENDTRANSFORMFEEDBACKEXT;
+        json["stream_type"]=static_cast<int>(VKCMDENDTRANSFORMFEEDBACKEXT);
         writeToConn(json);
     }
 
@@ -21310,7 +21566,7 @@ uint32_t index;
         call_function=(PFN_vkCmdBeginQueryIndexedEXT)get_instance_proc_addr(parent,"vkCmdBeginQueryIndexedEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBeginQueryIndexedEXT)get_device_proc_addr(parent,"vkCmdBeginQueryIndexedEXT");
     }  
     
@@ -21326,7 +21582,7 @@ json.clear();
 [&](){json["index"]=static_cast<uint>(index);}();
 
 
-        json["stream_type"]=VKCMDBEGINQUERYINDEXEDEXT;
+        json["stream_type"]=static_cast<int>(VKCMDBEGINQUERYINDEXEDEXT);
         writeToConn(json);
     }
 
@@ -21368,7 +21624,7 @@ uint32_t index;
         call_function=(PFN_vkCmdEndQueryIndexedEXT)get_instance_proc_addr(parent,"vkCmdEndQueryIndexedEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdEndQueryIndexedEXT)get_device_proc_addr(parent,"vkCmdEndQueryIndexedEXT");
     }  
     
@@ -21383,7 +21639,7 @@ json.clear();
 [&](){json["index"]=static_cast<uint>(index);}();
 
 
-        json["stream_type"]=VKCMDENDQUERYINDEXEDEXT;
+        json["stream_type"]=static_cast<int>(VKCMDENDQUERYINDEXEDEXT);
         writeToConn(json);
     }
 
@@ -21455,7 +21711,7 @@ uint32_t vertexStride;
         call_function=(PFN_vkCmdDrawIndirectByteCountEXT)get_instance_proc_addr(parent,"vkCmdDrawIndirectByteCountEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawIndirectByteCountEXT)get_device_proc_addr(parent,"vkCmdDrawIndirectByteCountEXT");
     }  
     
@@ -21473,7 +21729,7 @@ json.clear();
 [&](){json["vertexStride"]=static_cast<uint>(vertexStride);}();
 
 
-        json["stream_type"]=VKCMDDRAWINDIRECTBYTECOUNTEXT;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWINDIRECTBYTECOUNTEXT);
         writeToConn(json);
     }
 
@@ -21524,7 +21780,7 @@ uint32_t exclusiveScissorCount;
         call_function=(PFN_vkCmdSetExclusiveScissorNV)get_instance_proc_addr(parent,"vkCmdSetExclusiveScissorNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetExclusiveScissorNV)get_device_proc_addr(parent,"vkCmdSetExclusiveScissorNV");
     }  
     
@@ -21543,14 +21799,15 @@ json.clear();
         for(int uoWCiOs=0; uoWCiOs < exclusiveScissorCount; uoWCiOs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExclusiveScissors[uoWCiOs]);
+            serialize_struct(temp_map, pExclusiveScissors[uoWCiOs]);
             arr_aPFLQnr[uoWCiOs]=temp_map;
+            return;
             }();
         }
         json["pExclusiveScissors"]=arr_aPFLQnr;}();
 
 
-        json["stream_type"]=VKCMDSETEXCLUSIVESCISSORNV;
+        json["stream_type"]=static_cast<int>(VKCMDSETEXCLUSIVESCISSORNV);
         writeToConn(json);
     }
 
@@ -21607,7 +21864,7 @@ uint32_t exclusiveScissorCount;
         call_function=(PFN_vkCmdSetExclusiveScissorEnableNV)get_instance_proc_addr(parent,"vkCmdSetExclusiveScissorEnableNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetExclusiveScissorEnableNV)get_device_proc_addr(parent,"vkCmdSetExclusiveScissorEnableNV");
     }  
     
@@ -21629,7 +21886,7 @@ json.clear();
         json["pExclusiveScissorEnables"]=arr_xqHCjsr;}();
 
 
-        json["stream_type"]=VKCMDSETEXCLUSIVESCISSORENABLENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETEXCLUSIVESCISSORENABLENV);
         writeToConn(json);
     }
 
@@ -21661,7 +21918,7 @@ VkImageLayout imageLayout;
         call_function=(PFN_vkCmdBindShadingRateImageNV)get_instance_proc_addr(parent,"vkCmdBindShadingRateImageNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindShadingRateImageNV)get_device_proc_addr(parent,"vkCmdBindShadingRateImageNV");
     }  
     
@@ -21675,7 +21932,7 @@ json.clear();
 [&](){[&](){[&](){json["imageLayout"]=static_cast<int>(imageLayout);}();}();}();
 
 
-        json["stream_type"]=VKCMDBINDSHADINGRATEIMAGENV;
+        json["stream_type"]=static_cast<int>(VKCMDBINDSHADINGRATEIMAGENV);
         writeToConn(json);
     }
 
@@ -21726,7 +21983,7 @@ uint32_t viewportCount;
         call_function=(PFN_vkCmdSetViewportShadingRatePaletteNV)get_instance_proc_addr(parent,"vkCmdSetViewportShadingRatePaletteNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetViewportShadingRatePaletteNV)get_device_proc_addr(parent,"vkCmdSetViewportShadingRatePaletteNV");
     }  
     
@@ -21745,14 +22002,15 @@ json.clear();
         for(int iwmSeHU=0; iwmSeHU < viewportCount; iwmSeHU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pShadingRatePalettes[iwmSeHU]);
+            serialize_struct(temp_map, pShadingRatePalettes[iwmSeHU]);
             arr_QGCIyPL[iwmSeHU]=temp_map;
+            return;
             }();
         }
         json["pShadingRatePalettes"]=arr_QGCIyPL;}();
 
 
-        json["stream_type"]=VKCMDSETVIEWPORTSHADINGRATEPALETTENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETVIEWPORTSHADINGRATEPALETTENV);
         writeToConn(json);
     }
 
@@ -21803,7 +22061,7 @@ uint32_t customSampleOrderCount;
         call_function=(PFN_vkCmdSetCoarseSampleOrderNV)get_instance_proc_addr(parent,"vkCmdSetCoarseSampleOrderNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetCoarseSampleOrderNV)get_device_proc_addr(parent,"vkCmdSetCoarseSampleOrderNV");
     }  
     
@@ -21822,14 +22080,15 @@ json.clear();
         for(int nBPVlSV=0; nBPVlSV < customSampleOrderCount; nBPVlSV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCustomSampleOrders[nBPVlSV]);
+            serialize_struct(temp_map, pCustomSampleOrders[nBPVlSV]);
             arr_UoJKhih[nBPVlSV]=temp_map;
+            return;
             }();
         }
         json["pCustomSampleOrders"]=arr_UoJKhih;}();
 
 
-        json["stream_type"]=VKCMDSETCOARSESAMPLEORDERNV;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOARSESAMPLEORDERNV);
         writeToConn(json);
     }
 
@@ -21869,7 +22128,7 @@ uint32_t firstTask;
         call_function=(PFN_vkCmdDrawMeshTasksNV)get_instance_proc_addr(parent,"vkCmdDrawMeshTasksNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawMeshTasksNV)get_device_proc_addr(parent,"vkCmdDrawMeshTasksNV");
     }  
     
@@ -21883,7 +22142,7 @@ json.clear();
 [&](){json["firstTask"]=static_cast<uint>(firstTask);}();
 
 
-        json["stream_type"]=VKCMDDRAWMESHTASKSNV;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWMESHTASKSNV);
         writeToConn(json);
     }
 
@@ -21935,7 +22194,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDrawMeshTasksIndirectNV)get_instance_proc_addr(parent,"vkCmdDrawMeshTasksIndirectNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawMeshTasksIndirectNV)get_device_proc_addr(parent,"vkCmdDrawMeshTasksIndirectNV");
     }  
     
@@ -21951,7 +22210,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTNV;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWMESHTASKSINDIRECTNV);
         writeToConn(json);
     }
 
@@ -22015,7 +22274,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDrawMeshTasksIndirectCountNV)get_instance_proc_addr(parent,"vkCmdDrawMeshTasksIndirectCountNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawMeshTasksIndirectCountNV)get_device_proc_addr(parent,"vkCmdDrawMeshTasksIndirectCountNV");
     }  
     
@@ -22033,7 +22292,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTNV;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWMESHTASKSINDIRECTCOUNTNV);
         writeToConn(json);
     }
 
@@ -22083,7 +22342,7 @@ uint32_t groupCountZ;
         call_function=(PFN_vkCmdDrawMeshTasksEXT)get_instance_proc_addr(parent,"vkCmdDrawMeshTasksEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawMeshTasksEXT)get_device_proc_addr(parent,"vkCmdDrawMeshTasksEXT");
     }  
     
@@ -22098,7 +22357,7 @@ json.clear();
 [&](){json["groupCountZ"]=static_cast<uint>(groupCountZ);}();
 
 
-        json["stream_type"]=VKCMDDRAWMESHTASKSEXT;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWMESHTASKSEXT);
         writeToConn(json);
     }
 
@@ -22150,7 +22409,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDrawMeshTasksIndirectEXT)get_instance_proc_addr(parent,"vkCmdDrawMeshTasksIndirectEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawMeshTasksIndirectEXT)get_device_proc_addr(parent,"vkCmdDrawMeshTasksIndirectEXT");
     }  
     
@@ -22166,7 +22425,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTEXT;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWMESHTASKSINDIRECTEXT);
         writeToConn(json);
     }
 
@@ -22230,7 +22489,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDrawMeshTasksIndirectCountEXT)get_instance_proc_addr(parent,"vkCmdDrawMeshTasksIndirectCountEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDrawMeshTasksIndirectCountEXT)get_device_proc_addr(parent,"vkCmdDrawMeshTasksIndirectCountEXT");
     }  
     
@@ -22248,7 +22507,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTEXT;
+        json["stream_type"]=static_cast<int>(VKCMDDRAWMESHTASKSINDIRECTCOUNTEXT);
         writeToConn(json);
     }
 
@@ -22280,7 +22539,7 @@ uint32_t shader;
         call_function=(PFN_vkCompileDeferredNV)get_instance_proc_addr(parent,"vkCompileDeferredNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCompileDeferredNV)get_device_proc_addr(parent,"vkCompileDeferredNV");
     }  
     
@@ -22295,7 +22554,7 @@ json.clear();
 [&](){json["shader"]=static_cast<uint>(shader);}();
 
 
-        json["stream_type"]=VKCOMPILEDEFERREDNV;
+        json["stream_type"]=static_cast<int>(VKCOMPILEDEFERREDNV);
         writeToConn(json);
     }
 
@@ -22346,7 +22605,7 @@ VkAccelerationStructureNV* pAccelerationStructure;
         call_function=(PFN_vkCreateAccelerationStructureNV)get_instance_proc_addr(parent,"vkCreateAccelerationStructureNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateAccelerationStructureNV)get_device_proc_addr(parent,"vkCreateAccelerationStructureNV");
     }  
     
@@ -22364,8 +22623,9 @@ json.clear();
         for(int oEOLGTm=0; oEOLGTm < 1; oEOLGTm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[oEOLGTm]);
+            serialize_struct(temp_map, pCreateInfo[oEOLGTm]);
             arr_cRwwWhs[oEOLGTm]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_cRwwWhs;}();
@@ -22376,8 +22636,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -22391,7 +22652,7 @@ json.clear();
         json["pAccelerationStructure"]=arr_FUsucto;}();
 
 
-        json["stream_type"]=VKCREATEACCELERATIONSTRUCTURENV;
+        json["stream_type"]=static_cast<int>(VKCREATEACCELERATIONSTRUCTURENV);
         writeToConn(json);
     }
 
@@ -22423,7 +22684,7 @@ VkImageLayout imageLayout;
         call_function=(PFN_vkCmdBindInvocationMaskHUAWEI)get_instance_proc_addr(parent,"vkCmdBindInvocationMaskHUAWEI");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindInvocationMaskHUAWEI)get_device_proc_addr(parent,"vkCmdBindInvocationMaskHUAWEI");
     }  
     
@@ -22437,7 +22698,7 @@ json.clear();
 [&](){[&](){[&](){json["imageLayout"]=static_cast<int>(imageLayout);}();}();}();
 
 
-        json["stream_type"]=VKCMDBINDINVOCATIONMASKHUAWEI;
+        json["stream_type"]=static_cast<int>(VKCMDBINDINVOCATIONMASKHUAWEI);
         writeToConn(json);
     }
 
@@ -22470,7 +22731,7 @@ VkAccelerationStructureKHR accelerationStructure;
         call_function=(PFN_vkDestroyAccelerationStructureKHR)get_instance_proc_addr(parent,"vkDestroyAccelerationStructureKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyAccelerationStructureKHR)get_device_proc_addr(parent,"vkDestroyAccelerationStructureKHR");
     }  
     
@@ -22488,14 +22749,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=static_cast<int>(VKDESTROYACCELERATIONSTRUCTUREKHR);
         writeToConn(json);
     }
 
@@ -22528,7 +22790,7 @@ VkAccelerationStructureNV accelerationStructure;
         call_function=(PFN_vkDestroyAccelerationStructureNV)get_instance_proc_addr(parent,"vkDestroyAccelerationStructureNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyAccelerationStructureNV)get_device_proc_addr(parent,"vkDestroyAccelerationStructureNV");
     }  
     
@@ -22546,14 +22808,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYACCELERATIONSTRUCTURENV;
+        json["stream_type"]=static_cast<int>(VKDESTROYACCELERATIONSTRUCTURENV);
         writeToConn(json);
     }
 
@@ -22595,7 +22858,7 @@ VkMemoryRequirements2KHR* pMemoryRequirements;
         call_function=(PFN_vkGetAccelerationStructureMemoryRequirementsNV)get_instance_proc_addr(parent,"vkGetAccelerationStructureMemoryRequirementsNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetAccelerationStructureMemoryRequirementsNV)get_device_proc_addr(parent,"vkGetAccelerationStructureMemoryRequirementsNV");
     }  
     
@@ -22612,8 +22875,9 @@ json.clear();
         for(int eEDmZTf=0; eEDmZTf < 1; eEDmZTf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[eEDmZTf]);
+            serialize_struct(temp_map, pInfo[eEDmZTf]);
             arr_QKzjkmC[eEDmZTf]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_QKzjkmC;}();
@@ -22624,14 +22888,15 @@ json.clear();
         for(int HmtSVPA=0; HmtSVPA < 1; HmtSVPA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[HmtSVPA]);
+            serialize_struct(temp_map, pMemoryRequirements[HmtSVPA]);
             arr_lzklPBG[HmtSVPA]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_lzklPBG;}();
 
 
-        json["stream_type"]=VKGETACCELERATIONSTRUCTUREMEMORYREQUIREMENTSNV;
+        json["stream_type"]=static_cast<int>(VKGETACCELERATIONSTRUCTUREMEMORYREQUIREMENTSNV);
         writeToConn(json);
     }
 
@@ -22672,7 +22937,7 @@ uint32_t bindInfoCount;
         call_function=(PFN_vkBindAccelerationStructureMemoryNV)get_instance_proc_addr(parent,"vkBindAccelerationStructureMemoryNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkBindAccelerationStructureMemoryNV)get_device_proc_addr(parent,"vkBindAccelerationStructureMemoryNV");
     }  
     
@@ -22691,14 +22956,15 @@ json.clear();
         for(int tRvmYFr=0; tRvmYFr < bindInfoCount; tRvmYFr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindInfos[tRvmYFr]);
+            serialize_struct(temp_map, pBindInfos[tRvmYFr]);
             arr_rhzkvXd[tRvmYFr]=temp_map;
+            return;
             }();
         }
         json["pBindInfos"]=arr_rhzkvXd;}();
 
 
-        json["stream_type"]=VKBINDACCELERATIONSTRUCTUREMEMORYNV;
+        json["stream_type"]=static_cast<int>(VKBINDACCELERATIONSTRUCTUREMEMORYNV);
         writeToConn(json);
     }
 
@@ -22732,7 +22998,7 @@ VkCopyAccelerationStructureModeKHR mode;
         call_function=(PFN_vkCmdCopyAccelerationStructureNV)get_instance_proc_addr(parent,"vkCmdCopyAccelerationStructureNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyAccelerationStructureNV)get_device_proc_addr(parent,"vkCmdCopyAccelerationStructureNV");
     }  
     
@@ -22747,7 +23013,7 @@ json.clear();
 [&](){[&](){[&](){json["mode"]=static_cast<int>(mode);}();}();}();
 
 
-        json["stream_type"]=VKCMDCOPYACCELERATIONSTRUCTURENV;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYACCELERATIONSTRUCTURENV);
         writeToConn(json);
     }
 
@@ -22778,7 +23044,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCopyAccelerationStructureKHR)get_instance_proc_addr(parent,"vkCmdCopyAccelerationStructureKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyAccelerationStructureKHR)get_device_proc_addr(parent,"vkCmdCopyAccelerationStructureKHR");
     }  
     
@@ -22795,14 +23061,15 @@ json.clear();
         for(int ghvrBgW=0; ghvrBgW < 1; ghvrBgW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[ghvrBgW]);
+            serialize_struct(temp_map, pInfo[ghvrBgW]);
             arr_mSSajtp[ghvrBgW]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_mSSajtp;}();
 
 
-        json["stream_type"]=VKCMDCOPYACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYACCELERATIONSTRUCTUREKHR);
         writeToConn(json);
     }
 
@@ -22835,7 +23102,7 @@ VkDeferredOperationKHR deferredOperation;
         call_function=(PFN_vkCopyAccelerationStructureKHR)get_instance_proc_addr(parent,"vkCopyAccelerationStructureKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCopyAccelerationStructureKHR)get_device_proc_addr(parent,"vkCopyAccelerationStructureKHR");
     }  
     
@@ -22854,14 +23121,15 @@ json.clear();
         for(int ghvrBgW=0; ghvrBgW < 1; ghvrBgW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[ghvrBgW]);
+            serialize_struct(temp_map, pInfo[ghvrBgW]);
             arr_mSSajtp[ghvrBgW]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_mSSajtp;}();
 
 
-        json["stream_type"]=VKCOPYACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=static_cast<int>(VKCOPYACCELERATIONSTRUCTUREKHR);
         writeToConn(json);
     }
 
@@ -22892,7 +23160,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCopyAccelerationStructureToMemoryKHR)get_instance_proc_addr(parent,"vkCmdCopyAccelerationStructureToMemoryKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyAccelerationStructureToMemoryKHR)get_device_proc_addr(parent,"vkCmdCopyAccelerationStructureToMemoryKHR");
     }  
     
@@ -22909,14 +23177,15 @@ json.clear();
         for(int hToWSKz=0; hToWSKz < 1; hToWSKz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[hToWSKz]);
+            serialize_struct(temp_map, pInfo[hToWSKz]);
             arr_MpzusRq[hToWSKz]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_MpzusRq;}();
 
 
-        json["stream_type"]=VKCMDCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYACCELERATIONSTRUCTURETOMEMORYKHR);
         writeToConn(json);
     }
 
@@ -22949,7 +23218,7 @@ VkDeferredOperationKHR deferredOperation;
         call_function=(PFN_vkCopyAccelerationStructureToMemoryKHR)get_instance_proc_addr(parent,"vkCopyAccelerationStructureToMemoryKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCopyAccelerationStructureToMemoryKHR)get_device_proc_addr(parent,"vkCopyAccelerationStructureToMemoryKHR");
     }  
     
@@ -22968,14 +23237,15 @@ json.clear();
         for(int hToWSKz=0; hToWSKz < 1; hToWSKz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[hToWSKz]);
+            serialize_struct(temp_map, pInfo[hToWSKz]);
             arr_MpzusRq[hToWSKz]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_MpzusRq;}();
 
 
-        json["stream_type"]=VKCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
+        json["stream_type"]=static_cast<int>(VKCOPYACCELERATIONSTRUCTURETOMEMORYKHR);
         writeToConn(json);
     }
 
@@ -23006,7 +23276,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCopyMemoryToAccelerationStructureKHR)get_instance_proc_addr(parent,"vkCmdCopyMemoryToAccelerationStructureKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyMemoryToAccelerationStructureKHR)get_device_proc_addr(parent,"vkCmdCopyMemoryToAccelerationStructureKHR");
     }  
     
@@ -23023,14 +23293,15 @@ json.clear();
         for(int ulOBYSb=0; ulOBYSb < 1; ulOBYSb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[ulOBYSb]);
+            serialize_struct(temp_map, pInfo[ulOBYSb]);
             arr_yRNSaUF[ulOBYSb]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_yRNSaUF;}();
 
 
-        json["stream_type"]=VKCMDCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYMEMORYTOACCELERATIONSTRUCTUREKHR);
         writeToConn(json);
     }
 
@@ -23063,7 +23334,7 @@ VkDeferredOperationKHR deferredOperation;
         call_function=(PFN_vkCopyMemoryToAccelerationStructureKHR)get_instance_proc_addr(parent,"vkCopyMemoryToAccelerationStructureKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCopyMemoryToAccelerationStructureKHR)get_device_proc_addr(parent,"vkCopyMemoryToAccelerationStructureKHR");
     }  
     
@@ -23082,14 +23353,15 @@ json.clear();
         for(int ulOBYSb=0; ulOBYSb < 1; ulOBYSb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[ulOBYSb]);
+            serialize_struct(temp_map, pInfo[ulOBYSb]);
             arr_yRNSaUF[ulOBYSb]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_yRNSaUF;}();
 
 
-        json["stream_type"]=VKCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=static_cast<int>(VKCOPYMEMORYTOACCELERATIONSTRUCTUREKHR);
         writeToConn(json);
     }
 
@@ -23150,7 +23422,7 @@ uint32_t firstQuery;
         call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesKHR)get_instance_proc_addr(parent,"vkCmdWriteAccelerationStructuresPropertiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesKHR)get_device_proc_addr(parent,"vkCmdWriteAccelerationStructuresPropertiesKHR");
     }  
     
@@ -23174,7 +23446,7 @@ json.clear();
 [&](){json["firstQuery"]=static_cast<uint>(firstQuery);}();
 
 
-        json["stream_type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
+        json["stream_type"]=static_cast<int>(VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESKHR);
         writeToConn(json);
     }
 
@@ -23235,7 +23507,7 @@ uint32_t firstQuery;
         call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesNV)get_instance_proc_addr(parent,"vkCmdWriteAccelerationStructuresPropertiesNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesNV)get_device_proc_addr(parent,"vkCmdWriteAccelerationStructuresPropertiesNV");
     }  
     
@@ -23259,7 +23531,7 @@ json.clear();
 [&](){json["firstQuery"]=static_cast<uint>(firstQuery);}();
 
 
-        json["stream_type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESNV;
+        json["stream_type"]=static_cast<int>(VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESNV);
         writeToConn(json);
     }
 
@@ -23328,7 +23600,7 @@ VkDeviceSize scratchOffset;
         call_function=(PFN_vkCmdBuildAccelerationStructureNV)get_instance_proc_addr(parent,"vkCmdBuildAccelerationStructureNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBuildAccelerationStructureNV)get_device_proc_addr(parent,"vkCmdBuildAccelerationStructureNV");
     }  
     
@@ -23345,8 +23617,9 @@ json.clear();
         for(int jJuvWAP=0; jJuvWAP < 1; jJuvWAP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[jJuvWAP]);
+            serialize_struct(temp_map, pInfo[jJuvWAP]);
             arr_GYyRhgo[jJuvWAP]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_GYyRhgo;}();
@@ -23359,7 +23632,7 @@ json.clear();
 [&](){[&](){json["scratchOffset"]=static_cast<uint>(scratchOffset);}();}();
 
 
-        json["stream_type"]=VKCMDBUILDACCELERATIONSTRUCTURENV;
+        json["stream_type"]=static_cast<int>(VKCMDBUILDACCELERATIONSTRUCTURENV);
         writeToConn(json);
     }
 
@@ -23448,7 +23721,7 @@ size_t stride;
         call_function=(PFN_vkWriteAccelerationStructuresPropertiesKHR)get_instance_proc_addr(parent,"vkWriteAccelerationStructuresPropertiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkWriteAccelerationStructuresPropertiesKHR)get_device_proc_addr(parent,"vkWriteAccelerationStructuresPropertiesKHR");
     }  
     
@@ -23484,7 +23757,7 @@ json.clear();
 [&](){json["stride"]=static_cast<int>(stride);}();
 
 
-        json["stream_type"]=VKWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
+        json["stream_type"]=static_cast<int>(VKWRITEACCELERATIONSTRUCTURESPROPERTIESKHR);
         writeToConn(json);
     }
 
@@ -23578,7 +23851,7 @@ uint32_t depth;
         call_function=(PFN_vkCmdTraceRaysKHR)get_instance_proc_addr(parent,"vkCmdTraceRaysKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdTraceRaysKHR)get_device_proc_addr(parent,"vkCmdTraceRaysKHR");
     }  
     
@@ -23595,8 +23868,9 @@ json.clear();
         for(int VKRuDIv=0; VKRuDIv < 1; VKRuDIv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRaygenShaderBindingTable[VKRuDIv]);
+            serialize_struct(temp_map, pRaygenShaderBindingTable[VKRuDIv]);
             arr_SlnAEUX[VKRuDIv]=temp_map;
+            return;
             }();
         }
         json["pRaygenShaderBindingTable"]=arr_SlnAEUX;}();
@@ -23607,8 +23881,9 @@ json.clear();
         for(int ZhvHpIX=0; ZhvHpIX < 1; ZhvHpIX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMissShaderBindingTable[ZhvHpIX]);
+            serialize_struct(temp_map, pMissShaderBindingTable[ZhvHpIX]);
             arr_vBQknzc[ZhvHpIX]=temp_map;
+            return;
             }();
         }
         json["pMissShaderBindingTable"]=arr_vBQknzc;}();
@@ -23619,8 +23894,9 @@ json.clear();
         for(int yriMdrU=0; yriMdrU < 1; yriMdrU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pHitShaderBindingTable[yriMdrU]);
+            serialize_struct(temp_map, pHitShaderBindingTable[yriMdrU]);
             arr_IhHhjXk[yriMdrU]=temp_map;
+            return;
             }();
         }
         json["pHitShaderBindingTable"]=arr_IhHhjXk;}();
@@ -23631,8 +23907,9 @@ json.clear();
         for(int TiOHiqW=0; TiOHiqW < 1; TiOHiqW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCallableShaderBindingTable[TiOHiqW]);
+            serialize_struct(temp_map, pCallableShaderBindingTable[TiOHiqW]);
             arr_EmEYSBY[TiOHiqW]=temp_map;
+            return;
             }();
         }
         json["pCallableShaderBindingTable"]=arr_EmEYSBY;}();
@@ -23641,7 +23918,7 @@ json.clear();
 [&](){json["depth"]=static_cast<uint>(depth);}();
 
 
-        json["stream_type"]=VKCMDTRACERAYSKHR;
+        json["stream_type"]=static_cast<int>(VKCMDTRACERAYSKHR);
         writeToConn(json);
     }
 
@@ -23769,7 +24046,7 @@ uint32_t depth;
         call_function=(PFN_vkCmdTraceRaysNV)get_instance_proc_addr(parent,"vkCmdTraceRaysNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdTraceRaysNV)get_device_proc_addr(parent,"vkCmdTraceRaysNV");
     }  
     
@@ -23795,7 +24072,7 @@ json.clear();
 [&](){json["depth"]=static_cast<uint>(depth);}();
 
 
-        json["stream_type"]=VKCMDTRACERAYSNV;
+        json["stream_type"]=static_cast<int>(VKCMDTRACERAYSNV);
         writeToConn(json);
     }
 
@@ -23867,7 +24144,7 @@ void* pData;
         call_function=(PFN_vkGetRayTracingShaderGroupHandlesKHR)get_instance_proc_addr(parent,"vkGetRayTracingShaderGroupHandlesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetRayTracingShaderGroupHandlesKHR)get_device_proc_addr(parent,"vkGetRayTracingShaderGroupHandlesKHR");
     }  
     
@@ -23895,7 +24172,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETRAYTRACINGSHADERGROUPHANDLESKHR;
+        json["stream_type"]=static_cast<int>(VKGETRAYTRACINGSHADERGROUPHANDLESKHR);
         writeToConn(json);
     }
 
@@ -23967,7 +24244,7 @@ void* pData;
         call_function=(PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR)get_instance_proc_addr(parent,"vkGetRayTracingCaptureReplayShaderGroupHandlesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR)get_device_proc_addr(parent,"vkGetRayTracingCaptureReplayShaderGroupHandlesKHR");
     }  
     
@@ -23995,7 +24272,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETRAYTRACINGCAPTUREREPLAYSHADERGROUPHANDLESKHR;
+        json["stream_type"]=static_cast<int>(VKGETRAYTRACINGCAPTUREREPLAYSHADERGROUPHANDLESKHR);
         writeToConn(json);
     }
 
@@ -24047,7 +24324,7 @@ void* pData;
         call_function=(PFN_vkGetAccelerationStructureHandleNV)get_instance_proc_addr(parent,"vkGetAccelerationStructureHandleNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetAccelerationStructureHandleNV)get_device_proc_addr(parent,"vkGetAccelerationStructureHandleNV");
     }  
     
@@ -24073,7 +24350,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETACCELERATIONSTRUCTUREHANDLENV;
+        json["stream_type"]=static_cast<int>(VKGETACCELERATIONSTRUCTUREHANDLENV);
         writeToConn(json);
     }
 
@@ -24136,7 +24413,7 @@ VkPipeline* pPipelines;
         call_function=(PFN_vkCreateRayTracingPipelinesNV)get_instance_proc_addr(parent,"vkCreateRayTracingPipelinesNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateRayTracingPipelinesNV)get_device_proc_addr(parent,"vkCreateRayTracingPipelinesNV");
     }  
     
@@ -24156,8 +24433,9 @@ json.clear();
         for(int oRbABSQ=0; oRbABSQ < createInfoCount; oRbABSQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[oRbABSQ]);
+            serialize_struct(temp_map, pCreateInfos[oRbABSQ]);
             arr_bzMTsat[oRbABSQ]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_bzMTsat;}();
@@ -24168,8 +24446,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -24183,7 +24462,7 @@ json.clear();
         json["pPipelines"]=arr_wuOYMDC;}();
 
 
-        json["stream_type"]=VKCREATERAYTRACINGPIPELINESNV;
+        json["stream_type"]=static_cast<int>(VKCREATERAYTRACINGPIPELINESNV);
         writeToConn(json);
     }
 
@@ -24248,7 +24527,7 @@ VkPipeline* pPipelines;
         call_function=(PFN_vkCreateRayTracingPipelinesKHR)get_instance_proc_addr(parent,"vkCreateRayTracingPipelinesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateRayTracingPipelinesKHR)get_device_proc_addr(parent,"vkCreateRayTracingPipelinesKHR");
     }  
     
@@ -24269,8 +24548,9 @@ json.clear();
         for(int Szqaxlk=0; Szqaxlk < createInfoCount; Szqaxlk++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[Szqaxlk]);
+            serialize_struct(temp_map, pCreateInfos[Szqaxlk]);
             arr_zltFjJj[Szqaxlk]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_zltFjJj;}();
@@ -24281,8 +24561,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -24296,7 +24577,7 @@ json.clear();
         json["pPipelines"]=arr_wuOYMDC;}();
 
 
-        json["stream_type"]=VKCREATERAYTRACINGPIPELINESKHR;
+        json["stream_type"]=static_cast<int>(VKCREATERAYTRACINGPIPELINESKHR);
         writeToConn(json);
     }
 
@@ -24344,7 +24625,7 @@ VkCooperativeMatrixPropertiesNV* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV)get_instance_proc_addr(parent,"vkGetPhysicalDeviceCooperativeMatrixPropertiesNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV)get_device_proc_addr(parent,"vkGetPhysicalDeviceCooperativeMatrixPropertiesNV");
     }  
     
@@ -24370,14 +24651,15 @@ json.clear();
         for(int WfgOgPA=0; WfgOgPA < *pPropertyCount; WfgOgPA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[WfgOgPA]);
+            serialize_struct(temp_map, pProperties[WfgOgPA]);
             arr_kVfVVDF[WfgOgPA]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_kVfVVDF;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESNV;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESNV);
         writeToConn(json);
     }
 
@@ -24451,7 +24733,7 @@ VkDeviceAddress indirectDeviceAddress;
         call_function=(PFN_vkCmdTraceRaysIndirectKHR)get_instance_proc_addr(parent,"vkCmdTraceRaysIndirectKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdTraceRaysIndirectKHR)get_device_proc_addr(parent,"vkCmdTraceRaysIndirectKHR");
     }  
     
@@ -24468,8 +24750,9 @@ json.clear();
         for(int VKRuDIv=0; VKRuDIv < 1; VKRuDIv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRaygenShaderBindingTable[VKRuDIv]);
+            serialize_struct(temp_map, pRaygenShaderBindingTable[VKRuDIv]);
             arr_SlnAEUX[VKRuDIv]=temp_map;
+            return;
             }();
         }
         json["pRaygenShaderBindingTable"]=arr_SlnAEUX;}();
@@ -24480,8 +24763,9 @@ json.clear();
         for(int ZhvHpIX=0; ZhvHpIX < 1; ZhvHpIX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMissShaderBindingTable[ZhvHpIX]);
+            serialize_struct(temp_map, pMissShaderBindingTable[ZhvHpIX]);
             arr_vBQknzc[ZhvHpIX]=temp_map;
+            return;
             }();
         }
         json["pMissShaderBindingTable"]=arr_vBQknzc;}();
@@ -24492,8 +24776,9 @@ json.clear();
         for(int yriMdrU=0; yriMdrU < 1; yriMdrU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pHitShaderBindingTable[yriMdrU]);
+            serialize_struct(temp_map, pHitShaderBindingTable[yriMdrU]);
             arr_IhHhjXk[yriMdrU]=temp_map;
+            return;
             }();
         }
         json["pHitShaderBindingTable"]=arr_IhHhjXk;}();
@@ -24504,15 +24789,16 @@ json.clear();
         for(int TiOHiqW=0; TiOHiqW < 1; TiOHiqW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCallableShaderBindingTable[TiOHiqW]);
+            serialize_struct(temp_map, pCallableShaderBindingTable[TiOHiqW]);
             arr_EmEYSBY[TiOHiqW]=temp_map;
+            return;
             }();
         }
         json["pCallableShaderBindingTable"]=arr_EmEYSBY;}();
 [&](){[&](){json["indirectDeviceAddress"]=static_cast<uint>(indirectDeviceAddress);}();}();
 
 
-        json["stream_type"]=VKCMDTRACERAYSINDIRECTKHR;
+        json["stream_type"]=static_cast<int>(VKCMDTRACERAYSINDIRECTKHR);
         writeToConn(json);
     }
 
@@ -24542,7 +24828,7 @@ VkDeviceAddress indirectDeviceAddress;
         call_function=(PFN_vkCmdTraceRaysIndirect2KHR)get_instance_proc_addr(parent,"vkCmdTraceRaysIndirect2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdTraceRaysIndirect2KHR)get_device_proc_addr(parent,"vkCmdTraceRaysIndirect2KHR");
     }  
     
@@ -24555,7 +24841,7 @@ json.clear();
 [&](){[&](){json["indirectDeviceAddress"]=static_cast<uint>(indirectDeviceAddress);}();}();
 
 
-        json["stream_type"]=VKCMDTRACERAYSINDIRECT2KHR;
+        json["stream_type"]=static_cast<int>(VKCMDTRACERAYSINDIRECT2KHR);
         writeToConn(json);
     }
 
@@ -24603,7 +24889,7 @@ VkAccelerationStructureCompatibilityKHR* pCompatibility;
         call_function=(PFN_vkGetDeviceAccelerationStructureCompatibilityKHR)get_instance_proc_addr(parent,"vkGetDeviceAccelerationStructureCompatibilityKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceAccelerationStructureCompatibilityKHR)get_device_proc_addr(parent,"vkGetDeviceAccelerationStructureCompatibilityKHR");
     }  
     
@@ -24620,8 +24906,9 @@ json.clear();
         for(int vhWWlwM=0; vhWWlwM < 1; vhWWlwM++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVersionInfo[vhWWlwM]);
+            serialize_struct(temp_map, pVersionInfo[vhWWlwM]);
             arr_wbhdpeb[vhWWlwM]=temp_map;
+            return;
             }();
         }
         json["pVersionInfo"]=arr_wbhdpeb;}();
@@ -24635,7 +24922,7 @@ json.clear();
         json["pCompatibility"]=arr_dBMhFMX;}();
 
 
-        json["stream_type"]=VKGETDEVICEACCELERATIONSTRUCTURECOMPATIBILITYKHR;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEACCELERATIONSTRUCTURECOMPATIBILITYKHR);
         writeToConn(json);
     }
 
@@ -24677,7 +24964,7 @@ VkShaderGroupShaderKHR groupShader;
         call_function=(PFN_vkGetRayTracingShaderGroupStackSizeKHR)get_instance_proc_addr(parent,"vkGetRayTracingShaderGroupStackSizeKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetRayTracingShaderGroupStackSizeKHR)get_device_proc_addr(parent,"vkGetRayTracingShaderGroupStackSizeKHR");
     }  
     
@@ -24693,7 +24980,7 @@ json.clear();
 [&](){[&](){[&](){json["groupShader"]=static_cast<int>(groupShader);}();}();}();
 
 
-        json["stream_type"]=VKGETRAYTRACINGSHADERGROUPSTACKSIZEKHR;
+        json["stream_type"]=static_cast<int>(VKGETRAYTRACINGSHADERGROUPSTACKSIZEKHR);
         writeToConn(json);
     }
 
@@ -24723,7 +25010,7 @@ uint32_t pipelineStackSize;
         call_function=(PFN_vkCmdSetRayTracingPipelineStackSizeKHR)get_instance_proc_addr(parent,"vkCmdSetRayTracingPipelineStackSizeKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetRayTracingPipelineStackSizeKHR)get_device_proc_addr(parent,"vkCmdSetRayTracingPipelineStackSizeKHR");
     }  
     
@@ -24736,7 +25023,7 @@ json.clear();
 [&](){json["pipelineStackSize"]=static_cast<uint>(pipelineStackSize);}();
 
 
-        json["stream_type"]=VKCMDSETRAYTRACINGPIPELINESTACKSIZEKHR;
+        json["stream_type"]=static_cast<int>(VKCMDSETRAYTRACINGPIPELINESTACKSIZEKHR);
         writeToConn(json);
     }
 
@@ -24767,7 +25054,7 @@ VkDevice device;
         call_function=(PFN_vkGetImageViewHandleNVX)get_instance_proc_addr(parent,"vkGetImageViewHandleNVX");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageViewHandleNVX)get_device_proc_addr(parent,"vkGetImageViewHandleNVX");
     }  
     
@@ -24785,14 +25072,15 @@ json.clear();
         for(int dQabsff=0; dQabsff < 1; dQabsff++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[dQabsff]);
+            serialize_struct(temp_map, pInfo[dQabsff]);
             arr_mfMZJfb[dQabsff]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_mfMZJfb;}();
 
 
-        json["stream_type"]=VKGETIMAGEVIEWHANDLENVX;
+        json["stream_type"]=static_cast<int>(VKGETIMAGEVIEWHANDLENVX);
         writeToConn(json);
     }
 
@@ -24825,7 +25113,7 @@ VkImageViewAddressPropertiesNVX* pProperties;
         call_function=(PFN_vkGetImageViewAddressNVX)get_instance_proc_addr(parent,"vkGetImageViewAddressNVX");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageViewAddressNVX)get_device_proc_addr(parent,"vkGetImageViewAddressNVX");
     }  
     
@@ -24844,14 +25132,15 @@ json.clear();
         for(int FiVrJfn=0; FiVrJfn < 1; FiVrJfn++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[FiVrJfn]);
+            serialize_struct(temp_map, pProperties[FiVrJfn]);
             arr_hveoAIn[FiVrJfn]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_hveoAIn;}();
 
 
-        json["stream_type"]=VKGETIMAGEVIEWADDRESSNVX;
+        json["stream_type"]=static_cast<int>(VKGETIMAGEVIEWADDRESSNVX);
         writeToConn(json);
     }
 
@@ -24920,7 +25209,7 @@ VkPerformanceCounterDescriptionKHR* pCounterDescriptions;
         call_function=(PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR)get_instance_proc_addr(parent,"vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR)get_device_proc_addr(parent,"vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR");
     }  
     
@@ -24947,8 +25236,9 @@ json.clear();
         for(int WmftXku=0; WmftXku < *pCounterCount; WmftXku++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCounters[WmftXku]);
+            serialize_struct(temp_map, pCounters[WmftXku]);
             arr_vEVlsJt[WmftXku]=temp_map;
+            return;
             }();
         }
         json["pCounters"]=arr_vEVlsJt;}();
@@ -24959,14 +25249,15 @@ json.clear();
         for(int GjxogPx=0; GjxogPx < *pCounterCount; GjxogPx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCounterDescriptions[GjxogPx]);
+            serialize_struct(temp_map, pCounterDescriptions[GjxogPx]);
             arr_znRZkzO[GjxogPx]=temp_map;
+            return;
             }();
         }
         json["pCounterDescriptions"]=arr_znRZkzO;}();
 
 
-        json["stream_type"]=VKENUMERATEPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYCOUNTERSKHR;
+        json["stream_type"]=static_cast<int>(VKENUMERATEPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYCOUNTERSKHR);
         writeToConn(json);
     }
 
@@ -25014,7 +25305,7 @@ uint32_t* pNumPasses;
         call_function=(PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR");
     }  
     
@@ -25031,8 +25322,9 @@ json.clear();
         for(int aEYwfht=0; aEYwfht < 1; aEYwfht++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPerformanceQueryCreateInfo[aEYwfht]);
+            serialize_struct(temp_map, pPerformanceQueryCreateInfo[aEYwfht]);
             arr_HfbrSJi[aEYwfht]=temp_map;
+            return;
             }();
         }
         json["pPerformanceQueryCreateInfo"]=arr_HfbrSJi;}();
@@ -25046,7 +25338,7 @@ json.clear();
         json["pNumPasses"]=arr_QgclfwI;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYPASSESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYPASSESKHR);
         writeToConn(json);
     }
 
@@ -25077,7 +25369,7 @@ VkDevice device;
         call_function=(PFN_vkAcquireProfilingLockKHR)get_instance_proc_addr(parent,"vkAcquireProfilingLockKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkAcquireProfilingLockKHR)get_device_proc_addr(parent,"vkAcquireProfilingLockKHR");
     }  
     
@@ -25095,14 +25387,15 @@ json.clear();
         for(int ZgSmBLm=0; ZgSmBLm < 1; ZgSmBLm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[ZgSmBLm]);
+            serialize_struct(temp_map, pInfo[ZgSmBLm]);
             arr_BslWEPE[ZgSmBLm]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_BslWEPE;}();
 
 
-        json["stream_type"]=VKACQUIREPROFILINGLOCKKHR;
+        json["stream_type"]=static_cast<int>(VKACQUIREPROFILINGLOCKKHR);
         writeToConn(json);
     }
 
@@ -25122,7 +25415,7 @@ VkDevice device;
         call_function=(PFN_vkReleaseProfilingLockKHR)get_instance_proc_addr(parent,"vkReleaseProfilingLockKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkReleaseProfilingLockKHR)get_device_proc_addr(parent,"vkReleaseProfilingLockKHR");
     }  
     
@@ -25134,7 +25427,7 @@ json.clear();
 [&](){serialize_VkDevice(json["device"],device);}();
 
 
-        json["stream_type"]=VKRELEASEPROFILINGLOCKKHR;
+        json["stream_type"]=static_cast<int>(VKRELEASEPROFILINGLOCKKHR);
         writeToConn(json);
     }
 
@@ -25167,7 +25460,7 @@ VkImageDrmFormatModifierPropertiesEXT* pProperties;
         call_function=(PFN_vkGetImageDrmFormatModifierPropertiesEXT)get_instance_proc_addr(parent,"vkGetImageDrmFormatModifierPropertiesEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageDrmFormatModifierPropertiesEXT)get_device_proc_addr(parent,"vkGetImageDrmFormatModifierPropertiesEXT");
     }  
     
@@ -25186,14 +25479,15 @@ json.clear();
         for(int JPWNMan=0; JPWNMan < 1; JPWNMan++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[JPWNMan]);
+            serialize_struct(temp_map, pProperties[JPWNMan]);
             arr_oxSUmzu[JPWNMan]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_oxSUmzu;}();
 
 
-        json["stream_type"]=VKGETIMAGEDRMFORMATMODIFIERPROPERTIESEXT;
+        json["stream_type"]=static_cast<int>(VKGETIMAGEDRMFORMATMODIFIERPROPERTIESEXT);
         writeToConn(json);
     }
 
@@ -25224,7 +25518,7 @@ VkDevice device;
         call_function=(PFN_vkGetBufferOpaqueCaptureAddress)get_instance_proc_addr(parent,"vkGetBufferOpaqueCaptureAddress");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetBufferOpaqueCaptureAddress)get_device_proc_addr(parent,"vkGetBufferOpaqueCaptureAddress");
     }  
     
@@ -25242,14 +25536,15 @@ json.clear();
         for(int CPHfQOs=0; CPHfQOs < 1; CPHfQOs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[CPHfQOs]);
+            serialize_struct(temp_map, pInfo[CPHfQOs]);
             arr_LRSftdl[CPHfQOs]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_LRSftdl;}();
 
 
-        json["stream_type"]=VKGETBUFFEROPAQUECAPTUREADDRESS;
+        json["stream_type"]=static_cast<int>(VKGETBUFFEROPAQUECAPTUREADDRESS);
         writeToConn(json);
     }
 
@@ -25280,7 +25575,7 @@ VkDevice device;
         call_function=(PFN_vkGetBufferDeviceAddress)get_instance_proc_addr(parent,"vkGetBufferDeviceAddress");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetBufferDeviceAddress)get_device_proc_addr(parent,"vkGetBufferDeviceAddress");
     }  
     
@@ -25298,14 +25593,15 @@ json.clear();
         for(int CPHfQOs=0; CPHfQOs < 1; CPHfQOs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[CPHfQOs]);
+            serialize_struct(temp_map, pInfo[CPHfQOs]);
             arr_LRSftdl[CPHfQOs]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_LRSftdl;}();
 
 
-        json["stream_type"]=VKGETBUFFERDEVICEADDRESS;
+        json["stream_type"]=static_cast<int>(VKGETBUFFERDEVICEADDRESS);
         writeToConn(json);
     }
 
@@ -25356,7 +25652,7 @@ VkSurfaceKHR* pSurface;
         call_function=(PFN_vkCreateHeadlessSurfaceEXT)get_instance_proc_addr(parent,"vkCreateHeadlessSurfaceEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateHeadlessSurfaceEXT)get_device_proc_addr(parent,"vkCreateHeadlessSurfaceEXT");
     }  
     
@@ -25374,8 +25670,9 @@ json.clear();
         for(int CyHXDmy=0; CyHXDmy < 1; CyHXDmy++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[CyHXDmy]);
+            serialize_struct(temp_map, pCreateInfo[CyHXDmy]);
             arr_yHbnuDf[CyHXDmy]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_yHbnuDf;}();
@@ -25386,8 +25683,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -25401,7 +25699,7 @@ json.clear();
         json["pSurface"]=arr_zGtWguc;}();
 
 
-        json["stream_type"]=VKCREATEHEADLESSSURFACEEXT;
+        json["stream_type"]=static_cast<int>(VKCREATEHEADLESSSURFACEEXT);
         writeToConn(json);
     }
 
@@ -25449,7 +25747,7 @@ VkFramebufferMixedSamplesCombinationNV* pCombinations;
         call_function=(PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV)get_instance_proc_addr(parent,"vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV)get_device_proc_addr(parent,"vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV");
     }  
     
@@ -25475,14 +25773,15 @@ json.clear();
         for(int oxJqbjP=0; oxJqbjP < *pCombinationCount; oxJqbjP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCombinations[oxJqbjP]);
+            serialize_struct(temp_map, pCombinations[oxJqbjP]);
             arr_aOIaDFM[oxJqbjP]=temp_map;
+            return;
             }();
         }
         json["pCombinations"]=arr_aOIaDFM;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICESUPPORTEDFRAMEBUFFERMIXEDSAMPLESCOMBINATIONSNV;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICESUPPORTEDFRAMEBUFFERMIXEDSAMPLESCOMBINATIONSNV);
         writeToConn(json);
     }
 
@@ -25513,7 +25812,7 @@ VkDevice device;
         call_function=(PFN_vkInitializePerformanceApiINTEL)get_instance_proc_addr(parent,"vkInitializePerformanceApiINTEL");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkInitializePerformanceApiINTEL)get_device_proc_addr(parent,"vkInitializePerformanceApiINTEL");
     }  
     
@@ -25531,14 +25830,15 @@ json.clear();
         for(int pMSNyrD=0; pMSNyrD < 1; pMSNyrD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInitializeInfo[pMSNyrD]);
+            serialize_struct(temp_map, pInitializeInfo[pMSNyrD]);
             arr_BGIuPda[pMSNyrD]=temp_map;
+            return;
             }();
         }
         json["pInitializeInfo"]=arr_BGIuPda;}();
 
 
-        json["stream_type"]=VKINITIALIZEPERFORMANCEAPIINTEL;
+        json["stream_type"]=static_cast<int>(VKINITIALIZEPERFORMANCEAPIINTEL);
         writeToConn(json);
     }
 
@@ -25558,7 +25858,7 @@ VkDevice device;
         call_function=(PFN_vkUninitializePerformanceApiINTEL)get_instance_proc_addr(parent,"vkUninitializePerformanceApiINTEL");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkUninitializePerformanceApiINTEL)get_device_proc_addr(parent,"vkUninitializePerformanceApiINTEL");
     }  
     
@@ -25570,7 +25870,7 @@ json.clear();
 [&](){serialize_VkDevice(json["device"],device);}();
 
 
-        json["stream_type"]=VKUNINITIALIZEPERFORMANCEAPIINTEL;
+        json["stream_type"]=static_cast<int>(VKUNINITIALIZEPERFORMANCEAPIINTEL);
         writeToConn(json);
     }
 
@@ -25601,7 +25901,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdSetPerformanceMarkerINTEL)get_instance_proc_addr(parent,"vkCmdSetPerformanceMarkerINTEL");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetPerformanceMarkerINTEL)get_device_proc_addr(parent,"vkCmdSetPerformanceMarkerINTEL");
     }  
     
@@ -25619,14 +25919,15 @@ json.clear();
         for(int zTzAESc=0; zTzAESc < 1; zTzAESc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMarkerInfo[zTzAESc]);
+            serialize_struct(temp_map, pMarkerInfo[zTzAESc]);
             arr_jnuNlGq[zTzAESc]=temp_map;
+            return;
             }();
         }
         json["pMarkerInfo"]=arr_jnuNlGq;}();
 
 
-        json["stream_type"]=VKCMDSETPERFORMANCEMARKERINTEL;
+        json["stream_type"]=static_cast<int>(VKCMDSETPERFORMANCEMARKERINTEL);
         writeToConn(json);
     }
 
@@ -25657,7 +25958,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdSetPerformanceStreamMarkerINTEL)get_instance_proc_addr(parent,"vkCmdSetPerformanceStreamMarkerINTEL");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetPerformanceStreamMarkerINTEL)get_device_proc_addr(parent,"vkCmdSetPerformanceStreamMarkerINTEL");
     }  
     
@@ -25675,14 +25976,15 @@ json.clear();
         for(int xfSMHfo=0; xfSMHfo < 1; xfSMHfo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMarkerInfo[xfSMHfo]);
+            serialize_struct(temp_map, pMarkerInfo[xfSMHfo]);
             arr_MVQnSpz[xfSMHfo]=temp_map;
+            return;
             }();
         }
         json["pMarkerInfo"]=arr_MVQnSpz;}();
 
 
-        json["stream_type"]=VKCMDSETPERFORMANCESTREAMMARKERINTEL;
+        json["stream_type"]=static_cast<int>(VKCMDSETPERFORMANCESTREAMMARKERINTEL);
         writeToConn(json);
     }
 
@@ -25713,7 +26015,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdSetPerformanceOverrideINTEL)get_instance_proc_addr(parent,"vkCmdSetPerformanceOverrideINTEL");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetPerformanceOverrideINTEL)get_device_proc_addr(parent,"vkCmdSetPerformanceOverrideINTEL");
     }  
     
@@ -25731,14 +26033,15 @@ json.clear();
         for(int KZSCUHM=0; KZSCUHM < 1; KZSCUHM++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pOverrideInfo[KZSCUHM]);
+            serialize_struct(temp_map, pOverrideInfo[KZSCUHM]);
             arr_LHSFuEM[KZSCUHM]=temp_map;
+            return;
             }();
         }
         json["pOverrideInfo"]=arr_LHSFuEM;}();
 
 
-        json["stream_type"]=VKCMDSETPERFORMANCEOVERRIDEINTEL;
+        json["stream_type"]=static_cast<int>(VKCMDSETPERFORMANCEOVERRIDEINTEL);
         writeToConn(json);
     }
 
@@ -25778,7 +26081,7 @@ VkPerformanceConfigurationINTEL* pConfiguration;
         call_function=(PFN_vkAcquirePerformanceConfigurationINTEL)get_instance_proc_addr(parent,"vkAcquirePerformanceConfigurationINTEL");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkAcquirePerformanceConfigurationINTEL)get_device_proc_addr(parent,"vkAcquirePerformanceConfigurationINTEL");
     }  
     
@@ -25796,8 +26099,9 @@ json.clear();
         for(int RYEcOAO=0; RYEcOAO < 1; RYEcOAO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAcquireInfo[RYEcOAO]);
+            serialize_struct(temp_map, pAcquireInfo[RYEcOAO]);
             arr_ZyqvvlF[RYEcOAO]=temp_map;
+            return;
             }();
         }
         json["pAcquireInfo"]=arr_ZyqvvlF;}();
@@ -25811,7 +26115,7 @@ json.clear();
         json["pConfiguration"]=arr_zSRZrDS;}();
 
 
-        json["stream_type"]=VKACQUIREPERFORMANCECONFIGURATIONINTEL;
+        json["stream_type"]=static_cast<int>(VKACQUIREPERFORMANCECONFIGURATIONINTEL);
         writeToConn(json);
     }
 
@@ -25833,7 +26137,7 @@ VkPerformanceConfigurationINTEL configuration;
         call_function=(PFN_vkReleasePerformanceConfigurationINTEL)get_instance_proc_addr(parent,"vkReleasePerformanceConfigurationINTEL");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkReleasePerformanceConfigurationINTEL)get_device_proc_addr(parent,"vkReleasePerformanceConfigurationINTEL");
     }  
     
@@ -25847,7 +26151,7 @@ json.clear();
 [&](){serialize_VkPerformanceConfigurationINTEL(json["configuration"],configuration);}();
 
 
-        json["stream_type"]=VKRELEASEPERFORMANCECONFIGURATIONINTEL;
+        json["stream_type"]=static_cast<int>(VKRELEASEPERFORMANCECONFIGURATIONINTEL);
         writeToConn(json);
     }
 
@@ -25869,7 +26173,7 @@ VkPerformanceConfigurationINTEL configuration;
         call_function=(PFN_vkQueueSetPerformanceConfigurationINTEL)get_instance_proc_addr(parent,"vkQueueSetPerformanceConfigurationINTEL");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkQueueSetPerformanceConfigurationINTEL)get_device_proc_addr(parent,"vkQueueSetPerformanceConfigurationINTEL");
     }  
     
@@ -25883,7 +26187,7 @@ json.clear();
 [&](){serialize_VkPerformanceConfigurationINTEL(json["configuration"],configuration);}();
 
 
-        json["stream_type"]=VKQUEUESETPERFORMANCECONFIGURATIONINTEL;
+        json["stream_type"]=static_cast<int>(VKQUEUESETPERFORMANCECONFIGURATIONINTEL);
         writeToConn(json);
     }
 
@@ -25924,7 +26228,7 @@ VkPerformanceValueINTEL* pValue;
         call_function=(PFN_vkGetPerformanceParameterINTEL)get_instance_proc_addr(parent,"vkGetPerformanceParameterINTEL");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPerformanceParameterINTEL)get_device_proc_addr(parent,"vkGetPerformanceParameterINTEL");
     }  
     
@@ -25943,14 +26247,15 @@ json.clear();
         for(int lyxuUNd=0; lyxuUNd < 1; lyxuUNd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pValue[lyxuUNd]);
+            serialize_struct(temp_map, pValue[lyxuUNd]);
             arr_hOmaGpc[lyxuUNd]=temp_map;
+            return;
             }();
         }
         json["pValue"]=arr_hOmaGpc;}();
 
 
-        json["stream_type"]=VKGETPERFORMANCEPARAMETERINTEL;
+        json["stream_type"]=static_cast<int>(VKGETPERFORMANCEPARAMETERINTEL);
         writeToConn(json);
     }
 
@@ -25981,7 +26286,7 @@ VkDevice device;
         call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddress)get_instance_proc_addr(parent,"vkGetDeviceMemoryOpaqueCaptureAddress");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddress)get_device_proc_addr(parent,"vkGetDeviceMemoryOpaqueCaptureAddress");
     }  
     
@@ -25999,14 +26304,15 @@ json.clear();
         for(int vcZpbuB=0; vcZpbuB < 1; vcZpbuB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[vcZpbuB]);
+            serialize_struct(temp_map, pInfo[vcZpbuB]);
             arr_hjweGct[vcZpbuB]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_hjweGct;}();
 
 
-        json["stream_type"]=VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS);
         writeToConn(json);
     }
 
@@ -26065,7 +26371,7 @@ VkPipelineExecutablePropertiesKHR* pProperties;
         call_function=(PFN_vkGetPipelineExecutablePropertiesKHR)get_instance_proc_addr(parent,"vkGetPipelineExecutablePropertiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPipelineExecutablePropertiesKHR)get_device_proc_addr(parent,"vkGetPipelineExecutablePropertiesKHR");
     }  
     
@@ -26083,8 +26389,9 @@ json.clear();
         for(int mwoMxRp=0; mwoMxRp < 1; mwoMxRp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPipelineInfo[mwoMxRp]);
+            serialize_struct(temp_map, pPipelineInfo[mwoMxRp]);
             arr_SxuxUqw[mwoMxRp]=temp_map;
+            return;
             }();
         }
         json["pPipelineInfo"]=arr_SxuxUqw;}();
@@ -26103,14 +26410,15 @@ json.clear();
         for(int uPFqrVz=0; uPFqrVz < *pExecutableCount; uPFqrVz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[uPFqrVz]);
+            serialize_struct(temp_map, pProperties[uPFqrVz]);
             arr_vtfdUfF[uPFqrVz]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_vtfdUfF;}();
 
 
-        json["stream_type"]=VKGETPIPELINEEXECUTABLEPROPERTIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPIPELINEEXECUTABLEPROPERTIESKHR);
         writeToConn(json);
     }
 
@@ -26169,7 +26477,7 @@ VkPipelineExecutableStatisticKHR* pStatistics;
         call_function=(PFN_vkGetPipelineExecutableStatisticsKHR)get_instance_proc_addr(parent,"vkGetPipelineExecutableStatisticsKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPipelineExecutableStatisticsKHR)get_device_proc_addr(parent,"vkGetPipelineExecutableStatisticsKHR");
     }  
     
@@ -26187,8 +26495,9 @@ json.clear();
         for(int JTDfcCv=0; JTDfcCv < 1; JTDfcCv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExecutableInfo[JTDfcCv]);
+            serialize_struct(temp_map, pExecutableInfo[JTDfcCv]);
             arr_xbHlsCc[JTDfcCv]=temp_map;
+            return;
             }();
         }
         json["pExecutableInfo"]=arr_xbHlsCc;}();
@@ -26207,14 +26516,15 @@ json.clear();
         for(int ktSOZGx=0; ktSOZGx < *pStatisticCount; ktSOZGx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pStatistics[ktSOZGx]);
+            serialize_struct(temp_map, pStatistics[ktSOZGx]);
             arr_cGybyJf[ktSOZGx]=temp_map;
+            return;
             }();
         }
         json["pStatistics"]=arr_cGybyJf;}();
 
 
-        json["stream_type"]=VKGETPIPELINEEXECUTABLESTATISTICSKHR;
+        json["stream_type"]=static_cast<int>(VKGETPIPELINEEXECUTABLESTATISTICSKHR);
         writeToConn(json);
     }
 
@@ -26273,7 +26583,7 @@ VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations;
         call_function=(PFN_vkGetPipelineExecutableInternalRepresentationsKHR)get_instance_proc_addr(parent,"vkGetPipelineExecutableInternalRepresentationsKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPipelineExecutableInternalRepresentationsKHR)get_device_proc_addr(parent,"vkGetPipelineExecutableInternalRepresentationsKHR");
     }  
     
@@ -26291,8 +26601,9 @@ json.clear();
         for(int JTDfcCv=0; JTDfcCv < 1; JTDfcCv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExecutableInfo[JTDfcCv]);
+            serialize_struct(temp_map, pExecutableInfo[JTDfcCv]);
             arr_xbHlsCc[JTDfcCv]=temp_map;
+            return;
             }();
         }
         json["pExecutableInfo"]=arr_xbHlsCc;}();
@@ -26311,14 +26622,15 @@ json.clear();
         for(int OdpgULc=0; OdpgULc < *pInternalRepresentationCount; OdpgULc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInternalRepresentations[OdpgULc]);
+            serialize_struct(temp_map, pInternalRepresentations[OdpgULc]);
             arr_yqajgdo[OdpgULc]=temp_map;
+            return;
             }();
         }
         json["pInternalRepresentations"]=arr_yqajgdo;}();
 
 
-        json["stream_type"]=VKGETPIPELINEEXECUTABLEINTERNALREPRESENTATIONSKHR;
+        json["stream_type"]=static_cast<int>(VKGETPIPELINEEXECUTABLEINTERNALREPRESENTATIONSKHR);
         writeToConn(json);
     }
 
@@ -26358,7 +26670,7 @@ uint16_t lineStipplePattern;
         call_function=(PFN_vkCmdSetLineStippleEXT)get_instance_proc_addr(parent,"vkCmdSetLineStippleEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetLineStippleEXT)get_device_proc_addr(parent,"vkCmdSetLineStippleEXT");
     }  
     
@@ -26372,7 +26684,7 @@ json.clear();
 [&](){json["lineStipplePattern"]=static_cast<uint>(lineStipplePattern);}();
 
 
-        json["stream_type"]=VKCMDSETLINESTIPPLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETLINESTIPPLEEXT);
         writeToConn(json);
     }
 
@@ -26420,7 +26732,7 @@ VkPhysicalDeviceToolProperties* pToolProperties;
         call_function=(PFN_vkGetPhysicalDeviceToolProperties)get_instance_proc_addr(parent,"vkGetPhysicalDeviceToolProperties");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceToolProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceToolProperties");
     }  
     
@@ -26446,14 +26758,15 @@ json.clear();
         for(int dlPXJcQ=0; dlPXJcQ < *pToolCount; dlPXJcQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pToolProperties[dlPXJcQ]);
+            serialize_struct(temp_map, pToolProperties[dlPXJcQ]);
             arr_OYowiCQ[dlPXJcQ]=temp_map;
+            return;
             }();
         }
         json["pToolProperties"]=arr_OYowiCQ;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICETOOLPROPERTIES;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICETOOLPROPERTIES);
         writeToConn(json);
     }
 
@@ -26504,7 +26817,7 @@ VkAccelerationStructureKHR* pAccelerationStructure;
         call_function=(PFN_vkCreateAccelerationStructureKHR)get_instance_proc_addr(parent,"vkCreateAccelerationStructureKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateAccelerationStructureKHR)get_device_proc_addr(parent,"vkCreateAccelerationStructureKHR");
     }  
     
@@ -26522,8 +26835,9 @@ json.clear();
         for(int bGUDBRC=0; bGUDBRC < 1; bGUDBRC++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[bGUDBRC]);
+            serialize_struct(temp_map, pCreateInfo[bGUDBRC]);
             arr_XoURuCS[bGUDBRC]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_XoURuCS;}();
@@ -26534,8 +26848,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -26549,7 +26864,7 @@ json.clear();
         json["pAccelerationStructure"]=arr_vKbZGTA;}();
 
 
-        json["stream_type"]=VKCREATEACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=static_cast<int>(VKCREATEACCELERATIONSTRUCTUREKHR);
         writeToConn(json);
     }
 
@@ -26608,7 +26923,7 @@ uint32_t infoCount;
         call_function=(PFN_vkCmdBuildAccelerationStructuresKHR)get_instance_proc_addr(parent,"vkCmdBuildAccelerationStructuresKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBuildAccelerationStructuresKHR)get_device_proc_addr(parent,"vkCmdBuildAccelerationStructuresKHR");
     }  
     
@@ -26626,8 +26941,9 @@ json.clear();
         for(int frdaizU=0; frdaizU < infoCount; frdaizU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfos[frdaizU]);
+            serialize_struct(temp_map, pInfos[frdaizU]);
             arr_lswJvjt[frdaizU]=temp_map;
+            return;
             }();
         }
         json["pInfos"]=arr_lswJvjt;}();
@@ -26643,8 +26959,9 @@ json.clear();
         for(int IUJrDJF=0; IUJrDJF < infoCount; IUJrDJF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, ppBuildRangeInfos[CRaOjpb][IUJrDJF]);
+            serialize_struct(temp_map, ppBuildRangeInfos[CRaOjpb][IUJrDJF]);
             arr_PKxEvVS[IUJrDJF]=temp_map;
+            return;
             }();
         }
         arr_FMxYLmq[CRaOjpb]=arr_PKxEvVS;}();
@@ -26652,7 +26969,7 @@ json.clear();
         json["ppBuildRangeInfos"]=arr_FMxYLmq;}();
 
 
-        json["stream_type"]=VKCMDBUILDACCELERATIONSTRUCTURESKHR;
+        json["stream_type"]=static_cast<int>(VKCMDBUILDACCELERATIONSTRUCTURESKHR);
         writeToConn(json);
     }
 
@@ -26751,7 +27068,7 @@ uint32_t infoCount;
         call_function=(PFN_vkCmdBuildAccelerationStructuresIndirectKHR)get_instance_proc_addr(parent,"vkCmdBuildAccelerationStructuresIndirectKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBuildAccelerationStructuresIndirectKHR)get_device_proc_addr(parent,"vkCmdBuildAccelerationStructuresIndirectKHR");
     }  
     
@@ -26769,8 +27086,9 @@ json.clear();
         for(int frdaizU=0; frdaizU < infoCount; frdaizU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfos[frdaizU]);
+            serialize_struct(temp_map, pInfos[frdaizU]);
             arr_lswJvjt[frdaizU]=temp_map;
+            return;
             }();
         }
         json["pInfos"]=arr_lswJvjt;}();
@@ -26807,7 +27125,7 @@ json.clear();
         json["ppMaxPrimitiveCounts"]=arr_DfsqJWs;}();
 
 
-        json["stream_type"]=VKCMDBUILDACCELERATIONSTRUCTURESINDIRECTKHR;
+        json["stream_type"]=static_cast<int>(VKCMDBUILDACCELERATIONSTRUCTURESINDIRECTKHR);
         writeToConn(json);
     }
 
@@ -26868,7 +27186,7 @@ uint32_t infoCount;
         call_function=(PFN_vkBuildAccelerationStructuresKHR)get_instance_proc_addr(parent,"vkBuildAccelerationStructuresKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkBuildAccelerationStructuresKHR)get_device_proc_addr(parent,"vkBuildAccelerationStructuresKHR");
     }  
     
@@ -26888,8 +27206,9 @@ json.clear();
         for(int frdaizU=0; frdaizU < infoCount; frdaizU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfos[frdaizU]);
+            serialize_struct(temp_map, pInfos[frdaizU]);
             arr_lswJvjt[frdaizU]=temp_map;
+            return;
             }();
         }
         json["pInfos"]=arr_lswJvjt;}();
@@ -26905,8 +27224,9 @@ json.clear();
         for(int IUJrDJF=0; IUJrDJF < infoCount; IUJrDJF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, ppBuildRangeInfos[CRaOjpb][IUJrDJF]);
+            serialize_struct(temp_map, ppBuildRangeInfos[CRaOjpb][IUJrDJF]);
             arr_PKxEvVS[IUJrDJF]=temp_map;
+            return;
             }();
         }
         arr_FMxYLmq[CRaOjpb]=arr_PKxEvVS;}();
@@ -26914,7 +27234,7 @@ json.clear();
         json["ppBuildRangeInfos"]=arr_FMxYLmq;}();
 
 
-        json["stream_type"]=VKBUILDACCELERATIONSTRUCTURESKHR;
+        json["stream_type"]=static_cast<int>(VKBUILDACCELERATIONSTRUCTURESKHR);
         writeToConn(json);
     }
 
@@ -26945,7 +27265,7 @@ VkDevice device;
         call_function=(PFN_vkGetAccelerationStructureDeviceAddressKHR)get_instance_proc_addr(parent,"vkGetAccelerationStructureDeviceAddressKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetAccelerationStructureDeviceAddressKHR)get_device_proc_addr(parent,"vkGetAccelerationStructureDeviceAddressKHR");
     }  
     
@@ -26963,14 +27283,15 @@ json.clear();
         for(int DozYfEa=0; DozYfEa < 1; DozYfEa++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[DozYfEa]);
+            serialize_struct(temp_map, pInfo[DozYfEa]);
             arr_CAfLmMn[DozYfEa]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_CAfLmMn;}();
 
 
-        json["stream_type"]=VKGETACCELERATIONSTRUCTUREDEVICEADDRESSKHR;
+        json["stream_type"]=static_cast<int>(VKGETACCELERATIONSTRUCTUREDEVICEADDRESSKHR);
         writeToConn(json);
     }
 
@@ -27010,7 +27331,7 @@ VkDeferredOperationKHR* pDeferredOperation;
         call_function=(PFN_vkCreateDeferredOperationKHR)get_instance_proc_addr(parent,"vkCreateDeferredOperationKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateDeferredOperationKHR)get_device_proc_addr(parent,"vkCreateDeferredOperationKHR");
     }  
     
@@ -27028,8 +27349,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -27043,7 +27365,7 @@ json.clear();
         json["pDeferredOperation"]=arr_fPVilHH;}();
 
 
-        json["stream_type"]=VKCREATEDEFERREDOPERATIONKHR;
+        json["stream_type"]=static_cast<int>(VKCREATEDEFERREDOPERATIONKHR);
         writeToConn(json);
     }
 
@@ -27076,7 +27398,7 @@ VkDeferredOperationKHR operation;
         call_function=(PFN_vkDestroyDeferredOperationKHR)get_instance_proc_addr(parent,"vkDestroyDeferredOperationKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyDeferredOperationKHR)get_device_proc_addr(parent,"vkDestroyDeferredOperationKHR");
     }  
     
@@ -27094,14 +27416,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYDEFERREDOPERATIONKHR;
+        json["stream_type"]=static_cast<int>(VKDESTROYDEFERREDOPERATIONKHR);
         writeToConn(json);
     }
 
@@ -27123,7 +27446,7 @@ VkDeferredOperationKHR operation;
         call_function=(PFN_vkGetDeferredOperationMaxConcurrencyKHR)get_instance_proc_addr(parent,"vkGetDeferredOperationMaxConcurrencyKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeferredOperationMaxConcurrencyKHR)get_device_proc_addr(parent,"vkGetDeferredOperationMaxConcurrencyKHR");
     }  
     
@@ -27137,7 +27460,7 @@ json.clear();
 [&](){serialize_VkDeferredOperationKHR(json["operation"],operation);}();
 
 
-        json["stream_type"]=VKGETDEFERREDOPERATIONMAXCONCURRENCYKHR;
+        json["stream_type"]=static_cast<int>(VKGETDEFERREDOPERATIONMAXCONCURRENCYKHR);
         writeToConn(json);
     }
 
@@ -27159,7 +27482,7 @@ VkDeferredOperationKHR operation;
         call_function=(PFN_vkGetDeferredOperationResultKHR)get_instance_proc_addr(parent,"vkGetDeferredOperationResultKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeferredOperationResultKHR)get_device_proc_addr(parent,"vkGetDeferredOperationResultKHR");
     }  
     
@@ -27173,7 +27496,7 @@ json.clear();
 [&](){serialize_VkDeferredOperationKHR(json["operation"],operation);}();
 
 
-        json["stream_type"]=VKGETDEFERREDOPERATIONRESULTKHR;
+        json["stream_type"]=static_cast<int>(VKGETDEFERREDOPERATIONRESULTKHR);
         writeToConn(json);
     }
 
@@ -27195,7 +27518,7 @@ VkDeferredOperationKHR operation;
         call_function=(PFN_vkDeferredOperationJoinKHR)get_instance_proc_addr(parent,"vkDeferredOperationJoinKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDeferredOperationJoinKHR)get_device_proc_addr(parent,"vkDeferredOperationJoinKHR");
     }  
     
@@ -27209,7 +27532,7 @@ json.clear();
 [&](){serialize_VkDeferredOperationKHR(json["operation"],operation);}();
 
 
-        json["stream_type"]=VKDEFERREDOPERATIONJOINKHR;
+        json["stream_type"]=static_cast<int>(VKDEFERREDOPERATIONJOINKHR);
         writeToConn(json);
     }
 
@@ -27251,7 +27574,7 @@ VkMemoryRequirements2* pMemoryRequirements;
         call_function=(PFN_vkGetPipelineIndirectMemoryRequirementsNV)get_instance_proc_addr(parent,"vkGetPipelineIndirectMemoryRequirementsNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPipelineIndirectMemoryRequirementsNV)get_device_proc_addr(parent,"vkGetPipelineIndirectMemoryRequirementsNV");
     }  
     
@@ -27268,8 +27591,9 @@ json.clear();
         for(int FoBxBjF=0; FoBxBjF < 1; FoBxBjF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[FoBxBjF]);
+            serialize_struct(temp_map, pCreateInfo[FoBxBjF]);
             arr_XLStDVY[FoBxBjF]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_XLStDVY;}();
@@ -27280,14 +27604,15 @@ json.clear();
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
 
 
-        json["stream_type"]=VKGETPIPELINEINDIRECTMEMORYREQUIREMENTSNV;
+        json["stream_type"]=static_cast<int>(VKGETPIPELINEINDIRECTMEMORYREQUIREMENTSNV);
         writeToConn(json);
     }
 
@@ -27318,7 +27643,7 @@ VkDevice device;
         call_function=(PFN_vkGetPipelineIndirectDeviceAddressNV)get_instance_proc_addr(parent,"vkGetPipelineIndirectDeviceAddressNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPipelineIndirectDeviceAddressNV)get_device_proc_addr(parent,"vkGetPipelineIndirectDeviceAddressNV");
     }  
     
@@ -27336,14 +27661,15 @@ json.clear();
         for(int EeNdDDD=0; EeNdDDD < 1; EeNdDDD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[EeNdDDD]);
+            serialize_struct(temp_map, pInfo[EeNdDDD]);
             arr_iNXSdlN[EeNdDDD]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_iNXSdlN;}();
 
 
-        json["stream_type"]=VKGETPIPELINEINDIRECTDEVICEADDRESSNV;
+        json["stream_type"]=static_cast<int>(VKGETPIPELINEINDIRECTDEVICEADDRESSNV);
         writeToConn(json);
     }
 
@@ -27373,7 +27699,7 @@ VkCullModeFlags cullMode;
         call_function=(PFN_vkCmdSetCullMode)get_instance_proc_addr(parent,"vkCmdSetCullMode");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetCullMode)get_device_proc_addr(parent,"vkCmdSetCullMode");
     }  
     
@@ -27386,7 +27712,7 @@ json.clear();
 [&](){[&](){[&](){json["cullMode"]=static_cast<int>(cullMode);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETCULLMODE;
+        json["stream_type"]=static_cast<int>(VKCMDSETCULLMODE);
         writeToConn(json);
     }
 
@@ -27416,7 +27742,7 @@ VkFrontFace frontFace;
         call_function=(PFN_vkCmdSetFrontFace)get_instance_proc_addr(parent,"vkCmdSetFrontFace");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetFrontFace)get_device_proc_addr(parent,"vkCmdSetFrontFace");
     }  
     
@@ -27429,7 +27755,7 @@ json.clear();
 [&](){[&](){[&](){json["frontFace"]=static_cast<int>(frontFace);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETFRONTFACE;
+        json["stream_type"]=static_cast<int>(VKCMDSETFRONTFACE);
         writeToConn(json);
     }
 
@@ -27459,7 +27785,7 @@ VkPrimitiveTopology primitiveTopology;
         call_function=(PFN_vkCmdSetPrimitiveTopology)get_instance_proc_addr(parent,"vkCmdSetPrimitiveTopology");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetPrimitiveTopology)get_device_proc_addr(parent,"vkCmdSetPrimitiveTopology");
     }  
     
@@ -27472,7 +27798,7 @@ json.clear();
 [&](){[&](){[&](){json["primitiveTopology"]=static_cast<int>(primitiveTopology);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETPRIMITIVETOPOLOGY;
+        json["stream_type"]=static_cast<int>(VKCMDSETPRIMITIVETOPOLOGY);
         writeToConn(json);
     }
 
@@ -27513,7 +27839,7 @@ uint32_t viewportCount;
         call_function=(PFN_vkCmdSetViewportWithCount)get_instance_proc_addr(parent,"vkCmdSetViewportWithCount");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetViewportWithCount)get_device_proc_addr(parent,"vkCmdSetViewportWithCount");
     }  
     
@@ -27531,14 +27857,15 @@ json.clear();
         for(int HAuJlzw=0; HAuJlzw < viewportCount; HAuJlzw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pViewports[HAuJlzw]);
+            serialize_struct(temp_map, pViewports[HAuJlzw]);
             arr_SyYryUE[HAuJlzw]=temp_map;
+            return;
             }();
         }
         json["pViewports"]=arr_SyYryUE;}();
 
 
-        json["stream_type"]=VKCMDSETVIEWPORTWITHCOUNT;
+        json["stream_type"]=static_cast<int>(VKCMDSETVIEWPORTWITHCOUNT);
         writeToConn(json);
     }
 
@@ -27579,7 +27906,7 @@ uint32_t scissorCount;
         call_function=(PFN_vkCmdSetScissorWithCount)get_instance_proc_addr(parent,"vkCmdSetScissorWithCount");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetScissorWithCount)get_device_proc_addr(parent,"vkCmdSetScissorWithCount");
     }  
     
@@ -27597,14 +27924,15 @@ json.clear();
         for(int XBYGvVT=0; XBYGvVT < scissorCount; XBYGvVT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pScissors[XBYGvVT]);
+            serialize_struct(temp_map, pScissors[XBYGvVT]);
             arr_RpUaBcS[XBYGvVT]=temp_map;
+            return;
             }();
         }
         json["pScissors"]=arr_RpUaBcS;}();
 
 
-        json["stream_type"]=VKCMDSETSCISSORWITHCOUNT;
+        json["stream_type"]=static_cast<int>(VKCMDSETSCISSORWITHCOUNT);
         writeToConn(json);
     }
 
@@ -27656,7 +27984,7 @@ VkIndexType indexType;
         call_function=(PFN_vkCmdBindIndexBuffer2KHR)get_instance_proc_addr(parent,"vkCmdBindIndexBuffer2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindIndexBuffer2KHR)get_device_proc_addr(parent,"vkCmdBindIndexBuffer2KHR");
     }  
     
@@ -27672,7 +28000,7 @@ json.clear();
 [&](){[&](){[&](){json["indexType"]=static_cast<int>(indexType);}();}();}();
 
 
-        json["stream_type"]=VKCMDBINDINDEXBUFFER2KHR;
+        json["stream_type"]=static_cast<int>(VKCMDBINDINDEXBUFFER2KHR);
         writeToConn(json);
     }
 
@@ -27772,7 +28100,7 @@ uint32_t bindingCount;
         call_function=(PFN_vkCmdBindVertexBuffers2)get_instance_proc_addr(parent,"vkCmdBindVertexBuffers2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindVertexBuffers2)get_device_proc_addr(parent,"vkCmdBindVertexBuffers2");
     }  
     
@@ -27818,7 +28146,7 @@ json.clear();
         json["pStrides"]=arr_YFLMtWg;}();
 
 
-        json["stream_type"]=VKCMDBINDVERTEXBUFFERS2;
+        json["stream_type"]=static_cast<int>(VKCMDBINDVERTEXBUFFERS2);
         writeToConn(json);
     }
 
@@ -27848,7 +28176,7 @@ VkBool32 depthTestEnable;
         call_function=(PFN_vkCmdSetDepthTestEnable)get_instance_proc_addr(parent,"vkCmdSetDepthTestEnable");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthTestEnable)get_device_proc_addr(parent,"vkCmdSetDepthTestEnable");
     }  
     
@@ -27861,7 +28189,7 @@ json.clear();
 [&](){[&](){json["depthTestEnable"]=static_cast<uint>(depthTestEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHTESTENABLE;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHTESTENABLE);
         writeToConn(json);
     }
 
@@ -27891,7 +28219,7 @@ VkBool32 depthWriteEnable;
         call_function=(PFN_vkCmdSetDepthWriteEnable)get_instance_proc_addr(parent,"vkCmdSetDepthWriteEnable");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthWriteEnable)get_device_proc_addr(parent,"vkCmdSetDepthWriteEnable");
     }  
     
@@ -27904,7 +28232,7 @@ json.clear();
 [&](){[&](){json["depthWriteEnable"]=static_cast<uint>(depthWriteEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHWRITEENABLE;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHWRITEENABLE);
         writeToConn(json);
     }
 
@@ -27934,7 +28262,7 @@ VkCompareOp depthCompareOp;
         call_function=(PFN_vkCmdSetDepthCompareOp)get_instance_proc_addr(parent,"vkCmdSetDepthCompareOp");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthCompareOp)get_device_proc_addr(parent,"vkCmdSetDepthCompareOp");
     }  
     
@@ -27947,7 +28275,7 @@ json.clear();
 [&](){[&](){[&](){json["depthCompareOp"]=static_cast<int>(depthCompareOp);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHCOMPAREOP;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHCOMPAREOP);
         writeToConn(json);
     }
 
@@ -27977,7 +28305,7 @@ VkBool32 depthBoundsTestEnable;
         call_function=(PFN_vkCmdSetDepthBoundsTestEnable)get_instance_proc_addr(parent,"vkCmdSetDepthBoundsTestEnable");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthBoundsTestEnable)get_device_proc_addr(parent,"vkCmdSetDepthBoundsTestEnable");
     }  
     
@@ -27990,7 +28318,7 @@ json.clear();
 [&](){[&](){json["depthBoundsTestEnable"]=static_cast<uint>(depthBoundsTestEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHBOUNDSTESTENABLE;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHBOUNDSTESTENABLE);
         writeToConn(json);
     }
 
@@ -28020,7 +28348,7 @@ VkBool32 stencilTestEnable;
         call_function=(PFN_vkCmdSetStencilTestEnable)get_instance_proc_addr(parent,"vkCmdSetStencilTestEnable");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetStencilTestEnable)get_device_proc_addr(parent,"vkCmdSetStencilTestEnable");
     }  
     
@@ -28033,7 +28361,7 @@ json.clear();
 [&](){[&](){json["stencilTestEnable"]=static_cast<uint>(stencilTestEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETSTENCILTESTENABLE;
+        json["stream_type"]=static_cast<int>(VKCMDSETSTENCILTESTENABLE);
         writeToConn(json);
     }
 
@@ -28103,7 +28431,7 @@ VkCompareOp compareOp;
         call_function=(PFN_vkCmdSetStencilOp)get_instance_proc_addr(parent,"vkCmdSetStencilOp");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetStencilOp)get_device_proc_addr(parent,"vkCmdSetStencilOp");
     }  
     
@@ -28120,7 +28448,7 @@ json.clear();
 [&](){[&](){[&](){json["compareOp"]=static_cast<int>(compareOp);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETSTENCILOP;
+        json["stream_type"]=static_cast<int>(VKCMDSETSTENCILOP);
         writeToConn(json);
     }
 
@@ -28150,7 +28478,7 @@ uint32_t patchControlPoints;
         call_function=(PFN_vkCmdSetPatchControlPointsEXT)get_instance_proc_addr(parent,"vkCmdSetPatchControlPointsEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetPatchControlPointsEXT)get_device_proc_addr(parent,"vkCmdSetPatchControlPointsEXT");
     }  
     
@@ -28163,7 +28491,7 @@ json.clear();
 [&](){json["patchControlPoints"]=static_cast<uint>(patchControlPoints);}();
 
 
-        json["stream_type"]=VKCMDSETPATCHCONTROLPOINTSEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETPATCHCONTROLPOINTSEXT);
         writeToConn(json);
     }
 
@@ -28193,7 +28521,7 @@ VkBool32 rasterizerDiscardEnable;
         call_function=(PFN_vkCmdSetRasterizerDiscardEnable)get_instance_proc_addr(parent,"vkCmdSetRasterizerDiscardEnable");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetRasterizerDiscardEnable)get_device_proc_addr(parent,"vkCmdSetRasterizerDiscardEnable");
     }  
     
@@ -28206,7 +28534,7 @@ json.clear();
 [&](){[&](){json["rasterizerDiscardEnable"]=static_cast<uint>(rasterizerDiscardEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETRASTERIZERDISCARDENABLE;
+        json["stream_type"]=static_cast<int>(VKCMDSETRASTERIZERDISCARDENABLE);
         writeToConn(json);
     }
 
@@ -28236,7 +28564,7 @@ VkBool32 depthBiasEnable;
         call_function=(PFN_vkCmdSetDepthBiasEnable)get_instance_proc_addr(parent,"vkCmdSetDepthBiasEnable");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthBiasEnable)get_device_proc_addr(parent,"vkCmdSetDepthBiasEnable");
     }  
     
@@ -28249,7 +28577,7 @@ json.clear();
 [&](){[&](){json["depthBiasEnable"]=static_cast<uint>(depthBiasEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHBIASENABLE;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHBIASENABLE);
         writeToConn(json);
     }
 
@@ -28279,7 +28607,7 @@ VkLogicOp logicOp;
         call_function=(PFN_vkCmdSetLogicOpEXT)get_instance_proc_addr(parent,"vkCmdSetLogicOpEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetLogicOpEXT)get_device_proc_addr(parent,"vkCmdSetLogicOpEXT");
     }  
     
@@ -28292,7 +28620,7 @@ json.clear();
 [&](){[&](){[&](){json["logicOp"]=static_cast<int>(logicOp);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETLOGICOPEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETLOGICOPEXT);
         writeToConn(json);
     }
 
@@ -28322,7 +28650,7 @@ VkBool32 primitiveRestartEnable;
         call_function=(PFN_vkCmdSetPrimitiveRestartEnable)get_instance_proc_addr(parent,"vkCmdSetPrimitiveRestartEnable");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetPrimitiveRestartEnable)get_device_proc_addr(parent,"vkCmdSetPrimitiveRestartEnable");
     }  
     
@@ -28335,7 +28663,7 @@ json.clear();
 [&](){[&](){json["primitiveRestartEnable"]=static_cast<uint>(primitiveRestartEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETPRIMITIVERESTARTENABLE;
+        json["stream_type"]=static_cast<int>(VKCMDSETPRIMITIVERESTARTENABLE);
         writeToConn(json);
     }
 
@@ -28365,7 +28693,7 @@ VkTessellationDomainOrigin domainOrigin;
         call_function=(PFN_vkCmdSetTessellationDomainOriginEXT)get_instance_proc_addr(parent,"vkCmdSetTessellationDomainOriginEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetTessellationDomainOriginEXT)get_device_proc_addr(parent,"vkCmdSetTessellationDomainOriginEXT");
     }  
     
@@ -28378,7 +28706,7 @@ json.clear();
 [&](){[&](){[&](){json["domainOrigin"]=static_cast<int>(domainOrigin);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETTESSELLATIONDOMAINORIGINEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETTESSELLATIONDOMAINORIGINEXT);
         writeToConn(json);
     }
 
@@ -28408,7 +28736,7 @@ VkBool32 depthClampEnable;
         call_function=(PFN_vkCmdSetDepthClampEnableEXT)get_instance_proc_addr(parent,"vkCmdSetDepthClampEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthClampEnableEXT)get_device_proc_addr(parent,"vkCmdSetDepthClampEnableEXT");
     }  
     
@@ -28421,7 +28749,7 @@ json.clear();
 [&](){[&](){json["depthClampEnable"]=static_cast<uint>(depthClampEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHCLAMPENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHCLAMPENABLEEXT);
         writeToConn(json);
     }
 
@@ -28451,7 +28779,7 @@ VkPolygonMode polygonMode;
         call_function=(PFN_vkCmdSetPolygonModeEXT)get_instance_proc_addr(parent,"vkCmdSetPolygonModeEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetPolygonModeEXT)get_device_proc_addr(parent,"vkCmdSetPolygonModeEXT");
     }  
     
@@ -28464,7 +28792,7 @@ json.clear();
 [&](){[&](){[&](){json["polygonMode"]=static_cast<int>(polygonMode);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETPOLYGONMODEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETPOLYGONMODEEXT);
         writeToConn(json);
     }
 
@@ -28494,7 +28822,7 @@ VkSampleCountFlagBits rasterizationSamples;
         call_function=(PFN_vkCmdSetRasterizationSamplesEXT)get_instance_proc_addr(parent,"vkCmdSetRasterizationSamplesEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetRasterizationSamplesEXT)get_device_proc_addr(parent,"vkCmdSetRasterizationSamplesEXT");
     }  
     
@@ -28507,7 +28835,7 @@ json.clear();
 [&](){[&](){[&](){json["rasterizationSamples"]=static_cast<int>(rasterizationSamples);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETRASTERIZATIONSAMPLESEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETRASTERIZATIONSAMPLESEXT);
         writeToConn(json);
     }
 
@@ -28554,7 +28882,7 @@ VkSampleCountFlagBits samples;
         call_function=(PFN_vkCmdSetSampleMaskEXT)get_instance_proc_addr(parent,"vkCmdSetSampleMaskEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetSampleMaskEXT)get_device_proc_addr(parent,"vkCmdSetSampleMaskEXT");
     }  
     
@@ -28575,7 +28903,7 @@ json.clear();
         json["pSampleMask"]=arr_nepOVVF;}();
 
 
-        json["stream_type"]=VKCMDSETSAMPLEMASKEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETSAMPLEMASKEXT);
         writeToConn(json);
     }
 
@@ -28605,7 +28933,7 @@ VkBool32 alphaToCoverageEnable;
         call_function=(PFN_vkCmdSetAlphaToCoverageEnableEXT)get_instance_proc_addr(parent,"vkCmdSetAlphaToCoverageEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetAlphaToCoverageEnableEXT)get_device_proc_addr(parent,"vkCmdSetAlphaToCoverageEnableEXT");
     }  
     
@@ -28618,7 +28946,7 @@ json.clear();
 [&](){[&](){json["alphaToCoverageEnable"]=static_cast<uint>(alphaToCoverageEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETALPHATOCOVERAGEENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETALPHATOCOVERAGEENABLEEXT);
         writeToConn(json);
     }
 
@@ -28648,7 +28976,7 @@ VkBool32 alphaToOneEnable;
         call_function=(PFN_vkCmdSetAlphaToOneEnableEXT)get_instance_proc_addr(parent,"vkCmdSetAlphaToOneEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetAlphaToOneEnableEXT)get_device_proc_addr(parent,"vkCmdSetAlphaToOneEnableEXT");
     }  
     
@@ -28661,7 +28989,7 @@ json.clear();
 [&](){[&](){json["alphaToOneEnable"]=static_cast<uint>(alphaToOneEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETALPHATOONEENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETALPHATOONEENABLEEXT);
         writeToConn(json);
     }
 
@@ -28691,7 +29019,7 @@ VkBool32 logicOpEnable;
         call_function=(PFN_vkCmdSetLogicOpEnableEXT)get_instance_proc_addr(parent,"vkCmdSetLogicOpEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetLogicOpEnableEXT)get_device_proc_addr(parent,"vkCmdSetLogicOpEnableEXT");
     }  
     
@@ -28704,7 +29032,7 @@ json.clear();
 [&](){[&](){json["logicOpEnable"]=static_cast<uint>(logicOpEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETLOGICOPENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETLOGICOPENABLEEXT);
         writeToConn(json);
     }
 
@@ -28761,7 +29089,7 @@ uint32_t attachmentCount;
         call_function=(PFN_vkCmdSetColorBlendEnableEXT)get_instance_proc_addr(parent,"vkCmdSetColorBlendEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetColorBlendEnableEXT)get_device_proc_addr(parent,"vkCmdSetColorBlendEnableEXT");
     }  
     
@@ -28783,7 +29111,7 @@ json.clear();
         json["pColorBlendEnables"]=arr_saqDhTV;}();
 
 
-        json["stream_type"]=VKCMDSETCOLORBLENDENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOLORBLENDENABLEEXT);
         writeToConn(json);
     }
 
@@ -28834,7 +29162,7 @@ uint32_t attachmentCount;
         call_function=(PFN_vkCmdSetColorBlendEquationEXT)get_instance_proc_addr(parent,"vkCmdSetColorBlendEquationEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetColorBlendEquationEXT)get_device_proc_addr(parent,"vkCmdSetColorBlendEquationEXT");
     }  
     
@@ -28853,14 +29181,15 @@ json.clear();
         for(int EHggOtN=0; EHggOtN < attachmentCount; EHggOtN++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pColorBlendEquations[EHggOtN]);
+            serialize_struct(temp_map, pColorBlendEquations[EHggOtN]);
             arr_hKUQljx[EHggOtN]=temp_map;
+            return;
             }();
         }
         json["pColorBlendEquations"]=arr_hKUQljx;}();
 
 
-        json["stream_type"]=VKCMDSETCOLORBLENDEQUATIONEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOLORBLENDEQUATIONEXT);
         writeToConn(json);
     }
 
@@ -28917,7 +29246,7 @@ uint32_t attachmentCount;
         call_function=(PFN_vkCmdSetColorWriteMaskEXT)get_instance_proc_addr(parent,"vkCmdSetColorWriteMaskEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetColorWriteMaskEXT)get_device_proc_addr(parent,"vkCmdSetColorWriteMaskEXT");
     }  
     
@@ -28939,7 +29268,7 @@ json.clear();
         json["pColorWriteMasks"]=arr_VFhepws;}();
 
 
-        json["stream_type"]=VKCMDSETCOLORWRITEMASKEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOLORWRITEMASKEXT);
         writeToConn(json);
     }
 
@@ -28969,7 +29298,7 @@ uint32_t rasterizationStream;
         call_function=(PFN_vkCmdSetRasterizationStreamEXT)get_instance_proc_addr(parent,"vkCmdSetRasterizationStreamEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetRasterizationStreamEXT)get_device_proc_addr(parent,"vkCmdSetRasterizationStreamEXT");
     }  
     
@@ -28982,7 +29311,7 @@ json.clear();
 [&](){json["rasterizationStream"]=static_cast<uint>(rasterizationStream);}();
 
 
-        json["stream_type"]=VKCMDSETRASTERIZATIONSTREAMEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETRASTERIZATIONSTREAMEXT);
         writeToConn(json);
     }
 
@@ -29012,7 +29341,7 @@ VkConservativeRasterizationModeEXT conservativeRasterizationMode;
         call_function=(PFN_vkCmdSetConservativeRasterizationModeEXT)get_instance_proc_addr(parent,"vkCmdSetConservativeRasterizationModeEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetConservativeRasterizationModeEXT)get_device_proc_addr(parent,"vkCmdSetConservativeRasterizationModeEXT");
     }  
     
@@ -29025,7 +29354,7 @@ json.clear();
 [&](){[&](){[&](){json["conservativeRasterizationMode"]=static_cast<int>(conservativeRasterizationMode);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETCONSERVATIVERASTERIZATIONMODEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETCONSERVATIVERASTERIZATIONMODEEXT);
         writeToConn(json);
     }
 
@@ -29055,7 +29384,7 @@ float extraPrimitiveOverestimationSize;
         call_function=(PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT)get_instance_proc_addr(parent,"vkCmdSetExtraPrimitiveOverestimationSizeEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT)get_device_proc_addr(parent,"vkCmdSetExtraPrimitiveOverestimationSizeEXT");
     }  
     
@@ -29068,7 +29397,7 @@ json.clear();
 [&](){json["extraPrimitiveOverestimationSize"]=static_cast<float>(extraPrimitiveOverestimationSize);}();
 
 
-        json["stream_type"]=VKCMDSETEXTRAPRIMITIVEOVERESTIMATIONSIZEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETEXTRAPRIMITIVEOVERESTIMATIONSIZEEXT);
         writeToConn(json);
     }
 
@@ -29098,7 +29427,7 @@ VkBool32 depthClipEnable;
         call_function=(PFN_vkCmdSetDepthClipEnableEXT)get_instance_proc_addr(parent,"vkCmdSetDepthClipEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthClipEnableEXT)get_device_proc_addr(parent,"vkCmdSetDepthClipEnableEXT");
     }  
     
@@ -29111,7 +29440,7 @@ json.clear();
 [&](){[&](){json["depthClipEnable"]=static_cast<uint>(depthClipEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHCLIPENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHCLIPENABLEEXT);
         writeToConn(json);
     }
 
@@ -29141,7 +29470,7 @@ VkBool32 sampleLocationsEnable;
         call_function=(PFN_vkCmdSetSampleLocationsEnableEXT)get_instance_proc_addr(parent,"vkCmdSetSampleLocationsEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetSampleLocationsEnableEXT)get_device_proc_addr(parent,"vkCmdSetSampleLocationsEnableEXT");
     }  
     
@@ -29154,7 +29483,7 @@ json.clear();
 [&](){[&](){json["sampleLocationsEnable"]=static_cast<uint>(sampleLocationsEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETSAMPLELOCATIONSENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETSAMPLELOCATIONSENABLEEXT);
         writeToConn(json);
     }
 
@@ -29205,7 +29534,7 @@ uint32_t attachmentCount;
         call_function=(PFN_vkCmdSetColorBlendAdvancedEXT)get_instance_proc_addr(parent,"vkCmdSetColorBlendAdvancedEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetColorBlendAdvancedEXT)get_device_proc_addr(parent,"vkCmdSetColorBlendAdvancedEXT");
     }  
     
@@ -29224,14 +29553,15 @@ json.clear();
         for(int rBcMzuv=0; rBcMzuv < attachmentCount; rBcMzuv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pColorBlendAdvanced[rBcMzuv]);
+            serialize_struct(temp_map, pColorBlendAdvanced[rBcMzuv]);
             arr_VhJvkCW[rBcMzuv]=temp_map;
+            return;
             }();
         }
         json["pColorBlendAdvanced"]=arr_VhJvkCW;}();
 
 
-        json["stream_type"]=VKCMDSETCOLORBLENDADVANCEDEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOLORBLENDADVANCEDEXT);
         writeToConn(json);
     }
 
@@ -29261,7 +29591,7 @@ VkProvokingVertexModeEXT provokingVertexMode;
         call_function=(PFN_vkCmdSetProvokingVertexModeEXT)get_instance_proc_addr(parent,"vkCmdSetProvokingVertexModeEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetProvokingVertexModeEXT)get_device_proc_addr(parent,"vkCmdSetProvokingVertexModeEXT");
     }  
     
@@ -29274,7 +29604,7 @@ json.clear();
 [&](){[&](){[&](){json["provokingVertexMode"]=static_cast<int>(provokingVertexMode);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETPROVOKINGVERTEXMODEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETPROVOKINGVERTEXMODEEXT);
         writeToConn(json);
     }
 
@@ -29304,7 +29634,7 @@ VkLineRasterizationModeEXT lineRasterizationMode;
         call_function=(PFN_vkCmdSetLineRasterizationModeEXT)get_instance_proc_addr(parent,"vkCmdSetLineRasterizationModeEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetLineRasterizationModeEXT)get_device_proc_addr(parent,"vkCmdSetLineRasterizationModeEXT");
     }  
     
@@ -29317,7 +29647,7 @@ json.clear();
 [&](){[&](){[&](){json["lineRasterizationMode"]=static_cast<int>(lineRasterizationMode);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETLINERASTERIZATIONMODEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETLINERASTERIZATIONMODEEXT);
         writeToConn(json);
     }
 
@@ -29347,7 +29677,7 @@ VkBool32 stippledLineEnable;
         call_function=(PFN_vkCmdSetLineStippleEnableEXT)get_instance_proc_addr(parent,"vkCmdSetLineStippleEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetLineStippleEnableEXT)get_device_proc_addr(parent,"vkCmdSetLineStippleEnableEXT");
     }  
     
@@ -29360,7 +29690,7 @@ json.clear();
 [&](){[&](){json["stippledLineEnable"]=static_cast<uint>(stippledLineEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETLINESTIPPLEENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETLINESTIPPLEENABLEEXT);
         writeToConn(json);
     }
 
@@ -29390,7 +29720,7 @@ VkBool32 negativeOneToOne;
         call_function=(PFN_vkCmdSetDepthClipNegativeOneToOneEXT)get_instance_proc_addr(parent,"vkCmdSetDepthClipNegativeOneToOneEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthClipNegativeOneToOneEXT)get_device_proc_addr(parent,"vkCmdSetDepthClipNegativeOneToOneEXT");
     }  
     
@@ -29403,7 +29733,7 @@ json.clear();
 [&](){[&](){json["negativeOneToOne"]=static_cast<uint>(negativeOneToOne);}();}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHCLIPNEGATIVEONETOONEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHCLIPNEGATIVEONETOONEEXT);
         writeToConn(json);
     }
 
@@ -29433,7 +29763,7 @@ VkBool32 viewportWScalingEnable;
         call_function=(PFN_vkCmdSetViewportWScalingEnableNV)get_instance_proc_addr(parent,"vkCmdSetViewportWScalingEnableNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetViewportWScalingEnableNV)get_device_proc_addr(parent,"vkCmdSetViewportWScalingEnableNV");
     }  
     
@@ -29446,7 +29776,7 @@ json.clear();
 [&](){[&](){json["viewportWScalingEnable"]=static_cast<uint>(viewportWScalingEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETVIEWPORTWSCALINGENABLENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETVIEWPORTWSCALINGENABLENV);
         writeToConn(json);
     }
 
@@ -29497,7 +29827,7 @@ uint32_t viewportCount;
         call_function=(PFN_vkCmdSetViewportSwizzleNV)get_instance_proc_addr(parent,"vkCmdSetViewportSwizzleNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetViewportSwizzleNV)get_device_proc_addr(parent,"vkCmdSetViewportSwizzleNV");
     }  
     
@@ -29516,14 +29846,15 @@ json.clear();
         for(int jvBpVNx=0; jvBpVNx < viewportCount; jvBpVNx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pViewportSwizzles[jvBpVNx]);
+            serialize_struct(temp_map, pViewportSwizzles[jvBpVNx]);
             arr_mlTjeMw[jvBpVNx]=temp_map;
+            return;
             }();
         }
         json["pViewportSwizzles"]=arr_mlTjeMw;}();
 
 
-        json["stream_type"]=VKCMDSETVIEWPORTSWIZZLENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETVIEWPORTSWIZZLENV);
         writeToConn(json);
     }
 
@@ -29553,7 +29884,7 @@ VkBool32 coverageToColorEnable;
         call_function=(PFN_vkCmdSetCoverageToColorEnableNV)get_instance_proc_addr(parent,"vkCmdSetCoverageToColorEnableNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetCoverageToColorEnableNV)get_device_proc_addr(parent,"vkCmdSetCoverageToColorEnableNV");
     }  
     
@@ -29566,7 +29897,7 @@ json.clear();
 [&](){[&](){json["coverageToColorEnable"]=static_cast<uint>(coverageToColorEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETCOVERAGETOCOLORENABLENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOVERAGETOCOLORENABLENV);
         writeToConn(json);
     }
 
@@ -29596,7 +29927,7 @@ uint32_t coverageToColorLocation;
         call_function=(PFN_vkCmdSetCoverageToColorLocationNV)get_instance_proc_addr(parent,"vkCmdSetCoverageToColorLocationNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetCoverageToColorLocationNV)get_device_proc_addr(parent,"vkCmdSetCoverageToColorLocationNV");
     }  
     
@@ -29609,7 +29940,7 @@ json.clear();
 [&](){json["coverageToColorLocation"]=static_cast<uint>(coverageToColorLocation);}();
 
 
-        json["stream_type"]=VKCMDSETCOVERAGETOCOLORLOCATIONNV;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOVERAGETOCOLORLOCATIONNV);
         writeToConn(json);
     }
 
@@ -29639,7 +29970,7 @@ VkCoverageModulationModeNV coverageModulationMode;
         call_function=(PFN_vkCmdSetCoverageModulationModeNV)get_instance_proc_addr(parent,"vkCmdSetCoverageModulationModeNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetCoverageModulationModeNV)get_device_proc_addr(parent,"vkCmdSetCoverageModulationModeNV");
     }  
     
@@ -29652,7 +29983,7 @@ json.clear();
 [&](){[&](){[&](){json["coverageModulationMode"]=static_cast<int>(coverageModulationMode);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETCOVERAGEMODULATIONMODENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOVERAGEMODULATIONMODENV);
         writeToConn(json);
     }
 
@@ -29682,7 +30013,7 @@ VkBool32 coverageModulationTableEnable;
         call_function=(PFN_vkCmdSetCoverageModulationTableEnableNV)get_instance_proc_addr(parent,"vkCmdSetCoverageModulationTableEnableNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetCoverageModulationTableEnableNV)get_device_proc_addr(parent,"vkCmdSetCoverageModulationTableEnableNV");
     }  
     
@@ -29695,7 +30026,7 @@ json.clear();
 [&](){[&](){json["coverageModulationTableEnable"]=static_cast<uint>(coverageModulationTableEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETCOVERAGEMODULATIONTABLEENABLENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOVERAGEMODULATIONTABLEENABLENV);
         writeToConn(json);
     }
 
@@ -29742,7 +30073,7 @@ uint32_t coverageModulationTableCount;
         call_function=(PFN_vkCmdSetCoverageModulationTableNV)get_instance_proc_addr(parent,"vkCmdSetCoverageModulationTableNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetCoverageModulationTableNV)get_device_proc_addr(parent,"vkCmdSetCoverageModulationTableNV");
     }  
     
@@ -29763,7 +30094,7 @@ json.clear();
         json["pCoverageModulationTable"]=arr_FKEHfYD;}();
 
 
-        json["stream_type"]=VKCMDSETCOVERAGEMODULATIONTABLENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOVERAGEMODULATIONTABLENV);
         writeToConn(json);
     }
 
@@ -29793,7 +30124,7 @@ VkBool32 shadingRateImageEnable;
         call_function=(PFN_vkCmdSetShadingRateImageEnableNV)get_instance_proc_addr(parent,"vkCmdSetShadingRateImageEnableNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetShadingRateImageEnableNV)get_device_proc_addr(parent,"vkCmdSetShadingRateImageEnableNV");
     }  
     
@@ -29806,7 +30137,7 @@ json.clear();
 [&](){[&](){json["shadingRateImageEnable"]=static_cast<uint>(shadingRateImageEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETSHADINGRATEIMAGEENABLENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETSHADINGRATEIMAGEENABLENV);
         writeToConn(json);
     }
 
@@ -29836,7 +30167,7 @@ VkCoverageReductionModeNV coverageReductionMode;
         call_function=(PFN_vkCmdSetCoverageReductionModeNV)get_instance_proc_addr(parent,"vkCmdSetCoverageReductionModeNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetCoverageReductionModeNV)get_device_proc_addr(parent,"vkCmdSetCoverageReductionModeNV");
     }  
     
@@ -29849,7 +30180,7 @@ json.clear();
 [&](){[&](){[&](){json["coverageReductionMode"]=static_cast<int>(coverageReductionMode);}();}();}();
 
 
-        json["stream_type"]=VKCMDSETCOVERAGEREDUCTIONMODENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOVERAGEREDUCTIONMODENV);
         writeToConn(json);
     }
 
@@ -29879,7 +30210,7 @@ VkBool32 representativeFragmentTestEnable;
         call_function=(PFN_vkCmdSetRepresentativeFragmentTestEnableNV)get_instance_proc_addr(parent,"vkCmdSetRepresentativeFragmentTestEnableNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetRepresentativeFragmentTestEnableNV)get_device_proc_addr(parent,"vkCmdSetRepresentativeFragmentTestEnableNV");
     }  
     
@@ -29892,7 +30223,7 @@ json.clear();
 [&](){[&](){json["representativeFragmentTestEnable"]=static_cast<uint>(representativeFragmentTestEnable);}();}();
 
 
-        json["stream_type"]=VKCMDSETREPRESENTATIVEFRAGMENTTESTENABLENV;
+        json["stream_type"]=static_cast<int>(VKCMDSETREPRESENTATIVEFRAGMENTTESTENABLENV);
         writeToConn(json);
     }
 
@@ -29943,7 +30274,7 @@ VkPrivateDataSlot* pPrivateDataSlot;
         call_function=(PFN_vkCreatePrivateDataSlot)get_instance_proc_addr(parent,"vkCreatePrivateDataSlot");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreatePrivateDataSlot)get_device_proc_addr(parent,"vkCreatePrivateDataSlot");
     }  
     
@@ -29961,8 +30292,9 @@ json.clear();
         for(int KUjUcQv=0; KUjUcQv < 1; KUjUcQv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[KUjUcQv]);
+            serialize_struct(temp_map, pCreateInfo[KUjUcQv]);
             arr_OhzuPlW[KUjUcQv]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_OhzuPlW;}();
@@ -29973,8 +30305,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -29988,7 +30321,7 @@ json.clear();
         json["pPrivateDataSlot"]=arr_EOSkjPn;}();
 
 
-        json["stream_type"]=VKCREATEPRIVATEDATASLOT;
+        json["stream_type"]=static_cast<int>(VKCREATEPRIVATEDATASLOT);
         writeToConn(json);
     }
 
@@ -30021,7 +30354,7 @@ VkPrivateDataSlot privateDataSlot;
         call_function=(PFN_vkDestroyPrivateDataSlot)get_instance_proc_addr(parent,"vkDestroyPrivateDataSlot");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyPrivateDataSlot)get_device_proc_addr(parent,"vkDestroyPrivateDataSlot");
     }  
     
@@ -30039,14 +30372,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYPRIVATEDATASLOT;
+        json["stream_type"]=static_cast<int>(VKDESTROYPRIVATEDATASLOT);
         writeToConn(json);
     }
 
@@ -30098,7 +30432,7 @@ uint64_t data;
         call_function=(PFN_vkSetPrivateData)get_instance_proc_addr(parent,"vkSetPrivateData");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkSetPrivateData)get_device_proc_addr(parent,"vkSetPrivateData");
     }  
     
@@ -30115,7 +30449,7 @@ json.clear();
 [&](){json["data"]=static_cast<uint>(data);}();
 
 
-        json["stream_type"]=VKSETPRIVATEDATA;
+        json["stream_type"]=static_cast<int>(VKSETPRIVATEDATA);
         writeToConn(json);
     }
 
@@ -30174,7 +30508,7 @@ uint64_t* pData;
         call_function=(PFN_vkGetPrivateData)get_instance_proc_addr(parent,"vkGetPrivateData");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPrivateData)get_device_proc_addr(parent,"vkGetPrivateData");
     }  
     
@@ -30197,7 +30531,7 @@ json.clear();
         json["pData"]=arr_niIcbqy;}();
 
 
-        json["stream_type"]=VKGETPRIVATEDATA;
+        json["stream_type"]=static_cast<int>(VKGETPRIVATEDATA);
         writeToConn(json);
     }
 
@@ -30228,7 +30562,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCopyBuffer2)get_instance_proc_addr(parent,"vkCmdCopyBuffer2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyBuffer2)get_device_proc_addr(parent,"vkCmdCopyBuffer2");
     }  
     
@@ -30245,14 +30579,15 @@ json.clear();
         for(int tCibIjb=0; tCibIjb < 1; tCibIjb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyBufferInfo[tCibIjb]);
+            serialize_struct(temp_map, pCopyBufferInfo[tCibIjb]);
             arr_RrXlJAO[tCibIjb]=temp_map;
+            return;
             }();
         }
         json["pCopyBufferInfo"]=arr_RrXlJAO;}();
 
 
-        json["stream_type"]=VKCMDCOPYBUFFER2;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYBUFFER2);
         writeToConn(json);
     }
 
@@ -30283,7 +30618,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCopyImage2)get_instance_proc_addr(parent,"vkCmdCopyImage2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyImage2)get_device_proc_addr(parent,"vkCmdCopyImage2");
     }  
     
@@ -30300,14 +30635,15 @@ json.clear();
         for(int vtScDqF=0; vtScDqF < 1; vtScDqF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyImageInfo[vtScDqF]);
+            serialize_struct(temp_map, pCopyImageInfo[vtScDqF]);
             arr_fhmwDMM[vtScDqF]=temp_map;
+            return;
             }();
         }
         json["pCopyImageInfo"]=arr_fhmwDMM;}();
 
 
-        json["stream_type"]=VKCMDCOPYIMAGE2;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYIMAGE2);
         writeToConn(json);
     }
 
@@ -30338,7 +30674,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdBlitImage2)get_instance_proc_addr(parent,"vkCmdBlitImage2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBlitImage2)get_device_proc_addr(parent,"vkCmdBlitImage2");
     }  
     
@@ -30355,14 +30691,15 @@ json.clear();
         for(int mMDYqpe=0; mMDYqpe < 1; mMDYqpe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBlitImageInfo[mMDYqpe]);
+            serialize_struct(temp_map, pBlitImageInfo[mMDYqpe]);
             arr_uMZBSOh[mMDYqpe]=temp_map;
+            return;
             }();
         }
         json["pBlitImageInfo"]=arr_uMZBSOh;}();
 
 
-        json["stream_type"]=VKCMDBLITIMAGE2;
+        json["stream_type"]=static_cast<int>(VKCMDBLITIMAGE2);
         writeToConn(json);
     }
 
@@ -30393,7 +30730,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCopyBufferToImage2)get_instance_proc_addr(parent,"vkCmdCopyBufferToImage2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyBufferToImage2)get_device_proc_addr(parent,"vkCmdCopyBufferToImage2");
     }  
     
@@ -30410,14 +30747,15 @@ json.clear();
         for(int kZlUXOa=0; kZlUXOa < 1; kZlUXOa++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyBufferToImageInfo[kZlUXOa]);
+            serialize_struct(temp_map, pCopyBufferToImageInfo[kZlUXOa]);
             arr_GgxIzVF[kZlUXOa]=temp_map;
+            return;
             }();
         }
         json["pCopyBufferToImageInfo"]=arr_GgxIzVF;}();
 
 
-        json["stream_type"]=VKCMDCOPYBUFFERTOIMAGE2;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYBUFFERTOIMAGE2);
         writeToConn(json);
     }
 
@@ -30448,7 +30786,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCopyImageToBuffer2)get_instance_proc_addr(parent,"vkCmdCopyImageToBuffer2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyImageToBuffer2)get_device_proc_addr(parent,"vkCmdCopyImageToBuffer2");
     }  
     
@@ -30465,14 +30803,15 @@ json.clear();
         for(int SXwhnUi=0; SXwhnUi < 1; SXwhnUi++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyImageToBufferInfo[SXwhnUi]);
+            serialize_struct(temp_map, pCopyImageToBufferInfo[SXwhnUi]);
             arr_dKwPEQq[SXwhnUi]=temp_map;
+            return;
             }();
         }
         json["pCopyImageToBufferInfo"]=arr_dKwPEQq;}();
 
 
-        json["stream_type"]=VKCMDCOPYIMAGETOBUFFER2;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYIMAGETOBUFFER2);
         writeToConn(json);
     }
 
@@ -30503,7 +30842,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdResolveImage2)get_instance_proc_addr(parent,"vkCmdResolveImage2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdResolveImage2)get_device_proc_addr(parent,"vkCmdResolveImage2");
     }  
     
@@ -30520,14 +30859,15 @@ json.clear();
         for(int oSccZaz=0; oSccZaz < 1; oSccZaz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pResolveImageInfo[oSccZaz]);
+            serialize_struct(temp_map, pResolveImageInfo[oSccZaz]);
             arr_WXEMxut[oSccZaz]=temp_map;
+            return;
             }();
         }
         json["pResolveImageInfo"]=arr_WXEMxut;}();
 
 
-        json["stream_type"]=VKCMDRESOLVEIMAGE2;
+        json["stream_type"]=static_cast<int>(VKCMDRESOLVEIMAGE2);
         writeToConn(json);
     }
 
@@ -30572,7 +30912,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdSetFragmentShadingRateKHR)get_instance_proc_addr(parent,"vkCmdSetFragmentShadingRateKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetFragmentShadingRateKHR)get_device_proc_addr(parent,"vkCmdSetFragmentShadingRateKHR");
     }  
     
@@ -30589,8 +30929,9 @@ json.clear();
         for(int rHAqvQQ=0; rHAqvQQ < 1; rHAqvQQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFragmentSize[rHAqvQQ]);
+            serialize_struct(temp_map, pFragmentSize[rHAqvQQ]);
             arr_RBQYqfx[rHAqvQQ]=temp_map;
+            return;
             }();
         }
         json["pFragmentSize"]=arr_RBQYqfx;}();
@@ -30601,7 +30942,7 @@ json.clear();
         json["combinerOps"]=arr_foscmwP;}();
 
 
-        json["stream_type"]=VKCMDSETFRAGMENTSHADINGRATEKHR;
+        json["stream_type"]=static_cast<int>(VKCMDSETFRAGMENTSHADINGRATEKHR);
         writeToConn(json);
     }
 
@@ -30649,7 +30990,7 @@ VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates;
         call_function=(PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceFragmentShadingRatesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceFragmentShadingRatesKHR");
     }  
     
@@ -30675,14 +31016,15 @@ json.clear();
         for(int bVRSXYW=0; bVRSXYW < *pFragmentShadingRateCount; bVRSXYW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFragmentShadingRates[bVRSXYW]);
+            serialize_struct(temp_map, pFragmentShadingRates[bVRSXYW]);
             arr_UdwJpYv[bVRSXYW]=temp_map;
+            return;
             }();
         }
         json["pFragmentShadingRates"]=arr_UdwJpYv;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEFRAGMENTSHADINGRATESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEFRAGMENTSHADINGRATESKHR);
         writeToConn(json);
     }
 
@@ -30726,7 +31068,7 @@ VkFragmentShadingRateNV shadingRate;
         call_function=(PFN_vkCmdSetFragmentShadingRateEnumNV)get_instance_proc_addr(parent,"vkCmdSetFragmentShadingRateEnumNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetFragmentShadingRateEnumNV)get_device_proc_addr(parent,"vkCmdSetFragmentShadingRateEnumNV");
     }  
     
@@ -30744,7 +31086,7 @@ json.clear();
         json["combinerOps"]=arr_foscmwP;}();
 
 
-        json["stream_type"]=VKCMDSETFRAGMENTSHADINGRATEENUMNV;
+        json["stream_type"]=static_cast<int>(VKCMDSETFRAGMENTSHADINGRATEENUMNV);
         writeToConn(json);
     }
 
@@ -30813,7 +31155,7 @@ VkAccelerationStructureBuildSizesInfoKHR* pSizeInfo;
         call_function=(PFN_vkGetAccelerationStructureBuildSizesKHR)get_instance_proc_addr(parent,"vkGetAccelerationStructureBuildSizesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetAccelerationStructureBuildSizesKHR)get_device_proc_addr(parent,"vkGetAccelerationStructureBuildSizesKHR");
     }  
     
@@ -30831,8 +31173,9 @@ json.clear();
         for(int DpqeGQs=0; DpqeGQs < 1; DpqeGQs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBuildInfo[DpqeGQs]);
+            serialize_struct(temp_map, pBuildInfo[DpqeGQs]);
             arr_rNWxDog[DpqeGQs]=temp_map;
+            return;
             }();
         }
         json["pBuildInfo"]=arr_rNWxDog;}();
@@ -30851,14 +31194,15 @@ json.clear();
         for(int pwtSWhd=0; pwtSWhd < 1; pwtSWhd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSizeInfo[pwtSWhd]);
+            serialize_struct(temp_map, pSizeInfo[pwtSWhd]);
             arr_aJATMZS[pwtSWhd]=temp_map;
+            return;
             }();
         }
         json["pSizeInfo"]=arr_aJATMZS;}();
 
 
-        json["stream_type"]=VKGETACCELERATIONSTRUCTUREBUILDSIZESKHR;
+        json["stream_type"]=static_cast<int>(VKGETACCELERATIONSTRUCTUREBUILDSIZESKHR);
         writeToConn(json);
     }
 
@@ -30920,7 +31264,7 @@ uint32_t vertexAttributeDescriptionCount;
         call_function=(PFN_vkCmdSetVertexInputEXT)get_instance_proc_addr(parent,"vkCmdSetVertexInputEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetVertexInputEXT)get_device_proc_addr(parent,"vkCmdSetVertexInputEXT");
     }  
     
@@ -30938,8 +31282,9 @@ json.clear();
         for(int BlSYyCp=0; BlSYyCp < vertexBindingDescriptionCount; BlSYyCp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVertexBindingDescriptions[BlSYyCp]);
+            serialize_struct(temp_map, pVertexBindingDescriptions[BlSYyCp]);
             arr_CLcpEBv[BlSYyCp]=temp_map;
+            return;
             }();
         }
         json["pVertexBindingDescriptions"]=arr_CLcpEBv;}();
@@ -30951,14 +31296,15 @@ json.clear();
         for(int UWEyBUU=0; UWEyBUU < vertexAttributeDescriptionCount; UWEyBUU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVertexAttributeDescriptions[UWEyBUU]);
+            serialize_struct(temp_map, pVertexAttributeDescriptions[UWEyBUU]);
             arr_nigNRkL[UWEyBUU]=temp_map;
+            return;
             }();
         }
         json["pVertexAttributeDescriptions"]=arr_nigNRkL;}();
 
 
-        json["stream_type"]=VKCMDSETVERTEXINPUTEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETVERTEXINPUTEXT);
         writeToConn(json);
     }
 
@@ -31005,7 +31351,7 @@ uint32_t attachmentCount;
         call_function=(PFN_vkCmdSetColorWriteEnableEXT)get_instance_proc_addr(parent,"vkCmdSetColorWriteEnableEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetColorWriteEnableEXT)get_device_proc_addr(parent,"vkCmdSetColorWriteEnableEXT");
     }  
     
@@ -31026,7 +31372,7 @@ json.clear();
         json["pColorWriteEnables"]=arr_jmtmyTP;}();
 
 
-        json["stream_type"]=VKCMDSETCOLORWRITEENABLEEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETCOLORWRITEENABLEEXT);
         writeToConn(json);
     }
 
@@ -31059,7 +31405,7 @@ VkEvent event;
         call_function=(PFN_vkCmdSetEvent2)get_instance_proc_addr(parent,"vkCmdSetEvent2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetEvent2)get_device_proc_addr(parent,"vkCmdSetEvent2");
     }  
     
@@ -31077,14 +31423,15 @@ json.clear();
         for(int rtSvYgr=0; rtSvYgr < 1; rtSvYgr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDependencyInfo[rtSvYgr]);
+            serialize_struct(temp_map, pDependencyInfo[rtSvYgr]);
             arr_RUiZhht[rtSvYgr]=temp_map;
+            return;
             }();
         }
         json["pDependencyInfo"]=arr_RUiZhht;}();
 
 
-        json["stream_type"]=VKCMDSETEVENT2;
+        json["stream_type"]=static_cast<int>(VKCMDSETEVENT2);
         writeToConn(json);
     }
 
@@ -31116,7 +31463,7 @@ VkPipelineStageFlags2 stageMask;
         call_function=(PFN_vkCmdResetEvent2)get_instance_proc_addr(parent,"vkCmdResetEvent2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdResetEvent2)get_device_proc_addr(parent,"vkCmdResetEvent2");
     }  
     
@@ -31130,7 +31477,7 @@ json.clear();
 [&](){[&](){[&](){json["stageMask"]=static_cast<int>(stageMask);}();}();}();
 
 
-        json["stream_type"]=VKCMDRESETEVENT2;
+        json["stream_type"]=static_cast<int>(VKCMDRESETEVENT2);
         writeToConn(json);
     }
 
@@ -31180,7 +31527,7 @@ uint32_t eventCount;
         call_function=(PFN_vkCmdWaitEvents2)get_instance_proc_addr(parent,"vkCmdWaitEvents2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdWaitEvents2)get_device_proc_addr(parent,"vkCmdWaitEvents2");
     }  
     
@@ -31206,14 +31553,15 @@ json.clear();
         for(int jvYalYw=0; jvYalYw < eventCount; jvYalYw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDependencyInfos[jvYalYw]);
+            serialize_struct(temp_map, pDependencyInfos[jvYalYw]);
             arr_ZVkfhDe[jvYalYw]=temp_map;
+            return;
             }();
         }
         json["pDependencyInfos"]=arr_ZVkfhDe;}();
 
 
-        json["stream_type"]=VKCMDWAITEVENTS2;
+        json["stream_type"]=static_cast<int>(VKCMDWAITEVENTS2);
         writeToConn(json);
     }
 
@@ -31244,7 +31592,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdPipelineBarrier2)get_instance_proc_addr(parent,"vkCmdPipelineBarrier2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdPipelineBarrier2)get_device_proc_addr(parent,"vkCmdPipelineBarrier2");
     }  
     
@@ -31261,14 +31609,15 @@ json.clear();
         for(int rtSvYgr=0; rtSvYgr < 1; rtSvYgr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDependencyInfo[rtSvYgr]);
+            serialize_struct(temp_map, pDependencyInfo[rtSvYgr]);
             arr_RUiZhht[rtSvYgr]=temp_map;
+            return;
             }();
         }
         json["pDependencyInfo"]=arr_RUiZhht;}();
 
 
-        json["stream_type"]=VKCMDPIPELINEBARRIER2;
+        json["stream_type"]=static_cast<int>(VKCMDPIPELINEBARRIER2);
         writeToConn(json);
     }
 
@@ -31311,7 +31660,7 @@ VkFence fence;
         call_function=(PFN_vkQueueSubmit2)get_instance_proc_addr(parent,"vkQueueSubmit2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkQueueSubmit2)get_device_proc_addr(parent,"vkQueueSubmit2");
     }  
     
@@ -31330,15 +31679,16 @@ json.clear();
         for(int uwYUklT=0; uwYUklT < submitCount; uwYUklT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubmits[uwYUklT]);
+            serialize_struct(temp_map, pSubmits[uwYUklT]);
             arr_shQKWeV[uwYUklT]=temp_map;
+            return;
             }();
         }
         json["pSubmits"]=arr_shQKWeV;}();
 [&](){serialize_VkFence(json["fence"],fence);}();
 
 
-        json["stream_type"]=VKQUEUESUBMIT2;
+        json["stream_type"]=static_cast<int>(VKQUEUESUBMIT2);
         writeToConn(json);
     }
 
@@ -31380,7 +31730,7 @@ uint32_t query;
         call_function=(PFN_vkCmdWriteTimestamp2)get_instance_proc_addr(parent,"vkCmdWriteTimestamp2");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdWriteTimestamp2)get_device_proc_addr(parent,"vkCmdWriteTimestamp2");
     }  
     
@@ -31395,7 +31745,7 @@ json.clear();
 [&](){json["query"]=static_cast<uint>(query);}();
 
 
-        json["stream_type"]=VKCMDWRITETIMESTAMP2;
+        json["stream_type"]=static_cast<int>(VKCMDWRITETIMESTAMP2);
         writeToConn(json);
     }
 
@@ -31447,7 +31797,7 @@ uint32_t marker;
         call_function=(PFN_vkCmdWriteBufferMarker2AMD)get_instance_proc_addr(parent,"vkCmdWriteBufferMarker2AMD");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdWriteBufferMarker2AMD)get_device_proc_addr(parent,"vkCmdWriteBufferMarker2AMD");
     }  
     
@@ -31463,7 +31813,7 @@ json.clear();
 [&](){json["marker"]=static_cast<uint>(marker);}();
 
 
-        json["stream_type"]=VKCMDWRITEBUFFERMARKER2AMD;
+        json["stream_type"]=static_cast<int>(VKCMDWRITEBUFFERMARKER2AMD);
         writeToConn(json);
     }
 
@@ -31511,7 +31861,7 @@ VkCheckpointData2NV* pCheckpointData;
         call_function=(PFN_vkGetQueueCheckpointData2NV)get_instance_proc_addr(parent,"vkGetQueueCheckpointData2NV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetQueueCheckpointData2NV)get_device_proc_addr(parent,"vkGetQueueCheckpointData2NV");
     }  
     
@@ -31536,14 +31886,15 @@ json.clear();
         for(int yGwfptp=0; yGwfptp < *pCheckpointDataCount; yGwfptp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCheckpointData[yGwfptp]);
+            serialize_struct(temp_map, pCheckpointData[yGwfptp]);
             arr_jIvYyZg[yGwfptp]=temp_map;
+            return;
             }();
         }
         json["pCheckpointData"]=arr_jIvYyZg;}();
 
 
-        json["stream_type"]=VKGETQUEUECHECKPOINTDATA2NV;
+        json["stream_type"]=static_cast<int>(VKGETQUEUECHECKPOINTDATA2NV);
         writeToConn(json);
     }
 
@@ -31574,7 +31925,7 @@ VkDevice device;
         call_function=(PFN_vkCopyMemoryToImageEXT)get_instance_proc_addr(parent,"vkCopyMemoryToImageEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCopyMemoryToImageEXT)get_device_proc_addr(parent,"vkCopyMemoryToImageEXT");
     }  
     
@@ -31592,14 +31943,15 @@ json.clear();
         for(int pVINPWa=0; pVINPWa < 1; pVINPWa++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyMemoryToImageInfo[pVINPWa]);
+            serialize_struct(temp_map, pCopyMemoryToImageInfo[pVINPWa]);
             arr_VVrQQGW[pVINPWa]=temp_map;
+            return;
             }();
         }
         json["pCopyMemoryToImageInfo"]=arr_VVrQQGW;}();
 
 
-        json["stream_type"]=VKCOPYMEMORYTOIMAGEEXT;
+        json["stream_type"]=static_cast<int>(VKCOPYMEMORYTOIMAGEEXT);
         writeToConn(json);
     }
 
@@ -31630,7 +31982,7 @@ VkDevice device;
         call_function=(PFN_vkCopyImageToMemoryEXT)get_instance_proc_addr(parent,"vkCopyImageToMemoryEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCopyImageToMemoryEXT)get_device_proc_addr(parent,"vkCopyImageToMemoryEXT");
     }  
     
@@ -31648,14 +32000,15 @@ json.clear();
         for(int vveMAPG=0; vveMAPG < 1; vveMAPG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyImageToMemoryInfo[vveMAPG]);
+            serialize_struct(temp_map, pCopyImageToMemoryInfo[vveMAPG]);
             arr_uAVSOVI[vveMAPG]=temp_map;
+            return;
             }();
         }
         json["pCopyImageToMemoryInfo"]=arr_uAVSOVI;}();
 
 
-        json["stream_type"]=VKCOPYIMAGETOMEMORYEXT;
+        json["stream_type"]=static_cast<int>(VKCOPYIMAGETOMEMORYEXT);
         writeToConn(json);
     }
 
@@ -31686,7 +32039,7 @@ VkDevice device;
         call_function=(PFN_vkCopyImageToImageEXT)get_instance_proc_addr(parent,"vkCopyImageToImageEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCopyImageToImageEXT)get_device_proc_addr(parent,"vkCopyImageToImageEXT");
     }  
     
@@ -31704,14 +32057,15 @@ json.clear();
         for(int vOMFrGb=0; vOMFrGb < 1; vOMFrGb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyImageToImageInfo[vOMFrGb]);
+            serialize_struct(temp_map, pCopyImageToImageInfo[vOMFrGb]);
             arr_mMvIKFh[vOMFrGb]=temp_map;
+            return;
             }();
         }
         json["pCopyImageToImageInfo"]=arr_mMvIKFh;}();
 
 
-        json["stream_type"]=VKCOPYIMAGETOIMAGEEXT;
+        json["stream_type"]=static_cast<int>(VKCOPYIMAGETOIMAGEEXT);
         writeToConn(json);
     }
 
@@ -31752,7 +32106,7 @@ uint32_t transitionCount;
         call_function=(PFN_vkTransitionImageLayoutEXT)get_instance_proc_addr(parent,"vkTransitionImageLayoutEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkTransitionImageLayoutEXT)get_device_proc_addr(parent,"vkTransitionImageLayoutEXT");
     }  
     
@@ -31771,14 +32125,15 @@ json.clear();
         for(int EeppCgm=0; EeppCgm < transitionCount; EeppCgm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pTransitions[EeppCgm]);
+            serialize_struct(temp_map, pTransitions[EeppCgm]);
             arr_KQaENWu[EeppCgm]=temp_map;
+            return;
             }();
         }
         json["pTransitions"]=arr_KQaENWu;}();
 
 
-        json["stream_type"]=VKTRANSITIONIMAGELAYOUTEXT;
+        json["stream_type"]=static_cast<int>(VKTRANSITIONIMAGELAYOUTEXT);
         writeToConn(json);
     }
 
@@ -31820,7 +32175,7 @@ VkVideoCapabilitiesKHR* pCapabilities;
         call_function=(PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceVideoCapabilitiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceVideoCapabilitiesKHR");
     }  
     
@@ -31838,8 +32193,9 @@ json.clear();
         for(int YJbJtas=0; YJbJtas < 1; YJbJtas++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVideoProfile[YJbJtas]);
+            serialize_struct(temp_map, pVideoProfile[YJbJtas]);
             arr_eFObkVe[YJbJtas]=temp_map;
+            return;
             }();
         }
         json["pVideoProfile"]=arr_eFObkVe;}();
@@ -31850,14 +32206,15 @@ json.clear();
         for(int NPLkdlm=0; NPLkdlm < 1; NPLkdlm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCapabilities[NPLkdlm]);
+            serialize_struct(temp_map, pCapabilities[NPLkdlm]);
             arr_rprZzlH[NPLkdlm]=temp_map;
+            return;
             }();
         }
         json["pCapabilities"]=arr_rprZzlH;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEVIDEOCAPABILITIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEVIDEOCAPABILITIESKHR);
         writeToConn(json);
     }
 
@@ -31916,7 +32273,7 @@ VkVideoFormatPropertiesKHR* pVideoFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceVideoFormatPropertiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceVideoFormatPropertiesKHR");
     }  
     
@@ -31934,8 +32291,9 @@ json.clear();
         for(int FIocPZR=0; FIocPZR < 1; FIocPZR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVideoFormatInfo[FIocPZR]);
+            serialize_struct(temp_map, pVideoFormatInfo[FIocPZR]);
             arr_JJWKnHz[FIocPZR]=temp_map;
+            return;
             }();
         }
         json["pVideoFormatInfo"]=arr_JJWKnHz;}();
@@ -31954,14 +32312,15 @@ json.clear();
         for(int mUXWOpX=0; mUXWOpX < *pVideoFormatPropertyCount; mUXWOpX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVideoFormatProperties[mUXWOpX]);
+            serialize_struct(temp_map, pVideoFormatProperties[mUXWOpX]);
             arr_GhjQGHj[mUXWOpX]=temp_map;
+            return;
             }();
         }
         json["pVideoFormatProperties"]=arr_GhjQGHj;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEVIDEOFORMATPROPERTIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEVIDEOFORMATPROPERTIESKHR);
         writeToConn(json);
     }
 
@@ -32012,7 +32371,7 @@ VkVideoSessionKHR* pVideoSession;
         call_function=(PFN_vkCreateVideoSessionKHR)get_instance_proc_addr(parent,"vkCreateVideoSessionKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateVideoSessionKHR)get_device_proc_addr(parent,"vkCreateVideoSessionKHR");
     }  
     
@@ -32030,8 +32389,9 @@ json.clear();
         for(int tsYbFnY=0; tsYbFnY < 1; tsYbFnY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[tsYbFnY]);
+            serialize_struct(temp_map, pCreateInfo[tsYbFnY]);
             arr_mCuZMrp[tsYbFnY]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_mCuZMrp;}();
@@ -32042,8 +32402,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -32057,7 +32418,7 @@ json.clear();
         json["pVideoSession"]=arr_YUuHYdT;}();
 
 
-        json["stream_type"]=VKCREATEVIDEOSESSIONKHR;
+        json["stream_type"]=static_cast<int>(VKCREATEVIDEOSESSIONKHR);
         writeToConn(json);
     }
 
@@ -32090,7 +32451,7 @@ VkVideoSessionKHR videoSession;
         call_function=(PFN_vkDestroyVideoSessionKHR)get_instance_proc_addr(parent,"vkDestroyVideoSessionKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyVideoSessionKHR)get_device_proc_addr(parent,"vkDestroyVideoSessionKHR");
     }  
     
@@ -32108,14 +32469,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYVIDEOSESSIONKHR;
+        json["stream_type"]=static_cast<int>(VKDESTROYVIDEOSESSIONKHR);
         writeToConn(json);
     }
 
@@ -32166,7 +32528,7 @@ VkVideoSessionParametersKHR* pVideoSessionParameters;
         call_function=(PFN_vkCreateVideoSessionParametersKHR)get_instance_proc_addr(parent,"vkCreateVideoSessionParametersKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateVideoSessionParametersKHR)get_device_proc_addr(parent,"vkCreateVideoSessionParametersKHR");
     }  
     
@@ -32184,8 +32546,9 @@ json.clear();
         for(int uFIOrHK=0; uFIOrHK < 1; uFIOrHK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[uFIOrHK]);
+            serialize_struct(temp_map, pCreateInfo[uFIOrHK]);
             arr_PbbIaMM[uFIOrHK]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_PbbIaMM;}();
@@ -32196,8 +32559,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -32211,7 +32575,7 @@ json.clear();
         json["pVideoSessionParameters"]=arr_drxJQhO;}();
 
 
-        json["stream_type"]=VKCREATEVIDEOSESSIONPARAMETERSKHR;
+        json["stream_type"]=static_cast<int>(VKCREATEVIDEOSESSIONPARAMETERSKHR);
         writeToConn(json);
     }
 
@@ -32244,7 +32608,7 @@ VkVideoSessionParametersKHR videoSessionParameters;
         call_function=(PFN_vkUpdateVideoSessionParametersKHR)get_instance_proc_addr(parent,"vkUpdateVideoSessionParametersKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkUpdateVideoSessionParametersKHR)get_device_proc_addr(parent,"vkUpdateVideoSessionParametersKHR");
     }  
     
@@ -32263,14 +32627,15 @@ json.clear();
         for(int gnypMkA=0; gnypMkA < 1; gnypMkA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pUpdateInfo[gnypMkA]);
+            serialize_struct(temp_map, pUpdateInfo[gnypMkA]);
             arr_miOYaCQ[gnypMkA]=temp_map;
+            return;
             }();
         }
         json["pUpdateInfo"]=arr_miOYaCQ;}();
 
 
-        json["stream_type"]=VKUPDATEVIDEOSESSIONPARAMETERSKHR;
+        json["stream_type"]=static_cast<int>(VKUPDATEVIDEOSESSIONPARAMETERSKHR);
         writeToConn(json);
     }
 
@@ -32303,7 +32668,7 @@ VkVideoSessionParametersKHR videoSessionParameters;
         call_function=(PFN_vkDestroyVideoSessionParametersKHR)get_instance_proc_addr(parent,"vkDestroyVideoSessionParametersKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyVideoSessionParametersKHR)get_device_proc_addr(parent,"vkDestroyVideoSessionParametersKHR");
     }  
     
@@ -32321,14 +32686,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYVIDEOSESSIONPARAMETERSKHR;
+        json["stream_type"]=static_cast<int>(VKDESTROYVIDEOSESSIONPARAMETERSKHR);
         writeToConn(json);
     }
 
@@ -32378,7 +32744,7 @@ VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements;
         call_function=(PFN_vkGetVideoSessionMemoryRequirementsKHR)get_instance_proc_addr(parent,"vkGetVideoSessionMemoryRequirementsKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetVideoSessionMemoryRequirementsKHR)get_device_proc_addr(parent,"vkGetVideoSessionMemoryRequirementsKHR");
     }  
     
@@ -32405,14 +32771,15 @@ json.clear();
         for(int FfNBlzG=0; FfNBlzG < *pMemoryRequirementsCount; FfNBlzG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[FfNBlzG]);
+            serialize_struct(temp_map, pMemoryRequirements[FfNBlzG]);
             arr_UuJQZUu[FfNBlzG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_UuJQZUu;}();
 
 
-        json["stream_type"]=VKGETVIDEOSESSIONMEMORYREQUIREMENTSKHR;
+        json["stream_type"]=static_cast<int>(VKGETVIDEOSESSIONMEMORYREQUIREMENTSKHR);
         writeToConn(json);
     }
 
@@ -32455,7 +32822,7 @@ uint32_t bindSessionMemoryInfoCount;
         call_function=(PFN_vkBindVideoSessionMemoryKHR)get_instance_proc_addr(parent,"vkBindVideoSessionMemoryKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkBindVideoSessionMemoryKHR)get_device_proc_addr(parent,"vkBindVideoSessionMemoryKHR");
     }  
     
@@ -32475,14 +32842,15 @@ json.clear();
         for(int bWiRCGV=0; bWiRCGV < bindSessionMemoryInfoCount; bWiRCGV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindSessionMemoryInfos[bWiRCGV]);
+            serialize_struct(temp_map, pBindSessionMemoryInfos[bWiRCGV]);
             arr_XamFtca[bWiRCGV]=temp_map;
+            return;
             }();
         }
         json["pBindSessionMemoryInfos"]=arr_XamFtca;}();
 
 
-        json["stream_type"]=VKBINDVIDEOSESSIONMEMORYKHR;
+        json["stream_type"]=static_cast<int>(VKBINDVIDEOSESSIONMEMORYKHR);
         writeToConn(json);
     }
 
@@ -32513,7 +32881,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdDecodeVideoKHR)get_instance_proc_addr(parent,"vkCmdDecodeVideoKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDecodeVideoKHR)get_device_proc_addr(parent,"vkCmdDecodeVideoKHR");
     }  
     
@@ -32530,14 +32898,15 @@ json.clear();
         for(int jmrOltD=0; jmrOltD < 1; jmrOltD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDecodeInfo[jmrOltD]);
+            serialize_struct(temp_map, pDecodeInfo[jmrOltD]);
             arr_FUuNCSo[jmrOltD]=temp_map;
+            return;
             }();
         }
         json["pDecodeInfo"]=arr_FUuNCSo;}();
 
 
-        json["stream_type"]=VKCMDDECODEVIDEOKHR;
+        json["stream_type"]=static_cast<int>(VKCMDDECODEVIDEOKHR);
         writeToConn(json);
     }
 
@@ -32568,7 +32937,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdBeginVideoCodingKHR)get_instance_proc_addr(parent,"vkCmdBeginVideoCodingKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBeginVideoCodingKHR)get_device_proc_addr(parent,"vkCmdBeginVideoCodingKHR");
     }  
     
@@ -32585,14 +32954,15 @@ json.clear();
         for(int tVSxYNW=0; tVSxYNW < 1; tVSxYNW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBeginInfo[tVSxYNW]);
+            serialize_struct(temp_map, pBeginInfo[tVSxYNW]);
             arr_pSWbqZw[tVSxYNW]=temp_map;
+            return;
             }();
         }
         json["pBeginInfo"]=arr_pSWbqZw;}();
 
 
-        json["stream_type"]=VKCMDBEGINVIDEOCODINGKHR;
+        json["stream_type"]=static_cast<int>(VKCMDBEGINVIDEOCODINGKHR);
         writeToConn(json);
     }
 
@@ -32623,7 +32993,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdControlVideoCodingKHR)get_instance_proc_addr(parent,"vkCmdControlVideoCodingKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdControlVideoCodingKHR)get_device_proc_addr(parent,"vkCmdControlVideoCodingKHR");
     }  
     
@@ -32640,14 +33010,15 @@ json.clear();
         for(int MLwaMsn=0; MLwaMsn < 1; MLwaMsn++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCodingControlInfo[MLwaMsn]);
+            serialize_struct(temp_map, pCodingControlInfo[MLwaMsn]);
             arr_vJmaWsp[MLwaMsn]=temp_map;
+            return;
             }();
         }
         json["pCodingControlInfo"]=arr_vJmaWsp;}();
 
 
-        json["stream_type"]=VKCMDCONTROLVIDEOCODINGKHR;
+        json["stream_type"]=static_cast<int>(VKCMDCONTROLVIDEOCODINGKHR);
         writeToConn(json);
     }
 
@@ -32678,7 +33049,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdEndVideoCodingKHR)get_instance_proc_addr(parent,"vkCmdEndVideoCodingKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdEndVideoCodingKHR)get_device_proc_addr(parent,"vkCmdEndVideoCodingKHR");
     }  
     
@@ -32695,14 +33066,15 @@ json.clear();
         for(int KxwYkSG=0; KxwYkSG < 1; KxwYkSG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pEndCodingInfo[KxwYkSG]);
+            serialize_struct(temp_map, pEndCodingInfo[KxwYkSG]);
             arr_OpexQSo[KxwYkSG]=temp_map;
+            return;
             }();
         }
         json["pEndCodingInfo"]=arr_OpexQSo;}();
 
 
-        json["stream_type"]=VKCMDENDVIDEOCODINGKHR;
+        json["stream_type"]=static_cast<int>(VKCMDENDVIDEOCODINGKHR);
         writeToConn(json);
     }
 
@@ -32743,7 +33115,7 @@ uint32_t decompressRegionCount;
         call_function=(PFN_vkCmdDecompressMemoryNV)get_instance_proc_addr(parent,"vkCmdDecompressMemoryNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDecompressMemoryNV)get_device_proc_addr(parent,"vkCmdDecompressMemoryNV");
     }  
     
@@ -32761,14 +33133,15 @@ json.clear();
         for(int PnFzdhd=0; PnFzdhd < decompressRegionCount; PnFzdhd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDecompressMemoryRegions[PnFzdhd]);
+            serialize_struct(temp_map, pDecompressMemoryRegions[PnFzdhd]);
             arr_oMszjDS[PnFzdhd]=temp_map;
+            return;
             }();
         }
         json["pDecompressMemoryRegions"]=arr_oMszjDS;}();
 
 
-        json["stream_type"]=VKCMDDECOMPRESSMEMORYNV;
+        json["stream_type"]=static_cast<int>(VKCMDDECOMPRESSMEMORYNV);
         writeToConn(json);
     }
 
@@ -32818,7 +33191,7 @@ uint32_t stride;
         call_function=(PFN_vkCmdDecompressMemoryIndirectCountNV)get_instance_proc_addr(parent,"vkCmdDecompressMemoryIndirectCountNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdDecompressMemoryIndirectCountNV)get_device_proc_addr(parent,"vkCmdDecompressMemoryIndirectCountNV");
     }  
     
@@ -32833,7 +33206,7 @@ json.clear();
 [&](){json["stride"]=static_cast<uint>(stride);}();
 
 
-        json["stream_type"]=VKCMDDECOMPRESSMEMORYINDIRECTCOUNTNV;
+        json["stream_type"]=static_cast<int>(VKCMDDECOMPRESSMEMORYINDIRECTCOUNTNV);
         writeToConn(json);
     }
 
@@ -32884,7 +33257,7 @@ VkCuModuleNVX* pModule;
         call_function=(PFN_vkCreateCuModuleNVX)get_instance_proc_addr(parent,"vkCreateCuModuleNVX");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateCuModuleNVX)get_device_proc_addr(parent,"vkCreateCuModuleNVX");
     }  
     
@@ -32902,8 +33275,9 @@ json.clear();
         for(int TUVhIjf=0; TUVhIjf < 1; TUVhIjf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[TUVhIjf]);
+            serialize_struct(temp_map, pCreateInfo[TUVhIjf]);
             arr_FjdqPXh[TUVhIjf]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_FjdqPXh;}();
@@ -32914,8 +33288,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -32929,7 +33304,7 @@ json.clear();
         json["pModule"]=arr_FnQIexZ;}();
 
 
-        json["stream_type"]=VKCREATECUMODULENVX;
+        json["stream_type"]=static_cast<int>(VKCREATECUMODULENVX);
         writeToConn(json);
     }
 
@@ -32980,7 +33355,7 @@ VkCuFunctionNVX* pFunction;
         call_function=(PFN_vkCreateCuFunctionNVX)get_instance_proc_addr(parent,"vkCreateCuFunctionNVX");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateCuFunctionNVX)get_device_proc_addr(parent,"vkCreateCuFunctionNVX");
     }  
     
@@ -32998,8 +33373,9 @@ json.clear();
         for(int twsSgji=0; twsSgji < 1; twsSgji++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[twsSgji]);
+            serialize_struct(temp_map, pCreateInfo[twsSgji]);
             arr_XkBojZi[twsSgji]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_XkBojZi;}();
@@ -33010,8 +33386,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -33025,7 +33402,7 @@ json.clear();
         json["pFunction"]=arr_TrIYEcP;}();
 
 
-        json["stream_type"]=VKCREATECUFUNCTIONNVX;
+        json["stream_type"]=static_cast<int>(VKCREATECUFUNCTIONNVX);
         writeToConn(json);
     }
 
@@ -33058,7 +33435,7 @@ VkCuModuleNVX module;
         call_function=(PFN_vkDestroyCuModuleNVX)get_instance_proc_addr(parent,"vkDestroyCuModuleNVX");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyCuModuleNVX)get_device_proc_addr(parent,"vkDestroyCuModuleNVX");
     }  
     
@@ -33076,14 +33453,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYCUMODULENVX;
+        json["stream_type"]=static_cast<int>(VKDESTROYCUMODULENVX);
         writeToConn(json);
     }
 
@@ -33116,7 +33494,7 @@ VkCuFunctionNVX function;
         call_function=(PFN_vkDestroyCuFunctionNVX)get_instance_proc_addr(parent,"vkDestroyCuFunctionNVX");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyCuFunctionNVX)get_device_proc_addr(parent,"vkDestroyCuFunctionNVX");
     }  
     
@@ -33134,14 +33512,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYCUFUNCTIONNVX;
+        json["stream_type"]=static_cast<int>(VKDESTROYCUFUNCTIONNVX);
         writeToConn(json);
     }
 
@@ -33172,7 +33551,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCuLaunchKernelNVX)get_instance_proc_addr(parent,"vkCmdCuLaunchKernelNVX");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCuLaunchKernelNVX)get_device_proc_addr(parent,"vkCmdCuLaunchKernelNVX");
     }  
     
@@ -33189,14 +33568,15 @@ json.clear();
         for(int eUSpbRB=0; eUSpbRB < 1; eUSpbRB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLaunchInfo[eUSpbRB]);
+            serialize_struct(temp_map, pLaunchInfo[eUSpbRB]);
             arr_UKYVund[eUSpbRB]=temp_map;
+            return;
             }();
         }
         json["pLaunchInfo"]=arr_UKYVund;}();
 
 
-        json["stream_type"]=VKCMDCULAUNCHKERNELNVX;
+        json["stream_type"]=static_cast<int>(VKCMDCULAUNCHKERNELNVX);
         writeToConn(json);
     }
 
@@ -33235,7 +33615,7 @@ VkDeviceSize* pLayoutSizeInBytes;
         call_function=(PFN_vkGetDescriptorSetLayoutSizeEXT)get_instance_proc_addr(parent,"vkGetDescriptorSetLayoutSizeEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDescriptorSetLayoutSizeEXT)get_device_proc_addr(parent,"vkGetDescriptorSetLayoutSizeEXT");
     }  
     
@@ -33256,7 +33636,7 @@ json.clear();
         json["pLayoutSizeInBytes"]=arr_xOYiCiO;}();
 
 
-        json["stream_type"]=VKGETDESCRIPTORSETLAYOUTSIZEEXT;
+        json["stream_type"]=static_cast<int>(VKGETDESCRIPTORSETLAYOUTSIZEEXT);
         writeToConn(json);
     }
 
@@ -33305,7 +33685,7 @@ VkDeviceSize* pOffset;
         call_function=(PFN_vkGetDescriptorSetLayoutBindingOffsetEXT)get_instance_proc_addr(parent,"vkGetDescriptorSetLayoutBindingOffsetEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDescriptorSetLayoutBindingOffsetEXT)get_device_proc_addr(parent,"vkGetDescriptorSetLayoutBindingOffsetEXT");
     }  
     
@@ -33327,7 +33707,7 @@ json.clear();
         json["pOffset"]=arr_dquZgZN;}();
 
 
-        json["stream_type"]=VKGETDESCRIPTORSETLAYOUTBINDINGOFFSETEXT;
+        json["stream_type"]=static_cast<int>(VKGETDESCRIPTORSETLAYOUTBINDINGOFFSETEXT);
         writeToConn(json);
     }
 
@@ -33388,7 +33768,7 @@ void* pDescriptor;
         call_function=(PFN_vkGetDescriptorEXT)get_instance_proc_addr(parent,"vkGetDescriptorEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDescriptorEXT)get_device_proc_addr(parent,"vkGetDescriptorEXT");
     }  
     
@@ -33405,8 +33785,9 @@ json.clear();
         for(int cdcTeyn=0; cdcTeyn < 1; cdcTeyn++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDescriptorInfo[cdcTeyn]);
+            serialize_struct(temp_map, pDescriptorInfo[cdcTeyn]);
             arr_RGgHhwd[cdcTeyn]=temp_map;
+            return;
             }();
         }
         json["pDescriptorInfo"]=arr_RGgHhwd;}();
@@ -33424,7 +33805,7 @@ json.clear();
         json["pDescriptor"]=arr_NUAdiYW;}();}();
 
 
-        json["stream_type"]=VKGETDESCRIPTOREXT;
+        json["stream_type"]=static_cast<int>(VKGETDESCRIPTOREXT);
         writeToConn(json);
     }
 
@@ -33465,7 +33846,7 @@ uint32_t bufferCount;
         call_function=(PFN_vkCmdBindDescriptorBuffersEXT)get_instance_proc_addr(parent,"vkCmdBindDescriptorBuffersEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindDescriptorBuffersEXT)get_device_proc_addr(parent,"vkCmdBindDescriptorBuffersEXT");
     }  
     
@@ -33483,14 +33864,15 @@ json.clear();
         for(int btgeqwi=0; btgeqwi < bufferCount; btgeqwi++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindingInfos[btgeqwi]);
+            serialize_struct(temp_map, pBindingInfos[btgeqwi]);
             arr_guwgqGC[btgeqwi]=temp_map;
+            return;
             }();
         }
         json["pBindingInfos"]=arr_guwgqGC;}();
 
 
-        json["stream_type"]=VKCMDBINDDESCRIPTORBUFFERSEXT;
+        json["stream_type"]=static_cast<int>(VKCMDBINDDESCRIPTORBUFFERSEXT);
         writeToConn(json);
     }
 
@@ -33576,7 +33958,7 @@ uint32_t setCount;
         call_function=(PFN_vkCmdSetDescriptorBufferOffsetsEXT)get_instance_proc_addr(parent,"vkCmdSetDescriptorBufferOffsetsEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDescriptorBufferOffsetsEXT)get_device_proc_addr(parent,"vkCmdSetDescriptorBufferOffsetsEXT");
     }  
     
@@ -33608,7 +33990,7 @@ json.clear();
         json["pOffsets"]=arr_YvpyTDd;}();
 
 
-        json["stream_type"]=VKCMDSETDESCRIPTORBUFFEROFFSETSEXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETDESCRIPTORBUFFEROFFSETSEXT);
         writeToConn(json);
     }
 
@@ -33650,7 +34032,7 @@ uint32_t set;
         call_function=(PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT)get_instance_proc_addr(parent,"vkCmdBindDescriptorBufferEmbeddedSamplersEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT)get_device_proc_addr(parent,"vkCmdBindDescriptorBufferEmbeddedSamplersEXT");
     }  
     
@@ -33665,7 +34047,7 @@ json.clear();
 [&](){json["set"]=static_cast<uint>(set);}();
 
 
-        json["stream_type"]=VKCMDBINDDESCRIPTORBUFFEREMBEDDEDSAMPLERSEXT;
+        json["stream_type"]=static_cast<int>(VKCMDBINDDESCRIPTORBUFFEREMBEDDEDSAMPLERSEXT);
         writeToConn(json);
     }
 
@@ -33716,7 +34098,7 @@ void* pData;
         call_function=(PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr(parent,"vkGetBufferOpaqueCaptureDescriptorDataEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT)get_device_proc_addr(parent,"vkGetBufferOpaqueCaptureDescriptorDataEXT");
     }  
     
@@ -33734,8 +34116,9 @@ json.clear();
         for(int VgzeNwX=0; VgzeNwX < 1; VgzeNwX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[VgzeNwX]);
+            serialize_struct(temp_map, pInfo[VgzeNwX]);
             arr_Hxvezrr[VgzeNwX]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_Hxvezrr;}();
@@ -33752,7 +34135,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETBUFFEROPAQUECAPTUREDESCRIPTORDATAEXT;
+        json["stream_type"]=static_cast<int>(VKGETBUFFEROPAQUECAPTUREDESCRIPTORDATAEXT);
         writeToConn(json);
     }
 
@@ -33803,7 +34186,7 @@ void* pData;
         call_function=(PFN_vkGetImageOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr(parent,"vkGetImageOpaqueCaptureDescriptorDataEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageOpaqueCaptureDescriptorDataEXT)get_device_proc_addr(parent,"vkGetImageOpaqueCaptureDescriptorDataEXT");
     }  
     
@@ -33821,8 +34204,9 @@ json.clear();
         for(int swRpuDc=0; swRpuDc < 1; swRpuDc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[swRpuDc]);
+            serialize_struct(temp_map, pInfo[swRpuDc]);
             arr_vrxBIsi[swRpuDc]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_vrxBIsi;}();
@@ -33839,7 +34223,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETIMAGEOPAQUECAPTUREDESCRIPTORDATAEXT;
+        json["stream_type"]=static_cast<int>(VKGETIMAGEOPAQUECAPTUREDESCRIPTORDATAEXT);
         writeToConn(json);
     }
 
@@ -33890,7 +34274,7 @@ void* pData;
         call_function=(PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr(parent,"vkGetImageViewOpaqueCaptureDescriptorDataEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT)get_device_proc_addr(parent,"vkGetImageViewOpaqueCaptureDescriptorDataEXT");
     }  
     
@@ -33908,8 +34292,9 @@ json.clear();
         for(int pmdADqD=0; pmdADqD < 1; pmdADqD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[pmdADqD]);
+            serialize_struct(temp_map, pInfo[pmdADqD]);
             arr_CYlSaQv[pmdADqD]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_CYlSaQv;}();
@@ -33926,7 +34311,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETIMAGEVIEWOPAQUECAPTUREDESCRIPTORDATAEXT;
+        json["stream_type"]=static_cast<int>(VKGETIMAGEVIEWOPAQUECAPTUREDESCRIPTORDATAEXT);
         writeToConn(json);
     }
 
@@ -33977,7 +34362,7 @@ void* pData;
         call_function=(PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr(parent,"vkGetSamplerOpaqueCaptureDescriptorDataEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT)get_device_proc_addr(parent,"vkGetSamplerOpaqueCaptureDescriptorDataEXT");
     }  
     
@@ -33995,8 +34380,9 @@ json.clear();
         for(int SScNLQN=0; SScNLQN < 1; SScNLQN++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[SScNLQN]);
+            serialize_struct(temp_map, pInfo[SScNLQN]);
             arr_RMPxsVS[SScNLQN]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_RMPxsVS;}();
@@ -34013,7 +34399,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETSAMPLEROPAQUECAPTUREDESCRIPTORDATAEXT;
+        json["stream_type"]=static_cast<int>(VKGETSAMPLEROPAQUECAPTUREDESCRIPTORDATAEXT);
         writeToConn(json);
     }
 
@@ -34064,7 +34450,7 @@ void* pData;
         call_function=(PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr(parent,"vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT)get_device_proc_addr(parent,"vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT");
     }  
     
@@ -34082,8 +34468,9 @@ json.clear();
         for(int kbTuVMH=0; kbTuVMH < 1; kbTuVMH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[kbTuVMH]);
+            serialize_struct(temp_map, pInfo[kbTuVMH]);
             arr_iLnHGmk[kbTuVMH]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_iLnHGmk;}();
@@ -34100,7 +34487,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETACCELERATIONSTRUCTUREOPAQUECAPTUREDESCRIPTORDATAEXT;
+        json["stream_type"]=static_cast<int>(VKGETACCELERATIONSTRUCTUREOPAQUECAPTUREDESCRIPTORDATAEXT);
         writeToConn(json);
     }
 
@@ -34132,7 +34519,7 @@ float priority;
         call_function=(PFN_vkSetDeviceMemoryPriorityEXT)get_instance_proc_addr(parent,"vkSetDeviceMemoryPriorityEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkSetDeviceMemoryPriorityEXT)get_device_proc_addr(parent,"vkSetDeviceMemoryPriorityEXT");
     }  
     
@@ -34146,7 +34533,7 @@ json.clear();
 [&](){json["priority"]=static_cast<float>(priority);}();
 
 
-        json["stream_type"]=VKSETDEVICEMEMORYPRIORITYEXT;
+        json["stream_type"]=static_cast<int>(VKSETDEVICEMEMORYPRIORITYEXT);
         writeToConn(json);
     }
 
@@ -34178,7 +34565,7 @@ VkDisplayKHR display;
         call_function=(PFN_vkAcquireDrmDisplayEXT)get_instance_proc_addr(parent,"vkAcquireDrmDisplayEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkAcquireDrmDisplayEXT)get_device_proc_addr(parent,"vkAcquireDrmDisplayEXT");
     }  
     
@@ -34193,7 +34580,7 @@ json.clear();
 [&](){serialize_VkDisplayKHR(json["display"],display);}();
 
 
-        json["stream_type"]=VKACQUIREDRMDISPLAYEXT;
+        json["stream_type"]=static_cast<int>(VKACQUIREDRMDISPLAYEXT);
         writeToConn(json);
     }
 
@@ -34242,7 +34629,7 @@ VkDisplayKHR* display;
         call_function=(PFN_vkGetDrmDisplayEXT)get_instance_proc_addr(parent,"vkGetDrmDisplayEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDrmDisplayEXT)get_device_proc_addr(parent,"vkGetDrmDisplayEXT");
     }  
     
@@ -34265,7 +34652,7 @@ json.clear();
         json["display"]=arr_DpFHFgI;}();
 
 
-        json["stream_type"]=VKGETDRMDISPLAYEXT;
+        json["stream_type"]=static_cast<int>(VKGETDRMDISPLAYEXT);
         writeToConn(json);
     }
 
@@ -34307,7 +34694,7 @@ uint64_t timeout;
         call_function=(PFN_vkWaitForPresentKHR)get_instance_proc_addr(parent,"vkWaitForPresentKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkWaitForPresentKHR)get_device_proc_addr(parent,"vkWaitForPresentKHR");
     }  
     
@@ -34323,7 +34710,7 @@ json.clear();
 [&](){json["timeout"]=static_cast<uint>(timeout);}();
 
 
-        json["stream_type"]=VKWAITFORPRESENTKHR;
+        json["stream_type"]=static_cast<int>(VKWAITFORPRESENTKHR);
         writeToConn(json);
     }
 
@@ -34354,7 +34741,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdBeginRendering)get_instance_proc_addr(parent,"vkCmdBeginRendering");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBeginRendering)get_device_proc_addr(parent,"vkCmdBeginRendering");
     }  
     
@@ -34371,14 +34758,15 @@ json.clear();
         for(int dAqQfxy=0; dAqQfxy < 1; dAqQfxy++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRenderingInfo[dAqQfxy]);
+            serialize_struct(temp_map, pRenderingInfo[dAqQfxy]);
             arr_DOEgrev[dAqQfxy]=temp_map;
+            return;
             }();
         }
         json["pRenderingInfo"]=arr_DOEgrev;}();
 
 
-        json["stream_type"]=VKCMDBEGINRENDERING;
+        json["stream_type"]=static_cast<int>(VKCMDBEGINRENDERING);
         writeToConn(json);
     }
 
@@ -34398,7 +34786,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdEndRendering)get_instance_proc_addr(parent,"vkCmdEndRendering");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdEndRendering)get_device_proc_addr(parent,"vkCmdEndRendering");
     }  
     
@@ -34410,7 +34798,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["stream_type"]=VKCMDENDRENDERING;
+        json["stream_type"]=static_cast<int>(VKCMDENDRENDERING);
         writeToConn(json);
     }
 
@@ -34452,7 +34840,7 @@ VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping;
         call_function=(PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE)get_instance_proc_addr(parent,"vkGetDescriptorSetLayoutHostMappingInfoVALVE");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE)get_device_proc_addr(parent,"vkGetDescriptorSetLayoutHostMappingInfoVALVE");
     }  
     
@@ -34469,8 +34857,9 @@ json.clear();
         for(int OEumPxJ=0; OEumPxJ < 1; OEumPxJ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindingReference[OEumPxJ]);
+            serialize_struct(temp_map, pBindingReference[OEumPxJ]);
             arr_JTmPGZt[OEumPxJ]=temp_map;
+            return;
             }();
         }
         json["pBindingReference"]=arr_JTmPGZt;}();
@@ -34481,14 +34870,15 @@ json.clear();
         for(int jHGvhna=0; jHGvhna < 1; jHGvhna++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pHostMapping[jHGvhna]);
+            serialize_struct(temp_map, pHostMapping[jHGvhna]);
             arr_zODJzpL[jHGvhna]=temp_map;
+            return;
             }();
         }
         json["pHostMapping"]=arr_zODJzpL;}();
 
 
-        json["stream_type"]=VKGETDESCRIPTORSETLAYOUTHOSTMAPPINGINFOVALVE;
+        json["stream_type"]=static_cast<int>(VKGETDESCRIPTORSETLAYOUTHOSTMAPPINGINFOVALVE);
         writeToConn(json);
     }
 
@@ -34537,7 +34927,7 @@ void** ppData;
         call_function=(PFN_vkGetDescriptorSetHostMappingVALVE)get_instance_proc_addr(parent,"vkGetDescriptorSetHostMappingVALVE");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDescriptorSetHostMappingVALVE)get_device_proc_addr(parent,"vkGetDescriptorSetHostMappingVALVE");
     }  
     
@@ -34568,7 +34958,7 @@ json.clear();
         json["ppData"]=arr_JgRLJSK;}();
 
 
-        json["stream_type"]=VKGETDESCRIPTORSETHOSTMAPPINGVALVE;
+        json["stream_type"]=static_cast<int>(VKGETDESCRIPTORSETHOSTMAPPINGVALVE);
         writeToConn(json);
     }
 
@@ -34619,7 +35009,7 @@ VkMicromapEXT* pMicromap;
         call_function=(PFN_vkCreateMicromapEXT)get_instance_proc_addr(parent,"vkCreateMicromapEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateMicromapEXT)get_device_proc_addr(parent,"vkCreateMicromapEXT");
     }  
     
@@ -34637,8 +35027,9 @@ json.clear();
         for(int cfhYIUK=0; cfhYIUK < 1; cfhYIUK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[cfhYIUK]);
+            serialize_struct(temp_map, pCreateInfo[cfhYIUK]);
             arr_vrQtrYo[cfhYIUK]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_vrQtrYo;}();
@@ -34649,8 +35040,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -34664,7 +35056,7 @@ json.clear();
         json["pMicromap"]=arr_mHmzwPX;}();
 
 
-        json["stream_type"]=VKCREATEMICROMAPEXT;
+        json["stream_type"]=static_cast<int>(VKCREATEMICROMAPEXT);
         writeToConn(json);
     }
 
@@ -34705,7 +35097,7 @@ uint32_t infoCount;
         call_function=(PFN_vkCmdBuildMicromapsEXT)get_instance_proc_addr(parent,"vkCmdBuildMicromapsEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBuildMicromapsEXT)get_device_proc_addr(parent,"vkCmdBuildMicromapsEXT");
     }  
     
@@ -34723,14 +35115,15 @@ json.clear();
         for(int bfMWBOA=0; bfMWBOA < infoCount; bfMWBOA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfos[bfMWBOA]);
+            serialize_struct(temp_map, pInfos[bfMWBOA]);
             arr_KdoluBZ[bfMWBOA]=temp_map;
+            return;
             }();
         }
         json["pInfos"]=arr_KdoluBZ;}();
 
 
-        json["stream_type"]=VKCMDBUILDMICROMAPSEXT;
+        json["stream_type"]=static_cast<int>(VKCMDBUILDMICROMAPSEXT);
         writeToConn(json);
     }
 
@@ -34773,7 +35166,7 @@ uint32_t infoCount;
         call_function=(PFN_vkBuildMicromapsEXT)get_instance_proc_addr(parent,"vkBuildMicromapsEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkBuildMicromapsEXT)get_device_proc_addr(parent,"vkBuildMicromapsEXT");
     }  
     
@@ -34793,14 +35186,15 @@ json.clear();
         for(int bfMWBOA=0; bfMWBOA < infoCount; bfMWBOA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfos[bfMWBOA]);
+            serialize_struct(temp_map, pInfos[bfMWBOA]);
             arr_KdoluBZ[bfMWBOA]=temp_map;
+            return;
             }();
         }
         json["pInfos"]=arr_KdoluBZ;}();
 
 
-        json["stream_type"]=VKBUILDMICROMAPSEXT;
+        json["stream_type"]=static_cast<int>(VKBUILDMICROMAPSEXT);
         writeToConn(json);
     }
 
@@ -34833,7 +35227,7 @@ VkMicromapEXT micromap;
         call_function=(PFN_vkDestroyMicromapEXT)get_instance_proc_addr(parent,"vkDestroyMicromapEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyMicromapEXT)get_device_proc_addr(parent,"vkDestroyMicromapEXT");
     }  
     
@@ -34851,14 +35245,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYMICROMAPEXT;
+        json["stream_type"]=static_cast<int>(VKDESTROYMICROMAPEXT);
         writeToConn(json);
     }
 
@@ -34889,7 +35284,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCopyMicromapEXT)get_instance_proc_addr(parent,"vkCmdCopyMicromapEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyMicromapEXT)get_device_proc_addr(parent,"vkCmdCopyMicromapEXT");
     }  
     
@@ -34906,14 +35301,15 @@ json.clear();
         for(int vDMleIo=0; vDMleIo < 1; vDMleIo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[vDMleIo]);
+            serialize_struct(temp_map, pInfo[vDMleIo]);
             arr_UIlbXxp[vDMleIo]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_UIlbXxp;}();
 
 
-        json["stream_type"]=VKCMDCOPYMICROMAPEXT;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYMICROMAPEXT);
         writeToConn(json);
     }
 
@@ -34946,7 +35342,7 @@ VkDeferredOperationKHR deferredOperation;
         call_function=(PFN_vkCopyMicromapEXT)get_instance_proc_addr(parent,"vkCopyMicromapEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCopyMicromapEXT)get_device_proc_addr(parent,"vkCopyMicromapEXT");
     }  
     
@@ -34965,14 +35361,15 @@ json.clear();
         for(int vDMleIo=0; vDMleIo < 1; vDMleIo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[vDMleIo]);
+            serialize_struct(temp_map, pInfo[vDMleIo]);
             arr_UIlbXxp[vDMleIo]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_UIlbXxp;}();
 
 
-        json["stream_type"]=VKCOPYMICROMAPEXT;
+        json["stream_type"]=static_cast<int>(VKCOPYMICROMAPEXT);
         writeToConn(json);
     }
 
@@ -35003,7 +35400,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCopyMicromapToMemoryEXT)get_instance_proc_addr(parent,"vkCmdCopyMicromapToMemoryEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyMicromapToMemoryEXT)get_device_proc_addr(parent,"vkCmdCopyMicromapToMemoryEXT");
     }  
     
@@ -35020,14 +35417,15 @@ json.clear();
         for(int dzsAOWF=0; dzsAOWF < 1; dzsAOWF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[dzsAOWF]);
+            serialize_struct(temp_map, pInfo[dzsAOWF]);
             arr_EiLirbT[dzsAOWF]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_EiLirbT;}();
 
 
-        json["stream_type"]=VKCMDCOPYMICROMAPTOMEMORYEXT;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYMICROMAPTOMEMORYEXT);
         writeToConn(json);
     }
 
@@ -35060,7 +35458,7 @@ VkDeferredOperationKHR deferredOperation;
         call_function=(PFN_vkCopyMicromapToMemoryEXT)get_instance_proc_addr(parent,"vkCopyMicromapToMemoryEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCopyMicromapToMemoryEXT)get_device_proc_addr(parent,"vkCopyMicromapToMemoryEXT");
     }  
     
@@ -35079,14 +35477,15 @@ json.clear();
         for(int dzsAOWF=0; dzsAOWF < 1; dzsAOWF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[dzsAOWF]);
+            serialize_struct(temp_map, pInfo[dzsAOWF]);
             arr_EiLirbT[dzsAOWF]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_EiLirbT;}();
 
 
-        json["stream_type"]=VKCOPYMICROMAPTOMEMORYEXT;
+        json["stream_type"]=static_cast<int>(VKCOPYMICROMAPTOMEMORYEXT);
         writeToConn(json);
     }
 
@@ -35117,7 +35516,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdCopyMemoryToMicromapEXT)get_instance_proc_addr(parent,"vkCmdCopyMemoryToMicromapEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdCopyMemoryToMicromapEXT)get_device_proc_addr(parent,"vkCmdCopyMemoryToMicromapEXT");
     }  
     
@@ -35134,14 +35533,15 @@ json.clear();
         for(int semZpgt=0; semZpgt < 1; semZpgt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[semZpgt]);
+            serialize_struct(temp_map, pInfo[semZpgt]);
             arr_QufOGLT[semZpgt]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_QufOGLT;}();
 
 
-        json["stream_type"]=VKCMDCOPYMEMORYTOMICROMAPEXT;
+        json["stream_type"]=static_cast<int>(VKCMDCOPYMEMORYTOMICROMAPEXT);
         writeToConn(json);
     }
 
@@ -35174,7 +35574,7 @@ VkDeferredOperationKHR deferredOperation;
         call_function=(PFN_vkCopyMemoryToMicromapEXT)get_instance_proc_addr(parent,"vkCopyMemoryToMicromapEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCopyMemoryToMicromapEXT)get_device_proc_addr(parent,"vkCopyMemoryToMicromapEXT");
     }  
     
@@ -35193,14 +35593,15 @@ json.clear();
         for(int semZpgt=0; semZpgt < 1; semZpgt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[semZpgt]);
+            serialize_struct(temp_map, pInfo[semZpgt]);
             arr_QufOGLT[semZpgt]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_QufOGLT;}();
 
 
-        json["stream_type"]=VKCOPYMEMORYTOMICROMAPEXT;
+        json["stream_type"]=static_cast<int>(VKCOPYMEMORYTOMICROMAPEXT);
         writeToConn(json);
     }
 
@@ -35261,7 +35662,7 @@ uint32_t firstQuery;
         call_function=(PFN_vkCmdWriteMicromapsPropertiesEXT)get_instance_proc_addr(parent,"vkCmdWriteMicromapsPropertiesEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdWriteMicromapsPropertiesEXT)get_device_proc_addr(parent,"vkCmdWriteMicromapsPropertiesEXT");
     }  
     
@@ -35285,7 +35686,7 @@ json.clear();
 [&](){json["firstQuery"]=static_cast<uint>(firstQuery);}();
 
 
-        json["stream_type"]=VKCMDWRITEMICROMAPSPROPERTIESEXT;
+        json["stream_type"]=static_cast<int>(VKCMDWRITEMICROMAPSPROPERTIESEXT);
         writeToConn(json);
     }
 
@@ -35374,7 +35775,7 @@ size_t stride;
         call_function=(PFN_vkWriteMicromapsPropertiesEXT)get_instance_proc_addr(parent,"vkWriteMicromapsPropertiesEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkWriteMicromapsPropertiesEXT)get_device_proc_addr(parent,"vkWriteMicromapsPropertiesEXT");
     }  
     
@@ -35410,7 +35811,7 @@ json.clear();
 [&](){json["stride"]=static_cast<int>(stride);}();
 
 
-        json["stream_type"]=VKWRITEMICROMAPSPROPERTIESEXT;
+        json["stream_type"]=static_cast<int>(VKWRITEMICROMAPSPROPERTIESEXT);
         writeToConn(json);
     }
 
@@ -35458,7 +35859,7 @@ VkAccelerationStructureCompatibilityKHR* pCompatibility;
         call_function=(PFN_vkGetDeviceMicromapCompatibilityEXT)get_instance_proc_addr(parent,"vkGetDeviceMicromapCompatibilityEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceMicromapCompatibilityEXT)get_device_proc_addr(parent,"vkGetDeviceMicromapCompatibilityEXT");
     }  
     
@@ -35475,8 +35876,9 @@ json.clear();
         for(int odfXDEI=0; odfXDEI < 1; odfXDEI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVersionInfo[odfXDEI]);
+            serialize_struct(temp_map, pVersionInfo[odfXDEI]);
             arr_PYqUGEM[odfXDEI]=temp_map;
+            return;
             }();
         }
         json["pVersionInfo"]=arr_PYqUGEM;}();
@@ -35490,7 +35892,7 @@ json.clear();
         json["pCompatibility"]=arr_dBMhFMX;}();
 
 
-        json["stream_type"]=VKGETDEVICEMICROMAPCOMPATIBILITYEXT;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEMICROMAPCOMPATIBILITYEXT);
         writeToConn(json);
     }
 
@@ -35542,7 +35944,7 @@ VkMicromapBuildSizesInfoEXT* pSizeInfo;
         call_function=(PFN_vkGetMicromapBuildSizesEXT)get_instance_proc_addr(parent,"vkGetMicromapBuildSizesEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetMicromapBuildSizesEXT)get_device_proc_addr(parent,"vkGetMicromapBuildSizesEXT");
     }  
     
@@ -35560,8 +35962,9 @@ json.clear();
         for(int nPItxru=0; nPItxru < 1; nPItxru++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBuildInfo[nPItxru]);
+            serialize_struct(temp_map, pBuildInfo[nPItxru]);
             arr_lREHNwp[nPItxru]=temp_map;
+            return;
             }();
         }
         json["pBuildInfo"]=arr_lREHNwp;}();
@@ -35572,14 +35975,15 @@ json.clear();
         for(int XgjgtXU=0; XgjgtXU < 1; XgjgtXU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSizeInfo[XgjgtXU]);
+            serialize_struct(temp_map, pSizeInfo[XgjgtXU]);
             arr_fJKSsZw[XgjgtXU]=temp_map;
+            return;
             }();
         }
         json["pSizeInfo"]=arr_fJKSsZw;}();
 
 
-        json["stream_type"]=VKGETMICROMAPBUILDSIZESEXT;
+        json["stream_type"]=static_cast<int>(VKGETMICROMAPBUILDSIZESEXT);
         writeToConn(json);
     }
 
@@ -35612,7 +36016,7 @@ VkShaderModuleIdentifierEXT* pIdentifier;
         call_function=(PFN_vkGetShaderModuleIdentifierEXT)get_instance_proc_addr(parent,"vkGetShaderModuleIdentifierEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetShaderModuleIdentifierEXT)get_device_proc_addr(parent,"vkGetShaderModuleIdentifierEXT");
     }  
     
@@ -35630,14 +36034,15 @@ json.clear();
         for(int DSBkSwY=0; DSBkSwY < 1; DSBkSwY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pIdentifier[DSBkSwY]);
+            serialize_struct(temp_map, pIdentifier[DSBkSwY]);
             arr_ICaFqGG[DSBkSwY]=temp_map;
+            return;
             }();
         }
         json["pIdentifier"]=arr_ICaFqGG;}();
 
 
-        json["stream_type"]=VKGETSHADERMODULEIDENTIFIEREXT;
+        json["stream_type"]=static_cast<int>(VKGETSHADERMODULEIDENTIFIEREXT);
         writeToConn(json);
     }
 
@@ -35679,7 +36084,7 @@ VkShaderModuleIdentifierEXT* pIdentifier;
         call_function=(PFN_vkGetShaderModuleCreateInfoIdentifierEXT)get_instance_proc_addr(parent,"vkGetShaderModuleCreateInfoIdentifierEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetShaderModuleCreateInfoIdentifierEXT)get_device_proc_addr(parent,"vkGetShaderModuleCreateInfoIdentifierEXT");
     }  
     
@@ -35696,8 +36101,9 @@ json.clear();
         for(int dKxemXH=0; dKxemXH < 1; dKxemXH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[dKxemXH]);
+            serialize_struct(temp_map, pCreateInfo[dKxemXH]);
             arr_iSZUILM[dKxemXH]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_iSZUILM;}();
@@ -35708,14 +36114,15 @@ json.clear();
         for(int DSBkSwY=0; DSBkSwY < 1; DSBkSwY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pIdentifier[DSBkSwY]);
+            serialize_struct(temp_map, pIdentifier[DSBkSwY]);
             arr_ICaFqGG[DSBkSwY]=temp_map;
+            return;
             }();
         }
         json["pIdentifier"]=arr_ICaFqGG;}();
 
 
-        json["stream_type"]=VKGETSHADERMODULECREATEINFOIDENTIFIEREXT;
+        json["stream_type"]=static_cast<int>(VKGETSHADERMODULECREATEINFOIDENTIFIEREXT);
         writeToConn(json);
     }
 
@@ -35759,7 +36166,7 @@ VkSubresourceLayout2KHR* pLayout;
         call_function=(PFN_vkGetImageSubresourceLayout2KHR)get_instance_proc_addr(parent,"vkGetImageSubresourceLayout2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetImageSubresourceLayout2KHR)get_device_proc_addr(parent,"vkGetImageSubresourceLayout2KHR");
     }  
     
@@ -35777,8 +36184,9 @@ json.clear();
         for(int HvvKvoL=0; HvvKvoL < 1; HvvKvoL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubresource[HvvKvoL]);
+            serialize_struct(temp_map, pSubresource[HvvKvoL]);
             arr_xtdYssI[HvvKvoL]=temp_map;
+            return;
             }();
         }
         json["pSubresource"]=arr_xtdYssI;}();
@@ -35789,14 +36197,15 @@ json.clear();
         for(int jEkaLQP=0; jEkaLQP < 1; jEkaLQP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLayout[jEkaLQP]);
+            serialize_struct(temp_map, pLayout[jEkaLQP]);
             arr_JxnVeqW[jEkaLQP]=temp_map;
+            return;
             }();
         }
         json["pLayout"]=arr_JxnVeqW;}();
 
 
-        json["stream_type"]=VKGETIMAGESUBRESOURCELAYOUT2KHR;
+        json["stream_type"]=static_cast<int>(VKGETIMAGESUBRESOURCELAYOUT2KHR);
         writeToConn(json);
     }
 
@@ -35838,7 +36247,7 @@ VkBaseOutStructure* pPipelineProperties;
         call_function=(PFN_vkGetPipelinePropertiesEXT)get_instance_proc_addr(parent,"vkGetPipelinePropertiesEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPipelinePropertiesEXT)get_device_proc_addr(parent,"vkGetPipelinePropertiesEXT");
     }  
     
@@ -35856,8 +36265,9 @@ json.clear();
         for(int iUjmOrp=0; iUjmOrp < 1; iUjmOrp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPipelineInfo[iUjmOrp]);
+            serialize_struct(temp_map, pPipelineInfo[iUjmOrp]);
             arr_eGbOPJq[iUjmOrp]=temp_map;
+            return;
             }();
         }
         json["pPipelineInfo"]=arr_eGbOPJq;}();
@@ -35868,14 +36278,15 @@ json.clear();
         for(int cJpCXwz=0; cJpCXwz < 1; cJpCXwz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPipelineProperties[cJpCXwz]);
+            serialize_struct(temp_map, pPipelineProperties[cJpCXwz]);
             arr_eMgMlNc[cJpCXwz]=temp_map;
+            return;
             }();
         }
         json["pPipelineProperties"]=arr_eMgMlNc;}();
 
 
-        json["stream_type"]=VKGETPIPELINEPROPERTIESEXT;
+        json["stream_type"]=static_cast<int>(VKGETPIPELINEPROPERTIESEXT);
         writeToConn(json);
     }
 
@@ -35925,7 +36336,7 @@ VkTilePropertiesQCOM* pProperties;
         call_function=(PFN_vkGetFramebufferTilePropertiesQCOM)get_instance_proc_addr(parent,"vkGetFramebufferTilePropertiesQCOM");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetFramebufferTilePropertiesQCOM)get_device_proc_addr(parent,"vkGetFramebufferTilePropertiesQCOM");
     }  
     
@@ -35952,14 +36363,15 @@ json.clear();
         for(int oGElcJh=0; oGElcJh < *pPropertiesCount; oGElcJh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[oGElcJh]);
+            serialize_struct(temp_map, pProperties[oGElcJh]);
             arr_hYNBodF[oGElcJh]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_hYNBodF;}();
 
 
-        json["stream_type"]=VKGETFRAMEBUFFERTILEPROPERTIESQCOM;
+        json["stream_type"]=static_cast<int>(VKGETFRAMEBUFFERTILEPROPERTIESQCOM);
         writeToConn(json);
     }
 
@@ -36001,7 +36413,7 @@ VkTilePropertiesQCOM* pProperties;
         call_function=(PFN_vkGetDynamicRenderingTilePropertiesQCOM)get_instance_proc_addr(parent,"vkGetDynamicRenderingTilePropertiesQCOM");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDynamicRenderingTilePropertiesQCOM)get_device_proc_addr(parent,"vkGetDynamicRenderingTilePropertiesQCOM");
     }  
     
@@ -36019,8 +36431,9 @@ json.clear();
         for(int dAqQfxy=0; dAqQfxy < 1; dAqQfxy++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRenderingInfo[dAqQfxy]);
+            serialize_struct(temp_map, pRenderingInfo[dAqQfxy]);
             arr_DOEgrev[dAqQfxy]=temp_map;
+            return;
             }();
         }
         json["pRenderingInfo"]=arr_DOEgrev;}();
@@ -36031,14 +36444,15 @@ json.clear();
         for(int oGElcJh=0; oGElcJh < 1; oGElcJh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[oGElcJh]);
+            serialize_struct(temp_map, pProperties[oGElcJh]);
             arr_hYNBodF[oGElcJh]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_hYNBodF;}();
 
 
-        json["stream_type"]=VKGETDYNAMICRENDERINGTILEPROPERTIESQCOM;
+        json["stream_type"]=static_cast<int>(VKGETDYNAMICRENDERINGTILEPROPERTIESQCOM);
         writeToConn(json);
     }
 
@@ -36097,7 +36511,7 @@ VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV)get_instance_proc_addr(parent,"vkGetPhysicalDeviceOpticalFlowImageFormatsNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV)get_device_proc_addr(parent,"vkGetPhysicalDeviceOpticalFlowImageFormatsNV");
     }  
     
@@ -36115,8 +36529,9 @@ json.clear();
         for(int HqzITOl=0; HqzITOl < 1; HqzITOl++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pOpticalFlowImageFormatInfo[HqzITOl]);
+            serialize_struct(temp_map, pOpticalFlowImageFormatInfo[HqzITOl]);
             arr_oyPfnWV[HqzITOl]=temp_map;
+            return;
             }();
         }
         json["pOpticalFlowImageFormatInfo"]=arr_oyPfnWV;}();
@@ -36135,14 +36550,15 @@ json.clear();
         for(int gkJgIzP=0; gkJgIzP < *pFormatCount; gkJgIzP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageFormatProperties[gkJgIzP]);
+            serialize_struct(temp_map, pImageFormatProperties[gkJgIzP]);
             arr_oZncgpa[gkJgIzP]=temp_map;
+            return;
             }();
         }
         json["pImageFormatProperties"]=arr_oZncgpa;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICEOPTICALFLOWIMAGEFORMATSNV;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICEOPTICALFLOWIMAGEFORMATSNV);
         writeToConn(json);
     }
 
@@ -36193,7 +36609,7 @@ VkOpticalFlowSessionNV* pSession;
         call_function=(PFN_vkCreateOpticalFlowSessionNV)get_instance_proc_addr(parent,"vkCreateOpticalFlowSessionNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateOpticalFlowSessionNV)get_device_proc_addr(parent,"vkCreateOpticalFlowSessionNV");
     }  
     
@@ -36211,8 +36627,9 @@ json.clear();
         for(int LaeeodD=0; LaeeodD < 1; LaeeodD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[LaeeodD]);
+            serialize_struct(temp_map, pCreateInfo[LaeeodD]);
             arr_dKVOiZE[LaeeodD]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_dKVOiZE;}();
@@ -36223,8 +36640,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -36238,7 +36656,7 @@ json.clear();
         json["pSession"]=arr_PyNQerY;}();
 
 
-        json["stream_type"]=VKCREATEOPTICALFLOWSESSIONNV;
+        json["stream_type"]=static_cast<int>(VKCREATEOPTICALFLOWSESSIONNV);
         writeToConn(json);
     }
 
@@ -36271,7 +36689,7 @@ VkOpticalFlowSessionNV session;
         call_function=(PFN_vkDestroyOpticalFlowSessionNV)get_instance_proc_addr(parent,"vkDestroyOpticalFlowSessionNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyOpticalFlowSessionNV)get_device_proc_addr(parent,"vkDestroyOpticalFlowSessionNV");
     }  
     
@@ -36289,14 +36707,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYOPTICALFLOWSESSIONNV;
+        json["stream_type"]=static_cast<int>(VKDESTROYOPTICALFLOWSESSIONNV);
         writeToConn(json);
     }
 
@@ -36340,7 +36759,7 @@ VkImageLayout layout;
         call_function=(PFN_vkBindOpticalFlowSessionImageNV)get_instance_proc_addr(parent,"vkBindOpticalFlowSessionImageNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkBindOpticalFlowSessionImageNV)get_device_proc_addr(parent,"vkBindOpticalFlowSessionImageNV");
     }  
     
@@ -36357,7 +36776,7 @@ json.clear();
 [&](){[&](){[&](){json["layout"]=static_cast<int>(layout);}();}();}();
 
 
-        json["stream_type"]=VKBINDOPTICALFLOWSESSIONIMAGENV;
+        json["stream_type"]=static_cast<int>(VKBINDOPTICALFLOWSESSIONIMAGENV);
         writeToConn(json);
     }
 
@@ -36390,7 +36809,7 @@ VkOpticalFlowSessionNV session;
         call_function=(PFN_vkCmdOpticalFlowExecuteNV)get_instance_proc_addr(parent,"vkCmdOpticalFlowExecuteNV");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdOpticalFlowExecuteNV)get_device_proc_addr(parent,"vkCmdOpticalFlowExecuteNV");
     }  
     
@@ -36408,14 +36827,15 @@ json.clear();
         for(int XLHKKBA=0; XLHKKBA < 1; XLHKKBA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExecuteInfo[XLHKKBA]);
+            serialize_struct(temp_map, pExecuteInfo[XLHKKBA]);
             arr_CyySpro[XLHKKBA]=temp_map;
+            return;
             }();
         }
         json["pExecuteInfo"]=arr_CyySpro;}();
 
 
-        json["stream_type"]=VKCMDOPTICALFLOWEXECUTENV;
+        json["stream_type"]=static_cast<int>(VKCMDOPTICALFLOWEXECUTENV);
         writeToConn(json);
     }
 
@@ -36457,7 +36877,7 @@ VkDeviceFaultInfoEXT* pFaultInfo;
         call_function=(PFN_vkGetDeviceFaultInfoEXT)get_instance_proc_addr(parent,"vkGetDeviceFaultInfoEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceFaultInfoEXT)get_device_proc_addr(parent,"vkGetDeviceFaultInfoEXT");
     }  
     
@@ -36475,8 +36895,9 @@ json.clear();
         for(int RexMRxZ=0; RexMRxZ < 1; RexMRxZ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFaultCounts[RexMRxZ]);
+            serialize_struct(temp_map, pFaultCounts[RexMRxZ]);
             arr_LWLqmdd[RexMRxZ]=temp_map;
+            return;
             }();
         }
         json["pFaultCounts"]=arr_LWLqmdd;}();
@@ -36487,14 +36908,15 @@ json.clear();
         for(int AHHHhvb=0; AHHHhvb < 1; AHHHhvb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFaultInfo[AHHHhvb]);
+            serialize_struct(temp_map, pFaultInfo[AHHHhvb]);
             arr_CRNBZxs[AHHHhvb]=temp_map;
+            return;
             }();
         }
         json["pFaultInfo"]=arr_CRNBZxs;}();
 
 
-        json["stream_type"]=VKGETDEVICEFAULTINFOEXT;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEFAULTINFOEXT);
         writeToConn(json);
     }
 
@@ -36525,7 +36947,7 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkCmdSetDepthBias2EXT)get_instance_proc_addr(parent,"vkCmdSetDepthBias2EXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdSetDepthBias2EXT)get_device_proc_addr(parent,"vkCmdSetDepthBias2EXT");
     }  
     
@@ -36542,14 +36964,15 @@ json.clear();
         for(int kGsXYsB=0; kGsXYsB < 1; kGsXYsB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDepthBiasInfo[kGsXYsB]);
+            serialize_struct(temp_map, pDepthBiasInfo[kGsXYsB]);
             arr_AKZgFGf[kGsXYsB]=temp_map;
+            return;
             }();
         }
         json["pDepthBiasInfo"]=arr_AKZgFGf;}();
 
 
-        json["stream_type"]=VKCMDSETDEPTHBIAS2EXT;
+        json["stream_type"]=static_cast<int>(VKCMDSETDEPTHBIAS2EXT);
         writeToConn(json);
     }
 
@@ -36580,7 +37003,7 @@ VkDevice device;
         call_function=(PFN_vkReleaseSwapchainImagesEXT)get_instance_proc_addr(parent,"vkReleaseSwapchainImagesEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkReleaseSwapchainImagesEXT)get_device_proc_addr(parent,"vkReleaseSwapchainImagesEXT");
     }  
     
@@ -36598,14 +37021,15 @@ json.clear();
         for(int dRtPqPF=0; dRtPqPF < 1; dRtPqPF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pReleaseInfo[dRtPqPF]);
+            serialize_struct(temp_map, pReleaseInfo[dRtPqPF]);
             arr_jcnZDBn[dRtPqPF]=temp_map;
+            return;
             }();
         }
         json["pReleaseInfo"]=arr_jcnZDBn;}();
 
 
-        json["stream_type"]=VKRELEASESWAPCHAINIMAGESEXT;
+        json["stream_type"]=static_cast<int>(VKRELEASESWAPCHAINIMAGESEXT);
         writeToConn(json);
     }
 
@@ -36647,7 +37071,7 @@ VkSubresourceLayout2KHR* pLayout;
         call_function=(PFN_vkGetDeviceImageSubresourceLayoutKHR)get_instance_proc_addr(parent,"vkGetDeviceImageSubresourceLayoutKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetDeviceImageSubresourceLayoutKHR)get_device_proc_addr(parent,"vkGetDeviceImageSubresourceLayoutKHR");
     }  
     
@@ -36664,8 +37088,9 @@ json.clear();
         for(int wxoktPv=0; wxoktPv < 1; wxoktPv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[wxoktPv]);
+            serialize_struct(temp_map, pInfo[wxoktPv]);
             arr_SwRDgPP[wxoktPv]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_SwRDgPP;}();
@@ -36676,14 +37101,15 @@ json.clear();
         for(int jEkaLQP=0; jEkaLQP < 1; jEkaLQP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLayout[jEkaLQP]);
+            serialize_struct(temp_map, pLayout[jEkaLQP]);
             arr_JxnVeqW[jEkaLQP]=temp_map;
+            return;
             }();
         }
         json["pLayout"]=arr_JxnVeqW;}();
 
 
-        json["stream_type"]=VKGETDEVICEIMAGESUBRESOURCELAYOUTKHR;
+        json["stream_type"]=static_cast<int>(VKGETDEVICEIMAGESUBRESOURCELAYOUTKHR);
         writeToConn(json);
     }
 
@@ -36741,7 +37167,7 @@ void** ppData;
         call_function=(PFN_vkMapMemory2KHR)get_instance_proc_addr(parent,"vkMapMemory2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkMapMemory2KHR)get_device_proc_addr(parent,"vkMapMemory2KHR");
     }  
     
@@ -36759,8 +37185,9 @@ json.clear();
         for(int iwSaLAe=0; iwSaLAe < 1; iwSaLAe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryMapInfo[iwSaLAe]);
+            serialize_struct(temp_map, pMemoryMapInfo[iwSaLAe]);
             arr_udcndbe[iwSaLAe]=temp_map;
+            return;
             }();
         }
         json["pMemoryMapInfo"]=arr_udcndbe;}();
@@ -36795,7 +37222,7 @@ json.clear();
         #endif
         
 
-        json["stream_type"]=VKMAPMEMORY2KHR;
+        json["stream_type"]=static_cast<int>(VKMAPMEMORY2KHR);
         writeToConn(json);
     }
 
@@ -36826,7 +37253,7 @@ VkDevice device;
         call_function=(PFN_vkUnmapMemory2KHR)get_instance_proc_addr(parent,"vkUnmapMemory2KHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkUnmapMemory2KHR)get_device_proc_addr(parent,"vkUnmapMemory2KHR");
     }  
     
@@ -36844,14 +37271,15 @@ json.clear();
         for(int caczdhq=0; caczdhq < 1; caczdhq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryUnmapInfo[caczdhq]);
+            serialize_struct(temp_map, pMemoryUnmapInfo[caczdhq]);
             arr_hZlnXPf[caczdhq]=temp_map;
+            return;
             }();
         }
         json["pMemoryUnmapInfo"]=arr_hZlnXPf;}();
 
 
-        json["stream_type"]=VKUNMAPMEMORY2KHR;
+        json["stream_type"]=static_cast<int>(VKUNMAPMEMORY2KHR);
         writeToConn(json);
     }
 
@@ -36912,7 +37340,7 @@ VkShaderEXT* pShaders;
         call_function=(PFN_vkCreateShadersEXT)get_instance_proc_addr(parent,"vkCreateShadersEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCreateShadersEXT)get_device_proc_addr(parent,"vkCreateShadersEXT");
     }  
     
@@ -36931,8 +37359,9 @@ json.clear();
         for(int bOiKywR=0; bOiKywR < createInfoCount; bOiKywR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[bOiKywR]);
+            serialize_struct(temp_map, pCreateInfos[bOiKywR]);
             arr_mOfZnnW[bOiKywR]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_mOfZnnW;}();
@@ -36943,8 +37372,9 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -36958,7 +37388,7 @@ json.clear();
         json["pShaders"]=arr_ndnxxFm;}();
 
 
-        json["stream_type"]=VKCREATESHADERSEXT;
+        json["stream_type"]=static_cast<int>(VKCREATESHADERSEXT);
         writeToConn(json);
     }
 
@@ -36991,7 +37421,7 @@ VkShaderEXT shader;
         call_function=(PFN_vkDestroyShaderEXT)get_instance_proc_addr(parent,"vkDestroyShaderEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkDestroyShaderEXT)get_device_proc_addr(parent,"vkDestroyShaderEXT");
     }  
     
@@ -37009,14 +37439,15 @@ json.clear();
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
 
 
-        json["stream_type"]=VKDESTROYSHADEREXT;
+        json["stream_type"]=static_cast<int>(VKDESTROYSHADEREXT);
         writeToConn(json);
     }
 
@@ -37075,7 +37506,7 @@ void* pData;
         call_function=(PFN_vkGetShaderBinaryDataEXT)get_instance_proc_addr(parent,"vkGetShaderBinaryDataEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetShaderBinaryDataEXT)get_device_proc_addr(parent,"vkGetShaderBinaryDataEXT");
     }  
     
@@ -37108,7 +37539,7 @@ json.clear();
         json["pData"]=arr_KuWJuFa;}();}();
 
 
-        json["stream_type"]=VKGETSHADERBINARYDATAEXT;
+        json["stream_type"]=static_cast<int>(VKGETSHADERBINARYDATAEXT);
         writeToConn(json);
     }
 
@@ -37164,7 +37595,7 @@ uint32_t stageCount;
         call_function=(PFN_vkCmdBindShadersEXT)get_instance_proc_addr(parent,"vkCmdBindShadersEXT");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkCmdBindShadersEXT)get_device_proc_addr(parent,"vkCmdBindShadersEXT");
     }  
     
@@ -37193,7 +37624,7 @@ json.clear();
         json["pShaders"]=arr_ZjERyql;}();
 
 
-        json["stream_type"]=VKCMDBINDSHADERSEXT;
+        json["stream_type"]=static_cast<int>(VKCMDBINDSHADERSEXT);
         writeToConn(json);
     }
 
@@ -37241,7 +37672,7 @@ VkCooperativeMatrixPropertiesKHR* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR)get_instance_proc_addr(parent,"vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR");
     }else if(parent_json.contains("device")){
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR");
     }  
     
@@ -37267,21 +37698,22 @@ json.clear();
         for(int iTGjLCh=0; iTGjLCh < *pPropertyCount; iTGjLCh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[iTGjLCh]);
+            serialize_struct(temp_map, pProperties[iTGjLCh]);
             arr_PEzgESc[iTGjLCh]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_PEzgESc;}();
 
 
-        json["stream_type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR;
+        json["stream_type"]=static_cast<int>(VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR);
         writeToConn(json);
     }
 
 void handle_command(json::map json){
 //Will only be called by the server
 
-switch (static_cast<StreamType>(json["stream_type"].as_int64_t())){
+switch (static_cast<StreamType>(json["stream_type"].as_uint64_t())){
 
 
         case (VKCREATEINSTANCE):
@@ -39944,8 +40376,9 @@ json["parent"]=parent_json;
         for(int pSiEPar=0; pSiEPar < 1; pSiEPar++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[pSiEPar]);
+            serialize_struct(temp_map, pCreateInfo[pSiEPar]);
             arr_yCteunD[pSiEPar]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_yCteunD;}();
@@ -39956,8 +40389,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -39977,7 +40411,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -40079,8 +40513,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -40092,7 +40527,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -40190,7 +40625,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -40322,7 +40757,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -44673,7 +45108,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -49015,8 +49450,9 @@ json["parent"]=parent_json;
         for(int RBAofpr=0; RBAofpr < 1; RBAofpr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[RBAofpr]);
+            serialize_struct(temp_map, pProperties[RBAofpr]);
             arr_rSttUuQ[RBAofpr]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_rSttUuQ;}();
@@ -49028,7 +49464,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -49126,8 +49562,9 @@ json["parent"]=parent_json;
         for(int WYdxXmB=0; WYdxXmB < *pQueueFamilyPropertyCount; WYdxXmB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pQueueFamilyProperties[WYdxXmB]);
+            serialize_struct(temp_map, pQueueFamilyProperties[WYdxXmB]);
             arr_ixxluvk[WYdxXmB]=temp_map;
+            return;
             }();
         }
         json["pQueueFamilyProperties"]=arr_ixxluvk;}();
@@ -49139,7 +49576,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -49245,8 +49682,9 @@ json["parent"]=parent_json;
         for(int iqfYjRc=0; iqfYjRc < 1; iqfYjRc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryProperties[iqfYjRc]);
+            serialize_struct(temp_map, pMemoryProperties[iqfYjRc]);
             arr_cVJWqPt[iqfYjRc]=temp_map;
+            return;
             }();
         }
         json["pMemoryProperties"]=arr_cVJWqPt;}();
@@ -49258,7 +49696,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -49348,8 +49786,9 @@ json["parent"]=parent_json;
         for(int IqPoadP=0; IqPoadP < 1; IqPoadP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFeatures[IqPoadP]);
+            serialize_struct(temp_map, pFeatures[IqPoadP]);
             arr_MNJcbZO[IqPoadP]=temp_map;
+            return;
             }();
         }
         json["pFeatures"]=arr_MNJcbZO;}();
@@ -49361,7 +49800,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -49452,8 +49891,9 @@ json["parent"]=parent_json;
         for(int CLkwuSw=0; CLkwuSw < 1; CLkwuSw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFormatProperties[CLkwuSw]);
+            serialize_struct(temp_map, pFormatProperties[CLkwuSw]);
             arr_ktGodop[CLkwuSw]=temp_map;
+            return;
             }();
         }
         json["pFormatProperties"]=arr_ktGodop;}();
@@ -49465,7 +49905,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -49569,8 +50009,9 @@ json["parent"]=parent_json;
         for(int hhYjZOs=0; hhYjZOs < 1; hhYjZOs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageFormatProperties[hhYjZOs]);
+            serialize_struct(temp_map, pImageFormatProperties[hhYjZOs]);
             arr_sBgMBXU[hhYjZOs]=temp_map;
+            return;
             }();
         }
         json["pImageFormatProperties"]=arr_sBgMBXU;}();
@@ -49582,7 +50023,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -49729,8 +50170,9 @@ json["parent"]=parent_json;
         for(int Ktbkccz=0; Ktbkccz < 1; Ktbkccz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[Ktbkccz]);
+            serialize_struct(temp_map, pCreateInfo[Ktbkccz]);
             arr_TuuJAwt[Ktbkccz]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_TuuJAwt;}();
@@ -49741,8 +50183,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -49762,7 +50205,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -49866,8 +50309,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -49879,7 +50323,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -49960,7 +50404,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50066,8 +50510,9 @@ json["parent"]=parent_json;
         for(int AVcpYdO=0; AVcpYdO < *pPropertyCount; AVcpYdO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[AVcpYdO]);
+            serialize_struct(temp_map, pProperties[AVcpYdO]);
             arr_AKGITwD[AVcpYdO]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_AKGITwD;}();
@@ -50079,7 +50524,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50216,8 +50661,9 @@ json["parent"]=parent_json;
         for(int oiKhvHw=0; oiKhvHw < *pPropertyCount; oiKhvHw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[oiKhvHw]);
+            serialize_struct(temp_map, pProperties[oiKhvHw]);
             arr_yJzeHZb[oiKhvHw]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_yJzeHZb;}();
@@ -50229,7 +50675,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50387,8 +50833,9 @@ json["parent"]=parent_json;
         for(int AVcpYdO=0; AVcpYdO < *pPropertyCount; AVcpYdO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[AVcpYdO]);
+            serialize_struct(temp_map, pProperties[AVcpYdO]);
             arr_AKGITwD[AVcpYdO]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_AKGITwD;}();
@@ -50400,7 +50847,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50534,8 +50981,9 @@ json["parent"]=parent_json;
         for(int oiKhvHw=0; oiKhvHw < *pPropertyCount; oiKhvHw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[oiKhvHw]);
+            serialize_struct(temp_map, pProperties[oiKhvHw]);
             arr_yJzeHZb[oiKhvHw]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_yJzeHZb;}();
@@ -50547,7 +50995,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50677,7 +51125,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50792,8 +51240,9 @@ json["parent"]=parent_json;
         for(int FrUhwZA=0; FrUhwZA < submitCount; FrUhwZA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubmits[FrUhwZA]);
+            serialize_struct(temp_map, pSubmits[FrUhwZA]);
             arr_kYcwgKD[FrUhwZA]=temp_map;
+            return;
             }();
         }
         json["pSubmits"]=arr_kYcwgKD;}();
@@ -50807,7 +51256,7 @@ SyncAll();
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50912,7 +51361,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51005,7 +51454,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51098,8 +51547,9 @@ json["parent"]=parent_json;
         for(int MAXIAGO=0; MAXIAGO < 1; MAXIAGO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocateInfo[MAXIAGO]);
+            serialize_struct(temp_map, pAllocateInfo[MAXIAGO]);
             arr_NGCHnPz[MAXIAGO]=temp_map;
+            return;
             }();
         }
         json["pAllocateInfo"]=arr_NGCHnPz;}();
@@ -51110,8 +51560,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -51131,7 +51582,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51235,8 +51686,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -51249,7 +51701,7 @@ vkUnmapMemory(device,memory);
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51361,7 +51813,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51522,7 +51974,7 @@ deregisterDeviceMemoryMap(memory);
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51605,8 +52057,9 @@ json["parent"]=parent_json;
         for(int GdhGpVL=0; GdhGpVL < memoryRangeCount; GdhGpVL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRanges[GdhGpVL]);
+            serialize_struct(temp_map, pMemoryRanges[GdhGpVL]);
             arr_sKDZFVw[GdhGpVL]=temp_map;
+            return;
             }();
         }
         json["pMemoryRanges"]=arr_sKDZFVw;}();
@@ -51618,7 +52071,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51721,8 +52174,9 @@ json["parent"]=parent_json;
         for(int GdhGpVL=0; GdhGpVL < memoryRangeCount; GdhGpVL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRanges[GdhGpVL]);
+            serialize_struct(temp_map, pMemoryRanges[GdhGpVL]);
             arr_sKDZFVw[GdhGpVL]=temp_map;
+            return;
             }();
         }
         json["pMemoryRanges"]=arr_sKDZFVw;}();
@@ -51734,7 +52188,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51846,7 +52300,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51944,8 +52398,9 @@ json["parent"]=parent_json;
         for(int VeirrNu=0; VeirrNu < 1; VeirrNu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[VeirrNu]);
+            serialize_struct(temp_map, pMemoryRequirements[VeirrNu]);
             arr_qQjUyYD[VeirrNu]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_qQjUyYD;}();
@@ -51957,7 +52412,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52052,7 +52507,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52156,8 +52611,9 @@ json["parent"]=parent_json;
         for(int VeirrNu=0; VeirrNu < 1; VeirrNu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[VeirrNu]);
+            serialize_struct(temp_map, pMemoryRequirements[VeirrNu]);
             arr_qQjUyYD[VeirrNu]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_qQjUyYD;}();
@@ -52169,7 +52625,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52264,7 +52720,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52376,8 +52832,9 @@ json["parent"]=parent_json;
         for(int HKRWUBR=0; HKRWUBR < *pSparseMemoryRequirementCount; HKRWUBR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSparseMemoryRequirements[HKRWUBR]);
+            serialize_struct(temp_map, pSparseMemoryRequirements[HKRWUBR]);
             arr_gCgbiZM[HKRWUBR]=temp_map;
+            return;
             }();
         }
         json["pSparseMemoryRequirements"]=arr_gCgbiZM;}();
@@ -52389,7 +52846,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52509,8 +52966,9 @@ json["parent"]=parent_json;
         for(int BOLcXca=0; BOLcXca < *pPropertyCount; BOLcXca++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[BOLcXca]);
+            serialize_struct(temp_map, pProperties[BOLcXca]);
             arr_jINYdYP[BOLcXca]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_jINYdYP;}();
@@ -52522,7 +52980,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52674,8 +53132,9 @@ json["parent"]=parent_json;
         for(int ujBkVap=0; ujBkVap < bindInfoCount; ujBkVap++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindInfo[ujBkVap]);
+            serialize_struct(temp_map, pBindInfo[ujBkVap]);
             arr_eUGJCxJ[ujBkVap]=temp_map;
+            return;
             }();
         }
         json["pBindInfo"]=arr_eUGJCxJ;}();
@@ -52688,7 +53147,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52791,8 +53250,9 @@ json["parent"]=parent_json;
         for(int kPSKeJY=0; kPSKeJY < 1; kPSKeJY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[kPSKeJY]);
+            serialize_struct(temp_map, pCreateInfo[kPSKeJY]);
             arr_qbBwXza[kPSKeJY]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_qbBwXza;}();
@@ -52803,8 +53263,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -52824,7 +53285,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52934,8 +53395,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -52947,7 +53409,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53039,7 +53501,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53143,7 +53605,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53249,7 +53711,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53370,8 +53832,9 @@ json["parent"]=parent_json;
         for(int TzTYDbe=0; TzTYDbe < 1; TzTYDbe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[TzTYDbe]);
+            serialize_struct(temp_map, pCreateInfo[TzTYDbe]);
             arr_hQVwpIP[TzTYDbe]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_hQVwpIP;}();
@@ -53382,8 +53845,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -53403,7 +53867,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53513,8 +53977,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -53526,7 +53991,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53608,8 +54073,9 @@ json["parent"]=parent_json;
         for(int ThfQKZW=0; ThfQKZW < 1; ThfQKZW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[ThfQKZW]);
+            serialize_struct(temp_map, pCreateInfo[ThfQKZW]);
             arr_wqWioqo[ThfQKZW]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_wqWioqo;}();
@@ -53620,8 +54086,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -53641,7 +54108,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53751,8 +54218,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -53764,7 +54232,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53848,7 +54316,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53943,7 +54411,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54038,7 +54506,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54131,8 +54599,9 @@ json["parent"]=parent_json;
         for(int SvYxRUl=0; SvYxRUl < 1; SvYxRUl++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[SvYxRUl]);
+            serialize_struct(temp_map, pCreateInfo[SvYxRUl]);
             arr_AOuTZQo[SvYxRUl]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_AOuTZQo;}();
@@ -54143,8 +54612,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -54164,7 +54634,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54274,8 +54744,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -54287,7 +54758,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54387,7 +54858,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54548,7 +55019,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54650,8 +55121,9 @@ json["parent"]=parent_json;
         for(int XkzMxbI=0; XkzMxbI < 1; XkzMxbI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[XkzMxbI]);
+            serialize_struct(temp_map, pCreateInfo[XkzMxbI]);
             arr_YapwvbL[XkzMxbI]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_YapwvbL;}();
@@ -54662,8 +55134,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -54683,7 +55156,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54793,8 +55266,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -54806,7 +55280,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54888,8 +55362,9 @@ json["parent"]=parent_json;
         for(int cSdiRJj=0; cSdiRJj < 1; cSdiRJj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[cSdiRJj]);
+            serialize_struct(temp_map, pCreateInfo[cSdiRJj]);
             arr_SvrkcZl[cSdiRJj]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_SvrkcZl;}();
@@ -54900,8 +55375,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -54921,7 +55397,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55031,8 +55507,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -55044,7 +55521,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55126,8 +55603,9 @@ json["parent"]=parent_json;
         for(int pRwmwcF=0; pRwmwcF < 1; pRwmwcF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[pRwmwcF]);
+            serialize_struct(temp_map, pCreateInfo[pRwmwcF]);
             arr_TpPCnAy[pRwmwcF]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_TpPCnAy;}();
@@ -55138,8 +55616,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -55159,7 +55638,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55269,8 +55748,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -55282,7 +55762,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55365,8 +55845,9 @@ json["parent"]=parent_json;
         for(int trrMzRH=0; trrMzRH < 1; trrMzRH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubresource[trrMzRH]);
+            serialize_struct(temp_map, pSubresource[trrMzRH]);
             arr_bNRLlpX[trrMzRH]=temp_map;
+            return;
             }();
         }
         json["pSubresource"]=arr_bNRLlpX;}();
@@ -55377,8 +55858,9 @@ json["parent"]=parent_json;
         for(int jGHmbXh=0; jGHmbXh < 1; jGHmbXh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLayout[jGHmbXh]);
+            serialize_struct(temp_map, pLayout[jGHmbXh]);
             arr_JAFsVvP[jGHmbXh]=temp_map;
+            return;
             }();
         }
         json["pLayout"]=arr_JAFsVvP;}();
@@ -55390,7 +55872,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55482,8 +55964,9 @@ json["parent"]=parent_json;
         for(int HNOogbj=0; HNOogbj < 1; HNOogbj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[HNOogbj]);
+            serialize_struct(temp_map, pCreateInfo[HNOogbj]);
             arr_TYfFrkP[HNOogbj]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_TYfFrkP;}();
@@ -55494,8 +55977,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -55515,7 +55999,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55625,8 +56109,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -55638,7 +56123,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55720,8 +56205,9 @@ json["parent"]=parent_json;
         for(int dKxemXH=0; dKxemXH < 1; dKxemXH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[dKxemXH]);
+            serialize_struct(temp_map, pCreateInfo[dKxemXH]);
             arr_iSZUILM[dKxemXH]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_iSZUILM;}();
@@ -55732,8 +56218,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -55753,7 +56240,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55863,8 +56350,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -55876,7 +56364,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55958,8 +56446,9 @@ json["parent"]=parent_json;
         for(int iWdFkeP=0; iWdFkeP < 1; iWdFkeP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[iWdFkeP]);
+            serialize_struct(temp_map, pCreateInfo[iWdFkeP]);
             arr_wTXOYfz[iWdFkeP]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_wTXOYfz;}();
@@ -55970,8 +56459,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -55991,7 +56481,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56101,8 +56591,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -56114,7 +56605,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56217,7 +56708,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56356,7 +56847,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56461,8 +56952,9 @@ json["parent"]=parent_json;
         for(int wqGiARr=0; wqGiARr < createInfoCount; wqGiARr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[wqGiARr]);
+            serialize_struct(temp_map, pCreateInfos[wqGiARr]);
             arr_juQDvLY[wqGiARr]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_juQDvLY;}();
@@ -56473,8 +56965,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -56494,7 +56987,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56615,8 +57108,9 @@ json["parent"]=parent_json;
         for(int NsFJrJk=0; NsFJrJk < createInfoCount; NsFJrJk++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[NsFJrJk]);
+            serialize_struct(temp_map, pCreateInfos[NsFJrJk]);
             arr_eqiaDas[NsFJrJk]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_eqiaDas;}();
@@ -56627,8 +57121,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -56648,7 +57143,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56768,8 +57263,9 @@ json["parent"]=parent_json;
         for(int WdbibPk=0; WdbibPk < 1; WdbibPk++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMaxWorkgroupSize[WdbibPk]);
+            serialize_struct(temp_map, pMaxWorkgroupSize[WdbibPk]);
             arr_QJRQgTX[WdbibPk]=temp_map;
+            return;
             }();
         }
         json["pMaxWorkgroupSize"]=arr_QJRQgTX;}();
@@ -56781,7 +57277,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56885,8 +57381,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -56898,7 +57395,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56980,8 +57477,9 @@ json["parent"]=parent_json;
         for(int AdWYCmn=0; AdWYCmn < 1; AdWYCmn++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[AdWYCmn]);
+            serialize_struct(temp_map, pCreateInfo[AdWYCmn]);
             arr_iyZpkhm[AdWYCmn]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_iyZpkhm;}();
@@ -56992,8 +57490,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -57013,7 +57512,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57123,8 +57622,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -57136,7 +57636,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57218,8 +57718,9 @@ json["parent"]=parent_json;
         for(int yMsdBPh=0; yMsdBPh < 1; yMsdBPh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[yMsdBPh]);
+            serialize_struct(temp_map, pCreateInfo[yMsdBPh]);
             arr_xWlqrLm[yMsdBPh]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_xWlqrLm;}();
@@ -57230,8 +57731,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -57251,7 +57753,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57361,8 +57863,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -57374,7 +57877,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57456,8 +57959,9 @@ json["parent"]=parent_json;
         for(int tUGauKK=0; tUGauKK < 1; tUGauKK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[tUGauKK]);
+            serialize_struct(temp_map, pCreateInfo[tUGauKK]);
             arr_dFRsqIW[tUGauKK]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_dFRsqIW;}();
@@ -57468,8 +57972,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -57489,7 +57994,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57599,8 +58104,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -57612,7 +58118,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57694,8 +58200,9 @@ json["parent"]=parent_json;
         for(int XgrRVVh=0; XgrRVVh < 1; XgrRVVh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[XgrRVVh]);
+            serialize_struct(temp_map, pCreateInfo[XgrRVVh]);
             arr_fChMCRL[XgrRVVh]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_fChMCRL;}();
@@ -57706,8 +58213,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -57727,7 +58235,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57837,8 +58345,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -57850,7 +58359,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57935,7 +58444,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58037,8 +58546,9 @@ json["parent"]=parent_json;
         for(int jTINpTr=0; jTINpTr < 1; jTINpTr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocateInfo[jTINpTr]);
+            serialize_struct(temp_map, pAllocateInfo[jTINpTr]);
             arr_yVqYJHW[jTINpTr]=temp_map;
+            return;
             }();
         }
         json["pAllocateInfo"]=arr_yVqYJHW;}();
@@ -58058,7 +58568,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58177,7 +58687,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58281,8 +58791,9 @@ json["parent"]=parent_json;
         for(int qJACxKx=0; qJACxKx < descriptorWriteCount; qJACxKx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDescriptorWrites[qJACxKx]);
+            serialize_struct(temp_map, pDescriptorWrites[qJACxKx]);
             arr_AuOrFWk[qJACxKx]=temp_map;
+            return;
             }();
         }
         json["pDescriptorWrites"]=arr_AuOrFWk;}();
@@ -58294,8 +58805,9 @@ json["parent"]=parent_json;
         for(int ryeXdkw=0; ryeXdkw < descriptorCopyCount; ryeXdkw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDescriptorCopies[ryeXdkw]);
+            serialize_struct(temp_map, pDescriptorCopies[ryeXdkw]);
             arr_WWZDhqd[ryeXdkw]=temp_map;
+            return;
             }();
         }
         json["pDescriptorCopies"]=arr_WWZDhqd;}();
@@ -58307,7 +58819,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58407,8 +58919,9 @@ json["parent"]=parent_json;
         for(int jMLqpUb=0; jMLqpUb < 1; jMLqpUb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[jMLqpUb]);
+            serialize_struct(temp_map, pCreateInfo[jMLqpUb]);
             arr_LBIrWmz[jMLqpUb]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_LBIrWmz;}();
@@ -58419,8 +58932,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -58440,7 +58954,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58550,8 +59064,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -58563,7 +59078,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58645,8 +59160,9 @@ json["parent"]=parent_json;
         for(int oHJSJzU=0; oHJSJzU < 1; oHJSJzU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[oHJSJzU]);
+            serialize_struct(temp_map, pCreateInfo[oHJSJzU]);
             arr_upxhtZe[oHJSJzU]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_upxhtZe;}();
@@ -58657,8 +59173,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -58678,7 +59195,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58788,8 +59305,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -58801,7 +59319,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58884,8 +59402,9 @@ json["parent"]=parent_json;
         for(int tgiNLQL=0; tgiNLQL < 1; tgiNLQL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGranularity[tgiNLQL]);
+            serialize_struct(temp_map, pGranularity[tgiNLQL]);
             arr_VvmWHYL[tgiNLQL]=temp_map;
+            return;
             }();
         }
         json["pGranularity"]=arr_VvmWHYL;}();
@@ -58897,7 +59416,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58988,8 +59507,9 @@ json["parent"]=parent_json;
         for(int WRYBJDa=0; WRYBJDa < 1; WRYBJDa++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRenderingAreaInfo[WRYBJDa]);
+            serialize_struct(temp_map, pRenderingAreaInfo[WRYBJDa]);
             arr_QFvDqfG[WRYBJDa]=temp_map;
+            return;
             }();
         }
         json["pRenderingAreaInfo"]=arr_QFvDqfG;}();
@@ -59000,8 +59520,9 @@ json["parent"]=parent_json;
         for(int tgiNLQL=0; tgiNLQL < 1; tgiNLQL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGranularity[tgiNLQL]);
+            serialize_struct(temp_map, pGranularity[tgiNLQL]);
             arr_VvmWHYL[tgiNLQL]=temp_map;
+            return;
             }();
         }
         json["pGranularity"]=arr_VvmWHYL;}();
@@ -59013,7 +59534,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59104,8 +59625,9 @@ json["parent"]=parent_json;
         for(int ubLLexW=0; ubLLexW < 1; ubLLexW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[ubLLexW]);
+            serialize_struct(temp_map, pCreateInfo[ubLLexW]);
             arr_ISnaSOj[ubLLexW]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_ISnaSOj;}();
@@ -59116,8 +59638,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -59137,7 +59660,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59247,8 +59770,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -59260,7 +59784,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59345,7 +59869,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59447,8 +59971,9 @@ json["parent"]=parent_json;
         for(int VMrKYrr=0; VMrKYrr < 1; VMrKYrr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocateInfo[VMrKYrr]);
+            serialize_struct(temp_map, pAllocateInfo[VMrKYrr]);
             arr_ZURucFE[VMrKYrr]=temp_map;
+            return;
             }();
         }
         json["pAllocateInfo"]=arr_ZURucFE;}();
@@ -59468,7 +59993,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59587,7 +60112,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59678,8 +60203,9 @@ json["parent"]=parent_json;
         for(int MlslWJM=0; MlslWJM < 1; MlslWJM++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBeginInfo[MlslWJM]);
+            serialize_struct(temp_map, pBeginInfo[MlslWJM]);
             arr_cULABHU[MlslWJM]=temp_map;
+            return;
             }();
         }
         json["pBeginInfo"]=arr_cULABHU;}();
@@ -59691,7 +60217,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59785,7 +60311,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59879,7 +60405,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59983,7 +60509,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60075,7 +60601,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60166,8 +60692,9 @@ json["parent"]=parent_json;
         for(int HAuJlzw=0; HAuJlzw < viewportCount; HAuJlzw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pViewports[HAuJlzw]);
+            serialize_struct(temp_map, pViewports[HAuJlzw]);
             arr_SyYryUE[HAuJlzw]=temp_map;
+            return;
             }();
         }
         json["pViewports"]=arr_SyYryUE;}();
@@ -60179,7 +60706,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60280,8 +60807,9 @@ json["parent"]=parent_json;
         for(int XBYGvVT=0; XBYGvVT < scissorCount; XBYGvVT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pScissors[XBYGvVT]);
+            serialize_struct(temp_map, pScissors[XBYGvVT]);
             arr_RpUaBcS[XBYGvVT]=temp_map;
+            return;
             }();
         }
         json["pScissors"]=arr_RpUaBcS;}();
@@ -60293,7 +60821,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60394,7 +60922,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60487,7 +61015,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60600,7 +61128,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60688,7 +61216,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60789,7 +61317,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60890,7 +61418,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60991,7 +61519,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61111,7 +61639,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61234,7 +61762,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61352,7 +61880,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61457,7 +61985,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61579,7 +62107,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61705,8 +62233,9 @@ json["parent"]=parent_json;
         for(int xJCsgzh=0; xJCsgzh < drawCount; xJCsgzh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVertexInfo[xJCsgzh]);
+            serialize_struct(temp_map, pVertexInfo[xJCsgzh]);
             arr_NmVssTF[xJCsgzh]=temp_map;
+            return;
             }();
         }
         json["pVertexInfo"]=arr_NmVssTF;}();
@@ -61721,7 +62250,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61839,8 +62368,9 @@ json["parent"]=parent_json;
         for(int FmfkOAV=0; FmfkOAV < drawCount; FmfkOAV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pIndexInfo[FmfkOAV]);
+            serialize_struct(temp_map, pIndexInfo[FmfkOAV]);
             arr_OvAOCiL[FmfkOAV]=temp_map;
+            return;
             }();
         }
         json["pIndexInfo"]=arr_OvAOCiL;}();
@@ -61863,7 +62393,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61986,7 +62516,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62099,7 +62629,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62211,7 +62741,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62321,7 +62851,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62412,7 +62942,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62496,7 +63026,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62606,7 +63136,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62699,7 +63229,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62792,8 +63322,9 @@ json["parent"]=parent_json;
         for(int IaMuFrO=0; IaMuFrO < regionCount; IaMuFrO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[IaMuFrO]);
+            serialize_struct(temp_map, pRegions[IaMuFrO]);
             arr_McSYWcQ[IaMuFrO]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_McSYWcQ;}();
@@ -62805,7 +63336,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62902,8 +63433,9 @@ json["parent"]=parent_json;
         for(int TvxHvSV=0; TvxHvSV < regionCount; TvxHvSV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[TvxHvSV]);
+            serialize_struct(temp_map, pRegions[TvxHvSV]);
             arr_HMPixWj[TvxHvSV]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_HMPixWj;}();
@@ -62915,7 +63447,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63030,8 +63562,9 @@ json["parent"]=parent_json;
         for(int YEXYPDJ=0; YEXYPDJ < regionCount; YEXYPDJ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[YEXYPDJ]);
+            serialize_struct(temp_map, pRegions[YEXYPDJ]);
             arr_dQsoHhP[YEXYPDJ]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_dQsoHhP;}();
@@ -63044,7 +63577,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63167,8 +63700,9 @@ json["parent"]=parent_json;
         for(int yuuZKOo=0; yuuZKOo < regionCount; yuuZKOo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[yuuZKOo]);
+            serialize_struct(temp_map, pRegions[yuuZKOo]);
             arr_igZnVsu[yuuZKOo]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_igZnVsu;}();
@@ -63180,7 +63714,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63285,8 +63819,9 @@ json["parent"]=parent_json;
         for(int yuuZKOo=0; yuuZKOo < regionCount; yuuZKOo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[yuuZKOo]);
+            serialize_struct(temp_map, pRegions[yuuZKOo]);
             arr_igZnVsu[yuuZKOo]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_igZnVsu;}();
@@ -63298,7 +63833,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63403,7 +63938,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63515,8 +64050,9 @@ json["parent"]=parent_json;
         for(int OfGHasS=0; OfGHasS < copyCount; OfGHasS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageSubresources[OfGHasS]);
+            serialize_struct(temp_map, pImageSubresources[OfGHasS]);
             arr_hVMAkcO[OfGHasS]=temp_map;
+            return;
             }();
         }
         json["pImageSubresources"]=arr_hVMAkcO;}();
@@ -63528,7 +64064,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63661,7 +64197,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63766,7 +64302,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63876,8 +64412,9 @@ json["parent"]=parent_json;
         for(int ldPlUDi=0; ldPlUDi < 1; ldPlUDi++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pColor[ldPlUDi]);
+            serialize_struct(temp_map, pColor[ldPlUDi]);
             arr_SGRyjqE[ldPlUDi]=temp_map;
+            return;
             }();
         }
         json["pColor"]=arr_SGRyjqE;}();
@@ -63889,8 +64426,9 @@ json["parent"]=parent_json;
         for(int IZgopUD=0; IZgopUD < rangeCount; IZgopUD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRanges[IZgopUD]);
+            serialize_struct(temp_map, pRanges[IZgopUD]);
             arr_BisbUqU[IZgopUD]=temp_map;
+            return;
             }();
         }
         json["pRanges"]=arr_BisbUqU;}();
@@ -63902,7 +64440,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64005,8 +64543,9 @@ json["parent"]=parent_json;
         for(int jJUemfv=0; jJUemfv < 1; jJUemfv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDepthStencil[jJUemfv]);
+            serialize_struct(temp_map, pDepthStencil[jJUemfv]);
             arr_gYzlVps[jJUemfv]=temp_map;
+            return;
             }();
         }
         json["pDepthStencil"]=arr_gYzlVps;}();
@@ -64018,8 +64557,9 @@ json["parent"]=parent_json;
         for(int IZgopUD=0; IZgopUD < rangeCount; IZgopUD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRanges[IZgopUD]);
+            serialize_struct(temp_map, pRanges[IZgopUD]);
             arr_BisbUqU[IZgopUD]=temp_map;
+            return;
             }();
         }
         json["pRanges"]=arr_BisbUqU;}();
@@ -64031,7 +64571,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64133,8 +64673,9 @@ json["parent"]=parent_json;
         for(int BsFiayf=0; BsFiayf < attachmentCount; BsFiayf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAttachments[BsFiayf]);
+            serialize_struct(temp_map, pAttachments[BsFiayf]);
             arr_fOlilkR[BsFiayf]=temp_map;
+            return;
             }();
         }
         json["pAttachments"]=arr_fOlilkR;}();
@@ -64146,8 +64687,9 @@ json["parent"]=parent_json;
         for(int HncrKEH=0; HncrKEH < rectCount; HncrKEH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRects[HncrKEH]);
+            serialize_struct(temp_map, pRects[HncrKEH]);
             arr_cgJwUFb[HncrKEH]=temp_map;
+            return;
             }();
         }
         json["pRects"]=arr_cgJwUFb;}();
@@ -64159,7 +64701,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64264,8 +64806,9 @@ json["parent"]=parent_json;
         for(int UbqELUx=0; UbqELUx < regionCount; UbqELUx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRegions[UbqELUx]);
+            serialize_struct(temp_map, pRegions[UbqELUx]);
             arr_OGNZeww[UbqELUx]=temp_map;
+            return;
             }();
         }
         json["pRegions"]=arr_OGNZeww;}();
@@ -64277,7 +64820,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64390,7 +64933,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64483,7 +65026,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64585,8 +65128,9 @@ json["parent"]=parent_json;
         for(int JhnlCAW=0; JhnlCAW < memoryBarrierCount; JhnlCAW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryBarriers[JhnlCAW]);
+            serialize_struct(temp_map, pMemoryBarriers[JhnlCAW]);
             arr_fXDYoDs[JhnlCAW]=temp_map;
+            return;
             }();
         }
         json["pMemoryBarriers"]=arr_fXDYoDs;}();
@@ -64598,8 +65142,9 @@ json["parent"]=parent_json;
         for(int aFMQios=0; aFMQios < bufferMemoryBarrierCount; aFMQios++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBufferMemoryBarriers[aFMQios]);
+            serialize_struct(temp_map, pBufferMemoryBarriers[aFMQios]);
             arr_FmJTDmX[aFMQios]=temp_map;
+            return;
             }();
         }
         json["pBufferMemoryBarriers"]=arr_FmJTDmX;}();
@@ -64611,8 +65156,9 @@ json["parent"]=parent_json;
         for(int trWYSmx=0; trWYSmx < imageMemoryBarrierCount; trWYSmx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageMemoryBarriers[trWYSmx]);
+            serialize_struct(temp_map, pImageMemoryBarriers[trWYSmx]);
             arr_nkkvvYR[trWYSmx]=temp_map;
+            return;
             }();
         }
         json["pImageMemoryBarriers"]=arr_nkkvvYR;}();
@@ -64624,7 +65170,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64766,8 +65312,9 @@ json["parent"]=parent_json;
         for(int JhnlCAW=0; JhnlCAW < memoryBarrierCount; JhnlCAW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryBarriers[JhnlCAW]);
+            serialize_struct(temp_map, pMemoryBarriers[JhnlCAW]);
             arr_fXDYoDs[JhnlCAW]=temp_map;
+            return;
             }();
         }
         json["pMemoryBarriers"]=arr_fXDYoDs;}();
@@ -64779,8 +65326,9 @@ json["parent"]=parent_json;
         for(int aFMQios=0; aFMQios < bufferMemoryBarrierCount; aFMQios++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBufferMemoryBarriers[aFMQios]);
+            serialize_struct(temp_map, pBufferMemoryBarriers[aFMQios]);
             arr_FmJTDmX[aFMQios]=temp_map;
+            return;
             }();
         }
         json["pBufferMemoryBarriers"]=arr_FmJTDmX;}();
@@ -64792,8 +65340,9 @@ json["parent"]=parent_json;
         for(int trWYSmx=0; trWYSmx < imageMemoryBarrierCount; trWYSmx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageMemoryBarriers[trWYSmx]);
+            serialize_struct(temp_map, pImageMemoryBarriers[trWYSmx]);
             arr_nkkvvYR[trWYSmx]=temp_map;
+            return;
             }();
         }
         json["pImageMemoryBarriers"]=arr_nkkvvYR;}();
@@ -64805,7 +65354,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64946,7 +65495,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65048,7 +65597,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65138,8 +65687,9 @@ json["parent"]=parent_json;
         for(int KETgcvj=0; KETgcvj < 1; KETgcvj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pConditionalRenderingBegin[KETgcvj]);
+            serialize_struct(temp_map, pConditionalRenderingBegin[KETgcvj]);
             arr_guEoeuh[KETgcvj]=temp_map;
+            return;
             }();
         }
         json["pConditionalRenderingBegin"]=arr_guEoeuh;}();
@@ -65151,7 +65701,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65233,7 +65783,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65317,7 +65867,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65420,7 +65970,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65527,7 +66077,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65670,7 +66220,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65779,8 +66329,9 @@ json["parent"]=parent_json;
         for(int lCAvoJt=0; lCAvoJt < 1; lCAvoJt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRenderPassBegin[lCAvoJt]);
+            serialize_struct(temp_map, pRenderPassBegin[lCAvoJt]);
             arr_XtnTubd[lCAvoJt]=temp_map;
+            return;
             }();
         }
         json["pRenderPassBegin"]=arr_XtnTubd;}();
@@ -65793,7 +66344,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65885,7 +66436,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65975,7 +66526,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66065,7 +66616,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66163,8 +66714,9 @@ json["parent"]=parent_json;
         for(int ULwTWiE=0; ULwTWiE < *pPropertyCount; ULwTWiE++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[ULwTWiE]);
+            serialize_struct(temp_map, pProperties[ULwTWiE]);
             arr_jKVTjSh[ULwTWiE]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_jKVTjSh;}();
@@ -66176,7 +66728,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66302,8 +66854,9 @@ json["parent"]=parent_json;
         for(int yGKhOKS=0; yGKhOKS < *pPropertyCount; yGKhOKS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[yGKhOKS]);
+            serialize_struct(temp_map, pProperties[yGKhOKS]);
             arr_TBQSgXa[yGKhOKS]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_TBQSgXa;}();
@@ -66315,7 +66868,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66451,7 +67004,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66585,8 +67138,9 @@ json["parent"]=parent_json;
         for(int MCBnXbq=0; MCBnXbq < *pPropertyCount; MCBnXbq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[MCBnXbq]);
+            serialize_struct(temp_map, pProperties[MCBnXbq]);
             arr_kllbUBl[MCBnXbq]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_kllbUBl;}();
@@ -66598,7 +67152,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66718,8 +67272,9 @@ json["parent"]=parent_json;
         for(int UOiSdEd=0; UOiSdEd < 1; UOiSdEd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[UOiSdEd]);
+            serialize_struct(temp_map, pCreateInfo[UOiSdEd]);
             arr_mQflhNS[UOiSdEd]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_mQflhNS;}();
@@ -66730,8 +67285,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -66751,7 +67307,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66863,8 +67419,9 @@ json["parent"]=parent_json;
         for(int aOxwnlc=0; aOxwnlc < 1; aOxwnlc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCapabilities[aOxwnlc]);
+            serialize_struct(temp_map, pCapabilities[aOxwnlc]);
             arr_HrzVMCr[aOxwnlc]=temp_map;
+            return;
             }();
         }
         json["pCapabilities"]=arr_HrzVMCr;}();
@@ -66876,7 +67433,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66988,8 +67545,9 @@ json["parent"]=parent_json;
         for(int KAVLDOd=0; KAVLDOd < 1; KAVLDOd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[KAVLDOd]);
+            serialize_struct(temp_map, pCreateInfo[KAVLDOd]);
             arr_pnrRUFC[KAVLDOd]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_pnrRUFC;}();
@@ -67000,8 +67558,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -67021,7 +67580,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67131,8 +67690,9 @@ json["parent"]=parent_json;
         for(int KSXdUUO=0; KSXdUUO < swapchainCount; KSXdUUO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[KSXdUUO]);
+            serialize_struct(temp_map, pCreateInfos[KSXdUUO]);
             arr_GXhEUBn[KSXdUUO]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_GXhEUBn;}();
@@ -67143,8 +67703,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -67164,7 +67725,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67283,8 +67844,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -67296,7 +67858,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67389,7 +67951,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67508,8 +68070,9 @@ json["parent"]=parent_json;
         for(int MvYVwuP=0; MvYVwuP < 1; MvYVwuP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceCapabilities[MvYVwuP]);
+            serialize_struct(temp_map, pSurfaceCapabilities[MvYVwuP]);
             arr_mjTYhnS[MvYVwuP]=temp_map;
+            return;
             }();
         }
         json["pSurfaceCapabilities"]=arr_mjTYhnS;}();
@@ -67521,7 +68084,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67634,8 +68197,9 @@ json["parent"]=parent_json;
         for(int sioXabq=0; sioXabq < *pSurfaceFormatCount; sioXabq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceFormats[sioXabq]);
+            serialize_struct(temp_map, pSurfaceFormats[sioXabq]);
             arr_FttXsVA[sioXabq]=temp_map;
+            return;
             }();
         }
         json["pSurfaceFormats"]=arr_FttXsVA;}();
@@ -67647,7 +68211,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67784,7 +68348,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67906,7 +68470,7 @@ json["parent"]=parent_json;
         
         temp_info.imageUsage|=VK_IMAGE_USAGE_TRANSFER_SRC_BIT;
         
-        pCreateInfo=&temp_info;
+        auto pCreateInfo=&temp_info;
         
 [&](){serialize_VkDevice(json["device"],device);}();
 [&](){
@@ -67916,8 +68480,9 @@ json["parent"]=parent_json;
         for(int RzLCOHt=0; RzLCOHt < 1; RzLCOHt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[RzLCOHt]);
+            serialize_struct(temp_map, pCreateInfo[RzLCOHt]);
             arr_egkAfIq[RzLCOHt]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_egkAfIq;}();
@@ -67928,8 +68493,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -67949,7 +68515,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68019,6 +68585,11 @@ VkResult result;
             }
             }();result=(VkResult)temp_zHrmoVe;}();}();
 
+        auto& imageExtent1=json["pCreateInfo"].as_vector()[0].as_map().at("imageExtent").as_map();
+        debug_printf("Swapchain extent: %d, %d\n", static_cast<uint32_t>(imageExtent1.at("width").as_uint64_t()), imageExtent1.at("height").as_uint64_t());
+        debug_printf("Swapchain extent: %d, %d\n", pCreateInfo->imageExtent.width, pCreateInfo->imageExtent.height);
+        
+
                 if (pSwapchain!=NULL){
                     for (int i=0; i<1; i++){
                         handle_to_parent_handle_struct[(uintptr_t)(pSwapchain[i])]=parent;
@@ -68060,8 +68631,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -68073,7 +68645,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68173,7 +68745,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68303,7 +68875,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68472,8 +69044,9 @@ json["parent"]=parent_json;
         for(int EKHdNlu=0; EKHdNlu < 1; EKHdNlu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPresentInfo[EKHdNlu]);
+            serialize_struct(temp_map, pPresentInfo[EKHdNlu]);
             arr_EyhZHrS[EKHdNlu]=temp_map;
+            return;
             }();
         }
         json["pPresentInfo"]=arr_EyhZHrS;}();
@@ -68485,7 +69058,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68601,7 +69174,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68729,7 +69302,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68834,8 +69407,9 @@ json["parent"]=parent_json;
         for(int BsRBklZ=0; BsRBklZ < 1; BsRBklZ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[BsRBklZ]);
+            serialize_struct(temp_map, pCreateInfo[BsRBklZ]);
             arr_YvgjHhM[BsRBklZ]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_YvgjHhM;}();
@@ -68846,8 +69420,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -68867,7 +69442,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68977,8 +69552,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -68990,7 +69566,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69094,7 +69670,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69221,8 +69797,9 @@ json["parent"]=parent_json;
         for(int VlhHang=0; VlhHang < 1; VlhHang++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pNameInfo[VlhHang]);
+            serialize_struct(temp_map, pNameInfo[VlhHang]);
             arr_WQmILKl[VlhHang]=temp_map;
+            return;
             }();
         }
         json["pNameInfo"]=arr_WQmILKl;}();
@@ -69234,7 +69811,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69327,8 +69904,9 @@ json["parent"]=parent_json;
         for(int fibGciH=0; fibGciH < 1; fibGciH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pTagInfo[fibGciH]);
+            serialize_struct(temp_map, pTagInfo[fibGciH]);
             arr_uESKIxS[fibGciH]=temp_map;
+            return;
             }();
         }
         json["pTagInfo"]=arr_uESKIxS;}();
@@ -69340,7 +69918,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69433,8 +70011,9 @@ json["parent"]=parent_json;
         for(int MSMqdqs=0; MSMqdqs < 1; MSMqdqs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMarkerInfo[MSMqdqs]);
+            serialize_struct(temp_map, pMarkerInfo[MSMqdqs]);
             arr_sUKpmoY[MSMqdqs]=temp_map;
+            return;
             }();
         }
         json["pMarkerInfo"]=arr_sUKpmoY;}();
@@ -69446,7 +70025,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69528,7 +70107,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69608,8 +70187,9 @@ json["parent"]=parent_json;
         for(int MSMqdqs=0; MSMqdqs < 1; MSMqdqs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMarkerInfo[MSMqdqs]);
+            serialize_struct(temp_map, pMarkerInfo[MSMqdqs]);
             arr_sUKpmoY[MSMqdqs]=temp_map;
+            return;
             }();
         }
         json["pMarkerInfo"]=arr_sUKpmoY;}();
@@ -69621,7 +70201,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69708,8 +70288,9 @@ json["parent"]=parent_json;
         for(int CfNLqMF=0; CfNLqMF < 1; CfNLqMF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalImageFormatProperties[CfNLqMF]);
+            serialize_struct(temp_map, pExternalImageFormatProperties[CfNLqMF]);
             arr_gXHGwln[CfNLqMF]=temp_map;
+            return;
             }();
         }
         json["pExternalImageFormatProperties"]=arr_gXHGwln;}();
@@ -69721,7 +70302,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69878,8 +70459,9 @@ json["parent"]=parent_json;
         for(int breVZQP=0; breVZQP < 1; breVZQP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGeneratedCommandsInfo[breVZQP]);
+            serialize_struct(temp_map, pGeneratedCommandsInfo[breVZQP]);
             arr_mvZtJqS[breVZQP]=temp_map;
+            return;
             }();
         }
         json["pGeneratedCommandsInfo"]=arr_mvZtJqS;}();
@@ -69891,7 +70473,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69981,8 +70563,9 @@ json["parent"]=parent_json;
         for(int breVZQP=0; breVZQP < 1; breVZQP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGeneratedCommandsInfo[breVZQP]);
+            serialize_struct(temp_map, pGeneratedCommandsInfo[breVZQP]);
             arr_mvZtJqS[breVZQP]=temp_map;
+            return;
             }();
         }
         json["pGeneratedCommandsInfo"]=arr_mvZtJqS;}();
@@ -69994,7 +70577,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70079,7 +70662,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70178,8 +70761,9 @@ json["parent"]=parent_json;
         for(int suoLDtj=0; suoLDtj < 1; suoLDtj++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[suoLDtj]);
+            serialize_struct(temp_map, pInfo[suoLDtj]);
             arr_bVjZkmU[suoLDtj]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_bVjZkmU;}();
@@ -70190,8 +70774,9 @@ json["parent"]=parent_json;
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
@@ -70203,7 +70788,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70294,8 +70879,9 @@ json["parent"]=parent_json;
         for(int TPVCKbG=0; TPVCKbG < 1; TPVCKbG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[TPVCKbG]);
+            serialize_struct(temp_map, pCreateInfo[TPVCKbG]);
             arr_EQPGiEt[TPVCKbG]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_EQPGiEt;}();
@@ -70306,8 +70892,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -70327,7 +70914,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70437,8 +71024,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -70450,7 +71038,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70532,8 +71120,9 @@ json["parent"]=parent_json;
         for(int AlewVZE=0; AlewVZE < 1; AlewVZE++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFeatures[AlewVZE]);
+            serialize_struct(temp_map, pFeatures[AlewVZE]);
             arr_QUwriqy[AlewVZE]=temp_map;
+            return;
             }();
         }
         json["pFeatures"]=arr_QUwriqy;}();
@@ -70545,7 +71134,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70638,8 +71227,9 @@ json["parent"]=parent_json;
         for(int pxUpVYV=0; pxUpVYV < 1; pxUpVYV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[pxUpVYV]);
+            serialize_struct(temp_map, pProperties[pxUpVYV]);
             arr_oZVBLox[pxUpVYV]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_oZVBLox;}();
@@ -70651,7 +71241,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70745,8 +71335,9 @@ json["parent"]=parent_json;
         for(int VZFdkqX=0; VZFdkqX < 1; VZFdkqX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFormatProperties[VZFdkqX]);
+            serialize_struct(temp_map, pFormatProperties[VZFdkqX]);
             arr_RNYTnLU[VZFdkqX]=temp_map;
+            return;
             }();
         }
         json["pFormatProperties"]=arr_RNYTnLU;}();
@@ -70758,7 +71349,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70860,8 +71451,9 @@ json["parent"]=parent_json;
         for(int YAeYFEt=0; YAeYFEt < 1; YAeYFEt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageFormatInfo[YAeYFEt]);
+            serialize_struct(temp_map, pImageFormatInfo[YAeYFEt]);
             arr_MpVGyYe[YAeYFEt]=temp_map;
+            return;
             }();
         }
         json["pImageFormatInfo"]=arr_MpVGyYe;}();
@@ -70872,8 +71464,9 @@ json["parent"]=parent_json;
         for(int NQfBHSv=0; NQfBHSv < 1; NQfBHSv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageFormatProperties[NQfBHSv]);
+            serialize_struct(temp_map, pImageFormatProperties[NQfBHSv]);
             arr_wmAZzRc[NQfBHSv]=temp_map;
+            return;
             }();
         }
         json["pImageFormatProperties"]=arr_wmAZzRc;}();
@@ -70885,7 +71478,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70999,8 +71592,9 @@ json["parent"]=parent_json;
         for(int UxEWlik=0; UxEWlik < *pQueueFamilyPropertyCount; UxEWlik++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pQueueFamilyProperties[UxEWlik]);
+            serialize_struct(temp_map, pQueueFamilyProperties[UxEWlik]);
             arr_NqmNsHw[UxEWlik]=temp_map;
+            return;
             }();
         }
         json["pQueueFamilyProperties"]=arr_NqmNsHw;}();
@@ -71012,7 +71606,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71121,8 +71715,9 @@ json["parent"]=parent_json;
         for(int tFDFCkf=0; tFDFCkf < 1; tFDFCkf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryProperties[tFDFCkf]);
+            serialize_struct(temp_map, pMemoryProperties[tFDFCkf]);
             arr_nJXNYGt[tFDFCkf]=temp_map;
+            return;
             }();
         }
         json["pMemoryProperties"]=arr_nJXNYGt;}();
@@ -71134,7 +71729,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71227,8 +71822,9 @@ json["parent"]=parent_json;
         for(int cvknnOe=0; cvknnOe < 1; cvknnOe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFormatInfo[cvknnOe]);
+            serialize_struct(temp_map, pFormatInfo[cvknnOe]);
             arr_nZOUWlt[cvknnOe]=temp_map;
+            return;
             }();
         }
         json["pFormatInfo"]=arr_nZOUWlt;}();
@@ -71247,8 +71843,9 @@ json["parent"]=parent_json;
         for(int lIrIGCv=0; lIrIGCv < *pPropertyCount; lIrIGCv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[lIrIGCv]);
+            serialize_struct(temp_map, pProperties[lIrIGCv]);
             arr_YaLkATe[lIrIGCv]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_YaLkATe;}();
@@ -71260,7 +71857,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71374,8 +71971,9 @@ json["parent"]=parent_json;
         for(int qJACxKx=0; qJACxKx < descriptorWriteCount; qJACxKx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDescriptorWrites[qJACxKx]);
+            serialize_struct(temp_map, pDescriptorWrites[qJACxKx]);
             arr_AuOrFWk[qJACxKx]=temp_map;
+            return;
             }();
         }
         json["pDescriptorWrites"]=arr_AuOrFWk;}();
@@ -71387,7 +71985,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71499,7 +72097,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71592,8 +72190,9 @@ json["parent"]=parent_json;
         for(int XeSwNaV=0; XeSwNaV < 1; XeSwNaV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalBufferInfo[XeSwNaV]);
+            serialize_struct(temp_map, pExternalBufferInfo[XeSwNaV]);
             arr_VbIxQJg[XeSwNaV]=temp_map;
+            return;
             }();
         }
         json["pExternalBufferInfo"]=arr_VbIxQJg;}();
@@ -71604,8 +72203,9 @@ json["parent"]=parent_json;
         for(int ufvutei=0; ufvutei < 1; ufvutei++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalBufferProperties[ufvutei]);
+            serialize_struct(temp_map, pExternalBufferProperties[ufvutei]);
             arr_oXzExYk[ufvutei]=temp_map;
+            return;
             }();
         }
         json["pExternalBufferProperties"]=arr_oXzExYk;}();
@@ -71617,7 +72217,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71711,8 +72311,9 @@ json["parent"]=parent_json;
         for(int oZoTEJx=0; oZoTEJx < 1; oZoTEJx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGetFdInfo[oZoTEJx]);
+            serialize_struct(temp_map, pGetFdInfo[oZoTEJx]);
             arr_imCbcqk[oZoTEJx]=temp_map;
+            return;
             }();
         }
         json["pGetFdInfo"]=arr_imCbcqk;}();
@@ -71732,7 +72333,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71843,8 +72444,9 @@ json["parent"]=parent_json;
         for(int UpKTZRJ=0; UpKTZRJ < 1; UpKTZRJ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryFdProperties[UpKTZRJ]);
+            serialize_struct(temp_map, pMemoryFdProperties[UpKTZRJ]);
             arr_tzzZhYk[UpKTZRJ]=temp_map;
+            return;
             }();
         }
         json["pMemoryFdProperties"]=arr_tzzZhYk;}();
@@ -71856,7 +72458,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71976,8 +72578,9 @@ json["parent"]=parent_json;
         for(int tlzypUU=0; tlzypUU < 1; tlzypUU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryGetRemoteAddressInfo[tlzypUU]);
+            serialize_struct(temp_map, pMemoryGetRemoteAddressInfo[tlzypUU]);
             arr_JYmQngD[tlzypUU]=temp_map;
+            return;
             }();
         }
         json["pMemoryGetRemoteAddressInfo"]=arr_JYmQngD;}();
@@ -72007,7 +72610,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72126,8 +72729,9 @@ json["parent"]=parent_json;
         for(int VMbMUUS=0; VMbMUUS < 1; VMbMUUS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalSemaphoreInfo[VMbMUUS]);
+            serialize_struct(temp_map, pExternalSemaphoreInfo[VMbMUUS]);
             arr_qgIgkyH[VMbMUUS]=temp_map;
+            return;
             }();
         }
         json["pExternalSemaphoreInfo"]=arr_qgIgkyH;}();
@@ -72138,8 +72742,9 @@ json["parent"]=parent_json;
         for(int rKjPzGR=0; rKjPzGR < 1; rKjPzGR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalSemaphoreProperties[rKjPzGR]);
+            serialize_struct(temp_map, pExternalSemaphoreProperties[rKjPzGR]);
             arr_yLCjbDt[rKjPzGR]=temp_map;
+            return;
             }();
         }
         json["pExternalSemaphoreProperties"]=arr_yLCjbDt;}();
@@ -72151,7 +72756,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72245,8 +72850,9 @@ json["parent"]=parent_json;
         for(int dBynwwO=0; dBynwwO < 1; dBynwwO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGetFdInfo[dBynwwO]);
+            serialize_struct(temp_map, pGetFdInfo[dBynwwO]);
             arr_fyTHWII[dBynwwO]=temp_map;
+            return;
             }();
         }
         json["pGetFdInfo"]=arr_fyTHWII;}();
@@ -72266,7 +72872,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72375,8 +72981,9 @@ json["parent"]=parent_json;
         for(int kfpLCyT=0; kfpLCyT < 1; kfpLCyT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImportSemaphoreFdInfo[kfpLCyT]);
+            serialize_struct(temp_map, pImportSemaphoreFdInfo[kfpLCyT]);
             arr_vWNEWeX[kfpLCyT]=temp_map;
+            return;
             }();
         }
         json["pImportSemaphoreFdInfo"]=arr_vWNEWeX;}();
@@ -72388,7 +72995,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72481,8 +73088,9 @@ json["parent"]=parent_json;
         for(int ApMvCYQ=0; ApMvCYQ < 1; ApMvCYQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalFenceInfo[ApMvCYQ]);
+            serialize_struct(temp_map, pExternalFenceInfo[ApMvCYQ]);
             arr_DSVeGvM[ApMvCYQ]=temp_map;
+            return;
             }();
         }
         json["pExternalFenceInfo"]=arr_DSVeGvM;}();
@@ -72493,8 +73101,9 @@ json["parent"]=parent_json;
         for(int VoSEUdo=0; VoSEUdo < 1; VoSEUdo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExternalFenceProperties[VoSEUdo]);
+            serialize_struct(temp_map, pExternalFenceProperties[VoSEUdo]);
             arr_nPbItsj[VoSEUdo]=temp_map;
+            return;
             }();
         }
         json["pExternalFenceProperties"]=arr_nPbItsj;}();
@@ -72506,7 +73115,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72600,8 +73209,9 @@ json["parent"]=parent_json;
         for(int DYSusBe=0; DYSusBe < 1; DYSusBe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pGetFdInfo[DYSusBe]);
+            serialize_struct(temp_map, pGetFdInfo[DYSusBe]);
             arr_mgmOmEV[DYSusBe]=temp_map;
+            return;
             }();
         }
         json["pGetFdInfo"]=arr_mgmOmEV;}();
@@ -72621,7 +73231,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72730,8 +73340,9 @@ json["parent"]=parent_json;
         for(int QSUnAUF=0; QSUnAUF < 1; QSUnAUF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImportFenceFdInfo[QSUnAUF]);
+            serialize_struct(temp_map, pImportFenceFdInfo[QSUnAUF]);
             arr_PmxwQMO[QSUnAUF]=temp_map;
+            return;
             }();
         }
         json["pImportFenceFdInfo"]=arr_PmxwQMO;}();
@@ -72743,7 +73354,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72838,7 +73449,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72932,8 +73543,9 @@ json["parent"]=parent_json;
         for(int xtIgTXd=0; xtIgTXd < 1; xtIgTXd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDisplayPowerInfo[xtIgTXd]);
+            serialize_struct(temp_map, pDisplayPowerInfo[xtIgTXd]);
             arr_MrfcjyV[xtIgTXd]=temp_map;
+            return;
             }();
         }
         json["pDisplayPowerInfo"]=arr_MrfcjyV;}();
@@ -72945,7 +73557,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73039,8 +73651,9 @@ json["parent"]=parent_json;
         for(int JNqwWzK=0; JNqwWzK < 1; JNqwWzK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDeviceEventInfo[JNqwWzK]);
+            serialize_struct(temp_map, pDeviceEventInfo[JNqwWzK]);
             arr_PBonFka[JNqwWzK]=temp_map;
+            return;
             }();
         }
         json["pDeviceEventInfo"]=arr_PBonFka;}();
@@ -73051,8 +73664,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -73072,7 +73686,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73175,8 +73789,9 @@ json["parent"]=parent_json;
         for(int ZywgBIl=0; ZywgBIl < 1; ZywgBIl++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDisplayEventInfo[ZywgBIl]);
+            serialize_struct(temp_map, pDisplayEventInfo[ZywgBIl]);
             arr_EEWRWgk[ZywgBIl]=temp_map;
+            return;
             }();
         }
         json["pDisplayEventInfo"]=arr_EEWRWgk;}();
@@ -73187,8 +73802,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -73208,7 +73824,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73322,7 +73938,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73441,8 +74057,9 @@ json["parent"]=parent_json;
         for(int QJCcfVY=0; QJCcfVY < 1; QJCcfVY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceCapabilities[QJCcfVY]);
+            serialize_struct(temp_map, pSurfaceCapabilities[QJCcfVY]);
             arr_KYzynfJ[QJCcfVY]=temp_map;
+            return;
             }();
         }
         json["pSurfaceCapabilities"]=arr_KYzynfJ;}();
@@ -73454,7 +74071,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73565,8 +74182,9 @@ json["parent"]=parent_json;
         for(int LorZWUi=0; LorZWUi < *pPhysicalDeviceGroupCount; LorZWUi++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPhysicalDeviceGroupProperties[LorZWUi]);
+            serialize_struct(temp_map, pPhysicalDeviceGroupProperties[LorZWUi]);
             arr_kSmADNy[LorZWUi]=temp_map;
+            return;
             }();
         }
         json["pPhysicalDeviceGroupProperties"]=arr_kSmADNy;}();
@@ -73578,7 +74196,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73711,7 +74329,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73838,8 +74456,9 @@ json["parent"]=parent_json;
         for(int DbCSPHR=0; DbCSPHR < bindInfoCount; DbCSPHR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindInfos[DbCSPHR]);
+            serialize_struct(temp_map, pBindInfos[DbCSPHR]);
             arr_NWunNSr[DbCSPHR]=temp_map;
+            return;
             }();
         }
         json["pBindInfos"]=arr_NWunNSr;}();
@@ -73851,7 +74470,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73957,8 +74576,9 @@ json["parent"]=parent_json;
         for(int TInZfLo=0; TInZfLo < bindInfoCount; TInZfLo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindInfos[TInZfLo]);
+            serialize_struct(temp_map, pBindInfos[TInZfLo]);
             arr_FifZmRy[TInZfLo]=temp_map;
+            return;
             }();
         }
         json["pBindInfos"]=arr_FifZmRy;}();
@@ -73970,7 +74590,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74077,7 +74697,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74169,8 +74789,9 @@ json["parent"]=parent_json;
         for(int HHoUQIw=0; HHoUQIw < 1; HHoUQIw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDeviceGroupPresentCapabilities[HHoUQIw]);
+            serialize_struct(temp_map, pDeviceGroupPresentCapabilities[HHoUQIw]);
             arr_gEodIfI[HHoUQIw]=temp_map;
+            return;
             }();
         }
         json["pDeviceGroupPresentCapabilities"]=arr_gEodIfI;}();
@@ -74182,7 +74803,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74294,7 +74915,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74403,8 +75024,9 @@ json["parent"]=parent_json;
         for(int QzLRJum=0; QzLRJum < 1; QzLRJum++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAcquireInfo[QzLRJum]);
+            serialize_struct(temp_map, pAcquireInfo[QzLRJum]);
             arr_plPbild[QzLRJum]=temp_map;
+            return;
             }();
         }
         json["pAcquireInfo"]=arr_plPbild;}();
@@ -74424,7 +75046,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74540,7 +75162,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74686,8 +75308,9 @@ json["parent"]=parent_json;
         for(int LNnHsjT=0; LNnHsjT < *pRectCount; LNnHsjT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRects[LNnHsjT]);
+            serialize_struct(temp_map, pRects[LNnHsjT]);
             arr_BxIGDMm[LNnHsjT]=temp_map;
+            return;
             }();
         }
         json["pRects"]=arr_BxIGDMm;}();
@@ -74699,7 +75322,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74818,8 +75441,9 @@ json["parent"]=parent_json;
         for(int bDXkRSI=0; bDXkRSI < 1; bDXkRSI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[bDXkRSI]);
+            serialize_struct(temp_map, pCreateInfo[bDXkRSI]);
             arr_GOaQfzV[bDXkRSI]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_GOaQfzV;}();
@@ -74830,8 +75454,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -74851,7 +75476,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74964,8 +75589,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -74977,7 +75603,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75076,7 +75702,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75177,7 +75803,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75278,8 +75904,9 @@ json["parent"]=parent_json;
         for(int qGnEfca=0; qGnEfca < swapchainCount; qGnEfca++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMetadata[qGnEfca]);
+            serialize_struct(temp_map, pMetadata[qGnEfca]);
             arr_gUCeGgy[qGnEfca]=temp_map;
+            return;
             }();
         }
         json["pMetadata"]=arr_gUCeGgy;}();
@@ -75291,7 +75918,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75384,7 +76011,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75478,8 +76105,9 @@ json["parent"]=parent_json;
         for(int NSFWKiB=0; NSFWKiB < 1; NSFWKiB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDisplayTimingProperties[NSFWKiB]);
+            serialize_struct(temp_map, pDisplayTimingProperties[NSFWKiB]);
             arr_nDUaeZL[NSFWKiB]=temp_map;
+            return;
             }();
         }
         json["pDisplayTimingProperties"]=arr_nDUaeZL;}();
@@ -75491,7 +76119,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75603,8 +76231,9 @@ json["parent"]=parent_json;
         for(int CzbyDFb=0; CzbyDFb < *pPresentationTimingCount; CzbyDFb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPresentationTimings[CzbyDFb]);
+            serialize_struct(temp_map, pPresentationTimings[CzbyDFb]);
             arr_CGvQjMK[CzbyDFb]=temp_map;
+            return;
             }();
         }
         json["pPresentationTimings"]=arr_CGvQjMK;}();
@@ -75616,7 +76245,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75737,8 +76366,9 @@ json["parent"]=parent_json;
         for(int GRZXlou=0; GRZXlou < viewportCount; GRZXlou++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pViewportWScalings[GRZXlou]);
+            serialize_struct(temp_map, pViewportWScalings[GRZXlou]);
             arr_gZVGKnq[GRZXlou]=temp_map;
+            return;
             }();
         }
         json["pViewportWScalings"]=arr_gZVGKnq;}();
@@ -75750,7 +76380,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75851,8 +76481,9 @@ json["parent"]=parent_json;
         for(int WtUHHLW=0; WtUHHLW < discardRectangleCount; WtUHHLW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDiscardRectangles[WtUHHLW]);
+            serialize_struct(temp_map, pDiscardRectangles[WtUHHLW]);
             arr_uUeweOj[WtUHHLW]=temp_map;
+            return;
             }();
         }
         json["pDiscardRectangles"]=arr_uUeweOj;}();
@@ -75864,7 +76495,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75965,7 +76596,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76056,7 +76687,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76145,8 +76776,9 @@ json["parent"]=parent_json;
         for(int XjGOezZ=0; XjGOezZ < 1; XjGOezZ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSampleLocationsInfo[XjGOezZ]);
+            serialize_struct(temp_map, pSampleLocationsInfo[XjGOezZ]);
             arr_KfRxBlJ[XjGOezZ]=temp_map;
+            return;
             }();
         }
         json["pSampleLocationsInfo"]=arr_KfRxBlJ;}();
@@ -76158,7 +76790,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76240,8 +76872,9 @@ json["parent"]=parent_json;
         for(int xJhEIjr=0; xJhEIjr < 1; xJhEIjr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMultisampleProperties[xJhEIjr]);
+            serialize_struct(temp_map, pMultisampleProperties[xJhEIjr]);
             arr_IduiRHb[xJhEIjr]=temp_map;
+            return;
             }();
         }
         json["pMultisampleProperties"]=arr_IduiRHb;}();
@@ -76253,7 +76886,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76352,8 +76985,9 @@ json["parent"]=parent_json;
         for(int yiVsRWe=0; yiVsRWe < 1; yiVsRWe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceInfo[yiVsRWe]);
+            serialize_struct(temp_map, pSurfaceInfo[yiVsRWe]);
             arr_kqlTDpj[yiVsRWe]=temp_map;
+            return;
             }();
         }
         json["pSurfaceInfo"]=arr_kqlTDpj;}();
@@ -76364,8 +76998,9 @@ json["parent"]=parent_json;
         for(int Baebpht=0; Baebpht < 1; Baebpht++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceCapabilities[Baebpht]);
+            serialize_struct(temp_map, pSurfaceCapabilities[Baebpht]);
             arr_JfroxEi[Baebpht]=temp_map;
+            return;
             }();
         }
         json["pSurfaceCapabilities"]=arr_JfroxEi;}();
@@ -76377,7 +77012,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76480,8 +77115,9 @@ json["parent"]=parent_json;
         for(int yiVsRWe=0; yiVsRWe < 1; yiVsRWe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceInfo[yiVsRWe]);
+            serialize_struct(temp_map, pSurfaceInfo[yiVsRWe]);
             arr_kqlTDpj[yiVsRWe]=temp_map;
+            return;
             }();
         }
         json["pSurfaceInfo"]=arr_kqlTDpj;}();
@@ -76500,8 +77136,9 @@ json["parent"]=parent_json;
         for(int lVrVWxA=0; lVrVWxA < *pSurfaceFormatCount; lVrVWxA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSurfaceFormats[lVrVWxA]);
+            serialize_struct(temp_map, pSurfaceFormats[lVrVWxA]);
             arr_AuCicsY[lVrVWxA]=temp_map;
+            return;
             }();
         }
         json["pSurfaceFormats"]=arr_AuCicsY;}();
@@ -76513,7 +77150,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76640,8 +77277,9 @@ json["parent"]=parent_json;
         for(int IPCMyur=0; IPCMyur < *pPropertyCount; IPCMyur++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[IPCMyur]);
+            serialize_struct(temp_map, pProperties[IPCMyur]);
             arr_WgClQQW[IPCMyur]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_WgClQQW;}();
@@ -76653,7 +77291,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76779,8 +77417,9 @@ json["parent"]=parent_json;
         for(int KJvijjP=0; KJvijjP < *pPropertyCount; KJvijjP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[KJvijjP]);
+            serialize_struct(temp_map, pProperties[KJvijjP]);
             arr_oqLTQEe[KJvijjP]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_oqLTQEe;}();
@@ -76792,7 +77431,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76919,8 +77558,9 @@ json["parent"]=parent_json;
         for(int gThvzcU=0; gThvzcU < *pPropertyCount; gThvzcU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[gThvzcU]);
+            serialize_struct(temp_map, pProperties[gThvzcU]);
             arr_LvUqkhm[gThvzcU]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_LvUqkhm;}();
@@ -76932,7 +77572,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77051,8 +77691,9 @@ json["parent"]=parent_json;
         for(int iEdZMtQ=0; iEdZMtQ < 1; iEdZMtQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDisplayPlaneInfo[iEdZMtQ]);
+            serialize_struct(temp_map, pDisplayPlaneInfo[iEdZMtQ]);
             arr_rwBYAlG[iEdZMtQ]=temp_map;
+            return;
             }();
         }
         json["pDisplayPlaneInfo"]=arr_rwBYAlG;}();
@@ -77063,8 +77704,9 @@ json["parent"]=parent_json;
         for(int wDZGRHI=0; wDZGRHI < 1; wDZGRHI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCapabilities[wDZGRHI]);
+            serialize_struct(temp_map, pCapabilities[wDZGRHI]);
             arr_perBkIp[wDZGRHI]=temp_map;
+            return;
             }();
         }
         json["pCapabilities"]=arr_perBkIp;}();
@@ -77076,7 +77718,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77179,8 +77821,9 @@ json["parent"]=parent_json;
         for(int XaVdoIX=0; XaVdoIX < 1; XaVdoIX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[XaVdoIX]);
+            serialize_struct(temp_map, pInfo[XaVdoIX]);
             arr_xrBSgMU[XaVdoIX]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_xrBSgMU;}();
@@ -77191,8 +77834,9 @@ json["parent"]=parent_json;
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
@@ -77204,7 +77848,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77298,8 +77942,9 @@ json["parent"]=parent_json;
         for(int xSwhhlO=0; xSwhhlO < 1; xSwhhlO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[xSwhhlO]);
+            serialize_struct(temp_map, pInfo[xSwhhlO]);
             arr_OVesMNt[xSwhhlO]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_OVesMNt;}();
@@ -77310,8 +77955,9 @@ json["parent"]=parent_json;
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
@@ -77323,7 +77969,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77417,8 +78063,9 @@ json["parent"]=parent_json;
         for(int DnuwqwS=0; DnuwqwS < 1; DnuwqwS++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[DnuwqwS]);
+            serialize_struct(temp_map, pInfo[DnuwqwS]);
             arr_frlqZZl[DnuwqwS]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_frlqZZl;}();
@@ -77437,8 +78084,9 @@ json["parent"]=parent_json;
         for(int QTojQNx=0; QTojQNx < *pSparseMemoryRequirementCount; QTojQNx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSparseMemoryRequirements[QTojQNx]);
+            serialize_struct(temp_map, pSparseMemoryRequirements[QTojQNx]);
             arr_vCRbLVA[QTojQNx]=temp_map;
+            return;
             }();
         }
         json["pSparseMemoryRequirements"]=arr_vCRbLVA;}();
@@ -77450,7 +78098,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77560,8 +78208,9 @@ json["parent"]=parent_json;
         for(int sabbuKR=0; sabbuKR < 1; sabbuKR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[sabbuKR]);
+            serialize_struct(temp_map, pInfo[sabbuKR]);
             arr_LbYKRdp[sabbuKR]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_LbYKRdp;}();
@@ -77572,8 +78221,9 @@ json["parent"]=parent_json;
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
@@ -77585,7 +78235,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77679,8 +78329,9 @@ json["parent"]=parent_json;
         for(int Hfcgcwr=0; Hfcgcwr < 1; Hfcgcwr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[Hfcgcwr]);
+            serialize_struct(temp_map, pInfo[Hfcgcwr]);
             arr_dGiJKQX[Hfcgcwr]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_dGiJKQX;}();
@@ -77691,8 +78342,9 @@ json["parent"]=parent_json;
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
@@ -77704,7 +78356,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77798,8 +78450,9 @@ json["parent"]=parent_json;
         for(int Hfcgcwr=0; Hfcgcwr < 1; Hfcgcwr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[Hfcgcwr]);
+            serialize_struct(temp_map, pInfo[Hfcgcwr]);
             arr_dGiJKQX[Hfcgcwr]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_dGiJKQX;}();
@@ -77818,8 +78471,9 @@ json["parent"]=parent_json;
         for(int QTojQNx=0; QTojQNx < *pSparseMemoryRequirementCount; QTojQNx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSparseMemoryRequirements[QTojQNx]);
+            serialize_struct(temp_map, pSparseMemoryRequirements[QTojQNx]);
             arr_vCRbLVA[QTojQNx]=temp_map;
+            return;
             }();
         }
         json["pSparseMemoryRequirements"]=arr_vCRbLVA;}();
@@ -77831,7 +78485,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77941,8 +78595,9 @@ json["parent"]=parent_json;
         for(int zgqBgkX=0; zgqBgkX < 1; zgqBgkX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[zgqBgkX]);
+            serialize_struct(temp_map, pCreateInfo[zgqBgkX]);
             arr_kLHhxUL[zgqBgkX]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_kLHhxUL;}();
@@ -77953,8 +78608,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -77974,7 +78630,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78087,8 +78743,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -78100,7 +78757,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78185,8 +78842,9 @@ json["parent"]=parent_json;
         for(int ubuvbaB=0; ubuvbaB < 1; ubuvbaB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pQueueInfo[ubuvbaB]);
+            serialize_struct(temp_map, pQueueInfo[ubuvbaB]);
             arr_bNCRimR[ubuvbaB]=temp_map;
+            return;
             }();
         }
         json["pQueueInfo"]=arr_bNCRimR;}();
@@ -78206,7 +78864,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78295,8 +78953,9 @@ json["parent"]=parent_json;
         for(int XeWuaSR=0; XeWuaSR < 1; XeWuaSR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[XeWuaSR]);
+            serialize_struct(temp_map, pCreateInfo[XeWuaSR]);
             arr_ZCXiwLp[XeWuaSR]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_ZCXiwLp;}();
@@ -78307,8 +78966,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -78328,7 +78988,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78438,8 +79098,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -78451,7 +79112,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78554,7 +79215,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78693,7 +79354,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78796,8 +79457,9 @@ json["parent"]=parent_json;
         for(int tUGauKK=0; tUGauKK < 1; tUGauKK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[tUGauKK]);
+            serialize_struct(temp_map, pCreateInfo[tUGauKK]);
             arr_dFRsqIW[tUGauKK]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_dFRsqIW;}();
@@ -78808,8 +79470,9 @@ json["parent"]=parent_json;
         for(int UvZyHDI=0; UvZyHDI < 1; UvZyHDI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSupport[UvZyHDI]);
+            serialize_struct(temp_map, pSupport[UvZyHDI]);
             arr_xgzGluH[UvZyHDI]=temp_map;
+            return;
             }();
         }
         json["pSupport"]=arr_xgzGluH;}();
@@ -78821,7 +79484,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78938,7 +79601,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79087,7 +79750,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79194,7 +79857,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79319,8 +79982,9 @@ json["parent"]=parent_json;
         for(int aXwwgcz=0; aXwwgcz < timestampCount; aXwwgcz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pTimestampInfos[aXwwgcz]);
+            serialize_struct(temp_map, pTimestampInfos[aXwwgcz]);
             arr_XQeyMsT[aXwwgcz]=temp_map;
+            return;
             }();
         }
         json["pTimestampInfos"]=arr_XQeyMsT;}();
@@ -79348,7 +80012,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79482,8 +80146,9 @@ json["parent"]=parent_json;
         for(int sXDrIfX=0; sXDrIfX < 1; sXDrIfX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pNameInfo[sXDrIfX]);
+            serialize_struct(temp_map, pNameInfo[sXDrIfX]);
             arr_gpHzyjV[sXDrIfX]=temp_map;
+            return;
             }();
         }
         json["pNameInfo"]=arr_gpHzyjV;}();
@@ -79495,7 +80160,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79588,8 +80253,9 @@ json["parent"]=parent_json;
         for(int lQZzjnQ=0; lQZzjnQ < 1; lQZzjnQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pTagInfo[lQZzjnQ]);
+            serialize_struct(temp_map, pTagInfo[lQZzjnQ]);
             arr_jMraQzd[lQZzjnQ]=temp_map;
+            return;
             }();
         }
         json["pTagInfo"]=arr_jMraQzd;}();
@@ -79601,7 +80267,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79694,8 +80360,9 @@ json["parent"]=parent_json;
         for(int XxFTlct=0; XxFTlct < 1; XxFTlct++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLabelInfo[XxFTlct]);
+            serialize_struct(temp_map, pLabelInfo[XxFTlct]);
             arr_GvONoAl[XxFTlct]=temp_map;
+            return;
             }();
         }
         json["pLabelInfo"]=arr_GvONoAl;}();
@@ -79707,7 +80374,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79789,7 +80456,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79869,8 +80536,9 @@ json["parent"]=parent_json;
         for(int XxFTlct=0; XxFTlct < 1; XxFTlct++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLabelInfo[XxFTlct]);
+            serialize_struct(temp_map, pLabelInfo[XxFTlct]);
             arr_GvONoAl[XxFTlct]=temp_map;
+            return;
             }();
         }
         json["pLabelInfo"]=arr_GvONoAl;}();
@@ -79882,7 +80550,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79963,8 +80631,9 @@ json["parent"]=parent_json;
         for(int XxFTlct=0; XxFTlct < 1; XxFTlct++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLabelInfo[XxFTlct]);
+            serialize_struct(temp_map, pLabelInfo[XxFTlct]);
             arr_GvONoAl[XxFTlct]=temp_map;
+            return;
             }();
         }
         json["pLabelInfo"]=arr_GvONoAl;}();
@@ -79976,7 +80645,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80058,7 +80727,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80138,8 +80807,9 @@ json["parent"]=parent_json;
         for(int XxFTlct=0; XxFTlct < 1; XxFTlct++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLabelInfo[XxFTlct]);
+            serialize_struct(temp_map, pLabelInfo[XxFTlct]);
             arr_GvONoAl[XxFTlct]=temp_map;
+            return;
             }();
         }
         json["pLabelInfo"]=arr_GvONoAl;}();
@@ -80151,7 +80821,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80232,8 +80902,9 @@ json["parent"]=parent_json;
         for(int uDOYkhP=0; uDOYkhP < 1; uDOYkhP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[uDOYkhP]);
+            serialize_struct(temp_map, pCreateInfo[uDOYkhP]);
             arr_alrnjyY[uDOYkhP]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_alrnjyY;}();
@@ -80244,8 +80915,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -80265,7 +80937,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80375,8 +81047,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -80388,7 +81061,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80472,8 +81145,9 @@ json["parent"]=parent_json;
         for(int YuXULtv=0; YuXULtv < 1; YuXULtv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCallbackData[YuXULtv]);
+            serialize_struct(temp_map, pCallbackData[YuXULtv]);
             arr_kahfHKb[YuXULtv]=temp_map;
+            return;
             }();
         }
         json["pCallbackData"]=arr_kahfHKb;}();
@@ -80485,7 +81159,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80596,8 +81270,9 @@ json["parent"]=parent_json;
         for(int hqDeAHT=0; hqDeAHT < 1; hqDeAHT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryHostPointerProperties[hqDeAHT]);
+            serialize_struct(temp_map, pMemoryHostPointerProperties[hqDeAHT]);
             arr_CBNxdHG[hqDeAHT]=temp_map;
+            return;
             }();
         }
         json["pMemoryHostPointerProperties"]=arr_CBNxdHG;}();
@@ -80609,7 +81284,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80726,7 +81401,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80834,8 +81509,9 @@ json["parent"]=parent_json;
         for(int SgbVidQ=0; SgbVidQ < 1; SgbVidQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[SgbVidQ]);
+            serialize_struct(temp_map, pCreateInfo[SgbVidQ]);
             arr_cDssBor[SgbVidQ]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_cDssBor;}();
@@ -80846,8 +81522,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -80867,7 +81544,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80979,8 +81656,9 @@ json["parent"]=parent_json;
         for(int lCAvoJt=0; lCAvoJt < 1; lCAvoJt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRenderPassBegin[lCAvoJt]);
+            serialize_struct(temp_map, pRenderPassBegin[lCAvoJt]);
             arr_XtnTubd[lCAvoJt]=temp_map;
+            return;
             }();
         }
         json["pRenderPassBegin"]=arr_XtnTubd;}();
@@ -80991,8 +81669,9 @@ json["parent"]=parent_json;
         for(int nzkBQUL=0; nzkBQUL < 1; nzkBQUL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubpassBeginInfo[nzkBQUL]);
+            serialize_struct(temp_map, pSubpassBeginInfo[nzkBQUL]);
             arr_yxkVVDb[nzkBQUL]=temp_map;
+            return;
             }();
         }
         json["pSubpassBeginInfo"]=arr_yxkVVDb;}();
@@ -81004,7 +81683,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81089,8 +81768,9 @@ json["parent"]=parent_json;
         for(int nzkBQUL=0; nzkBQUL < 1; nzkBQUL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubpassBeginInfo[nzkBQUL]);
+            serialize_struct(temp_map, pSubpassBeginInfo[nzkBQUL]);
             arr_yxkVVDb[nzkBQUL]=temp_map;
+            return;
             }();
         }
         json["pSubpassBeginInfo"]=arr_yxkVVDb;}();
@@ -81101,8 +81781,9 @@ json["parent"]=parent_json;
         for(int oMdHEHu=0; oMdHEHu < 1; oMdHEHu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubpassEndInfo[oMdHEHu]);
+            serialize_struct(temp_map, pSubpassEndInfo[oMdHEHu]);
             arr_mmmwoMH[oMdHEHu]=temp_map;
+            return;
             }();
         }
         json["pSubpassEndInfo"]=arr_mmmwoMH;}();
@@ -81114,7 +81795,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81199,8 +81880,9 @@ json["parent"]=parent_json;
         for(int oMdHEHu=0; oMdHEHu < 1; oMdHEHu++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubpassEndInfo[oMdHEHu]);
+            serialize_struct(temp_map, pSubpassEndInfo[oMdHEHu]);
             arr_mmmwoMH[oMdHEHu]=temp_map;
+            return;
             }();
         }
         json["pSubpassEndInfo"]=arr_mmmwoMH;}();
@@ -81212,7 +81894,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81306,7 +81988,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81418,8 +82100,9 @@ json["parent"]=parent_json;
         for(int hsOLCWG=0; hsOLCWG < 1; hsOLCWG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pWaitInfo[hsOLCWG]);
+            serialize_struct(temp_map, pWaitInfo[hsOLCWG]);
             arr_xzakrWz[hsOLCWG]=temp_map;
+            return;
             }();
         }
         json["pWaitInfo"]=arr_xzakrWz;}();
@@ -81432,7 +82115,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81537,8 +82220,9 @@ json["parent"]=parent_json;
         for(int MYLvJyX=0; MYLvJyX < 1; MYLvJyX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSignalInfo[MYLvJyX]);
+            serialize_struct(temp_map, pSignalInfo[MYLvJyX]);
             arr_WdRQTJS[MYLvJyX]=temp_map;
+            return;
             }();
         }
         json["pSignalInfo"]=arr_WdRQTJS;}();
@@ -81550,7 +82234,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81653,7 +82337,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81784,7 +82468,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81920,7 +82604,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82009,8 +82693,9 @@ json["parent"]=parent_json;
         for(int TfFHlNo=0; TfFHlNo < *pCheckpointDataCount; TfFHlNo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCheckpointData[TfFHlNo]);
+            serialize_struct(temp_map, pCheckpointData[TfFHlNo]);
             arr_gxwhODc[TfFHlNo]=temp_map;
+            return;
             }();
         }
         json["pCheckpointData"]=arr_gxwhODc;}();
@@ -82022,7 +82707,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82155,7 +82840,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82275,7 +82960,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82394,7 +83079,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82499,7 +83184,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82611,7 +83296,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82717,7 +83402,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82845,8 +83530,9 @@ json["parent"]=parent_json;
         for(int uoWCiOs=0; uoWCiOs < exclusiveScissorCount; uoWCiOs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExclusiveScissors[uoWCiOs]);
+            serialize_struct(temp_map, pExclusiveScissors[uoWCiOs]);
             arr_aPFLQnr[uoWCiOs]=temp_map;
+            return;
             }();
         }
         json["pExclusiveScissors"]=arr_aPFLQnr;}();
@@ -82858,7 +83544,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82968,7 +83654,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83070,7 +83756,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83162,8 +83848,9 @@ json["parent"]=parent_json;
         for(int iwmSeHU=0; iwmSeHU < viewportCount; iwmSeHU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pShadingRatePalettes[iwmSeHU]);
+            serialize_struct(temp_map, pShadingRatePalettes[iwmSeHU]);
             arr_QGCIyPL[iwmSeHU]=temp_map;
+            return;
             }();
         }
         json["pShadingRatePalettes"]=arr_QGCIyPL;}();
@@ -83175,7 +83862,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83276,8 +83963,9 @@ json["parent"]=parent_json;
         for(int nBPVlSV=0; nBPVlSV < customSampleOrderCount; nBPVlSV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCustomSampleOrders[nBPVlSV]);
+            serialize_struct(temp_map, pCustomSampleOrders[nBPVlSV]);
             arr_UoJKhih[nBPVlSV]=temp_map;
+            return;
             }();
         }
         json["pCustomSampleOrders"]=arr_UoJKhih;}();
@@ -83289,7 +83977,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83391,7 +84079,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83494,7 +84182,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83609,7 +84297,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83731,7 +84419,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83843,7 +84531,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83958,7 +84646,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84079,7 +84767,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84181,8 +84869,9 @@ json["parent"]=parent_json;
         for(int oEOLGTm=0; oEOLGTm < 1; oEOLGTm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[oEOLGTm]);
+            serialize_struct(temp_map, pCreateInfo[oEOLGTm]);
             arr_cRwwWhs[oEOLGTm]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_cRwwWhs;}();
@@ -84193,8 +84882,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -84214,7 +84904,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84326,7 +85016,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84417,8 +85107,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -84430,7 +85121,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84513,8 +85204,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -84526,7 +85218,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84608,8 +85300,9 @@ json["parent"]=parent_json;
         for(int eEDmZTf=0; eEDmZTf < 1; eEDmZTf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[eEDmZTf]);
+            serialize_struct(temp_map, pInfo[eEDmZTf]);
             arr_QKzjkmC[eEDmZTf]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_QKzjkmC;}();
@@ -84620,8 +85313,9 @@ json["parent"]=parent_json;
         for(int HmtSVPA=0; HmtSVPA < 1; HmtSVPA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[HmtSVPA]);
+            serialize_struct(temp_map, pMemoryRequirements[HmtSVPA]);
             arr_lzklPBG[HmtSVPA]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_lzklPBG;}();
@@ -84633,7 +85327,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84725,8 +85419,9 @@ json["parent"]=parent_json;
         for(int tRvmYFr=0; tRvmYFr < bindInfoCount; tRvmYFr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindInfos[tRvmYFr]);
+            serialize_struct(temp_map, pBindInfos[tRvmYFr]);
             arr_rhzkvXd[tRvmYFr]=temp_map;
+            return;
             }();
         }
         json["pBindInfos"]=arr_rhzkvXd;}();
@@ -84738,7 +85433,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84844,7 +85539,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84935,8 +85630,9 @@ json["parent"]=parent_json;
         for(int ghvrBgW=0; ghvrBgW < 1; ghvrBgW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[ghvrBgW]);
+            serialize_struct(temp_map, pInfo[ghvrBgW]);
             arr_mSSajtp[ghvrBgW]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_mSSajtp;}();
@@ -84948,7 +85644,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85030,8 +85726,9 @@ json["parent"]=parent_json;
         for(int ghvrBgW=0; ghvrBgW < 1; ghvrBgW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[ghvrBgW]);
+            serialize_struct(temp_map, pInfo[ghvrBgW]);
             arr_mSSajtp[ghvrBgW]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_mSSajtp;}();
@@ -85043,7 +85740,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85137,8 +85834,9 @@ json["parent"]=parent_json;
         for(int hToWSKz=0; hToWSKz < 1; hToWSKz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[hToWSKz]);
+            serialize_struct(temp_map, pInfo[hToWSKz]);
             arr_MpzusRq[hToWSKz]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_MpzusRq;}();
@@ -85150,7 +85848,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85232,8 +85930,9 @@ json["parent"]=parent_json;
         for(int hToWSKz=0; hToWSKz < 1; hToWSKz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[hToWSKz]);
+            serialize_struct(temp_map, pInfo[hToWSKz]);
             arr_MpzusRq[hToWSKz]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_MpzusRq;}();
@@ -85245,7 +85944,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85339,8 +86038,9 @@ json["parent"]=parent_json;
         for(int ulOBYSb=0; ulOBYSb < 1; ulOBYSb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[ulOBYSb]);
+            serialize_struct(temp_map, pInfo[ulOBYSb]);
             arr_yRNSaUF[ulOBYSb]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_yRNSaUF;}();
@@ -85352,7 +86052,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85434,8 +86134,9 @@ json["parent"]=parent_json;
         for(int ulOBYSb=0; ulOBYSb < 1; ulOBYSb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[ulOBYSb]);
+            serialize_struct(temp_map, pInfo[ulOBYSb]);
             arr_yRNSaUF[ulOBYSb]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_yRNSaUF;}();
@@ -85447,7 +86148,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85554,7 +86255,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85676,7 +86377,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85785,8 +86486,9 @@ json["parent"]=parent_json;
         for(int jJuvWAP=0; jJuvWAP < 1; jJuvWAP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[jJuvWAP]);
+            serialize_struct(temp_map, pInfo[jJuvWAP]);
             arr_GYyRhgo[jJuvWAP]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_GYyRhgo;}();
@@ -85805,7 +86507,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85941,7 +86643,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86089,8 +86791,9 @@ json["parent"]=parent_json;
         for(int VKRuDIv=0; VKRuDIv < 1; VKRuDIv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRaygenShaderBindingTable[VKRuDIv]);
+            serialize_struct(temp_map, pRaygenShaderBindingTable[VKRuDIv]);
             arr_SlnAEUX[VKRuDIv]=temp_map;
+            return;
             }();
         }
         json["pRaygenShaderBindingTable"]=arr_SlnAEUX;}();
@@ -86101,8 +86804,9 @@ json["parent"]=parent_json;
         for(int ZhvHpIX=0; ZhvHpIX < 1; ZhvHpIX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMissShaderBindingTable[ZhvHpIX]);
+            serialize_struct(temp_map, pMissShaderBindingTable[ZhvHpIX]);
             arr_vBQknzc[ZhvHpIX]=temp_map;
+            return;
             }();
         }
         json["pMissShaderBindingTable"]=arr_vBQknzc;}();
@@ -86113,8 +86817,9 @@ json["parent"]=parent_json;
         for(int yriMdrU=0; yriMdrU < 1; yriMdrU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pHitShaderBindingTable[yriMdrU]);
+            serialize_struct(temp_map, pHitShaderBindingTable[yriMdrU]);
             arr_IhHhjXk[yriMdrU]=temp_map;
+            return;
             }();
         }
         json["pHitShaderBindingTable"]=arr_IhHhjXk;}();
@@ -86125,8 +86830,9 @@ json["parent"]=parent_json;
         for(int TiOHiqW=0; TiOHiqW < 1; TiOHiqW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCallableShaderBindingTable[TiOHiqW]);
+            serialize_struct(temp_map, pCallableShaderBindingTable[TiOHiqW]);
             arr_EmEYSBY[TiOHiqW]=temp_map;
+            return;
             }();
         }
         json["pCallableShaderBindingTable"]=arr_EmEYSBY;}();
@@ -86141,7 +86847,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86267,7 +86973,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86457,7 +87163,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86615,7 +87321,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86768,7 +87474,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86891,8 +87597,9 @@ json["parent"]=parent_json;
         for(int oRbABSQ=0; oRbABSQ < createInfoCount; oRbABSQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[oRbABSQ]);
+            serialize_struct(temp_map, pCreateInfos[oRbABSQ]);
             arr_bzMTsat[oRbABSQ]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_bzMTsat;}();
@@ -86903,8 +87610,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -86924,7 +87632,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87046,8 +87754,9 @@ json["parent"]=parent_json;
         for(int Szqaxlk=0; Szqaxlk < createInfoCount; Szqaxlk++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[Szqaxlk]);
+            serialize_struct(temp_map, pCreateInfos[Szqaxlk]);
             arr_zltFjJj[Szqaxlk]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_zltFjJj;}();
@@ -87058,8 +87767,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -87079,7 +87789,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87207,8 +87917,9 @@ json["parent"]=parent_json;
         for(int WfgOgPA=0; WfgOgPA < *pPropertyCount; WfgOgPA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[WfgOgPA]);
+            serialize_struct(temp_map, pProperties[WfgOgPA]);
             arr_kVfVVDF[WfgOgPA]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_kVfVVDF;}();
@@ -87220,7 +87931,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87338,8 +88049,9 @@ json["parent"]=parent_json;
         for(int VKRuDIv=0; VKRuDIv < 1; VKRuDIv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRaygenShaderBindingTable[VKRuDIv]);
+            serialize_struct(temp_map, pRaygenShaderBindingTable[VKRuDIv]);
             arr_SlnAEUX[VKRuDIv]=temp_map;
+            return;
             }();
         }
         json["pRaygenShaderBindingTable"]=arr_SlnAEUX;}();
@@ -87350,8 +88062,9 @@ json["parent"]=parent_json;
         for(int ZhvHpIX=0; ZhvHpIX < 1; ZhvHpIX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMissShaderBindingTable[ZhvHpIX]);
+            serialize_struct(temp_map, pMissShaderBindingTable[ZhvHpIX]);
             arr_vBQknzc[ZhvHpIX]=temp_map;
+            return;
             }();
         }
         json["pMissShaderBindingTable"]=arr_vBQknzc;}();
@@ -87362,8 +88075,9 @@ json["parent"]=parent_json;
         for(int yriMdrU=0; yriMdrU < 1; yriMdrU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pHitShaderBindingTable[yriMdrU]);
+            serialize_struct(temp_map, pHitShaderBindingTable[yriMdrU]);
             arr_IhHhjXk[yriMdrU]=temp_map;
+            return;
             }();
         }
         json["pHitShaderBindingTable"]=arr_IhHhjXk;}();
@@ -87374,8 +88088,9 @@ json["parent"]=parent_json;
         for(int TiOHiqW=0; TiOHiqW < 1; TiOHiqW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCallableShaderBindingTable[TiOHiqW]);
+            serialize_struct(temp_map, pCallableShaderBindingTable[TiOHiqW]);
             arr_EmEYSBY[TiOHiqW]=temp_map;
+            return;
             }();
         }
         json["pCallableShaderBindingTable"]=arr_EmEYSBY;}();
@@ -87388,7 +88103,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87483,7 +88198,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87572,8 +88287,9 @@ json["parent"]=parent_json;
         for(int vhWWlwM=0; vhWWlwM < 1; vhWWlwM++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVersionInfo[vhWWlwM]);
+            serialize_struct(temp_map, pVersionInfo[vhWWlwM]);
             arr_wbhdpeb[vhWWlwM]=temp_map;
+            return;
             }();
         }
         json["pVersionInfo"]=arr_wbhdpeb;}();
@@ -87593,7 +88309,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87694,7 +88410,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87806,7 +88522,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87895,8 +88611,9 @@ json["parent"]=parent_json;
         for(int dQabsff=0; dQabsff < 1; dQabsff++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[dQabsff]);
+            serialize_struct(temp_map, pInfo[dQabsff]);
             arr_mfMZJfb[dQabsff]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_mfMZJfb;}();
@@ -87908,7 +88625,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88001,8 +88718,9 @@ json["parent"]=parent_json;
         for(int FiVrJfn=0; FiVrJfn < 1; FiVrJfn++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[FiVrJfn]);
+            serialize_struct(temp_map, pProperties[FiVrJfn]);
             arr_hveoAIn[FiVrJfn]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_hveoAIn;}();
@@ -88014,7 +88732,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88126,8 +88844,9 @@ json["parent"]=parent_json;
         for(int WmftXku=0; WmftXku < *pCounterCount; WmftXku++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCounters[WmftXku]);
+            serialize_struct(temp_map, pCounters[WmftXku]);
             arr_vEVlsJt[WmftXku]=temp_map;
+            return;
             }();
         }
         json["pCounters"]=arr_vEVlsJt;}();
@@ -88138,8 +88857,9 @@ json["parent"]=parent_json;
         for(int GjxogPx=0; GjxogPx < *pCounterCount; GjxogPx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCounterDescriptions[GjxogPx]);
+            serialize_struct(temp_map, pCounterDescriptions[GjxogPx]);
             arr_znRZkzO[GjxogPx]=temp_map;
+            return;
             }();
         }
         json["pCounterDescriptions"]=arr_znRZkzO;}();
@@ -88151,7 +88871,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88288,8 +89008,9 @@ json["parent"]=parent_json;
         for(int aEYwfht=0; aEYwfht < 1; aEYwfht++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPerformanceQueryCreateInfo[aEYwfht]);
+            serialize_struct(temp_map, pPerformanceQueryCreateInfo[aEYwfht]);
             arr_HfbrSJi[aEYwfht]=temp_map;
+            return;
             }();
         }
         json["pPerformanceQueryCreateInfo"]=arr_HfbrSJi;}();
@@ -88309,7 +89030,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88406,8 +89127,9 @@ json["parent"]=parent_json;
         for(int ZgSmBLm=0; ZgSmBLm < 1; ZgSmBLm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[ZgSmBLm]);
+            serialize_struct(temp_map, pInfo[ZgSmBLm]);
             arr_BslWEPE[ZgSmBLm]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_BslWEPE;}();
@@ -88419,7 +89141,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88513,7 +89235,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88594,8 +89316,9 @@ json["parent"]=parent_json;
         for(int JPWNMan=0; JPWNMan < 1; JPWNMan++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[JPWNMan]);
+            serialize_struct(temp_map, pProperties[JPWNMan]);
             arr_oxSUmzu[JPWNMan]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_oxSUmzu;}();
@@ -88607,7 +89330,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88710,8 +89433,9 @@ json["parent"]=parent_json;
         for(int CPHfQOs=0; CPHfQOs < 1; CPHfQOs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[CPHfQOs]);
+            serialize_struct(temp_map, pInfo[CPHfQOs]);
             arr_LRSftdl[CPHfQOs]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_LRSftdl;}();
@@ -88723,7 +89447,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88818,8 +89542,9 @@ json["parent"]=parent_json;
         for(int CPHfQOs=0; CPHfQOs < 1; CPHfQOs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[CPHfQOs]);
+            serialize_struct(temp_map, pInfo[CPHfQOs]);
             arr_LRSftdl[CPHfQOs]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_LRSftdl;}();
@@ -88831,7 +89556,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88929,8 +89654,9 @@ json["parent"]=parent_json;
         for(int CyHXDmy=0; CyHXDmy < 1; CyHXDmy++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[CyHXDmy]);
+            serialize_struct(temp_map, pCreateInfo[CyHXDmy]);
             arr_yHbnuDf[CyHXDmy]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_yHbnuDf;}();
@@ -88941,8 +89667,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -88962,7 +89689,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89079,8 +89806,9 @@ json["parent"]=parent_json;
         for(int oxJqbjP=0; oxJqbjP < *pCombinationCount; oxJqbjP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCombinations[oxJqbjP]);
+            serialize_struct(temp_map, pCombinations[oxJqbjP]);
             arr_aOIaDFM[oxJqbjP]=temp_map;
+            return;
             }();
         }
         json["pCombinations"]=arr_aOIaDFM;}();
@@ -89092,7 +89820,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89210,8 +89938,9 @@ json["parent"]=parent_json;
         for(int pMSNyrD=0; pMSNyrD < 1; pMSNyrD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInitializeInfo[pMSNyrD]);
+            serialize_struct(temp_map, pInitializeInfo[pMSNyrD]);
             arr_BGIuPda[pMSNyrD]=temp_map;
+            return;
             }();
         }
         json["pInitializeInfo"]=arr_BGIuPda;}();
@@ -89223,7 +89952,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89317,7 +90046,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89397,8 +90126,9 @@ json["parent"]=parent_json;
         for(int zTzAESc=0; zTzAESc < 1; zTzAESc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMarkerInfo[zTzAESc]);
+            serialize_struct(temp_map, pMarkerInfo[zTzAESc]);
             arr_jnuNlGq[zTzAESc]=temp_map;
+            return;
             }();
         }
         json["pMarkerInfo"]=arr_jnuNlGq;}();
@@ -89410,7 +90140,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89503,8 +90233,9 @@ json["parent"]=parent_json;
         for(int xfSMHfo=0; xfSMHfo < 1; xfSMHfo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMarkerInfo[xfSMHfo]);
+            serialize_struct(temp_map, pMarkerInfo[xfSMHfo]);
             arr_MVQnSpz[xfSMHfo]=temp_map;
+            return;
             }();
         }
         json["pMarkerInfo"]=arr_MVQnSpz;}();
@@ -89516,7 +90247,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89609,8 +90340,9 @@ json["parent"]=parent_json;
         for(int KZSCUHM=0; KZSCUHM < 1; KZSCUHM++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pOverrideInfo[KZSCUHM]);
+            serialize_struct(temp_map, pOverrideInfo[KZSCUHM]);
             arr_LHSFuEM[KZSCUHM]=temp_map;
+            return;
             }();
         }
         json["pOverrideInfo"]=arr_LHSFuEM;}();
@@ -89622,7 +90354,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89715,8 +90447,9 @@ json["parent"]=parent_json;
         for(int RYEcOAO=0; RYEcOAO < 1; RYEcOAO++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAcquireInfo[RYEcOAO]);
+            serialize_struct(temp_map, pAcquireInfo[RYEcOAO]);
             arr_ZyqvvlF[RYEcOAO]=temp_map;
+            return;
             }();
         }
         json["pAcquireInfo"]=arr_ZyqvvlF;}();
@@ -89736,7 +90469,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89839,7 +90572,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89934,7 +90667,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90028,8 +90761,9 @@ json["parent"]=parent_json;
         for(int lyxuUNd=0; lyxuUNd < 1; lyxuUNd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pValue[lyxuUNd]);
+            serialize_struct(temp_map, pValue[lyxuUNd]);
             arr_hOmaGpc[lyxuUNd]=temp_map;
+            return;
             }();
         }
         json["pValue"]=arr_hOmaGpc;}();
@@ -90041,7 +90775,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90152,8 +90886,9 @@ json["parent"]=parent_json;
         for(int vcZpbuB=0; vcZpbuB < 1; vcZpbuB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[vcZpbuB]);
+            serialize_struct(temp_map, pInfo[vcZpbuB]);
             arr_hjweGct[vcZpbuB]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_hjweGct;}();
@@ -90165,7 +90900,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90260,8 +90995,9 @@ json["parent"]=parent_json;
         for(int mwoMxRp=0; mwoMxRp < 1; mwoMxRp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPipelineInfo[mwoMxRp]);
+            serialize_struct(temp_map, pPipelineInfo[mwoMxRp]);
             arr_SxuxUqw[mwoMxRp]=temp_map;
+            return;
             }();
         }
         json["pPipelineInfo"]=arr_SxuxUqw;}();
@@ -90280,8 +91016,9 @@ json["parent"]=parent_json;
         for(int uPFqrVz=0; uPFqrVz < *pExecutableCount; uPFqrVz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[uPFqrVz]);
+            serialize_struct(temp_map, pProperties[uPFqrVz]);
             arr_vtfdUfF[uPFqrVz]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_vtfdUfF;}();
@@ -90293,7 +91030,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90412,8 +91149,9 @@ json["parent"]=parent_json;
         for(int JTDfcCv=0; JTDfcCv < 1; JTDfcCv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExecutableInfo[JTDfcCv]);
+            serialize_struct(temp_map, pExecutableInfo[JTDfcCv]);
             arr_xbHlsCc[JTDfcCv]=temp_map;
+            return;
             }();
         }
         json["pExecutableInfo"]=arr_xbHlsCc;}();
@@ -90432,8 +91170,9 @@ json["parent"]=parent_json;
         for(int ktSOZGx=0; ktSOZGx < *pStatisticCount; ktSOZGx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pStatistics[ktSOZGx]);
+            serialize_struct(temp_map, pStatistics[ktSOZGx]);
             arr_cGybyJf[ktSOZGx]=temp_map;
+            return;
             }();
         }
         json["pStatistics"]=arr_cGybyJf;}();
@@ -90445,7 +91184,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90564,8 +91303,9 @@ json["parent"]=parent_json;
         for(int JTDfcCv=0; JTDfcCv < 1; JTDfcCv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExecutableInfo[JTDfcCv]);
+            serialize_struct(temp_map, pExecutableInfo[JTDfcCv]);
             arr_xbHlsCc[JTDfcCv]=temp_map;
+            return;
             }();
         }
         json["pExecutableInfo"]=arr_xbHlsCc;}();
@@ -90584,8 +91324,9 @@ json["parent"]=parent_json;
         for(int OdpgULc=0; OdpgULc < *pInternalRepresentationCount; OdpgULc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInternalRepresentations[OdpgULc]);
+            serialize_struct(temp_map, pInternalRepresentations[OdpgULc]);
             arr_yqajgdo[OdpgULc]=temp_map;
+            return;
             }();
         }
         json["pInternalRepresentations"]=arr_yqajgdo;}();
@@ -90597,7 +91338,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90719,7 +91460,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90825,8 +91566,9 @@ json["parent"]=parent_json;
         for(int dlPXJcQ=0; dlPXJcQ < *pToolCount; dlPXJcQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pToolProperties[dlPXJcQ]);
+            serialize_struct(temp_map, pToolProperties[dlPXJcQ]);
             arr_OYowiCQ[dlPXJcQ]=temp_map;
+            return;
             }();
         }
         json["pToolProperties"]=arr_OYowiCQ;}();
@@ -90838,7 +91580,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90959,8 +91701,9 @@ json["parent"]=parent_json;
         for(int bGUDBRC=0; bGUDBRC < 1; bGUDBRC++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[bGUDBRC]);
+            serialize_struct(temp_map, pCreateInfo[bGUDBRC]);
             arr_XoURuCS[bGUDBRC]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_XoURuCS;}();
@@ -90971,8 +91714,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -90992,7 +91736,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91102,8 +91846,9 @@ json["parent"]=parent_json;
         for(int frdaizU=0; frdaizU < infoCount; frdaizU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfos[frdaizU]);
+            serialize_struct(temp_map, pInfos[frdaizU]);
             arr_lswJvjt[frdaizU]=temp_map;
+            return;
             }();
         }
         json["pInfos"]=arr_lswJvjt;}();
@@ -91119,8 +91864,9 @@ json["parent"]=parent_json;
         for(int IUJrDJF=0; IUJrDJF < infoCount; IUJrDJF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, ppBuildRangeInfos[CRaOjpb][IUJrDJF]);
+            serialize_struct(temp_map, ppBuildRangeInfos[CRaOjpb][IUJrDJF]);
             arr_PKxEvVS[IUJrDJF]=temp_map;
+            return;
             }();
         }
         arr_FMxYLmq[CRaOjpb]=arr_PKxEvVS;}();
@@ -91134,7 +91880,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91226,8 +91972,9 @@ json["parent"]=parent_json;
         for(int frdaizU=0; frdaizU < infoCount; frdaizU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfos[frdaizU]);
+            serialize_struct(temp_map, pInfos[frdaizU]);
             arr_lswJvjt[frdaizU]=temp_map;
+            return;
             }();
         }
         json["pInfos"]=arr_lswJvjt;}();
@@ -91270,7 +92017,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91365,8 +92112,9 @@ json["parent"]=parent_json;
         for(int frdaizU=0; frdaizU < infoCount; frdaizU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfos[frdaizU]);
+            serialize_struct(temp_map, pInfos[frdaizU]);
             arr_lswJvjt[frdaizU]=temp_map;
+            return;
             }();
         }
         json["pInfos"]=arr_lswJvjt;}();
@@ -91382,8 +92130,9 @@ json["parent"]=parent_json;
         for(int IUJrDJF=0; IUJrDJF < infoCount; IUJrDJF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, ppBuildRangeInfos[CRaOjpb][IUJrDJF]);
+            serialize_struct(temp_map, ppBuildRangeInfos[CRaOjpb][IUJrDJF]);
             arr_PKxEvVS[IUJrDJF]=temp_map;
+            return;
             }();
         }
         arr_FMxYLmq[CRaOjpb]=arr_PKxEvVS;}();
@@ -91397,7 +92146,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91501,8 +92250,9 @@ json["parent"]=parent_json;
         for(int DozYfEa=0; DozYfEa < 1; DozYfEa++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[DozYfEa]);
+            serialize_struct(temp_map, pInfo[DozYfEa]);
             arr_CAfLmMn[DozYfEa]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_CAfLmMn;}();
@@ -91514,7 +92264,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91606,8 +92356,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -91627,7 +92378,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91736,8 +92487,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -91749,7 +92501,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91833,7 +92585,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91927,7 +92679,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92022,7 +92774,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92115,8 +92867,9 @@ json["parent"]=parent_json;
         for(int FoBxBjF=0; FoBxBjF < 1; FoBxBjF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[FoBxBjF]);
+            serialize_struct(temp_map, pCreateInfo[FoBxBjF]);
             arr_XLStDVY[FoBxBjF]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_XLStDVY;}();
@@ -92127,8 +92880,9 @@ json["parent"]=parent_json;
         for(int jKzQtoG=0; jKzQtoG < 1; jKzQtoG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
+            serialize_struct(temp_map, pMemoryRequirements[jKzQtoG]);
             arr_ZIfZgsB[jKzQtoG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_ZIfZgsB;}();
@@ -92140,7 +92894,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92231,8 +92985,9 @@ json["parent"]=parent_json;
         for(int EeNdDDD=0; EeNdDDD < 1; EeNdDDD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[EeNdDDD]);
+            serialize_struct(temp_map, pInfo[EeNdDDD]);
             arr_iNXSdlN[EeNdDDD]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_iNXSdlN;}();
@@ -92244,7 +92999,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92338,7 +93093,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92432,7 +93187,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92526,7 +93281,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92619,8 +93374,9 @@ json["parent"]=parent_json;
         for(int HAuJlzw=0; HAuJlzw < viewportCount; HAuJlzw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pViewports[HAuJlzw]);
+            serialize_struct(temp_map, pViewports[HAuJlzw]);
             arr_SyYryUE[HAuJlzw]=temp_map;
+            return;
             }();
         }
         json["pViewports"]=arr_SyYryUE;}();
@@ -92632,7 +93388,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92726,8 +93482,9 @@ json["parent"]=parent_json;
         for(int XBYGvVT=0; XBYGvVT < scissorCount; XBYGvVT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pScissors[XBYGvVT]);
+            serialize_struct(temp_map, pScissors[XBYGvVT]);
             arr_RpUaBcS[XBYGvVT]=temp_map;
+            return;
             }();
         }
         json["pScissors"]=arr_RpUaBcS;}();
@@ -92739,7 +93496,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92837,7 +93594,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92980,7 +93737,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93087,7 +93844,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93181,7 +93938,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93275,7 +94032,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93369,7 +94126,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93463,7 +94220,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93561,7 +94318,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93691,7 +94448,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93782,7 +94539,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93876,7 +94633,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93970,7 +94727,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94061,7 +94818,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94155,7 +94912,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94246,7 +95003,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94337,7 +95094,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94428,7 +95185,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94527,7 +95284,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94619,7 +95376,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94710,7 +95467,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94801,7 +95558,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94901,7 +95658,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95002,8 +95759,9 @@ json["parent"]=parent_json;
         for(int EHggOtN=0; EHggOtN < attachmentCount; EHggOtN++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pColorBlendEquations[EHggOtN]);
+            serialize_struct(temp_map, pColorBlendEquations[EHggOtN]);
             arr_hKUQljx[EHggOtN]=temp_map;
+            return;
             }();
         }
         json["pColorBlendEquations"]=arr_hKUQljx;}();
@@ -95015,7 +95773,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95125,7 +95883,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95226,7 +95984,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95317,7 +96075,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95408,7 +96166,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95499,7 +96257,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95590,7 +96348,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95681,8 +96439,9 @@ json["parent"]=parent_json;
         for(int rBcMzuv=0; rBcMzuv < attachmentCount; rBcMzuv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pColorBlendAdvanced[rBcMzuv]);
+            serialize_struct(temp_map, pColorBlendAdvanced[rBcMzuv]);
             arr_VhJvkCW[rBcMzuv]=temp_map;
+            return;
             }();
         }
         json["pColorBlendAdvanced"]=arr_VhJvkCW;}();
@@ -95694,7 +96453,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95795,7 +96554,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95886,7 +96645,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95977,7 +96736,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96068,7 +96827,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96159,7 +96918,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96250,8 +97009,9 @@ json["parent"]=parent_json;
         for(int jvBpVNx=0; jvBpVNx < viewportCount; jvBpVNx++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pViewportSwizzles[jvBpVNx]);
+            serialize_struct(temp_map, pViewportSwizzles[jvBpVNx]);
             arr_mlTjeMw[jvBpVNx]=temp_map;
+            return;
             }();
         }
         json["pViewportSwizzles"]=arr_mlTjeMw;}();
@@ -96263,7 +97023,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96364,7 +97124,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96455,7 +97215,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96546,7 +97306,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96637,7 +97397,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96736,7 +97496,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96828,7 +97588,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96919,7 +97679,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97010,7 +97770,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97099,8 +97859,9 @@ json["parent"]=parent_json;
         for(int KUjUcQv=0; KUjUcQv < 1; KUjUcQv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[KUjUcQv]);
+            serialize_struct(temp_map, pCreateInfo[KUjUcQv]);
             arr_OhzuPlW[KUjUcQv]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_OhzuPlW;}();
@@ -97111,8 +97872,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -97132,7 +97894,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97245,8 +98007,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -97258,7 +98021,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97348,7 +98111,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97483,7 +98246,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97601,8 +98364,9 @@ json["parent"]=parent_json;
         for(int tCibIjb=0; tCibIjb < 1; tCibIjb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyBufferInfo[tCibIjb]);
+            serialize_struct(temp_map, pCopyBufferInfo[tCibIjb]);
             arr_RrXlJAO[tCibIjb]=temp_map;
+            return;
             }();
         }
         json["pCopyBufferInfo"]=arr_RrXlJAO;}();
@@ -97614,7 +98378,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97698,8 +98462,9 @@ json["parent"]=parent_json;
         for(int vtScDqF=0; vtScDqF < 1; vtScDqF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyImageInfo[vtScDqF]);
+            serialize_struct(temp_map, pCopyImageInfo[vtScDqF]);
             arr_fhmwDMM[vtScDqF]=temp_map;
+            return;
             }();
         }
         json["pCopyImageInfo"]=arr_fhmwDMM;}();
@@ -97711,7 +98476,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97795,8 +98560,9 @@ json["parent"]=parent_json;
         for(int mMDYqpe=0; mMDYqpe < 1; mMDYqpe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBlitImageInfo[mMDYqpe]);
+            serialize_struct(temp_map, pBlitImageInfo[mMDYqpe]);
             arr_uMZBSOh[mMDYqpe]=temp_map;
+            return;
             }();
         }
         json["pBlitImageInfo"]=arr_uMZBSOh;}();
@@ -97808,7 +98574,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97892,8 +98658,9 @@ json["parent"]=parent_json;
         for(int kZlUXOa=0; kZlUXOa < 1; kZlUXOa++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyBufferToImageInfo[kZlUXOa]);
+            serialize_struct(temp_map, pCopyBufferToImageInfo[kZlUXOa]);
             arr_GgxIzVF[kZlUXOa]=temp_map;
+            return;
             }();
         }
         json["pCopyBufferToImageInfo"]=arr_GgxIzVF;}();
@@ -97905,7 +98672,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97989,8 +98756,9 @@ json["parent"]=parent_json;
         for(int SXwhnUi=0; SXwhnUi < 1; SXwhnUi++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyImageToBufferInfo[SXwhnUi]);
+            serialize_struct(temp_map, pCopyImageToBufferInfo[SXwhnUi]);
             arr_dKwPEQq[SXwhnUi]=temp_map;
+            return;
             }();
         }
         json["pCopyImageToBufferInfo"]=arr_dKwPEQq;}();
@@ -98002,7 +98770,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98086,8 +98854,9 @@ json["parent"]=parent_json;
         for(int oSccZaz=0; oSccZaz < 1; oSccZaz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pResolveImageInfo[oSccZaz]);
+            serialize_struct(temp_map, pResolveImageInfo[oSccZaz]);
             arr_WXEMxut[oSccZaz]=temp_map;
+            return;
             }();
         }
         json["pResolveImageInfo"]=arr_WXEMxut;}();
@@ -98099,7 +98868,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98183,8 +98952,9 @@ json["parent"]=parent_json;
         for(int rHAqvQQ=0; rHAqvQQ < 1; rHAqvQQ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFragmentSize[rHAqvQQ]);
+            serialize_struct(temp_map, pFragmentSize[rHAqvQQ]);
             arr_RBQYqfx[rHAqvQQ]=temp_map;
+            return;
             }();
         }
         json["pFragmentSize"]=arr_RBQYqfx;}();
@@ -98201,7 +98971,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98295,8 +99065,9 @@ json["parent"]=parent_json;
         for(int bVRSXYW=0; bVRSXYW < *pFragmentShadingRateCount; bVRSXYW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFragmentShadingRates[bVRSXYW]);
+            serialize_struct(temp_map, pFragmentShadingRates[bVRSXYW]);
             arr_UdwJpYv[bVRSXYW]=temp_map;
+            return;
             }();
         }
         json["pFragmentShadingRates"]=arr_UdwJpYv;}();
@@ -98308,7 +99079,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98433,7 +99204,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98528,8 +99299,9 @@ json["parent"]=parent_json;
         for(int DpqeGQs=0; DpqeGQs < 1; DpqeGQs++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBuildInfo[DpqeGQs]);
+            serialize_struct(temp_map, pBuildInfo[DpqeGQs]);
             arr_rNWxDog[DpqeGQs]=temp_map;
+            return;
             }();
         }
         json["pBuildInfo"]=arr_rNWxDog;}();
@@ -98548,8 +99320,9 @@ json["parent"]=parent_json;
         for(int pwtSWhd=0; pwtSWhd < 1; pwtSWhd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSizeInfo[pwtSWhd]);
+            serialize_struct(temp_map, pSizeInfo[pwtSWhd]);
             arr_aJATMZS[pwtSWhd]=temp_map;
+            return;
             }();
         }
         json["pSizeInfo"]=arr_aJATMZS;}();
@@ -98561,7 +99334,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98663,8 +99436,9 @@ json["parent"]=parent_json;
         for(int BlSYyCp=0; BlSYyCp < vertexBindingDescriptionCount; BlSYyCp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVertexBindingDescriptions[BlSYyCp]);
+            serialize_struct(temp_map, pVertexBindingDescriptions[BlSYyCp]);
             arr_CLcpEBv[BlSYyCp]=temp_map;
+            return;
             }();
         }
         json["pVertexBindingDescriptions"]=arr_CLcpEBv;}();
@@ -98676,8 +99450,9 @@ json["parent"]=parent_json;
         for(int UWEyBUU=0; UWEyBUU < vertexAttributeDescriptionCount; UWEyBUU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVertexAttributeDescriptions[UWEyBUU]);
+            serialize_struct(temp_map, pVertexAttributeDescriptions[UWEyBUU]);
             arr_nigNRkL[UWEyBUU]=temp_map;
+            return;
             }();
         }
         json["pVertexAttributeDescriptions"]=arr_nigNRkL;}();
@@ -98689,7 +99464,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98799,7 +99574,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98890,8 +99665,9 @@ json["parent"]=parent_json;
         for(int rtSvYgr=0; rtSvYgr < 1; rtSvYgr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDependencyInfo[rtSvYgr]);
+            serialize_struct(temp_map, pDependencyInfo[rtSvYgr]);
             arr_RUiZhht[rtSvYgr]=temp_map;
+            return;
             }();
         }
         json["pDependencyInfo"]=arr_RUiZhht;}();
@@ -98903,7 +99679,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98991,7 +99767,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99093,8 +99869,9 @@ json["parent"]=parent_json;
         for(int jvYalYw=0; jvYalYw < eventCount; jvYalYw++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDependencyInfos[jvYalYw]);
+            serialize_struct(temp_map, pDependencyInfos[jvYalYw]);
             arr_ZVkfhDe[jvYalYw]=temp_map;
+            return;
             }();
         }
         json["pDependencyInfos"]=arr_ZVkfhDe;}();
@@ -99106,7 +99883,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99200,8 +99977,9 @@ json["parent"]=parent_json;
         for(int rtSvYgr=0; rtSvYgr < 1; rtSvYgr++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDependencyInfo[rtSvYgr]);
+            serialize_struct(temp_map, pDependencyInfo[rtSvYgr]);
             arr_RUiZhht[rtSvYgr]=temp_map;
+            return;
             }();
         }
         json["pDependencyInfo"]=arr_RUiZhht;}();
@@ -99213,7 +99991,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99298,8 +100076,9 @@ json["parent"]=parent_json;
         for(int uwYUklT=0; uwYUklT < submitCount; uwYUklT++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubmits[uwYUklT]);
+            serialize_struct(temp_map, pSubmits[uwYUklT]);
             arr_shQKWeV[uwYUklT]=temp_map;
+            return;
             }();
         }
         json["pSubmits"]=arr_shQKWeV;}();
@@ -99312,7 +100091,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99422,7 +100201,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99529,7 +100308,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99645,8 +100424,9 @@ json["parent"]=parent_json;
         for(int yGwfptp=0; yGwfptp < *pCheckpointDataCount; yGwfptp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCheckpointData[yGwfptp]);
+            serialize_struct(temp_map, pCheckpointData[yGwfptp]);
             arr_jIvYyZg[yGwfptp]=temp_map;
+            return;
             }();
         }
         json["pCheckpointData"]=arr_jIvYyZg;}();
@@ -99658,7 +100438,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99764,8 +100544,9 @@ json["parent"]=parent_json;
         for(int pVINPWa=0; pVINPWa < 1; pVINPWa++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyMemoryToImageInfo[pVINPWa]);
+            serialize_struct(temp_map, pCopyMemoryToImageInfo[pVINPWa]);
             arr_VVrQQGW[pVINPWa]=temp_map;
+            return;
             }();
         }
         json["pCopyMemoryToImageInfo"]=arr_VVrQQGW;}();
@@ -99777,7 +100558,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99870,8 +100651,9 @@ json["parent"]=parent_json;
         for(int vveMAPG=0; vveMAPG < 1; vveMAPG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyImageToMemoryInfo[vveMAPG]);
+            serialize_struct(temp_map, pCopyImageToMemoryInfo[vveMAPG]);
             arr_uAVSOVI[vveMAPG]=temp_map;
+            return;
             }();
         }
         json["pCopyImageToMemoryInfo"]=arr_uAVSOVI;}();
@@ -99883,7 +100665,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99976,8 +100758,9 @@ json["parent"]=parent_json;
         for(int vOMFrGb=0; vOMFrGb < 1; vOMFrGb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCopyImageToImageInfo[vOMFrGb]);
+            serialize_struct(temp_map, pCopyImageToImageInfo[vOMFrGb]);
             arr_mMvIKFh[vOMFrGb]=temp_map;
+            return;
             }();
         }
         json["pCopyImageToImageInfo"]=arr_mMvIKFh;}();
@@ -99989,7 +100772,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100083,8 +100866,9 @@ json["parent"]=parent_json;
         for(int EeppCgm=0; EeppCgm < transitionCount; EeppCgm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pTransitions[EeppCgm]);
+            serialize_struct(temp_map, pTransitions[EeppCgm]);
             arr_KQaENWu[EeppCgm]=temp_map;
+            return;
             }();
         }
         json["pTransitions"]=arr_KQaENWu;}();
@@ -100096,7 +100880,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100198,8 +100982,9 @@ json["parent"]=parent_json;
         for(int YJbJtas=0; YJbJtas < 1; YJbJtas++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVideoProfile[YJbJtas]);
+            serialize_struct(temp_map, pVideoProfile[YJbJtas]);
             arr_eFObkVe[YJbJtas]=temp_map;
+            return;
             }();
         }
         json["pVideoProfile"]=arr_eFObkVe;}();
@@ -100210,8 +100995,9 @@ json["parent"]=parent_json;
         for(int NPLkdlm=0; NPLkdlm < 1; NPLkdlm++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCapabilities[NPLkdlm]);
+            serialize_struct(temp_map, pCapabilities[NPLkdlm]);
             arr_rprZzlH[NPLkdlm]=temp_map;
+            return;
             }();
         }
         json["pCapabilities"]=arr_rprZzlH;}();
@@ -100223,7 +101009,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100326,8 +101112,9 @@ json["parent"]=parent_json;
         for(int FIocPZR=0; FIocPZR < 1; FIocPZR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVideoFormatInfo[FIocPZR]);
+            serialize_struct(temp_map, pVideoFormatInfo[FIocPZR]);
             arr_JJWKnHz[FIocPZR]=temp_map;
+            return;
             }();
         }
         json["pVideoFormatInfo"]=arr_JJWKnHz;}();
@@ -100346,8 +101133,9 @@ json["parent"]=parent_json;
         for(int mUXWOpX=0; mUXWOpX < *pVideoFormatPropertyCount; mUXWOpX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVideoFormatProperties[mUXWOpX]);
+            serialize_struct(temp_map, pVideoFormatProperties[mUXWOpX]);
             arr_GhjQGHj[mUXWOpX]=temp_map;
+            return;
             }();
         }
         json["pVideoFormatProperties"]=arr_GhjQGHj;}();
@@ -100359,7 +101147,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100478,8 +101266,9 @@ json["parent"]=parent_json;
         for(int tsYbFnY=0; tsYbFnY < 1; tsYbFnY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[tsYbFnY]);
+            serialize_struct(temp_map, pCreateInfo[tsYbFnY]);
             arr_mCuZMrp[tsYbFnY]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_mCuZMrp;}();
@@ -100490,8 +101279,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -100511,7 +101301,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100621,8 +101411,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -100634,7 +101425,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100716,8 +101507,9 @@ json["parent"]=parent_json;
         for(int uFIOrHK=0; uFIOrHK < 1; uFIOrHK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[uFIOrHK]);
+            serialize_struct(temp_map, pCreateInfo[uFIOrHK]);
             arr_PbbIaMM[uFIOrHK]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_PbbIaMM;}();
@@ -100728,8 +101520,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -100749,7 +101542,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100859,8 +101652,9 @@ json["parent"]=parent_json;
         for(int gnypMkA=0; gnypMkA < 1; gnypMkA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pUpdateInfo[gnypMkA]);
+            serialize_struct(temp_map, pUpdateInfo[gnypMkA]);
             arr_miOYaCQ[gnypMkA]=temp_map;
+            return;
             }();
         }
         json["pUpdateInfo"]=arr_miOYaCQ;}();
@@ -100872,7 +101666,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100967,8 +101761,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -100980,7 +101775,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101071,8 +101866,9 @@ json["parent"]=parent_json;
         for(int FfNBlzG=0; FfNBlzG < *pMemoryRequirementsCount; FfNBlzG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryRequirements[FfNBlzG]);
+            serialize_struct(temp_map, pMemoryRequirements[FfNBlzG]);
             arr_UuJQZUu[FfNBlzG]=temp_map;
+            return;
             }();
         }
         json["pMemoryRequirements"]=arr_UuJQZUu;}();
@@ -101084,7 +101880,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101205,8 +102001,9 @@ json["parent"]=parent_json;
         for(int bWiRCGV=0; bWiRCGV < bindSessionMemoryInfoCount; bWiRCGV++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindSessionMemoryInfos[bWiRCGV]);
+            serialize_struct(temp_map, pBindSessionMemoryInfos[bWiRCGV]);
             arr_XamFtca[bWiRCGV]=temp_map;
+            return;
             }();
         }
         json["pBindSessionMemoryInfos"]=arr_XamFtca;}();
@@ -101218,7 +102015,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101321,8 +102118,9 @@ json["parent"]=parent_json;
         for(int jmrOltD=0; jmrOltD < 1; jmrOltD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDecodeInfo[jmrOltD]);
+            serialize_struct(temp_map, pDecodeInfo[jmrOltD]);
             arr_FUuNCSo[jmrOltD]=temp_map;
+            return;
             }();
         }
         json["pDecodeInfo"]=arr_FUuNCSo;}();
@@ -101334,7 +102132,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101415,8 +102213,9 @@ json["parent"]=parent_json;
         for(int tVSxYNW=0; tVSxYNW < 1; tVSxYNW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBeginInfo[tVSxYNW]);
+            serialize_struct(temp_map, pBeginInfo[tVSxYNW]);
             arr_pSWbqZw[tVSxYNW]=temp_map;
+            return;
             }();
         }
         json["pBeginInfo"]=arr_pSWbqZw;}();
@@ -101428,7 +102227,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101509,8 +102308,9 @@ json["parent"]=parent_json;
         for(int MLwaMsn=0; MLwaMsn < 1; MLwaMsn++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCodingControlInfo[MLwaMsn]);
+            serialize_struct(temp_map, pCodingControlInfo[MLwaMsn]);
             arr_vJmaWsp[MLwaMsn]=temp_map;
+            return;
             }();
         }
         json["pCodingControlInfo"]=arr_vJmaWsp;}();
@@ -101522,7 +102322,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101603,8 +102403,9 @@ json["parent"]=parent_json;
         for(int KxwYkSG=0; KxwYkSG < 1; KxwYkSG++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pEndCodingInfo[KxwYkSG]);
+            serialize_struct(temp_map, pEndCodingInfo[KxwYkSG]);
             arr_OpexQSo[KxwYkSG]=temp_map;
+            return;
             }();
         }
         json["pEndCodingInfo"]=arr_OpexQSo;}();
@@ -101616,7 +102417,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101698,8 +102499,9 @@ json["parent"]=parent_json;
         for(int PnFzdhd=0; PnFzdhd < decompressRegionCount; PnFzdhd++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDecompressMemoryRegions[PnFzdhd]);
+            serialize_struct(temp_map, pDecompressMemoryRegions[PnFzdhd]);
             arr_oMszjDS[PnFzdhd]=temp_map;
+            return;
             }();
         }
         json["pDecompressMemoryRegions"]=arr_oMszjDS;}();
@@ -101711,7 +102513,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101805,7 +102607,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101912,8 +102714,9 @@ json["parent"]=parent_json;
         for(int TUVhIjf=0; TUVhIjf < 1; TUVhIjf++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[TUVhIjf]);
+            serialize_struct(temp_map, pCreateInfo[TUVhIjf]);
             arr_FjdqPXh[TUVhIjf]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_FjdqPXh;}();
@@ -101924,8 +102727,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -101945,7 +102749,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102054,8 +102858,9 @@ json["parent"]=parent_json;
         for(int twsSgji=0; twsSgji < 1; twsSgji++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[twsSgji]);
+            serialize_struct(temp_map, pCreateInfo[twsSgji]);
             arr_XkBojZi[twsSgji]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_XkBojZi;}();
@@ -102066,8 +102871,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -102087,7 +102893,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102197,8 +103003,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -102210,7 +103017,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102293,8 +103100,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -102306,7 +103114,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102388,8 +103196,9 @@ json["parent"]=parent_json;
         for(int eUSpbRB=0; eUSpbRB < 1; eUSpbRB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLaunchInfo[eUSpbRB]);
+            serialize_struct(temp_map, pLaunchInfo[eUSpbRB]);
             arr_UKYVund[eUSpbRB]=temp_map;
+            return;
             }();
         }
         json["pLaunchInfo"]=arr_UKYVund;}();
@@ -102401,7 +103210,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102492,7 +103301,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102600,7 +103409,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102706,8 +103515,9 @@ json["parent"]=parent_json;
         for(int cdcTeyn=0; cdcTeyn < 1; cdcTeyn++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDescriptorInfo[cdcTeyn]);
+            serialize_struct(temp_map, pDescriptorInfo[cdcTeyn]);
             arr_RGgHhwd[cdcTeyn]=temp_map;
+            return;
             }();
         }
         json["pDescriptorInfo"]=arr_RGgHhwd;}();
@@ -102731,7 +103541,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102841,8 +103651,9 @@ json["parent"]=parent_json;
         for(int btgeqwi=0; btgeqwi < bufferCount; btgeqwi++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindingInfos[btgeqwi]);
+            serialize_struct(temp_map, pBindingInfos[btgeqwi]);
             arr_guwgqGC[btgeqwi]=temp_map;
+            return;
             }();
         }
         json["pBindingInfos"]=arr_guwgqGC;}();
@@ -102854,7 +103665,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102965,7 +103776,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103079,7 +103890,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103178,8 +103989,9 @@ json["parent"]=parent_json;
         for(int VgzeNwX=0; VgzeNwX < 1; VgzeNwX++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[VgzeNwX]);
+            serialize_struct(temp_map, pInfo[VgzeNwX]);
             arr_Hxvezrr[VgzeNwX]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_Hxvezrr;}();
@@ -103202,7 +104014,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103314,8 +104126,9 @@ json["parent"]=parent_json;
         for(int swRpuDc=0; swRpuDc < 1; swRpuDc++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[swRpuDc]);
+            serialize_struct(temp_map, pInfo[swRpuDc]);
             arr_vrxBIsi[swRpuDc]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_vrxBIsi;}();
@@ -103338,7 +104151,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103450,8 +104263,9 @@ json["parent"]=parent_json;
         for(int pmdADqD=0; pmdADqD < 1; pmdADqD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[pmdADqD]);
+            serialize_struct(temp_map, pInfo[pmdADqD]);
             arr_CYlSaQv[pmdADqD]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_CYlSaQv;}();
@@ -103474,7 +104288,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103586,8 +104400,9 @@ json["parent"]=parent_json;
         for(int SScNLQN=0; SScNLQN < 1; SScNLQN++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[SScNLQN]);
+            serialize_struct(temp_map, pInfo[SScNLQN]);
             arr_RMPxsVS[SScNLQN]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_RMPxsVS;}();
@@ -103610,7 +104425,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103722,8 +104537,9 @@ json["parent"]=parent_json;
         for(int kbTuVMH=0; kbTuVMH < 1; kbTuVMH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[kbTuVMH]);
+            serialize_struct(temp_map, pInfo[kbTuVMH]);
             arr_iLnHGmk[kbTuVMH]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_iLnHGmk;}();
@@ -103746,7 +104562,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103861,7 +104677,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103954,7 +104770,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104067,7 +104883,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104189,7 +105005,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104300,8 +105116,9 @@ json["parent"]=parent_json;
         for(int dAqQfxy=0; dAqQfxy < 1; dAqQfxy++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRenderingInfo[dAqQfxy]);
+            serialize_struct(temp_map, pRenderingInfo[dAqQfxy]);
             arr_DOEgrev[dAqQfxy]=temp_map;
+            return;
             }();
         }
         json["pRenderingInfo"]=arr_DOEgrev;}();
@@ -104313,7 +105130,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104398,7 +105215,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104481,8 +105298,9 @@ json["parent"]=parent_json;
         for(int OEumPxJ=0; OEumPxJ < 1; OEumPxJ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBindingReference[OEumPxJ]);
+            serialize_struct(temp_map, pBindingReference[OEumPxJ]);
             arr_JTmPGZt[OEumPxJ]=temp_map;
+            return;
             }();
         }
         json["pBindingReference"]=arr_JTmPGZt;}();
@@ -104493,8 +105311,9 @@ json["parent"]=parent_json;
         for(int jHGvhna=0; jHGvhna < 1; jHGvhna++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pHostMapping[jHGvhna]);
+            serialize_struct(temp_map, pHostMapping[jHGvhna]);
             arr_zODJzpL[jHGvhna]=temp_map;
+            return;
             }();
         }
         json["pHostMapping"]=arr_zODJzpL;}();
@@ -104506,7 +105325,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104617,7 +105436,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104724,8 +105543,9 @@ json["parent"]=parent_json;
         for(int cfhYIUK=0; cfhYIUK < 1; cfhYIUK++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[cfhYIUK]);
+            serialize_struct(temp_map, pCreateInfo[cfhYIUK]);
             arr_vrQtrYo[cfhYIUK]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_vrQtrYo;}();
@@ -104736,8 +105556,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -104757,7 +105578,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104867,8 +105688,9 @@ json["parent"]=parent_json;
         for(int bfMWBOA=0; bfMWBOA < infoCount; bfMWBOA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfos[bfMWBOA]);
+            serialize_struct(temp_map, pInfos[bfMWBOA]);
             arr_KdoluBZ[bfMWBOA]=temp_map;
+            return;
             }();
         }
         json["pInfos"]=arr_KdoluBZ;}();
@@ -104880,7 +105702,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104972,8 +105794,9 @@ json["parent"]=parent_json;
         for(int bfMWBOA=0; bfMWBOA < infoCount; bfMWBOA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfos[bfMWBOA]);
+            serialize_struct(temp_map, pInfos[bfMWBOA]);
             arr_KdoluBZ[bfMWBOA]=temp_map;
+            return;
             }();
         }
         json["pInfos"]=arr_KdoluBZ;}();
@@ -104985,7 +105808,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105089,8 +105912,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -105102,7 +105926,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105184,8 +106008,9 @@ json["parent"]=parent_json;
         for(int vDMleIo=0; vDMleIo < 1; vDMleIo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[vDMleIo]);
+            serialize_struct(temp_map, pInfo[vDMleIo]);
             arr_UIlbXxp[vDMleIo]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_UIlbXxp;}();
@@ -105197,7 +106022,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105279,8 +106104,9 @@ json["parent"]=parent_json;
         for(int vDMleIo=0; vDMleIo < 1; vDMleIo++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[vDMleIo]);
+            serialize_struct(temp_map, pInfo[vDMleIo]);
             arr_UIlbXxp[vDMleIo]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_UIlbXxp;}();
@@ -105292,7 +106118,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105386,8 +106212,9 @@ json["parent"]=parent_json;
         for(int dzsAOWF=0; dzsAOWF < 1; dzsAOWF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[dzsAOWF]);
+            serialize_struct(temp_map, pInfo[dzsAOWF]);
             arr_EiLirbT[dzsAOWF]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_EiLirbT;}();
@@ -105399,7 +106226,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105481,8 +106308,9 @@ json["parent"]=parent_json;
         for(int dzsAOWF=0; dzsAOWF < 1; dzsAOWF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[dzsAOWF]);
+            serialize_struct(temp_map, pInfo[dzsAOWF]);
             arr_EiLirbT[dzsAOWF]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_EiLirbT;}();
@@ -105494,7 +106322,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105588,8 +106416,9 @@ json["parent"]=parent_json;
         for(int semZpgt=0; semZpgt < 1; semZpgt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[semZpgt]);
+            serialize_struct(temp_map, pInfo[semZpgt]);
             arr_QufOGLT[semZpgt]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_QufOGLT;}();
@@ -105601,7 +106430,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105683,8 +106512,9 @@ json["parent"]=parent_json;
         for(int semZpgt=0; semZpgt < 1; semZpgt++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[semZpgt]);
+            serialize_struct(temp_map, pInfo[semZpgt]);
             arr_QufOGLT[semZpgt]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_QufOGLT;}();
@@ -105696,7 +106526,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105803,7 +106633,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105936,7 +106766,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106084,8 +106914,9 @@ json["parent"]=parent_json;
         for(int odfXDEI=0; odfXDEI < 1; odfXDEI++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pVersionInfo[odfXDEI]);
+            serialize_struct(temp_map, pVersionInfo[odfXDEI]);
             arr_PYqUGEM[odfXDEI]=temp_map;
+            return;
             }();
         }
         json["pVersionInfo"]=arr_PYqUGEM;}();
@@ -106105,7 +106936,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106203,8 +107034,9 @@ json["parent"]=parent_json;
         for(int nPItxru=0; nPItxru < 1; nPItxru++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pBuildInfo[nPItxru]);
+            serialize_struct(temp_map, pBuildInfo[nPItxru]);
             arr_lREHNwp[nPItxru]=temp_map;
+            return;
             }();
         }
         json["pBuildInfo"]=arr_lREHNwp;}();
@@ -106215,8 +107047,9 @@ json["parent"]=parent_json;
         for(int XgjgtXU=0; XgjgtXU < 1; XgjgtXU++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSizeInfo[XgjgtXU]);
+            serialize_struct(temp_map, pSizeInfo[XgjgtXU]);
             arr_fJKSsZw[XgjgtXU]=temp_map;
+            return;
             }();
         }
         json["pSizeInfo"]=arr_fJKSsZw;}();
@@ -106228,7 +107061,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106329,8 +107162,9 @@ json["parent"]=parent_json;
         for(int DSBkSwY=0; DSBkSwY < 1; DSBkSwY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pIdentifier[DSBkSwY]);
+            serialize_struct(temp_map, pIdentifier[DSBkSwY]);
             arr_ICaFqGG[DSBkSwY]=temp_map;
+            return;
             }();
         }
         json["pIdentifier"]=arr_ICaFqGG;}();
@@ -106342,7 +107176,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106433,8 +107267,9 @@ json["parent"]=parent_json;
         for(int dKxemXH=0; dKxemXH < 1; dKxemXH++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[dKxemXH]);
+            serialize_struct(temp_map, pCreateInfo[dKxemXH]);
             arr_iSZUILM[dKxemXH]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_iSZUILM;}();
@@ -106445,8 +107280,9 @@ json["parent"]=parent_json;
         for(int DSBkSwY=0; DSBkSwY < 1; DSBkSwY++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pIdentifier[DSBkSwY]);
+            serialize_struct(temp_map, pIdentifier[DSBkSwY]);
             arr_ICaFqGG[DSBkSwY]=temp_map;
+            return;
             }();
         }
         json["pIdentifier"]=arr_ICaFqGG;}();
@@ -106458,7 +107294,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106550,8 +107386,9 @@ json["parent"]=parent_json;
         for(int HvvKvoL=0; HvvKvoL < 1; HvvKvoL++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pSubresource[HvvKvoL]);
+            serialize_struct(temp_map, pSubresource[HvvKvoL]);
             arr_xtdYssI[HvvKvoL]=temp_map;
+            return;
             }();
         }
         json["pSubresource"]=arr_xtdYssI;}();
@@ -106562,8 +107399,9 @@ json["parent"]=parent_json;
         for(int jEkaLQP=0; jEkaLQP < 1; jEkaLQP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLayout[jEkaLQP]);
+            serialize_struct(temp_map, pLayout[jEkaLQP]);
             arr_JxnVeqW[jEkaLQP]=temp_map;
+            return;
             }();
         }
         json["pLayout"]=arr_JxnVeqW;}();
@@ -106575,7 +107413,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106670,8 +107508,9 @@ json["parent"]=parent_json;
         for(int iUjmOrp=0; iUjmOrp < 1; iUjmOrp++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPipelineInfo[iUjmOrp]);
+            serialize_struct(temp_map, pPipelineInfo[iUjmOrp]);
             arr_eGbOPJq[iUjmOrp]=temp_map;
+            return;
             }();
         }
         json["pPipelineInfo"]=arr_eGbOPJq;}();
@@ -106682,8 +107521,9 @@ json["parent"]=parent_json;
         for(int cJpCXwz=0; cJpCXwz < 1; cJpCXwz++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pPipelineProperties[cJpCXwz]);
+            serialize_struct(temp_map, pPipelineProperties[cJpCXwz]);
             arr_eMgMlNc[cJpCXwz]=temp_map;
+            return;
             }();
         }
         json["pPipelineProperties"]=arr_eMgMlNc;}();
@@ -106695,7 +107535,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106807,8 +107647,9 @@ json["parent"]=parent_json;
         for(int oGElcJh=0; oGElcJh < *pPropertiesCount; oGElcJh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[oGElcJh]);
+            serialize_struct(temp_map, pProperties[oGElcJh]);
             arr_hYNBodF[oGElcJh]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_hYNBodF;}();
@@ -106820,7 +107661,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106939,8 +107780,9 @@ json["parent"]=parent_json;
         for(int dAqQfxy=0; dAqQfxy < 1; dAqQfxy++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pRenderingInfo[dAqQfxy]);
+            serialize_struct(temp_map, pRenderingInfo[dAqQfxy]);
             arr_DOEgrev[dAqQfxy]=temp_map;
+            return;
             }();
         }
         json["pRenderingInfo"]=arr_DOEgrev;}();
@@ -106951,8 +107793,9 @@ json["parent"]=parent_json;
         for(int oGElcJh=0; oGElcJh < 1; oGElcJh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[oGElcJh]);
+            serialize_struct(temp_map, pProperties[oGElcJh]);
             arr_hYNBodF[oGElcJh]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_hYNBodF;}();
@@ -106964,7 +107807,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107067,8 +107910,9 @@ json["parent"]=parent_json;
         for(int HqzITOl=0; HqzITOl < 1; HqzITOl++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pOpticalFlowImageFormatInfo[HqzITOl]);
+            serialize_struct(temp_map, pOpticalFlowImageFormatInfo[HqzITOl]);
             arr_oyPfnWV[HqzITOl]=temp_map;
+            return;
             }();
         }
         json["pOpticalFlowImageFormatInfo"]=arr_oyPfnWV;}();
@@ -107087,8 +107931,9 @@ json["parent"]=parent_json;
         for(int gkJgIzP=0; gkJgIzP < *pFormatCount; gkJgIzP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pImageFormatProperties[gkJgIzP]);
+            serialize_struct(temp_map, pImageFormatProperties[gkJgIzP]);
             arr_oZncgpa[gkJgIzP]=temp_map;
+            return;
             }();
         }
         json["pImageFormatProperties"]=arr_oZncgpa;}();
@@ -107100,7 +107945,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107219,8 +108064,9 @@ json["parent"]=parent_json;
         for(int LaeeodD=0; LaeeodD < 1; LaeeodD++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfo[LaeeodD]);
+            serialize_struct(temp_map, pCreateInfo[LaeeodD]);
             arr_dKVOiZE[LaeeodD]=temp_map;
+            return;
             }();
         }
         json["pCreateInfo"]=arr_dKVOiZE;}();
@@ -107231,8 +108077,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -107252,7 +108099,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107362,8 +108209,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -107375,7 +108223,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107462,7 +108310,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107575,8 +108423,9 @@ json["parent"]=parent_json;
         for(int XLHKKBA=0; XLHKKBA < 1; XLHKKBA++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pExecuteInfo[XLHKKBA]);
+            serialize_struct(temp_map, pExecuteInfo[XLHKKBA]);
             arr_CyySpro[XLHKKBA]=temp_map;
+            return;
             }();
         }
         json["pExecuteInfo"]=arr_CyySpro;}();
@@ -107588,7 +108437,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107670,8 +108519,9 @@ json["parent"]=parent_json;
         for(int RexMRxZ=0; RexMRxZ < 1; RexMRxZ++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFaultCounts[RexMRxZ]);
+            serialize_struct(temp_map, pFaultCounts[RexMRxZ]);
             arr_LWLqmdd[RexMRxZ]=temp_map;
+            return;
             }();
         }
         json["pFaultCounts"]=arr_LWLqmdd;}();
@@ -107682,8 +108532,9 @@ json["parent"]=parent_json;
         for(int AHHHhvb=0; AHHHhvb < 1; AHHHhvb++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pFaultInfo[AHHHhvb]);
+            serialize_struct(temp_map, pFaultInfo[AHHHhvb]);
             arr_CRNBZxs[AHHHhvb]=temp_map;
+            return;
             }();
         }
         json["pFaultInfo"]=arr_CRNBZxs;}();
@@ -107695,7 +108546,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107807,8 +108658,9 @@ json["parent"]=parent_json;
         for(int kGsXYsB=0; kGsXYsB < 1; kGsXYsB++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pDepthBiasInfo[kGsXYsB]);
+            serialize_struct(temp_map, pDepthBiasInfo[kGsXYsB]);
             arr_AKZgFGf[kGsXYsB]=temp_map;
+            return;
             }();
         }
         json["pDepthBiasInfo"]=arr_AKZgFGf;}();
@@ -107820,7 +108672,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107901,8 +108753,9 @@ json["parent"]=parent_json;
         for(int dRtPqPF=0; dRtPqPF < 1; dRtPqPF++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pReleaseInfo[dRtPqPF]);
+            serialize_struct(temp_map, pReleaseInfo[dRtPqPF]);
             arr_jcnZDBn[dRtPqPF]=temp_map;
+            return;
             }();
         }
         json["pReleaseInfo"]=arr_jcnZDBn;}();
@@ -107914,7 +108767,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108007,8 +108860,9 @@ json["parent"]=parent_json;
         for(int wxoktPv=0; wxoktPv < 1; wxoktPv++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pInfo[wxoktPv]);
+            serialize_struct(temp_map, pInfo[wxoktPv]);
             arr_SwRDgPP[wxoktPv]=temp_map;
+            return;
             }();
         }
         json["pInfo"]=arr_SwRDgPP;}();
@@ -108019,8 +108873,9 @@ json["parent"]=parent_json;
         for(int jEkaLQP=0; jEkaLQP < 1; jEkaLQP++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pLayout[jEkaLQP]);
+            serialize_struct(temp_map, pLayout[jEkaLQP]);
             arr_JxnVeqW[jEkaLQP]=temp_map;
+            return;
             }();
         }
         json["pLayout"]=arr_JxnVeqW;}();
@@ -108032,7 +108887,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108132,8 +108987,9 @@ json["parent"]=parent_json;
         for(int iwSaLAe=0; iwSaLAe < 1; iwSaLAe++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryMapInfo[iwSaLAe]);
+            serialize_struct(temp_map, pMemoryMapInfo[iwSaLAe]);
             arr_udcndbe[iwSaLAe]=temp_map;
+            return;
             }();
         }
         json["pMemoryMapInfo"]=arr_udcndbe;}();
@@ -108163,7 +109019,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108295,8 +109151,9 @@ json["parent"]=parent_json;
         for(int caczdhq=0; caczdhq < 1; caczdhq++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pMemoryUnmapInfo[caczdhq]);
+            serialize_struct(temp_map, pMemoryUnmapInfo[caczdhq]);
             arr_hZlnXPf[caczdhq]=temp_map;
+            return;
             }();
         }
         json["pMemoryUnmapInfo"]=arr_hZlnXPf;}();
@@ -108308,7 +109165,7 @@ deregisterDeviceMemoryMap(pMemoryUnmapInfo->memory);
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108403,8 +109260,9 @@ json["parent"]=parent_json;
         for(int bOiKywR=0; bOiKywR < createInfoCount; bOiKywR++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pCreateInfos[bOiKywR]);
+            serialize_struct(temp_map, pCreateInfos[bOiKywR]);
             arr_mOfZnnW[bOiKywR]=temp_map;
+            return;
             }();
         }
         json["pCreateInfos"]=arr_mOfZnnW;}();
@@ -108415,8 +109273,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -108436,7 +109295,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108555,8 +109414,9 @@ json["parent"]=parent_json;
         for(int fdxDfEW=0; fdxDfEW < 1; fdxDfEW++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pAllocator[fdxDfEW]);
+            serialize_struct(temp_map, pAllocator[fdxDfEW]);
             arr_daGjOqj[fdxDfEW]=temp_map;
+            return;
             }();
         }
         json["pAllocator"]=arr_daGjOqj;}();
@@ -108568,7 +109428,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108671,7 +109531,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108817,7 +109677,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108916,8 +109776,9 @@ json["parent"]=parent_json;
         for(int iTGjLCh=0; iTGjLCh < *pPropertyCount; iTGjLCh++){
             [&](){
             auto temp_map=json::map();
-            return serialize_struct(temp_map, pProperties[iTGjLCh]);
+            serialize_struct(temp_map, pProperties[iTGjLCh]);
             arr_PEzgESc[iTGjLCh]=temp_map;
+            return;
             }();
         }
         json["pProperties"]=arr_PEzgESc;}();
@@ -108929,7 +109790,7 @@ json["parent"]=parent_json;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;

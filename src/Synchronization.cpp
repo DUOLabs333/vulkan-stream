@@ -138,6 +138,7 @@ void handle_sync_response(json::map& json){
     
     for(int i=0; i < sync.starts.size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
+        debug_printf("%d %d\n",sync.starts[i], sync.lengths[i]);
         memcpy((char*)mem+sync.starts[i],sync.buffers[i].data(), sync.lengths[i]);
     }
     

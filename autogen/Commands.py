@@ -88,7 +88,7 @@ for name, command in parsed.items():
         
         write(param["header"]+";")
         write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False,initialize=True))
-
+        
     write(f"""
     PFN_{name} call_function;
     
@@ -203,7 +203,13 @@ for name, command in parsed.items():
     
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
-            
+      
+    if name=="vkCreateSwapchainKHR":
+        write("""
+        auto& imageExtent1=json["pCreateInfo"].as_vector()[0].as_map().at("imageExtent").as_map();
+        debug_printf("Swapchain extent: %d, %d\\n", imageExtent1.at("width").as_uint64_t(), imageExtent1.at("height").as_uint64_t());
+        """)
+             
     if name=="vkWaitForFences":
         write("""
             if (result!=VK_TIMEOUT){
@@ -222,7 +228,7 @@ write("""
 void handle_command(json::map json){
 //Will only be called by the server
 
-switch (static_cast<StreamType>(json["stream_type"].as_int64_t())){
+switch (static_cast<StreamType>(json["stream_type"].as_uint64_t())){
 """)
 
 for name, command in parsed.items():
@@ -436,7 +442,7 @@ for name, command in parsed.items():
         
         temp_info.imageUsage|=VK_IMAGE_USAGE_TRANSFER_SRC_BIT;
         
-        pCreateInfo=&temp_info;
+        auto pCreateInfo=&temp_info;
         """)
         
     for param in command["params"]:
@@ -456,7 +462,7 @@ for name, command in parsed.items():
         while(true){{
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_int64_t())){{
+            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){{
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -551,6 +557,13 @@ for name, command in parsed.items():
         if not is_void(command):
             write(command["type"]+"*"*command["num_indirection"]+" result;")
             write(convert("result",f"""json["result"]""",command | {"name":"result"},serialize=False,initialize=True))
+            
+    if name=="vkCreateSwapchainKHR":
+        write("""
+        auto& imageExtent1=json["pCreateInfo"].as_vector()[0].as_map().at("imageExtent").as_map();
+        debug_printf("Swapchain extent: %d, %d\\n", static_cast<uint32_t>(imageExtent1.at("width").as_uint64_t()), imageExtent1.at("height").as_uint64_t());
+        debug_printf("Swapchain extent: %d, %d\\n", pCreateInfo->imageExtent.width, pCreateInfo->imageExtent.height);
+        """)
         
     for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
         if re.match(creation_function,name) is not None:
