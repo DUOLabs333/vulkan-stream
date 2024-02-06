@@ -2,10 +2,10 @@
 #include <cstdint>
 #include <picosha2.h>
 
-#include <boost/json.hpp>
+#include <msgpack.hpp>
+#include <Serialization.hpp>
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
-#include <Serialization.hpp>
 #include <map>
 extern "C" {
 #include <shm_open_anon.h>
@@ -124,7 +124,7 @@ delete info;
 void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
-void handle_sync_response(boost::json::object& json){
+void handle_sync_response(json::map& json){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     
     Sync sync;
@@ -138,13 +138,13 @@ void handle_sync_response(boost::json::object& json){
     
     for(int i=0; i < sync.starts.size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
-        memcpy((char*)mem+sync.starts[i],sync.buffers[i].c_str(), sync.lengths[i]);
+        memcpy((char*)mem+sync.starts[i],sync.buffers[i].data(), sync.lengths[i]);
     }
     
     writeToConn(json);
 }
 
-void handle_sync_init(boost::json::object& json){
+void handle_sync_init(json::map& json){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
     
     Sync sync;
@@ -190,7 +190,7 @@ void handle_sync_init(boost::json::object& json){
     
 }
 
-void handle_sync_request(boost::json::object& json){
+void handle_sync_request(json::map& json){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
     
     Sync sync;
@@ -208,7 +208,7 @@ void handle_sync_request(boost::json::object& json){
         auto length=sync.lengths[i];
         auto start=sync.starts[i];
         
-        std::string buffer((char*)mem+start, (char*)mem+start+length);
+        std::vector<char> buffer((char*)mem+start, (char*)mem+start+length);
         
         sync.buffers[i]=buffer;
     }
@@ -258,7 +258,7 @@ void SyncOne(uintptr_t devicememory, void* mem, size_t length){
         offset+=d;
     }
     
-    boost::json::object json;
+    json::map json;
     
     serialize_Sync(json, sync);
     writeToConn(json);

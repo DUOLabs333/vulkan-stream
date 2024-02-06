@@ -1,4 +1,4 @@
-#include <boost/json.hpp>
+#include <msgpack.hpp>
 #include "ThreadStruct.hpp"
 #include <thread>
 #include <debug.hpp>
@@ -34,7 +34,6 @@ ThreadStruct* currStruct(){
         auto result=new ThreadStruct();
         
         result->uuid=-1;
-        result->is=new std::istream(&result->buf);
         
         #ifdef CLIENT
             setAddressandPort();

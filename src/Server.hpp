@@ -1,6 +1,6 @@
 #include <debug.hpp>
 
-boost::json::object readFromConn();
-void writeToConn(boost::json::object&);
+json::map readFromConn();
+void writeToConn(json::map&);
 
 void startServer();

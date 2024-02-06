@@ -1,18 +1,16 @@
-#include <boost/json.hpp>
+#include <msgpack.hpp>
 
-#include "Server.hpp"
+#include <Serialization.hpp>
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
-#include <Serialization.hpp>
+#include "Server.hpp"
 #include <Commands.hpp>
 #include <thread>
-#include <string_view>
 
 #include <sstream>
 #include <random>
 #include <asio/read.hpp>
 #include <asio/write.hpp>
-#include <lz4.h>
 
 int UUID_MAX=10000000;
 std::random_device rd;
@@ -38,16 +36,16 @@ class RWError : public std::exception {
         
         currStruct()->conn=socket;
         
-        boost::json::object json;
+        json::map json;
         while(true){
             try{
             json=readFromConn();
             
             if (currStruct()->uuid==-1){
-                currStruct()->uuid=value_to<int>(json["uuid"]);
+                currStruct()->uuid=json["uuid"].as<int>();
             }
             
-            if (static_cast<StreamType>(value_to<int>(json["stream_type"]))==SYNC){
+            if (static_cast<StreamType>(json["stream_type"].as<int>())==SYNC){
                 handle_sync_init(json);
             }
             else{
@@ -79,78 +77,69 @@ class RWError : public std::exception {
 #endif
 
 
-void serializeInt(std::array<uint8_t,8>& buf, int i, uint32_t val) { //Assumes that val is a 32-bit number (almost always true). Serializes in little endian in endian-agnostic way
-    buf[i+0] = (val) & 0xFF;
-    buf[i+1] = (val >> 8) & 0xFF;
-    buf[i+2] = (val >> 16) & 0xFF;
-    buf[i+3] = (val >> 24) & 0xFF;
+void serializeInt(std::array<uint8_t,4>& buf, uint32_t val) { //Assumes that val is a 32-bit number (almost always true). Serializes in little endian in endian-agnostic way
+    buf[0] = (val) & 0xFF;
+    buf[1] = (val >> 8) & 0xFF;
+    buf[2] = (val >> 16) & 0xFF;
+    buf[3] = (val >> 24) & 0xFF;
 }
 
-uint32_t deserializeInt(std::array<uint8_t,8>& buf, int i){ //Deserialzes from little endian in endian-agnostic way
-    return buf[i+0] | (buf[i+1] << 8) | (buf[i+2] << 16) | (buf[i+3] << 24);
+uint32_t deserializeInt(std::array<uint8_t,4>& buf){ //Deserialzes from little endian in endian-agnostic way
+    return buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
 }
 
-boost::json::object readFromConn(){
+bool always_reference(msgpack::type::object_type, std::size_t, void *){
+    return true;
+}
+
+json::map readFromConn(){
+
     auto curr=currStruct();
+    
     asio::error_code ec;
-    
-    asio::read(*(curr->conn), asio::buffer(curr->size_buf, 8), asio::transfer_exactly(8), ec);
+    asio::read(*(curr->conn), asio::buffer(curr->size_buf,4), asio::transfer_exactly(4), ec);
     if (ec){
         throw RWError(ec);
     }
     
-    auto compressed_size=deserializeInt(curr->size_buf, 0);
-    auto input_size=deserializeInt(curr->size_buf, 4);
+    auto msg_size=deserializeInt(curr->size_buf);
     
-
-    auto compressed_data=(char*)malloc(compressed_size);
-    auto input=(char*)malloc(input_size);
+    if (curr->data_buf!=NULL){
+        free(curr->data_buf);
+    }
     
-    asio::read(*(curr->conn), asio::buffer(compressed_data, compressed_size), asio::transfer_exactly(compressed_size), ec);
+    curr->data_buf=(char*)malloc(msg_size);
     
+    asio::read(*(curr->conn), asio::buffer(curr->data_buf, msg_size), asio::transfer_exactly(msg_size), ec);
     if (ec){
         throw RWError(ec);
     }
     
-    auto line=std::string_view(input,input_size);
-    LZ4_decompress_safe(compressed_data, input, compressed_size, input_size);
-
-    boost::json::object json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
+    msgpack::unpack(curr->handle, curr->data_buf, msg_size, always_reference);
     
-    free(input);
-    free(compressed_data);
-    
-    return json;
+    return curr->handle.get().as<json::map>();
 }
 
-void writeToConn(boost::json::object& json){
-    auto curr=currStruct();
-    
+void writeToConn(json::map& json){
     json["uuid"]=uuid;
     
-    auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
-
-    auto input_size=line.size();
-    auto input=line.c_str();
-    auto max_compressed_size=LZ4_compressBound(input_size);
-    auto compressed_data=(char*)malloc(max_compressed_size);
+    auto curr=currStruct();
+    auto stream = std::stringstream();
     
-    auto compressed_size=LZ4_compress_default(input, compressed_data, input_size, max_compressed_size);
+    msgpack::pack(stream, json); 
     
-    serializeInt(curr->size_buf, 0, compressed_size);
-    serializeInt(curr->size_buf, 4, input_size);
+    auto data=stream.str();
+    
+    serializeInt(curr->size_buf, data.size());
+    
     asio::error_code ec;
-    asio::write(*(curr->conn), asio::buffer(curr->size_buf,8), ec);
-    
+    asio::write(*(curr->conn), asio::buffer(curr->size_buf, 4), ec);
     if (ec){
         throw RWError(ec);
     }
     
-    asio::write(*(curr->conn), asio::buffer(compressed_data,compressed_size), ec);
-    
+    asio::write(*(curr->conn), asio::buffer(data), ec);
     if (ec){
         throw RWError(ec);
     }
-    
-    free(compressed_data);
 }
