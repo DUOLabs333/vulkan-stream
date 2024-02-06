@@ -100,7 +100,7 @@ for name, command in parsed.items():
         call_function=(PFN_{name})get_instance_proc_addr(parent,"{name}");
     }}else if(parent_json.contains("device")){{
         VkDevice parent;
-        deserialize_VkDevice(parent_json("device"),parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_{name})get_device_proc_addr(parent,"{name}");
     }}  
     """
@@ -214,7 +214,7 @@ for name, command in parsed.items():
     write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
        
     write(f"""
-        json["stream_type"]={name.upper()};
+        json["stream_type"]=static_cast<int>({name.upper()});
         writeToConn(json);
     }}""")
 
