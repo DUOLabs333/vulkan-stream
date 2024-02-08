@@ -631,7 +631,7 @@ uintptr_t devicememory = 0;
 uintptr_t mem;
 std::vector<size_t> starts;
 std::vector<size_t> lengths;
-std::vector<std::vector<unsigned char>> hashes;
+std::vector<std::string> hashes;
 std::vector<std::string> buffers;
 } Sync;
 

@@ -24,7 +24,7 @@ void serialize_Sync(boost::json::object& json, Sync& sync){
 void deserialize_Sync(boost::json::object& json, Sync& sync){
     sync.devicememory=boost::json::value_to<uintptr_t>(json["devicememory"]);
     sync.mem=boost::json::value_to<uintptr_t>(json["mem"]);
-    sync.hashes=boost::json::value_to<std::vector<std::vector<unsigned char>>>(json["hashes"]);
+    sync.hashes=boost::json::value_to<std::vector<std::string>>(json["hashes"]);
     sync.lengths=boost::json::value_to<std::vector<size_t>>(json["lengths"]);
     sync.starts=boost::json::value_to<std::vector<size_t>>(json["starts"]);
     sync.buffers=boost::json::value_to<std::vector<std::string>>(json["buffers"]);
@@ -34,17 +34,17 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkInternalAllocationNotification;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkVoidFunction;
 uintptr_t PFN_vkDebugReportCallbackEXT;
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkReallocationFunction;
 uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
+uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkInternalFreeNotification;
 } pUserData_struct;
 
 PFN_vkVoidFunction handle_pNext(VkStructureType sType, bool serialize){

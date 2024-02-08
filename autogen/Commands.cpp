@@ -29,13 +29,8 @@ Lock MemoryOperationLock; //This is not needed (but may be preferred, at the exp
 
 #ifndef CLIENT
 
-#ifdef __APPLE__
-    std::string vulkan_library_name="libvulkan.dylib";
-#endif
-#include <dlfcn.h>
-auto vulkan_library=dlopen(vulkan_library_name.c_str(), RTLD_LAZY | RTLD_GLOBAL);
-auto get_instance_proc_addr=(PFN_vkGetInstanceProcAddr)dlsym(vulkan_library,"vkGetInstanceProcAddr");
-auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)dlsym(vulkan_library,"vkGetDeviceProcAddr");
+auto get_instance_proc_addr=vkGetInstanceProcAddr;
+auto get_device_proc_addr=vkGetDeviceProcAddr;
 
 
     void handle_vkCreateInstance(boost::json::object& json){
@@ -116,6 +111,7 @@ VkResult  result;
         //extensions_set.insert(std::string(VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME));
         extensions_set.insert(std::string(VK_EXT_SURFACE_MAINTENANCE_1_EXTENSION_NAME));
         extensions_set.insert(std::string(VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME));
+        extensions_set.insert(std::string(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME));
         
         auto extensions_length=extensions_set.size();
         auto extensions_list=(char **)malloc(extensions_length*sizeof(char*));
@@ -131,7 +127,8 @@ VkResult  result;
         }
 
         pCreateInfo->ppEnabledExtensionNames=extensions_list;
-        pCreateInfo->enabledExtensionCount=extensions_length;            
+        pCreateInfo->enabledExtensionCount=extensions_length;
+        pCreateInfo->flags|=VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR;            
         
 result=call_function(pCreateInfo, pAllocator, pInstance);
 }

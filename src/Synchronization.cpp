@@ -36,7 +36,7 @@ typedef std::map<uintptr_t,MemInfo*> mem_info_map;
 #endif
 
 
-auto HashMem(void* mem, uintptr_t start, uintptr_t length){
+std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     
     std::string src_string((char*)mem+start,(char*)mem+start+length);
     
@@ -44,7 +44,7 @@ auto HashMem(void* mem, uintptr_t start, uintptr_t length){
     
     picosha2::hash256(src_string.begin(), src_string.end(), hash.begin(), hash.end());
     
-    return hash;
+    return picosha2::bytes_to_hex_string(hash.begin(), hash.end());
     
 }
 
@@ -167,7 +167,7 @@ void handle_sync_init(boost::json::object& json){
     sync.starts.clear();
     sync.lengths.clear();
     sync.hashes.clear();
-
+    
     for (int i=0; i<starts.size(); i++){
         if (HashMem(mem, starts[i], lengths[i])!= hashes[i]){
             sync.starts.push_back(starts[i]);
