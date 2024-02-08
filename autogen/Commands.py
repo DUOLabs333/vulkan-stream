@@ -434,7 +434,7 @@ for name, command in parsed.items():
         
         temp_info.imageUsage|=VK_IMAGE_USAGE_TRANSFER_SRC_BIT;
         
-        pCreateInfo=&temp_info;
+        auto pCreateInfo=&temp_info;
         """)
         
     for param in command["params"]:

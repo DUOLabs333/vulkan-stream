@@ -6,3 +6,5 @@ external/*
 *.pyc
 Sync.json
 parsed.json
+perf.*
+id1

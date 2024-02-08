@@ -1,6 +1,5 @@
 #include <cstddef>
 #include <cstdint>
-#include <picosha2.h>
 
 #include <boost/json.hpp>
 #include <Server.hpp>
@@ -35,17 +34,25 @@ typedef std::map<uintptr_t,MemInfo*> mem_info_map;
     std::map<int, mem_info_map> uuid_to_map;
 #endif
 
+inline uint64_t HashMem(void* mem, uintptr_t start, uintptr_t length) {
+    // 32 bit params
+    // uint32_t constexpr fnv_prime = 16777619U;
+    // uint32_t constexpr fnv_offset_basis = 2166136261U;
 
-std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
+    // 64 bit params
+    uint64_t constexpr fnv_prime = 1099511628211ULL;
+    uint64_t constexpr fnv_offset_basis = 14695981039346656037ULL;
+    
+    uint64_t hash = fnv_offset_basis;
     
     std::string src_string((char*)mem+start,(char*)mem+start+length);
     
-    std::vector<unsigned char> hash(picosha2::k_digest_size);
-    
-    picosha2::hash256(src_string.begin(), src_string.end(), hash.begin(), hash.end());
-    
-    return picosha2::bytes_to_hex_string(hash.begin(), hash.end());
-    
+    for(auto c: src_string) {
+        hash ^= c;
+        hash *= fnv_prime;
+    }
+
+    return hash;
 }
 
 void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_mem){
