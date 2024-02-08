@@ -51,7 +51,7 @@ ThreadStruct* currStruct(){
                 }
             }
             
-            result->conn->set_option( asio::ip::tcp::no_delay( true) );
+            //result->conn->set_option( asio::ip::tcp::no_delay( true) );
             
         #endif
         

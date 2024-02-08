@@ -36,7 +36,7 @@ class RWError : public std::exception {
     void handleConnection(tcp::socket* socket){
         //Will only be called by the server
         
-        socket->set_option( asio::ip::tcp::no_delay( true) );
+        //socket->set_option( asio::ip::tcp::no_delay( true) );
         currStruct()->conn=socket;
         
         boost::json::object json;
@@ -141,13 +141,8 @@ void writeToConn(boost::json::object& json){
     serializeInt(curr->size_buf, 0, compressed_size);
     serializeInt(curr->size_buf, 4, input_size);
     asio::error_code ec;
-    asio::write(*(curr->conn), asio::buffer(curr->size_buf,8), ec);
     
-    if (ec){
-        throw RWError(ec);
-    }
-    
-    asio::write(*(curr->conn), asio::buffer(compressed_data,compressed_size), ec);
+    asio::write(*(curr->conn), std::vector<asio::const_buffer>{asio::buffer(curr->size_buf,8), asio::buffer(compressed_data,compressed_size)}, ec);
     
     if (ec){
         throw RWError(ec);
