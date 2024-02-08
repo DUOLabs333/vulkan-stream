@@ -4,16 +4,15 @@ import copy
 
 write("""
 #include <debug.hpp>
+#include <boost/json.hpp>
 
 #include <stdexcept>
 #include <shared_mutex>
 #include <future>
 #include "vk_enum_string_helper.h"
 #include <set>
-#include <vector>
 #include <vulkan/vulkan.h>
 
-#include <msgpack.hpp>
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
@@ -42,10 +41,10 @@ def registerDeviceMemoryMap(name,mem):
             size=f"pMemoryMapInfo->{size}"
             
         return f"""
-        json::value server_memory_json;
+        boost::json::value server_memory_json;
         serialize_VkDeviceMemory(server_memory_json, {memory});
         
-        auto server_memory=server_memory_json.as_uint64_t(); 
+        auto server_memory=value_to<uintptr_t>(server_memory_json); 
         
         *ppData=registerDeviceMemoryMap(server_memory, {memory},{size},*ppData,{mem});
         
@@ -76,7 +75,7 @@ for name, command in parsed.items():
         continue
         
     write(f"""
-    void handle_{name}(json::map& json){{
+    void handle_{name}(boost::json::object& json){{
     //Will only be called by the server
     """)
 
@@ -88,19 +87,19 @@ for name, command in parsed.items():
         
         write(param["header"]+";")
         write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False,initialize=True))
-        
+
     write(f"""
     PFN_{name} call_function;
     
-    auto parent_json=json["parent"].as_map();
+    auto parent_json=json["parent"].get_object();
     if(parent_json.contains("instance")){{
         VkInstance parent;
-        deserialize_VkInstance(parent_json.at("instance"),parent);
+        deserialize_VkInstance(parent_json["instance"],parent);
         
         call_function=(PFN_{name})get_instance_proc_addr(parent,"{name}");
     }}else if(parent_json.contains("device")){{
         VkDevice parent;
-        deserialize_VkDevice(parent_json.at("device"),parent);
+        deserialize_VkDevice(parent_json["device"],parent);
         call_function=(PFN_{name})get_device_proc_addr(parent,"{name}");
     }}  
     """
@@ -203,13 +202,7 @@ for name, command in parsed.items():
     
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
-      
-    if name=="vkCreateSwapchainKHR":
-        write("""
-        auto& imageExtent1=json["pCreateInfo"].as_vector()[0].as_map().at("imageExtent").as_map();
-        debug_printf("Swapchain extent: %d, %d\\n", imageExtent1.at("width").as_uint64_t(), imageExtent1.at("height").as_uint64_t());
-        """)
-             
+            
     if name=="vkWaitForFences":
         write("""
             if (result!=VK_TIMEOUT){
@@ -220,15 +213,15 @@ for name, command in parsed.items():
     write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
        
     write(f"""
-        json["stream_type"]=static_cast<int>({name.upper()});
+        json["stream_type"]={name.upper()};
         writeToConn(json);
     }}""")
 
 write("""
-void handle_command(json::map json){
+void handle_command(boost::json::object json){
 //Will only be called by the server
 
-switch (static_cast<StreamType>(json["stream_type"].as_uint64_t())){
+switch (static_cast<StreamType>(value_to<int>(json["stream_type"]))){
 """)
 
 for name, command in parsed.items():
@@ -246,7 +239,7 @@ for name, command in parsed.items():
 
 write("}}")
 
-write("void handle_command(json::map);", header=True)
+write("void handle_command(boost::json::object);", header=True)
 
 write("#else") #Don't want server to get confused on which command we're talking about
 write("""
@@ -328,10 +321,11 @@ for name, command in parsed.items():
         continue
     
     write(f"""
-    json::map json;
-    json["stream_type"]=static_cast<int>({name.upper()});
+    boost::json::object json;
+    json["stream_type"]={name.upper()};
     
-    auto parent_json=json::map();
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     """)
     
     head=command["params"][0]
@@ -349,8 +343,6 @@ for name, command in parsed.items():
         """)
     else:
         write("""parent_json["instance"]=(uintptr_t)NULL;""")
-    
-    write("""json["parent"]=parent_json;""")
     
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
@@ -442,7 +434,7 @@ for name, command in parsed.items():
         
         temp_info.imageUsage|=VK_IMAGE_USAGE_TRANSFER_SRC_BIT;
         
-        auto pCreateInfo=&temp_info;
+        pCreateInfo=&temp_info;
         """)
         
     for param in command["params"]:
@@ -462,7 +454,7 @@ for name, command in parsed.items():
         while(true){{
             json=readFromConn();
             
-            switch(static_cast<StreamType>(json["stream_type"].as_uint64_t())){{
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -541,7 +533,7 @@ for name, command in parsed.items():
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 debug_printf("Retrieving {command_name}...\\n");
-                result= (json["result"].as_uint64_t()!=(uintptr_t)NULL) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
+                result= (value_to<uintptr_t>(json["result"])!=(uintptr_t)NULL) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
             }}
             """)
@@ -557,13 +549,6 @@ for name, command in parsed.items():
         if not is_void(command):
             write(command["type"]+"*"*command["num_indirection"]+" result;")
             write(convert("result",f"""json["result"]""",command | {"name":"result"},serialize=False,initialize=True))
-            
-    if name=="vkCreateSwapchainKHR":
-        write("""
-        auto& imageExtent1=json["pCreateInfo"].as_vector()[0].as_map().at("imageExtent").as_map();
-        debug_printf("Swapchain extent: %d, %d\\n", static_cast<uint32_t>(imageExtent1.at("width").as_uint64_t()), imageExtent1.at("height").as_uint64_t());
-        debug_printf("Swapchain extent: %d, %d\\n", pCreateInfo->imageExtent.width, pCreateInfo->imageExtent.height);
-        """)
         
     for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
         if re.match(creation_function,name) is not None:
@@ -602,7 +587,7 @@ for name, command in parsed.items():
     if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
         
-    write(registerDeviceMemoryMap(name, """json["mem"].as_uint64_t()"""))
+    write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(json["mem"])"""))
     
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")

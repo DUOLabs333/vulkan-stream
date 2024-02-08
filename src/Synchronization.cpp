@@ -2,10 +2,10 @@
 #include <cstdint>
 #include <picosha2.h>
 
-#include <msgpack.hpp>
-#include <Serialization.hpp>
+#include <boost/json.hpp>
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
+#include <Serialization.hpp>
 #include <map>
 extern "C" {
 #include <shm_open_anon.h>
@@ -36,7 +36,7 @@ typedef std::map<uintptr_t,MemInfo*> mem_info_map;
 #endif
 
 
-std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
+auto HashMem(void* mem, uintptr_t start, uintptr_t length){
     
     std::string src_string((char*)mem+start,(char*)mem+start+length);
     
@@ -44,7 +44,7 @@ std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     
     picosha2::hash256(src_string.begin(), src_string.end(), hash.begin(), hash.end());
     
-    return picosha2::bytes_to_hex_string(hash.begin(), hash.end());
+    return hash;
     
 }
 
@@ -124,7 +124,7 @@ delete info;
 void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
-void handle_sync_response(json::map& json){
+void handle_sync_response(boost::json::object& json){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     
     Sync sync;
@@ -138,14 +138,13 @@ void handle_sync_response(json::map& json){
     
     for(int i=0; i < sync.starts.size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
-        debug_printf("%d %d\n",sync.starts[i], sync.lengths[i]);
-        memcpy((char*)mem+sync.starts[i],sync.buffers[i].data(), sync.lengths[i]);
+        memcpy((char*)mem+sync.starts[i],sync.buffers[i].c_str(), sync.lengths[i]);
     }
     
     writeToConn(json);
 }
 
-void handle_sync_init(json::map& json){
+void handle_sync_init(boost::json::object& json){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
     
     Sync sync;
@@ -168,7 +167,7 @@ void handle_sync_init(json::map& json){
     sync.starts.clear();
     sync.lengths.clear();
     sync.hashes.clear();
-    
+
     for (int i=0; i<starts.size(); i++){
         if (HashMem(mem, starts[i], lengths[i])!= hashes[i]){
             sync.starts.push_back(starts[i]);
@@ -191,7 +190,7 @@ void handle_sync_init(json::map& json){
     
 }
 
-void handle_sync_request(json::map& json){
+void handle_sync_request(boost::json::object& json){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
     
     Sync sync;
@@ -209,7 +208,7 @@ void handle_sync_request(json::map& json){
         auto length=sync.lengths[i];
         auto start=sync.starts[i];
         
-        std::vector<char> buffer((char*)mem+start, (char*)mem+start+length);
+        std::string buffer((char*)mem+start, (char*)mem+start+length);
         
         sync.buffers[i]=buffer;
     }
@@ -259,7 +258,7 @@ void SyncOne(uintptr_t devicememory, void* mem, size_t length){
         offset+=d;
     }
     
-    json::map json;
+    boost::json::object json;
     
     serialize_Sync(json, sync);
     writeToConn(json);

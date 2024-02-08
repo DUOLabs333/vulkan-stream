@@ -98,11 +98,11 @@ def convert(variable, value, info, serialize, initialize=False):
         if serialize:
             result+=f"""
             if ({variable}==NULL){{
-                {value}=json::vector();
+                {value}=boost::json::array();
             """
         else:
             result+=f"""
-            if ({value}.as_vector().size()==0){{
+            if ({value}.get_array().size()==0){{
                 {variable}=NULL;
             """
         result +="return; }"
@@ -131,7 +131,7 @@ def convert(variable, value, info, serialize, initialize=False):
             else:
                 cast_header=re.sub(fr"""\b{info["name"]}\b""","",info["header"]).replace(";","")
                 
-                result+=f"""{variable}=({cast_header})({value}.as_uint64_t());"""
+                result+=f"""{variable}=({cast_header})(value_to<uintptr_t>({value}));"""
                 
     elif len(length)>0:
         size=length.pop()
@@ -141,7 +141,7 @@ def convert(variable, value, info, serialize, initialize=False):
             if serialize:
                 size=f"strlen({variable})+1"
             else:
-                size=f"""{value}.as_vector().size()"""
+                size=f"""{value}.get_array().size()"""
                 
         if deserialize and num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
@@ -155,27 +155,22 @@ def convert(variable, value, info, serialize, initialize=False):
             else:
                 info["header"]=re.sub(r"\[.*?\]","", info["header"],count=1)
         
-        arr_json=f"arr_{random_string(info)}"
         if serialize:
-            result+=f"auto {arr_json}=json::vector({size});"
-        else:
-            result+=f"auto& {arr_json}={value}.as_vector();"
+            result+=f"{value}=boost::json::array({size});"
         
+        arr=f"{value}.get_array()"
+        arr_json=f"arr_{random_string(info)}"
         
         variable+=f"[{temp_iterator}]"
-        
-        old_value=value
         value=f"{arr_json}[{temp_iterator}]"
         
         result+=f"""
+        auto& {arr_json}={arr};
         for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
             {convert(*args())}
         }}
         """
-        
-        if serialize:
-            result+=f"{old_value}={arr_json};"
-            
+    
     elif kind=="pUserData": #Has to be handled specially as we are dealing with the parent, not just the child
         #Deserializing on the client shouldn't do anything --- similarly on the server
         raise ValueError("This is an error!")
@@ -187,38 +182,31 @@ def convert(variable, value, info, serialize, initialize=False):
             
         if serialize:
             result+=f"""
-            auto temp_map=json::map();
-            serialize_{kind}(temp_map, {variable});
-            {value}=temp_map;
-            return;
+            auto& temp={value}.emplace_object();
+            return serialize_{kind}(temp, {variable});
             """
         else:
             if kind=="funcpointer":
                 result+="\n#ifndef CLIENT"
                 
             result+=f"""
-            deserialize_{kind}({value}.as_map(),{variable});
+            auto& temp={value}.get_object();
+            deserialize_{kind}(temp,{variable});
             """
             if kind=="funcpointer":
                 result+="#endif\n"
                 
     elif kind=="primitive":
         if serialize:
-            if type.startswith("uint") or type=="char":
-                cast="uint"
-            elif type in ["double","float"]:
-                cast=type
-            else:
-                cast="int"
-            result+=f"""{value}=static_cast<{cast}>({variable});"""
+            result+=f"""{value}={variable};"""
         else:
             result+=f"""
-            if ({value}.is_uint64_t()){{
-                {variable}=static_cast<{type}>({value}.as_uint64_t());
-            }}else if ({value}.is_int64_t()){{
-                {variable}=static_cast<{type}>({value}.as_int64_t());
+            if ({value}.is_uint64()){{
+                {variable}=static_cast<{type}>({value}.get_uint64());
+            }}else if ({value}.is_int64()){{
+                {variable}=static_cast<{type}>({value}.get_int64());
             }}else{{
-                {variable}=static_cast<{type}>({value}.as_double());
+                {variable}=static_cast<{type}>({value}.get_double());
             }}
             """
     elif kind=="handle":

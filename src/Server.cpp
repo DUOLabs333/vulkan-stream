@@ -1,15 +1,15 @@
-#include <msgpack.hpp>
+#include <boost/json.hpp>
 
-#include <Serialization.hpp>
+#include "Server.hpp"
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
-#include "Server.hpp"
+#include <Serialization.hpp>
 #include <Commands.hpp>
 #include <thread>
 
 #include <sstream>
 #include <random>
-#include <asio/read.hpp>
+#include <asio/read_until.hpp>
 #include <asio/write.hpp>
 
 int UUID_MAX=10000000;
@@ -36,16 +36,16 @@ class RWError : public std::exception {
         
         currStruct()->conn=socket;
         
-        json::map json;
+        boost::json::object json;
         while(true){
             try{
             json=readFromConn();
             
             if (currStruct()->uuid==-1){
-                currStruct()->uuid=json["uuid"].as_uint64_t();
+                currStruct()->uuid=value_to<int>(json["uuid"]);
             }
             
-            if (static_cast<StreamType>(json["stream_type"].as_uint64_t())==SYNC){
+            if (static_cast<StreamType>(value_to<int>(json["stream_type"]))==SYNC){
                 handle_sync_init(json);
             }
             else{
@@ -88,54 +88,30 @@ uint32_t deserializeInt(std::array<uint8_t,4>& buf){ //Deserialzes from little e
     return buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
 }
 
-bool always_reference(msgpack::type::object_type, std::size_t, void *){
-    return false;
-}
-
-json::map readFromConn(){
+boost::json::object readFromConn(){
 
     auto curr=currStruct();
+    std::string line;
     
     asio::error_code ec;
-    asio::read(*(curr->conn), asio::buffer(curr->size_buf,4), ec);
+    asio::read_until(*(curr->conn), curr->buf, '\n', ec);
     if (ec){
         throw RWError(ec);
     }
     
-    auto msg_size=deserializeInt(curr->size_buf);
+    std::getline(*(curr->is),line);
     
-    if (curr->data_buf!=NULL){
-        free(curr->data_buf);
-    }
+    boost::json::object json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
     
-    curr->data_buf=(char*)malloc(msg_size);
-    
-    asio::read(*(curr->conn), asio::buffer(curr->data_buf, msg_size), ec);
-    if (ec){
-        throw RWError(ec);
-    }
-    
-    msgpack::unpack(curr->handle, curr->data_buf, msg_size, always_reference);
-    
-    return curr->handle.get().as<json::map>();
+    return json;
 }
 
-void writeToConn(json::map& json){
+void writeToConn(boost::json::object& json){
     json["uuid"]=uuid;
     
-    auto curr=currStruct();
-    
-    msgpack::pack(curr->os, json); 
-    
-    serializeInt(curr->size_buf, curr->buf.size());
-    
     asio::error_code ec;
-    asio::write(*(curr->conn), asio::buffer(curr->size_buf, 4), ec);
-    if (ec){
-        throw RWError(ec);
-    }
+    asio::write(*(currStruct()->conn), asio::buffer(boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true})+"\n"), ec);
     
-    asio::write(*(curr->conn), curr->buf, ec);
     if (ec){
         throw RWError(ec);
     }
