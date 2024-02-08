@@ -9,7 +9,7 @@
 
 #include <sstream>
 #include <random>
-#include <asio/read_until.hpp>
+#include <asio/read.hpp>
 #include <asio/write.hpp>
 
 int UUID_MAX=10000000;
@@ -36,6 +36,7 @@ class RWError : public std::exception {
         
         currStruct()->conn=socket;
         
+        currStruct()->conn->set_option( asio::ip::tcp::no_delay( true) );
         boost::json::object json;
         while(true){
             try{
@@ -89,29 +90,42 @@ uint32_t deserializeInt(std::array<uint8_t,4>& buf){ //Deserialzes from little e
 }
 
 boost::json::object readFromConn(){
-
     auto curr=currStruct();
-    std::string line;
-    
     asio::error_code ec;
-    asio::read_until(*(curr->conn), curr->buf, '\n', ec);
+    
+    asio::read(*(curr->conn), asio::buffer(curr->size_buf, 4), ec);
     if (ec){
         throw RWError(ec);
     }
     
-    std::getline(*(curr->is),line);
+    auto size=deserializeInt(curr->size_buf);
+    auto data=(char*)malloc(size);
+    asio::read(*(curr->conn), asio::buffer(data,size), asio::transfer_exactly(size), ec);
+    if (ec){
+        throw RWError(ec);
+    }
     
-    boost::json::object json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
+    auto json=boost::json::parse(std::string_view(data,size),{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
     
     return json;
+    
 }
 
 void writeToConn(boost::json::object& json){
+    auto curr=currStruct();
     json["uuid"]=uuid;
-    
     asio::error_code ec;
-    asio::write(*(currStruct()->conn), asio::buffer(boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true})+"\n"), ec);
     
+    auto data =boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+    auto size=data.size();
+    
+    serializeInt(curr->size_buf, size);
+    asio::write(*(curr->conn), asio::buffer(curr->size_buf,4), ec);
+    if (ec){
+        throw RWError(ec);
+    }
+    
+    asio::write(*(currStruct()->conn), asio::buffer(data), ec);
     if (ec){
         throw RWError(ec);
     }
