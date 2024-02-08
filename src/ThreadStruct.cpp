@@ -33,6 +33,8 @@ ThreadStruct* currStruct(){
     if (!thread_to_struct.contains(thread_id)){
         auto result=new ThreadStruct();
         
+        result->os=new std::ostream(&result->buf);
+        
         result->uuid=-1;
         
         #ifdef CLIENT

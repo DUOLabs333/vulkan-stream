@@ -19,6 +19,9 @@ typedef struct {
     msgpack::object_handle handle;
     char* data_buf = NULL; //Remember to free it before reassigning
     std::array<uint8_t,4> size_buf;
+    std::ostream* os;
+    asio::streambuf buf;
+    
     
 } ThreadStruct;
     

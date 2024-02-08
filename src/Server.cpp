@@ -89,7 +89,7 @@ uint32_t deserializeInt(std::array<uint8_t,4>& buf){ //Deserialzes from little e
 }
 
 bool always_reference(msgpack::type::object_type, std::size_t, void *){
-    return true;
+    return false;
 }
 
 json::map readFromConn(){
@@ -97,7 +97,7 @@ json::map readFromConn(){
     auto curr=currStruct();
     
     asio::error_code ec;
-    asio::read(*(curr->conn), asio::buffer(curr->size_buf,4), asio::transfer_exactly(4), ec);
+    asio::read(*(curr->conn), asio::buffer(curr->size_buf,4), ec);
     if (ec){
         throw RWError(ec);
     }
@@ -110,7 +110,7 @@ json::map readFromConn(){
     
     curr->data_buf=(char*)malloc(msg_size);
     
-    asio::read(*(curr->conn), asio::buffer(curr->data_buf, msg_size), asio::transfer_exactly(msg_size), ec);
+    asio::read(*(curr->conn), asio::buffer(curr->data_buf, msg_size), ec);
     if (ec){
         throw RWError(ec);
     }
@@ -124,13 +124,10 @@ void writeToConn(json::map& json){
     json["uuid"]=uuid;
     
     auto curr=currStruct();
-    auto stream = std::stringstream();
     
-    msgpack::pack(stream, json); 
+    msgpack::pack(curr->os, json); 
     
-    auto data=stream.str();
-    
-    serializeInt(curr->size_buf, data.size());
+    serializeInt(curr->size_buf, curr->buf.size());
     
     asio::error_code ec;
     asio::write(*(curr->conn), asio::buffer(curr->size_buf, 4), ec);
@@ -138,7 +135,7 @@ void writeToConn(json::map& json){
         throw RWError(ec);
     }
     
-    asio::write(*(curr->conn), asio::buffer(data), ec);
+    asio::write(*(curr->conn), curr->buf, ec);
     if (ec){
         throw RWError(ec);
     }
