@@ -215,7 +215,7 @@ void handle_sync_request(boost::json::object& json){
         auto length=sync.lengths[i];
         auto start=sync.starts[i];
         
-        std::string buffer((char*)mem+start, (char*)mem+start+length);
+        std::string_view buffer((char*)mem+start, length);
         
         sync.buffers[i]=buffer;
     }
