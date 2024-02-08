@@ -34,7 +34,7 @@ typedef std::map<uintptr_t,MemInfo*> mem_info_map;
     std::map<int, mem_info_map> uuid_to_map;
 #endif
 
-inline uint64_t HashMem(void* mem, uintptr_t start, uintptr_t length) {
+uint64_t HashMem(void* mem, uintptr_t start, uintptr_t length) {
     // 32 bit params
     // uint32_t constexpr fnv_prime = 16777619U;
     // uint32_t constexpr fnv_offset_basis = 2166136261U;
@@ -45,7 +45,7 @@ inline uint64_t HashMem(void* mem, uintptr_t start, uintptr_t length) {
     
     uint64_t hash = fnv_offset_basis;
     
-    std::string src_string((char*)mem+start,(char*)mem+start+length);
+    std::string_view src_string((char*)mem+start, length);
     
     for(auto c: src_string) {
         hash ^= c;
