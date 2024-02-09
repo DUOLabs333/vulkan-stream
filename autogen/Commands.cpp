@@ -7,6 +7,7 @@
 #include <future>
 #include "vk_enum_string_helper.h"
 #include <set>
+#include <unordered_map>
 #include <vulkan/vulkan.h>
 
 #include <Serialization.hpp>
@@ -16,7 +17,7 @@
 #ifdef CLIENT
     #include <Surface.hpp>
     
-    std::map<uintptr_t, VkDeviceSize> devicememory_to_size;
+    std::unordered_map<uintptr_t, VkDeviceSize> devicememory_to_size;
     void registerDeviceMemory(VkDeviceMemory memory, VkDeviceSize size){
         devicememory_to_size[(uintptr_t)memory]=size;
     }
@@ -41196,7 +41197,7 @@ VkInstance instance;
 VkDevice device;
 } parent_handle_struct;
 
-std::map<uintptr_t,parent_handle_struct> handle_to_parent_handle_struct;
+std::unordered_map<uintptr_t,parent_handle_struct> handle_to_parent_handle_struct;
 
 
 extern "C" {
@@ -69365,7 +69366,7 @@ debug_printf("Executing vkCreateSwapchainKHR\n");
         
         temp_info.imageUsage|=VK_IMAGE_USAGE_TRANSFER_SRC_BIT;
         
-        pCreateInfo=&temp_info;
+        auto pCreateInfo=&temp_info;
         
 [&](){serialize_VkDevice(json["device"],device);}();
 [&](){
@@ -69923,7 +69924,7 @@ debug_printf("Executing vkQueuePresentKHR\n");
          
          for (int i=0; i< new_count; i++){
             if ((i>= old_count) || (fences_list[i]==VK_NULL_HANDLE)){
-                vkCreateFence(swapchain_to_device[(uintptr_t)(new_info->pSwapchains[i])],&fence_create_info, NULL, &(fences_list[i]));
+                vkCreateFence(getSwapchainDevice(new_info->pSwapchains[i]),&fence_create_info, NULL, &(fences_list[i]));
             }
             
             pushToQueue(fences_list[i], pPresentInfo->pSwapchains[i], pPresentInfo->pImageIndices[i]);

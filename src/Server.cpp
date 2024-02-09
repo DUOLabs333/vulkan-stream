@@ -36,7 +36,7 @@ class RWError : public std::exception {
     void handleConnection(tcp::socket* socket){
         //Will only be called by the server
         
-        //socket->set_option( asio::ip::tcp::no_delay( true) );
+        socket->set_option( asio::ip::tcp::no_delay( true) );
         currStruct()->conn=socket;
         
         boost::json::object json;

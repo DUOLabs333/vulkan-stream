@@ -1,7 +1,7 @@
 #include <vulkan/vulkan.h>
 #include <any>
 #include <vulkan/vulkan_core.h>
-#include <map>
+#include <unordered_map>
 #include <iostream>
 #include <shared_mutex>
 #include <debug.hpp>
@@ -31,8 +31,7 @@ typedef struct {
     std::any info;
 } SurfaceInfo;
 
-extern std::map<uintptr_t, VkDevice> swapchain_to_device;
-
+VkDevice getSwapchainDevice(VkSwapchainKHR); //Made for one function in Commands.cpp
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type);
 void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapchainCreateInfoKHR* info);
 void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device);

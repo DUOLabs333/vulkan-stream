@@ -6,12 +6,10 @@ write(f"""
 #include <boost/json/src.hpp>
 #include <boost/json.hpp>
 
-//#include <ThreadStruct.hpp>
-
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
-#include <map>
+#include <unordered_map>
 """)
 
 write("""
@@ -155,7 +153,7 @@ void deserialize_pNext(boost::json::object& json, void*& member ){
 """)
 
 
-write("std::map<VkStructureType, size_t> structure_type_to_size={")
+write("std::unordered_map<VkStructureType, size_t> structure_type_to_size={")
 for name, struct in parsed.items():
     if is_not_struct(name,struct):
         continue
@@ -316,7 +314,7 @@ for name,funcpointer in parsed.items():
 
     header=re.sub(r"^(.*?)\(", "(", funcpointer["header"])
 
-    write(f"std::map<uintptr_t,{name}> id_to_{name};")
+    write(f"std::unordered_map<uintptr_t,{name}> id_to_{name};")
     
     write(f"""
     void serialize_{name}(boost::json::object&, const {name}&){{
@@ -441,8 +439,8 @@ for handle in parsed:
         #The loader may want to write to this handle, so we make our own in our address space, so there won't be a semgnetation fault.
         write(f"""
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_{handle}_to_server_{handle};
-            std::map<uintptr_t,uintptr_t> server_{handle}_to_client_{handle};
+            std::unordered_map<uintptr_t,uintptr_t> client_{handle}_to_server_{handle};
+            std::unordered_map<uintptr_t,uintptr_t> server_{handle}_to_client_{handle};
             
         #endif
         """)

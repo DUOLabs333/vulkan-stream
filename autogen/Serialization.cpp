@@ -34,17 +34,17 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkInternalFreeNotification;
-uintptr_t PFN_vkVoidFunction;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
-uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkDebugReportCallbackEXT;
-uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkInternalAllocationNotification;
 uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
+uintptr_t PFN_vkAllocationFunction;
+uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkDebugReportCallbackEXT;
 } pUserData_struct;
 
 PFN_vkVoidFunction handle_pNext(VkStructureType sType, bool serialize){
@@ -12866,7 +12866,7 @@ void deserialize_pNext(boost::json::object& json, void*& member ){
 
 }
 
-std::map<VkStructureType, size_t> structure_type_to_size={
+std::unordered_map<VkStructureType, size_t> structure_type_to_size={
 {VK_STRUCTURE_TYPE_APPLICATION_INFO, sizeof(VkApplicationInfo) },
 {VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO, sizeof(VkDeviceQueueCreateInfo) },
 {VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO, sizeof(VkDeviceCreateInfo) },
@@ -75925,7 +75925,7 @@ auto& underlyingAPI_json=json["underlyingAPI"];
             }
             }();member.underlyingAPI=(VkLayeredDriverUnderlyingApiMSFT)temp_EgQvhBH;}();}();
 }
-std::map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAllocationNotification;
+std::unordered_map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAllocationNotification;
 
     void serialize_PFN_vkInternalAllocationNotification(boost::json::object&, const PFN_vkInternalAllocationNotification&){
         //Will only be called by the client
@@ -76101,7 +76101,7 @@ writeToConn(json);
             member=PFN_vkInternalAllocationNotification_wrapper;
             };
         
-std::map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotification;
+std::unordered_map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotification;
 
     void serialize_PFN_vkInternalFreeNotification(boost::json::object&, const PFN_vkInternalFreeNotification&){
         //Will only be called by the client
@@ -76277,7 +76277,7 @@ writeToConn(json);
             member=PFN_vkInternalFreeNotification_wrapper;
             };
         
-std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
+std::unordered_map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
 
     void serialize_PFN_vkReallocationFunction(boost::json::object&, const PFN_vkReallocationFunction&){
         //Will only be called by the client
@@ -76558,7 +76558,7 @@ writeToConn(json);
             member=PFN_vkReallocationFunction_wrapper;
             };
         
-std::map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
+std::unordered_map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
 
     void serialize_PFN_vkAllocationFunction(boost::json::object&, const PFN_vkAllocationFunction&){
         //Will only be called by the client
@@ -76774,7 +76774,7 @@ writeToConn(json);
             member=PFN_vkAllocationFunction_wrapper;
             };
         
-std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
+std::unordered_map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
 
     void serialize_PFN_vkFreeFunction(boost::json::object&, const PFN_vkFreeFunction&){
         //Will only be called by the client
@@ -76952,7 +76952,7 @@ writeToConn(json);
             member=PFN_vkFreeFunction_wrapper;
             };
         
-std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallbackEXT;
+std::unordered_map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallbackEXT;
 
     void serialize_PFN_vkDebugReportCallbackEXT(boost::json::object&, const PFN_vkDebugReportCallbackEXT&){
         //Will only be called by the client
@@ -77254,7 +77254,7 @@ writeToConn(json);
             member=PFN_vkDebugReportCallbackEXT_wrapper;
             };
         
-std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsMessengerCallbackEXT;
+std::unordered_map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsMessengerCallbackEXT;
 
     void serialize_PFN_vkDebugUtilsMessengerCallbackEXT(boost::json::object&, const PFN_vkDebugUtilsMessengerCallbackEXT&){
         //Will only be called by the client
@@ -77457,7 +77457,7 @@ writeToConn(json);
             member=PFN_vkDebugUtilsMessengerCallbackEXT_wrapper;
             };
         
-std::map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemoryReportCallbackEXT;
+std::unordered_map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemoryReportCallbackEXT;
 
     void serialize_PFN_vkDeviceMemoryReportCallbackEXT(boost::json::object&, const PFN_vkDeviceMemoryReportCallbackEXT&){
         //Will only be called by the client
@@ -77608,7 +77608,7 @@ writeToConn(json);
             member=PFN_vkDeviceMemoryReportCallbackEXT_wrapper;
             };
         
-std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcAddrLUNARG;
+std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcAddrLUNARG;
 
     void serialize_PFN_vkGetInstanceProcAddrLUNARG(boost::json::object&, const PFN_vkGetInstanceProcAddrLUNARG&){
         //Will only be called by the client
@@ -77624,8 +77624,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkInstance_to_server_VkInstance;
-            std::map<uintptr_t,uintptr_t> server_VkInstance_to_client_VkInstance;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkInstance_to_server_VkInstance;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkInstance_to_client_VkInstance;
             
         #endif
         
@@ -77677,8 +77677,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkPhysicalDevice_to_server_VkPhysicalDevice;
-            std::map<uintptr_t,uintptr_t> server_VkPhysicalDevice_to_client_VkPhysicalDevice;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkPhysicalDevice_to_server_VkPhysicalDevice;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkPhysicalDevice_to_client_VkPhysicalDevice;
             
         #endif
         
@@ -77730,8 +77730,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDevice_to_server_VkDevice;
-            std::map<uintptr_t,uintptr_t> server_VkDevice_to_client_VkDevice;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDevice_to_server_VkDevice;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDevice_to_client_VkDevice;
             
         #endif
         
@@ -77783,8 +77783,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkQueue_to_server_VkQueue;
-            std::map<uintptr_t,uintptr_t> server_VkQueue_to_client_VkQueue;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkQueue_to_server_VkQueue;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkQueue_to_client_VkQueue;
             
         #endif
         
@@ -77836,8 +77836,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkCommandBuffer_to_server_VkCommandBuffer;
-            std::map<uintptr_t,uintptr_t> server_VkCommandBuffer_to_client_VkCommandBuffer;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkCommandBuffer_to_server_VkCommandBuffer;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkCommandBuffer_to_client_VkCommandBuffer;
             
         #endif
         
@@ -77889,8 +77889,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDeviceMemory_to_server_VkDeviceMemory;
-            std::map<uintptr_t,uintptr_t> server_VkDeviceMemory_to_client_VkDeviceMemory;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDeviceMemory_to_server_VkDeviceMemory;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDeviceMemory_to_client_VkDeviceMemory;
             
         #endif
         
@@ -77942,8 +77942,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkCommandPool_to_server_VkCommandPool;
-            std::map<uintptr_t,uintptr_t> server_VkCommandPool_to_client_VkCommandPool;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkCommandPool_to_server_VkCommandPool;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkCommandPool_to_client_VkCommandPool;
             
         #endif
         
@@ -77995,8 +77995,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkBuffer_to_server_VkBuffer;
-            std::map<uintptr_t,uintptr_t> server_VkBuffer_to_client_VkBuffer;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkBuffer_to_server_VkBuffer;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkBuffer_to_client_VkBuffer;
             
         #endif
         
@@ -78048,8 +78048,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkBufferView_to_server_VkBufferView;
-            std::map<uintptr_t,uintptr_t> server_VkBufferView_to_client_VkBufferView;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkBufferView_to_server_VkBufferView;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkBufferView_to_client_VkBufferView;
             
         #endif
         
@@ -78101,8 +78101,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkImage_to_server_VkImage;
-            std::map<uintptr_t,uintptr_t> server_VkImage_to_client_VkImage;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkImage_to_server_VkImage;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkImage_to_client_VkImage;
             
         #endif
         
@@ -78154,8 +78154,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkImageView_to_server_VkImageView;
-            std::map<uintptr_t,uintptr_t> server_VkImageView_to_client_VkImageView;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkImageView_to_server_VkImageView;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkImageView_to_client_VkImageView;
             
         #endif
         
@@ -78207,8 +78207,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkShaderModule_to_server_VkShaderModule;
-            std::map<uintptr_t,uintptr_t> server_VkShaderModule_to_client_VkShaderModule;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkShaderModule_to_server_VkShaderModule;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkShaderModule_to_client_VkShaderModule;
             
         #endif
         
@@ -78260,8 +78260,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkPipeline_to_server_VkPipeline;
-            std::map<uintptr_t,uintptr_t> server_VkPipeline_to_client_VkPipeline;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkPipeline_to_server_VkPipeline;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkPipeline_to_client_VkPipeline;
             
         #endif
         
@@ -78313,8 +78313,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkPipelineLayout_to_server_VkPipelineLayout;
-            std::map<uintptr_t,uintptr_t> server_VkPipelineLayout_to_client_VkPipelineLayout;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkPipelineLayout_to_server_VkPipelineLayout;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkPipelineLayout_to_client_VkPipelineLayout;
             
         #endif
         
@@ -78366,8 +78366,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkSampler_to_server_VkSampler;
-            std::map<uintptr_t,uintptr_t> server_VkSampler_to_client_VkSampler;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkSampler_to_server_VkSampler;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkSampler_to_client_VkSampler;
             
         #endif
         
@@ -78419,8 +78419,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDescriptorSet_to_server_VkDescriptorSet;
-            std::map<uintptr_t,uintptr_t> server_VkDescriptorSet_to_client_VkDescriptorSet;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDescriptorSet_to_server_VkDescriptorSet;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDescriptorSet_to_client_VkDescriptorSet;
             
         #endif
         
@@ -78472,8 +78472,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout;
-            std::map<uintptr_t,uintptr_t> server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout;
             
         #endif
         
@@ -78525,8 +78525,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDescriptorPool_to_server_VkDescriptorPool;
-            std::map<uintptr_t,uintptr_t> server_VkDescriptorPool_to_client_VkDescriptorPool;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDescriptorPool_to_server_VkDescriptorPool;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDescriptorPool_to_client_VkDescriptorPool;
             
         #endif
         
@@ -78578,8 +78578,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkFence_to_server_VkFence;
-            std::map<uintptr_t,uintptr_t> server_VkFence_to_client_VkFence;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkFence_to_server_VkFence;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkFence_to_client_VkFence;
             
         #endif
         
@@ -78631,8 +78631,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkSemaphore_to_server_VkSemaphore;
-            std::map<uintptr_t,uintptr_t> server_VkSemaphore_to_client_VkSemaphore;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkSemaphore_to_server_VkSemaphore;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkSemaphore_to_client_VkSemaphore;
             
         #endif
         
@@ -78684,8 +78684,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkEvent_to_server_VkEvent;
-            std::map<uintptr_t,uintptr_t> server_VkEvent_to_client_VkEvent;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkEvent_to_server_VkEvent;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkEvent_to_client_VkEvent;
             
         #endif
         
@@ -78737,8 +78737,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkQueryPool_to_server_VkQueryPool;
-            std::map<uintptr_t,uintptr_t> server_VkQueryPool_to_client_VkQueryPool;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkQueryPool_to_server_VkQueryPool;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkQueryPool_to_client_VkQueryPool;
             
         #endif
         
@@ -78790,8 +78790,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkFramebuffer_to_server_VkFramebuffer;
-            std::map<uintptr_t,uintptr_t> server_VkFramebuffer_to_client_VkFramebuffer;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkFramebuffer_to_server_VkFramebuffer;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkFramebuffer_to_client_VkFramebuffer;
             
         #endif
         
@@ -78843,8 +78843,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkRenderPass_to_server_VkRenderPass;
-            std::map<uintptr_t,uintptr_t> server_VkRenderPass_to_client_VkRenderPass;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkRenderPass_to_server_VkRenderPass;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkRenderPass_to_client_VkRenderPass;
             
         #endif
         
@@ -78896,8 +78896,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkPipelineCache_to_server_VkPipelineCache;
-            std::map<uintptr_t,uintptr_t> server_VkPipelineCache_to_client_VkPipelineCache;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkPipelineCache_to_server_VkPipelineCache;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkPipelineCache_to_client_VkPipelineCache;
             
         #endif
         
@@ -78949,8 +78949,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV;
-            std::map<uintptr_t,uintptr_t> server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV;
             
         #endif
         
@@ -79002,8 +79002,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate;
-            std::map<uintptr_t,uintptr_t> server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate;
             
         #endif
         
@@ -79055,8 +79055,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR;
-            std::map<uintptr_t,uintptr_t> server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR;
             
         #endif
         
@@ -79108,8 +79108,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion;
-            std::map<uintptr_t,uintptr_t> server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion;
             
         #endif
         
@@ -79161,8 +79161,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR;
-            std::map<uintptr_t,uintptr_t> server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR;
             
         #endif
         
@@ -79214,8 +79214,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkValidationCacheEXT_to_server_VkValidationCacheEXT;
-            std::map<uintptr_t,uintptr_t> server_VkValidationCacheEXT_to_client_VkValidationCacheEXT;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkValidationCacheEXT_to_server_VkValidationCacheEXT;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkValidationCacheEXT_to_client_VkValidationCacheEXT;
             
         #endif
         
@@ -79267,8 +79267,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR;
-            std::map<uintptr_t,uintptr_t> server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR;
             
         #endif
         
@@ -79320,8 +79320,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV;
-            std::map<uintptr_t,uintptr_t> server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV;
             
         #endif
         
@@ -79373,8 +79373,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL;
-            std::map<uintptr_t,uintptr_t> server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL;
             
         #endif
         
@@ -79426,8 +79426,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR;
-            std::map<uintptr_t,uintptr_t> server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR;
             
         #endif
         
@@ -79479,8 +79479,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkPrivateDataSlot_to_server_VkPrivateDataSlot;
-            std::map<uintptr_t,uintptr_t> server_VkPrivateDataSlot_to_client_VkPrivateDataSlot;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkPrivateDataSlot_to_server_VkPrivateDataSlot;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkPrivateDataSlot_to_client_VkPrivateDataSlot;
             
         #endif
         
@@ -79532,8 +79532,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT;
-            std::map<uintptr_t,uintptr_t> server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT;
             
         #endif
         
@@ -79585,8 +79585,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkCuModuleNVX_to_server_VkCuModuleNVX;
-            std::map<uintptr_t,uintptr_t> server_VkCuModuleNVX_to_client_VkCuModuleNVX;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkCuModuleNVX_to_server_VkCuModuleNVX;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkCuModuleNVX_to_client_VkCuModuleNVX;
             
         #endif
         
@@ -79638,8 +79638,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkCuFunctionNVX_to_server_VkCuFunctionNVX;
-            std::map<uintptr_t,uintptr_t> server_VkCuFunctionNVX_to_client_VkCuFunctionNVX;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkCuFunctionNVX_to_server_VkCuFunctionNVX;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkCuFunctionNVX_to_client_VkCuFunctionNVX;
             
         #endif
         
@@ -79691,8 +79691,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV;
-            std::map<uintptr_t,uintptr_t> server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV;
             
         #endif
         
@@ -79744,8 +79744,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkMicromapEXT_to_server_VkMicromapEXT;
-            std::map<uintptr_t,uintptr_t> server_VkMicromapEXT_to_client_VkMicromapEXT;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkMicromapEXT_to_server_VkMicromapEXT;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkMicromapEXT_to_client_VkMicromapEXT;
             
         #endif
         
@@ -79797,8 +79797,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkShaderEXT_to_server_VkShaderEXT;
-            std::map<uintptr_t,uintptr_t> server_VkShaderEXT_to_client_VkShaderEXT;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkShaderEXT_to_server_VkShaderEXT;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkShaderEXT_to_client_VkShaderEXT;
             
         #endif
         
@@ -79850,8 +79850,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDisplayKHR_to_server_VkDisplayKHR;
-            std::map<uintptr_t,uintptr_t> server_VkDisplayKHR_to_client_VkDisplayKHR;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDisplayKHR_to_server_VkDisplayKHR;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDisplayKHR_to_client_VkDisplayKHR;
             
         #endif
         
@@ -79903,8 +79903,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDisplayModeKHR_to_server_VkDisplayModeKHR;
-            std::map<uintptr_t,uintptr_t> server_VkDisplayModeKHR_to_client_VkDisplayModeKHR;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDisplayModeKHR_to_server_VkDisplayModeKHR;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDisplayModeKHR_to_client_VkDisplayModeKHR;
             
         #endif
         
@@ -79956,8 +79956,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkSurfaceKHR_to_server_VkSurfaceKHR;
-            std::map<uintptr_t,uintptr_t> server_VkSurfaceKHR_to_client_VkSurfaceKHR;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkSurfaceKHR_to_server_VkSurfaceKHR;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkSurfaceKHR_to_client_VkSurfaceKHR;
             
         #endif
         
@@ -80009,8 +80009,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkSwapchainKHR_to_server_VkSwapchainKHR;
-            std::map<uintptr_t,uintptr_t> server_VkSwapchainKHR_to_client_VkSwapchainKHR;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkSwapchainKHR_to_server_VkSwapchainKHR;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkSwapchainKHR_to_client_VkSwapchainKHR;
             
         #endif
         
@@ -80062,8 +80062,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT;
-            std::map<uintptr_t,uintptr_t> server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT;
             
         #endif
         
@@ -80115,8 +80115,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT;
-            std::map<uintptr_t,uintptr_t> server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT;
             
         #endif
         
@@ -80168,8 +80168,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkVideoSessionKHR_to_server_VkVideoSessionKHR;
-            std::map<uintptr_t,uintptr_t> server_VkVideoSessionKHR_to_client_VkVideoSessionKHR;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkVideoSessionKHR_to_server_VkVideoSessionKHR;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkVideoSessionKHR_to_client_VkVideoSessionKHR;
             
         #endif
         
@@ -80221,8 +80221,8 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        }
 
         #ifdef CLIENT
-            std::map<uintptr_t,uintptr_t> client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR;
-            std::map<uintptr_t,uintptr_t> server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR;
+            std::unordered_map<uintptr_t,uintptr_t> client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR;
+            std::unordered_map<uintptr_t,uintptr_t> server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR;
             
         #endif
         

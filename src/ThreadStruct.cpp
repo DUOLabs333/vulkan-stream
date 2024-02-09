@@ -4,11 +4,11 @@
 #include <debug.hpp>
 #include <asio/io_context.hpp>
 #include <asio/connect.hpp>
-#include <map>
+#include <unordered_map>
 
 std::string address;
 std::string port;
-std::map<std::thread::id,ThreadStruct*> thread_to_struct;
+std::unordered_map<std::thread::id,ThreadStruct*> thread_to_struct;
 
 asio::io_context client_context;
 tcp::resolver resolver(client_context);
@@ -51,7 +51,7 @@ ThreadStruct* currStruct(){
                 }
             }
             
-            //result->conn->set_option( asio::ip::tcp::no_delay( true) );
+            result->conn->set_option( asio::ip::tcp::no_delay( true) );
             
         #endif
         
