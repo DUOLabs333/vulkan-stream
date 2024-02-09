@@ -237,8 +237,13 @@ for name, command in parsed.items():
             handle_{name}(json);
             return;
     """)
+write("""
+default:
+    debug_printf("Unknown command: %d!\\n",value_to<int>(json["stream_type"]));
+}
 
-write("}}")
+}
+""")
 
 write("void handle_command(boost::json::object);", header=True)
 
@@ -323,6 +328,8 @@ for name, command in parsed.items():
     
     write(f"""
     boost::json::object json;
+    json.reserve({len(command["params"])}+3);
+    
     json["stream_type"]={name.upper()};
     
     auto& parent_json=json["parent"].emplace_object();
@@ -472,8 +479,16 @@ for name, command in parsed.items():
             handle_{funcpointer}(json);
             continue;
         """)
+    
+    write("""
+        default:
+            debug_printf("Unkown message: %d!\\n", value_to<int>(json["stream_type"]));
+            continue;
+        }
         
-    write("}break;}")
+        break;
+        }
+    """)
     
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))

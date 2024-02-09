@@ -497,6 +497,7 @@ for handle in parsed:
        
         write(f"""
                void delete_{handle}(const {handle}& client_handle){{
+                    #ifdef CLIENT
                     auto server_handle=client_{handle}_to_server_{handle}[(uintptr_t)client_handle];
                     
                     {{
@@ -512,7 +513,10 @@ for handle in parsed:
         
         if handle=="VkSwapchainKHR":
                 write("deregisterSwapchain(client_handle);")
-        write("}")
+        write("""
+        #endif
+        }
+        """)
        
         write(f"""
         void deserialize_{handle}(boost::json::value&, {handle}&);
