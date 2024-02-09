@@ -5,7 +5,7 @@
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
 #include <Serialization.hpp>
-#include <map>
+#include <unordered_map>
 extern "C" {
 #include <shm_open_anon.h>
 }
@@ -16,9 +16,9 @@ extern "C" {
     #include <sys/mman.h>
 #endif
 
-std::map<uintptr_t,int> allocated_mems;
-std::map<uintptr_t,uintptr_t> client_to_server_mem;
-std::map<uintptr_t,uintptr_t> server_to_client_mem;
+std::unordered_map<uintptr_t,int> allocated_mems;
+std::unordered_map<uintptr_t,uintptr_t> client_to_server_mem;
+std::unordered_map<uintptr_t,uintptr_t> server_to_client_mem;
 
 typedef struct {
 int fd;
@@ -27,11 +27,11 @@ void* mem;
 uintptr_t server_devicememory; //So we can tell the server what deviceMemory to delete when unmapping
 } MemInfo;
 
-typedef std::map<uintptr_t,MemInfo*> mem_info_map;
+typedef std::unordered_map<uintptr_t,MemInfo*> mem_info_map;
 #ifdef CLIENT
     mem_info_map devicememory_to_mem_info;
 #else
-    std::map<int, mem_info_map> uuid_to_map;
+    std::unordered_map<int, mem_info_map> uuid_to_map;
 #endif
 
 uint64_t HashMem(void* mem, uintptr_t start, uintptr_t length) {

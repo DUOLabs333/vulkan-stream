@@ -383,7 +383,9 @@ auto& queue_info= info.queue_info;
 queue_info.queue_mutex.lock();
 queue_info.queue.push({fence, index});
 queue_info.notify_condition.notify_all();
-updateCounter(info.device, 1);
+if (fence!=VK_NULL_HANDLE){
+    updateCounter(info.device, 1);
+}
 queue_info.queue_mutex.unlock();
 
 }
@@ -407,6 +409,10 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
         queue_info.queue.pop();
         queue_info.queue_mutex.unlock();
         
+        if (present_info.fence==VK_NULL_HANDLE){
+            swapchain_to_info.erase((uintptr_t)swapchain);
+            break;
+        }
         auto device=info.device;
         
         while(true){
@@ -508,4 +514,8 @@ void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapch
     vkGetSwapchainImagesKHR(device,swapchain,&numImages,vec.data());
     
     std::thread(HandleSwapchainQueue, swapchain).detach();
+}
+
+void deregisterSwapchain(VkSwapchainKHR swapchain){
+    pushToQueue(VK_NULL_HANDLE, swapchain, 0);
 }

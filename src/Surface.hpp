@@ -34,6 +34,7 @@ typedef struct {
 VkDevice getSwapchainDevice(VkSwapchainKHR); //Made for one function in Commands.cpp
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type);
 void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapchainCreateInfoKHR* info);
+void deregisterSwapchain(VkSwapchainKHR swapchain);
 void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device);
 void waitForCounterIdle(VkDevice device);
 void pushToQueue(VkFence, VkSwapchainKHR, uint32_t);

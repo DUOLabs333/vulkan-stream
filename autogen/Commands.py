@@ -584,6 +584,8 @@ for name, command in parsed.items():
         write("registerDevice(*pDevice,physicalDevice);")
     elif name=="vkAllocateMemory":
         write("registerDeviceMemory(*pMemory, pAllocateInfo->allocationSize);")
+    elif name=="vkDestroySwapchainKHR":
+        write("deregisterSwapchain(swapchain);")
     
     if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")

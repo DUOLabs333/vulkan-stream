@@ -69586,6 +69586,7 @@ debug_printf("Executing vkDestroySwapchainKHR\n");
 [&](){deserialize_VkDevice(json["device"], device);}();
 [&](){deserialize_VkSwapchainKHR(json["swapchain"], swapchain);}();
 
+deregisterSwapchain(swapchain);
 
 debug_printf("Ending vkDestroySwapchainKHR...\n");
 }
