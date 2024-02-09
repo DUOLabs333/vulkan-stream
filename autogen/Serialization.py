@@ -10,6 +10,7 @@ write(f"""
 #include <Server.hpp>
 #include <Synchronization.hpp>
 #include <unordered_map>
+#include <Surface.hpp>
 """)
 
 write("""
@@ -494,6 +495,28 @@ for handle in parsed:
                 member=result;
        }}""")
        
-        write(f"""void deserialize_{handle}(boost::json::value&, {handle}&);""",header=True)
+        write(f"""
+               void delete_{handle}(const {handle}& client_handle){{
+                    auto server_handle=client_{handle}_to_server_{handle}[(uintptr_t)client_handle];
+                    
+                    {{
+                        auto client_handle=server_{handle}_to_client_{handle}[server_handle]; //Need to get non-const {handle} so we can free it;
+                        
+                        free(({handle})client_handle);
+                    }}
+                    
+                    client_{handle}_to_server_{handle}.erase((uintptr_t)client_handle);
+                    server_{handle}_to_client_{handle}.erase(server_handle);
+                    
+            """)
+        
+        if handle=="VkSwapchainKHR":
+                write("deregisterSwapchain(client_handle);")
+        write("}")
+       
+        write(f"""
+        void deserialize_{handle}(boost::json::value&, {handle}&);
+        void delete_{handle}(const {handle}&);
+        """,header=True)
               
           

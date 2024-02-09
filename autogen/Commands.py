@@ -584,8 +584,6 @@ for name, command in parsed.items():
         write("registerDevice(*pDevice,physicalDevice);")
     elif name=="vkAllocateMemory":
         write("registerDeviceMemory(*pMemory, pAllocateInfo->allocationSize);")
-    elif name=="vkDestroySwapchainKHR":
-        write("deregisterSwapchain(swapchain);")
     
     if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
@@ -594,7 +592,30 @@ for name, command in parsed.items():
     
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")
-        
+    
+    for deletion_function in ["^vkFree(.*)$","^vkDestroy(.*)$"]:
+        if re.match(deletion_function,name) is not None:
+            matched=False
+            for param in reversed(command["params"]):
+                if (parsed[param["type"]]["kind"]=="handle"):
+                    handle=param
+                    matched=True
+                    break
+            if not matched:
+                break
+            
+            if len(handle["length"])>0:
+                write(f"""
+                if ({handle["name"]}!=NULL){{
+                    for (int i=0; i<{handle["length"][-1]}; i++){{
+                        delete_{handle["type"]}({handle["name"]}[i]);
+                    }}
+                }}
+                """)
+            else:
+                write(f"""delete_{handle["type"]}({handle["name"]});""")
+    
+    
     if memory_map_lock==1:
         write("MemoryMapLock.unlock();")
     elif memory_map_lock==2:

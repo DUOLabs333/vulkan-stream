@@ -209,6 +209,11 @@ return command_buffer;
 VkBuffer getBuffer(VkDevice device, VkDeviceSize& size){ //Gets buffer that is at least as big as *size
 auto& info=device_to_info[(uintptr_t)device];
 
+if (info.buffers.contains(size)){
+    return info.buffers[size];
+}
+
+/*
 std::vector<VkDeviceSize> keys(info.buffers.size());
 for (auto& [key, value] : info.buffers){
     keys.push_back(key);
@@ -222,6 +227,7 @@ if (buffer_size!=keys.end()){
     size=*buffer_size;
     return info.buffers[*buffer_size];
 }
+*/
 
 VkBuffer buffer;
 auto buffer_create_info=VkBufferCreateInfo{
@@ -517,5 +523,5 @@ void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapch
 }
 
 void deregisterSwapchain(VkSwapchainKHR swapchain){
-    pushToQueue(VK_NULL_HANDLE, swapchain, 0);
+    pushToQueue(VK_NULL_HANDLE, swapchain, 0); //Signal that the display thread should end
 }

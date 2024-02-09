@@ -4065,102 +4065,252 @@ void deserialize_PFN_vkDeviceMemoryReportCallbackEXT(boost::json::object&, PFN_v
 void serialize_PFN_vkGetInstanceProcAddrLUNARG(boost::json::object&, const PFN_vkGetInstanceProcAddrLUNARG&);
 void deserialize_PFN_vkGetInstanceProcAddrLUNARG(boost::json::object&, PFN_vkGetInstanceProcAddrLUNARG&);
 void serialize_VkInstance(boost::json::value&, const VkInstance&);
-void deserialize_VkInstance(boost::json::value&, VkInstance&);
+
+        void deserialize_VkInstance(boost::json::value&, VkInstance&);
+        void delete_VkInstance(const VkInstance&);
+        
 void serialize_VkPhysicalDevice(boost::json::value&, const VkPhysicalDevice&);
-void deserialize_VkPhysicalDevice(boost::json::value&, VkPhysicalDevice&);
+
+        void deserialize_VkPhysicalDevice(boost::json::value&, VkPhysicalDevice&);
+        void delete_VkPhysicalDevice(const VkPhysicalDevice&);
+        
 void serialize_VkDevice(boost::json::value&, const VkDevice&);
-void deserialize_VkDevice(boost::json::value&, VkDevice&);
+
+        void deserialize_VkDevice(boost::json::value&, VkDevice&);
+        void delete_VkDevice(const VkDevice&);
+        
 void serialize_VkQueue(boost::json::value&, const VkQueue&);
-void deserialize_VkQueue(boost::json::value&, VkQueue&);
+
+        void deserialize_VkQueue(boost::json::value&, VkQueue&);
+        void delete_VkQueue(const VkQueue&);
+        
 void serialize_VkCommandBuffer(boost::json::value&, const VkCommandBuffer&);
-void deserialize_VkCommandBuffer(boost::json::value&, VkCommandBuffer&);
+
+        void deserialize_VkCommandBuffer(boost::json::value&, VkCommandBuffer&);
+        void delete_VkCommandBuffer(const VkCommandBuffer&);
+        
 void serialize_VkDeviceMemory(boost::json::value&, const VkDeviceMemory&);
-void deserialize_VkDeviceMemory(boost::json::value&, VkDeviceMemory&);
+
+        void deserialize_VkDeviceMemory(boost::json::value&, VkDeviceMemory&);
+        void delete_VkDeviceMemory(const VkDeviceMemory&);
+        
 void serialize_VkCommandPool(boost::json::value&, const VkCommandPool&);
-void deserialize_VkCommandPool(boost::json::value&, VkCommandPool&);
+
+        void deserialize_VkCommandPool(boost::json::value&, VkCommandPool&);
+        void delete_VkCommandPool(const VkCommandPool&);
+        
 void serialize_VkBuffer(boost::json::value&, const VkBuffer&);
-void deserialize_VkBuffer(boost::json::value&, VkBuffer&);
+
+        void deserialize_VkBuffer(boost::json::value&, VkBuffer&);
+        void delete_VkBuffer(const VkBuffer&);
+        
 void serialize_VkBufferView(boost::json::value&, const VkBufferView&);
-void deserialize_VkBufferView(boost::json::value&, VkBufferView&);
+
+        void deserialize_VkBufferView(boost::json::value&, VkBufferView&);
+        void delete_VkBufferView(const VkBufferView&);
+        
 void serialize_VkImage(boost::json::value&, const VkImage&);
-void deserialize_VkImage(boost::json::value&, VkImage&);
+
+        void deserialize_VkImage(boost::json::value&, VkImage&);
+        void delete_VkImage(const VkImage&);
+        
 void serialize_VkImageView(boost::json::value&, const VkImageView&);
-void deserialize_VkImageView(boost::json::value&, VkImageView&);
+
+        void deserialize_VkImageView(boost::json::value&, VkImageView&);
+        void delete_VkImageView(const VkImageView&);
+        
 void serialize_VkShaderModule(boost::json::value&, const VkShaderModule&);
-void deserialize_VkShaderModule(boost::json::value&, VkShaderModule&);
+
+        void deserialize_VkShaderModule(boost::json::value&, VkShaderModule&);
+        void delete_VkShaderModule(const VkShaderModule&);
+        
 void serialize_VkPipeline(boost::json::value&, const VkPipeline&);
-void deserialize_VkPipeline(boost::json::value&, VkPipeline&);
+
+        void deserialize_VkPipeline(boost::json::value&, VkPipeline&);
+        void delete_VkPipeline(const VkPipeline&);
+        
 void serialize_VkPipelineLayout(boost::json::value&, const VkPipelineLayout&);
-void deserialize_VkPipelineLayout(boost::json::value&, VkPipelineLayout&);
+
+        void deserialize_VkPipelineLayout(boost::json::value&, VkPipelineLayout&);
+        void delete_VkPipelineLayout(const VkPipelineLayout&);
+        
 void serialize_VkSampler(boost::json::value&, const VkSampler&);
-void deserialize_VkSampler(boost::json::value&, VkSampler&);
+
+        void deserialize_VkSampler(boost::json::value&, VkSampler&);
+        void delete_VkSampler(const VkSampler&);
+        
 void serialize_VkDescriptorSet(boost::json::value&, const VkDescriptorSet&);
-void deserialize_VkDescriptorSet(boost::json::value&, VkDescriptorSet&);
+
+        void deserialize_VkDescriptorSet(boost::json::value&, VkDescriptorSet&);
+        void delete_VkDescriptorSet(const VkDescriptorSet&);
+        
 void serialize_VkDescriptorSetLayout(boost::json::value&, const VkDescriptorSetLayout&);
-void deserialize_VkDescriptorSetLayout(boost::json::value&, VkDescriptorSetLayout&);
+
+        void deserialize_VkDescriptorSetLayout(boost::json::value&, VkDescriptorSetLayout&);
+        void delete_VkDescriptorSetLayout(const VkDescriptorSetLayout&);
+        
 void serialize_VkDescriptorPool(boost::json::value&, const VkDescriptorPool&);
-void deserialize_VkDescriptorPool(boost::json::value&, VkDescriptorPool&);
+
+        void deserialize_VkDescriptorPool(boost::json::value&, VkDescriptorPool&);
+        void delete_VkDescriptorPool(const VkDescriptorPool&);
+        
 void serialize_VkFence(boost::json::value&, const VkFence&);
-void deserialize_VkFence(boost::json::value&, VkFence&);
+
+        void deserialize_VkFence(boost::json::value&, VkFence&);
+        void delete_VkFence(const VkFence&);
+        
 void serialize_VkSemaphore(boost::json::value&, const VkSemaphore&);
-void deserialize_VkSemaphore(boost::json::value&, VkSemaphore&);
+
+        void deserialize_VkSemaphore(boost::json::value&, VkSemaphore&);
+        void delete_VkSemaphore(const VkSemaphore&);
+        
 void serialize_VkEvent(boost::json::value&, const VkEvent&);
-void deserialize_VkEvent(boost::json::value&, VkEvent&);
+
+        void deserialize_VkEvent(boost::json::value&, VkEvent&);
+        void delete_VkEvent(const VkEvent&);
+        
 void serialize_VkQueryPool(boost::json::value&, const VkQueryPool&);
-void deserialize_VkQueryPool(boost::json::value&, VkQueryPool&);
+
+        void deserialize_VkQueryPool(boost::json::value&, VkQueryPool&);
+        void delete_VkQueryPool(const VkQueryPool&);
+        
 void serialize_VkFramebuffer(boost::json::value&, const VkFramebuffer&);
-void deserialize_VkFramebuffer(boost::json::value&, VkFramebuffer&);
+
+        void deserialize_VkFramebuffer(boost::json::value&, VkFramebuffer&);
+        void delete_VkFramebuffer(const VkFramebuffer&);
+        
 void serialize_VkRenderPass(boost::json::value&, const VkRenderPass&);
-void deserialize_VkRenderPass(boost::json::value&, VkRenderPass&);
+
+        void deserialize_VkRenderPass(boost::json::value&, VkRenderPass&);
+        void delete_VkRenderPass(const VkRenderPass&);
+        
 void serialize_VkPipelineCache(boost::json::value&, const VkPipelineCache&);
-void deserialize_VkPipelineCache(boost::json::value&, VkPipelineCache&);
+
+        void deserialize_VkPipelineCache(boost::json::value&, VkPipelineCache&);
+        void delete_VkPipelineCache(const VkPipelineCache&);
+        
 void serialize_VkIndirectCommandsLayoutNV(boost::json::value&, const VkIndirectCommandsLayoutNV&);
-void deserialize_VkIndirectCommandsLayoutNV(boost::json::value&, VkIndirectCommandsLayoutNV&);
+
+        void deserialize_VkIndirectCommandsLayoutNV(boost::json::value&, VkIndirectCommandsLayoutNV&);
+        void delete_VkIndirectCommandsLayoutNV(const VkIndirectCommandsLayoutNV&);
+        
 void serialize_VkDescriptorUpdateTemplate(boost::json::value&, const VkDescriptorUpdateTemplate&);
-void deserialize_VkDescriptorUpdateTemplate(boost::json::value&, VkDescriptorUpdateTemplate&);
+
+        void deserialize_VkDescriptorUpdateTemplate(boost::json::value&, VkDescriptorUpdateTemplate&);
+        void delete_VkDescriptorUpdateTemplate(const VkDescriptorUpdateTemplate&);
+        
 void serialize_VkDescriptorUpdateTemplateKHR(boost::json::value&, const VkDescriptorUpdateTemplateKHR&);
-void deserialize_VkDescriptorUpdateTemplateKHR(boost::json::value&, VkDescriptorUpdateTemplateKHR&);
+
+        void deserialize_VkDescriptorUpdateTemplateKHR(boost::json::value&, VkDescriptorUpdateTemplateKHR&);
+        void delete_VkDescriptorUpdateTemplateKHR(const VkDescriptorUpdateTemplateKHR&);
+        
 void serialize_VkSamplerYcbcrConversion(boost::json::value&, const VkSamplerYcbcrConversion&);
-void deserialize_VkSamplerYcbcrConversion(boost::json::value&, VkSamplerYcbcrConversion&);
+
+        void deserialize_VkSamplerYcbcrConversion(boost::json::value&, VkSamplerYcbcrConversion&);
+        void delete_VkSamplerYcbcrConversion(const VkSamplerYcbcrConversion&);
+        
 void serialize_VkSamplerYcbcrConversionKHR(boost::json::value&, const VkSamplerYcbcrConversionKHR&);
-void deserialize_VkSamplerYcbcrConversionKHR(boost::json::value&, VkSamplerYcbcrConversionKHR&);
+
+        void deserialize_VkSamplerYcbcrConversionKHR(boost::json::value&, VkSamplerYcbcrConversionKHR&);
+        void delete_VkSamplerYcbcrConversionKHR(const VkSamplerYcbcrConversionKHR&);
+        
 void serialize_VkValidationCacheEXT(boost::json::value&, const VkValidationCacheEXT&);
-void deserialize_VkValidationCacheEXT(boost::json::value&, VkValidationCacheEXT&);
+
+        void deserialize_VkValidationCacheEXT(boost::json::value&, VkValidationCacheEXT&);
+        void delete_VkValidationCacheEXT(const VkValidationCacheEXT&);
+        
 void serialize_VkAccelerationStructureKHR(boost::json::value&, const VkAccelerationStructureKHR&);
-void deserialize_VkAccelerationStructureKHR(boost::json::value&, VkAccelerationStructureKHR&);
+
+        void deserialize_VkAccelerationStructureKHR(boost::json::value&, VkAccelerationStructureKHR&);
+        void delete_VkAccelerationStructureKHR(const VkAccelerationStructureKHR&);
+        
 void serialize_VkAccelerationStructureNV(boost::json::value&, const VkAccelerationStructureNV&);
-void deserialize_VkAccelerationStructureNV(boost::json::value&, VkAccelerationStructureNV&);
+
+        void deserialize_VkAccelerationStructureNV(boost::json::value&, VkAccelerationStructureNV&);
+        void delete_VkAccelerationStructureNV(const VkAccelerationStructureNV&);
+        
 void serialize_VkPerformanceConfigurationINTEL(boost::json::value&, const VkPerformanceConfigurationINTEL&);
-void deserialize_VkPerformanceConfigurationINTEL(boost::json::value&, VkPerformanceConfigurationINTEL&);
+
+        void deserialize_VkPerformanceConfigurationINTEL(boost::json::value&, VkPerformanceConfigurationINTEL&);
+        void delete_VkPerformanceConfigurationINTEL(const VkPerformanceConfigurationINTEL&);
+        
 void serialize_VkDeferredOperationKHR(boost::json::value&, const VkDeferredOperationKHR&);
-void deserialize_VkDeferredOperationKHR(boost::json::value&, VkDeferredOperationKHR&);
+
+        void deserialize_VkDeferredOperationKHR(boost::json::value&, VkDeferredOperationKHR&);
+        void delete_VkDeferredOperationKHR(const VkDeferredOperationKHR&);
+        
 void serialize_VkPrivateDataSlot(boost::json::value&, const VkPrivateDataSlot&);
-void deserialize_VkPrivateDataSlot(boost::json::value&, VkPrivateDataSlot&);
+
+        void deserialize_VkPrivateDataSlot(boost::json::value&, VkPrivateDataSlot&);
+        void delete_VkPrivateDataSlot(const VkPrivateDataSlot&);
+        
 void serialize_VkPrivateDataSlotEXT(boost::json::value&, const VkPrivateDataSlotEXT&);
-void deserialize_VkPrivateDataSlotEXT(boost::json::value&, VkPrivateDataSlotEXT&);
+
+        void deserialize_VkPrivateDataSlotEXT(boost::json::value&, VkPrivateDataSlotEXT&);
+        void delete_VkPrivateDataSlotEXT(const VkPrivateDataSlotEXT&);
+        
 void serialize_VkCuModuleNVX(boost::json::value&, const VkCuModuleNVX&);
-void deserialize_VkCuModuleNVX(boost::json::value&, VkCuModuleNVX&);
+
+        void deserialize_VkCuModuleNVX(boost::json::value&, VkCuModuleNVX&);
+        void delete_VkCuModuleNVX(const VkCuModuleNVX&);
+        
 void serialize_VkCuFunctionNVX(boost::json::value&, const VkCuFunctionNVX&);
-void deserialize_VkCuFunctionNVX(boost::json::value&, VkCuFunctionNVX&);
+
+        void deserialize_VkCuFunctionNVX(boost::json::value&, VkCuFunctionNVX&);
+        void delete_VkCuFunctionNVX(const VkCuFunctionNVX&);
+        
 void serialize_VkOpticalFlowSessionNV(boost::json::value&, const VkOpticalFlowSessionNV&);
-void deserialize_VkOpticalFlowSessionNV(boost::json::value&, VkOpticalFlowSessionNV&);
+
+        void deserialize_VkOpticalFlowSessionNV(boost::json::value&, VkOpticalFlowSessionNV&);
+        void delete_VkOpticalFlowSessionNV(const VkOpticalFlowSessionNV&);
+        
 void serialize_VkMicromapEXT(boost::json::value&, const VkMicromapEXT&);
-void deserialize_VkMicromapEXT(boost::json::value&, VkMicromapEXT&);
+
+        void deserialize_VkMicromapEXT(boost::json::value&, VkMicromapEXT&);
+        void delete_VkMicromapEXT(const VkMicromapEXT&);
+        
 void serialize_VkShaderEXT(boost::json::value&, const VkShaderEXT&);
-void deserialize_VkShaderEXT(boost::json::value&, VkShaderEXT&);
+
+        void deserialize_VkShaderEXT(boost::json::value&, VkShaderEXT&);
+        void delete_VkShaderEXT(const VkShaderEXT&);
+        
 void serialize_VkDisplayKHR(boost::json::value&, const VkDisplayKHR&);
-void deserialize_VkDisplayKHR(boost::json::value&, VkDisplayKHR&);
+
+        void deserialize_VkDisplayKHR(boost::json::value&, VkDisplayKHR&);
+        void delete_VkDisplayKHR(const VkDisplayKHR&);
+        
 void serialize_VkDisplayModeKHR(boost::json::value&, const VkDisplayModeKHR&);
-void deserialize_VkDisplayModeKHR(boost::json::value&, VkDisplayModeKHR&);
+
+        void deserialize_VkDisplayModeKHR(boost::json::value&, VkDisplayModeKHR&);
+        void delete_VkDisplayModeKHR(const VkDisplayModeKHR&);
+        
 void serialize_VkSurfaceKHR(boost::json::value&, const VkSurfaceKHR&);
-void deserialize_VkSurfaceKHR(boost::json::value&, VkSurfaceKHR&);
+
+        void deserialize_VkSurfaceKHR(boost::json::value&, VkSurfaceKHR&);
+        void delete_VkSurfaceKHR(const VkSurfaceKHR&);
+        
 void serialize_VkSwapchainKHR(boost::json::value&, const VkSwapchainKHR&);
-void deserialize_VkSwapchainKHR(boost::json::value&, VkSwapchainKHR&);
+
+        void deserialize_VkSwapchainKHR(boost::json::value&, VkSwapchainKHR&);
+        void delete_VkSwapchainKHR(const VkSwapchainKHR&);
+        
 void serialize_VkDebugReportCallbackEXT(boost::json::value&, const VkDebugReportCallbackEXT&);
-void deserialize_VkDebugReportCallbackEXT(boost::json::value&, VkDebugReportCallbackEXT&);
+
+        void deserialize_VkDebugReportCallbackEXT(boost::json::value&, VkDebugReportCallbackEXT&);
+        void delete_VkDebugReportCallbackEXT(const VkDebugReportCallbackEXT&);
+        
 void serialize_VkDebugUtilsMessengerEXT(boost::json::value&, const VkDebugUtilsMessengerEXT&);
-void deserialize_VkDebugUtilsMessengerEXT(boost::json::value&, VkDebugUtilsMessengerEXT&);
+
+        void deserialize_VkDebugUtilsMessengerEXT(boost::json::value&, VkDebugUtilsMessengerEXT&);
+        void delete_VkDebugUtilsMessengerEXT(const VkDebugUtilsMessengerEXT&);
+        
 void serialize_VkVideoSessionKHR(boost::json::value&, const VkVideoSessionKHR&);
-void deserialize_VkVideoSessionKHR(boost::json::value&, VkVideoSessionKHR&);
+
+        void deserialize_VkVideoSessionKHR(boost::json::value&, VkVideoSessionKHR&);
+        void delete_VkVideoSessionKHR(const VkVideoSessionKHR&);
+        
 void serialize_VkVideoSessionParametersKHR(boost::json::value&, const VkVideoSessionParametersKHR&);
-void deserialize_VkVideoSessionParametersKHR(boost::json::value&, VkVideoSessionParametersKHR&);
+
+        void deserialize_VkVideoSessionParametersKHR(boost::json::value&, VkVideoSessionParametersKHR&);
+        void delete_VkVideoSessionParametersKHR(const VkVideoSessionParametersKHR&);
+        

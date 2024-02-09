@@ -41431,6 +41431,7 @@ debug_printf("Executing vkDestroyInstance\n");
 [&](){deserialize_VkInstance(json["instance"], instance);}();
 
 
+delete_VkInstance(instance);
 debug_printf("Ending vkDestroyInstance...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkEnumeratePhysicalDevices( VkInstance instance, uint32_t* pPhysicalDeviceCount, VkPhysicalDevice* pPhysicalDevices ){
@@ -51240,6 +51241,7 @@ debug_printf("Executing vkDestroyDevice\n");
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 
+delete_VkDevice(device);
 debug_printf("Ending vkDestroyDevice...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkEnumerateInstanceVersion( uint32_t* pApiVersion ){
@@ -52635,6 +52637,7 @@ vkUnmapMemory(device,memory);
 [&](){deserialize_VkDeviceMemory(json["memory"], memory);}();
 
 
+delete_VkDeviceMemory(memory);
 debug_printf("Ending vkFreeMemory...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkMapMemory( VkDevice device, VkDeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, void** ppData ){
@@ -54353,6 +54356,7 @@ debug_printf("Executing vkDestroyFence\n");
 [&](){deserialize_VkFence(json["fence"], fence);}();
 
 
+delete_VkFence(fence);
 debug_printf("Ending vkDestroyFence...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkResetFences( VkDevice device, uint32_t fenceCount, const VkFence* pFences ){
@@ -54936,6 +54940,7 @@ debug_printf("Executing vkDestroySemaphore\n");
 [&](){deserialize_VkSemaphore(json["semaphore"], semaphore);}();
 
 
+delete_VkSemaphore(semaphore);
 debug_printf("Ending vkDestroySemaphore...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreateEvent( VkDevice device, const VkEventCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkEvent* pEvent ){
@@ -55176,6 +55181,7 @@ debug_printf("Executing vkDestroyEvent\n");
 [&](){deserialize_VkEvent(json["event"], event);}();
 
 
+delete_VkEvent(event);
 debug_printf("Ending vkDestroyEvent...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkGetEventStatus( VkDevice device, VkEvent event ){
@@ -55701,6 +55707,7 @@ debug_printf("Executing vkDestroyQueryPool\n");
 [&](){deserialize_VkQueryPool(json["queryPool"], queryPool);}();
 
 
+delete_VkQueryPool(queryPool);
 debug_printf("Ending vkDestroyQueryPool...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkGetQueryPoolResults( VkDevice device, VkQueryPool queryPool, uint32_t firstQuery, uint32_t queryCount, size_t dataSize, void* pData, VkDeviceSize stride, VkQueryResultFlags flags ){
@@ -56224,6 +56231,7 @@ debug_printf("Executing vkDestroyBuffer\n");
 [&](){deserialize_VkBuffer(json["buffer"], buffer);}();
 
 
+delete_VkBuffer(buffer);
 debug_printf("Ending vkDestroyBuffer...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreateBufferView( VkDevice device, const VkBufferViewCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkBufferView* pView ){
@@ -56464,6 +56472,7 @@ debug_printf("Executing vkDestroyBufferView\n");
 [&](){deserialize_VkBufferView(json["bufferView"], bufferView);}();
 
 
+delete_VkBufferView(bufferView);
 debug_printf("Ending vkDestroyBufferView...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreateImage( VkDevice device, const VkImageCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkImage* pImage ){
@@ -56704,6 +56713,7 @@ debug_printf("Executing vkDestroyImage\n");
 [&](){deserialize_VkImage(json["image"], image);}();
 
 
+delete_VkImage(image);
 debug_printf("Ending vkDestroyImage...\n");
 }
 __attribute__((visibility ("hidden"))) void vkGetImageSubresourceLayout( VkDevice device, VkImage image, const VkImageSubresource* pSubresource, VkSubresourceLayout* pLayout ){
@@ -57064,6 +57074,7 @@ debug_printf("Executing vkDestroyImageView\n");
 [&](){deserialize_VkImageView(json["imageView"], imageView);}();
 
 
+delete_VkImageView(imageView);
 debug_printf("Ending vkDestroyImageView...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreateShaderModule( VkDevice device, const VkShaderModuleCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkShaderModule* pShaderModule ){
@@ -57304,6 +57315,7 @@ debug_printf("Executing vkDestroyShaderModule\n");
 [&](){deserialize_VkShaderModule(json["shaderModule"], shaderModule);}();
 
 
+delete_VkShaderModule(shaderModule);
 debug_printf("Ending vkDestroyShaderModule...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreatePipelineCache( VkDevice device, const VkPipelineCacheCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkPipelineCache* pPipelineCache ){
@@ -57544,6 +57556,7 @@ debug_printf("Executing vkDestroyPipelineCache\n");
 [&](){deserialize_VkPipelineCache(json["pipelineCache"], pipelineCache);}();
 
 
+delete_VkPipelineCache(pipelineCache);
 debug_printf("Ending vkDestroyPipelineCache...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkGetPipelineCacheData( VkDevice device, VkPipelineCache pipelineCache, size_t* pDataSize, void* pData ){
@@ -58339,6 +58352,7 @@ debug_printf("Executing vkDestroyPipeline\n");
 [&](){deserialize_VkPipeline(json["pipeline"], pipeline);}();
 
 
+delete_VkPipeline(pipeline);
 debug_printf("Ending vkDestroyPipeline...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreatePipelineLayout( VkDevice device, const VkPipelineLayoutCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkPipelineLayout* pPipelineLayout ){
@@ -58579,6 +58593,7 @@ debug_printf("Executing vkDestroyPipelineLayout\n");
 [&](){deserialize_VkPipelineLayout(json["pipelineLayout"], pipelineLayout);}();
 
 
+delete_VkPipelineLayout(pipelineLayout);
 debug_printf("Ending vkDestroyPipelineLayout...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreateSampler( VkDevice device, const VkSamplerCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSampler* pSampler ){
@@ -58819,6 +58834,7 @@ debug_printf("Executing vkDestroySampler\n");
 [&](){deserialize_VkSampler(json["sampler"], sampler);}();
 
 
+delete_VkSampler(sampler);
 debug_printf("Ending vkDestroySampler...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreateDescriptorSetLayout( VkDevice device, const VkDescriptorSetLayoutCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDescriptorSetLayout* pSetLayout ){
@@ -59059,6 +59075,7 @@ debug_printf("Executing vkDestroyDescriptorSetLayout\n");
 [&](){deserialize_VkDescriptorSetLayout(json["descriptorSetLayout"], descriptorSetLayout);}();
 
 
+delete_VkDescriptorSetLayout(descriptorSetLayout);
 debug_printf("Ending vkDestroyDescriptorSetLayout...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreateDescriptorPool( VkDevice device, const VkDescriptorPoolCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDescriptorPool* pDescriptorPool ){
@@ -59299,6 +59316,7 @@ debug_printf("Executing vkDestroyDescriptorPool\n");
 [&](){deserialize_VkDescriptorPool(json["descriptorPool"], descriptorPool);}();
 
 
+delete_VkDescriptorPool(descriptorPool);
 debug_printf("Ending vkDestroyDescriptorPool...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkResetDescriptorPool( VkDevice device, VkDescriptorPool descriptorPool, VkDescriptorPoolResetFlags flags ){
@@ -59648,6 +59666,13 @@ VkResult result;
             }
             }();result=(VkResult)temp_YypqqnY;}();}();
 
+
+                if (pDescriptorSets!=NULL){
+                    for (int i=0; i<descriptorSetCount; i++){
+                        delete_VkDescriptorSet(pDescriptorSets[i]);
+                    }
+                }
+                
 debug_printf("Ending vkFreeDescriptorSets...\n");
 debug_printf("Return value of vkFreeDescriptorSets is: %s...\n",string_VkResult(result));
 return result;
@@ -60017,6 +60042,7 @@ debug_printf("Executing vkDestroyFramebuffer\n");
 [&](){deserialize_VkFramebuffer(json["framebuffer"], framebuffer);}();
 
 
+delete_VkFramebuffer(framebuffer);
 debug_printf("Ending vkDestroyFramebuffer...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreateRenderPass( VkDevice device, const VkRenderPassCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkRenderPass* pRenderPass ){
@@ -60257,6 +60283,7 @@ debug_printf("Executing vkDestroyRenderPass\n");
 [&](){deserialize_VkRenderPass(json["renderPass"], renderPass);}();
 
 
+delete_VkRenderPass(renderPass);
 debug_printf("Ending vkDestroyRenderPass...\n");
 }
 __attribute__((visibility ("hidden"))) void vkGetRenderAreaGranularity( VkDevice device, VkRenderPass renderPass, VkExtent2D* pGranularity ){
@@ -60722,6 +60749,7 @@ debug_printf("Executing vkDestroyCommandPool\n");
 [&](){deserialize_VkCommandPool(json["commandPool"], commandPool);}();
 
 
+delete_VkCommandPool(commandPool);
 debug_printf("Ending vkDestroyCommandPool...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkResetCommandPool( VkDevice device, VkCommandPool commandPool, VkCommandPoolResetFlags flags ){
@@ -61061,6 +61089,13 @@ debug_printf("Executing vkFreeCommandBuffers\n");
             }();
 
 
+
+                if (pCommandBuffers!=NULL){
+                    for (int i=0; i<commandBufferCount; i++){
+                        delete_VkCommandBuffer(pCommandBuffers[i]);
+                    }
+                }
+                
 debug_printf("Ending vkFreeCommandBuffers...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkBeginCommandBuffer( VkCommandBuffer commandBuffer, const VkCommandBufferBeginInfo* pBeginInfo ){
@@ -68796,6 +68831,7 @@ debug_printf("Executing vkDestroySurfaceKHR\n");
 [&](){deserialize_VkSurfaceKHR(json["surface"], surface);}();
 
 
+delete_VkSurfaceKHR(surface);
 debug_printf("Ending vkDestroySurfaceKHR...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceSupportKHR( VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex, VkSurfaceKHR surface, VkBool32* pSupported ){
@@ -69586,8 +69622,8 @@ debug_printf("Executing vkDestroySwapchainKHR\n");
 [&](){deserialize_VkDevice(json["device"], device);}();
 [&](){deserialize_VkSwapchainKHR(json["swapchain"], swapchain);}();
 
-deregisterSwapchain(swapchain);
 
+delete_VkSwapchainKHR(swapchain);
 debug_printf("Ending vkDestroySwapchainKHR...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkGetSwapchainImagesKHR( VkDevice device, VkSwapchainKHR swapchain, uint32_t* pSwapchainImageCount, VkImage* pSwapchainImages ){
@@ -70513,6 +70549,7 @@ debug_printf("Executing vkDestroyDebugReportCallbackEXT\n");
 [&](){deserialize_VkDebugReportCallbackEXT(json["callback"], callback);}();
 
 
+delete_VkDebugReportCallbackEXT(callback);
 debug_printf("Ending vkDestroyDebugReportCallbackEXT...\n");
 }
 __attribute__((visibility ("hidden"))) void vkDebugReportMessageEXT( VkInstance instance, VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objectType, uint64_t object, size_t location, int32_t messageCode, const char* pLayerPrefix, const char* pMessage ){
@@ -71981,6 +72018,7 @@ debug_printf("Executing vkDestroyIndirectCommandsLayoutNV\n");
 [&](){deserialize_VkIndirectCommandsLayoutNV(json["indirectCommandsLayout"], indirectCommandsLayout);}();
 
 
+delete_VkIndirectCommandsLayoutNV(indirectCommandsLayout);
 debug_printf("Ending vkDestroyIndirectCommandsLayoutNV...\n");
 }
 __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceFeatures2( VkPhysicalDevice physicalDevice, VkPhysicalDeviceFeatures2* pFeatures ){
@@ -76570,6 +76608,7 @@ debug_printf("Executing vkDestroyDescriptorUpdateTemplate\n");
 [&](){deserialize_VkDescriptorUpdateTemplate(json["descriptorUpdateTemplate"], descriptorUpdateTemplate);}();
 
 
+delete_VkDescriptorUpdateTemplate(descriptorUpdateTemplate);
 debug_printf("Ending vkDestroyDescriptorUpdateTemplate...\n");
 }
 __attribute__((visibility ("hidden"))) void vkDestroyDescriptorUpdateTemplateKHR( VkDevice device, VkDescriptorUpdateTemplate descriptorUpdateTemplate, const VkAllocationCallbacks* pAllocator ){
@@ -79742,6 +79781,7 @@ debug_printf("Executing vkDestroySamplerYcbcrConversion\n");
 [&](){deserialize_VkSamplerYcbcrConversion(json["ycbcrConversion"], ycbcrConversion);}();
 
 
+delete_VkSamplerYcbcrConversion(ycbcrConversion);
 debug_printf("Ending vkDestroySamplerYcbcrConversion...\n");
 }
 __attribute__((visibility ("hidden"))) void vkDestroySamplerYcbcrConversionKHR( VkDevice device, VkSamplerYcbcrConversion ycbcrConversion, const VkAllocationCallbacks* pAllocator ){
@@ -80097,6 +80137,7 @@ debug_printf("Executing vkDestroyValidationCacheEXT\n");
 [&](){deserialize_VkValidationCacheEXT(json["validationCache"], validationCache);}();
 
 
+delete_VkValidationCacheEXT(validationCache);
 debug_printf("Ending vkDestroyValidationCacheEXT...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkGetValidationCacheDataEXT( VkDevice device, VkValidationCacheEXT validationCache, size_t* pDataSize, void* pData ){
@@ -82055,6 +82096,7 @@ debug_printf("Executing vkDestroyDebugUtilsMessengerEXT\n");
 [&](){deserialize_VkDebugUtilsMessengerEXT(json["messenger"], messenger);}();
 
 
+delete_VkDebugUtilsMessengerEXT(messenger);
 debug_printf("Ending vkDestroyDebugUtilsMessengerEXT...\n");
 }
 __attribute__((visibility ("hidden"))) void vkSubmitDebugUtilsMessageEXT( VkInstance instance, VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData ){
@@ -86119,6 +86161,7 @@ debug_printf("Executing vkDestroyAccelerationStructureKHR\n");
 [&](){deserialize_VkAccelerationStructureKHR(json["accelerationStructure"], accelerationStructure);}();
 
 
+delete_VkAccelerationStructureKHR(accelerationStructure);
 debug_printf("Ending vkDestroyAccelerationStructureKHR...\n");
 }
 __attribute__((visibility ("hidden"))) void vkDestroyAccelerationStructureNV( VkDevice device, VkAccelerationStructureNV accelerationStructure, const VkAllocationCallbacks* pAllocator ){
@@ -86215,6 +86258,7 @@ debug_printf("Executing vkDestroyAccelerationStructureNV\n");
 [&](){deserialize_VkAccelerationStructureNV(json["accelerationStructure"], accelerationStructure);}();
 
 
+delete_VkAccelerationStructureNV(accelerationStructure);
 debug_printf("Ending vkDestroyAccelerationStructureNV...\n");
 }
 __attribute__((visibility ("hidden"))) void vkGetAccelerationStructureMemoryRequirementsNV( VkDevice device, const VkAccelerationStructureMemoryRequirementsInfoNV* pInfo, VkMemoryRequirements2KHR* pMemoryRequirements ){
@@ -93509,6 +93553,7 @@ debug_printf("Executing vkDestroyDeferredOperationKHR\n");
 [&](){deserialize_VkDeferredOperationKHR(json["operation"], operation);}();
 
 
+delete_VkDeferredOperationKHR(operation);
 debug_printf("Ending vkDestroyDeferredOperationKHR...\n");
 }
 __attribute__((visibility ("hidden"))) uint32_t vkGetDeferredOperationMaxConcurrencyKHR( VkDevice device, VkDeferredOperationKHR operation ){
@@ -99030,6 +99075,7 @@ debug_printf("Executing vkDestroyPrivateDataSlot\n");
 [&](){deserialize_VkPrivateDataSlot(json["privateDataSlot"], privateDataSlot);}();
 
 
+delete_VkPrivateDataSlot(privateDataSlot);
 debug_printf("Ending vkDestroyPrivateDataSlot...\n");
 }
 __attribute__((visibility ("hidden"))) void vkDestroyPrivateDataSlotEXT( VkDevice device, VkPrivateDataSlot privateDataSlot, const VkAllocationCallbacks* pAllocator ){
@@ -102433,6 +102479,7 @@ debug_printf("Executing vkDestroyVideoSessionKHR\n");
 [&](){deserialize_VkVideoSessionKHR(json["videoSession"], videoSession);}();
 
 
+delete_VkVideoSessionKHR(videoSession);
 debug_printf("Ending vkDestroyVideoSessionKHR...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkCreateVideoSessionParametersKHR( VkDevice device, const VkVideoSessionParametersCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkVideoSessionParametersKHR* pVideoSessionParameters ){
@@ -102781,6 +102828,7 @@ debug_printf("Executing vkDestroyVideoSessionParametersKHR\n");
 [&](){deserialize_VkVideoSessionParametersKHR(json["videoSessionParameters"], videoSessionParameters);}();
 
 
+delete_VkVideoSessionParametersKHR(videoSessionParameters);
 debug_printf("Ending vkDestroyVideoSessionParametersKHR...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkGetVideoSessionMemoryRequirementsKHR( VkDevice device, VkVideoSessionKHR videoSession, uint32_t* pMemoryRequirementsCount, VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements ){
@@ -104019,6 +104067,7 @@ debug_printf("Executing vkDestroyCuModuleNVX\n");
 [&](){deserialize_VkCuModuleNVX(json["module"], module);}();
 
 
+delete_VkCuModuleNVX(module);
 debug_printf("Ending vkDestroyCuModuleNVX...\n");
 }
 __attribute__((visibility ("hidden"))) void vkDestroyCuFunctionNVX( VkDevice device, VkCuFunctionNVX function, const VkAllocationCallbacks* pAllocator ){
@@ -104115,6 +104164,7 @@ debug_printf("Executing vkDestroyCuFunctionNVX\n");
 [&](){deserialize_VkCuFunctionNVX(json["function"], function);}();
 
 
+delete_VkCuFunctionNVX(function);
 debug_printf("Ending vkDestroyCuFunctionNVX...\n");
 }
 __attribute__((visibility ("hidden"))) void vkCmdCuLaunchKernelNVX( VkCommandBuffer commandBuffer, const VkCuLaunchInfoNVX* pLaunchInfo ){
@@ -106939,6 +106989,7 @@ debug_printf("Executing vkDestroyMicromapEXT\n");
 [&](){deserialize_VkMicromapEXT(json["micromap"], micromap);}();
 
 
+delete_VkMicromapEXT(micromap);
 debug_printf("Ending vkDestroyMicromapEXT...\n");
 }
 __attribute__((visibility ("hidden"))) void vkCmdCopyMicromapEXT( VkCommandBuffer commandBuffer, const VkCopyMicromapInfoEXT* pInfo ){
@@ -109240,6 +109291,7 @@ debug_printf("Executing vkDestroyOpticalFlowSessionNV\n");
 [&](){deserialize_VkOpticalFlowSessionNV(json["session"], session);}();
 
 
+delete_VkOpticalFlowSessionNV(session);
 debug_printf("Ending vkDestroyOpticalFlowSessionNV...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkBindOpticalFlowSessionImageNV( VkDevice device, VkOpticalFlowSessionNV session, VkOpticalFlowSessionBindingPointNV bindingPoint, VkImageView view, VkImageLayout layout ){
@@ -110445,6 +110497,7 @@ debug_printf("Executing vkDestroyShaderEXT\n");
 [&](){deserialize_VkShaderEXT(json["shader"], shader);}();
 
 
+delete_VkShaderEXT(shader);
 debug_printf("Ending vkDestroyShaderEXT...\n");
 }
 __attribute__((visibility ("hidden"))) VkResult vkGetShaderBinaryDataEXT( VkDevice device, VkShaderEXT shader, size_t* pDataSize, void* pData ){
