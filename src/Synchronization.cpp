@@ -1,6 +1,7 @@
 #include <cstddef>
 #include <cstdint>
 
+#include <komihash.h>
 #include <boost/json.hpp>
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
@@ -35,24 +36,7 @@ typedef std::unordered_map<uintptr_t,MemInfo*> mem_info_map;
 #endif
 
 uint64_t HashMem(void* mem, uintptr_t start, uintptr_t length) {
-    // 32 bit params
-    // uint32_t constexpr fnv_prime = 16777619U;
-    // uint32_t constexpr fnv_offset_basis = 2166136261U;
-
-    // 64 bit params
-    uint64_t constexpr fnv_prime = 1099511628211ULL;
-    uint64_t constexpr fnv_offset_basis = 14695981039346656037ULL;
-    
-    uint64_t hash = fnv_offset_basis;
-    
-    std::string_view src_string((char*)mem+start, length);
-    
-    for(auto c: src_string) {
-        hash ^= c;
-        hash *= fnv_prime;
-    }
-
-    return hash;
+    return komihash((char*)mem+start, length, 500);
 }
 
 void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_mem){

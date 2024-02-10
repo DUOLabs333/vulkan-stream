@@ -1,5 +1,6 @@
 import os
 import sys
+from sys import platform as PLATFORM
 import subprocess
 import itertools
 import glob
@@ -13,12 +14,12 @@ VK_LIB_PATH=os.path.expanduser(os.environ.get("VK_LIB_PATH","~/.nix-profile/lib"
 
 
 SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
-INCLUDE_PATHS=["autogen","src", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost","external/lz4/lib"]
-FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3","-DNDEBUG"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")
+INCLUDE_PATHS=["autogen","src", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost","external/lz4/lib","external/komihash"]
+FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3","-DNDEBUG"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")+(["-g","-ggdb"] if PLATFORM=="linux" else [])+([] if DEBUG=="1" else ["-mcpu=apple-a14" if PLATFORM=="darwin" else "-march=native"])
 
 STATIC_LIBS=["external/lz4/lib/liblz4.a"]
 SHARED_LIBS_PATHS=[VK_LIB_PATH]
-SHARED_LIBS=(["vulkan"] if CLIENT=="0" else ["xcb","X11","xcb-image"])
+SHARED_LIBS=(["vulkan"] if CLIENT=="0" else (["xcb","X11","xcb-image"] if PLATFORM=="linux" else []))
 
 def get_object_file(name):
     if not (name.endswith(".cpp") or name.endswith(".c")):
@@ -37,7 +38,7 @@ SRC_FILES=list(itertools.chain.from_iterable(SRC_FILES))
 for i, e in enumerate(STATIC_LIBS):
    STATIC_LIBS[i]=[_ for _ in glob.glob(e) if _.endswith(".a")]
 STATIC_LIBS=list(itertools.chain.from_iterable(STATIC_LIBS))
-STATIC_LIBS=(["-Wl,--start-group"] if sys.platform!="darwin" else [])+STATIC_LIBS+(["-Wl,--end-group"] if sys.platform!="darwin" else [])
+STATIC_LIBS=(["-Wl,--start-group"] if PLATFORM!="darwin" else [])+STATIC_LIBS+(["-Wl,--end-group"] if PLATFORM!="darwin" else [])
 
 for file in SRC_FILES:
     object_file=get_object_file(file)
