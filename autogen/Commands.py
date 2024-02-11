@@ -5,6 +5,7 @@ import copy
 write("""
 #include <debug.hpp>
 #include <boost/json.hpp>
+#include <simdjson.h>
 
 #include <stdexcept>
 #include <shared_mutex>

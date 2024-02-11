@@ -45,6 +45,7 @@ def update_dict(info, alias):
 
 def convert(variable, value, info, serialize, initialize=False):
     info=copy.deepcopy(info) #To avoid modifying the mutable arguments
+    identifier=random_string(info)
     
     """
     variable is the C++ object
@@ -102,7 +103,7 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         else:
             result+=f"""
-            if ({value}.get_array().size()==0){{
+            if ({value}.is_empty()){{
                 {variable}=NULL;
             """
         result +="return; }"
@@ -131,18 +132,21 @@ def convert(variable, value, info, serialize, initialize=False):
             else:
                 cast_header=re.sub(fr"""\b{info["name"]}\b""","",info["header"]).replace(";","")
                 
-                result+=f"""{variable}=({cast_header})(value_to<uintptr_t>({value}));"""
+                result+=f"""{variable}=({cast_header})({value}.get_uint64());"""
                 
     elif len(length)>0:
         size=length.pop()
-        temp_iterator=random_string(info)
+        iterator=f"iterator_{identifier}"
         
         if size=="null-terminated":
             if serialize:
                 size=f"strlen({variable})+1"
             else:
-                size=f"""{value}.get_array().size()"""
-                
+                size=f"""{value}.get_array().count_elements()"""
+        
+        result+=f"auto size_{identifier}={size};"
+        size=f"size_{identifier}"
+        
         if deserialize and num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
                 result+=f"""{variable}=({type+("*"*num_indirection)})malloc({size}*sizeof({type+("*"*(num_indirection-1))}));"""
@@ -159,17 +163,24 @@ def convert(variable, value, info, serialize, initialize=False):
             result+=f"{value}=boost::json::array({size});"
         
         arr=f"{value}.get_array()"
-        arr_json=f"arr_{random_string(info)}"
-        
+        arr_json=f"arr_{identifier}"
+        result+=f"auto& {arr_json}={arr};"
         variable+=f"[{temp_iterator}]"
-        value=f"{arr_json}[{temp_iterator}]"
         
-        result+=f"""
-        auto& {arr_json}={arr};
-        for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
-            {convert(*args())}
-        }}
-        """
+        if serialize:
+            value=f"{arr_json}[{temp_iterator}]"
+            result+=f"""
+            for(int {iterator}=0; {iterator} < {size}; {iterator}++){{
+                {convert(*args())}
+            }}
+            """
+        else:
+            value=iterator
+            result+=f"""
+            for(auto& {iterator}: {arr_json}){{
+                {convert(*args())}
+            }}
+            """
     
     elif kind=="pUserData": #Has to be handled specially as we are dealing with the parent, not just the child
         #Deserializing on the client shouldn't do anything --- similarly on the server
@@ -190,8 +201,8 @@ def convert(variable, value, info, serialize, initialize=False):
                 result+="\n#ifndef CLIENT"
                 
             result+=f"""
-            auto& temp={value}.get_object();
-            deserialize_{kind}(temp,{variable});
+            auto& map_{identifier}=map_from({value}.get_object());
+            deserialize_{kind}(map_{identifier},{variable});
             """
             if kind=="funcpointer":
                 result+="#endif\n"
@@ -201,10 +212,32 @@ def convert(variable, value, info, serialize, initialize=False):
         #"nan"=std::nan
         #Check for inf and -inf with isinf. This allows it to be compatible with simdjson
         if serialize:
-            result+=f"""{value}={variable};"""
+            result+=f"""
+            if (std::isinf({variable})){{
+                if ({variable} < 0){{
+                    {value}="-inf";
+                }}else{{
+                    {value}="inf";
+                }}
+            }}else if (std::isnan({variable}){{
+                {value}="nan";
+            }}else{{
+                {value}={variable};
+            }}
+            """
         else:
             result+=f"""
-            if ({value}.is_uint64()){{
+            if ({value}.is_string()){{
+                auto value_str={value}.get_string();
+                if (value_str=="inf"){{
+                    {variable}=std::numerical_limits<{type}>::infinity();
+                }}else if (value_str=="-inf"){{
+                        {variable}=-std::numerical_limits<{type}>::infinity();
+                }}else{{
+                    {variable}=std::numerical_limits<{type}>::quiet_nan();
+                }}
+            
+            }}else if ({value}.is_uint64()){{
                 {variable}=static_cast<{type}>({value}.get_uint64());
             }}else if ({value}.is_int64()){{
                 {variable}=static_cast<{type}>({value}.get_int64());
