@@ -51,7 +51,7 @@ def registerDeviceMemoryMap(name,mem):
         *ppData=registerDeviceMemoryMap(server_memory, {memory},{size},*ppData,{mem});
         
         #ifndef CLIENT
-            json["mem"]={mem};
+            write_json["mem"]={mem};
         #endif
         """
     else:
@@ -77,7 +77,7 @@ for name, command in parsed.items():
         continue
         
     write(f"""
-    void handle_{name}(parsed_map& json){{
+    void handle_{name}(parsed_map& read_json){{
     //Will only be called by the server
     """)
 
@@ -88,12 +88,12 @@ for name, command in parsed.items():
         param["const"]=False
         
         write(param["header"]+";")
-        write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False,initialize=True))
+        write(convert(param["name"],f"""read_json["{param["name"]}"]""",param,serialize=False,initialize=True))
 
     write(f"""
     PFN_{name} call_function;
     
-    auto parent_json=map_from(json["parent"].get_object());
+    auto parent_json=map_from(read_json["parent"].get_object());
     if(parent_json.contains("instance")){{
         VkInstance parent;
         deserialize_VkInstance(parent_json["instance"],parent);

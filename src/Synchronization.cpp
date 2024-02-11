@@ -3,10 +3,12 @@
 
 #include <komihash.h>
 #include <boost/json.hpp>
-#include <Server.hpp>
+#include <simdjson.h>
 #include <vulkan/vulkan.h>
-#include <Serialization.hpp>
 #include <unordered_map>
+#include <Serialization.hpp>
+#include <Server.hpp>
+
 extern "C" {
 #include <shm_open_anon.h>
 }
@@ -115,7 +117,7 @@ delete info;
 void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
-void handle_sync_response(pared_map& read_json){
+void handle_sync_response(parsed_map& read_json){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     
     Sync sync;
@@ -129,7 +131,7 @@ void handle_sync_response(pared_map& read_json){
     
     for(int i=0; i < sync.starts.size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
-        memcpy((char*)mem+sync.starts[i],sync.buffers[i].c_str(), sync.lengths[i]);
+        memcpy((char*)mem+sync.starts[i],sync.buffers[i].data(), sync.lengths[i]);
     }
     
     boost::json::object write_json;

@@ -7,11 +7,11 @@ write(f"""
 #include <boost/json.hpp>
 #include <simdjson.h>
 
+#include <unordered_map>
 #include <Serialization.hpp>
+#include <Surface.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
-#include <unordered_map>
-#include <Surface.hpp>
 """)
 
 write("""
@@ -36,13 +36,7 @@ write("""
 typedef simdjson::dom::element element;
 typedef std::unordered_map<std::string_view, element> parsed_map;
 
-parsed_map map_from(simdjson::dom::object object){
-    parsed_map result;
-    for(auto elem: object){
-        result.emplace(std::make_pair(elem.key, elem.value));
-    }
-    return result;
-}
+parsed_map map_from(simdjson::dom::object);
 
 template <typename T> T value_to(simdjson::dom::element elem){
     if (elem.is_uint64()){
@@ -54,7 +48,7 @@ template <typename T> T value_to(simdjson::dom::element elem){
     }
 }
 
-template <> std::string_view value_to<std::string_view>(simdjson::dom::element elem){
+template <> inline std::string_view value_to<std::string_view>(simdjson::dom::element elem){
     return elem.get_string().value();
 }
 
@@ -70,6 +64,17 @@ template <typename T> std::vector<T> array_to(simdjson::dom::array arr){
 }
         
 """,header=True)
+
+write("""
+parsed_map map_from(simdjson::dom::object object){
+    parsed_map result;
+    for(auto elem: object){
+        result.emplace(std::make_pair(elem.key, elem.value));
+    }
+    return result;
+}
+""")
+
 write("""
 typedef struct {
 uintptr_t devicememory = 0;

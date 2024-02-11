@@ -629,13 +629,7 @@ VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR=2627,
 typedef simdjson::dom::element element;
 typedef std::unordered_map<std::string_view, element> parsed_map;
 
-parsed_map map_from(simdjson::dom::object object){
-    parsed_map result;
-    for(auto elem: object){
-        result.emplace(std::make_pair(elem.key, elem.value));
-    }
-    return result;
-}
+parsed_map map_from(simdjson::dom::object);
 
 template <typename T> T value_to(simdjson::dom::element elem){
     if (elem.is_uint64()){
@@ -647,7 +641,7 @@ template <typename T> T value_to(simdjson::dom::element elem){
     }
 }
 
-template <> std::string_view value_to<std::string_view>(simdjson::dom::element elem){
+template <> inline std::string_view value_to<std::string_view>(simdjson::dom::element elem){
     return elem.get_string().value();
 }
 

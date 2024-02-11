@@ -1,9 +1,11 @@
 #include <boost/json.hpp>
+#include <simdjson.h>
 
+#include <unordered_map>
+#include <Serialization.hpp>
 #include "Server.hpp"
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
-#include <Serialization.hpp>
 #include <Commands.hpp>
 #include <thread>
 #include <string_view>
@@ -42,7 +44,7 @@ class RWError : public std::exception {
         parsed_map json;
         while(true){
             try{
-            parsed_map=readFromConn();
+            json=readFromConn();
             
             if (currStruct()->uuid==-1){
                 currStruct()->uuid=value_to<int>(json["uuid"]);
@@ -116,7 +118,7 @@ parsed_map readFromConn(){
     auto line=std::string_view(input,input_size);
     LZ4_decompress_safe(compressed_data, input, compressed_size, input_size);
 
-    auto json=map_from(curr->parser->parse(line).get_object());
+    auto json=map_from(curr->parser.parse(line).get_object());
     
     free(input);
     free(compressed_data);
