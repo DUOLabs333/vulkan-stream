@@ -197,6 +197,9 @@ def convert(variable, value, info, serialize, initialize=False):
                 result+="#endif\n"
                 
     elif kind=="primitive":
+        #"-inf"=-std::numerical_limits<{type}>::infinity()
+        #"nan"=std::nan
+        #Check for inf and -inf with isinf. This allows it to be compatible with simdjson
         if serialize:
             result+=f"""{value}={variable};"""
         else:
