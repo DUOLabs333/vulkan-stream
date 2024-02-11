@@ -39,10 +39,10 @@ class RWError : public std::exception {
         socket->set_option( asio::ip::tcp::no_delay( true) );
         currStruct()->conn=socket;
         
-        boost::json::object json;
+        parsed_map json;
         while(true){
             try{
-            json=readFromConn();
+            parsed_map=readFromConn();
             
             if (currStruct()->uuid==-1){
                 currStruct()->uuid=value_to<int>(json["uuid"]);
@@ -91,7 +91,7 @@ uint32_t deserializeInt(std::array<uint8_t,8>& buf, int i){ //Deserialzes from l
     return buf[i+0] | (buf[i+1] << 8) | (buf[i+2] << 16) | (buf[i+3] << 24);
 }
 
-boost::json::object readFromConn(){
+parsed_map readFromConn(){
     auto curr=currStruct();
     asio::error_code ec;
     
@@ -105,7 +105,7 @@ boost::json::object readFromConn(){
     
 
     auto compressed_data=(char*)malloc(compressed_size);
-    auto input=(char*)malloc(input_size);
+    auto input=(char*)malloc(input_size+simdjson::SIMDJSON_PADDING);
     
     asio::read(*(curr->conn), asio::buffer(compressed_data, compressed_size), asio::transfer_exactly(compressed_size), ec);
     
@@ -116,7 +116,7 @@ boost::json::object readFromConn(){
     auto line=std::string_view(input,input_size);
     LZ4_decompress_safe(compressed_data, input, compressed_size, input_size);
 
-    boost::json::object json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
+    auto json=map_from(curr->parser->parse(line).get_object());
     
     free(input);
     free(compressed_data);

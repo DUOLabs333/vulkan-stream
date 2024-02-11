@@ -13,8 +13,8 @@ DEBUG=os.environ.get("DEBUG","1")
 VK_LIB_PATH=os.path.expanduser(os.environ.get("VK_LIB_PATH","~/.nix-profile/lib"))
 
 
-SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
-INCLUDE_PATHS=["autogen","src", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost","external/lz4/lib","external/komihash"]
+SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c","simdjson/simdjson.c"]
+INCLUDE_PATHS=["autogen","src", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost","external/lz4/lib","external/komihash","simdjson/include"]
 FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3","-DNDEBUG"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")+(["-g","-ggdb"] if PLATFORM=="linux" else [])+([] if DEBUG=="1" else ["-mcpu=apple-a14" if PLATFORM=="darwin" else "-march=native"])
 
 STATIC_LIBS=["external/lz4/lib/liblz4.a"]

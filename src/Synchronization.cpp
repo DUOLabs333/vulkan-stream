@@ -115,11 +115,11 @@ delete info;
 void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
-void handle_sync_response(boost::json::object& json){
+void handle_sync_response(pared_map& read_json){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     
     Sync sync;
-    deserialize_Sync(json, sync);
+    deserialize_Sync(read_json, sync);
     
     #ifdef CLIENT
         void* mem=(char*)server_to_client_mem[sync.mem];
@@ -132,14 +132,16 @@ void handle_sync_response(boost::json::object& json){
         memcpy((char*)mem+sync.starts[i],sync.buffers[i].c_str(), sync.lengths[i]);
     }
     
-    writeToConn(json);
+    boost::json::object write_json;
+    write_json.clear();
+    writeToConn(write_json);
 }
 
-void handle_sync_init(boost::json::object& json){
+void handle_sync_init(parsed_map& read_json){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
     
     Sync sync;
-    deserialize_Sync(json, sync);
+    deserialize_Sync(read_json, sync);
     
     #ifdef CLIENT
         if (!server_to_client_mem.contains(sync.mem)){
@@ -166,11 +168,12 @@ void handle_sync_init(boost::json::object& json){
         }
     }
     
-    serialize_Sync(json, sync);
-    writeToConn(json);
+    boost::json::object write_json;
+    serialize_Sync(write_json, sync);
+    writeToConn(write_json);
     
-    json=readFromConn();
-    handle_sync_response(json);
+    read_json=readFromConn();
+    handle_sync_response(read_json);
     
     #ifndef CLIENT
         if (sync.devicememory!=0){
@@ -181,11 +184,11 @@ void handle_sync_init(boost::json::object& json){
     
 }
 
-void handle_sync_request(boost::json::object& json){
+void handle_sync_request(parsed_map& read_json){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
     
     Sync sync;
-    deserialize_Sync(json, sync);
+    deserialize_Sync(read_json, sync);
     
     #ifdef CLIENT
         void* mem=(void*)server_to_client_mem[sync.mem];
@@ -204,8 +207,9 @@ void handle_sync_request(boost::json::object& json){
         sync.buffers[i]=buffer;
     }
     
-    serialize_Sync(json, sync);
-    writeToConn(json);
+    boost::json::object write_json;
+    serialize_Sync(write_json, sync);
+    writeToConn(write_json);
     
     readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
 }
@@ -254,8 +258,8 @@ void SyncOne(uintptr_t devicememory, void* mem, size_t length){
     serialize_Sync(json, sync);
     writeToConn(json);
     
-    json=readFromConn();
-    handle_sync_request(json);
+    auto read_json=readFromConn();
+    handle_sync_request(read_json);
 }
 
 void SyncAll(){

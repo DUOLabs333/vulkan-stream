@@ -54,9 +54,6 @@ def convert(variable, value, info, serialize, initialize=False):
     if is_void(info):
         return ""
     
-    if (not serialize) and info.get("name","")=="blendConstants":
-        pass
-        #print(info)
     #Make it easier to refer to
     num_indirection=info["num_indirection"]
     length=info["length"]
@@ -103,7 +100,7 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         else:
             result+=f"""
-            if ({value}.is_empty()){{
+            if ({value}.get_array().size()==0){{
                 {variable}=NULL;
             """
         result +="return; }"
@@ -132,7 +129,7 @@ def convert(variable, value, info, serialize, initialize=False):
             else:
                 cast_header=re.sub(fr"""\b{info["name"]}\b""","",info["header"]).replace(";","")
                 
-                result+=f"""{variable}=({cast_header})({value}.get_uint64());"""
+                result+=f"""{variable}=({cast_header})(value_to<uintptr_t>({value}));"""
                 
     elif len(length)>0:
         size=length.pop()
@@ -142,7 +139,7 @@ def convert(variable, value, info, serialize, initialize=False):
             if serialize:
                 size=f"strlen({variable})+1"
             else:
-                size=f"""{value}.get_array().count_elements()"""
+                size=f"""{value}.get_array().size()"""
         
         result+=f"auto size_{identifier}={size};"
         size=f"size_{identifier}"
@@ -164,11 +161,11 @@ def convert(variable, value, info, serialize, initialize=False):
         
         arr=f"{value}.get_array()"
         arr_json=f"arr_{identifier}"
-        result+=f"auto& {arr_json}={arr};"
-        variable+=f"[{temp_iterator}]"
+        result+=f"auto {arr_json}={arr};"
         
         if serialize:
-            value=f"{arr_json}[{temp_iterator}]"
+            value=f"{arr_json}[{iterator}]"
+            variable+=f"[{iterator}]"
             result+=f"""
             for(int {iterator}=0; {iterator} < {size}; {iterator}++){{
                 {convert(*args())}
@@ -176,9 +173,12 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         else:
             value=iterator
+            variable+=f"[{iterator}_1]"
             result+=f"""
-            for(auto& {iterator}: {arr_json}){{
+            int {iterator}_1=0;
+            for(auto {iterator}: {arr_json}){{
                 {convert(*args())}
+                {iterator}_1++;
             }}
             """
     
@@ -201,7 +201,7 @@ def convert(variable, value, info, serialize, initialize=False):
                 result+="\n#ifndef CLIENT"
                 
             result+=f"""
-            auto& map_{identifier}=map_from({value}.get_object());
+            auto map_{identifier}=map_from({value}.get_object());
             deserialize_{kind}(map_{identifier},{variable});
             """
             if kind=="funcpointer":
@@ -213,13 +213,13 @@ def convert(variable, value, info, serialize, initialize=False):
         #Check for inf and -inf with isinf. This allows it to be compatible with simdjson
         if serialize:
             result+=f"""
-            if (std::isinf({variable})){{
+            if (std::isinf(static_cast<{type}>({variable}))){{
                 if ({variable} < 0){{
                     {value}="-inf";
                 }}else{{
                     {value}="inf";
                 }}
-            }}else if (std::isnan({variable}){{
+            }}else if (std::isnan(static_cast<{type}>({variable}))){{
                 {value}="nan";
             }}else{{
                 {value}={variable};
@@ -228,21 +228,17 @@ def convert(variable, value, info, serialize, initialize=False):
         else:
             result+=f"""
             if ({value}.is_string()){{
-                auto value_str={value}.get_string();
-                if (value_str=="inf"){{
-                    {variable}=std::numerical_limits<{type}>::infinity();
-                }}else if (value_str=="-inf"){{
-                        {variable}=-std::numerical_limits<{type}>::infinity();
+                auto value_str={value}.get_string().value();
+                if (value_str==std::string("inf")){{
+                    {variable}=std::numeric_limits<{type}>::infinity();
+                }}else if (value_str==std::string("-inf")){{
+                        {variable}=-std::numeric_limits<{type}>::infinity();
                 }}else{{
-                    {variable}=std::numerical_limits<{type}>::quiet_nan();
+                    {variable}=std::numeric_limits<{type}>::quiet_NaN();
                 }}
             
-            }}else if ({value}.is_uint64()){{
-                {variable}=static_cast<{type}>({value}.get_uint64());
-            }}else if ({value}.is_int64()){{
-                {variable}=static_cast<{type}>({value}.get_int64());
-            }}else{{
-                {variable}=static_cast<{type}>({value}.get_double());
+            }}else {{
+                {variable}=value_to<{type}>({value});
             }}
             """
     elif kind=="handle":

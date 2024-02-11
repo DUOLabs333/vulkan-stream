@@ -34,37 +34,42 @@ write("};",header=True)
 
 write("""
 typedef simdjson::dom::element element;
-typdef parsed_map std::unordered_map<std::string_view, element>;
+typedef std::unordered_map<std::string_view, element> parsed_map;
 
 parsed_map map_from(simdjson::dom::object object){
     parsed_map result;
     for(auto elem: object){
-        result.emplace(elem.key(), elem.value());
+        result.emplace(std::make_pair(elem.key, elem.value));
     }
     return result;
 }
 
 template <typename T> T value_to(simdjson::dom::element elem){
     if (elem.is_uint64()){
-        return static_cast<T>({elem.get_uint64());
+        return static_cast<T>(elem.get_uint64());
     }else if (elem.is_int64()){
         return static_cast<T>(elem.get_int64());
     }else{
-        return static_cast<T>(elemget_double());
+        return static_cast<T>(elem.get_double());
     }
 }
+
+template <> std::string_view value_to<std::string_view>(simdjson::dom::element elem){
+    return elem.get_string().value();
+}
+
 template <typename T> std::vector<T> array_to(simdjson::dom::array arr){
     std::vector<T> result;
     result.reserve(arr.size());
     
-    for(auto& elem: arr){
-        result.push_back(value_to(elem));
+    for(auto elem: arr){
+        result.push_back(value_to<T>(elem));
     }
     
     return result;
 }
         
-""")
+""",header=True)
 write("""
 typedef struct {
 uintptr_t devicememory = 0;
@@ -72,7 +77,7 @@ uintptr_t mem;
 std::vector<size_t> starts;
 std::vector<size_t> lengths;
 std::vector<uint64_t> hashes;
-std::vector<std::string> buffers;
+std::vector<std::string_view> buffers;
 } Sync;
 
 void serialize_Sync(boost::json::object&, Sync&);
@@ -97,7 +102,7 @@ void deserialize_Sync(parsed_map& json, Sync& sync){
     sync.hashes=array_to<uint64_t>(json["hashes"]);
     sync.lengths=array_to<size_t>(json["lengths"]);
     sync.starts=array_to<size_t>(json["starts"]);
-    sync.buffers=array_to<std::string>(json["buffers"]);
+    sync.buffers=array_to<std::string_view>(json["buffers"]);
 }
 """)
 write("#include <debug.hpp>",header=True)
@@ -321,7 +326,7 @@ for name, struct in parsed.items():
             old_member_json=member_json
             member_json=f"{member_json}_1"
             write(f"""
-            auto {member_json}=map_from({old_member_json}.as_object());
+            auto {member_json}=map_from({old_member_json}.get_object());
             deserialize_pUserData({member_json}, member);
             """)
             continue
@@ -365,37 +370,37 @@ for name,funcpointer in parsed.items():
         auto {name}_wrapper{header}{{
         //Will only be called by the server
         
-        boost::json::object json;
-        json["stream_type"]={name.upper()};
+        boost::json::object write_json;
+        write_json["stream_type"]={name.upper()};
         """)
         
         for param in funcpointer["params"]:
-            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=True))
+            write(convert(param["name"],f"""write_json["{param["name"]}"]""",param,serialize=True))
         
         write(f"""
-        json["id"]=((pUserData_struct*)pUserData)->{name};
+        write_json["id"]=((pUserData_struct*)pUserData)->{name};
         
-        writeToConn(json); //Send request
-        json=readFromConn(); //Recieve response
+        writeToConn(write_json); //Send request
+        auto read_json=readFromConn(); //Recieve response
         """)
         
         for param in funcpointer["params"]:
-            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False))
+            write(convert(param["name"],f"""read_json["{param["name"]}"]""",param,serialize=False))
         
         if not is_void(funcpointer):
             write(f"""{funcpointer["type"]}{"*"*funcpointer["num_indirection"]} result;""")
-            write(convert("result",'json["result"]',funcpointer | {"name": "result"},serialize=False,initialize=True))
+            write(convert("result",'read_json["result"]',funcpointer | {"name": "result"},serialize=False,initialize=True))
         
-        write("json.clear();")
+        write("write_json.clear();")
         
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write("registerAllocatedMem(result,size);")
-            write('json["mem"]=(uintptr_t)result;')
+            write('write_json["mem"]=(uintptr_t)result;')
         else:
-            write('json.erase("mem");')
+            write('write_json.erase("mem");')
         
         write("""
-        writeToConn(json); //Send (possible) memory to client so it can store it
+        writeToConn(write_json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         """)
             
@@ -407,17 +412,17 @@ for name,funcpointer in parsed.items():
         write("}")
         
         write(f"""
-            void handle_{name}(parsed_map& json){{
+            void handle_{name}(parsed_map& read_json){{
             //Will only be called by the client
             
             // Recieved data from server's {name} wrapper, and will execute the actual function
-            auto funcpointer=id_to_{name}[value_to<uintptr_t>(json["id"])];
+            auto funcpointer=id_to_{name}[value_to<uintptr_t>(read_json["id"])];
         """)
         
         #Just in case if they change when executing (none of the variables are const)
         for param in funcpointer["params"]:
             write(param["header"]+";") #Initialize variable
-            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False,initialize=True))
+            write(convert(param["name"],f"""read_json["{param["name"]}"]""",param,serialize=False,initialize=True))
         
         funcpointer_call=f"""funcpointer({",".join([param["name"] for param in funcpointer["params"]])})"""
         
@@ -437,8 +442,8 @@ for name,funcpointer in parsed.items():
         
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write(f"""
-            write_json=readFromConn();
-            registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(write_json["mem"]) );
+            read_json=readFromConn();
+            registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(read_json["mem"]) );
             
             write_json.clear();
             writeToConn(write_json); //Send empty message to signal to the server the mapping is done.
