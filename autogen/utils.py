@@ -161,7 +161,7 @@ def convert(variable, value, info, serialize, initialize=False):
         
         arr=f"{value}.get_array()"
         arr_json=f"arr_{identifier}"
-        result+=f"auto {arr_json}={arr};"
+        result+=f"auto{'&' if serialize else ''} {arr_json}={arr};" #If (when) I switch to yyjson, I can get rid of '&'
         
         if serialize:
             value=f"{arr_json}[{iterator}]"

@@ -17,3 +17,6 @@ mv external/boost* external/boost
 
 echo "Building lz4..."
 (cd external/lz4 && make liblz4.a)
+
+echo "Building Turbo-Base64..."
+(cd external/Turbo-Base64 && make libtb64.a)

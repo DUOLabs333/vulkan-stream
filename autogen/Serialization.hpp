@@ -641,8 +641,8 @@ template <typename T> T value_to(simdjson::dom::element elem){
     }
 }
 
-template <> inline std::string_view value_to<std::string_view>(simdjson::dom::element elem){
-    return elem.get_string().value();
+template <> inline std::string value_to<std::string>(simdjson::dom::element elem){
+    return std::string(elem.get_string().value());
 }
 
 template <typename T> std::vector<T> array_to(simdjson::dom::array arr){
@@ -664,7 +664,7 @@ uintptr_t mem;
 std::vector<size_t> starts;
 std::vector<size_t> lengths;
 std::vector<uint64_t> hashes;
-std::vector<std::string_view> buffers;
+std::vector<std::string> buffers;
 } Sync;
 
 void serialize_Sync(boost::json::object&, Sync&);
