@@ -1,7 +1,7 @@
 #Clone vulkan-headers
 #Write proto-make in Python: recompile file if modified time is different than modified time on compiled .o file (set modified time on .o file after compiling)
 
-declare -a REPOS=( "KhronosGroup/Vulkan-Headers" "lz4/lz4" "lassik/shm_open_anon" "chriskohlhoff/asio" "avaneev/komihash")
+declare -a REPOS=( "KhronosGroup/Vulkan-Headers" "lz4/lz4" "lassik/shm_open_anon" "chriskohlhoff/asio" "avaneev/komihash" "powturbo/Turbo-Base64")
 
 for repo in ${REPOS[@]}; do
 	folder= $(echo $repo |  awk -F/ '{print $NF}' )

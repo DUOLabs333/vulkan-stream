@@ -3,6 +3,7 @@
 
 #include <komihash.h>
 #include <boost/json.hpp>
+#include <turbob64.h>
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
 #include <Serialization.hpp>
@@ -129,7 +130,7 @@ void handle_sync_response(boost::json::object& json){
     
     for(int i=0; i < sync.starts.size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
-        memcpy((char*)mem+sync.starts[i],sync.buffers[i].c_str(), sync.lengths[i]);
+        tb64dec(reinterpret_cast<const unsigned char*>(sync.buffers[i].data()), sync.buffers[i].size(), reinterpret_cast<unsigned char*>((char*)mem+sync.starts[i]));
     }
     
     writeToConn(json);
@@ -195,13 +196,27 @@ void handle_sync_request(boost::json::object& json){
     
     sync.buffers.resize(sync.starts.size());
     
+    std::array<std::tuple<int, char*>, 3> temp_buffers;
+    
+    if (sync.lengths.size()>=1){
+        auto length=sync.lengths[0];
+        temp_buffers= {{ {length-1, new char[tb64enclen(length-1)]},  {length, new char[tb64enclen(length)]},  {length+1, new char[tb64enclen(length+1)]} }};
+    }
+    
     for(int i=0; i<sync.starts.size(); i++){
         auto length=sync.lengths[i];
         auto start=sync.starts[i];
         
-        std::string_view buffer((char*)mem+start, length);
+        auto buffer=std::get<1>(temp_buffers[length-std::get<0>(temp_buffers[0])]);
+        auto encoded_size=tb64enc(reinterpret_cast<unsigned char*>((char*)mem+start), length, reinterpret_cast<unsigned char*>(buffer));
         
-        sync.buffers[i]=buffer;
+        sync.buffers[i]=std::string(buffer,buffer+encoded_size);
+    }
+    
+    if (sync.lengths.size()>=1){
+        for(auto& elem: temp_buffers){
+            delete[] std::get<1>(elem);
+        }
     }
     
     serialize_Sync(json, sync);
