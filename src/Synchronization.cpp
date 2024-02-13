@@ -3,8 +3,7 @@
 
 #include <komihash.h>
 #include <boost/json.hpp>
-#include <memory>
-#include <cpp_yyjson.hpp>
+#include <simdjson.h>
 #include <turbob64.h>
 #include <vulkan/vulkan.h>
 #include <unordered_map>

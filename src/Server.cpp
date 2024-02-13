@@ -1,6 +1,5 @@
-#include <memory>
 #include <boost/json.hpp>
-#include <cpp_yyjson.hpp>
+#include <simdjson.h>
 
 #include <unordered_map>
 #include <Serialization.hpp>
@@ -11,8 +10,8 @@
 #include <thread>
 #include <string_view>
 
-#include <sstream>
 #include <iostream>
+#include <sstream>
 #include <random>
 #include <asio/read.hpp>
 #include <asio/write.hpp>
@@ -109,7 +108,7 @@ parsed_map readFromConn(){
     
 
     auto compressed_data=(char*)malloc(compressed_size);
-    auto input=(char*)malloc(input_size+YYJSON_PADDING_SIZE);
+    auto input=(char*)malloc(input_size+simdjson::SIMDJSON_PADDING);
     
     asio::read(*(curr->conn), asio::buffer(compressed_data, compressed_size), asio::transfer_exactly(compressed_size), ec);
     
@@ -118,19 +117,19 @@ parsed_map readFromConn(){
     }
     
     LZ4_decompress_safe(compressed_data, input, compressed_size, input_size);
-
-    //printf("%.*s\n",input_size,input);
-    auto test = *yyjson::read(input,input_size, curr->allocator, yyjson::ReadFlag::ReadInsitu | yyjson::ReadFlag::AllowInvalidUnicode).as_object();
     
-    test.size();
-    auto json=map_from(test);
-    free(compressed_data);
+    curr->doc=curr->parser.iterate(input,input_size,input_size+simdjson::SIMDJSON_PADDING);
     
-    if (curr->data!=NULL){
+    auto json=map_from(curr->doc.get_object().value());
+    
+    
+    if(curr->data!=NULL){
         free(curr->data);
     }
     
+    std::cout << json["stream_type"].get_uint64() << std::endl;
     curr->data=input;
+    free(compressed_data);
     
     return json;
 }

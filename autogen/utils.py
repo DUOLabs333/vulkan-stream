@@ -100,7 +100,10 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         else:
             result+=f"""
-            if ((*{value}.as_array()).empty()){{
+            auto arr={value}.get_array().value();
+            auto is_empty=arr.is_empty().value();
+            arr.reset();
+            if (is_empty){{
                 {variable}=NULL;
             """
         result +="return; }"
@@ -135,11 +138,16 @@ def convert(variable, value, info, serialize, initialize=False):
         size=length.pop()
         iterator=f"iterator_{identifier}"
         
+        if deserialize:
+            arr=f"{value}.get_array().value()"
+            arr_json=f"arr_{identifier}"
+            result+=f"auto {arr_json}={arr};"
+        
         if size=="null-terminated":
             if serialize:
                 size=f"strlen({variable})+1"
             else:
-                size=f"""(*{value}.as_array()).size()"""
+                size=f"""{arr_json}.count_elements().value()"""
         
         result+=f"auto size_{identifier}={size};"
         size=f"size_{identifier}"
@@ -161,12 +169,9 @@ def convert(variable, value, info, serialize, initialize=False):
         
         if serialize:
             arr=f"{value}.get_array()"
-        else:
-            arr=f"(*{value}.as_array())"
+            arr_json=f"arr_{identifier}"
+            result+=f"auto& {arr_json}={arr};"
             
-        arr_json=f"arr_{identifier}"
-        result+=f"auto{'&' if serialize else ''} {arr_json}={arr};"
-        
         if serialize:
             value=f"{arr_json}[{iterator}]"
             variable+=f"[{iterator}]"
@@ -176,7 +181,7 @@ def convert(variable, value, info, serialize, initialize=False):
             }}
             """
         else:
-            value=iterator
+            value=f"{iterator}.value()"
             variable+=f"[{iterator}_1]"
             result+=f"""
             int {iterator}_1=0;
@@ -205,7 +210,7 @@ def convert(variable, value, info, serialize, initialize=False):
                 result+="\n#ifndef CLIENT"
                 
             result+=f"""
-            auto map_{identifier}=map_from(*{value}.as_object());
+            auto map_{identifier}=map_from({value}.get_object());
             deserialize_{kind}(map_{identifier},{variable});
             """
             if kind=="funcpointer":
@@ -231,8 +236,8 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         else:
             result+=f"""
-            if ({value}.is_string()){{
-                auto value_str=(*{value}.as_string());
+            if ({value}.type().value() == simdjson::ondemand::json_type::string){{
+                auto value_str=value_to<std::string>({value});
                 if (value_str==std::string("inf")){{
                     {variable}=std::numeric_limits<{type}>::infinity();
                 }}else if (value_str==std::string("-inf")){{
