@@ -18,10 +18,6 @@ typedef struct {
     asio::streambuf buf;
     std::istream* is;
     std::array<uint8_t, 8> size_buf;
-    simdjson::ondemand::parser parser;
-    char* data = NULL;
-    simdjson::ondemand::document doc;
-    
     
 } ThreadStruct;
     

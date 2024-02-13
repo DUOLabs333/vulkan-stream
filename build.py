@@ -13,11 +13,11 @@ DEBUG=os.environ.get("DEBUG","1")
 VK_LIB_PATH=os.path.expanduser(os.environ.get("VK_LIB_PATH","~/.nix-profile/lib"))
 
 
-SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c","external/simdjson/src/simdjson.cpp"]
-INCLUDE_PATHS=["autogen","src", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost","external/lz4/lib","external/komihash","external/simdjson/include","external/simdjson/src","external/Turbo-Base64"]
-FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3","-DNDEBUG"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")+["-g"]+(["-ggdb"] if PLATFORM=="linux" else [])+([] if DEBUG=="1" else ["-mcpu=apple-a14" if PLATFORM=="darwin" else "-march=native"])
+SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
+INCLUDE_PATHS=["autogen","src", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost","external/lz4/lib","external/komihash"]
+FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3","-DNDEBUG"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")+(["-g","-ggdb"] if PLATFORM=="linux" else [])+([] if DEBUG=="1" else ["-mcpu=apple-a14" if PLATFORM=="darwin" else "-march=native"])
 
-STATIC_LIBS=["external/lz4/lib/liblz4.a","external/Turbo-Base64/libtb64.a"]
+STATIC_LIBS=["external/lz4/lib/liblz4.a"]
 SHARED_LIBS_PATHS=[VK_LIB_PATH]
 SHARED_LIBS=(["vulkan"] if CLIENT=="0" else (["xcb","X11","xcb-image"] if PLATFORM=="linux" else []))
 

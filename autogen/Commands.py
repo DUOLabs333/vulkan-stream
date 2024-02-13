@@ -5,7 +5,6 @@ import copy
 write("""
 #include <debug.hpp>
 #include <boost/json.hpp>
-#include <simdjson.h>
 
 #include <stdexcept>
 #include <shared_mutex>
@@ -51,7 +50,7 @@ def registerDeviceMemoryMap(name,mem):
         *ppData=registerDeviceMemoryMap(server_memory, {memory},{size},*ppData,{mem});
         
         #ifndef CLIENT
-            write_json["mem"]={mem};
+            json["mem"]={mem};
         #endif
         """
     else:
@@ -77,7 +76,7 @@ for name, command in parsed.items():
         continue
         
     write(f"""
-    void handle_{name}(parsed_map& read_json){{
+    void handle_{name}(boost::json::object& json){{
     //Will only be called by the server
     """)
 
@@ -88,12 +87,12 @@ for name, command in parsed.items():
         param["const"]=False
         
         write(param["header"]+";")
-        write(convert(param["name"],f"""read_json["{param["name"]}"]""",param,serialize=False,initialize=True))
+        write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False,initialize=True))
 
     write(f"""
     PFN_{name} call_function;
     
-    auto parent_json=map_from(read_json["parent"].get_object());
+    auto parent_json=json["parent"].get_object();
     if(parent_json.contains("instance")){{
         VkInstance parent;
         deserialize_VkInstance(parent_json["instance"],parent);
@@ -195,15 +194,15 @@ for name, command in parsed.items():
     if (name=="vkGetInstanceProcAddr"):
         write('debug_printf("Getting %s\\n",pName);')
     
-    write("boost::json::object write_json;")
+    write("json.clear();")
     
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
-        write("""write_json["result"]=(uintptr_t)result;""")
+        write("""json["result"]=(uintptr_t)result;""")
     else:
-        write(convert("result","""write_json["result"]""",command, serialize=True))
+        write(convert("result","""json["result"]""",command, serialize=True))
     
     for param in command["params"]:
-        write(convert(param["name"],f"""write_json["{param["name"]}"]""", param, serialize=True))
+        write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
             
     if name=="vkWaitForFences":
         write("""
@@ -215,12 +214,12 @@ for name, command in parsed.items():
     write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
        
     write(f"""
-        write_json["stream_type"]={name.upper()};
-        writeToConn(write_json);
+        json["stream_type"]={name.upper()};
+        writeToConn(json);
     }}""")
 
 write("""
-void handle_command(parsed_map json){
+void handle_command(boost::json::object json){
 //Will only be called by the server
 
 switch (static_cast<StreamType>(value_to<int>(json["stream_type"]))){
@@ -246,7 +245,7 @@ default:
 }
 """)
 
-write("void handle_command(parsed_map);", header=True)
+write("void handle_command(boost::json::object);", header=True)
 
 write("#else") #Don't want server to get confused on which command we're talking about
 write("""
@@ -328,19 +327,19 @@ for name, command in parsed.items():
         continue
     
     write(f"""
-    boost::json::object write_json;
-    write_json.reserve({len(command["params"])}+3);
+    boost::json::object json;
+    json.reserve({len(command["params"])}+3);
     
-    write_json["stream_type"]={name.upper()};
+    json["stream_type"]={name.upper()};
     
-    auto& parent_json=write_json["parent"].emplace_object();
+    auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
     """)
     
     head=command["params"][0]
     
     #Just set the children's struct to the parent
-    if parsed[head["type"]]["kind"]=="handle": #Maybe replace with an enum?
+    if parsed[head["type"]]["kind"]=="handle":
         write(f"""
         auto parent=handle_to_parent_handle_struct[(uintptr_t){head["name"]}];
         
@@ -447,7 +446,7 @@ for name, command in parsed.items():
         """)
         
     for param in command["params"]:
-        write(convert(param["name"],f"""write_json["{param["name"]}"]""", param, serialize=True))
+        write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
     write("}")
     
     if name=="vkQueueSubmit":
@@ -458,15 +457,14 @@ for name, command in parsed.items():
         
     write(deregisterDeviceMemoryMap(name))
     write(f"""
-        writeToConn(write_json);
+        writeToConn(json);
         
-        parsed_map read_json;
         while(true){{
-            read_json=readFromConn();
+            json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(read_json["stream_type"]))){{
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
                 case (SYNC):
-                    handle_sync_init(read_json);
+                    handle_sync_init(json);
                     continue;
                 case ({name.upper()}):
                     break; 
@@ -478,13 +476,13 @@ for name, command in parsed.items():
             continue
         write(f"""
          case ({funcpointer.upper()}):
-            handle_{funcpointer}(read_json);
+            handle_{funcpointer}(json);
             continue;
         """)
     
     write("""
         default:
-            debug_printf("Unkown message: %d!\\n", value_to<int>(read_json["stream_type"]));
+            debug_printf("Unkown message: %d!\\n", value_to<int>(json["stream_type"]));
             continue;
         }
         
@@ -493,7 +491,7 @@ for name, command in parsed.items():
     """)
     
     for param in command["params"]:
-        write(convert(param["name"],f"""read_json["{param["name"]}"]""", param, serialize=False))
+        write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
     
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
@@ -551,7 +549,7 @@ for name, command in parsed.items():
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 debug_printf("Retrieving {command_name}...\\n");
-                result= (value_to<uintptr_t>(read_json["result"])!=(uintptr_t)NULL) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
+                result= (value_to<uintptr_t>(json["result"])!=(uintptr_t)NULL) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
             }}
             """)
@@ -566,7 +564,7 @@ for name, command in parsed.items():
     else:
         if not is_void(command):
             write(command["type"]+"*"*command["num_indirection"]+" result;")
-            write(convert("result",f"""read_json["result"]""",command | {"name":"result"},serialize=False,initialize=True))
+            write(convert("result",f"""json["result"]""",command | {"name":"result"},serialize=False,initialize=True))
         
     for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
         if re.match(creation_function,name) is not None:
@@ -605,7 +603,7 @@ for name, command in parsed.items():
     if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
         
-    write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(read_json["mem"])"""))
+    write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(json["mem"])"""))
     
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")

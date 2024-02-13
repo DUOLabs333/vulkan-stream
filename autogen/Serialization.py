@@ -5,13 +5,12 @@ write("#include <vulkan/vulkan.h>",header=True)
 write(f"""
 #include <boost/json/src.hpp>
 #include <boost/json.hpp>
-#include <simdjson.h>
 
-#include <unordered_map>
 #include <Serialization.hpp>
-#include <Surface.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
+#include <unordered_map>
+#include <Surface.hpp>
 """)
 
 write("""
@@ -32,48 +31,6 @@ for i, name in enumerate(parsed):
     write(f"""{name.upper()}={parsed[name]["id"]},""", header=True)
 write("};",header=True)
 
-write("""
-typedef simdjson::ondemand::value element;
-typedef std::unordered_map<std::string_view, element> parsed_map;
-
-parsed_map map_from(simdjson::ondemand::object);
-
-template <typename T> T value_to(simdjson::ondemand::value val){
-    simdjson::ondemand::number num = val.get_number().value();
-    if (num.is_uint64()){
-        return static_cast<T>(num.get_uint64());
-    }else if (num.is_int64()){
-        return static_cast<T>(num.get_int64());
-    }else{
-        return static_cast<T>(num.get_double());
-    }
-}
-
-template <> inline std::string value_to<std::string>(simdjson::ondemand::value elem){
-    return std::string(elem.get_string().value());
-}
-
-template <typename T> std::vector<T> array_to(simdjson::ondemand::array arr){
-    std::vector<T> result;
-     
-    for(auto elem: arr){
-        result.push_back(value_to<T>(elem.value()));
-    }
-    
-    return result;
-}
-        
-""",header=True)
-
-write("""
-parsed_map map_from(simdjson::ondemand::object object){
-    parsed_map result;
-    for(auto elem: object){
-        result.emplace(std::make_pair(elem.unescaped_key().value(), elem.value()));
-    }
-    return result;
-}
-""")
 
 write("""
 typedef struct {
@@ -86,7 +43,7 @@ std::vector<std::string> buffers;
 } Sync;
 
 void serialize_Sync(boost::json::object&, Sync&);
-void deserialize_Sync(parsed_map&, Sync&);
+void deserialize_Sync(boost::json::object&, Sync&);
 """,header=True)
 
 write("""
@@ -101,13 +58,13 @@ void serialize_Sync(boost::json::object& json, Sync& sync){
     json["stream_type"]=static_cast<int>(SYNC);
 }
 
-void deserialize_Sync(parsed_map& json, Sync& sync){
-    sync.devicememory=value_to<uintptr_t>(json["devicememory"]);
-    sync.mem=value_to<uintptr_t>(json["mem"]);
-    sync.hashes=array_to<uint64_t>(json["hashes"]);
-    sync.lengths=array_to<size_t>(json["lengths"]);
-    sync.starts=array_to<size_t>(json["starts"]);
-    sync.buffers=array_to<std::string>(json["buffers"]);
+void deserialize_Sync(boost::json::object& json, Sync& sync){
+    sync.devicememory=boost::json::value_to<uintptr_t>(json["devicememory"]);
+    sync.mem=boost::json::value_to<uintptr_t>(json["mem"]);
+    sync.hashes=boost::json::value_to<std::vector<uint64_t>>(json["hashes"]);
+    sync.lengths=boost::json::value_to<std::vector<size_t>>(json["lengths"]);
+    sync.starts=boost::json::value_to<std::vector<size_t>>(json["starts"]);
+    sync.buffers=boost::json::value_to<std::vector<std::string>>(json["buffers"]);
 }
 """)
 write("#include <debug.hpp>",header=True)
@@ -147,7 +104,7 @@ for name, struct in parsed.items():
                 return serialize_struct(json, (({name}*)(member))[0]);
             }});
         }}else{{
-              return (PFN_vkVoidFunction)(+[](parsed_map& json, void*& member) -> void{{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{{
                 auto result= new {name};
                 deserialize_struct(json, result[0]);
                 member=result;
@@ -183,13 +140,13 @@ void serialize_pNext(boost::json::object& json, const void* member){
 """)
 
 write("""
-void deserialize_pNext(parsed_map& json, void*& member ){
+void deserialize_pNext(boost::json::object& json, void*& member ){
     if (!json.contains("sType")){
         member=NULL;
         return;
     }
     
-    auto deserialize_function=(void(*)(parsed_map&, void*&))(handle_pNext(static_cast<VkStructureType>(value_to<int>(json["sType"])),false));
+    auto deserialize_function=(void(*)(boost::json::object&, void*&))(handle_pNext(static_cast<VkStructureType>(value_to<int>(json["sType"])),false));
     
     return deserialize_function(json, member);
 
@@ -272,7 +229,7 @@ for name, struct in parsed.items():
         write("}")
         
         write(f"""
-        void deserialize_pUserData(parsed_map& json, {name}& member){{
+        void deserialize_pUserData(boost::json::object& json, {name}& member){{
             #ifdef CLIENT
                void* pUserData;
                {convert("pUserData",'json["pUserData"]',pUserData_info, serialize=False,initialize=True)}
@@ -318,7 +275,7 @@ for name, struct in parsed.items():
         
     write("}")
         
-    write(f"void deserialize_struct(parsed_map& json, {name}& member){{")
+    write(f"void deserialize_struct(boost::json::object& json, {name}& member){{")
     for member in members:
         member=copy.deepcopy(member)
         
@@ -331,7 +288,7 @@ for name, struct in parsed.items():
             old_member_json=member_json
             member_json=f"{member_json}_1"
             write(f"""
-            auto {member_json}=map_from({old_member_json}.get_object());
+            auto& {member_json}={old_member_json}.as_object();
             deserialize_pUserData({member_json}, member);
             """)
             continue
@@ -345,7 +302,7 @@ for name, struct in parsed.items():
     
     write(f"""
         void serialize_struct(boost::json::object&, const {name}&);
-        void deserialize_struct(parsed_map&, {name}&);
+        void deserialize_struct(boost::json::object&, {name}&);
     """,header=True)
 
 import re
@@ -375,37 +332,37 @@ for name,funcpointer in parsed.items():
         auto {name}_wrapper{header}{{
         //Will only be called by the server
         
-        boost::json::object write_json;
-        write_json["stream_type"]={name.upper()};
+        boost::json::object json;
+        json["stream_type"]={name.upper()};
         """)
         
         for param in funcpointer["params"]:
-            write(convert(param["name"],f"""write_json["{param["name"]}"]""",param,serialize=True))
+            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=True))
         
         write(f"""
-        write_json["id"]=((pUserData_struct*)pUserData)->{name};
+        json["id"]=((pUserData_struct*)pUserData)->{name};
         
-        writeToConn(write_json); //Send request
-        auto read_json=readFromConn(); //Recieve response
+        writeToConn(json); //Send request
+        json=readFromConn(); //Recieve response
         """)
         
         for param in funcpointer["params"]:
-            write(convert(param["name"],f"""read_json["{param["name"]}"]""",param,serialize=False))
+            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False))
         
         if not is_void(funcpointer):
             write(f"""{funcpointer["type"]}{"*"*funcpointer["num_indirection"]} result;""")
-            write(convert("result",'read_json["result"]',funcpointer | {"name": "result"},serialize=False,initialize=True))
+            write(convert("result",'json["result"]',funcpointer | {"name": "result"},serialize=False,initialize=True))
         
-        write("write_json.clear();")
+        write("json.clear();")
         
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write("registerAllocatedMem(result,size);")
-            write('write_json["mem"]=(uintptr_t)result;')
+            write('json["mem"]=(uintptr_t)result;')
         else:
-            write('write_json.erase("mem");')
+            write('json.erase("mem");')
         
         write("""
-        writeToConn(write_json); //Send (possible) memory to client so it can store it
+        writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         """)
             
@@ -417,17 +374,17 @@ for name,funcpointer in parsed.items():
         write("}")
         
         write(f"""
-            void handle_{name}(parsed_map& read_json){{
+            void handle_{name}(boost::json::object& json){{
             //Will only be called by the client
             
             // Recieved data from server's {name} wrapper, and will execute the actual function
-            auto funcpointer=id_to_{name}[value_to<uintptr_t>(read_json["id"])];
+            auto funcpointer=id_to_{name}[value_to<uintptr_t>(json["id"])];
         """)
         
         #Just in case if they change when executing (none of the variables are const)
         for param in funcpointer["params"]:
             write(param["header"]+";") #Initialize variable
-            write(convert(param["name"],f"""read_json["{param["name"]}"]""",param,serialize=False,initialize=True))
+            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False,initialize=True))
         
         funcpointer_call=f"""funcpointer({",".join([param["name"] for param in funcpointer["params"]])})"""
         
@@ -436,46 +393,46 @@ for name,funcpointer in parsed.items():
         else:
             write(funcpointer_call+";")
         
-        write("boost::json::object write_json;")
+        write("json.clear();")
         
         for param in funcpointer["params"]:
-            write(convert(param["name"],f"""write_json["{param["name"]}"]""",param,serialize=True))
+            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=True))
         
-        write(convert("result","""write_json["result"]""",funcpointer,serialize=True))
+        write(convert("result","""json["result"]""",funcpointer,serialize=True))
         
-        write("writeToConn(write_json);")
+        write("writeToConn(json);")
         
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write(f"""
-            read_json=readFromConn();
-            registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(read_json["mem"]) );
+            json=readFromConn();
+            registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(json["mem"]) );
             
-            write_json.clear();
-            writeToConn(write_json); //Send empty message to signal to the server the mapping is done.
+            json.clear();
+            writeToConn(json); //Send empty message to signal to the server the mapping is done.
             """)
         
         write("};")
                 
         write(f"""
-        void deserialize_{name}(parsed_map& json, {name}& member){{
+        void deserialize_{name}(boost::json::object& json, {name}& member){{
             //Will only be called by the server
             
             member={name}_wrapper;
             }};
         """)
         
-        write(f"void handle_{name}(parsed_map&);",header=True);
+        write(f"void handle_{name}(boost::json::object&);",header=True);
         
     else:
         write(f"""
-            void deserialize_{name}(parsed_map& json, {name}& member){{
+            void deserialize_{name}(boost::json::object& json, {name}& member){{
             //Will only be called by the server
             
             member=vkGetInstanceProcAddr;
             }};
         """)
     
-    write(f"void deserialize_{name}(parsed_map&, {name}&);",header=True)
+    write(f"void deserialize_{name}(boost::json::object&, {name}&);",header=True)
         
 for handle in parsed:
         if "alias" in parsed[handle] or parsed[handle].get("kind","")!="handle":
@@ -514,7 +471,7 @@ for handle in parsed:
         write(f"""void serialize_{handle}(boost::json::value&, const {handle}&);""",header=True)
         
         write(f"""
-          void deserialize_{handle}(element& json, {handle}& member){{
+          void deserialize_{handle}(boost::json::value& json, {handle}& member){{
                 {handle} result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -562,7 +519,7 @@ for handle in parsed:
         """)
        
         write(f"""
-        void deserialize_{handle}(element&, {handle}&);
+        void deserialize_{handle}(boost::json::value&, {handle}&);
         void delete_{handle}(const {handle}&);
         """,header=True)
               

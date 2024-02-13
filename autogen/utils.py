@@ -45,7 +45,6 @@ def update_dict(info, alias):
 
 def convert(variable, value, info, serialize, initialize=False):
     info=copy.deepcopy(info) #To avoid modifying the mutable arguments
-    identifier=random_string(info)
     
     """
     variable is the C++ object
@@ -54,6 +53,9 @@ def convert(variable, value, info, serialize, initialize=False):
     if is_void(info):
         return ""
     
+    if (not serialize) and info.get("name","")=="blendConstants":
+        pass
+        #print(info)
     #Make it easier to refer to
     num_indirection=info["num_indirection"]
     length=info["length"]
@@ -100,10 +102,7 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         else:
             result+=f"""
-            auto arr={value}.get_array().value();
-            auto is_empty=arr.is_empty().value();
-            arr.reset();
-            if (is_empty){{
+            if ({value}.get_array().size()==0){{
                 {variable}=NULL;
             """
         result +="return; }"
@@ -136,22 +135,14 @@ def convert(variable, value, info, serialize, initialize=False):
                 
     elif len(length)>0:
         size=length.pop()
-        iterator=f"iterator_{identifier}"
-        
-        if deserialize:
-            arr=f"{value}.get_array().value()"
-            arr_json=f"arr_{identifier}"
-            result+=f"auto {arr_json}={arr};"
+        temp_iterator=random_string(info)
         
         if size=="null-terminated":
             if serialize:
                 size=f"strlen({variable})+1"
             else:
-                size=f"""{arr_json}.count_elements().value()"""
-        
-        result+=f"auto size_{identifier}={size};"
-        size=f"size_{identifier}"
-        
+                size=f"""{value}.get_array().size()"""
+                
         if deserialize and num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
                 result+=f"""{variable}=({type+("*"*num_indirection)})malloc({size}*sizeof({type+("*"*(num_indirection-1))}));"""
@@ -167,29 +158,18 @@ def convert(variable, value, info, serialize, initialize=False):
         if serialize:
             result+=f"{value}=boost::json::array({size});"
         
-        if serialize:
-            arr=f"{value}.get_array()"
-            arr_json=f"arr_{identifier}"
-            result+=f"auto& {arr_json}={arr};"
-            
-        if serialize:
-            value=f"{arr_json}[{iterator}]"
-            variable+=f"[{iterator}]"
-            result+=f"""
-            for(int {iterator}=0; {iterator} < {size}; {iterator}++){{
-                {convert(*args())}
-            }}
-            """
-        else:
-            value=f"{iterator}.value()"
-            variable+=f"[{iterator}_1]"
-            result+=f"""
-            int {iterator}_1=0;
-            for(auto {iterator}: {arr_json}){{
-                {convert(*args())}
-                {iterator}_1++;
-            }}
-            """
+        arr=f"{value}.get_array()"
+        arr_json=f"arr_{random_string(info)}"
+        
+        variable+=f"[{temp_iterator}]"
+        value=f"{arr_json}[{temp_iterator}]"
+        
+        result+=f"""
+        auto& {arr_json}={arr};
+        for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
+            {convert(*args())}
+        }}
+        """
     
     elif kind=="pUserData": #Has to be handled specially as we are dealing with the parent, not just the child
         #Deserializing on the client shouldn't do anything --- similarly on the server
@@ -210,8 +190,8 @@ def convert(variable, value, info, serialize, initialize=False):
                 result+="\n#ifndef CLIENT"
                 
             result+=f"""
-            auto map_{identifier}=map_from({value}.get_object());
-            deserialize_{kind}(map_{identifier},{variable});
+            auto& temp={value}.get_object();
+            deserialize_{kind}(temp,{variable});
             """
             if kind=="funcpointer":
                 result+="#endif\n"
@@ -221,33 +201,15 @@ def convert(variable, value, info, serialize, initialize=False):
         #"nan"=std::nan
         #Check for inf and -inf with isinf. This allows it to be compatible with simdjson
         if serialize:
-            result+=f"""
-            if (std::isinf(static_cast<{type}>({variable}))){{
-                if ({variable} < 0){{
-                    {value}="-inf";
-                }}else{{
-                    {value}="inf";
-                }}
-            }}else if (std::isnan(static_cast<{type}>({variable}))){{
-                {value}="nan";
-            }}else{{
-                {value}={variable};
-            }}
-            """
+            result+=f"""{value}={variable};"""
         else:
             result+=f"""
-            if ({value}.type().value() == simdjson::ondemand::json_type::string){{
-                auto value_str=value_to<std::string>({value});
-                if (value_str==std::string("inf")){{
-                    {variable}=std::numeric_limits<{type}>::infinity();
-                }}else if (value_str==std::string("-inf")){{
-                        {variable}=-std::numeric_limits<{type}>::infinity();
-                }}else{{
-                    {variable}=std::numeric_limits<{type}>::quiet_NaN();
-                }}
-            
-            }}else {{
-                {variable}=value_to<{type}>({value});
+            if ({value}.is_uint64()){{
+                {variable}=static_cast<{type}>({value}.get_uint64());
+            }}else if ({value}.is_int64()){{
+                {variable}=static_cast<{type}>({value}.get_int64());
+            }}else{{
+                {variable}=static_cast<{type}>({value}.get_double());
             }}
             """
     elif kind=="handle":

@@ -1,1 +1,1 @@
-void handle_command(parsed_map);
+void handle_command(boost::json::object);

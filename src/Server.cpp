@@ -1,16 +1,13 @@
 #include <boost/json.hpp>
-#include <simdjson.h>
 
-#include <unordered_map>
-#include <Serialization.hpp>
 #include "Server.hpp"
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
+#include <Serialization.hpp>
 #include <Commands.hpp>
 #include <thread>
 #include <string_view>
 
-#include <iostream>
 #include <sstream>
 #include <random>
 #include <asio/read.hpp>
@@ -42,7 +39,7 @@ class RWError : public std::exception {
         socket->set_option( asio::ip::tcp::no_delay( true) );
         currStruct()->conn=socket;
         
-        parsed_map json;
+        boost::json::object json;
         while(true){
             try{
             json=readFromConn();
@@ -94,7 +91,7 @@ uint32_t deserializeInt(std::array<uint8_t,8>& buf, int i){ //Deserialzes from l
     return buf[i+0] | (buf[i+1] << 8) | (buf[i+2] << 16) | (buf[i+3] << 24);
 }
 
-parsed_map readFromConn(){
+boost::json::object readFromConn(){
     auto curr=currStruct();
     asio::error_code ec;
     
@@ -108,7 +105,7 @@ parsed_map readFromConn(){
     
 
     auto compressed_data=(char*)malloc(compressed_size);
-    auto input=(char*)malloc(input_size+simdjson::SIMDJSON_PADDING);
+    auto input=(char*)malloc(input_size);
     
     asio::read(*(curr->conn), asio::buffer(compressed_data, compressed_size), asio::transfer_exactly(compressed_size), ec);
     
@@ -116,19 +113,12 @@ parsed_map readFromConn(){
         throw RWError(ec);
     }
     
+    auto line=std::string_view(input,input_size);
     LZ4_decompress_safe(compressed_data, input, compressed_size, input_size);
+
+    boost::json::object json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
     
-    curr->doc=curr->parser.iterate(input,input_size,input_size+simdjson::SIMDJSON_PADDING);
-    
-    auto json=map_from(curr->doc.get_object().value());
-    
-    
-    if(curr->data!=NULL){
-        free(curr->data);
-    }
-    
-    std::cout << json["stream_type"].get_uint64() << std::endl;
-    curr->data=input;
+    free(input);
     free(compressed_data);
     
     return json;
