@@ -5,7 +5,7 @@ write("#include <vulkan/vulkan.h>",header=True)
 write(f"""
 #include <boost/json/src.hpp>
 #include <boost/json.hpp>
-#include <simdjson.h>
+#include <cpp_yyjson.hpp>
 
 #include <unordered_map>
 #include <Serialization.hpp>
@@ -33,26 +33,27 @@ for i, name in enumerate(parsed):
 write("};",header=True)
 
 write("""
-typedef simdjson::dom::element element;
-typedef std::unordered_map<std::string_view, element> parsed_map;
+typedef yyjson::reader::const_value_ref value;
+typedef std::unordered_map<std::string_view, value> parsed_map;
 
-parsed_map map_from(simdjson::dom::object);
+parsed_map map_from(yyjson::reader::const_object_ref);
 
-template <typename T> T value_to(simdjson::dom::element elem){
-    if (elem.is_uint64()){
-        return static_cast<T>(elem.get_uint64());
-    }else if (elem.is_int64()){
-        return static_cast<T>(elem.get_int64());
+template <typename T> T value_to(value val){
+    if (val.is_uint()){
+        return static_cast<T>(*val.as_uint());
+    }else if (val.is_int()){
+        return static_cast<T>(*val.as_int());
     }else{
-        return static_cast<T>(elem.get_double());
+        return static_cast<T>(*val.as_real());
     }
 }
 
-template <> inline std::string value_to<std::string>(simdjson::dom::element elem){
-    return std::string(elem.get_string().value());
+template <> inline std::string value_to<std::string>(value val){
+    return std::string(*val.as_string());
 }
 
-template <typename T> std::vector<T> array_to(simdjson::dom::array arr){
+template <typename T> std::vector<T> array_to(yyjson::reader::const_value_ref val){
+    auto arr= *val.as_array();
     std::vector<T> result;
     result.reserve(arr.size());
     
@@ -66,10 +67,10 @@ template <typename T> std::vector<T> array_to(simdjson::dom::array arr){
 """,header=True)
 
 write("""
-parsed_map map_from(simdjson::dom::object object){
+parsed_map map_from(yyjson::reader::const_object_ref object){
     parsed_map result;
-    for(auto elem: object){
-        result.emplace(std::make_pair(elem.key, elem.value));
+    for(const auto& [key, val]: object){
+        result.emplace(std::make_pair(key, val));
     }
     return result;
 }
@@ -102,12 +103,12 @@ void serialize_Sync(boost::json::object& json, Sync& sync){
 }
 
 void deserialize_Sync(parsed_map& json, Sync& sync){
-    sync.devicememory=value_to<uintptr_t>(json["devicememory"]);
-    sync.mem=value_to<uintptr_t>(json["mem"]);
-    sync.hashes=array_to<uint64_t>(json["hashes"]);
-    sync.lengths=array_to<size_t>(json["lengths"]);
-    sync.starts=array_to<size_t>(json["starts"]);
-    sync.buffers=array_to<std::string>(json["buffers"]);
+    sync.devicememory=value_to<uintptr_t>(json.at("devicememory"));
+    sync.mem=value_to<uintptr_t>(json.at("mem"));
+    sync.hashes=array_to<uint64_t>(json.at("hashes"));
+    sync.lengths=array_to<size_t>(json.at("lengths"));
+    sync.starts=array_to<size_t>(json.at("starts"));
+    sync.buffers=array_to<std::string>(json.at("buffers"));
 }
 """)
 write("#include <debug.hpp>",header=True)
@@ -189,7 +190,7 @@ void deserialize_pNext(parsed_map& json, void*& member ){
         return;
     }
     
-    auto deserialize_function=(void(*)(parsed_map&, void*&))(handle_pNext(static_cast<VkStructureType>(value_to<int>(json["sType"])),false));
+    auto deserialize_function=(void(*)(parsed_map&, void*&))(handle_pNext(static_cast<VkStructureType>(value_to<int>(json.at("sType"))),false));
     
     return deserialize_function(json, member);
 
@@ -275,14 +276,14 @@ for name, struct in parsed.items():
         void deserialize_pUserData(parsed_map& json, {name}& member){{
             #ifdef CLIENT
                void* pUserData;
-               {convert("pUserData",'json["pUserData"]',pUserData_info, serialize=False,initialize=True)}
+               {convert("pUserData",'json.at("pUserData")',pUserData_info, serialize=False,initialize=True)}
             #else 
                 auto pUserData=new pUserData_struct();
         """)
-        write(convert("pUserData->pUserData",'json["pUserData"]',pUserData_info,serialize=False,initialize=True))
+        write(convert("pUserData->pUserData",'json.at("pUserData")',pUserData_info,serialize=False,initialize=True))
         for member in members:
             if member["type"] in pUserData_members:
-                write(f"""pUserData->{member["type"]}=(value_to<uintptr_t>(json["{member["type"]}"]));""")
+                write(f"""pUserData->{member["type"]}=(value_to<uintptr_t>(json.at("{member["type"]}")));""")
         write("""
         #endif
         member.pUserData=pUserData;
@@ -325,13 +326,13 @@ for name, struct in parsed.items():
         member_name=member["name"]
         member_json=f"{member_name}_json"
         
-        write(f"""auto& {member_json}=json["{member_name}"];""")
+        write(f"""auto& {member_json}=json.at("{member_name}");""")
         
         if member["type"]=="pUserData":
             old_member_json=member_json
             member_json=f"{member_json}_1"
             write(f"""
-            auto {member_json}=map_from({old_member_json}.get_object());
+            auto {member_json}=map_from(*{old_member_json}.as_object());
             deserialize_pUserData({member_json}, member);
             """)
             continue
@@ -390,11 +391,11 @@ for name,funcpointer in parsed.items():
         """)
         
         for param in funcpointer["params"]:
-            write(convert(param["name"],f"""read_json["{param["name"]}"]""",param,serialize=False))
+            write(convert(param["name"],f"""read_json.at("{param["name"]}")""",param,serialize=False))
         
         if not is_void(funcpointer):
             write(f"""{funcpointer["type"]}{"*"*funcpointer["num_indirection"]} result;""")
-            write(convert("result",'read_json["result"]',funcpointer | {"name": "result"},serialize=False,initialize=True))
+            write(convert("result",'read_json.at("result")',funcpointer | {"name": "result"},serialize=False,initialize=True))
         
         write("write_json.clear();")
         
@@ -421,13 +422,13 @@ for name,funcpointer in parsed.items():
             //Will only be called by the client
             
             // Recieved data from server's {name} wrapper, and will execute the actual function
-            auto funcpointer=id_to_{name}[value_to<uintptr_t>(read_json["id"])];
+            auto funcpointer=id_to_{name}[value_to<uintptr_t>(read_json.at("id"))];
         """)
         
         #Just in case if they change when executing (none of the variables are const)
         for param in funcpointer["params"]:
             write(param["header"]+";") #Initialize variable
-            write(convert(param["name"],f"""read_json["{param["name"]}"]""",param,serialize=False,initialize=True))
+            write(convert(param["name"],f"""read_json.at("{param["name"]}")""",param,serialize=False,initialize=True))
         
         funcpointer_call=f"""funcpointer({",".join([param["name"] for param in funcpointer["params"]])})"""
         
@@ -448,7 +449,7 @@ for name,funcpointer in parsed.items():
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write(f"""
             read_json=readFromConn();
-            registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(read_json["mem"]) );
+            registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(read_json.at("mem")) );
             
             write_json.clear();
             writeToConn(write_json); //Send empty message to signal to the server the mapping is done.
@@ -514,7 +515,7 @@ for handle in parsed:
         write(f"""void serialize_{handle}(boost::json::value&, const {handle}&);""",header=True)
         
         write(f"""
-          void deserialize_{handle}(element& json, {handle}& member){{
+          void deserialize_{handle}(value& json, {handle}& member){{
                 {handle} result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -562,7 +563,7 @@ for handle in parsed:
         """)
        
         write(f"""
-        void deserialize_{handle}(element&, {handle}&);
+        void deserialize_{handle}(value&, {handle}&);
         void delete_{handle}(const {handle}&);
         """,header=True)
               

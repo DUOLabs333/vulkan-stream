@@ -1,4 +1,5 @@
-#include <boost/json.hpp>
+#include <memory>
+#include <cpp_yyjson.hpp>
 #include <simdjson.h>
 #include "ThreadStruct.hpp"
 #include <thread>

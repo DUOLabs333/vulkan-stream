@@ -5,7 +5,8 @@ import copy
 write("""
 #include <debug.hpp>
 #include <boost/json.hpp>
-#include <simdjson.h>
+#include <memory>
+#include <cpp_yyjson.hpp>
 
 #include <stdexcept>
 #include <shared_mutex>
@@ -88,20 +89,20 @@ for name, command in parsed.items():
         param["const"]=False
         
         write(param["header"]+";")
-        write(convert(param["name"],f"""read_json["{param["name"]}"]""",param,serialize=False,initialize=True))
+        write(convert(param["name"],f"""read_json.at("{param["name"]}")""",param,serialize=False,initialize=True))
 
     write(f"""
     PFN_{name} call_function;
     
-    auto parent_json=map_from(read_json["parent"].get_object());
+    auto parent_json=map_from(*read_json.at("parent").as_object());
     if(parent_json.contains("instance")){{
         VkInstance parent;
-        deserialize_VkInstance(parent_json["instance"],parent);
+        deserialize_VkInstance(parent_json.at("instance"),parent);
         
         call_function=(PFN_{name})get_instance_proc_addr(parent,"{name}");
     }}else if(parent_json.contains("device")){{
         VkDevice parent;
-        deserialize_VkDevice(parent_json["device"],parent);
+        deserialize_VkDevice(parent_json.at("device"),parent);
         call_function=(PFN_{name})get_device_proc_addr(parent,"{name}");
     }}  
     """
@@ -223,7 +224,7 @@ write("""
 void handle_command(parsed_map json){
 //Will only be called by the server
 
-switch (static_cast<StreamType>(value_to<int>(json["stream_type"]))){
+switch (static_cast<StreamType>(value_to<int>(json.at("stream_type")))){
 """)
 
 for name, command in parsed.items():
@@ -240,7 +241,7 @@ for name, command in parsed.items():
     """)
 write("""
 default:
-    debug_printf("Unknown command: %d!\\n",value_to<int>(json["stream_type"]));
+    debug_printf("Unknown command: %d!\\n",value_to<int>(json.at("stream_type")));
 }
 
 }
@@ -464,7 +465,7 @@ for name, command in parsed.items():
         while(true){{
             read_json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(read_json["stream_type"]))){{
+            switch(static_cast<StreamType>(value_to<int>(read_json.at("stream_type")))){{
                 case (SYNC):
                     handle_sync_init(read_json);
                     continue;
@@ -484,7 +485,7 @@ for name, command in parsed.items():
     
     write("""
         default:
-            debug_printf("Unkown message: %d!\\n", value_to<int>(read_json["stream_type"]));
+            debug_printf("Unkown message: %d!\\n", value_to<int>(read_json.at("stream_type")));
             continue;
         }
         
@@ -493,7 +494,7 @@ for name, command in parsed.items():
     """)
     
     for param in command["params"]:
-        write(convert(param["name"],f"""read_json["{param["name"]}"]""", param, serialize=False))
+        write(convert(param["name"],f"""read_json.at("{param["name"]}")""", param, serialize=False))
     
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
@@ -551,7 +552,7 @@ for name, command in parsed.items():
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 debug_printf("Retrieving {command_name}...\\n");
-                result= (value_to<uintptr_t>(read_json["result"])!=(uintptr_t)NULL) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
+                result= (value_to<uintptr_t>(read_json.at("result"))!=(uintptr_t)NULL) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
             }}
             """)
@@ -566,7 +567,7 @@ for name, command in parsed.items():
     else:
         if not is_void(command):
             write(command["type"]+"*"*command["num_indirection"]+" result;")
-            write(convert("result",f"""read_json["result"]""",command | {"name":"result"},serialize=False,initialize=True))
+            write(convert("result",f"""read_json.at("result")""",command | {"name":"result"},serialize=False,initialize=True))
         
     for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
         if re.match(creation_function,name) is not None:
@@ -605,7 +606,7 @@ for name, command in parsed.items():
     if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
         
-    write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(read_json["mem"])"""))
+    write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(read_json.at("mem"))"""))
     
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")

@@ -18,7 +18,8 @@ typedef struct {
     asio::streambuf buf;
     std::istream* is;
     std::array<uint8_t, 8> size_buf;
-    simdjson::dom::parser parser;
+    char* data = NULL;
+    yyjson::reader::pool_allocator allocator;
     
     
 } ThreadStruct;

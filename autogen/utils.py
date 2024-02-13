@@ -100,7 +100,7 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         else:
             result+=f"""
-            if ({value}.get_array().size()==0){{
+            if ((*{value}.as_array()).empty()){{
                 {variable}=NULL;
             """
         result +="return; }"
@@ -139,7 +139,7 @@ def convert(variable, value, info, serialize, initialize=False):
             if serialize:
                 size=f"strlen({variable})+1"
             else:
-                size=f"""{value}.get_array().size()"""
+                size=f"""(*{value}.as_array()).size()"""
         
         result+=f"auto size_{identifier}={size};"
         size=f"size_{identifier}"
@@ -159,9 +159,13 @@ def convert(variable, value, info, serialize, initialize=False):
         if serialize:
             result+=f"{value}=boost::json::array({size});"
         
-        arr=f"{value}.get_array()"
+        if serialize:
+            arr=f"{value}.get_array()"
+        else:
+            arr=f"(*{value}.as_array())"
+            
         arr_json=f"arr_{identifier}"
-        result+=f"auto{'&' if serialize else ''} {arr_json}={arr};" #If (when) I switch to yyjson, I can get rid of '&'
+        result+=f"auto{'&' if serialize else ''} {arr_json}={arr};"
         
         if serialize:
             value=f"{arr_json}[{iterator}]"
@@ -201,7 +205,7 @@ def convert(variable, value, info, serialize, initialize=False):
                 result+="\n#ifndef CLIENT"
                 
             result+=f"""
-            auto map_{identifier}=map_from({value}.get_object());
+            auto map_{identifier}=map_from(*{value}.as_object());
             deserialize_{kind}(map_{identifier},{variable});
             """
             if kind=="funcpointer":
@@ -228,7 +232,7 @@ def convert(variable, value, info, serialize, initialize=False):
         else:
             result+=f"""
             if ({value}.is_string()){{
-                auto value_str={value}.get_string().value();
+                auto value_str=(*{value}.as_string());
                 if (value_str==std::string("inf")){{
                     {variable}=std::numeric_limits<{type}>::infinity();
                 }}else if (value_str==std::string("-inf")){{
