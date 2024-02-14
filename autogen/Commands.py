@@ -31,6 +31,13 @@ typedef std::shared_mutex Lock;
 
 Lock MemoryMapLock;
 Lock MemoryOperationLock; //This is not needed (but may be preferred, at the expense of unneccessary locking)
+
+
+enum ParentHandleType {
+    PARENT_INSTANCE = 1,
+    PARENT_DEVICE = 2
+};
+
 """)
 def registerDeviceMemoryMap(name,mem):
     if name.startswith("vkMapMemory"):
@@ -93,14 +100,16 @@ for name, command in parsed.items():
     PFN_{name} call_function;
     
     auto parent_json=json["parent"].get_object();
-    if(parent_json.contains("instance")){{
+    auto parent_type=static_cast<ParentHandleType>(value_to<int>(parent_json["type"]));
+    auto& parent_handle=parent_json["handle"];
+    
+    if(parent_type==PARENT_INSTANCE){{
         VkInstance parent;
-        deserialize_VkInstance(parent_json["instance"],parent);
-        
+        deserialize_VkInstance(parent_handle,parent);
         call_function=(PFN_{name})get_instance_proc_addr(parent,"{name}");
-    }}else if(parent_json.contains("device")){{
+    }}else if(parent_type==PARENT_DEVICE){{
         VkDevice parent;
-        deserialize_VkDevice(parent_json["device"],parent);
+        deserialize_VkDevice(parent_handle,parent);
         call_function=(PFN_{name})get_device_proc_addr(parent,"{name}");
     }}  
     """
@@ -344,13 +353,18 @@ for name, command in parsed.items():
         auto parent=handle_to_parent_handle_struct[(uintptr_t){head["name"]}];
         
         if (parent.device!=NULL){{
-            serialize_VkDevice(parent_json["device"], parent.device);
+            parent_json["type"]=PARENT_DEVICE;
+            serialize_VkDevice(parent_json["handle"], parent.device);
         }}else{{
-            serialize_VkInstance(parent_json["instance"], parent.instance);
+            parent_json["type"]=PARENT_INSTANCE;
+            serialize_VkInstance(parent_json["handle"], parent.instance);
         }}
         """)
     else:
-        write("""parent_json["instance"]=(uintptr_t)NULL;""")
+        write("""
+        parent_json["type"]=PARENT_INSTANCE;
+        parent_json["handle"]=(uintptr_t)NULL;
+        """)
     
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
