@@ -136,7 +136,8 @@ void writeToConn(boost::json::object& json){
     auto max_compressed_size=LZ4_compressBound(input_size);
     auto compressed_data=(char*)malloc(max_compressed_size);
     
-    auto compressed_size=LZ4_compress_default(input, compressed_data, input_size, max_compressed_size);
+    auto compressed_size=LZ4_compress_fast(input, compressed_data, input_size, max_compressed_size,20);
+    //auto compressed_size=LZ4_compress_default(input, compressed_data, input_size, max_compressed_size);
     
     serializeInt(curr->size_buf, 0, compressed_size);
     serializeInt(curr->size_buf, 4, input_size);
