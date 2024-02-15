@@ -27,6 +27,7 @@ int fd;
 VkDeviceSize size;
 void* mem;
 uintptr_t server_devicememory; //So we can tell the server what deviceMemory to delete when unmapping
+uint64_t prev_hash =0;
 } MemInfo;
 
 typedef std::unordered_map<uintptr_t,MemInfo*> mem_info_map;
@@ -85,7 +86,7 @@ uuid_to_map[currStruct()->uuid][(uintptr_t)memory]=info;
 return info->mem;
 }
 
-void SyncOne(uintptr_t, void*, size_t);
+void SyncOne(uintptr_t, void*, size_t, uint64_t&);
 void deregisterDeviceMemoryMap(VkDeviceMemory memory){
 debug_printf("DeviceMemory unmapping in progress...\n");
 auto key=(uintptr_t)memory;
@@ -95,7 +96,7 @@ auto key=(uintptr_t)memory;
         return;
     }
     auto info=devicememory_to_mem_info[key];
-    SyncOne(key,info->mem, info->size);
+    SyncOne(key,info->mem, info->size, info->prev_hash);
     deregisterClientServerMemoryMapping((uintptr_t)(info->mem));
     munmap(info->mem, info->size);
     close(info->fd);
@@ -225,7 +226,7 @@ void handle_sync_request(boost::json::object& json){
     readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
 }
 
-void SyncOne(uintptr_t devicememory, void* mem, size_t length){
+void SyncOne(uintptr_t devicememory, void* mem, size_t length, uint64_t& prev_hash){
 
     int parts=floor(sqrt(length));
     auto d=length/parts;
@@ -238,6 +239,14 @@ void SyncOne(uintptr_t devicememory, void* mem, size_t length){
             sync.devicememory=devicememory_to_mem_info[devicememory]->server_devicememory;
         }
     #endif
+    
+    auto new_hash=HashMem(mem, 0, length);
+    if (sync.devicememory==0){ //If devicememory!=0, then the sync must be sent, no matter what
+        if (new_hash==prev_hash){
+            return;
+        }
+    }
+    prev_hash=new_hash;
     
     sync.starts.resize(parts);
     sync.lengths.resize(parts);
@@ -280,12 +289,13 @@ for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
 for (auto& [devicememory, mem_info] : uuid_to_map[currStruct()->uuid]){
 #endif
 
-    SyncOne(0, mem_info->mem,mem_info->size);
+    SyncOne(0, mem_info->mem,mem_info->size, mem_info->prev_hash);
 }
 }
 
 void SyncAllocations(){
 for (auto& [mem, size] : allocated_mems){
-    SyncOne(0, (void*)mem, size);
+    uint64_t hash;
+    SyncOne(0, (void*)mem, size, hash);
 }
 }
