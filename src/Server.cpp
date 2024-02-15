@@ -95,7 +95,8 @@ boost::json::object readFromConn(){
     auto curr=currStruct();
     asio::error_code ec;
     
-    asio::read(*(curr->conn), asio::buffer(curr->size_buf, 8), asio::transfer_exactly(8), ec);
+    uint8_t is_compressed=0;
+    asio::read(*(curr->conn), std::vector<asio::mutable_buffer>{asio::buffer(&is_compressed,1),asio::buffer(curr->size_buf, 8)}, ec);
     if (ec){
         throw RWError(ec);
     }
@@ -105,7 +106,7 @@ boost::json::object readFromConn(){
     
 
     auto compressed_data=(char*)malloc(compressed_size);
-    auto input=(char*)malloc(input_size);
+    char* input;
     
     asio::read(*(curr->conn), asio::buffer(compressed_data, compressed_size), asio::transfer_exactly(compressed_size), ec);
     
@@ -113,16 +114,28 @@ boost::json::object readFromConn(){
         throw RWError(ec);
     }
     
+    if (is_compressed){
+        input=(char*)malloc(input_size);
+        LZ4_decompress_safe(compressed_data, input, compressed_size, input_size);
+    }else{
+        input=compressed_data;
+    }
+    
     auto line=std::string_view(input,input_size);
-    LZ4_decompress_safe(compressed_data, input, compressed_size, input_size);
-
     boost::json::object json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
     
     free(input);
-    free(compressed_data);
+    
+    if(is_compressed){
+        free(compressed_data);
+    }
     
     return json;
 }
+
+//Conditionally compress at 1000000/4
+
+static int COMPRESSION_CUTOFF= 1000000/4;
 
 void writeToConn(boost::json::object& json){
     auto curr=currStruct();
@@ -133,21 +146,34 @@ void writeToConn(boost::json::object& json){
 
     auto input_size=line.size();
     auto input=line.c_str();
-    auto max_compressed_size=LZ4_compressBound(input_size);
-    auto compressed_data=(char*)malloc(max_compressed_size);
     
-    auto compressed_size=LZ4_compress_fast(input, compressed_data, input_size, max_compressed_size,20);
-    //auto compressed_size=LZ4_compress_default(input, compressed_data, input_size, max_compressed_size);
+    char* compressed_data;
+    int compressed_size;
+    uint8_t is_compressed;
+    
+    if (input_size>=COMPRESSION_CUTOFF){
+        auto max_compressed_size=LZ4_compressBound(input_size);
+        compressed_data=(char*)malloc(max_compressed_size);
+        
+        compressed_size=LZ4_compress_default(input, compressed_data, input_size, max_compressed_size);
+        is_compressed=1;
+    }else{
+        compressed_size=input_size;
+        compressed_data=const_cast<char*>(input); //Unsafe, but we should not be editing input
+        is_compressed=0;
+    }
     
     serializeInt(curr->size_buf, 0, compressed_size);
     serializeInt(curr->size_buf, 4, input_size);
     asio::error_code ec;
     
-    asio::write(*(curr->conn), std::vector<asio::const_buffer>{asio::buffer(curr->size_buf,8), asio::buffer(compressed_data,compressed_size)}, ec);
+    asio::write(*(curr->conn), std::vector<asio::const_buffer>{asio::buffer(&is_compressed,1),asio::buffer(curr->size_buf,8), asio::buffer(compressed_data,compressed_size)}, ec);
     
     if (ec){
         throw RWError(ec);
     }
     
-    free(compressed_data);
+    if(is_compressed){
+        free(compressed_data);
+    }
 }

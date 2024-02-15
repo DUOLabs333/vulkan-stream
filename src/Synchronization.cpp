@@ -228,7 +228,8 @@ void handle_sync_request(boost::json::object& json){
 
 void SyncOne(uintptr_t devicememory, void* mem, size_t length, uint64_t& prev_hash){
 
-    int parts=floor(sqrt(length));
+    //int parts=floor(sqrt(length));
+    int parts=10;
     auto d=length/parts;
     auto remainder=length%parts;
     
