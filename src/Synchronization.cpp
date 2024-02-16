@@ -6,6 +6,8 @@
 #include <turbob64.h>
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
+#include <shared_mutex>
+#include <thread>
 #include <Serialization.hpp>
 #include <unordered_map>
 extern "C" {
@@ -33,6 +35,7 @@ uint64_t prev_hash =0;
 typedef std::unordered_map<uintptr_t,MemInfo*> mem_info_map;
 #ifdef CLIENT
     mem_info_map devicememory_to_mem_info;
+    std::shared_mutex mem_map_mutex;
 #else
     std::unordered_map<int, mem_info_map> uuid_to_map;
 #endif
@@ -60,10 +63,32 @@ void deregisterClientServerMemoryMapping(uintptr_t client_mem){
 
 }
 
+void lockMemMap(bool read, bool lock){
+
+    #ifdef CLIENT
+    
+    if (read){
+        if (lock){
+            mem_map_mutex.lock_shared();
+        }else{
+            mem_map_mutex.unlock_shared();
+        }
+    }else{
+        if (lock){
+            mem_map_mutex.lock();
+        }else{
+            mem_map_mutex.unlock();
+        }
+    }
+    
+    #endif
+};
+
 void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
 debug_printf("DeviceMemory mapping in progress...\n");
 auto info=new MemInfo();
 info->size=size;
+
 #ifdef CLIENT
     info->fd=shm_open_anon(); //Make new place for memory
     ftruncate(info->fd,info->size);
@@ -77,7 +102,11 @@ info->size=size;
     memcpy(info->mem,mem,info->size);
     
     info->server_devicememory=server_memory;
+    
+    lockMemMap(false, true);
     devicememory_to_mem_info[(uintptr_t)memory]=info;
+    lockMemMap(false, false);
+    
 #else
 info->mem=(void*)server_mem;
 uuid_to_map[currStruct()->uuid][(uintptr_t)memory]=info;
@@ -100,12 +129,16 @@ auto key=(uintptr_t)memory;
     deregisterClientServerMemoryMapping((uintptr_t)(info->mem));
     munmap(info->mem, info->size);
     close(info->fd);
+    
+    lockMemMap(false, true);
     devicememory_to_mem_info.erase(key);
+    lockMemMap(false, false);
 #else
     if (!uuid_to_map.contains(currStruct()->uuid) || !uuid_to_map[currStruct()->uuid].contains(key) ){ //Already deregistered
         return;
     }
     auto info=uuid_to_map[currStruct()->uuid][key];
+    
     uuid_to_map[currStruct()->uuid].erase(key);
 #endif
 
@@ -284,13 +317,24 @@ void SyncOne(uintptr_t devicememory, void* mem, size_t length, uint64_t& prev_ha
 }
 
 void SyncAll(){
+
+lockMemMap(true, true);
+std::vector<std::thread> threads;
 #ifdef CLIENT
 for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
 #else
 for (auto& [devicememory, mem_info] : uuid_to_map[currStruct()->uuid]){
 #endif
+    #if CLIENT
+        threads.emplace_back(SyncOne, 0, mem_info->mem,mem_info->size, std::ref(mem_info->prev_hash));
+    #else
+        SyncOne(0, mem_info->mem,mem_info->size, mem_info->prev_hash);
+    #endif
+}
+lockMemMap(true, false);
 
-    SyncOne(0, mem_info->mem,mem_info->size, mem_info->prev_hash);
+for(auto& thread: threads){
+    thread.join();
 }
 }
 
