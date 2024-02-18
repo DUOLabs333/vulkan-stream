@@ -12,6 +12,7 @@
 void serialize_Sync(boost::json::object& json, Sync& sync){
     json["devicememory"]=sync.devicememory;
     json["mem"]=sync.mem;
+    json["hashes"]=boost::json::value_from(sync.hashes);
     json["lengths"]=boost::json::value_from(sync.lengths);
     json["starts"]=boost::json::value_from(sync.starts);
     json["buffers"]=boost::json::value_from(sync.buffers);
@@ -22,6 +23,7 @@ void serialize_Sync(boost::json::object& json, Sync& sync){
 void deserialize_Sync(boost::json::object& json, Sync& sync){
     sync.devicememory=boost::json::value_to<uintptr_t>(json["devicememory"]);
     sync.mem=boost::json::value_to<uintptr_t>(json["mem"]);
+    sync.hashes=boost::json::value_to<std::vector<uint64_t>>(json["hashes"]);
     sync.lengths=boost::json::value_to<std::vector<size_t>>(json["lengths"]);
     sync.starts=boost::json::value_to<std::vector<size_t>>(json["starts"]);
     sync.buffers=boost::json::value_to<std::vector<std::string>>(json["buffers"]);
@@ -31,17 +33,17 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
 uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkFreeFunction;
 uintptr_t PFN_vkAllocationFunction;
 uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkVoidFunction;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkVoidFunction;
 uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkDebugReportCallbackEXT;
 } pUserData_struct;
 
 PFN_vkVoidFunction handle_pNext(VkStructureType sType, bool serialize){
@@ -76010,6 +76012,7 @@ json.erase("mem");
         writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         
+SyncAllocations();
 return;
 }
 
@@ -76185,6 +76188,7 @@ json.erase("mem");
         writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         
+SyncAllocations();
 return;
 }
 
@@ -76408,11 +76412,13 @@ void* result;
         }
         }();result=temp_pNqSwit;}();
 json.clear();
+registerAllocatedMem(result,size);
 json["mem"]=(uintptr_t)result;
 
         writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         
+SyncAllocations();
 return result;
 }
 
@@ -76655,11 +76661,13 @@ void* result;
         }
         }();result=temp_vIskEJn;}();
 json.clear();
+registerAllocatedMem(result,size);
 json["mem"]=(uintptr_t)result;
 
         writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         
+SyncAllocations();
 return result;
 }
 
@@ -76855,6 +76863,7 @@ json.erase("mem");
         writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         
+SyncAllocations();
 return;
 }
 
@@ -77080,6 +77089,7 @@ json.erase("mem");
         writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         
+SyncAllocations();
 return result;
 }
 
@@ -77344,6 +77354,7 @@ json.erase("mem");
         writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         
+SyncAllocations();
 return result;
 }
 
@@ -77516,6 +77527,7 @@ json.erase("mem");
         writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         
+SyncAllocations();
 return;
 }
 

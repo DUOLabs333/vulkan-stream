@@ -1,8 +1,9 @@
 #include <vulkan/vulkan.h>
 #include <debug.hpp>
 
-void handle_sync(boost::json::object&);
+void handle_sync_init(boost::json::object&);
 void SyncAll();
+void SyncAllocations();
 void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem);
 void deregisterDeviceMemoryMap(VkDeviceMemory memory);
 void registerAllocatedMem(void* mem, int size);

@@ -49,7 +49,7 @@ class RWError : public std::exception {
             }
             
             if (static_cast<StreamType>(value_to<int>(json["stream_type"]))==SYNC){
-                handle_sync(json);
+                handle_sync_init(json);
             }
             else{
                 handle_command(json);
@@ -133,7 +133,8 @@ boost::json::object readFromConn(){
     return json;
 }
 
-//Conditionally compress at cutoff
+//Conditionally compress at 1000000/4
+
 static int COMPRESSION_CUTOFF= 1000000/4;
 
 void writeToConn(boost::json::object& json){

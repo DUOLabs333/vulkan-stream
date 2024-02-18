@@ -38,6 +38,7 @@ uintptr_t devicememory = 0;
 uintptr_t mem;
 std::vector<size_t> starts;
 std::vector<size_t> lengths;
+std::vector<uint64_t> hashes;
 std::vector<std::string> buffers;
 } Sync;
 
@@ -49,6 +50,7 @@ write("""
 void serialize_Sync(boost::json::object& json, Sync& sync){
     json["devicememory"]=sync.devicememory;
     json["mem"]=sync.mem;
+    json["hashes"]=boost::json::value_from(sync.hashes);
     json["lengths"]=boost::json::value_from(sync.lengths);
     json["starts"]=boost::json::value_from(sync.starts);
     json["buffers"]=boost::json::value_from(sync.buffers);
@@ -59,6 +61,7 @@ void serialize_Sync(boost::json::object& json, Sync& sync){
 void deserialize_Sync(boost::json::object& json, Sync& sync){
     sync.devicememory=boost::json::value_to<uintptr_t>(json["devicememory"]);
     sync.mem=boost::json::value_to<uintptr_t>(json["mem"]);
+    sync.hashes=boost::json::value_to<std::vector<uint64_t>>(json["hashes"]);
     sync.lengths=boost::json::value_to<std::vector<size_t>>(json["lengths"]);
     sync.starts=boost::json::value_to<std::vector<size_t>>(json["starts"]);
     sync.buffers=boost::json::value_to<std::vector<std::string>>(json["buffers"]);
@@ -353,6 +356,7 @@ for name,funcpointer in parsed.items():
         write("json.clear();")
         
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
+            write("registerAllocatedMem(result,size);")
             write('json["mem"]=(uintptr_t)result;')
         else:
             write('json.erase("mem");')
@@ -362,6 +366,7 @@ for name,funcpointer in parsed.items():
         readFromConn(); //Get the confirmation that the client has registered the memory
         """)
             
+        write("SyncAllocations();")
         if not is_void(funcpointer):
             write("return result;")
         else:
