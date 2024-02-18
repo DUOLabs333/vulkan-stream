@@ -6,8 +6,6 @@
 #include <turbob64.h>
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
-#include <shared_mutex>
-#include <thread>
 #include <Serialization.hpp>
 #include <unordered_map>
 extern "C" {
@@ -20,7 +18,6 @@ extern "C" {
     #include <sys/mman.h>
 #endif
 
-std::unordered_map<uintptr_t,int> allocated_mems;
 std::unordered_map<uintptr_t,uintptr_t> client_to_server_mem;
 std::unordered_map<uintptr_t,uintptr_t> server_to_client_mem;
 
@@ -30,12 +27,12 @@ VkDeviceSize size;
 void* mem;
 uintptr_t server_devicememory; //So we can tell the server what deviceMemory to delete when unmapping
 uint64_t prev_hash =0;
+std::vector<uint64_t> prev_hashes;
 } MemInfo;
 
 typedef std::unordered_map<uintptr_t,MemInfo*> mem_info_map;
 #ifdef CLIENT
     mem_info_map devicememory_to_mem_info;
-    std::shared_mutex mem_map_mutex;
 #else
     std::unordered_map<int, mem_info_map> uuid_to_map;
 #endif
@@ -63,32 +60,10 @@ void deregisterClientServerMemoryMapping(uintptr_t client_mem){
 
 }
 
-void lockMemMap(bool read, bool lock){
-
-    #ifdef CLIENT
-    
-    if (read){
-        if (lock){
-            mem_map_mutex.lock_shared();
-        }else{
-            mem_map_mutex.unlock_shared();
-        }
-    }else{
-        if (lock){
-            mem_map_mutex.lock();
-        }else{
-            mem_map_mutex.unlock();
-        }
-    }
-    
-    #endif
-};
-
 void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
 debug_printf("DeviceMemory mapping in progress...\n");
 auto info=new MemInfo();
 info->size=size;
-
 #ifdef CLIENT
     info->fd=shm_open_anon(); //Make new place for memory
     ftruncate(info->fd,info->size);
@@ -102,11 +77,7 @@ info->size=size;
     memcpy(info->mem,mem,info->size);
     
     info->server_devicememory=server_memory;
-    
-    lockMemMap(false, true);
     devicememory_to_mem_info[(uintptr_t)memory]=info;
-    lockMemMap(false, false);
-    
 #else
 info->mem=(void*)server_mem;
 uuid_to_map[currStruct()->uuid][(uintptr_t)memory]=info;
@@ -115,7 +86,7 @@ uuid_to_map[currStruct()->uuid][(uintptr_t)memory]=info;
 return info->mem;
 }
 
-void SyncOne(uintptr_t, void*, size_t, uint64_t&);
+void SyncOne(uintptr_t, MemInfo*);
 void deregisterDeviceMemoryMap(VkDeviceMemory memory){
 debug_printf("DeviceMemory unmapping in progress...\n");
 auto key=(uintptr_t)memory;
@@ -125,20 +96,16 @@ auto key=(uintptr_t)memory;
         return;
     }
     auto info=devicememory_to_mem_info[key];
-    SyncOne(key,info->mem, info->size, info->prev_hash);
+    SyncOne(key, info);
     deregisterClientServerMemoryMapping((uintptr_t)(info->mem));
     munmap(info->mem, info->size);
     close(info->fd);
-    
-    lockMemMap(false, true);
     devicememory_to_mem_info.erase(key);
-    lockMemMap(false, false);
 #else
     if (!uuid_to_map.contains(currStruct()->uuid) || !uuid_to_map[currStruct()->uuid].contains(key) ){ //Already deregistered
         return;
     }
     auto info=uuid_to_map[currStruct()->uuid][key];
-    
     uuid_to_map[currStruct()->uuid].erase(key);
 #endif
 
@@ -147,10 +114,7 @@ delete info;
 
 }
 
-void registerAllocatedMem(void* mem, int size){
-    allocated_mems[(uintptr_t)mem]=size;
-}
-void handle_sync_response(boost::json::object& json){
+void handle_sync(boost::json::object& json){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     
     Sync sync;
@@ -167,104 +131,27 @@ void handle_sync_response(boost::json::object& json){
         tb64dec(reinterpret_cast<const unsigned char*>(sync.buffers[i].data()), sync.buffers[i].size(), reinterpret_cast<unsigned char*>((char*)mem+sync.starts[i]));
     }
     
-    writeToConn(json);
-}
-
-void handle_sync_init(boost::json::object& json){
-    //Received an init, sent a request for bytes. Wait for bytes to be sent
-    
-    Sync sync;
-    deserialize_Sync(json, sync);
-    
-    #ifdef CLIENT
-        if (!server_to_client_mem.contains(sync.mem)){
-            debug_printf("Panic! It's not found!\n");
-        }
-        void* mem=(char*)server_to_client_mem[sync.mem];
-    #else
-        void* mem=(void*)(sync.mem);
-    #endif
-    
-    auto starts=sync.starts;
-    auto lengths=sync.lengths;
-    auto hashes=sync.hashes;
-    //After serialize and deserialize, clear json
-    
-    sync.starts.clear();
-    sync.lengths.clear();
-    sync.hashes.clear();
-    
-    for (int i=0; i<starts.size(); i++){
-        if (HashMem(mem, starts[i], lengths[i])!= hashes[i]){
-            sync.starts.push_back(starts[i]);
-            sync.lengths.push_back(lengths[i]);
-        }
-    }
-    
-    serialize_Sync(json, sync);
-    writeToConn(json);
-    
-    json=readFromConn();
-    handle_sync_response(json);
-    
     #ifndef CLIENT
         if (sync.devicememory!=0){
              deregisterDeviceMemoryMap((VkDeviceMemory)(sync.devicememory));
         }
     #endif
-        
     
-}
-
-void handle_sync_request(boost::json::object& json){
-    //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
-    
-    Sync sync;
-    deserialize_Sync(json, sync);
-    
-    #ifdef CLIENT
-        void* mem=(void*)server_to_client_mem[sync.mem];
-    #else
-        void* mem=(void*)(sync.mem);
-    #endif
-    
-    sync.buffers.resize(sync.starts.size());
-    
-    std::array<std::tuple<int, char*>, 3> temp_buffers;
-    
-    if (sync.lengths.size()>=1){
-        auto length=sync.lengths[0];
-        temp_buffers= {{ {length-1, new char[tb64enclen(length-1)]},  {length, new char[tb64enclen(length)]},  {length+1, new char[tb64enclen(length+1)]} }};
-    }
-    
-    for(int i=0; i<sync.starts.size(); i++){
-        auto length=sync.lengths[i];
-        auto start=sync.starts[i];
-        
-        auto buffer=std::get<1>(temp_buffers[length-std::get<0>(temp_buffers[0])]);
-        auto encoded_size=tb64enc(reinterpret_cast<unsigned char*>((char*)mem+start), length, reinterpret_cast<unsigned char*>(buffer));
-        
-        sync.buffers[i]=std::string(buffer,buffer+encoded_size);
-    }
-    
-    if (sync.lengths.size()>=1){
-        for(auto& elem: temp_buffers){
-            delete[] std::get<1>(elem);
-        }
-    }
-    
-    serialize_Sync(json, sync);
+    json.clear();
     writeToConn(json);
-    
-    readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
 }
 
-void SyncOne(uintptr_t devicememory, void* mem, size_t length, uint64_t& prev_hash){
-
+void SyncOne(uintptr_t devicememory, MemInfo* info){
+    
+    auto size=info->size;
+    auto mem=info->mem;
+    auto& prev_hash=info->prev_hash;
+    auto& prev_hashes=info->prev_hashes;
+    
     //int parts=floor(sqrt(length));
     int parts=10;
-    auto d=length/parts;
-    auto remainder=length%parts;
+    auto d=size/parts;
+    auto remainder=size%parts;
     
     Sync sync;
     
@@ -274,7 +161,7 @@ void SyncOne(uintptr_t devicememory, void* mem, size_t length, uint64_t& prev_ha
         }
     #endif
     
-    auto new_hash=HashMem(mem, 0, length);
+    auto new_hash=HashMem(mem, 0, size);
     if (sync.devicememory==0){ //If devicememory!=0, then the sync must be sent, no matter what
         if (new_hash==prev_hash){
             return;
@@ -282,65 +169,55 @@ void SyncOne(uintptr_t devicememory, void* mem, size_t length, uint64_t& prev_ha
     }
     prev_hash=new_hash;
     
-    sync.starts.resize(parts);
-    sync.lengths.resize(parts);
-    sync.hashes.resize(parts);
+    prev_hashes.resize(parts);
     
     #ifdef CLIENT
         sync.mem=client_to_server_mem[(uintptr_t)mem];
     #else
         sync.mem=(uintptr_t)mem;
     #endif
+
+    auto b64buffer=new char[tb64enclen(d+1)];
     
     auto offset=0;
-    for (int i=0; i<remainder; i++){
-        sync.starts[i]=offset;
-        sync.lengths[i]=d+1;
-        sync.hashes[i]=HashMem(mem,offset,d+1);
-        offset+=(d+1);
+    for (int i=0; i<parts; i++){
+        int length;
+        if (i < remainder){
+            length=d+1;
+        }else{
+            length=d;
+        }
+        
+        auto hash=HashMem(mem,offset, length);
+        if (hash!=prev_hashes[i]){
+            sync.starts.push_back(offset);
+            sync.lengths.push_back(length);
+            
+            auto encoded_size=tb64enc(reinterpret_cast<unsigned char*>((char*)mem+offset), length, reinterpret_cast<unsigned char*>(b64buffer));
+            
+            sync.buffers.push_back(std::string(b64buffer,b64buffer+encoded_size));
+            
+            prev_hashes[i]=hash;
+        }
+        offset+=length;
     }
     
-    for (int i=remainder; i<parts; i++){
-        sync.starts[i]=offset;
-        sync.lengths[i]=d;
-        sync.hashes[i]=HashMem(mem,offset,d);
-        offset+=d;
-    }
-    
+    delete[] b64buffer;
     boost::json::object json;
     
     serialize_Sync(json, sync);
     writeToConn(json);
     
-    json=readFromConn();
-    handle_sync_request(json);
+    readFromConn();
 }
 
 void SyncAll(){
-
-lockMemMap(true, true);
-std::vector<std::thread> threads;
 #ifdef CLIENT
 for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
 #else
 for (auto& [devicememory, mem_info] : uuid_to_map[currStruct()->uuid]){
 #endif
-    #if CLIENT
-        threads.emplace_back(SyncOne, 0, mem_info->mem,mem_info->size, std::ref(mem_info->prev_hash));
-    #else
-        SyncOne(0, mem_info->mem,mem_info->size, mem_info->prev_hash);
-    #endif
-}
-lockMemMap(true, false);
 
-for(auto& thread: threads){
-    thread.join();
-}
-}
-
-void SyncAllocations(){
-for (auto& [mem, size] : allocated_mems){
-    uint64_t hash;
-    SyncOne(0, (void*)mem, size, hash);
+    SyncOne(0, mem_info);
 }
 }

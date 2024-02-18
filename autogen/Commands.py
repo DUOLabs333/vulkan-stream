@@ -478,7 +478,7 @@ for name, command in parsed.items():
             
             switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
                 case (SYNC):
-                    handle_sync_init(json);
+                    handle_sync(json);
                     continue;
                 case ({name.upper()}):
                     break; 
