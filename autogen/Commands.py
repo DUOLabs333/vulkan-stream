@@ -28,10 +28,10 @@ void registerDeviceMemory(VkDevice device, VkDeviceMemory memory, int type_index
     
     auto memory_flags=device_to_memory_properties[(uintptr_t)device].memoryTypes[type_index].propertyFlags;
     
-    devicememory_to_coherent[(uintptr_t)memory]=(memory_flags & VK_MEMORY_PROPERTY_HOST_COHERENT_BIT == VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+    devicememory_to_coherent[(uintptr_t)memory]=((memory_flags & VK_MEMORY_PROPERTY_HOST_COHERENT_BIT) == VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
 }
 
-void registerDevice(VkDevice device, VkPhysicalDevice physical_device){
+void registerDevice_(VkDevice device, VkPhysicalDevice physical_device){
     auto memory_properties=VkPhysicalDeviceMemoryProperties{};
     vkGetPhysicalDeviceMemoryProperties(physical_device,&memory_properties);
     
@@ -90,7 +90,7 @@ def deregisterDeviceMemoryMap(name):
             memory=f"pMemoryUnmapInfo->{memory}"
         return f"""
         deregisterDeviceMemoryMap({memory});
-        devicememory_to_offset.erase((uintptr_t)({memory});
+        devicememory_to_offset.erase((uintptr_t)({memory}));
         """
     else:
         return ""
@@ -104,7 +104,7 @@ def registerDeviceMemory(name):
 
 def registerDevice(name):
     if name=="vkCreateDevice":
-        return "registerDevice(*pDevice, physicalDevice);"
+        return "registerDevice_(*pDevice, physicalDevice);"
     else:
         return ""
 
@@ -669,15 +669,14 @@ for name, command in parsed.items():
         write("registerSwapchain(*pSwapchain,device, pCreateInfo);")
     elif name=="vkCreateDevice":
         write("registerDevice(*pDevice,physicalDevice);")
-    elif name=="vkAllocateMemory":
-        write("registerDeviceMemory(*pMemory, pAllocateInfo->allocationSize);")
+        
+    write(registerDeviceMemory(name))
+    write(registerDevice(name))
     
     if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
         
     write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(json["mem"])"""))
-    write(registerDeviceMemory(name))
-    write(registerDevice(name))
     
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")

@@ -7,6 +7,7 @@
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
 #include <Serialization.hpp>
+#include <Synchronization.hpp>
 #include <unordered_map>
 extern "C" {
 #include <shm_open_anon.h>
@@ -284,18 +285,25 @@ void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, uint6
     handle_sync_request(json);
 }
 
-void SyncOne(uintptr_t devicememory, int offset, bool unmap= false, VkDeviceSize size = VK_WHOLE_SIZE){
-    auto info=devicememory_to_mem_info[(uintptr_t)devicememory];
+void SyncOne(VkDeviceMemory memory, int offset, bool unmap, VkDeviceSize size){
+    auto devicememory=(uintptr_t)memory;
+    
+    #ifdef CLIENT
+        auto info=devicememory_to_mem_info[devicememory];
+    #else
+        auto info=uuid_to_map[currStruct()->uuid][devicememory];
+    #endif
     
     if (size==VK_WHOLE_SIZE){
         size=info->size-offset;
     }
     
-    if (unmap){
+    
+    if (!unmap){
         devicememory=0;
     }
     
-    SyncOne(0, info->mem, offset, size, info->prev_hash);
+    SyncOne(devicememory, info->mem, offset, size, info->prev_hash);
 }
 
 void SyncAll(){
