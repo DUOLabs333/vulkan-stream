@@ -18,13 +18,29 @@ write("""
 #include <Server.hpp>
 #include <Synchronization.hpp>
 
+std::unordered_map<uintptr_t, VkDeviceSize> devicememory_to_size;
+std::unordered_map<uintptr_t, bool> devicememory_to_coherent;
+std::unordered_map<uintptr_t, VkDeviceSize> devicememory_to_offset;
+std::unordered_map<uintptr_t, VkPhysicalDeviceMemoryProperties> device_to_memory_properties;
+
+void registerDeviceMemory(VkDevice device, VkDeviceMemory memory, int type_index, VkDeviceSize size){
+    devicememory_to_size[(uintptr_t)memory]=size;
+    
+    auto memory_flags=device_to_memory_properties[(uintptr_t)device].memoryTypes[type_index].propertyFlags;
+    
+    devicememory_to_coherent[(uintptr_t)memory]=(memory_flags & VK_MEMORY_PROPERTY_HOST_COHERENT_BIT == VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+}
+
+void registerDevice(VkDevice device, VkPhysicalDevice physical_device){
+    auto memory_properties=VkPhysicalDeviceMemoryProperties{};
+    vkGetPhysicalDeviceMemoryProperties(physical_device,&memory_properties);
+    
+    device_to_memory_properties[(uintptr_t)device]=memory_properties;
+}
+
 #ifdef CLIENT
     #include <Surface.hpp>
-    
-    std::unordered_map<uintptr_t, VkDeviceSize> devicememory_to_size;
-    void registerDeviceMemory(VkDeviceMemory memory, VkDeviceSize size){
-        devicememory_to_size[(uintptr_t)memory]=size;
-    }
+
 #endif
 
 typedef std::shared_mutex Lock;
@@ -43,10 +59,11 @@ def registerDeviceMemoryMap(name,mem):
     if name.startswith("vkMapMemory"):
         memory="memory"
         size="size"
-        
+        offset="offset"
         if "2" in name:
             memory=f"pMemoryMapInfo->{memory}"
             size=f"pMemoryMapInfo->{size}"
+            offset=f"pMemoryMapInfo->{offset}"
             
         return f"""
         boost::json::value server_memory_json;
@@ -54,11 +71,14 @@ def registerDeviceMemoryMap(name,mem):
         
         auto server_memory=value_to<uintptr_t>(server_memory_json); 
         
-        *ppData=registerDeviceMemoryMap(server_memory, {memory},{size},*ppData,{mem});
+        auto coherent=devicememory_to_coherent[(uintptr_t){memory}];
+        *ppData=registerDeviceMemoryMap(server_memory, {memory}, {size},*ppData, {mem}, coherent);
         
         #ifndef CLIENT
             json["mem"]={mem};
         #endif
+        
+        devicememory_to_offset[(uintptr_t)({memory})]={offset};
         """
     else:
         return ""
@@ -68,10 +88,43 @@ def deregisterDeviceMemoryMap(name):
         memory="memory"
         if "2" in name:
             memory=f"pMemoryUnmapInfo->{memory}"
-        return f"deregisterDeviceMemoryMap({memory});"
+        return f"""
+        deregisterDeviceMemoryMap({memory});
+        devicememory_to_offset.erase((uintptr_t)({memory});
+        """
     else:
         return ""
-    
+
+
+def registerDeviceMemory(name):
+    if name=="vkAllocateMemory":
+        return "registerDeviceMemory(device, *pMemory, pAllocateInfo->memoryTypeIndex, pAllocateInfo->allocationSize);"
+    else:
+        return ""
+
+def registerDevice(name):
+    if name=="vkCreateDevice":
+        return "registerDevice(*pDevice, physicalDevice);"
+    else:
+        return ""
+
+def syncRanges(name):
+    if name=="vkFlushMappedMemoryRanges":
+        guard="#ifdef CLIENT"
+    elif name=="vkInvalidateMappedMemoryRanges":
+        guard="#ifndef CLIENT"
+    else:
+        return ""
+        
+    return f"""
+    {guard}
+        for(int i=0; i< memoryRangeCount; i++){{
+            auto range=pMemoryRanges[i];
+            SyncOne(range.memory, range.offset-devicememory_to_offset[(uintptr_t)range.memory], false, range.size);
+        }}
+    #endif
+    """
+
 write("#ifndef CLIENT")
 write("""
 auto get_instance_proc_addr=vkGetInstanceProcAddr;
@@ -219,9 +272,12 @@ for name, command in parsed.items():
                 SyncAll();
             }
             """)
-
+            
+    write(syncRanges(name))
     write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
-       
+    write(registerDeviceMemory(name))
+    write(registerDevice(name))
+    
     write(f"""
         json["stream_type"]={name.upper()};
         writeToConn(json);
@@ -465,6 +521,8 @@ for name, command in parsed.items():
     
     if name=="vkQueueSubmit":
         write("SyncAll();")
+        
+    write(syncRanges(name))
     
     if name=="vkFreeMemory":
         write("vkUnmapMemory(device,memory);")
@@ -618,6 +676,8 @@ for name, command in parsed.items():
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
         
     write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(json["mem"])"""))
+    write(registerDeviceMemory(name))
+    write(registerDevice(name))
     
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")

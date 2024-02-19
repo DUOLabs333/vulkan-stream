@@ -28,6 +28,7 @@ VkDeviceSize size;
 void* mem;
 uintptr_t server_devicememory; //So we can tell the server what deviceMemory to delete when unmapping
 uint64_t prev_hash =0;
+bool coherent;
 } MemInfo;
 
 typedef std::unordered_map<uintptr_t,MemInfo*> mem_info_map;
@@ -60,10 +61,11 @@ void deregisterClientServerMemoryMapping(uintptr_t client_mem){
 
 }
 
-void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
+void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem, bool coherent){
 debug_printf("DeviceMemory mapping in progress...\n");
 auto info=new MemInfo();
 info->size=size;
+info->coherent=coherent;
 #ifdef CLIENT
     info->fd=shm_open_anon(); //Make new place for memory
     ftruncate(info->fd,info->size);
@@ -86,7 +88,6 @@ uuid_to_map[currStruct()->uuid][(uintptr_t)memory]=info;
 return info->mem;
 }
 
-void SyncOne(uintptr_t, void*, size_t, uint64_t&);
 void deregisterDeviceMemoryMap(VkDeviceMemory memory){
 debug_printf("DeviceMemory unmapping in progress...\n");
 auto key=(uintptr_t)memory;
@@ -96,7 +97,7 @@ auto key=(uintptr_t)memory;
         return;
     }
     auto info=devicememory_to_mem_info[key];
-    SyncOne(key,info->mem, info->size, info->prev_hash);
+    SyncOne(memory, 0, true);
     deregisterClientServerMemoryMapping((uintptr_t)(info->mem));
     munmap(info->mem, info->size);
     close(info->fd);
@@ -227,7 +228,7 @@ void handle_sync_request(boost::json::object& json){
     readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
 }
 
-void SyncOne(uintptr_t devicememory, void* mem, size_t length, uint64_t& prev_hash){
+void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, uint64_t& prev_hash){
 
     //int parts=floor(sqrt(length));
     int parts=10;
@@ -260,7 +261,6 @@ void SyncOne(uintptr_t devicememory, void* mem, size_t length, uint64_t& prev_ha
         sync.mem=(uintptr_t)mem;
     #endif
     
-    auto offset=0;
     for (int i=0; i<remainder; i++){
         sync.starts[i]=offset;
         sync.lengths[i]=d+1;
@@ -284,20 +284,35 @@ void SyncOne(uintptr_t devicememory, void* mem, size_t length, uint64_t& prev_ha
     handle_sync_request(json);
 }
 
+void SyncOne(uintptr_t devicememory, int offset, bool unmap= false, VkDeviceSize size = VK_WHOLE_SIZE){
+    auto info=devicememory_to_mem_info[(uintptr_t)devicememory];
+    
+    if (size==VK_WHOLE_SIZE){
+        size=info->size-offset;
+    }
+    
+    if (unmap){
+        devicememory=0;
+    }
+    
+    SyncOne(0, info->mem, offset, size, info->prev_hash);
+}
+
 void SyncAll(){
 #ifdef CLIENT
 for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
 #else
 for (auto& [devicememory, mem_info] : uuid_to_map[currStruct()->uuid]){
 #endif
-
-    SyncOne(0, mem_info->mem,mem_info->size, mem_info->prev_hash);
+    if (mem_info->coherent){
+        SyncOne(0, mem_info->mem, 0, mem_info->size, mem_info->prev_hash);
+    }
 }
 }
 
 void SyncAllocations(){
 for (auto& [mem, size] : allocated_mems){
     uint64_t hash;
-    SyncOne(0, (void*)mem, size, hash);
+    SyncOne(0, (void*)mem, 0, size, hash);
 }
 }
