@@ -1,17 +1,16 @@
 #include <boost/json.hpp>
-#include <glaze/glaze.hpp>
-#include <Serialization.hpp>
 
 #include "Server.hpp"
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
+#include <simdjson.h>
+#include <Serialization.hpp>
 #include <Commands.hpp>
 #include <thread>
 #include <string_view>
 
 #include <sstream>
 #include <random>
-#include <functional>
 #include <asio/read.hpp>
 #include <asio/write.hpp>
 #include <lz4.h>
@@ -93,7 +92,7 @@ uint32_t deserializeInt(std::array<uint8_t,8>& buf, int i){ //Deserialzes from l
     return buf[i+0] | (buf[i+1] << 8) | (buf[i+2] << 16) | (buf[i+3] << 24);
 }
 
-void readFromConn(std::function<void (std::string_view)> f){
+boost::json::object readFromConn(){
     auto curr=currStruct();
     asio::error_code ec;
     
@@ -124,40 +123,69 @@ void readFromConn(std::function<void (std::string_view)> f){
     }
     
     auto line=std::string_view(input,input_size);
+    auto simdjson_line=simdjson::padded_string(line);
     
-    f(line);
+    simdjson::ondemand::parser parser;
+    auto doc=parser.iterate(simdjson_line);
+    auto object = doc.get_object();
+    
+    boost::json::object json;
+    for (auto field: object){
+        auto key=field.unescaped_key().value();
+        if (key=="uuid"){
+            continue;
+        }
+        if (key=="stream_type"){
+            auto stream_type=field.value().get_uint64().value();
+            //if (stream_type!= static_cast<int>(SYNC)){
+            if (true){
+                 json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
+                 break;
+            }else{
+                json[key]=stream_type;
+                continue;
+            }
+        }
+        if (key=="devicememory" || key=="mem"){
+            json[key]=field.value().get_uint64().value();
+        }else{
+            auto& boost_array=json[key].emplace_array();
+            auto simd_value=field.value().get_array();
+            simdjson::ondemand::array simd_array;
+            if (simd_value.error()){
+                continue;
+            }else{
+                simd_array=simd_value.value();
+            }
+            for (auto elem: simd_array){
+                if (key=="buffers"){
+                    boost_array.emplace_back(std::string(elem.value().get_string().value()));
+                }else{
+                    boost_array.emplace_back(elem.value().get_uint64().value());
+                }
+            }
+    }
+        }
+    
     free(input);
     
     if(is_compressed){
         free(compressed_data);
     }
-}
-boost::json::object readFromConn(){
-    boost::json::object json;
-    auto f=[&] (std::string_view line){
-        json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
-    };
     
-    readFromConn(f);
     return json;
-}
-
-void readFromConn(Sync& sync){
-    auto f=[&] (std::string_view line){
-        sync=glz::read_json<Sync>(line).value();
-    };
-    
-    readFromConn(f); 
 }
 
 //Conditionally compress at 1000000/4
 
 static int COMPRESSION_CUTOFF= 1000000/4;
 
-void writeToConn(std::function<std::string(void)> f){
+void writeToConn(boost::json::object& json){
     auto curr=currStruct();
     
-    auto line=f();
+    json["uuid"]=uuid;
+    
+    auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
 
     auto input_size=line.size();
     auto input=line.c_str();
@@ -191,23 +219,4 @@ void writeToConn(std::function<std::string(void)> f){
     if(is_compressed){
         free(compressed_data);
     }
-}
-
-void writeToConn(Sync& sync){
-    auto f = [&] (){
-        auto line=glz::write_json(sync);
-        return line;
-    };
-    
-    writeToConn(f);
-}
-
-void writeToConn(boost::json::object& json){
-    auto f = [&] (){
-        json["uuid"]=uuid;
-        auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
-        return line;
-    };
-    
-    writeToConn(f);
 }
