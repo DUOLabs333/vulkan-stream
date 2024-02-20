@@ -71,6 +71,10 @@ def registerDeviceMemoryMap(name,mem):
         
         auto server_memory=value_to<uintptr_t>(server_memory_json); 
         
+        #ifdef CLIENT
+            *ppData=malloc({size});
+        #endif
+        
         auto coherent=devicememory_to_coherent[(uintptr_t){memory}];
         *ppData=registerDeviceMemoryMap(server_memory, {memory}, {size},*ppData, {mem}, coherent);
         
@@ -79,6 +83,10 @@ def registerDeviceMemoryMap(name,mem):
         #endif
         
         devicememory_to_offset[(uintptr_t)({memory})]={offset};
+        
+        #ifndef CLIENT
+            *ppData=NULL; //It's faster to malloc on the client and sync than it is to send the memory at once
+        #endif
         """
     else:
         return ""
@@ -264,6 +272,8 @@ for name, command in parsed.items():
     else:
         write(convert("result","""json["result"]""",command, serialize=True))
     
+    write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
+    
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
             
@@ -275,7 +285,6 @@ for name, command in parsed.items():
             """)
             
     write(syncRanges(name))
-    write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
     write(registerDeviceMemory(name))
     write(registerDevice(name))
     
@@ -456,6 +465,7 @@ for name, command in parsed.items():
     
     if name.startswith("vkMapMemory"):
         write("*ppData=NULL;") #We're going to overwrite it anyway
+        
     elif name=="vkQueuePresentKHR":
         write("""
         auto new_info=(VkPresentInfoKHR*)copyVkStruct(pPresentInfo);
@@ -675,7 +685,7 @@ for name, command in parsed.items():
     
     if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
-        
+    
     write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(json["mem"])"""))
     
     if name=="vkDeviceWaitIdle":

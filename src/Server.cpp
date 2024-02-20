@@ -133,12 +133,12 @@ boost::json::object readFromConn(){
     for (auto field: object){
         auto key=field.unescaped_key().value();
         if (key=="uuid"){
+            json[key]=field.value().get_uint64().value();
             continue;
         }
         if (key=="stream_type"){
             auto stream_type=field.value().get_uint64().value();
-            //if (stream_type!= static_cast<int>(SYNC)){
-            if (true){
+            if (stream_type!= static_cast<int>(SYNC)){
                  json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
                  break;
             }else{
@@ -148,6 +148,8 @@ boost::json::object readFromConn(){
         }
         if (key=="devicememory" || key=="mem"){
             json[key]=field.value().get_uint64().value();
+        }else if (key=="unmap"){
+            json[key]=field.value().get_bool().value();
         }else{
             auto& boost_array=json[key].emplace_array();
             auto simd_value=field.value().get_array();
@@ -178,7 +180,8 @@ boost::json::object readFromConn(){
 
 //Conditionally compress at 1000000/4
 
-static int COMPRESSION_CUTOFF= 1000000/4;
+//static int COMPRESSION_CUTOFF= 1000000/4;
+static int COMPRESSION_CUTOFF= std::numeric_limits<int>::max(); //Effectively disable compression
 
 void writeToConn(boost::json::object& json){
     auto curr=currStruct();
