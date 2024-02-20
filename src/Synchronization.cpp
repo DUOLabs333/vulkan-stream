@@ -81,6 +81,8 @@ info->coherent=coherent;
     
     info->server_devicememory=server_memory;
     devicememory_to_mem_info[(uintptr_t)memory]=info;
+    
+    free(mem); //Important: This only applies to the client --- the memory must still be alive on the server
 #else
 info->mem=(void*)server_mem;
 uuid_to_map[currStruct()->uuid][(uintptr_t)memory]=info;

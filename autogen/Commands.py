@@ -688,6 +688,29 @@ for name, command in parsed.items():
     
     write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(json["mem"])"""))
     
+    if name.startswith("vkMapMemory"):
+        write("""
+        auto range=VkMappedMemoryRange{
+            .sType=VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE,
+            .pNext=NULL,
+        """)
+        if "2" not in name:
+            write("""
+            .memory=memory,
+            .offset=offset,
+            .size=size
+            """)
+        else:
+            write("""
+            .memory=pMemoryMapInfo->memory,
+            .offset=pMemoryMapInfo->offset,
+            .size=pMemoryMapInfo->size
+            """)
+        write("""
+        };
+        vkInvalidateMappedMemoryRanges(device, 1, &range);
+        """)
+        
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")
     
