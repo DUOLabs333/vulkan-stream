@@ -252,10 +252,8 @@ vkGetPhysicalDeviceMemoryProperties(info.physical_device,&memory_properties);
 
 uint32_t memory_type_index=0;
 bool found=false;
-auto flags_bitmask= VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT|VK_MEMORY_PROPERTY_HOST_CACHED_BIT;
-
 for (uint32_t i=0; i< memory_properties.memoryTypeCount; i++){
-    if ((memory_properties.memoryTypes[i].propertyFlags & flags_bitmask)== flags_bitmask){
+    if ((memory_properties.memoryTypes[i].propertyFlags & (VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT|VK_MEMORY_PROPERTY_HOST_COHERENT_BIT))== (VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT|VK_MEMORY_PROPERTY_HOST_COHERENT_BIT)){ //Switch it back to just host_visible when done
         memory_type_index=i;
         found=true;
         break;
@@ -379,17 +377,6 @@ if (devicememory_to_mapped.contains(key)){
     vkMapMemory(device,memory,0,buffer_size,0,data);
     devicememory_to_mapped[key]=*data;
 }
-
-auto range=VkMappedMemoryRange{
-    .sType=VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE,
-    .pNext=NULL,
-    .memory=memory,
-    .offset=0,
-    .size=VK_WHOLE_SIZE
-};
-
-vkInvalidateMappedMemoryRanges(device, 1, &range);
-
 return;
 
 }

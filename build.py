@@ -12,9 +12,15 @@ DEBUG=os.environ.get("DEBUG","1")
 
 VK_LIB_PATH=os.path.expanduser(os.environ.get("VK_LIB_PATH","~/.nix-profile/lib"))
 
+CXX="g++"
+CC="gcc"
+
+if PLATFORM=="darwin":
+    CXX="clang++"
+    CC="clang"
 
 SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
-INCLUDE_PATHS=["autogen","src", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost","external/lz4/lib","external/komihash","external/Turbo-Base64"]
+INCLUDE_PATHS=["autogen","src", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost","external/lz4/lib","external/komihash","external/Turbo-Base64", "external/glaze/include"]
 FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3","-DNDEBUG"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")+["-g"]+(["-ggdb"] if PLATFORM=="linux" else [])+(["-mcpu=apple-a14" if PLATFORM=="darwin" else "-march=native"] if DEBUG=="0" else [])
 
 STATIC_LIBS=["external/lz4/lib/liblz4.a","external/Turbo-Base64/libtb64.a"]
@@ -60,9 +66,9 @@ for file in SRC_FILES:
     modified_time=int(os.path.getmtime(file))
     CPP=file.endswith(".cpp")
     
-    subprocess.run([("g++" if CPP else "gcc")]+[("-std=c++20" if CPP else "-std=gnu99")]+ FLAGS+ ["-o",object_file,"-c",file]+ INCLUDE_PATHS)
+    subprocess.run([(CXX if CPP else CC)]+[("-std=c++20" if CPP else "-std=gnu99")]+ FLAGS+ ["-o",object_file,"-c",file]+ INCLUDE_PATHS)
     os.utime(object_file, (modified_time, modified_time))
 
 if os.environ.get("CLEAN","0")=="0":
-    subprocess.run(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+FLAGS+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
+    subprocess.run([CXX]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+FLAGS+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
 

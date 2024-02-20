@@ -1,15 +1,17 @@
 #include <boost/json.hpp>
+#include <glaze/glaze.hpp>
+#include <Serialization.hpp>
 
 #include "Server.hpp"
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
-#include <Serialization.hpp>
 #include <Commands.hpp>
 #include <thread>
 #include <string_view>
 
 #include <sstream>
 #include <random>
+#include <functional>
 #include <asio/read.hpp>
 #include <asio/write.hpp>
 #include <lz4.h>
@@ -91,7 +93,7 @@ uint32_t deserializeInt(std::array<uint8_t,8>& buf, int i){ //Deserialzes from l
     return buf[i+0] | (buf[i+1] << 8) | (buf[i+2] << 16) | (buf[i+3] << 24);
 }
 
-boost::json::object readFromConn(){
+void readFromConn(std::function<void (std::string_view)> f){
     auto curr=currStruct();
     asio::error_code ec;
     
@@ -122,27 +124,40 @@ boost::json::object readFromConn(){
     }
     
     auto line=std::string_view(input,input_size);
-    boost::json::object json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
     
+    f(line);
     free(input);
     
     if(is_compressed){
         free(compressed_data);
     }
+}
+boost::json::object readFromConn(){
+    boost::json::object json;
+    auto f=[&] (std::string_view line){
+        json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
+    };
     
+    readFromConn(f);
     return json;
+}
+
+void readFromConn(Sync& sync){
+    auto f=[&] (std::string_view line){
+        sync=glz::read_json<Sync>(line).value();
+    };
+    
+    readFromConn(f); 
 }
 
 //Conditionally compress at 1000000/4
 
 static int COMPRESSION_CUTOFF= 1000000/4;
 
-void writeToConn(boost::json::object& json){
+void writeToConn(std::function<std::string(void)> f){
     auto curr=currStruct();
     
-    json["uuid"]=uuid;
-    
-    auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+    auto line=f();
 
     auto input_size=line.size();
     auto input=line.c_str();
@@ -176,4 +191,23 @@ void writeToConn(boost::json::object& json){
     if(is_compressed){
         free(compressed_data);
     }
+}
+
+void writeToConn(Sync& sync){
+    auto f = [&] (){
+        auto line=glz::write_json(sync);
+        return line;
+    };
+    
+    writeToConn(f);
+}
+
+void writeToConn(boost::json::object& json){
+    auto f = [&] (){
+        json["uuid"]=uuid;
+        auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+        return line;
+    };
+    
+    writeToConn(f);
 }
