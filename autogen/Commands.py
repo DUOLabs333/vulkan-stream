@@ -23,7 +23,7 @@ std::unordered_map<uintptr_t, bool> devicememory_to_coherent;
 std::unordered_map<uintptr_t, VkDeviceSize> devicememory_to_offset;
 std::unordered_map<uintptr_t, VkPhysicalDeviceMemoryProperties> device_to_memory_properties;
 
-void registerDeviceMemory(VkDevice device, VkDeviceMemory memory, int type_index, VkDeviceSize size){
+void saveDeviceMemoryInfo(VkDevice device, VkDeviceMemory memory, int type_index, VkDeviceSize size){
     devicememory_to_size[(uintptr_t)memory]=size;
     
     auto memory_flags=device_to_memory_properties[(uintptr_t)device].memoryTypes[type_index].propertyFlags;
@@ -31,16 +31,14 @@ void registerDeviceMemory(VkDevice device, VkDeviceMemory memory, int type_index
     devicememory_to_coherent[(uintptr_t)memory]=((memory_flags & VK_MEMORY_PROPERTY_HOST_COHERENT_BIT) == VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
 }
 
-void registerDevice_(VkDevice device, VkPhysicalDevice physical_device){
+void saveDeviceInfo(VkDevice device, VkPhysicalDevice physical_device){
     auto memory_properties=VkPhysicalDeviceMemoryProperties{};
     vkGetPhysicalDeviceMemoryProperties(physical_device,&memory_properties);
     
     device_to_memory_properties[(uintptr_t)device]=memory_properties;
 }
 
-#ifdef CLIENT
-
-#endif
+#include <Surface.hpp>
 
 typedef std::shared_mutex Lock;
 
@@ -103,15 +101,15 @@ def deregisterDeviceMemoryMap(name):
         return ""
 
 
-def registerDeviceMemory(name):
+def saveDeviceMemoryInfo(name):
     if name=="vkAllocateMemory":
-        return "registerDeviceMemory(device, *pMemory, pAllocateInfo->memoryTypeIndex, pAllocateInfo->allocationSize);"
+        return "saveDeviceMemoryInfo(device, *pMemory, pAllocateInfo->memoryTypeIndex, pAllocateInfo->allocationSize);"
     else:
         return ""
 
-def registerDevice(name):
+def saveDeviceInfo(name):
     if name=="vkCreateDevice":
-        return "registerDevice_(*pDevice, physicalDevice);"
+        return "saveDeviceInfo(*pDevice, physicalDevice);"
     else:
         return ""
 
@@ -284,8 +282,8 @@ for name, command in parsed.items():
             """)
             
     write(syncRanges(name))
-    write(registerDeviceMemory(name))
-    write(registerDevice(name))
+    write(saveDeviceMemoryInfo(name))
+    write(saveDeviceInfo(name))
     
     write("""
         writeToConn(json);
@@ -686,8 +684,8 @@ for name, command in parsed.items():
     elif name=="vkCreateDevice":
         write("registerDevice(*pDevice,physicalDevice);")
         
-    write(registerDeviceMemory(name))
-    write(registerDevice(name))
+    write(saveDeviceMemoryInfo(name))
+    write(saveDeviceInfo(name))
     
     if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
