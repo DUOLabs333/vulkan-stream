@@ -315,14 +315,14 @@ for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
 for (auto& [devicememory, mem_info] : uuid_to_map[currStruct()->uuid]){
 #endif
     if (mem_info->coherent){
-        SyncOne(0, mem_info->mem, 0, mem_info->size, mem_info->prev_hash);
+        SyncOne(devicememory, 0, false, VK_WHOLE_SIZE);
     }
 }
 }
 
 void SyncAllocations(){
 for (auto& [mem, size] : allocated_mems){
-    uint64_t hash;
+    uint64_t hash=0;
     SyncOne(0, (void*)mem, 0, size, hash);
 }
 }
