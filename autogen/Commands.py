@@ -39,7 +39,6 @@ void registerDevice_(VkDevice device, VkPhysicalDevice physical_device){
 }
 
 #ifdef CLIENT
-    #include <Surface.hpp>
 
 #endif
 
@@ -279,7 +278,7 @@ for name, command in parsed.items():
             
     if name=="vkWaitForFences":
         write("""
-            if ((result!=VK_TIMEOUT) && (timeout!=std::numeric_limits<uint64_t>::max()-33)){ //Special value to avoid syncing 
+            if ((result!=VK_TIMEOUT) && (timeout!=VK_STREAM_TIMEOUT)){ //Special value to avoid syncing 
                 SyncAll();
             }
             """)
@@ -524,13 +523,20 @@ for name, command in parsed.items():
         
         auto pCreateInfo=&temp_info;
         """)
+    
+    if name=="vkQueueSubmit":
+        write("""
+        if (submitCount!=VK_STREAM_QUEUE_COUNT){
+            SyncAll();
+        }else{
+            submitCount=1;
+        }
+        """)
         
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
     write("}")
     
-    if name=="vkQueueSubmit":
-        write("SyncAll();")
         
     write(syncRanges(name))
     

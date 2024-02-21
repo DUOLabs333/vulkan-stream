@@ -5,6 +5,7 @@
 #include <asio/io_context.hpp>
 #include <asio/connect.hpp>
 #include <unordered_map>
+#include <shared_mutex>
 
 std::string address;
 std::string port;

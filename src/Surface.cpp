@@ -59,9 +59,6 @@ std::unordered_map<uintptr_t, VkDeviceSize> image_to_size;
 std::unordered_map<uintptr_t, VkDeviceMemory> buffer_to_devicememory;
 std::unordered_map<uintptr_t, void*> devicememory_to_mapped;
 
-
-static uint64_t VK_MAX_TIMEOUT= std::numeric_limits<uint64_t>::max()-33;
-
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     auto& surface_info=surface_to_info[(uintptr_t)pSurface];
     surface_info.type=type;
@@ -356,9 +353,9 @@ auto queue_submit_info=VkSubmitInfo{
 .pSignalSemaphores=NULL
 };
 
-vkQueueSubmit(queue,1,&queue_submit_info,fence);
+vkQueueSubmit(queue,VK_STREAM_QUEUE_COUNT,&queue_submit_info,fence);
 
-vkWaitForFences(device,1,&fence,VK_TRUE, VK_MAX_TIMEOUT);
+vkWaitForFences(device,1,&fence,VK_TRUE, VK_STREAM_TIMEOUT);
 }
 
 
@@ -433,7 +430,7 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
         }
         auto device=info.device;
         
-        vkWaitForFences(device,1, &present_info.fence,VK_TRUE, VK_MAX_TIMEOUT);
+        vkWaitForFences(device,1, &present_info.fence,VK_TRUE, VK_STREAM_TIMEOUT);
         
         auto image=info.images[present_info.index];
         auto extent=info.extent;
