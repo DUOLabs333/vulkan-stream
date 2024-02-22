@@ -205,7 +205,10 @@ for name, command in parsed.items():
         //extensions_set.insert(std::string(VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME));
         extensions_set.insert(std::string(VK_EXT_SURFACE_MAINTENANCE_1_EXTENSION_NAME));
         extensions_set.insert(std::string(VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME));
-        extensions_set.insert(std::string(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME));
+        
+        #ifdef VK_USE_PLATFORM_METAL_EXT
+            extensions_set.insert(std::string(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME));
+        #endif
         
         auto extensions_length=extensions_set.size();
         auto extensions_list=(char **)malloc(extensions_length*sizeof(char*));
@@ -239,6 +242,10 @@ for name, command in parsed.items():
         }
         
         extensions_set.insert(std::string(VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME));
+        
+        #ifdef VK_USE_PLATFORM_METAL_EXT
+            extensions_set.insert(std::string(VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME));
+        #endif
         
         auto extensions_length=extensions_set.size();
         auto extensions_list=(char **)malloc(extensions_length*sizeof(char*));
@@ -524,7 +531,7 @@ for name, command in parsed.items():
     
     if name=="vkQueueSubmit":
         write("""
-        if (submitCount!=VK_STREAM_QUEUE_COUNT){
+        if (submitCount!=VK_STREAM_SUBMIT_COUNT){
             SyncAll();
         }else{
             submitCount=1;

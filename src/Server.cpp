@@ -178,10 +178,9 @@ boost::json::object readFromConn(){
     return json;
 }
 
-//Conditionally compress at 1000000/4
 
-//static int COMPRESSION_CUTOFF= 1000000/4;
-static int COMPRESSION_CUTOFF= std::numeric_limits<int>::max(); //Effectively disable compression
+static int COMPRESSION_CUTOFF= 1000000/4; //Conditionally compress at all json >COMPRESSION_CUTOFF
+//static int COMPRESSION_CUTOFF= std::numeric_limits<int>::max(); //Effectively disable compression
 
 void writeToConn(boost::json::object& json){
     auto curr=currStruct();

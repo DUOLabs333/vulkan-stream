@@ -32,7 +32,7 @@ typedef struct {
 } SurfaceInfo;
 
 static uint64_t VK_STREAM_TIMEOUT= std::numeric_limits<uint64_t>::max()-33; //Special marker for special behavior
-static uint32_t VK_STREAM_QUEUE_COUNT= std::numeric_limits<uint32_t>::max()-33; //Special marker for special behavior
+static uint32_t VK_STREAM_SUBMIT_COUNT= std::numeric_limits<uint32_t>::max()-33; //Special marker for special behavior
 
 VkDevice getSwapchainDevice(VkSwapchainKHR); //Made for one function in Commands.cpp
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type);

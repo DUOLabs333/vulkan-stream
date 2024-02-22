@@ -353,7 +353,7 @@ auto queue_submit_info=VkSubmitInfo{
 .pSignalSemaphores=NULL
 };
 
-vkQueueSubmit(queue,VK_STREAM_QUEUE_COUNT,&queue_submit_info,fence);
+vkQueueSubmit(queue,VK_STREAM_SUBMIT_COUNT,&queue_submit_info,fence);
 
 vkWaitForFences(device,1,&fence,VK_TRUE, VK_STREAM_TIMEOUT);
 }

@@ -179,8 +179,20 @@ void handle_sync_init(boost::json::object& json){
     json=readFromConn();
     handle_sync_response(json);
     
+    if (sync.devicememory!=0 && !sync.unmap && starts.size()>0){
+        #ifdef CLIENT
+            auto server_devicememory=boost::json::value(sync.devicememory);
+            VkDeviceMemory client_devicememory;
+            deserialize_VkDeviceMemory(server_devicememory, client_devicememory);
+            auto info=devicememory_to_mem_info[(uintptr_t)client_devicememory];
+        #else
+            auto info=uuid_to_map[currStruct()->uuid][sync.devicememory];
+        #endif
+        info->prev_hash=HashMem(info->mem, 0, info->size);
+    }
+    
     #ifndef CLIENT
-        if (sync.devicememory!=0){
+        if (sync.unmap){
              deregisterDeviceMemoryMap((VkDeviceMemory)(sync.devicememory));
         }
     #endif
@@ -231,7 +243,7 @@ void handle_sync_request(boost::json::object& json){
     readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
 }
 
-void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, uint64_t& prev_hash){
+void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, bool unmap){
 
     //int parts=floor(sqrt(length));
     int parts=10;
@@ -240,19 +252,13 @@ void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, uint6
     
     Sync sync;
     
-    #ifdef CLIENT
-        if (devicememory!=0){
+     if (devicememory!=0){
+        #ifdef CLIENT
             sync.devicememory=devicememory_to_mem_info[devicememory]->server_devicememory;
-        }
-    #endif
-    
-    auto new_hash=HashMem(mem, 0, length);
-    if (sync.devicememory==0){ //If devicememory!=0, then the sync must be sent, no matter what
-        if (new_hash==prev_hash){
-            return;
-        }
-    }
-    prev_hash=new_hash;
+        #else
+            sync.devicememory=devicememory;
+        #endif
+     }
     
     sync.starts.resize(parts);
     sync.lengths.resize(parts);
@@ -287,7 +293,7 @@ void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, uint6
     handle_sync_request(json);
 }
 
-void SyncOne(VkDeviceMemory memory, int offset, bool unmap, VkDeviceSize size){
+void SyncOne(VkDeviceMemory memory, int offset, VkDeviceSize size, bool unmap){
     auto devicememory=(uintptr_t)memory;
     
     #ifdef CLIENT
@@ -300,12 +306,14 @@ void SyncOne(VkDeviceMemory memory, int offset, bool unmap, VkDeviceSize size){
         size=info->size-offset;
     }
     
-    
     if (!unmap){
-        devicememory=0;
+        auto hash=HashMem(info->mem, 0, info->size);
+        if (hash==info->prev_hash){
+            return;
+        }
     }
-    
-    SyncOne(devicememory, info->mem, offset, size, info->prev_hash);
+    info->prev_hash=hash;
+    SyncOne(devicememory, info->mem, offset, size, unmap);
 }
 
 void SyncAll(){
@@ -315,14 +323,13 @@ for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
 for (auto& [devicememory, mem_info] : uuid_to_map[currStruct()->uuid]){
 #endif
     if (mem_info->coherent){
-        SyncOne(devicememory, 0, false, VK_WHOLE_SIZE);
+        SyncOne(devicememory, 0, VK_WHOLE_SIZE, false);
     }
 }
 }
 
 void SyncAllocations(){
 for (auto& [mem, size] : allocated_mems){
-    uint64_t hash=0;
-    SyncOne(0, (void*)mem, 0, size, hash);
+    SyncOne(0, (void*)mem, 0, size, false);
 }
 }

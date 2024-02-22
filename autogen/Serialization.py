@@ -40,6 +40,7 @@ std::vector<size_t> starts;
 std::vector<size_t> lengths;
 std::vector<uint64_t> hashes;
 std::vector<std::string> buffers;
+bool unmap = false;
 } Sync;
 
 void serialize_Sync(boost::json::object&, Sync&);
@@ -54,7 +55,7 @@ void serialize_Sync(boost::json::object& json, Sync& sync){
     json["lengths"]=boost::json::value_from(sync.lengths);
     json["starts"]=boost::json::value_from(sync.starts);
     json["buffers"]=boost::json::value_from(sync.buffers);
-    
+    json["unmap"]=sync.unmap;
     json["stream_type"]=static_cast<int>(SYNC);
 }
 
@@ -65,6 +66,7 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
     sync.lengths=boost::json::value_to<std::vector<size_t>>(json["lengths"]);
     sync.starts=boost::json::value_to<std::vector<size_t>>(json["starts"]);
     sync.buffers=boost::json::value_to<std::vector<std::string>>(json["buffers"]);
+    sync.unmap=boost::json::value_to<bool>(json["unmap"]);
 }
 """)
 write("#include <debug.hpp>",header=True)
@@ -442,6 +444,7 @@ for handle in parsed:
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_{handle}_to_server_{handle};
             std::unordered_map<uintptr_t,uintptr_t> server_{handle}_to_client_{handle};
+            std::shared_mutex {handle}_lock;
             
         #endif
         """)
@@ -453,11 +456,13 @@ for handle in parsed:
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\\n",result);
                 }}else{{
+                    {handle}_lock.lock_shared();
                     if(!(client_{handle}_to_server_{handle}.contains( (uintptr_t)data ))){{
                         debug_printf("Panic: {handle} %p not found!\\n",data);
                     }}
                      debug_printf("Serializing {handle} %p...\\n",({handle})client_{handle}_to_server_{handle}[(uintptr_t)data]);
                     result=client_{handle}_to_server_{handle}[(uintptr_t)data];
+                    {handle}_lock.unlock_shared();
                 }}
             #else
                 result=(uintptr_t)data;
@@ -477,14 +482,19 @@ for handle in parsed:
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\\n",({handle})data);
+                    {handle}_lock.lock_shared();
                     if (server_{handle}_to_client_{handle}.contains(data)){{
                         result=({handle})server_{handle}_to_client_{handle}[data];
                         debug_printf("Deserializing to {handle} %p...\\n",result);
+                        {handle}_lock.unlock_shared();
                     }}else{{
+                        {handle}_lock.unlock_shared();
                         auto handle=malloc(sizeof({handle}));
                         debug_printf("Mapping to {handle} %p...\\n",handle);
+                        {handle}_lock.lock();
                         server_{handle}_to_client_{handle}[data]=(uintptr_t)handle;
                         client_{handle}_to_server_{handle}[(uintptr_t)handle]=data;
+                        {handle}_lock.unlock();
                         
                         result=({handle})handle; //This is highly dangerous -- I'm basically casting {handle}* to {handle}. I should do *(({handle}*)alloc_icd_object())
                     }}
@@ -498,6 +508,8 @@ for handle in parsed:
         write(f"""
                void delete_{handle}(const {handle}& client_handle){{
                     #ifdef CLIENT
+                    
+                    {handle}_lock.lock_shared();
                     auto server_handle=client_{handle}_to_server_{handle}[(uintptr_t)client_handle];
                     
                     {{
@@ -505,9 +517,12 @@ for handle in parsed:
                         
                         free(({handle})client_handle);
                     }}
+                    {handle}_lock.unlock_shared();
                     
+                    {handle}_lock.lock();
                     client_{handle}_to_server_{handle}.erase((uintptr_t)client_handle);
                     server_{handle}_to_client_{handle}.erase(server_handle);
+                    {handle}_lock.unlock();
                     
             """)
         
