@@ -89,6 +89,16 @@ public:
         std::shared_lock<std::shared_mutex> lock(mutex);
         return std::unordered_map<Key, Value>::at(key);
     }
+    
+    void erase(const Key& key) {
+        std::unique_lock<std::shared_mutex> lock(mutex);
+        std::unordered_map<Key, Value>::erase(key);
+    }
+    
+    bool contains(const Key& key) {
+        std::shared_lock<std::shared_mutex> lock(mutex);
+        return std::unordered_map<Key, Value>::contains(key);
+    }
 
     // Other constructors and methods can be added as needed
 };
