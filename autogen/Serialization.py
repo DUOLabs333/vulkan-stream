@@ -69,6 +69,30 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
     sync.unmap=boost::json::value_to<bool>(json["unmap"]);
 }
 """)
+
+write("""
+#include <shared_mutex>
+#include <unordered_map>
+template<typename Key, typename Value>
+class ConcurrentMap : public std::unordered_map<Key, Value> {
+public:
+    std::shared_mutex mutex;
+
+    // Override operator[] to use exclusive locking
+    Value& operator[](const Key& key) {
+        std::unique_lock<std::shared_mutex> lock(mutex);
+        return std::unordered_map<Key, Value>::operator[](key);
+    }
+
+    // Override at() to use shared locking
+    Value& at(const Key& key) {
+        std::shared_lock<std::shared_mutex> lock(mutex);
+        return std::unordered_map<Key, Value>::at(key);
+    }
+
+    // Other constructors and methods can be added as needed
+};
+""",header=True)
 write("#include <debug.hpp>",header=True)
 write("typedef void* pNext;",header=True)
 

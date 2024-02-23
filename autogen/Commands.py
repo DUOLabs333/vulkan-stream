@@ -244,7 +244,8 @@ for name, command in parsed.items():
         extensions_set.insert(std::string(VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME));
         
         #ifdef VK_USE_PLATFORM_METAL_EXT
-            extensions_set.insert(std::string(VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME));
+            //extensions_set.insert(std::string(VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME));
+            extensions_set.insert("VK_KHR_portability_subset");
         #endif
         
         auto extensions_length=extensions_set.size();

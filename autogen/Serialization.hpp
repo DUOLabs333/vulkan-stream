@@ -633,10 +633,33 @@ std::vector<size_t> starts;
 std::vector<size_t> lengths;
 std::vector<uint64_t> hashes;
 std::vector<std::string> buffers;
+bool unmap = false;
 } Sync;
 
 void serialize_Sync(boost::json::object&, Sync&);
 void deserialize_Sync(boost::json::object&, Sync&);
+
+
+#include <shared_mutex>
+template<typename Key, typename Value>
+class ConcurrentMap : public std::unordered_map<Key, Value> {
+public:
+    std::shared_mutex mutex;
+
+    // Override operator[] to use exclusive locking
+    Value& operator[](const Key& key) {
+        std::unique_lock<std::shared_mutex> lock(mutex);
+        return std::unordered_map<Key, Value>::operator[](key);
+    }
+
+    // Override at() to use shared locking
+    Value& at(const Key& key) {
+        std::shared_lock<std::shared_mutex> lock(mutex);
+        return std::unordered_map<Key, Value>::at(key);
+    }
+
+    // Other constructors and methods can be added as needed
+};
 
 #include <debug.hpp>
 typedef void* pNext;

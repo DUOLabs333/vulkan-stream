@@ -16,7 +16,7 @@ void serialize_Sync(boost::json::object& json, Sync& sync){
     json["lengths"]=boost::json::value_from(sync.lengths);
     json["starts"]=boost::json::value_from(sync.starts);
     json["buffers"]=boost::json::value_from(sync.buffers);
-    
+    json["unmap"]=sync.unmap;
     json["stream_type"]=static_cast<int>(SYNC);
 }
 
@@ -27,23 +27,24 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
     sync.lengths=boost::json::value_to<std::vector<size_t>>(json["lengths"]);
     sync.starts=boost::json::value_to<std::vector<size_t>>(json["starts"]);
     sync.buffers=boost::json::value_to<std::vector<std::string>>(json["buffers"]);
+    sync.unmap=boost::json::value_to<bool>(json["unmap"]);
 }
 
 
 typedef struct {
     void* pUserData;
 
+uintptr_t PFN_vkReallocationFunction;
 uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkInternalAllocationNotification;
-uintptr_t PFN_vkDebugReportCallbackEXT;
-uintptr_t PFN_vkFaultCallbackFunction;
 uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
 uintptr_t PFN_vkFreeFunction;
 uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkInternalFreeNotification;
-uintptr_t PFN_vkVoidFunction;
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
 } pUserData_struct;
 
 PFN_vkVoidFunction handle_pNext(VkStructureType sType, bool serialize){
@@ -77625,6 +77626,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkInstance_to_server_VkInstance;
             std::unordered_map<uintptr_t,uintptr_t> server_VkInstance_to_client_VkInstance;
+            std::shared_mutex VkInstance_lock;
             
         #endif
         
@@ -77636,11 +77638,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkInstance_lock.lock_shared();
                     if(!(client_VkInstance_to_server_VkInstance.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkInstance %p not found!\n",data);
                     }
                      debug_printf("Serializing VkInstance %p...\n",(VkInstance)client_VkInstance_to_server_VkInstance[(uintptr_t)data]);
                     result=client_VkInstance_to_server_VkInstance[(uintptr_t)data];
+                    VkInstance_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -77657,14 +77661,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkInstance)data);
+                    VkInstance_lock.lock_shared();
                     if (server_VkInstance_to_client_VkInstance.contains(data)){
                         result=(VkInstance)server_VkInstance_to_client_VkInstance[data];
                         debug_printf("Deserializing to VkInstance %p...\n",result);
+                        VkInstance_lock.unlock_shared();
                     }else{
+                        VkInstance_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkInstance));
                         debug_printf("Mapping to VkInstance %p...\n",handle);
+                        VkInstance_lock.lock();
                         server_VkInstance_to_client_VkInstance[data]=(uintptr_t)handle;
                         client_VkInstance_to_server_VkInstance[(uintptr_t)handle]=data;
+                        VkInstance_lock.unlock();
                         
                         result=(VkInstance)handle; //This is highly dangerous -- I'm basically casting VkInstance* to VkInstance. I should do *((VkInstance*)alloc_icd_object())
                     }
@@ -77677,6 +77686,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkInstance(const VkInstance& client_handle){
                     #ifdef CLIENT
+                    
+                    VkInstance_lock.lock_shared();
                     auto server_handle=client_VkInstance_to_server_VkInstance[(uintptr_t)client_handle];
                     
                     {
@@ -77684,9 +77695,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkInstance)client_handle);
                     }
+                    VkInstance_lock.unlock_shared();
                     
+                    VkInstance_lock.lock();
                     client_VkInstance_to_server_VkInstance.erase((uintptr_t)client_handle);
                     server_VkInstance_to_client_VkInstance.erase(server_handle);
+                    VkInstance_lock.unlock();
                     
             
 
@@ -77697,6 +77711,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkPhysicalDevice_to_server_VkPhysicalDevice;
             std::unordered_map<uintptr_t,uintptr_t> server_VkPhysicalDevice_to_client_VkPhysicalDevice;
+            std::shared_mutex VkPhysicalDevice_lock;
             
         #endif
         
@@ -77708,11 +77723,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkPhysicalDevice_lock.lock_shared();
                     if(!(client_VkPhysicalDevice_to_server_VkPhysicalDevice.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkPhysicalDevice %p not found!\n",data);
                     }
                      debug_printf("Serializing VkPhysicalDevice %p...\n",(VkPhysicalDevice)client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)data]);
                     result=client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)data];
+                    VkPhysicalDevice_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -77729,14 +77746,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPhysicalDevice)data);
+                    VkPhysicalDevice_lock.lock_shared();
                     if (server_VkPhysicalDevice_to_client_VkPhysicalDevice.contains(data)){
                         result=(VkPhysicalDevice)server_VkPhysicalDevice_to_client_VkPhysicalDevice[data];
                         debug_printf("Deserializing to VkPhysicalDevice %p...\n",result);
+                        VkPhysicalDevice_lock.unlock_shared();
                     }else{
+                        VkPhysicalDevice_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkPhysicalDevice));
                         debug_printf("Mapping to VkPhysicalDevice %p...\n",handle);
+                        VkPhysicalDevice_lock.lock();
                         server_VkPhysicalDevice_to_client_VkPhysicalDevice[data]=(uintptr_t)handle;
                         client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)handle]=data;
+                        VkPhysicalDevice_lock.unlock();
                         
                         result=(VkPhysicalDevice)handle; //This is highly dangerous -- I'm basically casting VkPhysicalDevice* to VkPhysicalDevice. I should do *((VkPhysicalDevice*)alloc_icd_object())
                     }
@@ -77749,6 +77771,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkPhysicalDevice(const VkPhysicalDevice& client_handle){
                     #ifdef CLIENT
+                    
+                    VkPhysicalDevice_lock.lock_shared();
                     auto server_handle=client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)client_handle];
                     
                     {
@@ -77756,9 +77780,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkPhysicalDevice)client_handle);
                     }
+                    VkPhysicalDevice_lock.unlock_shared();
                     
+                    VkPhysicalDevice_lock.lock();
                     client_VkPhysicalDevice_to_server_VkPhysicalDevice.erase((uintptr_t)client_handle);
                     server_VkPhysicalDevice_to_client_VkPhysicalDevice.erase(server_handle);
+                    VkPhysicalDevice_lock.unlock();
                     
             
 
@@ -77769,6 +77796,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDevice_to_server_VkDevice;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDevice_to_client_VkDevice;
+            std::shared_mutex VkDevice_lock;
             
         #endif
         
@@ -77780,11 +77808,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDevice_lock.lock_shared();
                     if(!(client_VkDevice_to_server_VkDevice.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDevice %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDevice %p...\n",(VkDevice)client_VkDevice_to_server_VkDevice[(uintptr_t)data]);
                     result=client_VkDevice_to_server_VkDevice[(uintptr_t)data];
+                    VkDevice_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -77801,14 +77831,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDevice)data);
+                    VkDevice_lock.lock_shared();
                     if (server_VkDevice_to_client_VkDevice.contains(data)){
                         result=(VkDevice)server_VkDevice_to_client_VkDevice[data];
                         debug_printf("Deserializing to VkDevice %p...\n",result);
+                        VkDevice_lock.unlock_shared();
                     }else{
+                        VkDevice_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDevice));
                         debug_printf("Mapping to VkDevice %p...\n",handle);
+                        VkDevice_lock.lock();
                         server_VkDevice_to_client_VkDevice[data]=(uintptr_t)handle;
                         client_VkDevice_to_server_VkDevice[(uintptr_t)handle]=data;
+                        VkDevice_lock.unlock();
                         
                         result=(VkDevice)handle; //This is highly dangerous -- I'm basically casting VkDevice* to VkDevice. I should do *((VkDevice*)alloc_icd_object())
                     }
@@ -77821,6 +77856,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkDevice(const VkDevice& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDevice_lock.lock_shared();
                     auto server_handle=client_VkDevice_to_server_VkDevice[(uintptr_t)client_handle];
                     
                     {
@@ -77828,9 +77865,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkDevice)client_handle);
                     }
+                    VkDevice_lock.unlock_shared();
                     
+                    VkDevice_lock.lock();
                     client_VkDevice_to_server_VkDevice.erase((uintptr_t)client_handle);
                     server_VkDevice_to_client_VkDevice.erase(server_handle);
+                    VkDevice_lock.unlock();
                     
             
 
@@ -77841,6 +77881,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkQueue_to_server_VkQueue;
             std::unordered_map<uintptr_t,uintptr_t> server_VkQueue_to_client_VkQueue;
+            std::shared_mutex VkQueue_lock;
             
         #endif
         
@@ -77852,11 +77893,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkQueue_lock.lock_shared();
                     if(!(client_VkQueue_to_server_VkQueue.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkQueue %p not found!\n",data);
                     }
                      debug_printf("Serializing VkQueue %p...\n",(VkQueue)client_VkQueue_to_server_VkQueue[(uintptr_t)data]);
                     result=client_VkQueue_to_server_VkQueue[(uintptr_t)data];
+                    VkQueue_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -77873,14 +77916,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkQueue)data);
+                    VkQueue_lock.lock_shared();
                     if (server_VkQueue_to_client_VkQueue.contains(data)){
                         result=(VkQueue)server_VkQueue_to_client_VkQueue[data];
                         debug_printf("Deserializing to VkQueue %p...\n",result);
+                        VkQueue_lock.unlock_shared();
                     }else{
+                        VkQueue_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkQueue));
                         debug_printf("Mapping to VkQueue %p...\n",handle);
+                        VkQueue_lock.lock();
                         server_VkQueue_to_client_VkQueue[data]=(uintptr_t)handle;
                         client_VkQueue_to_server_VkQueue[(uintptr_t)handle]=data;
+                        VkQueue_lock.unlock();
                         
                         result=(VkQueue)handle; //This is highly dangerous -- I'm basically casting VkQueue* to VkQueue. I should do *((VkQueue*)alloc_icd_object())
                     }
@@ -77893,6 +77941,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkQueue(const VkQueue& client_handle){
                     #ifdef CLIENT
+                    
+                    VkQueue_lock.lock_shared();
                     auto server_handle=client_VkQueue_to_server_VkQueue[(uintptr_t)client_handle];
                     
                     {
@@ -77900,9 +77950,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkQueue)client_handle);
                     }
+                    VkQueue_lock.unlock_shared();
                     
+                    VkQueue_lock.lock();
                     client_VkQueue_to_server_VkQueue.erase((uintptr_t)client_handle);
                     server_VkQueue_to_client_VkQueue.erase(server_handle);
+                    VkQueue_lock.unlock();
                     
             
 
@@ -77913,6 +77966,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkCommandBuffer_to_server_VkCommandBuffer;
             std::unordered_map<uintptr_t,uintptr_t> server_VkCommandBuffer_to_client_VkCommandBuffer;
+            std::shared_mutex VkCommandBuffer_lock;
             
         #endif
         
@@ -77924,11 +77978,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkCommandBuffer_lock.lock_shared();
                     if(!(client_VkCommandBuffer_to_server_VkCommandBuffer.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkCommandBuffer %p not found!\n",data);
                     }
                      debug_printf("Serializing VkCommandBuffer %p...\n",(VkCommandBuffer)client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)data]);
                     result=client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)data];
+                    VkCommandBuffer_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -77945,14 +78001,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkCommandBuffer)data);
+                    VkCommandBuffer_lock.lock_shared();
                     if (server_VkCommandBuffer_to_client_VkCommandBuffer.contains(data)){
                         result=(VkCommandBuffer)server_VkCommandBuffer_to_client_VkCommandBuffer[data];
                         debug_printf("Deserializing to VkCommandBuffer %p...\n",result);
+                        VkCommandBuffer_lock.unlock_shared();
                     }else{
+                        VkCommandBuffer_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkCommandBuffer));
                         debug_printf("Mapping to VkCommandBuffer %p...\n",handle);
+                        VkCommandBuffer_lock.lock();
                         server_VkCommandBuffer_to_client_VkCommandBuffer[data]=(uintptr_t)handle;
                         client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)handle]=data;
+                        VkCommandBuffer_lock.unlock();
                         
                         result=(VkCommandBuffer)handle; //This is highly dangerous -- I'm basically casting VkCommandBuffer* to VkCommandBuffer. I should do *((VkCommandBuffer*)alloc_icd_object())
                     }
@@ -77965,6 +78026,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkCommandBuffer(const VkCommandBuffer& client_handle){
                     #ifdef CLIENT
+                    
+                    VkCommandBuffer_lock.lock_shared();
                     auto server_handle=client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)client_handle];
                     
                     {
@@ -77972,9 +78035,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkCommandBuffer)client_handle);
                     }
+                    VkCommandBuffer_lock.unlock_shared();
                     
+                    VkCommandBuffer_lock.lock();
                     client_VkCommandBuffer_to_server_VkCommandBuffer.erase((uintptr_t)client_handle);
                     server_VkCommandBuffer_to_client_VkCommandBuffer.erase(server_handle);
+                    VkCommandBuffer_lock.unlock();
                     
             
 
@@ -77985,6 +78051,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDeviceMemory_to_server_VkDeviceMemory;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDeviceMemory_to_client_VkDeviceMemory;
+            std::shared_mutex VkDeviceMemory_lock;
             
         #endif
         
@@ -77996,11 +78063,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDeviceMemory_lock.lock_shared();
                     if(!(client_VkDeviceMemory_to_server_VkDeviceMemory.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDeviceMemory %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDeviceMemory %p...\n",(VkDeviceMemory)client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)data]);
                     result=client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)data];
+                    VkDeviceMemory_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78017,14 +78086,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDeviceMemory)data);
+                    VkDeviceMemory_lock.lock_shared();
                     if (server_VkDeviceMemory_to_client_VkDeviceMemory.contains(data)){
                         result=(VkDeviceMemory)server_VkDeviceMemory_to_client_VkDeviceMemory[data];
                         debug_printf("Deserializing to VkDeviceMemory %p...\n",result);
+                        VkDeviceMemory_lock.unlock_shared();
                     }else{
+                        VkDeviceMemory_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDeviceMemory));
                         debug_printf("Mapping to VkDeviceMemory %p...\n",handle);
+                        VkDeviceMemory_lock.lock();
                         server_VkDeviceMemory_to_client_VkDeviceMemory[data]=(uintptr_t)handle;
                         client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)handle]=data;
+                        VkDeviceMemory_lock.unlock();
                         
                         result=(VkDeviceMemory)handle; //This is highly dangerous -- I'm basically casting VkDeviceMemory* to VkDeviceMemory. I should do *((VkDeviceMemory*)alloc_icd_object())
                     }
@@ -78037,6 +78111,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkDeviceMemory(const VkDeviceMemory& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDeviceMemory_lock.lock_shared();
                     auto server_handle=client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)client_handle];
                     
                     {
@@ -78044,9 +78120,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkDeviceMemory)client_handle);
                     }
+                    VkDeviceMemory_lock.unlock_shared();
                     
+                    VkDeviceMemory_lock.lock();
                     client_VkDeviceMemory_to_server_VkDeviceMemory.erase((uintptr_t)client_handle);
                     server_VkDeviceMemory_to_client_VkDeviceMemory.erase(server_handle);
+                    VkDeviceMemory_lock.unlock();
                     
             
 
@@ -78057,6 +78136,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkCommandPool_to_server_VkCommandPool;
             std::unordered_map<uintptr_t,uintptr_t> server_VkCommandPool_to_client_VkCommandPool;
+            std::shared_mutex VkCommandPool_lock;
             
         #endif
         
@@ -78068,11 +78148,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkCommandPool_lock.lock_shared();
                     if(!(client_VkCommandPool_to_server_VkCommandPool.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkCommandPool %p not found!\n",data);
                     }
                      debug_printf("Serializing VkCommandPool %p...\n",(VkCommandPool)client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)data]);
                     result=client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)data];
+                    VkCommandPool_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78089,14 +78171,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkCommandPool)data);
+                    VkCommandPool_lock.lock_shared();
                     if (server_VkCommandPool_to_client_VkCommandPool.contains(data)){
                         result=(VkCommandPool)server_VkCommandPool_to_client_VkCommandPool[data];
                         debug_printf("Deserializing to VkCommandPool %p...\n",result);
+                        VkCommandPool_lock.unlock_shared();
                     }else{
+                        VkCommandPool_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkCommandPool));
                         debug_printf("Mapping to VkCommandPool %p...\n",handle);
+                        VkCommandPool_lock.lock();
                         server_VkCommandPool_to_client_VkCommandPool[data]=(uintptr_t)handle;
                         client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)handle]=data;
+                        VkCommandPool_lock.unlock();
                         
                         result=(VkCommandPool)handle; //This is highly dangerous -- I'm basically casting VkCommandPool* to VkCommandPool. I should do *((VkCommandPool*)alloc_icd_object())
                     }
@@ -78109,6 +78196,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkCommandPool(const VkCommandPool& client_handle){
                     #ifdef CLIENT
+                    
+                    VkCommandPool_lock.lock_shared();
                     auto server_handle=client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)client_handle];
                     
                     {
@@ -78116,9 +78205,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkCommandPool)client_handle);
                     }
+                    VkCommandPool_lock.unlock_shared();
                     
+                    VkCommandPool_lock.lock();
                     client_VkCommandPool_to_server_VkCommandPool.erase((uintptr_t)client_handle);
                     server_VkCommandPool_to_client_VkCommandPool.erase(server_handle);
+                    VkCommandPool_lock.unlock();
                     
             
 
@@ -78129,6 +78221,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkBuffer_to_server_VkBuffer;
             std::unordered_map<uintptr_t,uintptr_t> server_VkBuffer_to_client_VkBuffer;
+            std::shared_mutex VkBuffer_lock;
             
         #endif
         
@@ -78140,11 +78233,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkBuffer_lock.lock_shared();
                     if(!(client_VkBuffer_to_server_VkBuffer.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkBuffer %p not found!\n",data);
                     }
                      debug_printf("Serializing VkBuffer %p...\n",(VkBuffer)client_VkBuffer_to_server_VkBuffer[(uintptr_t)data]);
                     result=client_VkBuffer_to_server_VkBuffer[(uintptr_t)data];
+                    VkBuffer_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78161,14 +78256,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkBuffer)data);
+                    VkBuffer_lock.lock_shared();
                     if (server_VkBuffer_to_client_VkBuffer.contains(data)){
                         result=(VkBuffer)server_VkBuffer_to_client_VkBuffer[data];
                         debug_printf("Deserializing to VkBuffer %p...\n",result);
+                        VkBuffer_lock.unlock_shared();
                     }else{
+                        VkBuffer_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkBuffer));
                         debug_printf("Mapping to VkBuffer %p...\n",handle);
+                        VkBuffer_lock.lock();
                         server_VkBuffer_to_client_VkBuffer[data]=(uintptr_t)handle;
                         client_VkBuffer_to_server_VkBuffer[(uintptr_t)handle]=data;
+                        VkBuffer_lock.unlock();
                         
                         result=(VkBuffer)handle; //This is highly dangerous -- I'm basically casting VkBuffer* to VkBuffer. I should do *((VkBuffer*)alloc_icd_object())
                     }
@@ -78181,6 +78281,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkBuffer(const VkBuffer& client_handle){
                     #ifdef CLIENT
+                    
+                    VkBuffer_lock.lock_shared();
                     auto server_handle=client_VkBuffer_to_server_VkBuffer[(uintptr_t)client_handle];
                     
                     {
@@ -78188,9 +78290,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkBuffer)client_handle);
                     }
+                    VkBuffer_lock.unlock_shared();
                     
+                    VkBuffer_lock.lock();
                     client_VkBuffer_to_server_VkBuffer.erase((uintptr_t)client_handle);
                     server_VkBuffer_to_client_VkBuffer.erase(server_handle);
+                    VkBuffer_lock.unlock();
                     
             
 
@@ -78201,6 +78306,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkBufferView_to_server_VkBufferView;
             std::unordered_map<uintptr_t,uintptr_t> server_VkBufferView_to_client_VkBufferView;
+            std::shared_mutex VkBufferView_lock;
             
         #endif
         
@@ -78212,11 +78318,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkBufferView_lock.lock_shared();
                     if(!(client_VkBufferView_to_server_VkBufferView.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkBufferView %p not found!\n",data);
                     }
                      debug_printf("Serializing VkBufferView %p...\n",(VkBufferView)client_VkBufferView_to_server_VkBufferView[(uintptr_t)data]);
                     result=client_VkBufferView_to_server_VkBufferView[(uintptr_t)data];
+                    VkBufferView_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78233,14 +78341,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkBufferView)data);
+                    VkBufferView_lock.lock_shared();
                     if (server_VkBufferView_to_client_VkBufferView.contains(data)){
                         result=(VkBufferView)server_VkBufferView_to_client_VkBufferView[data];
                         debug_printf("Deserializing to VkBufferView %p...\n",result);
+                        VkBufferView_lock.unlock_shared();
                     }else{
+                        VkBufferView_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkBufferView));
                         debug_printf("Mapping to VkBufferView %p...\n",handle);
+                        VkBufferView_lock.lock();
                         server_VkBufferView_to_client_VkBufferView[data]=(uintptr_t)handle;
                         client_VkBufferView_to_server_VkBufferView[(uintptr_t)handle]=data;
+                        VkBufferView_lock.unlock();
                         
                         result=(VkBufferView)handle; //This is highly dangerous -- I'm basically casting VkBufferView* to VkBufferView. I should do *((VkBufferView*)alloc_icd_object())
                     }
@@ -78253,6 +78366,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkBufferView(const VkBufferView& client_handle){
                     #ifdef CLIENT
+                    
+                    VkBufferView_lock.lock_shared();
                     auto server_handle=client_VkBufferView_to_server_VkBufferView[(uintptr_t)client_handle];
                     
                     {
@@ -78260,9 +78375,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkBufferView)client_handle);
                     }
+                    VkBufferView_lock.unlock_shared();
                     
+                    VkBufferView_lock.lock();
                     client_VkBufferView_to_server_VkBufferView.erase((uintptr_t)client_handle);
                     server_VkBufferView_to_client_VkBufferView.erase(server_handle);
+                    VkBufferView_lock.unlock();
                     
             
 
@@ -78273,6 +78391,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkImage_to_server_VkImage;
             std::unordered_map<uintptr_t,uintptr_t> server_VkImage_to_client_VkImage;
+            std::shared_mutex VkImage_lock;
             
         #endif
         
@@ -78284,11 +78403,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkImage_lock.lock_shared();
                     if(!(client_VkImage_to_server_VkImage.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkImage %p not found!\n",data);
                     }
                      debug_printf("Serializing VkImage %p...\n",(VkImage)client_VkImage_to_server_VkImage[(uintptr_t)data]);
                     result=client_VkImage_to_server_VkImage[(uintptr_t)data];
+                    VkImage_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78305,14 +78426,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkImage)data);
+                    VkImage_lock.lock_shared();
                     if (server_VkImage_to_client_VkImage.contains(data)){
                         result=(VkImage)server_VkImage_to_client_VkImage[data];
                         debug_printf("Deserializing to VkImage %p...\n",result);
+                        VkImage_lock.unlock_shared();
                     }else{
+                        VkImage_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkImage));
                         debug_printf("Mapping to VkImage %p...\n",handle);
+                        VkImage_lock.lock();
                         server_VkImage_to_client_VkImage[data]=(uintptr_t)handle;
                         client_VkImage_to_server_VkImage[(uintptr_t)handle]=data;
+                        VkImage_lock.unlock();
                         
                         result=(VkImage)handle; //This is highly dangerous -- I'm basically casting VkImage* to VkImage. I should do *((VkImage*)alloc_icd_object())
                     }
@@ -78325,6 +78451,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkImage(const VkImage& client_handle){
                     #ifdef CLIENT
+                    
+                    VkImage_lock.lock_shared();
                     auto server_handle=client_VkImage_to_server_VkImage[(uintptr_t)client_handle];
                     
                     {
@@ -78332,9 +78460,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkImage)client_handle);
                     }
+                    VkImage_lock.unlock_shared();
                     
+                    VkImage_lock.lock();
                     client_VkImage_to_server_VkImage.erase((uintptr_t)client_handle);
                     server_VkImage_to_client_VkImage.erase(server_handle);
+                    VkImage_lock.unlock();
                     
             
 
@@ -78345,6 +78476,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkImageView_to_server_VkImageView;
             std::unordered_map<uintptr_t,uintptr_t> server_VkImageView_to_client_VkImageView;
+            std::shared_mutex VkImageView_lock;
             
         #endif
         
@@ -78356,11 +78488,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkImageView_lock.lock_shared();
                     if(!(client_VkImageView_to_server_VkImageView.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkImageView %p not found!\n",data);
                     }
                      debug_printf("Serializing VkImageView %p...\n",(VkImageView)client_VkImageView_to_server_VkImageView[(uintptr_t)data]);
                     result=client_VkImageView_to_server_VkImageView[(uintptr_t)data];
+                    VkImageView_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78377,14 +78511,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkImageView)data);
+                    VkImageView_lock.lock_shared();
                     if (server_VkImageView_to_client_VkImageView.contains(data)){
                         result=(VkImageView)server_VkImageView_to_client_VkImageView[data];
                         debug_printf("Deserializing to VkImageView %p...\n",result);
+                        VkImageView_lock.unlock_shared();
                     }else{
+                        VkImageView_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkImageView));
                         debug_printf("Mapping to VkImageView %p...\n",handle);
+                        VkImageView_lock.lock();
                         server_VkImageView_to_client_VkImageView[data]=(uintptr_t)handle;
                         client_VkImageView_to_server_VkImageView[(uintptr_t)handle]=data;
+                        VkImageView_lock.unlock();
                         
                         result=(VkImageView)handle; //This is highly dangerous -- I'm basically casting VkImageView* to VkImageView. I should do *((VkImageView*)alloc_icd_object())
                     }
@@ -78397,6 +78536,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkImageView(const VkImageView& client_handle){
                     #ifdef CLIENT
+                    
+                    VkImageView_lock.lock_shared();
                     auto server_handle=client_VkImageView_to_server_VkImageView[(uintptr_t)client_handle];
                     
                     {
@@ -78404,9 +78545,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkImageView)client_handle);
                     }
+                    VkImageView_lock.unlock_shared();
                     
+                    VkImageView_lock.lock();
                     client_VkImageView_to_server_VkImageView.erase((uintptr_t)client_handle);
                     server_VkImageView_to_client_VkImageView.erase(server_handle);
+                    VkImageView_lock.unlock();
                     
             
 
@@ -78417,6 +78561,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkShaderModule_to_server_VkShaderModule;
             std::unordered_map<uintptr_t,uintptr_t> server_VkShaderModule_to_client_VkShaderModule;
+            std::shared_mutex VkShaderModule_lock;
             
         #endif
         
@@ -78428,11 +78573,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkShaderModule_lock.lock_shared();
                     if(!(client_VkShaderModule_to_server_VkShaderModule.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkShaderModule %p not found!\n",data);
                     }
                      debug_printf("Serializing VkShaderModule %p...\n",(VkShaderModule)client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)data]);
                     result=client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)data];
+                    VkShaderModule_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78449,14 +78596,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkShaderModule)data);
+                    VkShaderModule_lock.lock_shared();
                     if (server_VkShaderModule_to_client_VkShaderModule.contains(data)){
                         result=(VkShaderModule)server_VkShaderModule_to_client_VkShaderModule[data];
                         debug_printf("Deserializing to VkShaderModule %p...\n",result);
+                        VkShaderModule_lock.unlock_shared();
                     }else{
+                        VkShaderModule_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkShaderModule));
                         debug_printf("Mapping to VkShaderModule %p...\n",handle);
+                        VkShaderModule_lock.lock();
                         server_VkShaderModule_to_client_VkShaderModule[data]=(uintptr_t)handle;
                         client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)handle]=data;
+                        VkShaderModule_lock.unlock();
                         
                         result=(VkShaderModule)handle; //This is highly dangerous -- I'm basically casting VkShaderModule* to VkShaderModule. I should do *((VkShaderModule*)alloc_icd_object())
                     }
@@ -78469,6 +78621,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkShaderModule(const VkShaderModule& client_handle){
                     #ifdef CLIENT
+                    
+                    VkShaderModule_lock.lock_shared();
                     auto server_handle=client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)client_handle];
                     
                     {
@@ -78476,9 +78630,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkShaderModule)client_handle);
                     }
+                    VkShaderModule_lock.unlock_shared();
                     
+                    VkShaderModule_lock.lock();
                     client_VkShaderModule_to_server_VkShaderModule.erase((uintptr_t)client_handle);
                     server_VkShaderModule_to_client_VkShaderModule.erase(server_handle);
+                    VkShaderModule_lock.unlock();
                     
             
 
@@ -78489,6 +78646,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkPipeline_to_server_VkPipeline;
             std::unordered_map<uintptr_t,uintptr_t> server_VkPipeline_to_client_VkPipeline;
+            std::shared_mutex VkPipeline_lock;
             
         #endif
         
@@ -78500,11 +78658,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkPipeline_lock.lock_shared();
                     if(!(client_VkPipeline_to_server_VkPipeline.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkPipeline %p not found!\n",data);
                     }
                      debug_printf("Serializing VkPipeline %p...\n",(VkPipeline)client_VkPipeline_to_server_VkPipeline[(uintptr_t)data]);
                     result=client_VkPipeline_to_server_VkPipeline[(uintptr_t)data];
+                    VkPipeline_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78521,14 +78681,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPipeline)data);
+                    VkPipeline_lock.lock_shared();
                     if (server_VkPipeline_to_client_VkPipeline.contains(data)){
                         result=(VkPipeline)server_VkPipeline_to_client_VkPipeline[data];
                         debug_printf("Deserializing to VkPipeline %p...\n",result);
+                        VkPipeline_lock.unlock_shared();
                     }else{
+                        VkPipeline_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkPipeline));
                         debug_printf("Mapping to VkPipeline %p...\n",handle);
+                        VkPipeline_lock.lock();
                         server_VkPipeline_to_client_VkPipeline[data]=(uintptr_t)handle;
                         client_VkPipeline_to_server_VkPipeline[(uintptr_t)handle]=data;
+                        VkPipeline_lock.unlock();
                         
                         result=(VkPipeline)handle; //This is highly dangerous -- I'm basically casting VkPipeline* to VkPipeline. I should do *((VkPipeline*)alloc_icd_object())
                     }
@@ -78541,6 +78706,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkPipeline(const VkPipeline& client_handle){
                     #ifdef CLIENT
+                    
+                    VkPipeline_lock.lock_shared();
                     auto server_handle=client_VkPipeline_to_server_VkPipeline[(uintptr_t)client_handle];
                     
                     {
@@ -78548,9 +78715,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkPipeline)client_handle);
                     }
+                    VkPipeline_lock.unlock_shared();
                     
+                    VkPipeline_lock.lock();
                     client_VkPipeline_to_server_VkPipeline.erase((uintptr_t)client_handle);
                     server_VkPipeline_to_client_VkPipeline.erase(server_handle);
+                    VkPipeline_lock.unlock();
                     
             
 
@@ -78561,6 +78731,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkPipelineLayout_to_server_VkPipelineLayout;
             std::unordered_map<uintptr_t,uintptr_t> server_VkPipelineLayout_to_client_VkPipelineLayout;
+            std::shared_mutex VkPipelineLayout_lock;
             
         #endif
         
@@ -78572,11 +78743,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkPipelineLayout_lock.lock_shared();
                     if(!(client_VkPipelineLayout_to_server_VkPipelineLayout.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkPipelineLayout %p not found!\n",data);
                     }
                      debug_printf("Serializing VkPipelineLayout %p...\n",(VkPipelineLayout)client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)data]);
                     result=client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)data];
+                    VkPipelineLayout_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78593,14 +78766,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPipelineLayout)data);
+                    VkPipelineLayout_lock.lock_shared();
                     if (server_VkPipelineLayout_to_client_VkPipelineLayout.contains(data)){
                         result=(VkPipelineLayout)server_VkPipelineLayout_to_client_VkPipelineLayout[data];
                         debug_printf("Deserializing to VkPipelineLayout %p...\n",result);
+                        VkPipelineLayout_lock.unlock_shared();
                     }else{
+                        VkPipelineLayout_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkPipelineLayout));
                         debug_printf("Mapping to VkPipelineLayout %p...\n",handle);
+                        VkPipelineLayout_lock.lock();
                         server_VkPipelineLayout_to_client_VkPipelineLayout[data]=(uintptr_t)handle;
                         client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)handle]=data;
+                        VkPipelineLayout_lock.unlock();
                         
                         result=(VkPipelineLayout)handle; //This is highly dangerous -- I'm basically casting VkPipelineLayout* to VkPipelineLayout. I should do *((VkPipelineLayout*)alloc_icd_object())
                     }
@@ -78613,6 +78791,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkPipelineLayout(const VkPipelineLayout& client_handle){
                     #ifdef CLIENT
+                    
+                    VkPipelineLayout_lock.lock_shared();
                     auto server_handle=client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)client_handle];
                     
                     {
@@ -78620,9 +78800,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkPipelineLayout)client_handle);
                     }
+                    VkPipelineLayout_lock.unlock_shared();
                     
+                    VkPipelineLayout_lock.lock();
                     client_VkPipelineLayout_to_server_VkPipelineLayout.erase((uintptr_t)client_handle);
                     server_VkPipelineLayout_to_client_VkPipelineLayout.erase(server_handle);
+                    VkPipelineLayout_lock.unlock();
                     
             
 
@@ -78633,6 +78816,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkSampler_to_server_VkSampler;
             std::unordered_map<uintptr_t,uintptr_t> server_VkSampler_to_client_VkSampler;
+            std::shared_mutex VkSampler_lock;
             
         #endif
         
@@ -78644,11 +78828,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkSampler_lock.lock_shared();
                     if(!(client_VkSampler_to_server_VkSampler.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkSampler %p not found!\n",data);
                     }
                      debug_printf("Serializing VkSampler %p...\n",(VkSampler)client_VkSampler_to_server_VkSampler[(uintptr_t)data]);
                     result=client_VkSampler_to_server_VkSampler[(uintptr_t)data];
+                    VkSampler_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78665,14 +78851,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSampler)data);
+                    VkSampler_lock.lock_shared();
                     if (server_VkSampler_to_client_VkSampler.contains(data)){
                         result=(VkSampler)server_VkSampler_to_client_VkSampler[data];
                         debug_printf("Deserializing to VkSampler %p...\n",result);
+                        VkSampler_lock.unlock_shared();
                     }else{
+                        VkSampler_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkSampler));
                         debug_printf("Mapping to VkSampler %p...\n",handle);
+                        VkSampler_lock.lock();
                         server_VkSampler_to_client_VkSampler[data]=(uintptr_t)handle;
                         client_VkSampler_to_server_VkSampler[(uintptr_t)handle]=data;
+                        VkSampler_lock.unlock();
                         
                         result=(VkSampler)handle; //This is highly dangerous -- I'm basically casting VkSampler* to VkSampler. I should do *((VkSampler*)alloc_icd_object())
                     }
@@ -78685,6 +78876,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkSampler(const VkSampler& client_handle){
                     #ifdef CLIENT
+                    
+                    VkSampler_lock.lock_shared();
                     auto server_handle=client_VkSampler_to_server_VkSampler[(uintptr_t)client_handle];
                     
                     {
@@ -78692,9 +78885,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkSampler)client_handle);
                     }
+                    VkSampler_lock.unlock_shared();
                     
+                    VkSampler_lock.lock();
                     client_VkSampler_to_server_VkSampler.erase((uintptr_t)client_handle);
                     server_VkSampler_to_client_VkSampler.erase(server_handle);
+                    VkSampler_lock.unlock();
                     
             
 
@@ -78705,6 +78901,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDescriptorSet_to_server_VkDescriptorSet;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDescriptorSet_to_client_VkDescriptorSet;
+            std::shared_mutex VkDescriptorSet_lock;
             
         #endif
         
@@ -78716,11 +78913,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDescriptorSet_lock.lock_shared();
                     if(!(client_VkDescriptorSet_to_server_VkDescriptorSet.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDescriptorSet %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDescriptorSet %p...\n",(VkDescriptorSet)client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)data]);
                     result=client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)data];
+                    VkDescriptorSet_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78737,14 +78936,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDescriptorSet)data);
+                    VkDescriptorSet_lock.lock_shared();
                     if (server_VkDescriptorSet_to_client_VkDescriptorSet.contains(data)){
                         result=(VkDescriptorSet)server_VkDescriptorSet_to_client_VkDescriptorSet[data];
                         debug_printf("Deserializing to VkDescriptorSet %p...\n",result);
+                        VkDescriptorSet_lock.unlock_shared();
                     }else{
+                        VkDescriptorSet_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDescriptorSet));
                         debug_printf("Mapping to VkDescriptorSet %p...\n",handle);
+                        VkDescriptorSet_lock.lock();
                         server_VkDescriptorSet_to_client_VkDescriptorSet[data]=(uintptr_t)handle;
                         client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)handle]=data;
+                        VkDescriptorSet_lock.unlock();
                         
                         result=(VkDescriptorSet)handle; //This is highly dangerous -- I'm basically casting VkDescriptorSet* to VkDescriptorSet. I should do *((VkDescriptorSet*)alloc_icd_object())
                     }
@@ -78757,6 +78961,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkDescriptorSet(const VkDescriptorSet& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDescriptorSet_lock.lock_shared();
                     auto server_handle=client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)client_handle];
                     
                     {
@@ -78764,9 +78970,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkDescriptorSet)client_handle);
                     }
+                    VkDescriptorSet_lock.unlock_shared();
                     
+                    VkDescriptorSet_lock.lock();
                     client_VkDescriptorSet_to_server_VkDescriptorSet.erase((uintptr_t)client_handle);
                     server_VkDescriptorSet_to_client_VkDescriptorSet.erase(server_handle);
+                    VkDescriptorSet_lock.unlock();
                     
             
 
@@ -78777,6 +78986,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout;
+            std::shared_mutex VkDescriptorSetLayout_lock;
             
         #endif
         
@@ -78788,11 +78998,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDescriptorSetLayout_lock.lock_shared();
                     if(!(client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDescriptorSetLayout %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDescriptorSetLayout %p...\n",(VkDescriptorSetLayout)client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)data]);
                     result=client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)data];
+                    VkDescriptorSetLayout_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78809,14 +79021,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDescriptorSetLayout)data);
+                    VkDescriptorSetLayout_lock.lock_shared();
                     if (server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout.contains(data)){
                         result=(VkDescriptorSetLayout)server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[data];
                         debug_printf("Deserializing to VkDescriptorSetLayout %p...\n",result);
+                        VkDescriptorSetLayout_lock.unlock_shared();
                     }else{
+                        VkDescriptorSetLayout_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDescriptorSetLayout));
                         debug_printf("Mapping to VkDescriptorSetLayout %p...\n",handle);
+                        VkDescriptorSetLayout_lock.lock();
                         server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[data]=(uintptr_t)handle;
                         client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)handle]=data;
+                        VkDescriptorSetLayout_lock.unlock();
                         
                         result=(VkDescriptorSetLayout)handle; //This is highly dangerous -- I'm basically casting VkDescriptorSetLayout* to VkDescriptorSetLayout. I should do *((VkDescriptorSetLayout*)alloc_icd_object())
                     }
@@ -78829,6 +79046,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkDescriptorSetLayout(const VkDescriptorSetLayout& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDescriptorSetLayout_lock.lock_shared();
                     auto server_handle=client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)client_handle];
                     
                     {
@@ -78836,9 +79055,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkDescriptorSetLayout)client_handle);
                     }
+                    VkDescriptorSetLayout_lock.unlock_shared();
                     
+                    VkDescriptorSetLayout_lock.lock();
                     client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout.erase((uintptr_t)client_handle);
                     server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout.erase(server_handle);
+                    VkDescriptorSetLayout_lock.unlock();
                     
             
 
@@ -78849,6 +79071,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDescriptorPool_to_server_VkDescriptorPool;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDescriptorPool_to_client_VkDescriptorPool;
+            std::shared_mutex VkDescriptorPool_lock;
             
         #endif
         
@@ -78860,11 +79083,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDescriptorPool_lock.lock_shared();
                     if(!(client_VkDescriptorPool_to_server_VkDescriptorPool.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDescriptorPool %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDescriptorPool %p...\n",(VkDescriptorPool)client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)data]);
                     result=client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)data];
+                    VkDescriptorPool_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78881,14 +79106,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDescriptorPool)data);
+                    VkDescriptorPool_lock.lock_shared();
                     if (server_VkDescriptorPool_to_client_VkDescriptorPool.contains(data)){
                         result=(VkDescriptorPool)server_VkDescriptorPool_to_client_VkDescriptorPool[data];
                         debug_printf("Deserializing to VkDescriptorPool %p...\n",result);
+                        VkDescriptorPool_lock.unlock_shared();
                     }else{
+                        VkDescriptorPool_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDescriptorPool));
                         debug_printf("Mapping to VkDescriptorPool %p...\n",handle);
+                        VkDescriptorPool_lock.lock();
                         server_VkDescriptorPool_to_client_VkDescriptorPool[data]=(uintptr_t)handle;
                         client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)handle]=data;
+                        VkDescriptorPool_lock.unlock();
                         
                         result=(VkDescriptorPool)handle; //This is highly dangerous -- I'm basically casting VkDescriptorPool* to VkDescriptorPool. I should do *((VkDescriptorPool*)alloc_icd_object())
                     }
@@ -78901,6 +79131,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkDescriptorPool(const VkDescriptorPool& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDescriptorPool_lock.lock_shared();
                     auto server_handle=client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)client_handle];
                     
                     {
@@ -78908,9 +79140,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkDescriptorPool)client_handle);
                     }
+                    VkDescriptorPool_lock.unlock_shared();
                     
+                    VkDescriptorPool_lock.lock();
                     client_VkDescriptorPool_to_server_VkDescriptorPool.erase((uintptr_t)client_handle);
                     server_VkDescriptorPool_to_client_VkDescriptorPool.erase(server_handle);
+                    VkDescriptorPool_lock.unlock();
                     
             
 
@@ -78921,6 +79156,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkFence_to_server_VkFence;
             std::unordered_map<uintptr_t,uintptr_t> server_VkFence_to_client_VkFence;
+            std::shared_mutex VkFence_lock;
             
         #endif
         
@@ -78932,11 +79168,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkFence_lock.lock_shared();
                     if(!(client_VkFence_to_server_VkFence.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkFence %p not found!\n",data);
                     }
                      debug_printf("Serializing VkFence %p...\n",(VkFence)client_VkFence_to_server_VkFence[(uintptr_t)data]);
                     result=client_VkFence_to_server_VkFence[(uintptr_t)data];
+                    VkFence_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -78953,14 +79191,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkFence)data);
+                    VkFence_lock.lock_shared();
                     if (server_VkFence_to_client_VkFence.contains(data)){
                         result=(VkFence)server_VkFence_to_client_VkFence[data];
                         debug_printf("Deserializing to VkFence %p...\n",result);
+                        VkFence_lock.unlock_shared();
                     }else{
+                        VkFence_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkFence));
                         debug_printf("Mapping to VkFence %p...\n",handle);
+                        VkFence_lock.lock();
                         server_VkFence_to_client_VkFence[data]=(uintptr_t)handle;
                         client_VkFence_to_server_VkFence[(uintptr_t)handle]=data;
+                        VkFence_lock.unlock();
                         
                         result=(VkFence)handle; //This is highly dangerous -- I'm basically casting VkFence* to VkFence. I should do *((VkFence*)alloc_icd_object())
                     }
@@ -78973,6 +79216,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkFence(const VkFence& client_handle){
                     #ifdef CLIENT
+                    
+                    VkFence_lock.lock_shared();
                     auto server_handle=client_VkFence_to_server_VkFence[(uintptr_t)client_handle];
                     
                     {
@@ -78980,9 +79225,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkFence)client_handle);
                     }
+                    VkFence_lock.unlock_shared();
                     
+                    VkFence_lock.lock();
                     client_VkFence_to_server_VkFence.erase((uintptr_t)client_handle);
                     server_VkFence_to_client_VkFence.erase(server_handle);
+                    VkFence_lock.unlock();
                     
             
 
@@ -78993,6 +79241,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkSemaphore_to_server_VkSemaphore;
             std::unordered_map<uintptr_t,uintptr_t> server_VkSemaphore_to_client_VkSemaphore;
+            std::shared_mutex VkSemaphore_lock;
             
         #endif
         
@@ -79004,11 +79253,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkSemaphore_lock.lock_shared();
                     if(!(client_VkSemaphore_to_server_VkSemaphore.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkSemaphore %p not found!\n",data);
                     }
                      debug_printf("Serializing VkSemaphore %p...\n",(VkSemaphore)client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)data]);
                     result=client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)data];
+                    VkSemaphore_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79025,14 +79276,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSemaphore)data);
+                    VkSemaphore_lock.lock_shared();
                     if (server_VkSemaphore_to_client_VkSemaphore.contains(data)){
                         result=(VkSemaphore)server_VkSemaphore_to_client_VkSemaphore[data];
                         debug_printf("Deserializing to VkSemaphore %p...\n",result);
+                        VkSemaphore_lock.unlock_shared();
                     }else{
+                        VkSemaphore_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkSemaphore));
                         debug_printf("Mapping to VkSemaphore %p...\n",handle);
+                        VkSemaphore_lock.lock();
                         server_VkSemaphore_to_client_VkSemaphore[data]=(uintptr_t)handle;
                         client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)handle]=data;
+                        VkSemaphore_lock.unlock();
                         
                         result=(VkSemaphore)handle; //This is highly dangerous -- I'm basically casting VkSemaphore* to VkSemaphore. I should do *((VkSemaphore*)alloc_icd_object())
                     }
@@ -79045,6 +79301,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkSemaphore(const VkSemaphore& client_handle){
                     #ifdef CLIENT
+                    
+                    VkSemaphore_lock.lock_shared();
                     auto server_handle=client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)client_handle];
                     
                     {
@@ -79052,9 +79310,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkSemaphore)client_handle);
                     }
+                    VkSemaphore_lock.unlock_shared();
                     
+                    VkSemaphore_lock.lock();
                     client_VkSemaphore_to_server_VkSemaphore.erase((uintptr_t)client_handle);
                     server_VkSemaphore_to_client_VkSemaphore.erase(server_handle);
+                    VkSemaphore_lock.unlock();
                     
             
 
@@ -79065,6 +79326,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkEvent_to_server_VkEvent;
             std::unordered_map<uintptr_t,uintptr_t> server_VkEvent_to_client_VkEvent;
+            std::shared_mutex VkEvent_lock;
             
         #endif
         
@@ -79076,11 +79338,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkEvent_lock.lock_shared();
                     if(!(client_VkEvent_to_server_VkEvent.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkEvent %p not found!\n",data);
                     }
                      debug_printf("Serializing VkEvent %p...\n",(VkEvent)client_VkEvent_to_server_VkEvent[(uintptr_t)data]);
                     result=client_VkEvent_to_server_VkEvent[(uintptr_t)data];
+                    VkEvent_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79097,14 +79361,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkEvent)data);
+                    VkEvent_lock.lock_shared();
                     if (server_VkEvent_to_client_VkEvent.contains(data)){
                         result=(VkEvent)server_VkEvent_to_client_VkEvent[data];
                         debug_printf("Deserializing to VkEvent %p...\n",result);
+                        VkEvent_lock.unlock_shared();
                     }else{
+                        VkEvent_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkEvent));
                         debug_printf("Mapping to VkEvent %p...\n",handle);
+                        VkEvent_lock.lock();
                         server_VkEvent_to_client_VkEvent[data]=(uintptr_t)handle;
                         client_VkEvent_to_server_VkEvent[(uintptr_t)handle]=data;
+                        VkEvent_lock.unlock();
                         
                         result=(VkEvent)handle; //This is highly dangerous -- I'm basically casting VkEvent* to VkEvent. I should do *((VkEvent*)alloc_icd_object())
                     }
@@ -79117,6 +79386,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkEvent(const VkEvent& client_handle){
                     #ifdef CLIENT
+                    
+                    VkEvent_lock.lock_shared();
                     auto server_handle=client_VkEvent_to_server_VkEvent[(uintptr_t)client_handle];
                     
                     {
@@ -79124,9 +79395,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkEvent)client_handle);
                     }
+                    VkEvent_lock.unlock_shared();
                     
+                    VkEvent_lock.lock();
                     client_VkEvent_to_server_VkEvent.erase((uintptr_t)client_handle);
                     server_VkEvent_to_client_VkEvent.erase(server_handle);
+                    VkEvent_lock.unlock();
                     
             
 
@@ -79137,6 +79411,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkQueryPool_to_server_VkQueryPool;
             std::unordered_map<uintptr_t,uintptr_t> server_VkQueryPool_to_client_VkQueryPool;
+            std::shared_mutex VkQueryPool_lock;
             
         #endif
         
@@ -79148,11 +79423,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkQueryPool_lock.lock_shared();
                     if(!(client_VkQueryPool_to_server_VkQueryPool.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkQueryPool %p not found!\n",data);
                     }
                      debug_printf("Serializing VkQueryPool %p...\n",(VkQueryPool)client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)data]);
                     result=client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)data];
+                    VkQueryPool_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79169,14 +79446,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkQueryPool)data);
+                    VkQueryPool_lock.lock_shared();
                     if (server_VkQueryPool_to_client_VkQueryPool.contains(data)){
                         result=(VkQueryPool)server_VkQueryPool_to_client_VkQueryPool[data];
                         debug_printf("Deserializing to VkQueryPool %p...\n",result);
+                        VkQueryPool_lock.unlock_shared();
                     }else{
+                        VkQueryPool_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkQueryPool));
                         debug_printf("Mapping to VkQueryPool %p...\n",handle);
+                        VkQueryPool_lock.lock();
                         server_VkQueryPool_to_client_VkQueryPool[data]=(uintptr_t)handle;
                         client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)handle]=data;
+                        VkQueryPool_lock.unlock();
                         
                         result=(VkQueryPool)handle; //This is highly dangerous -- I'm basically casting VkQueryPool* to VkQueryPool. I should do *((VkQueryPool*)alloc_icd_object())
                     }
@@ -79189,6 +79471,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkQueryPool(const VkQueryPool& client_handle){
                     #ifdef CLIENT
+                    
+                    VkQueryPool_lock.lock_shared();
                     auto server_handle=client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)client_handle];
                     
                     {
@@ -79196,9 +79480,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkQueryPool)client_handle);
                     }
+                    VkQueryPool_lock.unlock_shared();
                     
+                    VkQueryPool_lock.lock();
                     client_VkQueryPool_to_server_VkQueryPool.erase((uintptr_t)client_handle);
                     server_VkQueryPool_to_client_VkQueryPool.erase(server_handle);
+                    VkQueryPool_lock.unlock();
                     
             
 
@@ -79209,6 +79496,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkFramebuffer_to_server_VkFramebuffer;
             std::unordered_map<uintptr_t,uintptr_t> server_VkFramebuffer_to_client_VkFramebuffer;
+            std::shared_mutex VkFramebuffer_lock;
             
         #endif
         
@@ -79220,11 +79508,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkFramebuffer_lock.lock_shared();
                     if(!(client_VkFramebuffer_to_server_VkFramebuffer.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkFramebuffer %p not found!\n",data);
                     }
                      debug_printf("Serializing VkFramebuffer %p...\n",(VkFramebuffer)client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)data]);
                     result=client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)data];
+                    VkFramebuffer_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79241,14 +79531,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkFramebuffer)data);
+                    VkFramebuffer_lock.lock_shared();
                     if (server_VkFramebuffer_to_client_VkFramebuffer.contains(data)){
                         result=(VkFramebuffer)server_VkFramebuffer_to_client_VkFramebuffer[data];
                         debug_printf("Deserializing to VkFramebuffer %p...\n",result);
+                        VkFramebuffer_lock.unlock_shared();
                     }else{
+                        VkFramebuffer_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkFramebuffer));
                         debug_printf("Mapping to VkFramebuffer %p...\n",handle);
+                        VkFramebuffer_lock.lock();
                         server_VkFramebuffer_to_client_VkFramebuffer[data]=(uintptr_t)handle;
                         client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)handle]=data;
+                        VkFramebuffer_lock.unlock();
                         
                         result=(VkFramebuffer)handle; //This is highly dangerous -- I'm basically casting VkFramebuffer* to VkFramebuffer. I should do *((VkFramebuffer*)alloc_icd_object())
                     }
@@ -79261,6 +79556,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkFramebuffer(const VkFramebuffer& client_handle){
                     #ifdef CLIENT
+                    
+                    VkFramebuffer_lock.lock_shared();
                     auto server_handle=client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)client_handle];
                     
                     {
@@ -79268,9 +79565,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkFramebuffer)client_handle);
                     }
+                    VkFramebuffer_lock.unlock_shared();
                     
+                    VkFramebuffer_lock.lock();
                     client_VkFramebuffer_to_server_VkFramebuffer.erase((uintptr_t)client_handle);
                     server_VkFramebuffer_to_client_VkFramebuffer.erase(server_handle);
+                    VkFramebuffer_lock.unlock();
                     
             
 
@@ -79281,6 +79581,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkRenderPass_to_server_VkRenderPass;
             std::unordered_map<uintptr_t,uintptr_t> server_VkRenderPass_to_client_VkRenderPass;
+            std::shared_mutex VkRenderPass_lock;
             
         #endif
         
@@ -79292,11 +79593,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkRenderPass_lock.lock_shared();
                     if(!(client_VkRenderPass_to_server_VkRenderPass.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkRenderPass %p not found!\n",data);
                     }
                      debug_printf("Serializing VkRenderPass %p...\n",(VkRenderPass)client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)data]);
                     result=client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)data];
+                    VkRenderPass_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79313,14 +79616,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkRenderPass)data);
+                    VkRenderPass_lock.lock_shared();
                     if (server_VkRenderPass_to_client_VkRenderPass.contains(data)){
                         result=(VkRenderPass)server_VkRenderPass_to_client_VkRenderPass[data];
                         debug_printf("Deserializing to VkRenderPass %p...\n",result);
+                        VkRenderPass_lock.unlock_shared();
                     }else{
+                        VkRenderPass_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkRenderPass));
                         debug_printf("Mapping to VkRenderPass %p...\n",handle);
+                        VkRenderPass_lock.lock();
                         server_VkRenderPass_to_client_VkRenderPass[data]=(uintptr_t)handle;
                         client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)handle]=data;
+                        VkRenderPass_lock.unlock();
                         
                         result=(VkRenderPass)handle; //This is highly dangerous -- I'm basically casting VkRenderPass* to VkRenderPass. I should do *((VkRenderPass*)alloc_icd_object())
                     }
@@ -79333,6 +79641,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkRenderPass(const VkRenderPass& client_handle){
                     #ifdef CLIENT
+                    
+                    VkRenderPass_lock.lock_shared();
                     auto server_handle=client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)client_handle];
                     
                     {
@@ -79340,9 +79650,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkRenderPass)client_handle);
                     }
+                    VkRenderPass_lock.unlock_shared();
                     
+                    VkRenderPass_lock.lock();
                     client_VkRenderPass_to_server_VkRenderPass.erase((uintptr_t)client_handle);
                     server_VkRenderPass_to_client_VkRenderPass.erase(server_handle);
+                    VkRenderPass_lock.unlock();
                     
             
 
@@ -79353,6 +79666,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkPipelineCache_to_server_VkPipelineCache;
             std::unordered_map<uintptr_t,uintptr_t> server_VkPipelineCache_to_client_VkPipelineCache;
+            std::shared_mutex VkPipelineCache_lock;
             
         #endif
         
@@ -79364,11 +79678,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkPipelineCache_lock.lock_shared();
                     if(!(client_VkPipelineCache_to_server_VkPipelineCache.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkPipelineCache %p not found!\n",data);
                     }
                      debug_printf("Serializing VkPipelineCache %p...\n",(VkPipelineCache)client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)data]);
                     result=client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)data];
+                    VkPipelineCache_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79385,14 +79701,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPipelineCache)data);
+                    VkPipelineCache_lock.lock_shared();
                     if (server_VkPipelineCache_to_client_VkPipelineCache.contains(data)){
                         result=(VkPipelineCache)server_VkPipelineCache_to_client_VkPipelineCache[data];
                         debug_printf("Deserializing to VkPipelineCache %p...\n",result);
+                        VkPipelineCache_lock.unlock_shared();
                     }else{
+                        VkPipelineCache_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkPipelineCache));
                         debug_printf("Mapping to VkPipelineCache %p...\n",handle);
+                        VkPipelineCache_lock.lock();
                         server_VkPipelineCache_to_client_VkPipelineCache[data]=(uintptr_t)handle;
                         client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)handle]=data;
+                        VkPipelineCache_lock.unlock();
                         
                         result=(VkPipelineCache)handle; //This is highly dangerous -- I'm basically casting VkPipelineCache* to VkPipelineCache. I should do *((VkPipelineCache*)alloc_icd_object())
                     }
@@ -79405,6 +79726,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkPipelineCache(const VkPipelineCache& client_handle){
                     #ifdef CLIENT
+                    
+                    VkPipelineCache_lock.lock_shared();
                     auto server_handle=client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)client_handle];
                     
                     {
@@ -79412,9 +79735,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkPipelineCache)client_handle);
                     }
+                    VkPipelineCache_lock.unlock_shared();
                     
+                    VkPipelineCache_lock.lock();
                     client_VkPipelineCache_to_server_VkPipelineCache.erase((uintptr_t)client_handle);
                     server_VkPipelineCache_to_client_VkPipelineCache.erase(server_handle);
+                    VkPipelineCache_lock.unlock();
                     
             
 
@@ -79425,6 +79751,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV;
             std::unordered_map<uintptr_t,uintptr_t> server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV;
+            std::shared_mutex VkIndirectCommandsLayoutNV_lock;
             
         #endif
         
@@ -79436,11 +79763,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkIndirectCommandsLayoutNV_lock.lock_shared();
                     if(!(client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkIndirectCommandsLayoutNV %p not found!\n",data);
                     }
                      debug_printf("Serializing VkIndirectCommandsLayoutNV %p...\n",(VkIndirectCommandsLayoutNV)client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)data]);
                     result=client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)data];
+                    VkIndirectCommandsLayoutNV_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79457,14 +79786,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkIndirectCommandsLayoutNV)data);
+                    VkIndirectCommandsLayoutNV_lock.lock_shared();
                     if (server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV.contains(data)){
                         result=(VkIndirectCommandsLayoutNV)server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[data];
                         debug_printf("Deserializing to VkIndirectCommandsLayoutNV %p...\n",result);
+                        VkIndirectCommandsLayoutNV_lock.unlock_shared();
                     }else{
+                        VkIndirectCommandsLayoutNV_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkIndirectCommandsLayoutNV));
                         debug_printf("Mapping to VkIndirectCommandsLayoutNV %p...\n",handle);
+                        VkIndirectCommandsLayoutNV_lock.lock();
                         server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[data]=(uintptr_t)handle;
                         client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)handle]=data;
+                        VkIndirectCommandsLayoutNV_lock.unlock();
                         
                         result=(VkIndirectCommandsLayoutNV)handle; //This is highly dangerous -- I'm basically casting VkIndirectCommandsLayoutNV* to VkIndirectCommandsLayoutNV. I should do *((VkIndirectCommandsLayoutNV*)alloc_icd_object())
                     }
@@ -79477,6 +79811,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkIndirectCommandsLayoutNV(const VkIndirectCommandsLayoutNV& client_handle){
                     #ifdef CLIENT
+                    
+                    VkIndirectCommandsLayoutNV_lock.lock_shared();
                     auto server_handle=client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)client_handle];
                     
                     {
@@ -79484,9 +79820,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkIndirectCommandsLayoutNV)client_handle);
                     }
+                    VkIndirectCommandsLayoutNV_lock.unlock_shared();
                     
+                    VkIndirectCommandsLayoutNV_lock.lock();
                     client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV.erase((uintptr_t)client_handle);
                     server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV.erase(server_handle);
+                    VkIndirectCommandsLayoutNV_lock.unlock();
                     
             
 
@@ -79497,6 +79836,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate;
+            std::shared_mutex VkDescriptorUpdateTemplate_lock;
             
         #endif
         
@@ -79508,11 +79848,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDescriptorUpdateTemplate_lock.lock_shared();
                     if(!(client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDescriptorUpdateTemplate %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDescriptorUpdateTemplate %p...\n",(VkDescriptorUpdateTemplate)client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)data]);
                     result=client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)data];
+                    VkDescriptorUpdateTemplate_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79529,14 +79871,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDescriptorUpdateTemplate)data);
+                    VkDescriptorUpdateTemplate_lock.lock_shared();
                     if (server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate.contains(data)){
                         result=(VkDescriptorUpdateTemplate)server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[data];
                         debug_printf("Deserializing to VkDescriptorUpdateTemplate %p...\n",result);
+                        VkDescriptorUpdateTemplate_lock.unlock_shared();
                     }else{
+                        VkDescriptorUpdateTemplate_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDescriptorUpdateTemplate));
                         debug_printf("Mapping to VkDescriptorUpdateTemplate %p...\n",handle);
+                        VkDescriptorUpdateTemplate_lock.lock();
                         server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[data]=(uintptr_t)handle;
                         client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)handle]=data;
+                        VkDescriptorUpdateTemplate_lock.unlock();
                         
                         result=(VkDescriptorUpdateTemplate)handle; //This is highly dangerous -- I'm basically casting VkDescriptorUpdateTemplate* to VkDescriptorUpdateTemplate. I should do *((VkDescriptorUpdateTemplate*)alloc_icd_object())
                     }
@@ -79549,6 +79896,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkDescriptorUpdateTemplate(const VkDescriptorUpdateTemplate& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDescriptorUpdateTemplate_lock.lock_shared();
                     auto server_handle=client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)client_handle];
                     
                     {
@@ -79556,9 +79905,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkDescriptorUpdateTemplate)client_handle);
                     }
+                    VkDescriptorUpdateTemplate_lock.unlock_shared();
                     
+                    VkDescriptorUpdateTemplate_lock.lock();
                     client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate.erase((uintptr_t)client_handle);
                     server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate.erase(server_handle);
+                    VkDescriptorUpdateTemplate_lock.unlock();
                     
             
 
@@ -79569,6 +79921,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR;
+            std::shared_mutex VkDescriptorUpdateTemplateKHR_lock;
             
         #endif
         
@@ -79580,11 +79933,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDescriptorUpdateTemplateKHR_lock.lock_shared();
                     if(!(client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDescriptorUpdateTemplateKHR %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDescriptorUpdateTemplateKHR %p...\n",(VkDescriptorUpdateTemplateKHR)client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)data]);
                     result=client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)data];
+                    VkDescriptorUpdateTemplateKHR_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79601,14 +79956,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDescriptorUpdateTemplateKHR)data);
+                    VkDescriptorUpdateTemplateKHR_lock.lock_shared();
                     if (server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR.contains(data)){
                         result=(VkDescriptorUpdateTemplateKHR)server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[data];
                         debug_printf("Deserializing to VkDescriptorUpdateTemplateKHR %p...\n",result);
+                        VkDescriptorUpdateTemplateKHR_lock.unlock_shared();
                     }else{
+                        VkDescriptorUpdateTemplateKHR_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDescriptorUpdateTemplateKHR));
                         debug_printf("Mapping to VkDescriptorUpdateTemplateKHR %p...\n",handle);
+                        VkDescriptorUpdateTemplateKHR_lock.lock();
                         server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[data]=(uintptr_t)handle;
                         client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)handle]=data;
+                        VkDescriptorUpdateTemplateKHR_lock.unlock();
                         
                         result=(VkDescriptorUpdateTemplateKHR)handle; //This is highly dangerous -- I'm basically casting VkDescriptorUpdateTemplateKHR* to VkDescriptorUpdateTemplateKHR. I should do *((VkDescriptorUpdateTemplateKHR*)alloc_icd_object())
                     }
@@ -79621,6 +79981,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkDescriptorUpdateTemplateKHR(const VkDescriptorUpdateTemplateKHR& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDescriptorUpdateTemplateKHR_lock.lock_shared();
                     auto server_handle=client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)client_handle];
                     
                     {
@@ -79628,9 +79990,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkDescriptorUpdateTemplateKHR)client_handle);
                     }
+                    VkDescriptorUpdateTemplateKHR_lock.unlock_shared();
                     
+                    VkDescriptorUpdateTemplateKHR_lock.lock();
                     client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR.erase((uintptr_t)client_handle);
                     server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR.erase(server_handle);
+                    VkDescriptorUpdateTemplateKHR_lock.unlock();
                     
             
 
@@ -79641,6 +80006,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion;
             std::unordered_map<uintptr_t,uintptr_t> server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion;
+            std::shared_mutex VkSamplerYcbcrConversion_lock;
             
         #endif
         
@@ -79652,11 +80018,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkSamplerYcbcrConversion_lock.lock_shared();
                     if(!(client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkSamplerYcbcrConversion %p not found!\n",data);
                     }
                      debug_printf("Serializing VkSamplerYcbcrConversion %p...\n",(VkSamplerYcbcrConversion)client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)data]);
                     result=client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)data];
+                    VkSamplerYcbcrConversion_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79673,14 +80041,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSamplerYcbcrConversion)data);
+                    VkSamplerYcbcrConversion_lock.lock_shared();
                     if (server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion.contains(data)){
                         result=(VkSamplerYcbcrConversion)server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[data];
                         debug_printf("Deserializing to VkSamplerYcbcrConversion %p...\n",result);
+                        VkSamplerYcbcrConversion_lock.unlock_shared();
                     }else{
+                        VkSamplerYcbcrConversion_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkSamplerYcbcrConversion));
                         debug_printf("Mapping to VkSamplerYcbcrConversion %p...\n",handle);
+                        VkSamplerYcbcrConversion_lock.lock();
                         server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[data]=(uintptr_t)handle;
                         client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)handle]=data;
+                        VkSamplerYcbcrConversion_lock.unlock();
                         
                         result=(VkSamplerYcbcrConversion)handle; //This is highly dangerous -- I'm basically casting VkSamplerYcbcrConversion* to VkSamplerYcbcrConversion. I should do *((VkSamplerYcbcrConversion*)alloc_icd_object())
                     }
@@ -79693,6 +80066,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkSamplerYcbcrConversion(const VkSamplerYcbcrConversion& client_handle){
                     #ifdef CLIENT
+                    
+                    VkSamplerYcbcrConversion_lock.lock_shared();
                     auto server_handle=client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)client_handle];
                     
                     {
@@ -79700,9 +80075,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkSamplerYcbcrConversion)client_handle);
                     }
+                    VkSamplerYcbcrConversion_lock.unlock_shared();
                     
+                    VkSamplerYcbcrConversion_lock.lock();
                     client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion.erase((uintptr_t)client_handle);
                     server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion.erase(server_handle);
+                    VkSamplerYcbcrConversion_lock.unlock();
                     
             
 
@@ -79713,6 +80091,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR;
             std::unordered_map<uintptr_t,uintptr_t> server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR;
+            std::shared_mutex VkSamplerYcbcrConversionKHR_lock;
             
         #endif
         
@@ -79724,11 +80103,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkSamplerYcbcrConversionKHR_lock.lock_shared();
                     if(!(client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkSamplerYcbcrConversionKHR %p not found!\n",data);
                     }
                      debug_printf("Serializing VkSamplerYcbcrConversionKHR %p...\n",(VkSamplerYcbcrConversionKHR)client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)data]);
                     result=client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)data];
+                    VkSamplerYcbcrConversionKHR_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79745,14 +80126,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSamplerYcbcrConversionKHR)data);
+                    VkSamplerYcbcrConversionKHR_lock.lock_shared();
                     if (server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR.contains(data)){
                         result=(VkSamplerYcbcrConversionKHR)server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[data];
                         debug_printf("Deserializing to VkSamplerYcbcrConversionKHR %p...\n",result);
+                        VkSamplerYcbcrConversionKHR_lock.unlock_shared();
                     }else{
+                        VkSamplerYcbcrConversionKHR_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkSamplerYcbcrConversionKHR));
                         debug_printf("Mapping to VkSamplerYcbcrConversionKHR %p...\n",handle);
+                        VkSamplerYcbcrConversionKHR_lock.lock();
                         server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[data]=(uintptr_t)handle;
                         client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)handle]=data;
+                        VkSamplerYcbcrConversionKHR_lock.unlock();
                         
                         result=(VkSamplerYcbcrConversionKHR)handle; //This is highly dangerous -- I'm basically casting VkSamplerYcbcrConversionKHR* to VkSamplerYcbcrConversionKHR. I should do *((VkSamplerYcbcrConversionKHR*)alloc_icd_object())
                     }
@@ -79765,6 +80151,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkSamplerYcbcrConversionKHR(const VkSamplerYcbcrConversionKHR& client_handle){
                     #ifdef CLIENT
+                    
+                    VkSamplerYcbcrConversionKHR_lock.lock_shared();
                     auto server_handle=client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)client_handle];
                     
                     {
@@ -79772,9 +80160,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkSamplerYcbcrConversionKHR)client_handle);
                     }
+                    VkSamplerYcbcrConversionKHR_lock.unlock_shared();
                     
+                    VkSamplerYcbcrConversionKHR_lock.lock();
                     client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR.erase((uintptr_t)client_handle);
                     server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR.erase(server_handle);
+                    VkSamplerYcbcrConversionKHR_lock.unlock();
                     
             
 
@@ -79785,6 +80176,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkValidationCacheEXT_to_server_VkValidationCacheEXT;
             std::unordered_map<uintptr_t,uintptr_t> server_VkValidationCacheEXT_to_client_VkValidationCacheEXT;
+            std::shared_mutex VkValidationCacheEXT_lock;
             
         #endif
         
@@ -79796,11 +80188,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkValidationCacheEXT_lock.lock_shared();
                     if(!(client_VkValidationCacheEXT_to_server_VkValidationCacheEXT.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkValidationCacheEXT %p not found!\n",data);
                     }
                      debug_printf("Serializing VkValidationCacheEXT %p...\n",(VkValidationCacheEXT)client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)data]);
                     result=client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)data];
+                    VkValidationCacheEXT_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79817,14 +80211,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkValidationCacheEXT)data);
+                    VkValidationCacheEXT_lock.lock_shared();
                     if (server_VkValidationCacheEXT_to_client_VkValidationCacheEXT.contains(data)){
                         result=(VkValidationCacheEXT)server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[data];
                         debug_printf("Deserializing to VkValidationCacheEXT %p...\n",result);
+                        VkValidationCacheEXT_lock.unlock_shared();
                     }else{
+                        VkValidationCacheEXT_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkValidationCacheEXT));
                         debug_printf("Mapping to VkValidationCacheEXT %p...\n",handle);
+                        VkValidationCacheEXT_lock.lock();
                         server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[data]=(uintptr_t)handle;
                         client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)handle]=data;
+                        VkValidationCacheEXT_lock.unlock();
                         
                         result=(VkValidationCacheEXT)handle; //This is highly dangerous -- I'm basically casting VkValidationCacheEXT* to VkValidationCacheEXT. I should do *((VkValidationCacheEXT*)alloc_icd_object())
                     }
@@ -79837,6 +80236,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkValidationCacheEXT(const VkValidationCacheEXT& client_handle){
                     #ifdef CLIENT
+                    
+                    VkValidationCacheEXT_lock.lock_shared();
                     auto server_handle=client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)client_handle];
                     
                     {
@@ -79844,9 +80245,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkValidationCacheEXT)client_handle);
                     }
+                    VkValidationCacheEXT_lock.unlock_shared();
                     
+                    VkValidationCacheEXT_lock.lock();
                     client_VkValidationCacheEXT_to_server_VkValidationCacheEXT.erase((uintptr_t)client_handle);
                     server_VkValidationCacheEXT_to_client_VkValidationCacheEXT.erase(server_handle);
+                    VkValidationCacheEXT_lock.unlock();
                     
             
 
@@ -79857,6 +80261,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR;
             std::unordered_map<uintptr_t,uintptr_t> server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR;
+            std::shared_mutex VkAccelerationStructureKHR_lock;
             
         #endif
         
@@ -79868,11 +80273,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkAccelerationStructureKHR_lock.lock_shared();
                     if(!(client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkAccelerationStructureKHR %p not found!\n",data);
                     }
                      debug_printf("Serializing VkAccelerationStructureKHR %p...\n",(VkAccelerationStructureKHR)client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)data]);
                     result=client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)data];
+                    VkAccelerationStructureKHR_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79889,14 +80296,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkAccelerationStructureKHR)data);
+                    VkAccelerationStructureKHR_lock.lock_shared();
                     if (server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR.contains(data)){
                         result=(VkAccelerationStructureKHR)server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[data];
                         debug_printf("Deserializing to VkAccelerationStructureKHR %p...\n",result);
+                        VkAccelerationStructureKHR_lock.unlock_shared();
                     }else{
+                        VkAccelerationStructureKHR_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkAccelerationStructureKHR));
                         debug_printf("Mapping to VkAccelerationStructureKHR %p...\n",handle);
+                        VkAccelerationStructureKHR_lock.lock();
                         server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[data]=(uintptr_t)handle;
                         client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)handle]=data;
+                        VkAccelerationStructureKHR_lock.unlock();
                         
                         result=(VkAccelerationStructureKHR)handle; //This is highly dangerous -- I'm basically casting VkAccelerationStructureKHR* to VkAccelerationStructureKHR. I should do *((VkAccelerationStructureKHR*)alloc_icd_object())
                     }
@@ -79909,6 +80321,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkAccelerationStructureKHR(const VkAccelerationStructureKHR& client_handle){
                     #ifdef CLIENT
+                    
+                    VkAccelerationStructureKHR_lock.lock_shared();
                     auto server_handle=client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)client_handle];
                     
                     {
@@ -79916,9 +80330,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkAccelerationStructureKHR)client_handle);
                     }
+                    VkAccelerationStructureKHR_lock.unlock_shared();
                     
+                    VkAccelerationStructureKHR_lock.lock();
                     client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR.erase((uintptr_t)client_handle);
                     server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR.erase(server_handle);
+                    VkAccelerationStructureKHR_lock.unlock();
                     
             
 
@@ -79929,6 +80346,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV;
             std::unordered_map<uintptr_t,uintptr_t> server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV;
+            std::shared_mutex VkAccelerationStructureNV_lock;
             
         #endif
         
@@ -79940,11 +80358,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkAccelerationStructureNV_lock.lock_shared();
                     if(!(client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkAccelerationStructureNV %p not found!\n",data);
                     }
                      debug_printf("Serializing VkAccelerationStructureNV %p...\n",(VkAccelerationStructureNV)client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)data]);
                     result=client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)data];
+                    VkAccelerationStructureNV_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -79961,14 +80381,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkAccelerationStructureNV)data);
+                    VkAccelerationStructureNV_lock.lock_shared();
                     if (server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV.contains(data)){
                         result=(VkAccelerationStructureNV)server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[data];
                         debug_printf("Deserializing to VkAccelerationStructureNV %p...\n",result);
+                        VkAccelerationStructureNV_lock.unlock_shared();
                     }else{
+                        VkAccelerationStructureNV_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkAccelerationStructureNV));
                         debug_printf("Mapping to VkAccelerationStructureNV %p...\n",handle);
+                        VkAccelerationStructureNV_lock.lock();
                         server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[data]=(uintptr_t)handle;
                         client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)handle]=data;
+                        VkAccelerationStructureNV_lock.unlock();
                         
                         result=(VkAccelerationStructureNV)handle; //This is highly dangerous -- I'm basically casting VkAccelerationStructureNV* to VkAccelerationStructureNV. I should do *((VkAccelerationStructureNV*)alloc_icd_object())
                     }
@@ -79981,6 +80406,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkAccelerationStructureNV(const VkAccelerationStructureNV& client_handle){
                     #ifdef CLIENT
+                    
+                    VkAccelerationStructureNV_lock.lock_shared();
                     auto server_handle=client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)client_handle];
                     
                     {
@@ -79988,9 +80415,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkAccelerationStructureNV)client_handle);
                     }
+                    VkAccelerationStructureNV_lock.unlock_shared();
                     
+                    VkAccelerationStructureNV_lock.lock();
                     client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV.erase((uintptr_t)client_handle);
                     server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV.erase(server_handle);
+                    VkAccelerationStructureNV_lock.unlock();
                     
             
 
@@ -80001,6 +80431,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL;
             std::unordered_map<uintptr_t,uintptr_t> server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL;
+            std::shared_mutex VkPerformanceConfigurationINTEL_lock;
             
         #endif
         
@@ -80012,11 +80443,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkPerformanceConfigurationINTEL_lock.lock_shared();
                     if(!(client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkPerformanceConfigurationINTEL %p not found!\n",data);
                     }
                      debug_printf("Serializing VkPerformanceConfigurationINTEL %p...\n",(VkPerformanceConfigurationINTEL)client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)data]);
                     result=client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)data];
+                    VkPerformanceConfigurationINTEL_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80033,14 +80466,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPerformanceConfigurationINTEL)data);
+                    VkPerformanceConfigurationINTEL_lock.lock_shared();
                     if (server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL.contains(data)){
                         result=(VkPerformanceConfigurationINTEL)server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[data];
                         debug_printf("Deserializing to VkPerformanceConfigurationINTEL %p...\n",result);
+                        VkPerformanceConfigurationINTEL_lock.unlock_shared();
                     }else{
+                        VkPerformanceConfigurationINTEL_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkPerformanceConfigurationINTEL));
                         debug_printf("Mapping to VkPerformanceConfigurationINTEL %p...\n",handle);
+                        VkPerformanceConfigurationINTEL_lock.lock();
                         server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[data]=(uintptr_t)handle;
                         client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)handle]=data;
+                        VkPerformanceConfigurationINTEL_lock.unlock();
                         
                         result=(VkPerformanceConfigurationINTEL)handle; //This is highly dangerous -- I'm basically casting VkPerformanceConfigurationINTEL* to VkPerformanceConfigurationINTEL. I should do *((VkPerformanceConfigurationINTEL*)alloc_icd_object())
                     }
@@ -80053,6 +80491,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkPerformanceConfigurationINTEL(const VkPerformanceConfigurationINTEL& client_handle){
                     #ifdef CLIENT
+                    
+                    VkPerformanceConfigurationINTEL_lock.lock_shared();
                     auto server_handle=client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)client_handle];
                     
                     {
@@ -80060,9 +80500,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkPerformanceConfigurationINTEL)client_handle);
                     }
+                    VkPerformanceConfigurationINTEL_lock.unlock_shared();
                     
+                    VkPerformanceConfigurationINTEL_lock.lock();
                     client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL.erase((uintptr_t)client_handle);
                     server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL.erase(server_handle);
+                    VkPerformanceConfigurationINTEL_lock.unlock();
                     
             
 
@@ -80073,6 +80516,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR;
+            std::shared_mutex VkDeferredOperationKHR_lock;
             
         #endif
         
@@ -80084,11 +80528,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDeferredOperationKHR_lock.lock_shared();
                     if(!(client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDeferredOperationKHR %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDeferredOperationKHR %p...\n",(VkDeferredOperationKHR)client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)data]);
                     result=client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)data];
+                    VkDeferredOperationKHR_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80105,14 +80551,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDeferredOperationKHR)data);
+                    VkDeferredOperationKHR_lock.lock_shared();
                     if (server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR.contains(data)){
                         result=(VkDeferredOperationKHR)server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[data];
                         debug_printf("Deserializing to VkDeferredOperationKHR %p...\n",result);
+                        VkDeferredOperationKHR_lock.unlock_shared();
                     }else{
+                        VkDeferredOperationKHR_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDeferredOperationKHR));
                         debug_printf("Mapping to VkDeferredOperationKHR %p...\n",handle);
+                        VkDeferredOperationKHR_lock.lock();
                         server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[data]=(uintptr_t)handle;
                         client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)handle]=data;
+                        VkDeferredOperationKHR_lock.unlock();
                         
                         result=(VkDeferredOperationKHR)handle; //This is highly dangerous -- I'm basically casting VkDeferredOperationKHR* to VkDeferredOperationKHR. I should do *((VkDeferredOperationKHR*)alloc_icd_object())
                     }
@@ -80125,6 +80576,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkDeferredOperationKHR(const VkDeferredOperationKHR& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDeferredOperationKHR_lock.lock_shared();
                     auto server_handle=client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)client_handle];
                     
                     {
@@ -80132,9 +80585,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkDeferredOperationKHR)client_handle);
                     }
+                    VkDeferredOperationKHR_lock.unlock_shared();
                     
+                    VkDeferredOperationKHR_lock.lock();
                     client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR.erase((uintptr_t)client_handle);
                     server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR.erase(server_handle);
+                    VkDeferredOperationKHR_lock.unlock();
                     
             
 
@@ -80145,6 +80601,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkPrivateDataSlot_to_server_VkPrivateDataSlot;
             std::unordered_map<uintptr_t,uintptr_t> server_VkPrivateDataSlot_to_client_VkPrivateDataSlot;
+            std::shared_mutex VkPrivateDataSlot_lock;
             
         #endif
         
@@ -80156,11 +80613,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkPrivateDataSlot_lock.lock_shared();
                     if(!(client_VkPrivateDataSlot_to_server_VkPrivateDataSlot.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkPrivateDataSlot %p not found!\n",data);
                     }
                      debug_printf("Serializing VkPrivateDataSlot %p...\n",(VkPrivateDataSlot)client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)data]);
                     result=client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)data];
+                    VkPrivateDataSlot_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80177,14 +80636,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPrivateDataSlot)data);
+                    VkPrivateDataSlot_lock.lock_shared();
                     if (server_VkPrivateDataSlot_to_client_VkPrivateDataSlot.contains(data)){
                         result=(VkPrivateDataSlot)server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[data];
                         debug_printf("Deserializing to VkPrivateDataSlot %p...\n",result);
+                        VkPrivateDataSlot_lock.unlock_shared();
                     }else{
+                        VkPrivateDataSlot_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkPrivateDataSlot));
                         debug_printf("Mapping to VkPrivateDataSlot %p...\n",handle);
+                        VkPrivateDataSlot_lock.lock();
                         server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[data]=(uintptr_t)handle;
                         client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)handle]=data;
+                        VkPrivateDataSlot_lock.unlock();
                         
                         result=(VkPrivateDataSlot)handle; //This is highly dangerous -- I'm basically casting VkPrivateDataSlot* to VkPrivateDataSlot. I should do *((VkPrivateDataSlot*)alloc_icd_object())
                     }
@@ -80197,6 +80661,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkPrivateDataSlot(const VkPrivateDataSlot& client_handle){
                     #ifdef CLIENT
+                    
+                    VkPrivateDataSlot_lock.lock_shared();
                     auto server_handle=client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)client_handle];
                     
                     {
@@ -80204,9 +80670,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkPrivateDataSlot)client_handle);
                     }
+                    VkPrivateDataSlot_lock.unlock_shared();
                     
+                    VkPrivateDataSlot_lock.lock();
                     client_VkPrivateDataSlot_to_server_VkPrivateDataSlot.erase((uintptr_t)client_handle);
                     server_VkPrivateDataSlot_to_client_VkPrivateDataSlot.erase(server_handle);
+                    VkPrivateDataSlot_lock.unlock();
                     
             
 
@@ -80217,6 +80686,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT;
             std::unordered_map<uintptr_t,uintptr_t> server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT;
+            std::shared_mutex VkPrivateDataSlotEXT_lock;
             
         #endif
         
@@ -80228,11 +80698,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkPrivateDataSlotEXT_lock.lock_shared();
                     if(!(client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkPrivateDataSlotEXT %p not found!\n",data);
                     }
                      debug_printf("Serializing VkPrivateDataSlotEXT %p...\n",(VkPrivateDataSlotEXT)client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)data]);
                     result=client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)data];
+                    VkPrivateDataSlotEXT_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80249,14 +80721,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPrivateDataSlotEXT)data);
+                    VkPrivateDataSlotEXT_lock.lock_shared();
                     if (server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT.contains(data)){
                         result=(VkPrivateDataSlotEXT)server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[data];
                         debug_printf("Deserializing to VkPrivateDataSlotEXT %p...\n",result);
+                        VkPrivateDataSlotEXT_lock.unlock_shared();
                     }else{
+                        VkPrivateDataSlotEXT_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkPrivateDataSlotEXT));
                         debug_printf("Mapping to VkPrivateDataSlotEXT %p...\n",handle);
+                        VkPrivateDataSlotEXT_lock.lock();
                         server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[data]=(uintptr_t)handle;
                         client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)handle]=data;
+                        VkPrivateDataSlotEXT_lock.unlock();
                         
                         result=(VkPrivateDataSlotEXT)handle; //This is highly dangerous -- I'm basically casting VkPrivateDataSlotEXT* to VkPrivateDataSlotEXT. I should do *((VkPrivateDataSlotEXT*)alloc_icd_object())
                     }
@@ -80269,6 +80746,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkPrivateDataSlotEXT(const VkPrivateDataSlotEXT& client_handle){
                     #ifdef CLIENT
+                    
+                    VkPrivateDataSlotEXT_lock.lock_shared();
                     auto server_handle=client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)client_handle];
                     
                     {
@@ -80276,9 +80755,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkPrivateDataSlotEXT)client_handle);
                     }
+                    VkPrivateDataSlotEXT_lock.unlock_shared();
                     
+                    VkPrivateDataSlotEXT_lock.lock();
                     client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT.erase((uintptr_t)client_handle);
                     server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT.erase(server_handle);
+                    VkPrivateDataSlotEXT_lock.unlock();
                     
             
 
@@ -80289,6 +80771,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkCuModuleNVX_to_server_VkCuModuleNVX;
             std::unordered_map<uintptr_t,uintptr_t> server_VkCuModuleNVX_to_client_VkCuModuleNVX;
+            std::shared_mutex VkCuModuleNVX_lock;
             
         #endif
         
@@ -80300,11 +80783,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkCuModuleNVX_lock.lock_shared();
                     if(!(client_VkCuModuleNVX_to_server_VkCuModuleNVX.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkCuModuleNVX %p not found!\n",data);
                     }
                      debug_printf("Serializing VkCuModuleNVX %p...\n",(VkCuModuleNVX)client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)data]);
                     result=client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)data];
+                    VkCuModuleNVX_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80321,14 +80806,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkCuModuleNVX)data);
+                    VkCuModuleNVX_lock.lock_shared();
                     if (server_VkCuModuleNVX_to_client_VkCuModuleNVX.contains(data)){
                         result=(VkCuModuleNVX)server_VkCuModuleNVX_to_client_VkCuModuleNVX[data];
                         debug_printf("Deserializing to VkCuModuleNVX %p...\n",result);
+                        VkCuModuleNVX_lock.unlock_shared();
                     }else{
+                        VkCuModuleNVX_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkCuModuleNVX));
                         debug_printf("Mapping to VkCuModuleNVX %p...\n",handle);
+                        VkCuModuleNVX_lock.lock();
                         server_VkCuModuleNVX_to_client_VkCuModuleNVX[data]=(uintptr_t)handle;
                         client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)handle]=data;
+                        VkCuModuleNVX_lock.unlock();
                         
                         result=(VkCuModuleNVX)handle; //This is highly dangerous -- I'm basically casting VkCuModuleNVX* to VkCuModuleNVX. I should do *((VkCuModuleNVX*)alloc_icd_object())
                     }
@@ -80341,6 +80831,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkCuModuleNVX(const VkCuModuleNVX& client_handle){
                     #ifdef CLIENT
+                    
+                    VkCuModuleNVX_lock.lock_shared();
                     auto server_handle=client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)client_handle];
                     
                     {
@@ -80348,9 +80840,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkCuModuleNVX)client_handle);
                     }
+                    VkCuModuleNVX_lock.unlock_shared();
                     
+                    VkCuModuleNVX_lock.lock();
                     client_VkCuModuleNVX_to_server_VkCuModuleNVX.erase((uintptr_t)client_handle);
                     server_VkCuModuleNVX_to_client_VkCuModuleNVX.erase(server_handle);
+                    VkCuModuleNVX_lock.unlock();
                     
             
 
@@ -80361,6 +80856,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkCuFunctionNVX_to_server_VkCuFunctionNVX;
             std::unordered_map<uintptr_t,uintptr_t> server_VkCuFunctionNVX_to_client_VkCuFunctionNVX;
+            std::shared_mutex VkCuFunctionNVX_lock;
             
         #endif
         
@@ -80372,11 +80868,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkCuFunctionNVX_lock.lock_shared();
                     if(!(client_VkCuFunctionNVX_to_server_VkCuFunctionNVX.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkCuFunctionNVX %p not found!\n",data);
                     }
                      debug_printf("Serializing VkCuFunctionNVX %p...\n",(VkCuFunctionNVX)client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)data]);
                     result=client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)data];
+                    VkCuFunctionNVX_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80393,14 +80891,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkCuFunctionNVX)data);
+                    VkCuFunctionNVX_lock.lock_shared();
                     if (server_VkCuFunctionNVX_to_client_VkCuFunctionNVX.contains(data)){
                         result=(VkCuFunctionNVX)server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[data];
                         debug_printf("Deserializing to VkCuFunctionNVX %p...\n",result);
+                        VkCuFunctionNVX_lock.unlock_shared();
                     }else{
+                        VkCuFunctionNVX_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkCuFunctionNVX));
                         debug_printf("Mapping to VkCuFunctionNVX %p...\n",handle);
+                        VkCuFunctionNVX_lock.lock();
                         server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[data]=(uintptr_t)handle;
                         client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)handle]=data;
+                        VkCuFunctionNVX_lock.unlock();
                         
                         result=(VkCuFunctionNVX)handle; //This is highly dangerous -- I'm basically casting VkCuFunctionNVX* to VkCuFunctionNVX. I should do *((VkCuFunctionNVX*)alloc_icd_object())
                     }
@@ -80413,6 +80916,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkCuFunctionNVX(const VkCuFunctionNVX& client_handle){
                     #ifdef CLIENT
+                    
+                    VkCuFunctionNVX_lock.lock_shared();
                     auto server_handle=client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)client_handle];
                     
                     {
@@ -80420,9 +80925,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkCuFunctionNVX)client_handle);
                     }
+                    VkCuFunctionNVX_lock.unlock_shared();
                     
+                    VkCuFunctionNVX_lock.lock();
                     client_VkCuFunctionNVX_to_server_VkCuFunctionNVX.erase((uintptr_t)client_handle);
                     server_VkCuFunctionNVX_to_client_VkCuFunctionNVX.erase(server_handle);
+                    VkCuFunctionNVX_lock.unlock();
                     
             
 
@@ -80433,6 +80941,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV;
             std::unordered_map<uintptr_t,uintptr_t> server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV;
+            std::shared_mutex VkOpticalFlowSessionNV_lock;
             
         #endif
         
@@ -80444,11 +80953,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkOpticalFlowSessionNV_lock.lock_shared();
                     if(!(client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkOpticalFlowSessionNV %p not found!\n",data);
                     }
                      debug_printf("Serializing VkOpticalFlowSessionNV %p...\n",(VkOpticalFlowSessionNV)client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)data]);
                     result=client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)data];
+                    VkOpticalFlowSessionNV_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80465,14 +80976,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkOpticalFlowSessionNV)data);
+                    VkOpticalFlowSessionNV_lock.lock_shared();
                     if (server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV.contains(data)){
                         result=(VkOpticalFlowSessionNV)server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[data];
                         debug_printf("Deserializing to VkOpticalFlowSessionNV %p...\n",result);
+                        VkOpticalFlowSessionNV_lock.unlock_shared();
                     }else{
+                        VkOpticalFlowSessionNV_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkOpticalFlowSessionNV));
                         debug_printf("Mapping to VkOpticalFlowSessionNV %p...\n",handle);
+                        VkOpticalFlowSessionNV_lock.lock();
                         server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[data]=(uintptr_t)handle;
                         client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)handle]=data;
+                        VkOpticalFlowSessionNV_lock.unlock();
                         
                         result=(VkOpticalFlowSessionNV)handle; //This is highly dangerous -- I'm basically casting VkOpticalFlowSessionNV* to VkOpticalFlowSessionNV. I should do *((VkOpticalFlowSessionNV*)alloc_icd_object())
                     }
@@ -80485,6 +81001,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkOpticalFlowSessionNV(const VkOpticalFlowSessionNV& client_handle){
                     #ifdef CLIENT
+                    
+                    VkOpticalFlowSessionNV_lock.lock_shared();
                     auto server_handle=client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)client_handle];
                     
                     {
@@ -80492,9 +81010,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkOpticalFlowSessionNV)client_handle);
                     }
+                    VkOpticalFlowSessionNV_lock.unlock_shared();
                     
+                    VkOpticalFlowSessionNV_lock.lock();
                     client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV.erase((uintptr_t)client_handle);
                     server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV.erase(server_handle);
+                    VkOpticalFlowSessionNV_lock.unlock();
                     
             
 
@@ -80505,6 +81026,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkMicromapEXT_to_server_VkMicromapEXT;
             std::unordered_map<uintptr_t,uintptr_t> server_VkMicromapEXT_to_client_VkMicromapEXT;
+            std::shared_mutex VkMicromapEXT_lock;
             
         #endif
         
@@ -80516,11 +81038,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkMicromapEXT_lock.lock_shared();
                     if(!(client_VkMicromapEXT_to_server_VkMicromapEXT.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkMicromapEXT %p not found!\n",data);
                     }
                      debug_printf("Serializing VkMicromapEXT %p...\n",(VkMicromapEXT)client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)data]);
                     result=client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)data];
+                    VkMicromapEXT_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80537,14 +81061,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkMicromapEXT)data);
+                    VkMicromapEXT_lock.lock_shared();
                     if (server_VkMicromapEXT_to_client_VkMicromapEXT.contains(data)){
                         result=(VkMicromapEXT)server_VkMicromapEXT_to_client_VkMicromapEXT[data];
                         debug_printf("Deserializing to VkMicromapEXT %p...\n",result);
+                        VkMicromapEXT_lock.unlock_shared();
                     }else{
+                        VkMicromapEXT_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkMicromapEXT));
                         debug_printf("Mapping to VkMicromapEXT %p...\n",handle);
+                        VkMicromapEXT_lock.lock();
                         server_VkMicromapEXT_to_client_VkMicromapEXT[data]=(uintptr_t)handle;
                         client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)handle]=data;
+                        VkMicromapEXT_lock.unlock();
                         
                         result=(VkMicromapEXT)handle; //This is highly dangerous -- I'm basically casting VkMicromapEXT* to VkMicromapEXT. I should do *((VkMicromapEXT*)alloc_icd_object())
                     }
@@ -80557,6 +81086,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkMicromapEXT(const VkMicromapEXT& client_handle){
                     #ifdef CLIENT
+                    
+                    VkMicromapEXT_lock.lock_shared();
                     auto server_handle=client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)client_handle];
                     
                     {
@@ -80564,9 +81095,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkMicromapEXT)client_handle);
                     }
+                    VkMicromapEXT_lock.unlock_shared();
                     
+                    VkMicromapEXT_lock.lock();
                     client_VkMicromapEXT_to_server_VkMicromapEXT.erase((uintptr_t)client_handle);
                     server_VkMicromapEXT_to_client_VkMicromapEXT.erase(server_handle);
+                    VkMicromapEXT_lock.unlock();
                     
             
 
@@ -80577,6 +81111,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkShaderEXT_to_server_VkShaderEXT;
             std::unordered_map<uintptr_t,uintptr_t> server_VkShaderEXT_to_client_VkShaderEXT;
+            std::shared_mutex VkShaderEXT_lock;
             
         #endif
         
@@ -80588,11 +81123,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkShaderEXT_lock.lock_shared();
                     if(!(client_VkShaderEXT_to_server_VkShaderEXT.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkShaderEXT %p not found!\n",data);
                     }
                      debug_printf("Serializing VkShaderEXT %p...\n",(VkShaderEXT)client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)data]);
                     result=client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)data];
+                    VkShaderEXT_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80609,14 +81146,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkShaderEXT)data);
+                    VkShaderEXT_lock.lock_shared();
                     if (server_VkShaderEXT_to_client_VkShaderEXT.contains(data)){
                         result=(VkShaderEXT)server_VkShaderEXT_to_client_VkShaderEXT[data];
                         debug_printf("Deserializing to VkShaderEXT %p...\n",result);
+                        VkShaderEXT_lock.unlock_shared();
                     }else{
+                        VkShaderEXT_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkShaderEXT));
                         debug_printf("Mapping to VkShaderEXT %p...\n",handle);
+                        VkShaderEXT_lock.lock();
                         server_VkShaderEXT_to_client_VkShaderEXT[data]=(uintptr_t)handle;
                         client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)handle]=data;
+                        VkShaderEXT_lock.unlock();
                         
                         result=(VkShaderEXT)handle; //This is highly dangerous -- I'm basically casting VkShaderEXT* to VkShaderEXT. I should do *((VkShaderEXT*)alloc_icd_object())
                     }
@@ -80629,6 +81171,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkShaderEXT(const VkShaderEXT& client_handle){
                     #ifdef CLIENT
+                    
+                    VkShaderEXT_lock.lock_shared();
                     auto server_handle=client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)client_handle];
                     
                     {
@@ -80636,9 +81180,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkShaderEXT)client_handle);
                     }
+                    VkShaderEXT_lock.unlock_shared();
                     
+                    VkShaderEXT_lock.lock();
                     client_VkShaderEXT_to_server_VkShaderEXT.erase((uintptr_t)client_handle);
                     server_VkShaderEXT_to_client_VkShaderEXT.erase(server_handle);
+                    VkShaderEXT_lock.unlock();
                     
             
 
@@ -80649,6 +81196,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDisplayKHR_to_server_VkDisplayKHR;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDisplayKHR_to_client_VkDisplayKHR;
+            std::shared_mutex VkDisplayKHR_lock;
             
         #endif
         
@@ -80660,11 +81208,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDisplayKHR_lock.lock_shared();
                     if(!(client_VkDisplayKHR_to_server_VkDisplayKHR.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDisplayKHR %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDisplayKHR %p...\n",(VkDisplayKHR)client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)data]);
                     result=client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)data];
+                    VkDisplayKHR_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80681,14 +81231,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDisplayKHR)data);
+                    VkDisplayKHR_lock.lock_shared();
                     if (server_VkDisplayKHR_to_client_VkDisplayKHR.contains(data)){
                         result=(VkDisplayKHR)server_VkDisplayKHR_to_client_VkDisplayKHR[data];
                         debug_printf("Deserializing to VkDisplayKHR %p...\n",result);
+                        VkDisplayKHR_lock.unlock_shared();
                     }else{
+                        VkDisplayKHR_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDisplayKHR));
                         debug_printf("Mapping to VkDisplayKHR %p...\n",handle);
+                        VkDisplayKHR_lock.lock();
                         server_VkDisplayKHR_to_client_VkDisplayKHR[data]=(uintptr_t)handle;
                         client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)handle]=data;
+                        VkDisplayKHR_lock.unlock();
                         
                         result=(VkDisplayKHR)handle; //This is highly dangerous -- I'm basically casting VkDisplayKHR* to VkDisplayKHR. I should do *((VkDisplayKHR*)alloc_icd_object())
                     }
@@ -80701,6 +81256,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkDisplayKHR(const VkDisplayKHR& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDisplayKHR_lock.lock_shared();
                     auto server_handle=client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)client_handle];
                     
                     {
@@ -80708,9 +81265,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkDisplayKHR)client_handle);
                     }
+                    VkDisplayKHR_lock.unlock_shared();
                     
+                    VkDisplayKHR_lock.lock();
                     client_VkDisplayKHR_to_server_VkDisplayKHR.erase((uintptr_t)client_handle);
                     server_VkDisplayKHR_to_client_VkDisplayKHR.erase(server_handle);
+                    VkDisplayKHR_lock.unlock();
                     
             
 
@@ -80721,6 +81281,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDisplayModeKHR_to_server_VkDisplayModeKHR;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDisplayModeKHR_to_client_VkDisplayModeKHR;
+            std::shared_mutex VkDisplayModeKHR_lock;
             
         #endif
         
@@ -80732,11 +81293,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDisplayModeKHR_lock.lock_shared();
                     if(!(client_VkDisplayModeKHR_to_server_VkDisplayModeKHR.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDisplayModeKHR %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDisplayModeKHR %p...\n",(VkDisplayModeKHR)client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)data]);
                     result=client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)data];
+                    VkDisplayModeKHR_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80753,14 +81316,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDisplayModeKHR)data);
+                    VkDisplayModeKHR_lock.lock_shared();
                     if (server_VkDisplayModeKHR_to_client_VkDisplayModeKHR.contains(data)){
                         result=(VkDisplayModeKHR)server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[data];
                         debug_printf("Deserializing to VkDisplayModeKHR %p...\n",result);
+                        VkDisplayModeKHR_lock.unlock_shared();
                     }else{
+                        VkDisplayModeKHR_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDisplayModeKHR));
                         debug_printf("Mapping to VkDisplayModeKHR %p...\n",handle);
+                        VkDisplayModeKHR_lock.lock();
                         server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[data]=(uintptr_t)handle;
                         client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)handle]=data;
+                        VkDisplayModeKHR_lock.unlock();
                         
                         result=(VkDisplayModeKHR)handle; //This is highly dangerous -- I'm basically casting VkDisplayModeKHR* to VkDisplayModeKHR. I should do *((VkDisplayModeKHR*)alloc_icd_object())
                     }
@@ -80773,6 +81341,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkDisplayModeKHR(const VkDisplayModeKHR& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDisplayModeKHR_lock.lock_shared();
                     auto server_handle=client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)client_handle];
                     
                     {
@@ -80780,9 +81350,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkDisplayModeKHR)client_handle);
                     }
+                    VkDisplayModeKHR_lock.unlock_shared();
                     
+                    VkDisplayModeKHR_lock.lock();
                     client_VkDisplayModeKHR_to_server_VkDisplayModeKHR.erase((uintptr_t)client_handle);
                     server_VkDisplayModeKHR_to_client_VkDisplayModeKHR.erase(server_handle);
+                    VkDisplayModeKHR_lock.unlock();
                     
             
 
@@ -80793,6 +81366,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkSurfaceKHR_to_server_VkSurfaceKHR;
             std::unordered_map<uintptr_t,uintptr_t> server_VkSurfaceKHR_to_client_VkSurfaceKHR;
+            std::shared_mutex VkSurfaceKHR_lock;
             
         #endif
         
@@ -80804,11 +81378,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkSurfaceKHR_lock.lock_shared();
                     if(!(client_VkSurfaceKHR_to_server_VkSurfaceKHR.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkSurfaceKHR %p not found!\n",data);
                     }
                      debug_printf("Serializing VkSurfaceKHR %p...\n",(VkSurfaceKHR)client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)data]);
                     result=client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)data];
+                    VkSurfaceKHR_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80825,14 +81401,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSurfaceKHR)data);
+                    VkSurfaceKHR_lock.lock_shared();
                     if (server_VkSurfaceKHR_to_client_VkSurfaceKHR.contains(data)){
                         result=(VkSurfaceKHR)server_VkSurfaceKHR_to_client_VkSurfaceKHR[data];
                         debug_printf("Deserializing to VkSurfaceKHR %p...\n",result);
+                        VkSurfaceKHR_lock.unlock_shared();
                     }else{
+                        VkSurfaceKHR_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkSurfaceKHR));
                         debug_printf("Mapping to VkSurfaceKHR %p...\n",handle);
+                        VkSurfaceKHR_lock.lock();
                         server_VkSurfaceKHR_to_client_VkSurfaceKHR[data]=(uintptr_t)handle;
                         client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)handle]=data;
+                        VkSurfaceKHR_lock.unlock();
                         
                         result=(VkSurfaceKHR)handle; //This is highly dangerous -- I'm basically casting VkSurfaceKHR* to VkSurfaceKHR. I should do *((VkSurfaceKHR*)alloc_icd_object())
                     }
@@ -80845,6 +81426,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkSurfaceKHR(const VkSurfaceKHR& client_handle){
                     #ifdef CLIENT
+                    
+                    VkSurfaceKHR_lock.lock_shared();
                     auto server_handle=client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)client_handle];
                     
                     {
@@ -80852,9 +81435,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkSurfaceKHR)client_handle);
                     }
+                    VkSurfaceKHR_lock.unlock_shared();
                     
+                    VkSurfaceKHR_lock.lock();
                     client_VkSurfaceKHR_to_server_VkSurfaceKHR.erase((uintptr_t)client_handle);
                     server_VkSurfaceKHR_to_client_VkSurfaceKHR.erase(server_handle);
+                    VkSurfaceKHR_lock.unlock();
                     
             
 
@@ -80865,6 +81451,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkSwapchainKHR_to_server_VkSwapchainKHR;
             std::unordered_map<uintptr_t,uintptr_t> server_VkSwapchainKHR_to_client_VkSwapchainKHR;
+            std::shared_mutex VkSwapchainKHR_lock;
             
         #endif
         
@@ -80876,11 +81463,13 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkSwapchainKHR_lock.lock_shared();
                     if(!(client_VkSwapchainKHR_to_server_VkSwapchainKHR.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkSwapchainKHR %p not found!\n",data);
                     }
                      debug_printf("Serializing VkSwapchainKHR %p...\n",(VkSwapchainKHR)client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)data]);
                     result=client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)data];
+                    VkSwapchainKHR_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80897,14 +81486,19 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSwapchainKHR)data);
+                    VkSwapchainKHR_lock.lock_shared();
                     if (server_VkSwapchainKHR_to_client_VkSwapchainKHR.contains(data)){
                         result=(VkSwapchainKHR)server_VkSwapchainKHR_to_client_VkSwapchainKHR[data];
                         debug_printf("Deserializing to VkSwapchainKHR %p...\n",result);
+                        VkSwapchainKHR_lock.unlock_shared();
                     }else{
+                        VkSwapchainKHR_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkSwapchainKHR));
                         debug_printf("Mapping to VkSwapchainKHR %p...\n",handle);
+                        VkSwapchainKHR_lock.lock();
                         server_VkSwapchainKHR_to_client_VkSwapchainKHR[data]=(uintptr_t)handle;
                         client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)handle]=data;
+                        VkSwapchainKHR_lock.unlock();
                         
                         result=(VkSwapchainKHR)handle; //This is highly dangerous -- I'm basically casting VkSwapchainKHR* to VkSwapchainKHR. I should do *((VkSwapchainKHR*)alloc_icd_object())
                     }
@@ -80917,6 +81511,8 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
 
                void delete_VkSwapchainKHR(const VkSwapchainKHR& client_handle){
                     #ifdef CLIENT
+                    
+                    VkSwapchainKHR_lock.lock_shared();
                     auto server_handle=client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)client_handle];
                     
                     {
@@ -80924,9 +81520,12 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                         
                         free((VkSwapchainKHR)client_handle);
                     }
+                    VkSwapchainKHR_lock.unlock_shared();
                     
+                    VkSwapchainKHR_lock.lock();
                     client_VkSwapchainKHR_to_server_VkSwapchainKHR.erase((uintptr_t)client_handle);
                     server_VkSwapchainKHR_to_client_VkSwapchainKHR.erase(server_handle);
+                    VkSwapchainKHR_lock.unlock();
                     
             
 deregisterSwapchain(client_handle);
@@ -80938,6 +81537,7 @@ deregisterSwapchain(client_handle);
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT;
+            std::shared_mutex VkDebugReportCallbackEXT_lock;
             
         #endif
         
@@ -80949,11 +81549,13 @@ deregisterSwapchain(client_handle);
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDebugReportCallbackEXT_lock.lock_shared();
                     if(!(client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDebugReportCallbackEXT %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDebugReportCallbackEXT %p...\n",(VkDebugReportCallbackEXT)client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)data]);
                     result=client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)data];
+                    VkDebugReportCallbackEXT_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -80970,14 +81572,19 @@ deregisterSwapchain(client_handle);
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDebugReportCallbackEXT)data);
+                    VkDebugReportCallbackEXT_lock.lock_shared();
                     if (server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT.contains(data)){
                         result=(VkDebugReportCallbackEXT)server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[data];
                         debug_printf("Deserializing to VkDebugReportCallbackEXT %p...\n",result);
+                        VkDebugReportCallbackEXT_lock.unlock_shared();
                     }else{
+                        VkDebugReportCallbackEXT_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDebugReportCallbackEXT));
                         debug_printf("Mapping to VkDebugReportCallbackEXT %p...\n",handle);
+                        VkDebugReportCallbackEXT_lock.lock();
                         server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[data]=(uintptr_t)handle;
                         client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)handle]=data;
+                        VkDebugReportCallbackEXT_lock.unlock();
                         
                         result=(VkDebugReportCallbackEXT)handle; //This is highly dangerous -- I'm basically casting VkDebugReportCallbackEXT* to VkDebugReportCallbackEXT. I should do *((VkDebugReportCallbackEXT*)alloc_icd_object())
                     }
@@ -80990,6 +81597,8 @@ deregisterSwapchain(client_handle);
 
                void delete_VkDebugReportCallbackEXT(const VkDebugReportCallbackEXT& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDebugReportCallbackEXT_lock.lock_shared();
                     auto server_handle=client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)client_handle];
                     
                     {
@@ -80997,9 +81606,12 @@ deregisterSwapchain(client_handle);
                         
                         free((VkDebugReportCallbackEXT)client_handle);
                     }
+                    VkDebugReportCallbackEXT_lock.unlock_shared();
                     
+                    VkDebugReportCallbackEXT_lock.lock();
                     client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT.erase((uintptr_t)client_handle);
                     server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT.erase(server_handle);
+                    VkDebugReportCallbackEXT_lock.unlock();
                     
             
 
@@ -81010,6 +81622,7 @@ deregisterSwapchain(client_handle);
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT;
             std::unordered_map<uintptr_t,uintptr_t> server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT;
+            std::shared_mutex VkDebugUtilsMessengerEXT_lock;
             
         #endif
         
@@ -81021,11 +81634,13 @@ deregisterSwapchain(client_handle);
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkDebugUtilsMessengerEXT_lock.lock_shared();
                     if(!(client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkDebugUtilsMessengerEXT %p not found!\n",data);
                     }
                      debug_printf("Serializing VkDebugUtilsMessengerEXT %p...\n",(VkDebugUtilsMessengerEXT)client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)data]);
                     result=client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)data];
+                    VkDebugUtilsMessengerEXT_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -81042,14 +81657,19 @@ deregisterSwapchain(client_handle);
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDebugUtilsMessengerEXT)data);
+                    VkDebugUtilsMessengerEXT_lock.lock_shared();
                     if (server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT.contains(data)){
                         result=(VkDebugUtilsMessengerEXT)server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[data];
                         debug_printf("Deserializing to VkDebugUtilsMessengerEXT %p...\n",result);
+                        VkDebugUtilsMessengerEXT_lock.unlock_shared();
                     }else{
+                        VkDebugUtilsMessengerEXT_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkDebugUtilsMessengerEXT));
                         debug_printf("Mapping to VkDebugUtilsMessengerEXT %p...\n",handle);
+                        VkDebugUtilsMessengerEXT_lock.lock();
                         server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[data]=(uintptr_t)handle;
                         client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)handle]=data;
+                        VkDebugUtilsMessengerEXT_lock.unlock();
                         
                         result=(VkDebugUtilsMessengerEXT)handle; //This is highly dangerous -- I'm basically casting VkDebugUtilsMessengerEXT* to VkDebugUtilsMessengerEXT. I should do *((VkDebugUtilsMessengerEXT*)alloc_icd_object())
                     }
@@ -81062,6 +81682,8 @@ deregisterSwapchain(client_handle);
 
                void delete_VkDebugUtilsMessengerEXT(const VkDebugUtilsMessengerEXT& client_handle){
                     #ifdef CLIENT
+                    
+                    VkDebugUtilsMessengerEXT_lock.lock_shared();
                     auto server_handle=client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)client_handle];
                     
                     {
@@ -81069,9 +81691,12 @@ deregisterSwapchain(client_handle);
                         
                         free((VkDebugUtilsMessengerEXT)client_handle);
                     }
+                    VkDebugUtilsMessengerEXT_lock.unlock_shared();
                     
+                    VkDebugUtilsMessengerEXT_lock.lock();
                     client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT.erase((uintptr_t)client_handle);
                     server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT.erase(server_handle);
+                    VkDebugUtilsMessengerEXT_lock.unlock();
                     
             
 
@@ -81082,6 +81707,7 @@ deregisterSwapchain(client_handle);
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkVideoSessionKHR_to_server_VkVideoSessionKHR;
             std::unordered_map<uintptr_t,uintptr_t> server_VkVideoSessionKHR_to_client_VkVideoSessionKHR;
+            std::shared_mutex VkVideoSessionKHR_lock;
             
         #endif
         
@@ -81093,11 +81719,13 @@ deregisterSwapchain(client_handle);
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkVideoSessionKHR_lock.lock_shared();
                     if(!(client_VkVideoSessionKHR_to_server_VkVideoSessionKHR.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkVideoSessionKHR %p not found!\n",data);
                     }
                      debug_printf("Serializing VkVideoSessionKHR %p...\n",(VkVideoSessionKHR)client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)data]);
                     result=client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)data];
+                    VkVideoSessionKHR_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -81114,14 +81742,19 @@ deregisterSwapchain(client_handle);
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkVideoSessionKHR)data);
+                    VkVideoSessionKHR_lock.lock_shared();
                     if (server_VkVideoSessionKHR_to_client_VkVideoSessionKHR.contains(data)){
                         result=(VkVideoSessionKHR)server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[data];
                         debug_printf("Deserializing to VkVideoSessionKHR %p...\n",result);
+                        VkVideoSessionKHR_lock.unlock_shared();
                     }else{
+                        VkVideoSessionKHR_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkVideoSessionKHR));
                         debug_printf("Mapping to VkVideoSessionKHR %p...\n",handle);
+                        VkVideoSessionKHR_lock.lock();
                         server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[data]=(uintptr_t)handle;
                         client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)handle]=data;
+                        VkVideoSessionKHR_lock.unlock();
                         
                         result=(VkVideoSessionKHR)handle; //This is highly dangerous -- I'm basically casting VkVideoSessionKHR* to VkVideoSessionKHR. I should do *((VkVideoSessionKHR*)alloc_icd_object())
                     }
@@ -81134,6 +81767,8 @@ deregisterSwapchain(client_handle);
 
                void delete_VkVideoSessionKHR(const VkVideoSessionKHR& client_handle){
                     #ifdef CLIENT
+                    
+                    VkVideoSessionKHR_lock.lock_shared();
                     auto server_handle=client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)client_handle];
                     
                     {
@@ -81141,9 +81776,12 @@ deregisterSwapchain(client_handle);
                         
                         free((VkVideoSessionKHR)client_handle);
                     }
+                    VkVideoSessionKHR_lock.unlock_shared();
                     
+                    VkVideoSessionKHR_lock.lock();
                     client_VkVideoSessionKHR_to_server_VkVideoSessionKHR.erase((uintptr_t)client_handle);
                     server_VkVideoSessionKHR_to_client_VkVideoSessionKHR.erase(server_handle);
+                    VkVideoSessionKHR_lock.unlock();
                     
             
 
@@ -81154,6 +81792,7 @@ deregisterSwapchain(client_handle);
         #ifdef CLIENT
             std::unordered_map<uintptr_t,uintptr_t> client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR;
             std::unordered_map<uintptr_t,uintptr_t> server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR;
+            std::shared_mutex VkVideoSessionParametersKHR_lock;
             
         #endif
         
@@ -81165,11 +81804,13 @@ deregisterSwapchain(client_handle);
                     result=(uintptr_t)NULL;
                     debug_printf("Handle is NULL, serializing to %p...\n",result);
                 }else{
+                    VkVideoSessionParametersKHR_lock.lock_shared();
                     if(!(client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR.contains( (uintptr_t)data ))){
                         debug_printf("Panic: VkVideoSessionParametersKHR %p not found!\n",data);
                     }
                      debug_printf("Serializing VkVideoSessionParametersKHR %p...\n",(VkVideoSessionParametersKHR)client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)data]);
                     result=client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)data];
+                    VkVideoSessionParametersKHR_lock.unlock_shared();
                 }
             #else
                 result=(uintptr_t)data;
@@ -81186,14 +81827,19 @@ deregisterSwapchain(client_handle);
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkVideoSessionParametersKHR)data);
+                    VkVideoSessionParametersKHR_lock.lock_shared();
                     if (server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR.contains(data)){
                         result=(VkVideoSessionParametersKHR)server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[data];
                         debug_printf("Deserializing to VkVideoSessionParametersKHR %p...\n",result);
+                        VkVideoSessionParametersKHR_lock.unlock_shared();
                     }else{
+                        VkVideoSessionParametersKHR_lock.unlock_shared();
                         auto handle=malloc(sizeof(VkVideoSessionParametersKHR));
                         debug_printf("Mapping to VkVideoSessionParametersKHR %p...\n",handle);
+                        VkVideoSessionParametersKHR_lock.lock();
                         server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[data]=(uintptr_t)handle;
                         client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)handle]=data;
+                        VkVideoSessionParametersKHR_lock.unlock();
                         
                         result=(VkVideoSessionParametersKHR)handle; //This is highly dangerous -- I'm basically casting VkVideoSessionParametersKHR* to VkVideoSessionParametersKHR. I should do *((VkVideoSessionParametersKHR*)alloc_icd_object())
                     }
@@ -81206,6 +81852,8 @@ deregisterSwapchain(client_handle);
 
                void delete_VkVideoSessionParametersKHR(const VkVideoSessionParametersKHR& client_handle){
                     #ifdef CLIENT
+                    
+                    VkVideoSessionParametersKHR_lock.lock_shared();
                     auto server_handle=client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)client_handle];
                     
                     {
@@ -81213,9 +81861,12 @@ deregisterSwapchain(client_handle);
                         
                         free((VkVideoSessionParametersKHR)client_handle);
                     }
+                    VkVideoSessionParametersKHR_lock.unlock_shared();
                     
+                    VkVideoSessionParametersKHR_lock.lock();
                     client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR.erase((uintptr_t)client_handle);
                     server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR.erase(server_handle);
+                    VkVideoSessionParametersKHR_lock.unlock();
                     
             
 

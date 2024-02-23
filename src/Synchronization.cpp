@@ -263,6 +263,7 @@ void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, bool 
     sync.starts.resize(parts);
     sync.lengths.resize(parts);
     sync.hashes.resize(parts);
+    sync.unmap=unmap;
     
     #ifdef CLIENT
         sync.mem=client_to_server_mem[(uintptr_t)mem];
@@ -311,8 +312,8 @@ void SyncOne(VkDeviceMemory memory, int offset, VkDeviceSize size, bool unmap){
         if (hash==info->prev_hash){
             return;
         }
+        info->prev_hash=hash;
     }
-    info->prev_hash=hash;
     SyncOne(devicememory, info->mem, offset, size, unmap);
 }
 
@@ -323,7 +324,7 @@ for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
 for (auto& [devicememory, mem_info] : uuid_to_map[currStruct()->uuid]){
 #endif
     if (mem_info->coherent){
-        SyncOne(devicememory, 0, VK_WHOLE_SIZE, false);
+        SyncOne((VkDeviceMemory)devicememory, 0, VK_WHOLE_SIZE, false);
     }
 }
 }
