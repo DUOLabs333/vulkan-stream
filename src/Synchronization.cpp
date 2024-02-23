@@ -100,7 +100,7 @@ auto key=(uintptr_t)memory;
         return;
     }
     auto info=devicememory_to_mem_info[key];
-    SyncOne(memory, 0, true);
+    SyncOne(memory, 0, VK_WHOLE_SIZE, true);
     deregisterClientServerMemoryMapping((uintptr_t)(info->mem));
     munmap(info->mem, info->size);
     close(info->fd);

@@ -125,7 +125,7 @@ def syncRanges(name):
     {guard}
         for(int i=0; i< memoryRangeCount; i++){{
             auto range=pMemoryRanges[i];
-            SyncOne(range.memory, range.offset-devicememory_to_offset[(uintptr_t)range.memory], false, range.size);
+            SyncOne(range.memory, range.offset-devicememory_to_offset[(uintptr_t)range.memory], range.size, false);
         }}
     #endif
     """

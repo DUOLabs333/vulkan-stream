@@ -4,7 +4,7 @@
 
 void handle_sync_init(boost::json::object&);
 void SyncAll();
-void SyncOne(VkDeviceMemory memory, int offset, bool unmap= false, VkDeviceSize size = VK_WHOLE_SIZE);
+void SyncOne(VkDeviceMemory memory, int offset, VkDeviceSize size, bool unmap);
 void SyncAllocations();
 void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem, bool);
 void deregisterDeviceMemoryMap(VkDeviceMemory memory);
