@@ -38,6 +38,8 @@ class RWError : public std::exception {
         //Will only be called by the server
         
         socket->set_option( asio::ip::tcp::no_delay( true) );
+        socket->set_option(asio::socket_base::send_buffer_size(65536));
+        socket->set_option(asio::socket_base::receive_buffer_size(65536));
         currStruct()->conn=socket;
         
         boost::json::object json;
