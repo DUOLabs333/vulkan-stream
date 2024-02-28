@@ -111,7 +111,7 @@ boost::json::object readFromConn(){
     auto compressed_data=(char*)malloc(compressed_size);
     char* input;
     
-    asio::read(*(curr->conn), asio::buffer(compressed_data, compressed_size), asio::transfer_exactly(compressed_size), ec);
+    asio::read(*(curr->conn), asio::buffer(compressed_data, compressed_size), ec);
     
     if (ec){
         throw RWError(ec);
@@ -127,8 +127,7 @@ boost::json::object readFromConn(){
     auto line=std::string_view(input,input_size);
     auto simdjson_line=simdjson::padded_string(line);
     
-    simdjson::ondemand::parser parser;
-    auto doc=parser.iterate(simdjson_line);
+    auto doc=curr->simdparser.iterate(simdjson_line);
     auto object = doc.get_object();
     
     boost::json::object json;
@@ -141,7 +140,9 @@ boost::json::object readFromConn(){
         if (key=="stream_type"){ //Use Boost for anything that isn't a Sync
             auto stream_type=field.value().get_uint64().value();
             if (stream_type!= static_cast<int>(SYNC)){
-                 json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
+                 curr->parser.write(line);
+                 json=curr->parser.release().get_object();
+                 curr->parser.reset();
                  break;
             }else{
                 json[key]=stream_type;
