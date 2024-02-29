@@ -57,8 +57,6 @@ ThreadStruct* currStruct(){
             }
             
             result->conn->set_option( asio::ip::tcp::no_delay( true) );
-            result->conn->set_option(asio::socket_base::send_buffer_size(65536));
-            result->conn->set_option(asio::socket_base::receive_buffer_size(65536));
             
         #endif
         

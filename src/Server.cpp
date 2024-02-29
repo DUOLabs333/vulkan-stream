@@ -15,6 +15,8 @@
 #include <asio/write.hpp>
 #include <lz4.h>
 
+typedef std::chrono::high_resolution_clock Time1;
+typedef std::chrono::duration<float> fsec;
 int UUID_MAX=10000000;
 std::random_device rd;
 std::mt19937 gen(rd());
@@ -38,8 +40,6 @@ class RWError : public std::exception {
         //Will only be called by the server
         
         socket->set_option( asio::ip::tcp::no_delay( true) );
-        socket->set_option(asio::socket_base::send_buffer_size(65536));
-        socket->set_option(asio::socket_base::receive_buffer_size(65536));
         currStruct()->conn=socket;
         
         boost::json::object json;
@@ -110,9 +110,9 @@ boost::json::object readFromConn(){
 
     auto compressed_data=(char*)malloc(compressed_size);
     char* input;
-    
+
     asio::read(*(curr->conn), asio::buffer(compressed_data, compressed_size), ec);
-    
+
     if (ec){
         throw RWError(ec);
     }
