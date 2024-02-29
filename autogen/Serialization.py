@@ -488,7 +488,7 @@ for handle in parsed:
             #ifdef CLIENT
                 if (data==NULL){{
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\\n",result);
+                    debug_printf("Handle {handle} is NULL, serializing to %p...\\n",result);
                 }}else{{
                     {handle}_lock.lock_shared();
                     if(!(client_{handle}_to_server_{handle}.contains( (uintptr_t)data ))){{

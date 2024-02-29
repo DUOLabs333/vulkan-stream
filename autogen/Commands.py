@@ -404,6 +404,9 @@ for name, command in parsed.items():
         }}
         """)
         continue
+    if name=="vkGetPhysicalDeviceXcbPresentationSupportKHR":
+        write("return VK_TRUE;") #Just stub it out, as since displaying is done with headless surfaces, this will always work
+        
     
     write(f"""
     boost::json::object json;
@@ -624,6 +627,8 @@ for name, command in parsed.items():
         #ifdef VK_USE_PLATFORM_XCB_KHR
             else if (strcmp(pName,"vkCreateXcbSurfaceKHR")==0){{
                 result=({command['type']})vkCreateXcbSurfaceKHR;
+            }} else if (strcmp(pName,"vkGetPhysicalDeviceXcbPresentationSupportKHR")==0){{
+                result=({command['type']})vkGetPhysicalDeviceXcbPresentationSupportKHR;
             }}
         #endif
         
@@ -660,7 +665,7 @@ for name, command in parsed.items():
             write(command["type"]+"*"*command["num_indirection"]+" result;")
             write(convert("result",f"""json["result"]""",command | {"name":"result"},serialize=False,initialize=True))
         
-    for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
+    for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue(|2)$"]:
         if re.match(creation_function,name) is not None:
             matched=False
             for param in reversed(command["params"]):
