@@ -517,7 +517,7 @@ for handle in parsed:
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\\n",({handle})data);
                     if (data==(uintptr_t)NULL){{
-                        result=({handle}NULL;
+                        result=({handle})NULL;
                         debug_printf("{handle} is NULL, deserializing to %p...\\n", NULL);
                     }}else{{
                         {handle}_lock.lock_shared();
