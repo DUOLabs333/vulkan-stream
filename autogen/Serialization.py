@@ -488,7 +488,7 @@ for handle in parsed:
             #ifdef CLIENT
                 if (data==NULL){{
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle {handle} is NULL, serializing to %p...\\n",result);
+                    debug_printf("{handle} handle is NULL, serializing to %p...\\n",result);
                 }}else{{
                     {handle}_lock.lock_shared();
                     if(!(client_{handle}_to_server_{handle}.contains( (uintptr_t)data ))){{
@@ -516,21 +516,26 @@ for handle in parsed:
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\\n",({handle})data);
-                    {handle}_lock.lock_shared();
-                    if (server_{handle}_to_client_{handle}.contains(data)){{
-                        result=({handle})server_{handle}_to_client_{handle}[data];
-                        debug_printf("Deserializing to {handle} %p...\\n",result);
-                        {handle}_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){{
+                        result=({handle}NULL;
+                        debug_printf("{handle} is NULL, deserializing to %p...\\n", NULL);
                     }}else{{
-                        {handle}_lock.unlock_shared();
-                        auto handle=malloc(sizeof({handle}));
-                        debug_printf("Mapping to {handle} %p...\\n",handle);
-                        {handle}_lock.lock();
-                        server_{handle}_to_client_{handle}[data]=(uintptr_t)handle;
-                        client_{handle}_to_server_{handle}[(uintptr_t)handle]=data;
-                        {handle}_lock.unlock();
-                        
-                        result=({handle})handle; //This is highly dangerous -- I'm basically casting {handle}* to {handle}. I should do *(({handle}*)alloc_icd_object())
+                        {handle}_lock.lock_shared();
+                        if (server_{handle}_to_client_{handle}.contains(data)){{
+                            result=({handle})server_{handle}_to_client_{handle}[data];
+                            debug_printf("Deserializing to {handle} %p...\\n",result);
+                            {handle}_lock.unlock_shared();
+                        }}else{{
+                            {handle}_lock.unlock_shared();
+                            auto handle=malloc(sizeof({handle}));
+                            debug_printf("Mapping to {handle} %p...\\n",handle);
+                            {handle}_lock.lock();
+                            server_{handle}_to_client_{handle}[data]=(uintptr_t)handle;
+                            client_{handle}_to_server_{handle}[(uintptr_t)handle]=data;
+                            {handle}_lock.unlock();
+                            
+                            result=({handle})handle; //This is highly dangerous -- I'm basically casting {handle}* to {handle}. I should do *(({handle}*)alloc_icd_object())
+                        }}
                     }}
                 #else
                     result=({handle})data;
