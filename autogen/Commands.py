@@ -644,7 +644,7 @@ for name, command in parsed.items():
             
             if parsed[command_name]["kind"]!="command":
                 continue
-                
+            
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 debug_printf("Retrieving {command_name}...\\n");

@@ -1,6 +1,6 @@
 The only setup that is supported is with a MacOS computer as the server and a Linux computer as the client (though other setups shouldn't be too hard)
 
-On MacOS, the server must have MoltenVK >= 1.2.7
+On MacOS, the server must have MoltenVK >= 1.2.7/1.3.275
 
 To compile:
 	Simply run `build.sh`, and everything should work.
