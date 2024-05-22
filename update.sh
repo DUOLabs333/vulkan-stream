@@ -19,7 +19,7 @@ echo "Building boost"
 pushd external/boost
 
 ./bootstrap.sh --prefix=build --with-libraries=json
-./b2 install variant=release link=static
+./b2 install variant=release link=static cxxflags=-fPIC cflags=-fPIC
 
 mkdir todelete
 mv * todelete/

@@ -179,7 +179,7 @@ boost::json::object readFromConn(){
     }
     if(json["stream_type"].as_int64()==static_cast<int>(VKGETPHYSICALDEVICEPROPERTIES2)){ //Check that vkGetBufferMemoryRequirements works as expected
 		//json["pMemoryRequirements"].as_array()[0].as_object()["size"]=0;
-	    printf("%s\n",boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true}).c_str());
+	    //printf("%s\n",boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true}).c_str());
 	    
     }
     return json;

@@ -1,5 +1,4 @@
 
-#include <boost/json/src.hpp>
 #include <boost/json.hpp>
 
 #include <Serialization.hpp>
@@ -34,17 +33,17 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkReallocationFunction;
 uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkInternalAllocationNotification;
-uintptr_t PFN_vkVoidFunction;
 uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkDebugReportCallbackEXT;
 uintptr_t PFN_vkInternalFreeNotification;
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkFreeFunction;
 uintptr_t PFN_vkAllocationFunction;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
+uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkVoidFunction;
 } pUserData_struct;
 
 PFN_vkVoidFunction handle_pNext(VkStructureType sType, bool serialize){
@@ -59,9 +58,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkApplicationInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkApplicationInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkApplicationInfo* )member));
                 return;
             });
         }
@@ -77,9 +80,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceQueueCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceQueueCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceQueueCreateInfo* )member));
                 return;
             });
         }
@@ -95,9 +102,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceCreateInfo* )member));
                 return;
             });
         }
@@ -113,9 +124,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkInstanceCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkInstanceCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkInstanceCreateInfo* )member));
                 return;
             });
         }
@@ -131,9 +146,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryAllocateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryAllocateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryAllocateInfo* )member));
                 return;
             });
         }
@@ -149,9 +168,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMappedMemoryRange;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMappedMemoryRange;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMappedMemoryRange* )member));
                 return;
             });
         }
@@ -167,9 +190,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkWriteDescriptorSet;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkWriteDescriptorSet;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkWriteDescriptorSet* )member));
                 return;
             });
         }
@@ -185,9 +212,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyDescriptorSet;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyDescriptorSet;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyDescriptorSet* )member));
                 return;
             });
         }
@@ -203,9 +234,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferUsageFlags2CreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferUsageFlags2CreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferUsageFlags2CreateInfoKHR* )member));
                 return;
             });
         }
@@ -221,9 +256,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferCreateInfo* )member));
                 return;
             });
         }
@@ -239,9 +278,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferViewCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferViewCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferViewCreateInfo* )member));
                 return;
             });
         }
@@ -257,9 +300,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryBarrier;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryBarrier;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryBarrier* )member));
                 return;
             });
         }
@@ -275,9 +322,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferMemoryBarrier;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferMemoryBarrier;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferMemoryBarrier* )member));
                 return;
             });
         }
@@ -293,9 +344,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageMemoryBarrier;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageMemoryBarrier;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageMemoryBarrier* )member));
                 return;
             });
         }
@@ -311,9 +366,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageCreateInfo* )member));
                 return;
             });
         }
@@ -329,9 +388,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageViewCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageViewCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageViewCreateInfo* )member));
                 return;
             });
         }
@@ -347,9 +410,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBindSparseInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBindSparseInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBindSparseInfo* )member));
                 return;
             });
         }
@@ -365,9 +432,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkShaderModuleCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkShaderModuleCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkShaderModuleCreateInfo* )member));
                 return;
             });
         }
@@ -383,9 +454,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorSetLayoutCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorSetLayoutCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorSetLayoutCreateInfo* )member));
                 return;
             });
         }
@@ -401,9 +476,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorPoolCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorPoolCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorPoolCreateInfo* )member));
                 return;
             });
         }
@@ -419,9 +498,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorSetAllocateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorSetAllocateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorSetAllocateInfo* )member));
                 return;
             });
         }
@@ -437,9 +520,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineShaderStageCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineShaderStageCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineShaderStageCreateInfo* )member));
                 return;
             });
         }
@@ -455,9 +542,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkComputePipelineCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkComputePipelineCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkComputePipelineCreateInfo* )member));
                 return;
             });
         }
@@ -473,9 +564,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkComputePipelineIndirectBufferInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkComputePipelineIndirectBufferInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkComputePipelineIndirectBufferInfoNV* )member));
                 return;
             });
         }
@@ -491,9 +586,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineCreateFlags2CreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineCreateFlags2CreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineCreateFlags2CreateInfoKHR* )member));
                 return;
             });
         }
@@ -509,9 +608,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineVertexInputStateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineVertexInputStateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineVertexInputStateCreateInfo* )member));
                 return;
             });
         }
@@ -527,9 +630,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineInputAssemblyStateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineInputAssemblyStateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineInputAssemblyStateCreateInfo* )member));
                 return;
             });
         }
@@ -545,9 +652,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineTessellationStateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineTessellationStateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineTessellationStateCreateInfo* )member));
                 return;
             });
         }
@@ -563,9 +674,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineViewportStateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineViewportStateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineViewportStateCreateInfo* )member));
                 return;
             });
         }
@@ -581,9 +696,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineRasterizationStateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineRasterizationStateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineRasterizationStateCreateInfo* )member));
                 return;
             });
         }
@@ -599,9 +718,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineMultisampleStateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineMultisampleStateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineMultisampleStateCreateInfo* )member));
                 return;
             });
         }
@@ -617,9 +740,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineColorBlendStateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineColorBlendStateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineColorBlendStateCreateInfo* )member));
                 return;
             });
         }
@@ -635,9 +762,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineDynamicStateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineDynamicStateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineDynamicStateCreateInfo* )member));
                 return;
             });
         }
@@ -653,9 +784,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineDepthStencilStateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineDepthStencilStateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineDepthStencilStateCreateInfo* )member));
                 return;
             });
         }
@@ -671,9 +806,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkGraphicsPipelineCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkGraphicsPipelineCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkGraphicsPipelineCreateInfo* )member));
                 return;
             });
         }
@@ -689,9 +828,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineCacheCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineCacheCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineCacheCreateInfo* )member));
                 return;
             });
         }
@@ -707,9 +850,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineLayoutCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineLayoutCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineLayoutCreateInfo* )member));
                 return;
             });
         }
@@ -725,9 +872,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerCreateInfo* )member));
                 return;
             });
         }
@@ -743,9 +894,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCommandPoolCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCommandPoolCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCommandPoolCreateInfo* )member));
                 return;
             });
         }
@@ -761,9 +916,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCommandBufferAllocateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCommandBufferAllocateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCommandBufferAllocateInfo* )member));
                 return;
             });
         }
@@ -779,9 +938,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCommandBufferInheritanceInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCommandBufferInheritanceInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCommandBufferInheritanceInfo* )member));
                 return;
             });
         }
@@ -797,9 +960,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCommandBufferBeginInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCommandBufferBeginInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCommandBufferBeginInfo* )member));
                 return;
             });
         }
@@ -815,9 +982,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassBeginInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassBeginInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassBeginInfo* )member));
                 return;
             });
         }
@@ -833,9 +1004,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassCreateInfo* )member));
                 return;
             });
         }
@@ -851,9 +1026,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkEventCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkEventCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkEventCreateInfo* )member));
                 return;
             });
         }
@@ -869,9 +1048,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFenceCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFenceCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFenceCreateInfo* )member));
                 return;
             });
         }
@@ -887,9 +1070,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSemaphoreCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSemaphoreCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSemaphoreCreateInfo* )member));
                 return;
             });
         }
@@ -905,9 +1092,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkQueryPoolCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkQueryPoolCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkQueryPoolCreateInfo* )member));
                 return;
             });
         }
@@ -923,9 +1114,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFramebufferCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFramebufferCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFramebufferCreateInfo* )member));
                 return;
             });
         }
@@ -941,9 +1136,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubmitInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubmitInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubmitInfo* )member));
                 return;
             });
         }
@@ -959,9 +1158,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplayModeCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplayModeCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplayModeCreateInfoKHR* )member));
                 return;
             });
         }
@@ -977,9 +1180,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplaySurfaceCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplaySurfaceCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplaySurfaceCreateInfoKHR* )member));
                 return;
             });
         }
@@ -995,9 +1202,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplayPresentInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplayPresentInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplayPresentInfoKHR* )member));
                 return;
             });
         }
@@ -1013,9 +1224,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkXlibSurfaceCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkXlibSurfaceCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkXlibSurfaceCreateInfoKHR* )member));
                 return;
             });
         }
@@ -1031,9 +1246,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkXcbSurfaceCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkXcbSurfaceCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkXcbSurfaceCreateInfoKHR* )member));
                 return;
             });
         }
@@ -1049,9 +1268,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSwapchainCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSwapchainCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSwapchainCreateInfoKHR* )member));
                 return;
             });
         }
@@ -1067,9 +1290,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPresentInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPresentInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPresentInfoKHR* )member));
                 return;
             });
         }
@@ -1085,9 +1312,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDebugReportCallbackCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDebugReportCallbackCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDebugReportCallbackCreateInfoEXT* )member));
                 return;
             });
         }
@@ -1103,9 +1334,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkValidationFlagsEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkValidationFlagsEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkValidationFlagsEXT* )member));
                 return;
             });
         }
@@ -1121,9 +1356,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkValidationFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkValidationFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkValidationFeaturesEXT* )member));
                 return;
             });
         }
@@ -1139,9 +1378,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineRasterizationStateRasterizationOrderAMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineRasterizationStateRasterizationOrderAMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineRasterizationStateRasterizationOrderAMD* )member));
                 return;
             });
         }
@@ -1157,9 +1400,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDebugMarkerObjectNameInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDebugMarkerObjectNameInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDebugMarkerObjectNameInfoEXT* )member));
                 return;
             });
         }
@@ -1175,9 +1422,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDebugMarkerObjectTagInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDebugMarkerObjectTagInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDebugMarkerObjectTagInfoEXT* )member));
                 return;
             });
         }
@@ -1193,9 +1444,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDebugMarkerMarkerInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDebugMarkerMarkerInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDebugMarkerMarkerInfoEXT* )member));
                 return;
             });
         }
@@ -1211,9 +1466,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDedicatedAllocationImageCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDedicatedAllocationImageCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDedicatedAllocationImageCreateInfoNV* )member));
                 return;
             });
         }
@@ -1229,9 +1488,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDedicatedAllocationBufferCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDedicatedAllocationBufferCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDedicatedAllocationBufferCreateInfoNV* )member));
                 return;
             });
         }
@@ -1247,9 +1510,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDedicatedAllocationMemoryAllocateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDedicatedAllocationMemoryAllocateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDedicatedAllocationMemoryAllocateInfoNV* )member));
                 return;
             });
         }
@@ -1265,9 +1532,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExternalMemoryImageCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExternalMemoryImageCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExternalMemoryImageCreateInfoNV* )member));
                 return;
             });
         }
@@ -1283,9 +1554,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExportMemoryAllocateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExportMemoryAllocateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExportMemoryAllocateInfoNV* )member));
                 return;
             });
         }
@@ -1301,9 +1576,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV* )member));
                 return;
             });
         }
@@ -1319,9 +1598,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV* )member));
                 return;
             });
         }
@@ -1337,9 +1620,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDevicePrivateDataCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDevicePrivateDataCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDevicePrivateDataCreateInfo* )member));
                 return;
             });
         }
@@ -1355,9 +1642,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPrivateDataSlotCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPrivateDataSlotCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPrivateDataSlotCreateInfo* )member));
                 return;
             });
         }
@@ -1373,9 +1664,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePrivateDataFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePrivateDataFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePrivateDataFeatures* )member));
                 return;
             });
         }
@@ -1391,9 +1686,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV* )member));
                 return;
             });
         }
@@ -1409,9 +1708,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMultiDrawPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMultiDrawPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMultiDrawPropertiesEXT* )member));
                 return;
             });
         }
@@ -1427,9 +1730,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkGraphicsShaderGroupCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkGraphicsShaderGroupCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkGraphicsShaderGroupCreateInfoNV* )member));
                 return;
             });
         }
@@ -1445,9 +1752,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkGraphicsPipelineShaderGroupsCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkGraphicsPipelineShaderGroupsCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkGraphicsPipelineShaderGroupsCreateInfoNV* )member));
                 return;
             });
         }
@@ -1463,9 +1774,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkIndirectCommandsLayoutTokenNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkIndirectCommandsLayoutTokenNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkIndirectCommandsLayoutTokenNV* )member));
                 return;
             });
         }
@@ -1481,9 +1796,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkIndirectCommandsLayoutCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkIndirectCommandsLayoutCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkIndirectCommandsLayoutCreateInfoNV* )member));
                 return;
             });
         }
@@ -1499,9 +1818,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkGeneratedCommandsInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkGeneratedCommandsInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkGeneratedCommandsInfoNV* )member));
                 return;
             });
         }
@@ -1517,9 +1840,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkGeneratedCommandsMemoryRequirementsInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkGeneratedCommandsMemoryRequirementsInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkGeneratedCommandsMemoryRequirementsInfoNV* )member));
                 return;
             });
         }
@@ -1535,9 +1862,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineIndirectDeviceAddressInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineIndirectDeviceAddressInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineIndirectDeviceAddressInfoNV* )member));
                 return;
             });
         }
@@ -1553,9 +1884,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFeatures2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFeatures2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFeatures2* )member));
                 return;
             });
         }
@@ -1571,9 +1906,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceProperties2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceProperties2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceProperties2* )member));
                 return;
             });
         }
@@ -1589,9 +1928,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFormatProperties2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFormatProperties2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFormatProperties2* )member));
                 return;
             });
         }
@@ -1607,9 +1950,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageFormatProperties2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageFormatProperties2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageFormatProperties2* )member));
                 return;
             });
         }
@@ -1625,9 +1972,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageFormatInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageFormatInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageFormatInfo2* )member));
                 return;
             });
         }
@@ -1643,9 +1994,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkQueueFamilyProperties2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkQueueFamilyProperties2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkQueueFamilyProperties2* )member));
                 return;
             });
         }
@@ -1661,9 +2016,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMemoryProperties2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMemoryProperties2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMemoryProperties2* )member));
                 return;
             });
         }
@@ -1679,9 +2038,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSparseImageFormatProperties2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSparseImageFormatProperties2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSparseImageFormatProperties2* )member));
                 return;
             });
         }
@@ -1697,9 +2060,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSparseImageFormatInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSparseImageFormatInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSparseImageFormatInfo2* )member));
                 return;
             });
         }
@@ -1715,9 +2082,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePushDescriptorPropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePushDescriptorPropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePushDescriptorPropertiesKHR* )member));
                 return;
             });
         }
@@ -1733,9 +2104,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDriverProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDriverProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDriverProperties* )member));
                 return;
             });
         }
@@ -1751,9 +2126,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPresentRegionsKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPresentRegionsKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPresentRegionsKHR* )member));
                 return;
             });
         }
@@ -1769,9 +2148,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVariablePointersFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVariablePointersFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVariablePointersFeatures* )member));
                 return;
             });
         }
@@ -1787,9 +2170,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExternalImageFormatInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExternalImageFormatInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExternalImageFormatInfo* )member));
                 return;
             });
         }
@@ -1805,9 +2192,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExternalImageFormatProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExternalImageFormatProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExternalImageFormatProperties* )member));
                 return;
             });
         }
@@ -1823,9 +2214,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExternalBufferInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExternalBufferInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExternalBufferInfo* )member));
                 return;
             });
         }
@@ -1841,9 +2236,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExternalBufferProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExternalBufferProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExternalBufferProperties* )member));
                 return;
             });
         }
@@ -1859,9 +2258,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceIDProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceIDProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceIDProperties* )member));
                 return;
             });
         }
@@ -1877,9 +2280,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExternalMemoryImageCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExternalMemoryImageCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExternalMemoryImageCreateInfo* )member));
                 return;
             });
         }
@@ -1895,9 +2302,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExternalMemoryBufferCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExternalMemoryBufferCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExternalMemoryBufferCreateInfo* )member));
                 return;
             });
         }
@@ -1913,9 +2324,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExportMemoryAllocateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExportMemoryAllocateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExportMemoryAllocateInfo* )member));
                 return;
             });
         }
@@ -1931,9 +2346,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImportMemoryFdInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImportMemoryFdInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImportMemoryFdInfoKHR* )member));
                 return;
             });
         }
@@ -1949,9 +2368,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryFdPropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryFdPropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryFdPropertiesKHR* )member));
                 return;
             });
         }
@@ -1967,9 +2390,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryGetFdInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryGetFdInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryGetFdInfoKHR* )member));
                 return;
             });
         }
@@ -1985,9 +2412,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExternalSemaphoreInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExternalSemaphoreInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExternalSemaphoreInfo* )member));
                 return;
             });
         }
@@ -2003,9 +2434,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExternalSemaphoreProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExternalSemaphoreProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExternalSemaphoreProperties* )member));
                 return;
             });
         }
@@ -2021,9 +2456,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExportSemaphoreCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExportSemaphoreCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExportSemaphoreCreateInfo* )member));
                 return;
             });
         }
@@ -2039,9 +2478,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImportSemaphoreFdInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImportSemaphoreFdInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImportSemaphoreFdInfoKHR* )member));
                 return;
             });
         }
@@ -2057,9 +2500,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSemaphoreGetFdInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSemaphoreGetFdInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSemaphoreGetFdInfoKHR* )member));
                 return;
             });
         }
@@ -2075,9 +2522,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExternalFenceInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExternalFenceInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExternalFenceInfo* )member));
                 return;
             });
         }
@@ -2093,9 +2544,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExternalFenceProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExternalFenceProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExternalFenceProperties* )member));
                 return;
             });
         }
@@ -2111,9 +2566,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExportFenceCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExportFenceCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExportFenceCreateInfo* )member));
                 return;
             });
         }
@@ -2129,9 +2588,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImportFenceFdInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImportFenceFdInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImportFenceFdInfoKHR* )member));
                 return;
             });
         }
@@ -2147,9 +2610,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFenceGetFdInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFenceGetFdInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFenceGetFdInfoKHR* )member));
                 return;
             });
         }
@@ -2165,9 +2632,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMultiviewFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMultiviewFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMultiviewFeatures* )member));
                 return;
             });
         }
@@ -2183,9 +2654,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMultiviewProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMultiviewProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMultiviewProperties* )member));
                 return;
             });
         }
@@ -2201,9 +2676,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassMultiviewCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassMultiviewCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassMultiviewCreateInfo* )member));
                 return;
             });
         }
@@ -2219,9 +2698,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSurfaceCapabilities2EXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSurfaceCapabilities2EXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSurfaceCapabilities2EXT* )member));
                 return;
             });
         }
@@ -2237,9 +2720,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplayPowerInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplayPowerInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplayPowerInfoEXT* )member));
                 return;
             });
         }
@@ -2255,9 +2742,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceEventInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceEventInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceEventInfoEXT* )member));
                 return;
             });
         }
@@ -2273,9 +2764,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplayEventInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplayEventInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplayEventInfoEXT* )member));
                 return;
             });
         }
@@ -2291,9 +2786,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSwapchainCounterCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSwapchainCounterCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSwapchainCounterCreateInfoEXT* )member));
                 return;
             });
         }
@@ -2309,9 +2808,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceGroupProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceGroupProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceGroupProperties* )member));
                 return;
             });
         }
@@ -2327,9 +2830,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryAllocateFlagsInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryAllocateFlagsInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryAllocateFlagsInfo* )member));
                 return;
             });
         }
@@ -2345,9 +2852,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBindBufferMemoryInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBindBufferMemoryInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBindBufferMemoryInfo* )member));
                 return;
             });
         }
@@ -2363,9 +2874,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBindBufferMemoryDeviceGroupInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBindBufferMemoryDeviceGroupInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBindBufferMemoryDeviceGroupInfo* )member));
                 return;
             });
         }
@@ -2381,9 +2896,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBindImageMemoryInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBindImageMemoryInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBindImageMemoryInfo* )member));
                 return;
             });
         }
@@ -2399,9 +2918,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBindImageMemoryDeviceGroupInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBindImageMemoryDeviceGroupInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBindImageMemoryDeviceGroupInfo* )member));
                 return;
             });
         }
@@ -2417,9 +2940,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceGroupRenderPassBeginInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceGroupRenderPassBeginInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceGroupRenderPassBeginInfo* )member));
                 return;
             });
         }
@@ -2435,9 +2962,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceGroupCommandBufferBeginInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceGroupCommandBufferBeginInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceGroupCommandBufferBeginInfo* )member));
                 return;
             });
         }
@@ -2453,9 +2984,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceGroupSubmitInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceGroupSubmitInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceGroupSubmitInfo* )member));
                 return;
             });
         }
@@ -2471,9 +3006,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceGroupBindSparseInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceGroupBindSparseInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceGroupBindSparseInfo* )member));
                 return;
             });
         }
@@ -2489,9 +3028,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceGroupPresentCapabilitiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceGroupPresentCapabilitiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceGroupPresentCapabilitiesKHR* )member));
                 return;
             });
         }
@@ -2507,9 +3050,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageSwapchainCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageSwapchainCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageSwapchainCreateInfoKHR* )member));
                 return;
             });
         }
@@ -2525,9 +3072,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBindImageMemorySwapchainInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBindImageMemorySwapchainInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBindImageMemorySwapchainInfoKHR* )member));
                 return;
             });
         }
@@ -2543,9 +3094,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAcquireNextImageInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAcquireNextImageInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAcquireNextImageInfoKHR* )member));
                 return;
             });
         }
@@ -2561,9 +3116,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceGroupPresentInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceGroupPresentInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceGroupPresentInfoKHR* )member));
                 return;
             });
         }
@@ -2579,9 +3138,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceGroupDeviceCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceGroupDeviceCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceGroupDeviceCreateInfo* )member));
                 return;
             });
         }
@@ -2597,9 +3160,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceGroupSwapchainCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceGroupSwapchainCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceGroupSwapchainCreateInfoKHR* )member));
                 return;
             });
         }
@@ -2615,9 +3182,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorUpdateTemplateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorUpdateTemplateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorUpdateTemplateCreateInfo* )member));
                 return;
             });
         }
@@ -2633,9 +3204,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePresentIdFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePresentIdFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePresentIdFeaturesKHR* )member));
                 return;
             });
         }
@@ -2651,9 +3226,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPresentIdKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPresentIdKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPresentIdKHR* )member));
                 return;
             });
         }
@@ -2669,9 +3248,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePresentWaitFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePresentWaitFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePresentWaitFeaturesKHR* )member));
                 return;
             });
         }
@@ -2687,9 +3270,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkHdrMetadataEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkHdrMetadataEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkHdrMetadataEXT* )member));
                 return;
             });
         }
@@ -2705,9 +3292,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplayNativeHdrSurfaceCapabilitiesAMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplayNativeHdrSurfaceCapabilitiesAMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplayNativeHdrSurfaceCapabilitiesAMD* )member));
                 return;
             });
         }
@@ -2723,9 +3314,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSwapchainDisplayNativeHdrCreateInfoAMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSwapchainDisplayNativeHdrCreateInfoAMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSwapchainDisplayNativeHdrCreateInfoAMD* )member));
                 return;
             });
         }
@@ -2741,9 +3336,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPresentTimesInfoGOOGLE;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPresentTimesInfoGOOGLE;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPresentTimesInfoGOOGLE* )member));
                 return;
             });
         }
@@ -2759,9 +3358,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineViewportWScalingStateCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineViewportWScalingStateCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineViewportWScalingStateCreateInfoNV* )member));
                 return;
             });
         }
@@ -2777,9 +3380,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineViewportSwizzleStateCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineViewportSwizzleStateCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineViewportSwizzleStateCreateInfoNV* )member));
                 return;
             });
         }
@@ -2795,9 +3402,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDiscardRectanglePropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDiscardRectanglePropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDiscardRectanglePropertiesEXT* )member));
                 return;
             });
         }
@@ -2813,9 +3424,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineDiscardRectangleStateCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineDiscardRectangleStateCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineDiscardRectangleStateCreateInfoEXT* )member));
                 return;
             });
         }
@@ -2831,9 +3446,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX* )member));
                 return;
             });
         }
@@ -2849,9 +3468,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassInputAttachmentAspectCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassInputAttachmentAspectCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassInputAttachmentAspectCreateInfo* )member));
                 return;
             });
         }
@@ -2867,9 +3490,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSurfaceInfo2KHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSurfaceInfo2KHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSurfaceInfo2KHR* )member));
                 return;
             });
         }
@@ -2885,9 +3512,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSurfaceCapabilities2KHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSurfaceCapabilities2KHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSurfaceCapabilities2KHR* )member));
                 return;
             });
         }
@@ -2903,9 +3534,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSurfaceFormat2KHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSurfaceFormat2KHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSurfaceFormat2KHR* )member));
                 return;
             });
         }
@@ -2921,9 +3556,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplayProperties2KHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplayProperties2KHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplayProperties2KHR* )member));
                 return;
             });
         }
@@ -2939,9 +3578,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplayPlaneProperties2KHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplayPlaneProperties2KHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplayPlaneProperties2KHR* )member));
                 return;
             });
         }
@@ -2957,9 +3600,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplayModeProperties2KHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplayModeProperties2KHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplayModeProperties2KHR* )member));
                 return;
             });
         }
@@ -2975,9 +3622,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplayPlaneInfo2KHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplayPlaneInfo2KHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplayPlaneInfo2KHR* )member));
                 return;
             });
         }
@@ -2993,9 +3644,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDisplayPlaneCapabilities2KHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDisplayPlaneCapabilities2KHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDisplayPlaneCapabilities2KHR* )member));
                 return;
             });
         }
@@ -3011,9 +3666,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSharedPresentSurfaceCapabilitiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSharedPresentSurfaceCapabilitiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSharedPresentSurfaceCapabilitiesKHR* )member));
                 return;
             });
         }
@@ -3029,9 +3688,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevice16BitStorageFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevice16BitStorageFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevice16BitStorageFeatures* )member));
                 return;
             });
         }
@@ -3047,9 +3710,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSubgroupProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSubgroupProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSubgroupProperties* )member));
                 return;
             });
         }
@@ -3065,9 +3732,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures* )member));
                 return;
             });
         }
@@ -3083,9 +3754,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferMemoryRequirementsInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferMemoryRequirementsInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferMemoryRequirementsInfo2* )member));
                 return;
             });
         }
@@ -3101,9 +3776,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceBufferMemoryRequirements;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceBufferMemoryRequirements;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceBufferMemoryRequirements* )member));
                 return;
             });
         }
@@ -3119,9 +3798,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageMemoryRequirementsInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageMemoryRequirementsInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageMemoryRequirementsInfo2* )member));
                 return;
             });
         }
@@ -3137,9 +3820,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageSparseMemoryRequirementsInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageSparseMemoryRequirementsInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageSparseMemoryRequirementsInfo2* )member));
                 return;
             });
         }
@@ -3155,9 +3842,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceImageMemoryRequirements;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceImageMemoryRequirements;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceImageMemoryRequirements* )member));
                 return;
             });
         }
@@ -3173,9 +3864,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryRequirements2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryRequirements2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryRequirements2* )member));
                 return;
             });
         }
@@ -3191,9 +3886,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSparseImageMemoryRequirements2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSparseImageMemoryRequirements2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSparseImageMemoryRequirements2* )member));
                 return;
             });
         }
@@ -3209,9 +3908,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePointClippingProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePointClippingProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePointClippingProperties* )member));
                 return;
             });
         }
@@ -3227,9 +3930,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryDedicatedRequirements;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryDedicatedRequirements;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryDedicatedRequirements* )member));
                 return;
             });
         }
@@ -3245,9 +3952,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryDedicatedAllocateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryDedicatedAllocateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryDedicatedAllocateInfo* )member));
                 return;
             });
         }
@@ -3263,9 +3974,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageViewUsageCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageViewUsageCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageViewUsageCreateInfo* )member));
                 return;
             });
         }
@@ -3281,9 +3996,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageViewSlicedCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageViewSlicedCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageViewSlicedCreateInfoEXT* )member));
                 return;
             });
         }
@@ -3299,9 +4018,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineTessellationDomainOriginStateCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineTessellationDomainOriginStateCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineTessellationDomainOriginStateCreateInfo* )member));
                 return;
             });
         }
@@ -3317,9 +4040,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerYcbcrConversionInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerYcbcrConversionInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerYcbcrConversionInfo* )member));
                 return;
             });
         }
@@ -3335,9 +4062,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerYcbcrConversionCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerYcbcrConversionCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerYcbcrConversionCreateInfo* )member));
                 return;
             });
         }
@@ -3353,9 +4084,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBindImagePlaneMemoryInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBindImagePlaneMemoryInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBindImagePlaneMemoryInfo* )member));
                 return;
             });
         }
@@ -3371,9 +4106,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImagePlaneMemoryRequirementsInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImagePlaneMemoryRequirementsInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImagePlaneMemoryRequirementsInfo* )member));
                 return;
             });
         }
@@ -3389,9 +4128,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSamplerYcbcrConversionFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSamplerYcbcrConversionFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSamplerYcbcrConversionFeatures* )member));
                 return;
             });
         }
@@ -3407,9 +4150,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerYcbcrConversionImageFormatProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerYcbcrConversionImageFormatProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerYcbcrConversionImageFormatProperties* )member));
                 return;
             });
         }
@@ -3425,9 +4172,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkTextureLODGatherFormatPropertiesAMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkTextureLODGatherFormatPropertiesAMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkTextureLODGatherFormatPropertiesAMD* )member));
                 return;
             });
         }
@@ -3443,9 +4194,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkConditionalRenderingBeginInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkConditionalRenderingBeginInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkConditionalRenderingBeginInfoEXT* )member));
                 return;
             });
         }
@@ -3461,9 +4216,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkProtectedSubmitInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkProtectedSubmitInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkProtectedSubmitInfo* )member));
                 return;
             });
         }
@@ -3479,9 +4238,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceProtectedMemoryFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceProtectedMemoryFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceProtectedMemoryFeatures* )member));
                 return;
             });
         }
@@ -3497,9 +4260,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceProtectedMemoryProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceProtectedMemoryProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceProtectedMemoryProperties* )member));
                 return;
             });
         }
@@ -3515,9 +4282,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceQueueInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceQueueInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceQueueInfo2* )member));
                 return;
             });
         }
@@ -3533,9 +4304,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineCoverageToColorStateCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineCoverageToColorStateCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineCoverageToColorStateCreateInfoNV* )member));
                 return;
             });
         }
@@ -3551,9 +4326,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSamplerFilterMinmaxProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSamplerFilterMinmaxProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSamplerFilterMinmaxProperties* )member));
                 return;
             });
         }
@@ -3569,9 +4348,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSampleLocationsInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSampleLocationsInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSampleLocationsInfoEXT* )member));
                 return;
             });
         }
@@ -3587,9 +4370,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassSampleLocationsBeginInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassSampleLocationsBeginInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassSampleLocationsBeginInfoEXT* )member));
                 return;
             });
         }
@@ -3605,9 +4392,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineSampleLocationsStateCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineSampleLocationsStateCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineSampleLocationsStateCreateInfoEXT* )member));
                 return;
             });
         }
@@ -3623,9 +4414,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSampleLocationsPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSampleLocationsPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSampleLocationsPropertiesEXT* )member));
                 return;
             });
         }
@@ -3641,9 +4436,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMultisamplePropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMultisamplePropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMultisamplePropertiesEXT* )member));
                 return;
             });
         }
@@ -3659,9 +4458,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerReductionModeCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerReductionModeCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerReductionModeCreateInfo* )member));
                 return;
             });
         }
@@ -3677,9 +4480,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT* )member));
                 return;
             });
         }
@@ -3695,9 +4502,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMultiDrawFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMultiDrawFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMultiDrawFeaturesEXT* )member));
                 return;
             });
         }
@@ -3713,9 +4524,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT* )member));
                 return;
             });
         }
@@ -3731,9 +4546,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineColorBlendAdvancedStateCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineColorBlendAdvancedStateCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineColorBlendAdvancedStateCreateInfoEXT* )member));
                 return;
             });
         }
@@ -3749,9 +4568,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceInlineUniformBlockFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceInlineUniformBlockFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceInlineUniformBlockFeatures* )member));
                 return;
             });
         }
@@ -3767,9 +4590,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceInlineUniformBlockProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceInlineUniformBlockProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceInlineUniformBlockProperties* )member));
                 return;
             });
         }
@@ -3785,9 +4612,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkWriteDescriptorSetInlineUniformBlock;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkWriteDescriptorSetInlineUniformBlock;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkWriteDescriptorSetInlineUniformBlock* )member));
                 return;
             });
         }
@@ -3803,9 +4634,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorPoolInlineUniformBlockCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorPoolInlineUniformBlockCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorPoolInlineUniformBlockCreateInfo* )member));
                 return;
             });
         }
@@ -3821,9 +4656,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineCoverageModulationStateCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineCoverageModulationStateCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineCoverageModulationStateCreateInfoNV* )member));
                 return;
             });
         }
@@ -3839,9 +4678,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageFormatListCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageFormatListCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageFormatListCreateInfo* )member));
                 return;
             });
         }
@@ -3857,9 +4700,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkValidationCacheCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkValidationCacheCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkValidationCacheCreateInfoEXT* )member));
                 return;
             });
         }
@@ -3875,9 +4722,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkShaderModuleValidationCacheCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkShaderModuleValidationCacheCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkShaderModuleValidationCacheCreateInfoEXT* )member));
                 return;
             });
         }
@@ -3893,9 +4744,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMaintenance3Properties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMaintenance3Properties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMaintenance3Properties* )member));
                 return;
             });
         }
@@ -3911,9 +4766,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMaintenance4Features;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMaintenance4Features;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMaintenance4Features* )member));
                 return;
             });
         }
@@ -3929,9 +4788,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMaintenance4Properties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMaintenance4Properties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMaintenance4Properties* )member));
                 return;
             });
         }
@@ -3947,9 +4810,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMaintenance5FeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMaintenance5FeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMaintenance5FeaturesKHR* )member));
                 return;
             });
         }
@@ -3965,9 +4832,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMaintenance5PropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMaintenance5PropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMaintenance5PropertiesKHR* )member));
                 return;
             });
         }
@@ -3983,9 +4854,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderingAreaInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderingAreaInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderingAreaInfoKHR* )member));
                 return;
             });
         }
@@ -4001,9 +4876,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorSetLayoutSupport;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorSetLayoutSupport;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorSetLayoutSupport* )member));
                 return;
             });
         }
@@ -4019,9 +4898,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderDrawParametersFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderDrawParametersFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderDrawParametersFeatures* )member));
                 return;
             });
         }
@@ -4037,9 +4920,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderFloat16Int8Features;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderFloat16Int8Features;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderFloat16Int8Features* )member));
                 return;
             });
         }
@@ -4055,9 +4942,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFloatControlsProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFloatControlsProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFloatControlsProperties* )member));
                 return;
             });
         }
@@ -4073,9 +4964,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceHostQueryResetFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceHostQueryResetFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceHostQueryResetFeatures* )member));
                 return;
             });
         }
@@ -4091,9 +4986,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceQueueGlobalPriorityCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceQueueGlobalPriorityCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceQueueGlobalPriorityCreateInfoKHR* )member));
                 return;
             });
         }
@@ -4109,9 +5008,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR* )member));
                 return;
             });
         }
@@ -4127,9 +5030,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkQueueFamilyGlobalPriorityPropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkQueueFamilyGlobalPriorityPropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkQueueFamilyGlobalPriorityPropertiesKHR* )member));
                 return;
             });
         }
@@ -4145,9 +5052,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDebugUtilsObjectNameInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDebugUtilsObjectNameInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDebugUtilsObjectNameInfoEXT* )member));
                 return;
             });
         }
@@ -4163,9 +5074,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDebugUtilsObjectTagInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDebugUtilsObjectTagInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDebugUtilsObjectTagInfoEXT* )member));
                 return;
             });
         }
@@ -4181,9 +5096,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDebugUtilsLabelEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDebugUtilsLabelEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDebugUtilsLabelEXT* )member));
                 return;
             });
         }
@@ -4199,9 +5118,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDebugUtilsMessengerCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDebugUtilsMessengerCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDebugUtilsMessengerCreateInfoEXT* )member));
                 return;
             });
         }
@@ -4217,9 +5140,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDebugUtilsMessengerCallbackDataEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDebugUtilsMessengerCallbackDataEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDebugUtilsMessengerCallbackDataEXT* )member));
                 return;
             });
         }
@@ -4235,9 +5162,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDeviceMemoryReportFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDeviceMemoryReportFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDeviceMemoryReportFeaturesEXT* )member));
                 return;
             });
         }
@@ -4253,9 +5184,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceDeviceMemoryReportCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceDeviceMemoryReportCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceDeviceMemoryReportCreateInfoEXT* )member));
                 return;
             });
         }
@@ -4271,9 +5206,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceMemoryReportCallbackDataEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceMemoryReportCallbackDataEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceMemoryReportCallbackDataEXT* )member));
                 return;
             });
         }
@@ -4289,9 +5228,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImportMemoryHostPointerInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImportMemoryHostPointerInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImportMemoryHostPointerInfoEXT* )member));
                 return;
             });
         }
@@ -4307,9 +5250,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryHostPointerPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryHostPointerPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryHostPointerPropertiesEXT* )member));
                 return;
             });
         }
@@ -4325,9 +5272,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExternalMemoryHostPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExternalMemoryHostPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExternalMemoryHostPropertiesEXT* )member));
                 return;
             });
         }
@@ -4343,9 +5294,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceConservativeRasterizationPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceConservativeRasterizationPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceConservativeRasterizationPropertiesEXT* )member));
                 return;
             });
         }
@@ -4361,9 +5316,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCalibratedTimestampInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCalibratedTimestampInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCalibratedTimestampInfoEXT* )member));
                 return;
             });
         }
@@ -4379,9 +5338,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderCorePropertiesAMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderCorePropertiesAMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderCorePropertiesAMD* )member));
                 return;
             });
         }
@@ -4397,9 +5360,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderCoreProperties2AMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderCoreProperties2AMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderCoreProperties2AMD* )member));
                 return;
             });
         }
@@ -4415,9 +5382,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineRasterizationConservativeStateCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineRasterizationConservativeStateCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineRasterizationConservativeStateCreateInfoEXT* )member));
                 return;
             });
         }
@@ -4433,9 +5404,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDescriptorIndexingFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDescriptorIndexingFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDescriptorIndexingFeatures* )member));
                 return;
             });
         }
@@ -4451,9 +5426,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDescriptorIndexingProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDescriptorIndexingProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDescriptorIndexingProperties* )member));
                 return;
             });
         }
@@ -4469,9 +5448,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorSetLayoutBindingFlagsCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorSetLayoutBindingFlagsCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorSetLayoutBindingFlagsCreateInfo* )member));
                 return;
             });
         }
@@ -4487,9 +5470,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorSetVariableDescriptorCountAllocateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorSetVariableDescriptorCountAllocateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorSetVariableDescriptorCountAllocateInfo* )member));
                 return;
             });
         }
@@ -4505,9 +5492,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorSetVariableDescriptorCountLayoutSupport;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorSetVariableDescriptorCountLayoutSupport;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorSetVariableDescriptorCountLayoutSupport* )member));
                 return;
             });
         }
@@ -4523,9 +5514,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAttachmentDescription2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAttachmentDescription2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAttachmentDescription2* )member));
                 return;
             });
         }
@@ -4541,9 +5536,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAttachmentReference2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAttachmentReference2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAttachmentReference2* )member));
                 return;
             });
         }
@@ -4559,9 +5558,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubpassDescription2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubpassDescription2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubpassDescription2* )member));
                 return;
             });
         }
@@ -4577,9 +5580,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubpassDependency2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubpassDependency2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubpassDependency2* )member));
                 return;
             });
         }
@@ -4595,9 +5602,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassCreateInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassCreateInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassCreateInfo2* )member));
                 return;
             });
         }
@@ -4613,9 +5624,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubpassBeginInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubpassBeginInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubpassBeginInfo* )member));
                 return;
             });
         }
@@ -4631,9 +5646,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubpassEndInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubpassEndInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubpassEndInfo* )member));
                 return;
             });
         }
@@ -4649,9 +5668,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceTimelineSemaphoreFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceTimelineSemaphoreFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceTimelineSemaphoreFeatures* )member));
                 return;
             });
         }
@@ -4667,9 +5690,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceTimelineSemaphoreProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceTimelineSemaphoreProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceTimelineSemaphoreProperties* )member));
                 return;
             });
         }
@@ -4685,9 +5712,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSemaphoreTypeCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSemaphoreTypeCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSemaphoreTypeCreateInfo* )member));
                 return;
             });
         }
@@ -4703,9 +5734,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkTimelineSemaphoreSubmitInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkTimelineSemaphoreSubmitInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkTimelineSemaphoreSubmitInfo* )member));
                 return;
             });
         }
@@ -4721,9 +5756,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSemaphoreWaitInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSemaphoreWaitInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSemaphoreWaitInfo* )member));
                 return;
             });
         }
@@ -4739,9 +5778,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSemaphoreSignalInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSemaphoreSignalInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSemaphoreSignalInfo* )member));
                 return;
             });
         }
@@ -4757,9 +5800,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineVertexInputDivisorStateCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineVertexInputDivisorStateCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineVertexInputDivisorStateCreateInfoEXT* )member));
                 return;
             });
         }
@@ -4775,9 +5822,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT* )member));
                 return;
             });
         }
@@ -4793,9 +5844,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePCIBusInfoPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePCIBusInfoPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePCIBusInfoPropertiesEXT* )member));
                 return;
             });
         }
@@ -4811,9 +5866,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCommandBufferInheritanceConditionalRenderingInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCommandBufferInheritanceConditionalRenderingInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCommandBufferInheritanceConditionalRenderingInfoEXT* )member));
                 return;
             });
         }
@@ -4829,9 +5888,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevice8BitStorageFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevice8BitStorageFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevice8BitStorageFeatures* )member));
                 return;
             });
         }
@@ -4847,9 +5910,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceConditionalRenderingFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceConditionalRenderingFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceConditionalRenderingFeaturesEXT* )member));
                 return;
             });
         }
@@ -4865,9 +5932,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVulkanMemoryModelFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVulkanMemoryModelFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVulkanMemoryModelFeatures* )member));
                 return;
             });
         }
@@ -4883,9 +5954,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderAtomicInt64Features;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderAtomicInt64Features;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderAtomicInt64Features* )member));
                 return;
             });
         }
@@ -4901,9 +5976,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderAtomicFloatFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderAtomicFloatFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderAtomicFloatFeaturesEXT* )member));
                 return;
             });
         }
@@ -4919,9 +5998,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT* )member));
                 return;
             });
         }
@@ -4937,9 +6020,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT* )member));
                 return;
             });
         }
@@ -4955,9 +6042,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkQueueFamilyCheckpointPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkQueueFamilyCheckpointPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkQueueFamilyCheckpointPropertiesNV* )member));
                 return;
             });
         }
@@ -4973,9 +6064,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCheckpointDataNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCheckpointDataNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCheckpointDataNV* )member));
                 return;
             });
         }
@@ -4991,9 +6086,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDepthStencilResolveProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDepthStencilResolveProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDepthStencilResolveProperties* )member));
                 return;
             });
         }
@@ -5009,9 +6108,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubpassDescriptionDepthStencilResolve;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubpassDescriptionDepthStencilResolve;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubpassDescriptionDepthStencilResolve* )member));
                 return;
             });
         }
@@ -5027,9 +6130,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageViewASTCDecodeModeEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageViewASTCDecodeModeEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageViewASTCDecodeModeEXT* )member));
                 return;
             });
         }
@@ -5045,9 +6152,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceASTCDecodeFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceASTCDecodeFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceASTCDecodeFeaturesEXT* )member));
                 return;
             });
         }
@@ -5063,9 +6174,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceTransformFeedbackFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceTransformFeedbackFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceTransformFeedbackFeaturesEXT* )member));
                 return;
             });
         }
@@ -5081,9 +6196,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceTransformFeedbackPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceTransformFeedbackPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceTransformFeedbackPropertiesEXT* )member));
                 return;
             });
         }
@@ -5099,9 +6218,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineRasterizationStateStreamCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineRasterizationStateStreamCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineRasterizationStateStreamCreateInfoEXT* )member));
                 return;
             });
         }
@@ -5117,9 +6240,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV* )member));
                 return;
             });
         }
@@ -5135,9 +6262,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineRepresentativeFragmentTestStateCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineRepresentativeFragmentTestStateCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineRepresentativeFragmentTestStateCreateInfoNV* )member));
                 return;
             });
         }
@@ -5153,9 +6284,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExclusiveScissorFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExclusiveScissorFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExclusiveScissorFeaturesNV* )member));
                 return;
             });
         }
@@ -5171,9 +6306,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineViewportExclusiveScissorStateCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineViewportExclusiveScissorStateCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineViewportExclusiveScissorStateCreateInfoNV* )member));
                 return;
             });
         }
@@ -5189,9 +6328,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCornerSampledImageFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCornerSampledImageFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCornerSampledImageFeaturesNV* )member));
                 return;
             });
         }
@@ -5207,9 +6350,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceComputeShaderDerivativesFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceComputeShaderDerivativesFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceComputeShaderDerivativesFeaturesNV* )member));
                 return;
             });
         }
@@ -5225,9 +6372,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderImageFootprintFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderImageFootprintFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderImageFootprintFeaturesNV* )member));
                 return;
             });
         }
@@ -5243,9 +6394,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV* )member));
                 return;
             });
         }
@@ -5261,9 +6416,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCopyMemoryIndirectFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCopyMemoryIndirectFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCopyMemoryIndirectFeaturesNV* )member));
                 return;
             });
         }
@@ -5279,9 +6438,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCopyMemoryIndirectPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCopyMemoryIndirectPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCopyMemoryIndirectPropertiesNV* )member));
                 return;
             });
         }
@@ -5297,9 +6460,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMemoryDecompressionFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMemoryDecompressionFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMemoryDecompressionFeaturesNV* )member));
                 return;
             });
         }
@@ -5315,9 +6482,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMemoryDecompressionPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMemoryDecompressionPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMemoryDecompressionPropertiesNV* )member));
                 return;
             });
         }
@@ -5333,9 +6504,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineViewportShadingRateImageStateCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineViewportShadingRateImageStateCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineViewportShadingRateImageStateCreateInfoNV* )member));
                 return;
             });
         }
@@ -5351,9 +6526,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShadingRateImageFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShadingRateImageFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShadingRateImageFeaturesNV* )member));
                 return;
             });
         }
@@ -5369,9 +6548,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShadingRateImagePropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShadingRateImagePropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShadingRateImagePropertiesNV* )member));
                 return;
             });
         }
@@ -5387,9 +6570,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceInvocationMaskFeaturesHUAWEI;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceInvocationMaskFeaturesHUAWEI;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceInvocationMaskFeaturesHUAWEI* )member));
                 return;
             });
         }
@@ -5405,9 +6592,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineViewportCoarseSampleOrderStateCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineViewportCoarseSampleOrderStateCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineViewportCoarseSampleOrderStateCreateInfoNV* )member));
                 return;
             });
         }
@@ -5423,9 +6614,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMeshShaderFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMeshShaderFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMeshShaderFeaturesNV* )member));
                 return;
             });
         }
@@ -5441,9 +6636,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMeshShaderPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMeshShaderPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMeshShaderPropertiesNV* )member));
                 return;
             });
         }
@@ -5459,9 +6658,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMeshShaderFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMeshShaderFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMeshShaderFeaturesEXT* )member));
                 return;
             });
         }
@@ -5477,9 +6680,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMeshShaderPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMeshShaderPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMeshShaderPropertiesEXT* )member));
                 return;
             });
         }
@@ -5495,9 +6702,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRayTracingShaderGroupCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRayTracingShaderGroupCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRayTracingShaderGroupCreateInfoNV* )member));
                 return;
             });
         }
@@ -5513,9 +6724,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRayTracingShaderGroupCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRayTracingShaderGroupCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRayTracingShaderGroupCreateInfoKHR* )member));
                 return;
             });
         }
@@ -5531,9 +6746,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRayTracingPipelineCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRayTracingPipelineCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRayTracingPipelineCreateInfoNV* )member));
                 return;
             });
         }
@@ -5549,9 +6768,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRayTracingPipelineCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRayTracingPipelineCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRayTracingPipelineCreateInfoKHR* )member));
                 return;
             });
         }
@@ -5567,9 +6790,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkGeometryTrianglesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkGeometryTrianglesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkGeometryTrianglesNV* )member));
                 return;
             });
         }
@@ -5585,9 +6812,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkGeometryAABBNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkGeometryAABBNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkGeometryAABBNV* )member));
                 return;
             });
         }
@@ -5603,9 +6834,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkGeometryNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkGeometryNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkGeometryNV* )member));
                 return;
             });
         }
@@ -5621,9 +6856,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureInfoNV* )member));
                 return;
             });
         }
@@ -5639,9 +6878,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureCreateInfoNV* )member));
                 return;
             });
         }
@@ -5657,9 +6900,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBindAccelerationStructureMemoryInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBindAccelerationStructureMemoryInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBindAccelerationStructureMemoryInfoNV* )member));
                 return;
             });
         }
@@ -5675,9 +6922,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkWriteDescriptorSetAccelerationStructureKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkWriteDescriptorSetAccelerationStructureKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkWriteDescriptorSetAccelerationStructureKHR* )member));
                 return;
             });
         }
@@ -5693,9 +6944,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkWriteDescriptorSetAccelerationStructureNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkWriteDescriptorSetAccelerationStructureNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkWriteDescriptorSetAccelerationStructureNV* )member));
                 return;
             });
         }
@@ -5711,9 +6966,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureMemoryRequirementsInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureMemoryRequirementsInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureMemoryRequirementsInfoNV* )member));
                 return;
             });
         }
@@ -5729,9 +6988,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceAccelerationStructureFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceAccelerationStructureFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceAccelerationStructureFeaturesKHR* )member));
                 return;
             });
         }
@@ -5747,9 +7010,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRayTracingPipelineFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRayTracingPipelineFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRayTracingPipelineFeaturesKHR* )member));
                 return;
             });
         }
@@ -5765,9 +7032,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRayQueryFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRayQueryFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRayQueryFeaturesKHR* )member));
                 return;
             });
         }
@@ -5783,9 +7054,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceAccelerationStructurePropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceAccelerationStructurePropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceAccelerationStructurePropertiesKHR* )member));
                 return;
             });
         }
@@ -5801,9 +7076,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRayTracingPipelinePropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRayTracingPipelinePropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRayTracingPipelinePropertiesKHR* )member));
                 return;
             });
         }
@@ -5819,9 +7098,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRayTracingPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRayTracingPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRayTracingPropertiesNV* )member));
                 return;
             });
         }
@@ -5837,9 +7120,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR* )member));
                 return;
             });
         }
@@ -5855,9 +7142,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDrmFormatModifierPropertiesListEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDrmFormatModifierPropertiesListEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDrmFormatModifierPropertiesListEXT* )member));
                 return;
             });
         }
@@ -5873,9 +7164,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageDrmFormatModifierInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageDrmFormatModifierInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageDrmFormatModifierInfoEXT* )member));
                 return;
             });
         }
@@ -5891,9 +7186,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageDrmFormatModifierListCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageDrmFormatModifierListCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageDrmFormatModifierListCreateInfoEXT* )member));
                 return;
             });
         }
@@ -5909,9 +7208,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageDrmFormatModifierExplicitCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageDrmFormatModifierExplicitCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageDrmFormatModifierExplicitCreateInfoEXT* )member));
                 return;
             });
         }
@@ -5927,9 +7230,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageDrmFormatModifierPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageDrmFormatModifierPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageDrmFormatModifierPropertiesEXT* )member));
                 return;
             });
         }
@@ -5945,9 +7252,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageStencilUsageCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageStencilUsageCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageStencilUsageCreateInfo* )member));
                 return;
             });
         }
@@ -5963,9 +7274,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceMemoryOverallocationCreateInfoAMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceMemoryOverallocationCreateInfoAMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceMemoryOverallocationCreateInfoAMD* )member));
                 return;
             });
         }
@@ -5981,9 +7296,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentDensityMapFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentDensityMapFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentDensityMapFeaturesEXT* )member));
                 return;
             });
         }
@@ -5999,9 +7318,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentDensityMap2FeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentDensityMap2FeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentDensityMap2FeaturesEXT* )member));
                 return;
             });
         }
@@ -6017,9 +7340,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM* )member));
                 return;
             });
         }
@@ -6035,9 +7362,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentDensityMapPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentDensityMapPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentDensityMapPropertiesEXT* )member));
                 return;
             });
         }
@@ -6053,9 +7384,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentDensityMap2PropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentDensityMap2PropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentDensityMap2PropertiesEXT* )member));
                 return;
             });
         }
@@ -6071,9 +7406,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM* )member));
                 return;
             });
         }
@@ -6089,9 +7428,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassFragmentDensityMapCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassFragmentDensityMapCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassFragmentDensityMapCreateInfoEXT* )member));
                 return;
             });
         }
@@ -6107,9 +7450,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubpassFragmentDensityMapOffsetEndInfoQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubpassFragmentDensityMapOffsetEndInfoQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubpassFragmentDensityMapOffsetEndInfoQCOM* )member));
                 return;
             });
         }
@@ -6125,9 +7472,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceScalarBlockLayoutFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceScalarBlockLayoutFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceScalarBlockLayoutFeatures* )member));
                 return;
             });
         }
@@ -6143,9 +7494,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSurfaceProtectedCapabilitiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSurfaceProtectedCapabilitiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSurfaceProtectedCapabilitiesKHR* )member));
                 return;
             });
         }
@@ -6161,9 +7516,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceUniformBufferStandardLayoutFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceUniformBufferStandardLayoutFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceUniformBufferStandardLayoutFeatures* )member));
                 return;
             });
         }
@@ -6179,9 +7538,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDepthClipEnableFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDepthClipEnableFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDepthClipEnableFeaturesEXT* )member));
                 return;
             });
         }
@@ -6197,9 +7560,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineRasterizationDepthClipStateCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineRasterizationDepthClipStateCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineRasterizationDepthClipStateCreateInfoEXT* )member));
                 return;
             });
         }
@@ -6215,9 +7582,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMemoryBudgetPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMemoryBudgetPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMemoryBudgetPropertiesEXT* )member));
                 return;
             });
         }
@@ -6233,9 +7604,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMemoryPriorityFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMemoryPriorityFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMemoryPriorityFeaturesEXT* )member));
                 return;
             });
         }
@@ -6251,9 +7626,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryPriorityAllocateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryPriorityAllocateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryPriorityAllocateInfoEXT* )member));
                 return;
             });
         }
@@ -6269,9 +7648,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT* )member));
                 return;
             });
         }
@@ -6287,9 +7670,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceBufferDeviceAddressFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceBufferDeviceAddressFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceBufferDeviceAddressFeatures* )member));
                 return;
             });
         }
@@ -6305,9 +7692,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceBufferDeviceAddressFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceBufferDeviceAddressFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceBufferDeviceAddressFeaturesEXT* )member));
                 return;
             });
         }
@@ -6323,9 +7714,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferDeviceAddressInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferDeviceAddressInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferDeviceAddressInfo* )member));
                 return;
             });
         }
@@ -6341,9 +7736,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferOpaqueCaptureAddressCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferOpaqueCaptureAddressCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferOpaqueCaptureAddressCreateInfo* )member));
                 return;
             });
         }
@@ -6359,9 +7758,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferDeviceAddressCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferDeviceAddressCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferDeviceAddressCreateInfoEXT* )member));
                 return;
             });
         }
@@ -6377,9 +7780,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageViewImageFormatInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageViewImageFormatInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageViewImageFormatInfoEXT* )member));
                 return;
             });
         }
@@ -6395,9 +7802,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFilterCubicImageViewImageFormatPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFilterCubicImageViewImageFormatPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFilterCubicImageViewImageFormatPropertiesEXT* )member));
                 return;
             });
         }
@@ -6413,9 +7824,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImagelessFramebufferFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImagelessFramebufferFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImagelessFramebufferFeatures* )member));
                 return;
             });
         }
@@ -6431,9 +7846,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFramebufferAttachmentsCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFramebufferAttachmentsCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFramebufferAttachmentsCreateInfo* )member));
                 return;
             });
         }
@@ -6449,9 +7868,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFramebufferAttachmentImageInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFramebufferAttachmentImageInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFramebufferAttachmentImageInfo* )member));
                 return;
             });
         }
@@ -6467,9 +7890,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassAttachmentBeginInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassAttachmentBeginInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassAttachmentBeginInfo* )member));
                 return;
             });
         }
@@ -6485,9 +7912,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceTextureCompressionASTCHDRFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceTextureCompressionASTCHDRFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceTextureCompressionASTCHDRFeatures* )member));
                 return;
             });
         }
@@ -6503,9 +7934,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCooperativeMatrixFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCooperativeMatrixFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCooperativeMatrixFeaturesNV* )member));
                 return;
             });
         }
@@ -6521,9 +7956,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCooperativeMatrixPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCooperativeMatrixPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCooperativeMatrixPropertiesNV* )member));
                 return;
             });
         }
@@ -6539,9 +7978,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCooperativeMatrixPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCooperativeMatrixPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCooperativeMatrixPropertiesNV* )member));
                 return;
             });
         }
@@ -6557,9 +8000,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceYcbcrImageArraysFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceYcbcrImageArraysFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceYcbcrImageArraysFeaturesEXT* )member));
                 return;
             });
         }
@@ -6575,9 +8022,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageViewHandleInfoNVX;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageViewHandleInfoNVX;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageViewHandleInfoNVX* )member));
                 return;
             });
         }
@@ -6593,9 +8044,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageViewAddressPropertiesNVX;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageViewAddressPropertiesNVX;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageViewAddressPropertiesNVX* )member));
                 return;
             });
         }
@@ -6611,9 +8066,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineCreationFeedbackCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineCreationFeedbackCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineCreationFeedbackCreateInfo* )member));
                 return;
             });
         }
@@ -6629,9 +8088,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePresentBarrierFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePresentBarrierFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePresentBarrierFeaturesNV* )member));
                 return;
             });
         }
@@ -6647,9 +8110,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSurfaceCapabilitiesPresentBarrierNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSurfaceCapabilitiesPresentBarrierNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSurfaceCapabilitiesPresentBarrierNV* )member));
                 return;
             });
         }
@@ -6665,9 +8132,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSwapchainPresentBarrierCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSwapchainPresentBarrierCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSwapchainPresentBarrierCreateInfoNV* )member));
                 return;
             });
         }
@@ -6683,9 +8154,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePerformanceQueryFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePerformanceQueryFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePerformanceQueryFeaturesKHR* )member));
                 return;
             });
         }
@@ -6701,9 +8176,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePerformanceQueryPropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePerformanceQueryPropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePerformanceQueryPropertiesKHR* )member));
                 return;
             });
         }
@@ -6719,9 +8198,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPerformanceCounterKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPerformanceCounterKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPerformanceCounterKHR* )member));
                 return;
             });
         }
@@ -6737,9 +8220,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPerformanceCounterDescriptionKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPerformanceCounterDescriptionKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPerformanceCounterDescriptionKHR* )member));
                 return;
             });
         }
@@ -6755,9 +8242,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkQueryPoolPerformanceCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkQueryPoolPerformanceCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkQueryPoolPerformanceCreateInfoKHR* )member));
                 return;
             });
         }
@@ -6773,9 +8264,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAcquireProfilingLockInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAcquireProfilingLockInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAcquireProfilingLockInfoKHR* )member));
                 return;
             });
         }
@@ -6791,9 +8286,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPerformanceQuerySubmitInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPerformanceQuerySubmitInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPerformanceQuerySubmitInfoKHR* )member));
                 return;
             });
         }
@@ -6809,9 +8308,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkHeadlessSurfaceCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkHeadlessSurfaceCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkHeadlessSurfaceCreateInfoEXT* )member));
                 return;
             });
         }
@@ -6827,9 +8330,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCoverageReductionModeFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCoverageReductionModeFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCoverageReductionModeFeaturesNV* )member));
                 return;
             });
         }
@@ -6845,9 +8352,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineCoverageReductionStateCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineCoverageReductionStateCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineCoverageReductionStateCreateInfoNV* )member));
                 return;
             });
         }
@@ -6863,9 +8374,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFramebufferMixedSamplesCombinationNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFramebufferMixedSamplesCombinationNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFramebufferMixedSamplesCombinationNV* )member));
                 return;
             });
         }
@@ -6881,9 +8396,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL* )member));
                 return;
             });
         }
@@ -6899,9 +8418,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkInitializePerformanceApiInfoINTEL;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkInitializePerformanceApiInfoINTEL;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkInitializePerformanceApiInfoINTEL* )member));
                 return;
             });
         }
@@ -6917,9 +8440,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkQueryPoolPerformanceQueryCreateInfoINTEL;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkQueryPoolPerformanceQueryCreateInfoINTEL;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkQueryPoolPerformanceQueryCreateInfoINTEL* )member));
                 return;
             });
         }
@@ -6935,9 +8462,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPerformanceMarkerInfoINTEL;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPerformanceMarkerInfoINTEL;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPerformanceMarkerInfoINTEL* )member));
                 return;
             });
         }
@@ -6953,9 +8484,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPerformanceStreamMarkerInfoINTEL;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPerformanceStreamMarkerInfoINTEL;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPerformanceStreamMarkerInfoINTEL* )member));
                 return;
             });
         }
@@ -6971,9 +8506,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPerformanceOverrideInfoINTEL;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPerformanceOverrideInfoINTEL;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPerformanceOverrideInfoINTEL* )member));
                 return;
             });
         }
@@ -6989,9 +8528,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPerformanceConfigurationAcquireInfoINTEL;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPerformanceConfigurationAcquireInfoINTEL;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPerformanceConfigurationAcquireInfoINTEL* )member));
                 return;
             });
         }
@@ -7007,9 +8550,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderClockFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderClockFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderClockFeaturesKHR* )member));
                 return;
             });
         }
@@ -7025,9 +8572,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceIndexTypeUint8FeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceIndexTypeUint8FeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceIndexTypeUint8FeaturesEXT* )member));
                 return;
             });
         }
@@ -7043,9 +8594,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderSMBuiltinsPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderSMBuiltinsPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderSMBuiltinsPropertiesNV* )member));
                 return;
             });
         }
@@ -7061,9 +8616,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderSMBuiltinsFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderSMBuiltinsFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderSMBuiltinsFeaturesNV* )member));
                 return;
             });
         }
@@ -7079,9 +8638,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT* )member));
                 return;
             });
         }
@@ -7097,9 +8660,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures* )member));
                 return;
             });
         }
@@ -7115,9 +8682,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAttachmentReferenceStencilLayout;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAttachmentReferenceStencilLayout;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAttachmentReferenceStencilLayout* )member));
                 return;
             });
         }
@@ -7133,9 +8704,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT* )member));
                 return;
             });
         }
@@ -7151,9 +8726,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAttachmentDescriptionStencilLayout;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAttachmentDescriptionStencilLayout;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAttachmentDescriptionStencilLayout* )member));
                 return;
             });
         }
@@ -7169,9 +8748,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR* )member));
                 return;
             });
         }
@@ -7187,9 +8770,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineInfoKHR* )member));
                 return;
             });
         }
@@ -7205,9 +8792,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineExecutablePropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineExecutablePropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineExecutablePropertiesKHR* )member));
                 return;
             });
         }
@@ -7223,9 +8814,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineExecutableInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineExecutableInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineExecutableInfoKHR* )member));
                 return;
             });
         }
@@ -7241,9 +8836,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineExecutableStatisticKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineExecutableStatisticKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineExecutableStatisticKHR* )member));
                 return;
             });
         }
@@ -7259,9 +8858,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineExecutableInternalRepresentationKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineExecutableInternalRepresentationKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineExecutableInternalRepresentationKHR* )member));
                 return;
             });
         }
@@ -7277,9 +8880,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures* )member));
                 return;
             });
         }
@@ -7295,9 +8902,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT* )member));
                 return;
             });
         }
@@ -7313,9 +8924,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceTexelBufferAlignmentProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceTexelBufferAlignmentProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceTexelBufferAlignmentProperties* )member));
                 return;
             });
         }
@@ -7331,9 +8946,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSubgroupSizeControlFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSubgroupSizeControlFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSubgroupSizeControlFeatures* )member));
                 return;
             });
         }
@@ -7349,9 +8968,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSubgroupSizeControlProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSubgroupSizeControlProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSubgroupSizeControlProperties* )member));
                 return;
             });
         }
@@ -7367,9 +8990,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineShaderStageRequiredSubgroupSizeCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineShaderStageRequiredSubgroupSizeCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineShaderStageRequiredSubgroupSizeCreateInfo* )member));
                 return;
             });
         }
@@ -7385,9 +9012,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubpassShadingPipelineCreateInfoHUAWEI;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubpassShadingPipelineCreateInfoHUAWEI;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubpassShadingPipelineCreateInfoHUAWEI* )member));
                 return;
             });
         }
@@ -7403,9 +9034,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSubpassShadingPropertiesHUAWEI;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSubpassShadingPropertiesHUAWEI;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSubpassShadingPropertiesHUAWEI* )member));
                 return;
             });
         }
@@ -7421,9 +9056,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI* )member));
                 return;
             });
         }
@@ -7439,9 +9078,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryOpaqueCaptureAddressAllocateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryOpaqueCaptureAddressAllocateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryOpaqueCaptureAddressAllocateInfo* )member));
                 return;
             });
         }
@@ -7457,9 +9100,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceMemoryOpaqueCaptureAddressInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceMemoryOpaqueCaptureAddressInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceMemoryOpaqueCaptureAddressInfo* )member));
                 return;
             });
         }
@@ -7475,9 +9122,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceLineRasterizationFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceLineRasterizationFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceLineRasterizationFeaturesEXT* )member));
                 return;
             });
         }
@@ -7493,9 +9144,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceLineRasterizationPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceLineRasterizationPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceLineRasterizationPropertiesEXT* )member));
                 return;
             });
         }
@@ -7511,9 +9166,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineRasterizationLineStateCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineRasterizationLineStateCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineRasterizationLineStateCreateInfoEXT* )member));
                 return;
             });
         }
@@ -7529,9 +9188,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePipelineCreationCacheControlFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePipelineCreationCacheControlFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePipelineCreationCacheControlFeatures* )member));
                 return;
             });
         }
@@ -7547,9 +9210,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVulkan11Features;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVulkan11Features;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVulkan11Features* )member));
                 return;
             });
         }
@@ -7565,9 +9232,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVulkan11Properties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVulkan11Properties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVulkan11Properties* )member));
                 return;
             });
         }
@@ -7583,9 +9254,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVulkan12Features;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVulkan12Features;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVulkan12Features* )member));
                 return;
             });
         }
@@ -7601,9 +9276,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVulkan12Properties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVulkan12Properties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVulkan12Properties* )member));
                 return;
             });
         }
@@ -7619,9 +9298,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVulkan13Features;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVulkan13Features;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVulkan13Features* )member));
                 return;
             });
         }
@@ -7637,9 +9320,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVulkan13Properties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVulkan13Properties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVulkan13Properties* )member));
                 return;
             });
         }
@@ -7655,9 +9342,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineCompilerControlCreateInfoAMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineCompilerControlCreateInfoAMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineCompilerControlCreateInfoAMD* )member));
                 return;
             });
         }
@@ -7673,9 +9364,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCoherentMemoryFeaturesAMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCoherentMemoryFeaturesAMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCoherentMemoryFeaturesAMD* )member));
                 return;
             });
         }
@@ -7691,9 +9386,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceToolProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceToolProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceToolProperties* )member));
                 return;
             });
         }
@@ -7709,9 +9408,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerCustomBorderColorCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerCustomBorderColorCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerCustomBorderColorCreateInfoEXT* )member));
                 return;
             });
         }
@@ -7727,9 +9430,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCustomBorderColorPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCustomBorderColorPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCustomBorderColorPropertiesEXT* )member));
                 return;
             });
         }
@@ -7745,9 +9452,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCustomBorderColorFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCustomBorderColorFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCustomBorderColorFeaturesEXT* )member));
                 return;
             });
         }
@@ -7763,9 +9474,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerBorderColorComponentMappingCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerBorderColorComponentMappingCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerBorderColorComponentMappingCreateInfoEXT* )member));
                 return;
             });
         }
@@ -7781,9 +9496,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceBorderColorSwizzleFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceBorderColorSwizzleFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceBorderColorSwizzleFeaturesEXT* )member));
                 return;
             });
         }
@@ -7799,9 +9518,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureGeometryTrianglesDataKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureGeometryTrianglesDataKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureGeometryTrianglesDataKHR* )member));
                 return;
             });
         }
@@ -7817,9 +9540,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureGeometryAabbsDataKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureGeometryAabbsDataKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureGeometryAabbsDataKHR* )member));
                 return;
             });
         }
@@ -7835,9 +9562,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureGeometryInstancesDataKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureGeometryInstancesDataKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureGeometryInstancesDataKHR* )member));
                 return;
             });
         }
@@ -7853,9 +9584,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureGeometryKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureGeometryKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureGeometryKHR* )member));
                 return;
             });
         }
@@ -7871,9 +9606,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureBuildGeometryInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureBuildGeometryInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureBuildGeometryInfoKHR* )member));
                 return;
             });
         }
@@ -7889,9 +9628,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureCreateInfoKHR* )member));
                 return;
             });
         }
@@ -7907,9 +9650,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureDeviceAddressInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureDeviceAddressInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureDeviceAddressInfoKHR* )member));
                 return;
             });
         }
@@ -7925,9 +9672,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureVersionInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureVersionInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureVersionInfoKHR* )member));
                 return;
             });
         }
@@ -7943,9 +9694,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyAccelerationStructureInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyAccelerationStructureInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyAccelerationStructureInfoKHR* )member));
                 return;
             });
         }
@@ -7961,9 +9716,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyAccelerationStructureToMemoryInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyAccelerationStructureToMemoryInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyAccelerationStructureToMemoryInfoKHR* )member));
                 return;
             });
         }
@@ -7979,9 +9738,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyMemoryToAccelerationStructureInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyMemoryToAccelerationStructureInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyMemoryToAccelerationStructureInfoKHR* )member));
                 return;
             });
         }
@@ -7997,9 +9760,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRayTracingPipelineInterfaceCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRayTracingPipelineInterfaceCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRayTracingPipelineInterfaceCreateInfoKHR* )member));
                 return;
             });
         }
@@ -8015,9 +9782,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineLibraryCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineLibraryCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineLibraryCreateInfoKHR* )member));
                 return;
             });
         }
@@ -8033,9 +9804,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExtendedDynamicStateFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExtendedDynamicStateFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExtendedDynamicStateFeaturesEXT* )member));
                 return;
             });
         }
@@ -8051,9 +9826,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExtendedDynamicState2FeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExtendedDynamicState2FeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExtendedDynamicState2FeaturesEXT* )member));
                 return;
             });
         }
@@ -8069,9 +9848,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExtendedDynamicState3FeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExtendedDynamicState3FeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExtendedDynamicState3FeaturesEXT* )member));
                 return;
             });
         }
@@ -8087,9 +9870,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExtendedDynamicState3PropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExtendedDynamicState3PropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExtendedDynamicState3PropertiesEXT* )member));
                 return;
             });
         }
@@ -8105,9 +9892,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassTransformBeginInfoQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassTransformBeginInfoQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassTransformBeginInfoQCOM* )member));
                 return;
             });
         }
@@ -8123,9 +9914,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyCommandTransformInfoQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyCommandTransformInfoQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyCommandTransformInfoQCOM* )member));
                 return;
             });
         }
@@ -8141,9 +9936,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCommandBufferInheritanceRenderPassTransformInfoQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCommandBufferInheritanceRenderPassTransformInfoQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCommandBufferInheritanceRenderPassTransformInfoQCOM* )member));
                 return;
             });
         }
@@ -8159,9 +9958,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDiagnosticsConfigFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDiagnosticsConfigFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDiagnosticsConfigFeaturesNV* )member));
                 return;
             });
         }
@@ -8177,9 +9980,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceDiagnosticsConfigCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceDiagnosticsConfigCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceDiagnosticsConfigCreateInfoNV* )member));
                 return;
             });
         }
@@ -8195,9 +10002,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures* )member));
                 return;
             });
         }
@@ -8213,9 +10024,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR* )member));
                 return;
             });
         }
@@ -8231,9 +10046,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRobustness2FeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRobustness2FeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRobustness2FeaturesEXT* )member));
                 return;
             });
         }
@@ -8249,9 +10068,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRobustness2PropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRobustness2PropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRobustness2PropertiesEXT* )member));
                 return;
             });
         }
@@ -8267,9 +10090,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageRobustnessFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageRobustnessFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageRobustnessFeatures* )member));
                 return;
             });
         }
@@ -8285,9 +10112,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR* )member));
                 return;
             });
         }
@@ -8303,9 +10134,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevice4444FormatsFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevice4444FormatsFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevice4444FormatsFeaturesEXT* )member));
                 return;
             });
         }
@@ -8321,9 +10156,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSubpassShadingFeaturesHUAWEI;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSubpassShadingFeaturesHUAWEI;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSubpassShadingFeaturesHUAWEI* )member));
                 return;
             });
         }
@@ -8339,9 +10178,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI* )member));
                 return;
             });
         }
@@ -8357,9 +10200,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferCopy2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferCopy2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferCopy2* )member));
                 return;
             });
         }
@@ -8375,9 +10222,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageCopy2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageCopy2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageCopy2* )member));
                 return;
             });
         }
@@ -8393,9 +10244,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageBlit2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageBlit2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageBlit2* )member));
                 return;
             });
         }
@@ -8411,9 +10266,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferImageCopy2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferImageCopy2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferImageCopy2* )member));
                 return;
             });
         }
@@ -8429,9 +10288,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageResolve2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageResolve2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageResolve2* )member));
                 return;
             });
         }
@@ -8447,9 +10310,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyBufferInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyBufferInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyBufferInfo2* )member));
                 return;
             });
         }
@@ -8465,9 +10332,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyImageInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyImageInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyImageInfo2* )member));
                 return;
             });
         }
@@ -8483,9 +10354,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBlitImageInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBlitImageInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBlitImageInfo2* )member));
                 return;
             });
         }
@@ -8501,9 +10376,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyBufferToImageInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyBufferToImageInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyBufferToImageInfo2* )member));
                 return;
             });
         }
@@ -8519,9 +10398,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyImageToBufferInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyImageToBufferInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyImageToBufferInfo2* )member));
                 return;
             });
         }
@@ -8537,9 +10420,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkResolveImageInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkResolveImageInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkResolveImageInfo2* )member));
                 return;
             });
         }
@@ -8555,9 +10442,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT* )member));
                 return;
             });
         }
@@ -8573,9 +10464,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFragmentShadingRateAttachmentInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFragmentShadingRateAttachmentInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFragmentShadingRateAttachmentInfoKHR* )member));
                 return;
             });
         }
@@ -8591,9 +10486,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineFragmentShadingRateStateCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineFragmentShadingRateStateCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineFragmentShadingRateStateCreateInfoKHR* )member));
                 return;
             });
         }
@@ -8609,9 +10508,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentShadingRateFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentShadingRateFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentShadingRateFeaturesKHR* )member));
                 return;
             });
         }
@@ -8627,9 +10530,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentShadingRatePropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentShadingRatePropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentShadingRatePropertiesKHR* )member));
                 return;
             });
         }
@@ -8645,9 +10552,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentShadingRateKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentShadingRateKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentShadingRateKHR* )member));
                 return;
             });
         }
@@ -8663,9 +10574,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderTerminateInvocationFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderTerminateInvocationFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderTerminateInvocationFeatures* )member));
                 return;
             });
         }
@@ -8681,9 +10596,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV* )member));
                 return;
             });
         }
@@ -8699,9 +10618,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV* )member));
                 return;
             });
         }
@@ -8717,9 +10640,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineFragmentShadingRateEnumStateCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineFragmentShadingRateEnumStateCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineFragmentShadingRateEnumStateCreateInfoNV* )member));
                 return;
             });
         }
@@ -8735,9 +10662,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureBuildSizesInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureBuildSizesInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureBuildSizesInfoKHR* )member));
                 return;
             });
         }
@@ -8753,9 +10684,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImage2DViewOf3DFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImage2DViewOf3DFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImage2DViewOf3DFeaturesEXT* )member));
                 return;
             });
         }
@@ -8771,9 +10706,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT* )member));
                 return;
             });
         }
@@ -8789,9 +10728,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT* )member));
                 return;
             });
         }
@@ -8807,9 +10750,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT* )member));
                 return;
             });
         }
@@ -8825,9 +10772,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMutableDescriptorTypeCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMutableDescriptorTypeCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMutableDescriptorTypeCreateInfoEXT* )member));
                 return;
             });
         }
@@ -8843,9 +10794,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDepthClipControlFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDepthClipControlFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDepthClipControlFeaturesEXT* )member));
                 return;
             });
         }
@@ -8861,9 +10816,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineViewportDepthClipControlCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineViewportDepthClipControlCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineViewportDepthClipControlCreateInfoEXT* )member));
                 return;
             });
         }
@@ -8879,9 +10838,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT* )member));
                 return;
             });
         }
@@ -8897,9 +10860,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceExternalMemoryRDMAFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceExternalMemoryRDMAFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceExternalMemoryRDMAFeaturesNV* )member));
                 return;
             });
         }
@@ -8915,9 +10882,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVertexInputBindingDescription2EXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVertexInputBindingDescription2EXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVertexInputBindingDescription2EXT* )member));
                 return;
             });
         }
@@ -8933,9 +10904,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVertexInputAttributeDescription2EXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVertexInputAttributeDescription2EXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVertexInputAttributeDescription2EXT* )member));
                 return;
             });
         }
@@ -8951,9 +10926,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceColorWriteEnableFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceColorWriteEnableFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceColorWriteEnableFeaturesEXT* )member));
                 return;
             });
         }
@@ -8969,9 +10948,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineColorWriteCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineColorWriteCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineColorWriteCreateInfoEXT* )member));
                 return;
             });
         }
@@ -8987,9 +10970,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryBarrier2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryBarrier2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryBarrier2* )member));
                 return;
             });
         }
@@ -9005,9 +10992,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageMemoryBarrier2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageMemoryBarrier2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageMemoryBarrier2* )member));
                 return;
             });
         }
@@ -9023,9 +11014,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferMemoryBarrier2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferMemoryBarrier2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferMemoryBarrier2* )member));
                 return;
             });
         }
@@ -9041,9 +11036,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDependencyInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDependencyInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDependencyInfo* )member));
                 return;
             });
         }
@@ -9059,9 +11058,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSemaphoreSubmitInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSemaphoreSubmitInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSemaphoreSubmitInfo* )member));
                 return;
             });
         }
@@ -9077,9 +11080,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCommandBufferSubmitInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCommandBufferSubmitInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCommandBufferSubmitInfo* )member));
                 return;
             });
         }
@@ -9095,9 +11102,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubmitInfo2;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubmitInfo2;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubmitInfo2* )member));
                 return;
             });
         }
@@ -9113,9 +11124,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkQueueFamilyCheckpointProperties2NV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkQueueFamilyCheckpointProperties2NV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkQueueFamilyCheckpointProperties2NV* )member));
                 return;
             });
         }
@@ -9131,9 +11146,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCheckpointData2NV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCheckpointData2NV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCheckpointData2NV* )member));
                 return;
             });
         }
@@ -9149,9 +11168,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSynchronization2Features;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSynchronization2Features;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSynchronization2Features* )member));
                 return;
             });
         }
@@ -9167,9 +11190,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceHostImageCopyFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceHostImageCopyFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceHostImageCopyFeaturesEXT* )member));
                 return;
             });
         }
@@ -9185,9 +11212,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceHostImageCopyPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceHostImageCopyPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceHostImageCopyPropertiesEXT* )member));
                 return;
             });
         }
@@ -9203,9 +11234,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryToImageCopyEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryToImageCopyEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryToImageCopyEXT* )member));
                 return;
             });
         }
@@ -9221,9 +11256,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageToMemoryCopyEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageToMemoryCopyEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageToMemoryCopyEXT* )member));
                 return;
             });
         }
@@ -9239,9 +11278,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyMemoryToImageInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyMemoryToImageInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyMemoryToImageInfoEXT* )member));
                 return;
             });
         }
@@ -9257,9 +11300,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyImageToMemoryInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyImageToMemoryInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyImageToMemoryInfoEXT* )member));
                 return;
             });
         }
@@ -9275,9 +11322,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyImageToImageInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyImageToImageInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyImageToImageInfoEXT* )member));
                 return;
             });
         }
@@ -9293,9 +11344,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkHostImageLayoutTransitionInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkHostImageLayoutTransitionInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkHostImageLayoutTransitionInfoEXT* )member));
                 return;
             });
         }
@@ -9311,9 +11366,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubresourceHostMemcpySizeEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubresourceHostMemcpySizeEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubresourceHostMemcpySizeEXT* )member));
                 return;
             });
         }
@@ -9329,9 +11388,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkHostImageCopyDevicePerformanceQueryEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkHostImageCopyDevicePerformanceQueryEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkHostImageCopyDevicePerformanceQueryEXT* )member));
                 return;
             });
         }
@@ -9347,9 +11410,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT* )member));
                 return;
             });
         }
@@ -9365,9 +11432,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceLegacyDitheringFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceLegacyDitheringFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceLegacyDitheringFeaturesEXT* )member));
                 return;
             });
         }
@@ -9383,9 +11454,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT* )member));
                 return;
             });
         }
@@ -9401,9 +11476,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubpassResolvePerformanceQueryEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubpassResolvePerformanceQueryEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubpassResolvePerformanceQueryEXT* )member));
                 return;
             });
         }
@@ -9419,9 +11498,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMultisampledRenderToSingleSampledInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMultisampledRenderToSingleSampledInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMultisampledRenderToSingleSampledInfoEXT* )member));
                 return;
             });
         }
@@ -9437,9 +11520,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePipelineProtectedAccessFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePipelineProtectedAccessFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePipelineProtectedAccessFeaturesEXT* )member));
                 return;
             });
         }
@@ -9455,9 +11542,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkQueueFamilyVideoPropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkQueueFamilyVideoPropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkQueueFamilyVideoPropertiesKHR* )member));
                 return;
             });
         }
@@ -9473,9 +11564,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkQueueFamilyQueryResultStatusPropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkQueueFamilyQueryResultStatusPropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkQueueFamilyQueryResultStatusPropertiesKHR* )member));
                 return;
             });
         }
@@ -9491,9 +11586,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoProfileListInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoProfileListInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoProfileListInfoKHR* )member));
                 return;
             });
         }
@@ -9509,9 +11608,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceVideoFormatInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceVideoFormatInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceVideoFormatInfoKHR* )member));
                 return;
             });
         }
@@ -9527,9 +11630,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoFormatPropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoFormatPropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoFormatPropertiesKHR* )member));
                 return;
             });
         }
@@ -9545,9 +11652,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoProfileInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoProfileInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoProfileInfoKHR* )member));
                 return;
             });
         }
@@ -9563,9 +11674,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoCapabilitiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoCapabilitiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoCapabilitiesKHR* )member));
                 return;
             });
         }
@@ -9581,9 +11696,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoSessionMemoryRequirementsKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoSessionMemoryRequirementsKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoSessionMemoryRequirementsKHR* )member));
                 return;
             });
         }
@@ -9599,9 +11718,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBindVideoSessionMemoryInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBindVideoSessionMemoryInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBindVideoSessionMemoryInfoKHR* )member));
                 return;
             });
         }
@@ -9617,9 +11740,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoPictureResourceInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoPictureResourceInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoPictureResourceInfoKHR* )member));
                 return;
             });
         }
@@ -9635,9 +11762,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoReferenceSlotInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoReferenceSlotInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoReferenceSlotInfoKHR* )member));
                 return;
             });
         }
@@ -9653,9 +11784,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeCapabilitiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeCapabilitiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeCapabilitiesKHR* )member));
                 return;
             });
         }
@@ -9671,9 +11806,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeUsageInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeUsageInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeUsageInfoKHR* )member));
                 return;
             });
         }
@@ -9689,9 +11828,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeInfoKHR* )member));
                 return;
             });
         }
@@ -9707,9 +11850,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH264ProfileInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH264ProfileInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH264ProfileInfoKHR* )member));
                 return;
             });
         }
@@ -9725,9 +11872,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH264CapabilitiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH264CapabilitiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH264CapabilitiesKHR* )member));
                 return;
             });
         }
@@ -9743,9 +11894,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH264SessionParametersAddInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH264SessionParametersAddInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH264SessionParametersAddInfoKHR* )member));
                 return;
             });
         }
@@ -9761,9 +11916,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH264SessionParametersCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH264SessionParametersCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH264SessionParametersCreateInfoKHR* )member));
                 return;
             });
         }
@@ -9779,9 +11938,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH264PictureInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH264PictureInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH264PictureInfoKHR* )member));
                 return;
             });
         }
@@ -9797,9 +11960,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH264DpbSlotInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH264DpbSlotInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH264DpbSlotInfoKHR* )member));
                 return;
             });
         }
@@ -9815,9 +11982,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH265ProfileInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH265ProfileInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH265ProfileInfoKHR* )member));
                 return;
             });
         }
@@ -9833,9 +12004,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH265CapabilitiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH265CapabilitiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH265CapabilitiesKHR* )member));
                 return;
             });
         }
@@ -9851,9 +12026,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH265SessionParametersAddInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH265SessionParametersAddInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH265SessionParametersAddInfoKHR* )member));
                 return;
             });
         }
@@ -9869,9 +12048,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH265SessionParametersCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH265SessionParametersCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH265SessionParametersCreateInfoKHR* )member));
                 return;
             });
         }
@@ -9887,9 +12070,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH265PictureInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH265PictureInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH265PictureInfoKHR* )member));
                 return;
             });
         }
@@ -9905,9 +12092,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoDecodeH265DpbSlotInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoDecodeH265DpbSlotInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoDecodeH265DpbSlotInfoKHR* )member));
                 return;
             });
         }
@@ -9923,9 +12114,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoSessionCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoSessionCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoSessionCreateInfoKHR* )member));
                 return;
             });
         }
@@ -9941,9 +12136,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoSessionParametersCreateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoSessionParametersCreateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoSessionParametersCreateInfoKHR* )member));
                 return;
             });
         }
@@ -9959,9 +12158,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoSessionParametersUpdateInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoSessionParametersUpdateInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoSessionParametersUpdateInfoKHR* )member));
                 return;
             });
         }
@@ -9977,9 +12180,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoBeginCodingInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoBeginCodingInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoBeginCodingInfoKHR* )member));
                 return;
             });
         }
@@ -9995,9 +12202,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoEndCodingInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoEndCodingInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoEndCodingInfoKHR* )member));
                 return;
             });
         }
@@ -10013,9 +12224,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkVideoCodingControlInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkVideoCodingControlInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkVideoCodingControlInfoKHR* )member));
                 return;
             });
         }
@@ -10031,9 +12246,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceInheritedViewportScissorFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceInheritedViewportScissorFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceInheritedViewportScissorFeaturesNV* )member));
                 return;
             });
         }
@@ -10049,9 +12268,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCommandBufferInheritanceViewportScissorInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCommandBufferInheritanceViewportScissorInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCommandBufferInheritanceViewportScissorInfoNV* )member));
                 return;
             });
         }
@@ -10067,9 +12290,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT* )member));
                 return;
             });
         }
@@ -10085,9 +12312,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceProvokingVertexFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceProvokingVertexFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceProvokingVertexFeaturesEXT* )member));
                 return;
             });
         }
@@ -10103,9 +12334,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceProvokingVertexPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceProvokingVertexPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceProvokingVertexPropertiesEXT* )member));
                 return;
             });
         }
@@ -10121,9 +12356,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineRasterizationProvokingVertexStateCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineRasterizationProvokingVertexStateCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineRasterizationProvokingVertexStateCreateInfoEXT* )member));
                 return;
             });
         }
@@ -10139,9 +12378,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCuModuleCreateInfoNVX;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCuModuleCreateInfoNVX;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCuModuleCreateInfoNVX* )member));
                 return;
             });
         }
@@ -10157,9 +12400,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCuFunctionCreateInfoNVX;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCuFunctionCreateInfoNVX;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCuFunctionCreateInfoNVX* )member));
                 return;
             });
         }
@@ -10175,9 +12422,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCuLaunchInfoNVX;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCuLaunchInfoNVX;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCuLaunchInfoNVX* )member));
                 return;
             });
         }
@@ -10193,9 +12444,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDescriptorBufferFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDescriptorBufferFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDescriptorBufferFeaturesEXT* )member));
                 return;
             });
         }
@@ -10211,9 +12466,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDescriptorBufferPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDescriptorBufferPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDescriptorBufferPropertiesEXT* )member));
                 return;
             });
         }
@@ -10229,9 +12488,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT* )member));
                 return;
             });
         }
@@ -10247,9 +12510,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorAddressInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorAddressInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorAddressInfoEXT* )member));
                 return;
             });
         }
@@ -10265,9 +12532,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorBufferBindingInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorBufferBindingInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorBufferBindingInfoEXT* )member));
                 return;
             });
         }
@@ -10283,9 +12554,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorBufferBindingPushDescriptorBufferHandleEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorBufferBindingPushDescriptorBufferHandleEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorBufferBindingPushDescriptorBufferHandleEXT* )member));
                 return;
             });
         }
@@ -10301,9 +12576,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorGetInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorGetInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorGetInfoEXT* )member));
                 return;
             });
         }
@@ -10319,9 +12598,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBufferCaptureDescriptorDataInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBufferCaptureDescriptorDataInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBufferCaptureDescriptorDataInfoEXT* )member));
                 return;
             });
         }
@@ -10337,9 +12620,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageCaptureDescriptorDataInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageCaptureDescriptorDataInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageCaptureDescriptorDataInfoEXT* )member));
                 return;
             });
         }
@@ -10355,9 +12642,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageViewCaptureDescriptorDataInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageViewCaptureDescriptorDataInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageViewCaptureDescriptorDataInfoEXT* )member));
                 return;
             });
         }
@@ -10373,9 +12664,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerCaptureDescriptorDataInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerCaptureDescriptorDataInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerCaptureDescriptorDataInfoEXT* )member));
                 return;
             });
         }
@@ -10391,9 +12686,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureCaptureDescriptorDataInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureCaptureDescriptorDataInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureCaptureDescriptorDataInfoEXT* )member));
                 return;
             });
         }
@@ -10409,9 +12708,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkOpaqueCaptureDescriptorDataCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkOpaqueCaptureDescriptorDataCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkOpaqueCaptureDescriptorDataCreateInfoEXT* )member));
                 return;
             });
         }
@@ -10427,9 +12730,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderIntegerDotProductFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderIntegerDotProductFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderIntegerDotProductFeatures* )member));
                 return;
             });
         }
@@ -10445,9 +12752,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderIntegerDotProductProperties;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderIntegerDotProductProperties;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderIntegerDotProductProperties* )member));
                 return;
             });
         }
@@ -10463,9 +12774,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDrmPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDrmPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDrmPropertiesEXT* )member));
                 return;
             });
         }
@@ -10481,9 +12796,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR* )member));
                 return;
             });
         }
@@ -10499,9 +12818,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR* )member));
                 return;
             });
         }
@@ -10517,9 +12840,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRayTracingMotionBlurFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRayTracingMotionBlurFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRayTracingMotionBlurFeaturesNV* )member));
                 return;
             });
         }
@@ -10535,9 +12862,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureGeometryMotionTrianglesDataNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureGeometryMotionTrianglesDataNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureGeometryMotionTrianglesDataNV* )member));
                 return;
             });
         }
@@ -10553,9 +12884,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureMotionInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureMotionInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureMotionInfoNV* )member));
                 return;
             });
         }
@@ -10571,9 +12906,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryGetRemoteAddressInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryGetRemoteAddressInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryGetRemoteAddressInfoNV* )member));
                 return;
             });
         }
@@ -10589,9 +12928,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT* )member));
                 return;
             });
         }
@@ -10607,9 +12950,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFormatProperties3;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFormatProperties3;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFormatProperties3* )member));
                 return;
             });
         }
@@ -10625,9 +12972,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDrmFormatModifierPropertiesList2EXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDrmFormatModifierPropertiesList2EXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDrmFormatModifierPropertiesList2EXT* )member));
                 return;
             });
         }
@@ -10643,9 +12994,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineRenderingCreateInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineRenderingCreateInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineRenderingCreateInfo* )member));
                 return;
             });
         }
@@ -10661,9 +13016,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderingInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderingInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderingInfo* )member));
                 return;
             });
         }
@@ -10679,9 +13038,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderingAttachmentInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderingAttachmentInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderingAttachmentInfo* )member));
                 return;
             });
         }
@@ -10697,9 +13060,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderingFragmentShadingRateAttachmentInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderingFragmentShadingRateAttachmentInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderingFragmentShadingRateAttachmentInfoKHR* )member));
                 return;
             });
         }
@@ -10715,9 +13082,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderingFragmentDensityMapAttachmentInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderingFragmentDensityMapAttachmentInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderingFragmentDensityMapAttachmentInfoEXT* )member));
                 return;
             });
         }
@@ -10733,9 +13104,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDynamicRenderingFeatures;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDynamicRenderingFeatures;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDynamicRenderingFeatures* )member));
                 return;
             });
         }
@@ -10751,9 +13126,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCommandBufferInheritanceRenderingInfo;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCommandBufferInheritanceRenderingInfo;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCommandBufferInheritanceRenderingInfo* )member));
                 return;
             });
         }
@@ -10769,9 +13148,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAttachmentSampleCountInfoAMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAttachmentSampleCountInfoAMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAttachmentSampleCountInfoAMD* )member));
                 return;
             });
         }
@@ -10787,9 +13170,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMultiviewPerViewAttributesInfoNVX;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMultiviewPerViewAttributesInfoNVX;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMultiviewPerViewAttributesInfoNVX* )member));
                 return;
             });
         }
@@ -10805,9 +13192,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageViewMinLodFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageViewMinLodFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageViewMinLodFeaturesEXT* )member));
                 return;
             });
         }
@@ -10823,9 +13214,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageViewMinLodCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageViewMinLodCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageViewMinLodCreateInfoEXT* )member));
                 return;
             });
         }
@@ -10841,9 +13236,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT* )member));
                 return;
             });
         }
@@ -10859,9 +13258,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceLinearColorAttachmentFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceLinearColorAttachmentFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceLinearColorAttachmentFeaturesNV* )member));
                 return;
             });
         }
@@ -10877,9 +13280,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT* )member));
                 return;
             });
         }
@@ -10895,9 +13302,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT* )member));
                 return;
             });
         }
@@ -10913,9 +13324,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkGraphicsPipelineLibraryCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkGraphicsPipelineLibraryCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkGraphicsPipelineLibraryCreateInfoEXT* )member));
                 return;
             });
         }
@@ -10931,9 +13346,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE* )member));
                 return;
             });
         }
@@ -10949,9 +13368,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorSetBindingReferenceVALVE;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorSetBindingReferenceVALVE;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorSetBindingReferenceVALVE* )member));
                 return;
             });
         }
@@ -10967,9 +13390,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDescriptorSetLayoutHostMappingInfoVALVE;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDescriptorSetLayoutHostMappingInfoVALVE;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDescriptorSetLayoutHostMappingInfoVALVE* )member));
                 return;
             });
         }
@@ -10985,9 +13412,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT* )member));
                 return;
             });
         }
@@ -11003,9 +13434,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT* )member));
                 return;
             });
         }
@@ -11021,9 +13456,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineShaderStageModuleIdentifierCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineShaderStageModuleIdentifierCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineShaderStageModuleIdentifierCreateInfoEXT* )member));
                 return;
             });
         }
@@ -11039,9 +13478,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkShaderModuleIdentifierEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkShaderModuleIdentifierEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkShaderModuleIdentifierEXT* )member));
                 return;
             });
         }
@@ -11057,9 +13500,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageCompressionControlEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageCompressionControlEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageCompressionControlEXT* )member));
                 return;
             });
         }
@@ -11075,9 +13522,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageCompressionControlFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageCompressionControlFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageCompressionControlFeaturesEXT* )member));
                 return;
             });
         }
@@ -11093,9 +13544,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageCompressionPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageCompressionPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageCompressionPropertiesEXT* )member));
                 return;
             });
         }
@@ -11111,9 +13566,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT* )member));
                 return;
             });
         }
@@ -11129,9 +13588,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageSubresource2KHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageSubresource2KHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageSubresource2KHR* )member));
                 return;
             });
         }
@@ -11147,9 +13610,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSubresourceLayout2KHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSubresourceLayout2KHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSubresourceLayout2KHR* )member));
                 return;
             });
         }
@@ -11165,9 +13632,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassCreationControlEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassCreationControlEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassCreationControlEXT* )member));
                 return;
             });
         }
@@ -11183,9 +13654,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassCreationFeedbackCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassCreationFeedbackCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassCreationFeedbackCreateInfoEXT* )member));
                 return;
             });
         }
@@ -11201,9 +13676,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkRenderPassSubpassFeedbackCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkRenderPassSubpassFeedbackCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkRenderPassSubpassFeedbackCreateInfoEXT* )member));
                 return;
             });
         }
@@ -11219,9 +13698,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT* )member));
                 return;
             });
         }
@@ -11237,9 +13720,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMicromapBuildInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMicromapBuildInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMicromapBuildInfoEXT* )member));
                 return;
             });
         }
@@ -11255,9 +13742,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMicromapCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMicromapCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMicromapCreateInfoEXT* )member));
                 return;
             });
         }
@@ -11273,9 +13764,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMicromapVersionInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMicromapVersionInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMicromapVersionInfoEXT* )member));
                 return;
             });
         }
@@ -11291,9 +13786,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyMicromapInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyMicromapInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyMicromapInfoEXT* )member));
                 return;
             });
         }
@@ -11309,9 +13808,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyMicromapToMemoryInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyMicromapToMemoryInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyMicromapToMemoryInfoEXT* )member));
                 return;
             });
         }
@@ -11327,9 +13830,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCopyMemoryToMicromapInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCopyMemoryToMicromapInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCopyMemoryToMicromapInfoEXT* )member));
                 return;
             });
         }
@@ -11345,9 +13852,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMicromapBuildSizesInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMicromapBuildSizesInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMicromapBuildSizesInfoEXT* )member));
                 return;
             });
         }
@@ -11363,9 +13874,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceOpacityMicromapFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceOpacityMicromapFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceOpacityMicromapFeaturesEXT* )member));
                 return;
             });
         }
@@ -11381,9 +13896,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceOpacityMicromapPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceOpacityMicromapPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceOpacityMicromapPropertiesEXT* )member));
                 return;
             });
         }
@@ -11399,9 +13918,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAccelerationStructureTrianglesOpacityMicromapEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAccelerationStructureTrianglesOpacityMicromapEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAccelerationStructureTrianglesOpacityMicromapEXT* )member));
                 return;
             });
         }
@@ -11417,9 +13940,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelinePropertiesIdentifierEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelinePropertiesIdentifierEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelinePropertiesIdentifierEXT* )member));
                 return;
             });
         }
@@ -11435,9 +13962,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePipelinePropertiesFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePipelinePropertiesFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePipelinePropertiesFeaturesEXT* )member));
                 return;
             });
         }
@@ -11453,9 +13984,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD* )member));
                 return;
             });
         }
@@ -11471,9 +14006,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkExternalMemoryAcquireUnmodifiedEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkExternalMemoryAcquireUnmodifiedEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkExternalMemoryAcquireUnmodifiedEXT* )member));
                 return;
             });
         }
@@ -11489,9 +14028,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT* )member));
                 return;
             });
         }
@@ -11507,9 +14050,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePipelineRobustnessFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePipelineRobustnessFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePipelineRobustnessFeaturesEXT* )member));
                 return;
             });
         }
@@ -11525,9 +14072,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPipelineRobustnessCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPipelineRobustnessCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPipelineRobustnessCreateInfoEXT* )member));
                 return;
             });
         }
@@ -11543,9 +14094,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePipelineRobustnessPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePipelineRobustnessPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePipelineRobustnessPropertiesEXT* )member));
                 return;
             });
         }
@@ -11561,9 +14116,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkImageViewSampleWeightCreateInfoQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkImageViewSampleWeightCreateInfoQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkImageViewSampleWeightCreateInfoQCOM* )member));
                 return;
             });
         }
@@ -11579,9 +14138,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageProcessingFeaturesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageProcessingFeaturesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageProcessingFeaturesQCOM* )member));
                 return;
             });
         }
@@ -11597,9 +14160,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageProcessingPropertiesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageProcessingPropertiesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageProcessingPropertiesQCOM* )member));
                 return;
             });
         }
@@ -11615,9 +14182,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceTilePropertiesFeaturesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceTilePropertiesFeaturesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceTilePropertiesFeaturesQCOM* )member));
                 return;
             });
         }
@@ -11633,9 +14204,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkTilePropertiesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkTilePropertiesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkTilePropertiesQCOM* )member));
                 return;
             });
         }
@@ -11651,9 +14226,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceAmigoProfilingFeaturesSEC;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceAmigoProfilingFeaturesSEC;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceAmigoProfilingFeaturesSEC* )member));
                 return;
             });
         }
@@ -11669,9 +14248,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkAmigoProfilingSubmitInfoSEC;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkAmigoProfilingSubmitInfoSEC;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkAmigoProfilingSubmitInfoSEC* )member));
                 return;
             });
         }
@@ -11687,9 +14270,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT* )member));
                 return;
             });
         }
@@ -11705,9 +14292,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDepthClampZeroOneFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDepthClampZeroOneFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDepthClampZeroOneFeaturesEXT* )member));
                 return;
             });
         }
@@ -11723,9 +14314,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceAddressBindingReportFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceAddressBindingReportFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceAddressBindingReportFeaturesEXT* )member));
                 return;
             });
         }
@@ -11741,9 +14336,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceAddressBindingCallbackDataEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceAddressBindingCallbackDataEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceAddressBindingCallbackDataEXT* )member));
                 return;
             });
         }
@@ -11759,9 +14358,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceOpticalFlowFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceOpticalFlowFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceOpticalFlowFeaturesNV* )member));
                 return;
             });
         }
@@ -11777,9 +14380,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceOpticalFlowPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceOpticalFlowPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceOpticalFlowPropertiesNV* )member));
                 return;
             });
         }
@@ -11795,9 +14402,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkOpticalFlowImageFormatInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkOpticalFlowImageFormatInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkOpticalFlowImageFormatInfoNV* )member));
                 return;
             });
         }
@@ -11813,9 +14424,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkOpticalFlowImageFormatPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkOpticalFlowImageFormatPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkOpticalFlowImageFormatPropertiesNV* )member));
                 return;
             });
         }
@@ -11831,9 +14446,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkOpticalFlowSessionCreateInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkOpticalFlowSessionCreateInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkOpticalFlowSessionCreateInfoNV* )member));
                 return;
             });
         }
@@ -11849,9 +14468,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkOpticalFlowSessionCreatePrivateDataInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkOpticalFlowSessionCreatePrivateDataInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkOpticalFlowSessionCreatePrivateDataInfoNV* )member));
                 return;
             });
         }
@@ -11867,9 +14490,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkOpticalFlowExecuteInfoNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkOpticalFlowExecuteInfoNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkOpticalFlowExecuteInfoNV* )member));
                 return;
             });
         }
@@ -11885,9 +14512,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFaultFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFaultFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFaultFeaturesEXT* )member));
                 return;
             });
         }
@@ -11903,9 +14534,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceFaultCountsEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceFaultCountsEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceFaultCountsEXT* )member));
                 return;
             });
         }
@@ -11921,9 +14556,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceFaultInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceFaultInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceFaultInfoEXT* )member));
                 return;
             });
         }
@@ -11939,9 +14578,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT* )member));
                 return;
             });
         }
@@ -11957,9 +14600,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDepthBiasInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDepthBiasInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDepthBiasInfoEXT* )member));
                 return;
             });
         }
@@ -11975,9 +14622,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDepthBiasRepresentationInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDepthBiasRepresentationInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDepthBiasRepresentationInfoEXT* )member));
                 return;
             });
         }
@@ -11993,9 +14644,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM* )member));
                 return;
             });
         }
@@ -12011,9 +14666,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM* )member));
                 return;
             });
         }
@@ -12029,9 +14688,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkFrameBoundaryEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkFrameBoundaryEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkFrameBoundaryEXT* )member));
                 return;
             });
         }
@@ -12047,9 +14710,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceFrameBoundaryFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceFrameBoundaryFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceFrameBoundaryFeaturesEXT* )member));
                 return;
             });
         }
@@ -12065,9 +14732,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT* )member));
                 return;
             });
         }
@@ -12083,9 +14754,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSurfacePresentModeEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSurfacePresentModeEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSurfacePresentModeEXT* )member));
                 return;
             });
         }
@@ -12101,9 +14776,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSurfacePresentScalingCapabilitiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSurfacePresentScalingCapabilitiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSurfacePresentScalingCapabilitiesEXT* )member));
                 return;
             });
         }
@@ -12119,9 +14798,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSurfacePresentModeCompatibilityEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSurfacePresentModeCompatibilityEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSurfacePresentModeCompatibilityEXT* )member));
                 return;
             });
         }
@@ -12137,9 +14820,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT* )member));
                 return;
             });
         }
@@ -12155,9 +14842,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSwapchainPresentFenceInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSwapchainPresentFenceInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSwapchainPresentFenceInfoEXT* )member));
                 return;
             });
         }
@@ -12173,9 +14864,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSwapchainPresentModesCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSwapchainPresentModesCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSwapchainPresentModesCreateInfoEXT* )member));
                 return;
             });
         }
@@ -12191,9 +14886,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSwapchainPresentModeInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSwapchainPresentModeInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSwapchainPresentModeInfoEXT* )member));
                 return;
             });
         }
@@ -12209,9 +14908,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSwapchainPresentScalingCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSwapchainPresentScalingCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSwapchainPresentScalingCreateInfoEXT* )member));
                 return;
             });
         }
@@ -12227,9 +14930,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkReleaseSwapchainImagesInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkReleaseSwapchainImagesInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkReleaseSwapchainImagesInfoEXT* )member));
                 return;
             });
         }
@@ -12245,9 +14952,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDepthBiasControlFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDepthBiasControlFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDepthBiasControlFeaturesEXT* )member));
                 return;
             });
         }
@@ -12263,9 +14974,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV* )member));
                 return;
             });
         }
@@ -12281,9 +14996,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV* )member));
                 return;
             });
         }
@@ -12299,9 +15018,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDirectDriverLoadingInfoLUNARG;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDirectDriverLoadingInfoLUNARG;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDirectDriverLoadingInfoLUNARG* )member));
                 return;
             });
         }
@@ -12317,9 +15040,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDirectDriverLoadingListLUNARG;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDirectDriverLoadingListLUNARG;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDirectDriverLoadingListLUNARG* )member));
                 return;
             });
         }
@@ -12335,9 +15062,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM* )member));
                 return;
             });
         }
@@ -12353,9 +15084,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR* )member));
                 return;
             });
         }
@@ -12371,9 +15106,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkDeviceImageSubresourceInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkDeviceImageSubresourceInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkDeviceImageSubresourceInfoKHR* )member));
                 return;
             });
         }
@@ -12389,9 +15128,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderCorePropertiesARM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderCorePropertiesARM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderCorePropertiesARM* )member));
                 return;
             });
         }
@@ -12407,9 +15150,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM* )member));
                 return;
             });
         }
@@ -12425,9 +15172,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM* )member));
                 return;
             });
         }
@@ -12443,9 +15194,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkQueryLowLatencySupportNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkQueryLowLatencySupportNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkQueryLowLatencySupportNV* )member));
                 return;
             });
         }
@@ -12461,9 +15216,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryMapInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryMapInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryMapInfoKHR* )member));
                 return;
             });
         }
@@ -12479,9 +15238,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkMemoryUnmapInfoKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkMemoryUnmapInfoKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkMemoryUnmapInfoKHR* )member));
                 return;
             });
         }
@@ -12497,9 +15260,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderObjectFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderObjectFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderObjectFeaturesEXT* )member));
                 return;
             });
         }
@@ -12515,9 +15282,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderObjectPropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderObjectPropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderObjectPropertiesEXT* )member));
                 return;
             });
         }
@@ -12533,9 +15304,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkShaderCreateInfoEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkShaderCreateInfoEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkShaderCreateInfoEXT* )member));
                 return;
             });
         }
@@ -12551,9 +15326,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderTileImageFeaturesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderTileImageFeaturesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderTileImageFeaturesEXT* )member));
                 return;
             });
         }
@@ -12569,9 +15348,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceShaderTileImagePropertiesEXT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceShaderTileImagePropertiesEXT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceShaderTileImagePropertiesEXT* )member));
                 return;
             });
         }
@@ -12587,9 +15370,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCooperativeMatrixFeaturesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCooperativeMatrixFeaturesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCooperativeMatrixFeaturesKHR* )member));
                 return;
             });
         }
@@ -12605,9 +15392,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkCooperativeMatrixPropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkCooperativeMatrixPropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkCooperativeMatrixPropertiesKHR* )member));
                 return;
             });
         }
@@ -12623,9 +15414,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCooperativeMatrixPropertiesKHR;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCooperativeMatrixPropertiesKHR;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCooperativeMatrixPropertiesKHR* )member));
                 return;
             });
         }
@@ -12641,9 +15436,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCubicClampFeaturesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCubicClampFeaturesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCubicClampFeaturesQCOM* )member));
                 return;
             });
         }
@@ -12659,9 +15458,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceYcbcrDegammaFeaturesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceYcbcrDegammaFeaturesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceYcbcrDegammaFeaturesQCOM* )member));
                 return;
             });
         }
@@ -12677,9 +15480,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM* )member));
                 return;
             });
         }
@@ -12695,9 +15502,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceCubicWeightsFeaturesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceCubicWeightsFeaturesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceCubicWeightsFeaturesQCOM* )member));
                 return;
             });
         }
@@ -12713,9 +15524,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerCubicWeightsCreateInfoQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerCubicWeightsCreateInfoQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerCubicWeightsCreateInfoQCOM* )member));
                 return;
             });
         }
@@ -12731,9 +15546,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkBlitImageCubicWeightsInfoQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkBlitImageCubicWeightsInfoQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkBlitImageCubicWeightsInfoQCOM* )member));
                 return;
             });
         }
@@ -12749,9 +15568,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageProcessing2FeaturesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageProcessing2FeaturesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageProcessing2FeaturesQCOM* )member));
                 return;
             });
         }
@@ -12767,9 +15590,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceImageProcessing2PropertiesQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceImageProcessing2PropertiesQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceImageProcessing2PropertiesQCOM* )member));
                 return;
             });
         }
@@ -12785,9 +15612,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkSamplerBlockMatchWindowCreateInfoQCOM;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkSamplerBlockMatchWindowCreateInfoQCOM;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkSamplerBlockMatchWindowCreateInfoQCOM* )member));
                 return;
             });
         }
@@ -12803,9 +15634,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV* )member));
                 return;
             });
         }
@@ -12821,9 +15656,13 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
-                auto result= new VkPhysicalDeviceLayeredDriverPropertiesMSFT;
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){
+                    auto result= new VkPhysicalDeviceLayeredDriverPropertiesMSFT;
+                    result->pNext=NULL;
+                    member=result;
+                }
+
+                deserialize_struct(json, *((VkPhysicalDeviceLayeredDriverPropertiesMSFT* )member));
                 return;
             });
         }
@@ -77636,7 +80475,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkInstance handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkInstance_lock.lock_shared();
                     if(!(client_VkInstance_to_server_VkInstance.contains( (uintptr_t)data ))){
@@ -77661,21 +80500,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkInstance)data);
-                    VkInstance_lock.lock_shared();
-                    if (server_VkInstance_to_client_VkInstance.contains(data)){
-                        result=(VkInstance)server_VkInstance_to_client_VkInstance[data];
-                        debug_printf("Deserializing to VkInstance %p...\n",result);
-                        VkInstance_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkInstance)NULL;
+                        debug_printf("VkInstance is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkInstance_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkInstance));
-                        debug_printf("Mapping to VkInstance %p...\n",handle);
-                        VkInstance_lock.lock();
-                        server_VkInstance_to_client_VkInstance[data]=(uintptr_t)handle;
-                        client_VkInstance_to_server_VkInstance[(uintptr_t)handle]=data;
-                        VkInstance_lock.unlock();
-                        
-                        result=(VkInstance)handle; //This is highly dangerous -- I'm basically casting VkInstance* to VkInstance. I should do *((VkInstance*)alloc_icd_object())
+                        VkInstance_lock.lock_shared();
+                        if (server_VkInstance_to_client_VkInstance.contains(data)){
+                            result=(VkInstance)server_VkInstance_to_client_VkInstance[data];
+                            debug_printf("Deserializing to VkInstance %p...\n",result);
+                            VkInstance_lock.unlock_shared();
+                        }else{
+                            VkInstance_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkInstance));
+                            debug_printf("Mapping to VkInstance %p...\n",handle);
+                            VkInstance_lock.lock();
+                            server_VkInstance_to_client_VkInstance[data]=(uintptr_t)handle;
+                            client_VkInstance_to_server_VkInstance[(uintptr_t)handle]=data;
+                            VkInstance_lock.unlock();
+                            
+                            result=(VkInstance)handle; //This is highly dangerous -- I'm basically casting VkInstance* to VkInstance. I should do *((VkInstance*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkInstance)data;
@@ -77721,7 +80565,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkPhysicalDevice handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkPhysicalDevice_lock.lock_shared();
                     if(!(client_VkPhysicalDevice_to_server_VkPhysicalDevice.contains( (uintptr_t)data ))){
@@ -77746,21 +80590,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPhysicalDevice)data);
-                    VkPhysicalDevice_lock.lock_shared();
-                    if (server_VkPhysicalDevice_to_client_VkPhysicalDevice.contains(data)){
-                        result=(VkPhysicalDevice)server_VkPhysicalDevice_to_client_VkPhysicalDevice[data];
-                        debug_printf("Deserializing to VkPhysicalDevice %p...\n",result);
-                        VkPhysicalDevice_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkPhysicalDevice)NULL;
+                        debug_printf("VkPhysicalDevice is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkPhysicalDevice_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkPhysicalDevice));
-                        debug_printf("Mapping to VkPhysicalDevice %p...\n",handle);
-                        VkPhysicalDevice_lock.lock();
-                        server_VkPhysicalDevice_to_client_VkPhysicalDevice[data]=(uintptr_t)handle;
-                        client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)handle]=data;
-                        VkPhysicalDevice_lock.unlock();
-                        
-                        result=(VkPhysicalDevice)handle; //This is highly dangerous -- I'm basically casting VkPhysicalDevice* to VkPhysicalDevice. I should do *((VkPhysicalDevice*)alloc_icd_object())
+                        VkPhysicalDevice_lock.lock_shared();
+                        if (server_VkPhysicalDevice_to_client_VkPhysicalDevice.contains(data)){
+                            result=(VkPhysicalDevice)server_VkPhysicalDevice_to_client_VkPhysicalDevice[data];
+                            debug_printf("Deserializing to VkPhysicalDevice %p...\n",result);
+                            VkPhysicalDevice_lock.unlock_shared();
+                        }else{
+                            VkPhysicalDevice_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkPhysicalDevice));
+                            debug_printf("Mapping to VkPhysicalDevice %p...\n",handle);
+                            VkPhysicalDevice_lock.lock();
+                            server_VkPhysicalDevice_to_client_VkPhysicalDevice[data]=(uintptr_t)handle;
+                            client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)handle]=data;
+                            VkPhysicalDevice_lock.unlock();
+                            
+                            result=(VkPhysicalDevice)handle; //This is highly dangerous -- I'm basically casting VkPhysicalDevice* to VkPhysicalDevice. I should do *((VkPhysicalDevice*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkPhysicalDevice)data;
@@ -77806,7 +80655,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDevice handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDevice_lock.lock_shared();
                     if(!(client_VkDevice_to_server_VkDevice.contains( (uintptr_t)data ))){
@@ -77831,21 +80680,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDevice)data);
-                    VkDevice_lock.lock_shared();
-                    if (server_VkDevice_to_client_VkDevice.contains(data)){
-                        result=(VkDevice)server_VkDevice_to_client_VkDevice[data];
-                        debug_printf("Deserializing to VkDevice %p...\n",result);
-                        VkDevice_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDevice)NULL;
+                        debug_printf("VkDevice is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDevice_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDevice));
-                        debug_printf("Mapping to VkDevice %p...\n",handle);
-                        VkDevice_lock.lock();
-                        server_VkDevice_to_client_VkDevice[data]=(uintptr_t)handle;
-                        client_VkDevice_to_server_VkDevice[(uintptr_t)handle]=data;
-                        VkDevice_lock.unlock();
-                        
-                        result=(VkDevice)handle; //This is highly dangerous -- I'm basically casting VkDevice* to VkDevice. I should do *((VkDevice*)alloc_icd_object())
+                        VkDevice_lock.lock_shared();
+                        if (server_VkDevice_to_client_VkDevice.contains(data)){
+                            result=(VkDevice)server_VkDevice_to_client_VkDevice[data];
+                            debug_printf("Deserializing to VkDevice %p...\n",result);
+                            VkDevice_lock.unlock_shared();
+                        }else{
+                            VkDevice_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDevice));
+                            debug_printf("Mapping to VkDevice %p...\n",handle);
+                            VkDevice_lock.lock();
+                            server_VkDevice_to_client_VkDevice[data]=(uintptr_t)handle;
+                            client_VkDevice_to_server_VkDevice[(uintptr_t)handle]=data;
+                            VkDevice_lock.unlock();
+                            
+                            result=(VkDevice)handle; //This is highly dangerous -- I'm basically casting VkDevice* to VkDevice. I should do *((VkDevice*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDevice)data;
@@ -77891,7 +80745,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkQueue handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkQueue_lock.lock_shared();
                     if(!(client_VkQueue_to_server_VkQueue.contains( (uintptr_t)data ))){
@@ -77916,21 +80770,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkQueue)data);
-                    VkQueue_lock.lock_shared();
-                    if (server_VkQueue_to_client_VkQueue.contains(data)){
-                        result=(VkQueue)server_VkQueue_to_client_VkQueue[data];
-                        debug_printf("Deserializing to VkQueue %p...\n",result);
-                        VkQueue_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkQueue)NULL;
+                        debug_printf("VkQueue is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkQueue_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkQueue));
-                        debug_printf("Mapping to VkQueue %p...\n",handle);
-                        VkQueue_lock.lock();
-                        server_VkQueue_to_client_VkQueue[data]=(uintptr_t)handle;
-                        client_VkQueue_to_server_VkQueue[(uintptr_t)handle]=data;
-                        VkQueue_lock.unlock();
-                        
-                        result=(VkQueue)handle; //This is highly dangerous -- I'm basically casting VkQueue* to VkQueue. I should do *((VkQueue*)alloc_icd_object())
+                        VkQueue_lock.lock_shared();
+                        if (server_VkQueue_to_client_VkQueue.contains(data)){
+                            result=(VkQueue)server_VkQueue_to_client_VkQueue[data];
+                            debug_printf("Deserializing to VkQueue %p...\n",result);
+                            VkQueue_lock.unlock_shared();
+                        }else{
+                            VkQueue_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkQueue));
+                            debug_printf("Mapping to VkQueue %p...\n",handle);
+                            VkQueue_lock.lock();
+                            server_VkQueue_to_client_VkQueue[data]=(uintptr_t)handle;
+                            client_VkQueue_to_server_VkQueue[(uintptr_t)handle]=data;
+                            VkQueue_lock.unlock();
+                            
+                            result=(VkQueue)handle; //This is highly dangerous -- I'm basically casting VkQueue* to VkQueue. I should do *((VkQueue*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkQueue)data;
@@ -77976,7 +80835,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkCommandBuffer handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkCommandBuffer_lock.lock_shared();
                     if(!(client_VkCommandBuffer_to_server_VkCommandBuffer.contains( (uintptr_t)data ))){
@@ -78001,21 +80860,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkCommandBuffer)data);
-                    VkCommandBuffer_lock.lock_shared();
-                    if (server_VkCommandBuffer_to_client_VkCommandBuffer.contains(data)){
-                        result=(VkCommandBuffer)server_VkCommandBuffer_to_client_VkCommandBuffer[data];
-                        debug_printf("Deserializing to VkCommandBuffer %p...\n",result);
-                        VkCommandBuffer_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkCommandBuffer)NULL;
+                        debug_printf("VkCommandBuffer is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkCommandBuffer_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkCommandBuffer));
-                        debug_printf("Mapping to VkCommandBuffer %p...\n",handle);
-                        VkCommandBuffer_lock.lock();
-                        server_VkCommandBuffer_to_client_VkCommandBuffer[data]=(uintptr_t)handle;
-                        client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)handle]=data;
-                        VkCommandBuffer_lock.unlock();
-                        
-                        result=(VkCommandBuffer)handle; //This is highly dangerous -- I'm basically casting VkCommandBuffer* to VkCommandBuffer. I should do *((VkCommandBuffer*)alloc_icd_object())
+                        VkCommandBuffer_lock.lock_shared();
+                        if (server_VkCommandBuffer_to_client_VkCommandBuffer.contains(data)){
+                            result=(VkCommandBuffer)server_VkCommandBuffer_to_client_VkCommandBuffer[data];
+                            debug_printf("Deserializing to VkCommandBuffer %p...\n",result);
+                            VkCommandBuffer_lock.unlock_shared();
+                        }else{
+                            VkCommandBuffer_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkCommandBuffer));
+                            debug_printf("Mapping to VkCommandBuffer %p...\n",handle);
+                            VkCommandBuffer_lock.lock();
+                            server_VkCommandBuffer_to_client_VkCommandBuffer[data]=(uintptr_t)handle;
+                            client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)handle]=data;
+                            VkCommandBuffer_lock.unlock();
+                            
+                            result=(VkCommandBuffer)handle; //This is highly dangerous -- I'm basically casting VkCommandBuffer* to VkCommandBuffer. I should do *((VkCommandBuffer*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkCommandBuffer)data;
@@ -78061,7 +80925,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDeviceMemory handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDeviceMemory_lock.lock_shared();
                     if(!(client_VkDeviceMemory_to_server_VkDeviceMemory.contains( (uintptr_t)data ))){
@@ -78086,21 +80950,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDeviceMemory)data);
-                    VkDeviceMemory_lock.lock_shared();
-                    if (server_VkDeviceMemory_to_client_VkDeviceMemory.contains(data)){
-                        result=(VkDeviceMemory)server_VkDeviceMemory_to_client_VkDeviceMemory[data];
-                        debug_printf("Deserializing to VkDeviceMemory %p...\n",result);
-                        VkDeviceMemory_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDeviceMemory)NULL;
+                        debug_printf("VkDeviceMemory is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDeviceMemory_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDeviceMemory));
-                        debug_printf("Mapping to VkDeviceMemory %p...\n",handle);
-                        VkDeviceMemory_lock.lock();
-                        server_VkDeviceMemory_to_client_VkDeviceMemory[data]=(uintptr_t)handle;
-                        client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)handle]=data;
-                        VkDeviceMemory_lock.unlock();
-                        
-                        result=(VkDeviceMemory)handle; //This is highly dangerous -- I'm basically casting VkDeviceMemory* to VkDeviceMemory. I should do *((VkDeviceMemory*)alloc_icd_object())
+                        VkDeviceMemory_lock.lock_shared();
+                        if (server_VkDeviceMemory_to_client_VkDeviceMemory.contains(data)){
+                            result=(VkDeviceMemory)server_VkDeviceMemory_to_client_VkDeviceMemory[data];
+                            debug_printf("Deserializing to VkDeviceMemory %p...\n",result);
+                            VkDeviceMemory_lock.unlock_shared();
+                        }else{
+                            VkDeviceMemory_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDeviceMemory));
+                            debug_printf("Mapping to VkDeviceMemory %p...\n",handle);
+                            VkDeviceMemory_lock.lock();
+                            server_VkDeviceMemory_to_client_VkDeviceMemory[data]=(uintptr_t)handle;
+                            client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)handle]=data;
+                            VkDeviceMemory_lock.unlock();
+                            
+                            result=(VkDeviceMemory)handle; //This is highly dangerous -- I'm basically casting VkDeviceMemory* to VkDeviceMemory. I should do *((VkDeviceMemory*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDeviceMemory)data;
@@ -78146,7 +81015,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkCommandPool handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkCommandPool_lock.lock_shared();
                     if(!(client_VkCommandPool_to_server_VkCommandPool.contains( (uintptr_t)data ))){
@@ -78171,21 +81040,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkCommandPool)data);
-                    VkCommandPool_lock.lock_shared();
-                    if (server_VkCommandPool_to_client_VkCommandPool.contains(data)){
-                        result=(VkCommandPool)server_VkCommandPool_to_client_VkCommandPool[data];
-                        debug_printf("Deserializing to VkCommandPool %p...\n",result);
-                        VkCommandPool_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkCommandPool)NULL;
+                        debug_printf("VkCommandPool is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkCommandPool_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkCommandPool));
-                        debug_printf("Mapping to VkCommandPool %p...\n",handle);
-                        VkCommandPool_lock.lock();
-                        server_VkCommandPool_to_client_VkCommandPool[data]=(uintptr_t)handle;
-                        client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)handle]=data;
-                        VkCommandPool_lock.unlock();
-                        
-                        result=(VkCommandPool)handle; //This is highly dangerous -- I'm basically casting VkCommandPool* to VkCommandPool. I should do *((VkCommandPool*)alloc_icd_object())
+                        VkCommandPool_lock.lock_shared();
+                        if (server_VkCommandPool_to_client_VkCommandPool.contains(data)){
+                            result=(VkCommandPool)server_VkCommandPool_to_client_VkCommandPool[data];
+                            debug_printf("Deserializing to VkCommandPool %p...\n",result);
+                            VkCommandPool_lock.unlock_shared();
+                        }else{
+                            VkCommandPool_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkCommandPool));
+                            debug_printf("Mapping to VkCommandPool %p...\n",handle);
+                            VkCommandPool_lock.lock();
+                            server_VkCommandPool_to_client_VkCommandPool[data]=(uintptr_t)handle;
+                            client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)handle]=data;
+                            VkCommandPool_lock.unlock();
+                            
+                            result=(VkCommandPool)handle; //This is highly dangerous -- I'm basically casting VkCommandPool* to VkCommandPool. I should do *((VkCommandPool*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkCommandPool)data;
@@ -78231,7 +81105,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkBuffer handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkBuffer_lock.lock_shared();
                     if(!(client_VkBuffer_to_server_VkBuffer.contains( (uintptr_t)data ))){
@@ -78256,21 +81130,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkBuffer)data);
-                    VkBuffer_lock.lock_shared();
-                    if (server_VkBuffer_to_client_VkBuffer.contains(data)){
-                        result=(VkBuffer)server_VkBuffer_to_client_VkBuffer[data];
-                        debug_printf("Deserializing to VkBuffer %p...\n",result);
-                        VkBuffer_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkBuffer)NULL;
+                        debug_printf("VkBuffer is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkBuffer_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkBuffer));
-                        debug_printf("Mapping to VkBuffer %p...\n",handle);
-                        VkBuffer_lock.lock();
-                        server_VkBuffer_to_client_VkBuffer[data]=(uintptr_t)handle;
-                        client_VkBuffer_to_server_VkBuffer[(uintptr_t)handle]=data;
-                        VkBuffer_lock.unlock();
-                        
-                        result=(VkBuffer)handle; //This is highly dangerous -- I'm basically casting VkBuffer* to VkBuffer. I should do *((VkBuffer*)alloc_icd_object())
+                        VkBuffer_lock.lock_shared();
+                        if (server_VkBuffer_to_client_VkBuffer.contains(data)){
+                            result=(VkBuffer)server_VkBuffer_to_client_VkBuffer[data];
+                            debug_printf("Deserializing to VkBuffer %p...\n",result);
+                            VkBuffer_lock.unlock_shared();
+                        }else{
+                            VkBuffer_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkBuffer));
+                            debug_printf("Mapping to VkBuffer %p...\n",handle);
+                            VkBuffer_lock.lock();
+                            server_VkBuffer_to_client_VkBuffer[data]=(uintptr_t)handle;
+                            client_VkBuffer_to_server_VkBuffer[(uintptr_t)handle]=data;
+                            VkBuffer_lock.unlock();
+                            
+                            result=(VkBuffer)handle; //This is highly dangerous -- I'm basically casting VkBuffer* to VkBuffer. I should do *((VkBuffer*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkBuffer)data;
@@ -78316,7 +81195,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkBufferView handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkBufferView_lock.lock_shared();
                     if(!(client_VkBufferView_to_server_VkBufferView.contains( (uintptr_t)data ))){
@@ -78341,21 +81220,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkBufferView)data);
-                    VkBufferView_lock.lock_shared();
-                    if (server_VkBufferView_to_client_VkBufferView.contains(data)){
-                        result=(VkBufferView)server_VkBufferView_to_client_VkBufferView[data];
-                        debug_printf("Deserializing to VkBufferView %p...\n",result);
-                        VkBufferView_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkBufferView)NULL;
+                        debug_printf("VkBufferView is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkBufferView_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkBufferView));
-                        debug_printf("Mapping to VkBufferView %p...\n",handle);
-                        VkBufferView_lock.lock();
-                        server_VkBufferView_to_client_VkBufferView[data]=(uintptr_t)handle;
-                        client_VkBufferView_to_server_VkBufferView[(uintptr_t)handle]=data;
-                        VkBufferView_lock.unlock();
-                        
-                        result=(VkBufferView)handle; //This is highly dangerous -- I'm basically casting VkBufferView* to VkBufferView. I should do *((VkBufferView*)alloc_icd_object())
+                        VkBufferView_lock.lock_shared();
+                        if (server_VkBufferView_to_client_VkBufferView.contains(data)){
+                            result=(VkBufferView)server_VkBufferView_to_client_VkBufferView[data];
+                            debug_printf("Deserializing to VkBufferView %p...\n",result);
+                            VkBufferView_lock.unlock_shared();
+                        }else{
+                            VkBufferView_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkBufferView));
+                            debug_printf("Mapping to VkBufferView %p...\n",handle);
+                            VkBufferView_lock.lock();
+                            server_VkBufferView_to_client_VkBufferView[data]=(uintptr_t)handle;
+                            client_VkBufferView_to_server_VkBufferView[(uintptr_t)handle]=data;
+                            VkBufferView_lock.unlock();
+                            
+                            result=(VkBufferView)handle; //This is highly dangerous -- I'm basically casting VkBufferView* to VkBufferView. I should do *((VkBufferView*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkBufferView)data;
@@ -78401,7 +81285,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkImage handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkImage_lock.lock_shared();
                     if(!(client_VkImage_to_server_VkImage.contains( (uintptr_t)data ))){
@@ -78426,21 +81310,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkImage)data);
-                    VkImage_lock.lock_shared();
-                    if (server_VkImage_to_client_VkImage.contains(data)){
-                        result=(VkImage)server_VkImage_to_client_VkImage[data];
-                        debug_printf("Deserializing to VkImage %p...\n",result);
-                        VkImage_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkImage)NULL;
+                        debug_printf("VkImage is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkImage_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkImage));
-                        debug_printf("Mapping to VkImage %p...\n",handle);
-                        VkImage_lock.lock();
-                        server_VkImage_to_client_VkImage[data]=(uintptr_t)handle;
-                        client_VkImage_to_server_VkImage[(uintptr_t)handle]=data;
-                        VkImage_lock.unlock();
-                        
-                        result=(VkImage)handle; //This is highly dangerous -- I'm basically casting VkImage* to VkImage. I should do *((VkImage*)alloc_icd_object())
+                        VkImage_lock.lock_shared();
+                        if (server_VkImage_to_client_VkImage.contains(data)){
+                            result=(VkImage)server_VkImage_to_client_VkImage[data];
+                            debug_printf("Deserializing to VkImage %p...\n",result);
+                            VkImage_lock.unlock_shared();
+                        }else{
+                            VkImage_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkImage));
+                            debug_printf("Mapping to VkImage %p...\n",handle);
+                            VkImage_lock.lock();
+                            server_VkImage_to_client_VkImage[data]=(uintptr_t)handle;
+                            client_VkImage_to_server_VkImage[(uintptr_t)handle]=data;
+                            VkImage_lock.unlock();
+                            
+                            result=(VkImage)handle; //This is highly dangerous -- I'm basically casting VkImage* to VkImage. I should do *((VkImage*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkImage)data;
@@ -78486,7 +81375,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkImageView handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkImageView_lock.lock_shared();
                     if(!(client_VkImageView_to_server_VkImageView.contains( (uintptr_t)data ))){
@@ -78511,21 +81400,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkImageView)data);
-                    VkImageView_lock.lock_shared();
-                    if (server_VkImageView_to_client_VkImageView.contains(data)){
-                        result=(VkImageView)server_VkImageView_to_client_VkImageView[data];
-                        debug_printf("Deserializing to VkImageView %p...\n",result);
-                        VkImageView_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkImageView)NULL;
+                        debug_printf("VkImageView is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkImageView_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkImageView));
-                        debug_printf("Mapping to VkImageView %p...\n",handle);
-                        VkImageView_lock.lock();
-                        server_VkImageView_to_client_VkImageView[data]=(uintptr_t)handle;
-                        client_VkImageView_to_server_VkImageView[(uintptr_t)handle]=data;
-                        VkImageView_lock.unlock();
-                        
-                        result=(VkImageView)handle; //This is highly dangerous -- I'm basically casting VkImageView* to VkImageView. I should do *((VkImageView*)alloc_icd_object())
+                        VkImageView_lock.lock_shared();
+                        if (server_VkImageView_to_client_VkImageView.contains(data)){
+                            result=(VkImageView)server_VkImageView_to_client_VkImageView[data];
+                            debug_printf("Deserializing to VkImageView %p...\n",result);
+                            VkImageView_lock.unlock_shared();
+                        }else{
+                            VkImageView_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkImageView));
+                            debug_printf("Mapping to VkImageView %p...\n",handle);
+                            VkImageView_lock.lock();
+                            server_VkImageView_to_client_VkImageView[data]=(uintptr_t)handle;
+                            client_VkImageView_to_server_VkImageView[(uintptr_t)handle]=data;
+                            VkImageView_lock.unlock();
+                            
+                            result=(VkImageView)handle; //This is highly dangerous -- I'm basically casting VkImageView* to VkImageView. I should do *((VkImageView*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkImageView)data;
@@ -78571,7 +81465,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkShaderModule handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkShaderModule_lock.lock_shared();
                     if(!(client_VkShaderModule_to_server_VkShaderModule.contains( (uintptr_t)data ))){
@@ -78596,21 +81490,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkShaderModule)data);
-                    VkShaderModule_lock.lock_shared();
-                    if (server_VkShaderModule_to_client_VkShaderModule.contains(data)){
-                        result=(VkShaderModule)server_VkShaderModule_to_client_VkShaderModule[data];
-                        debug_printf("Deserializing to VkShaderModule %p...\n",result);
-                        VkShaderModule_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkShaderModule)NULL;
+                        debug_printf("VkShaderModule is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkShaderModule_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkShaderModule));
-                        debug_printf("Mapping to VkShaderModule %p...\n",handle);
-                        VkShaderModule_lock.lock();
-                        server_VkShaderModule_to_client_VkShaderModule[data]=(uintptr_t)handle;
-                        client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)handle]=data;
-                        VkShaderModule_lock.unlock();
-                        
-                        result=(VkShaderModule)handle; //This is highly dangerous -- I'm basically casting VkShaderModule* to VkShaderModule. I should do *((VkShaderModule*)alloc_icd_object())
+                        VkShaderModule_lock.lock_shared();
+                        if (server_VkShaderModule_to_client_VkShaderModule.contains(data)){
+                            result=(VkShaderModule)server_VkShaderModule_to_client_VkShaderModule[data];
+                            debug_printf("Deserializing to VkShaderModule %p...\n",result);
+                            VkShaderModule_lock.unlock_shared();
+                        }else{
+                            VkShaderModule_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkShaderModule));
+                            debug_printf("Mapping to VkShaderModule %p...\n",handle);
+                            VkShaderModule_lock.lock();
+                            server_VkShaderModule_to_client_VkShaderModule[data]=(uintptr_t)handle;
+                            client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)handle]=data;
+                            VkShaderModule_lock.unlock();
+                            
+                            result=(VkShaderModule)handle; //This is highly dangerous -- I'm basically casting VkShaderModule* to VkShaderModule. I should do *((VkShaderModule*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkShaderModule)data;
@@ -78656,7 +81555,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkPipeline handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkPipeline_lock.lock_shared();
                     if(!(client_VkPipeline_to_server_VkPipeline.contains( (uintptr_t)data ))){
@@ -78681,21 +81580,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPipeline)data);
-                    VkPipeline_lock.lock_shared();
-                    if (server_VkPipeline_to_client_VkPipeline.contains(data)){
-                        result=(VkPipeline)server_VkPipeline_to_client_VkPipeline[data];
-                        debug_printf("Deserializing to VkPipeline %p...\n",result);
-                        VkPipeline_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkPipeline)NULL;
+                        debug_printf("VkPipeline is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkPipeline_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkPipeline));
-                        debug_printf("Mapping to VkPipeline %p...\n",handle);
-                        VkPipeline_lock.lock();
-                        server_VkPipeline_to_client_VkPipeline[data]=(uintptr_t)handle;
-                        client_VkPipeline_to_server_VkPipeline[(uintptr_t)handle]=data;
-                        VkPipeline_lock.unlock();
-                        
-                        result=(VkPipeline)handle; //This is highly dangerous -- I'm basically casting VkPipeline* to VkPipeline. I should do *((VkPipeline*)alloc_icd_object())
+                        VkPipeline_lock.lock_shared();
+                        if (server_VkPipeline_to_client_VkPipeline.contains(data)){
+                            result=(VkPipeline)server_VkPipeline_to_client_VkPipeline[data];
+                            debug_printf("Deserializing to VkPipeline %p...\n",result);
+                            VkPipeline_lock.unlock_shared();
+                        }else{
+                            VkPipeline_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkPipeline));
+                            debug_printf("Mapping to VkPipeline %p...\n",handle);
+                            VkPipeline_lock.lock();
+                            server_VkPipeline_to_client_VkPipeline[data]=(uintptr_t)handle;
+                            client_VkPipeline_to_server_VkPipeline[(uintptr_t)handle]=data;
+                            VkPipeline_lock.unlock();
+                            
+                            result=(VkPipeline)handle; //This is highly dangerous -- I'm basically casting VkPipeline* to VkPipeline. I should do *((VkPipeline*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkPipeline)data;
@@ -78741,7 +81645,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkPipelineLayout handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkPipelineLayout_lock.lock_shared();
                     if(!(client_VkPipelineLayout_to_server_VkPipelineLayout.contains( (uintptr_t)data ))){
@@ -78766,21 +81670,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPipelineLayout)data);
-                    VkPipelineLayout_lock.lock_shared();
-                    if (server_VkPipelineLayout_to_client_VkPipelineLayout.contains(data)){
-                        result=(VkPipelineLayout)server_VkPipelineLayout_to_client_VkPipelineLayout[data];
-                        debug_printf("Deserializing to VkPipelineLayout %p...\n",result);
-                        VkPipelineLayout_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkPipelineLayout)NULL;
+                        debug_printf("VkPipelineLayout is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkPipelineLayout_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkPipelineLayout));
-                        debug_printf("Mapping to VkPipelineLayout %p...\n",handle);
-                        VkPipelineLayout_lock.lock();
-                        server_VkPipelineLayout_to_client_VkPipelineLayout[data]=(uintptr_t)handle;
-                        client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)handle]=data;
-                        VkPipelineLayout_lock.unlock();
-                        
-                        result=(VkPipelineLayout)handle; //This is highly dangerous -- I'm basically casting VkPipelineLayout* to VkPipelineLayout. I should do *((VkPipelineLayout*)alloc_icd_object())
+                        VkPipelineLayout_lock.lock_shared();
+                        if (server_VkPipelineLayout_to_client_VkPipelineLayout.contains(data)){
+                            result=(VkPipelineLayout)server_VkPipelineLayout_to_client_VkPipelineLayout[data];
+                            debug_printf("Deserializing to VkPipelineLayout %p...\n",result);
+                            VkPipelineLayout_lock.unlock_shared();
+                        }else{
+                            VkPipelineLayout_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkPipelineLayout));
+                            debug_printf("Mapping to VkPipelineLayout %p...\n",handle);
+                            VkPipelineLayout_lock.lock();
+                            server_VkPipelineLayout_to_client_VkPipelineLayout[data]=(uintptr_t)handle;
+                            client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)handle]=data;
+                            VkPipelineLayout_lock.unlock();
+                            
+                            result=(VkPipelineLayout)handle; //This is highly dangerous -- I'm basically casting VkPipelineLayout* to VkPipelineLayout. I should do *((VkPipelineLayout*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkPipelineLayout)data;
@@ -78826,7 +81735,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkSampler handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkSampler_lock.lock_shared();
                     if(!(client_VkSampler_to_server_VkSampler.contains( (uintptr_t)data ))){
@@ -78851,21 +81760,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSampler)data);
-                    VkSampler_lock.lock_shared();
-                    if (server_VkSampler_to_client_VkSampler.contains(data)){
-                        result=(VkSampler)server_VkSampler_to_client_VkSampler[data];
-                        debug_printf("Deserializing to VkSampler %p...\n",result);
-                        VkSampler_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkSampler)NULL;
+                        debug_printf("VkSampler is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkSampler_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkSampler));
-                        debug_printf("Mapping to VkSampler %p...\n",handle);
-                        VkSampler_lock.lock();
-                        server_VkSampler_to_client_VkSampler[data]=(uintptr_t)handle;
-                        client_VkSampler_to_server_VkSampler[(uintptr_t)handle]=data;
-                        VkSampler_lock.unlock();
-                        
-                        result=(VkSampler)handle; //This is highly dangerous -- I'm basically casting VkSampler* to VkSampler. I should do *((VkSampler*)alloc_icd_object())
+                        VkSampler_lock.lock_shared();
+                        if (server_VkSampler_to_client_VkSampler.contains(data)){
+                            result=(VkSampler)server_VkSampler_to_client_VkSampler[data];
+                            debug_printf("Deserializing to VkSampler %p...\n",result);
+                            VkSampler_lock.unlock_shared();
+                        }else{
+                            VkSampler_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkSampler));
+                            debug_printf("Mapping to VkSampler %p...\n",handle);
+                            VkSampler_lock.lock();
+                            server_VkSampler_to_client_VkSampler[data]=(uintptr_t)handle;
+                            client_VkSampler_to_server_VkSampler[(uintptr_t)handle]=data;
+                            VkSampler_lock.unlock();
+                            
+                            result=(VkSampler)handle; //This is highly dangerous -- I'm basically casting VkSampler* to VkSampler. I should do *((VkSampler*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkSampler)data;
@@ -78911,7 +81825,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDescriptorSet handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDescriptorSet_lock.lock_shared();
                     if(!(client_VkDescriptorSet_to_server_VkDescriptorSet.contains( (uintptr_t)data ))){
@@ -78936,21 +81850,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDescriptorSet)data);
-                    VkDescriptorSet_lock.lock_shared();
-                    if (server_VkDescriptorSet_to_client_VkDescriptorSet.contains(data)){
-                        result=(VkDescriptorSet)server_VkDescriptorSet_to_client_VkDescriptorSet[data];
-                        debug_printf("Deserializing to VkDescriptorSet %p...\n",result);
-                        VkDescriptorSet_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDescriptorSet)NULL;
+                        debug_printf("VkDescriptorSet is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDescriptorSet_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDescriptorSet));
-                        debug_printf("Mapping to VkDescriptorSet %p...\n",handle);
-                        VkDescriptorSet_lock.lock();
-                        server_VkDescriptorSet_to_client_VkDescriptorSet[data]=(uintptr_t)handle;
-                        client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)handle]=data;
-                        VkDescriptorSet_lock.unlock();
-                        
-                        result=(VkDescriptorSet)handle; //This is highly dangerous -- I'm basically casting VkDescriptorSet* to VkDescriptorSet. I should do *((VkDescriptorSet*)alloc_icd_object())
+                        VkDescriptorSet_lock.lock_shared();
+                        if (server_VkDescriptorSet_to_client_VkDescriptorSet.contains(data)){
+                            result=(VkDescriptorSet)server_VkDescriptorSet_to_client_VkDescriptorSet[data];
+                            debug_printf("Deserializing to VkDescriptorSet %p...\n",result);
+                            VkDescriptorSet_lock.unlock_shared();
+                        }else{
+                            VkDescriptorSet_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDescriptorSet));
+                            debug_printf("Mapping to VkDescriptorSet %p...\n",handle);
+                            VkDescriptorSet_lock.lock();
+                            server_VkDescriptorSet_to_client_VkDescriptorSet[data]=(uintptr_t)handle;
+                            client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)handle]=data;
+                            VkDescriptorSet_lock.unlock();
+                            
+                            result=(VkDescriptorSet)handle; //This is highly dangerous -- I'm basically casting VkDescriptorSet* to VkDescriptorSet. I should do *((VkDescriptorSet*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDescriptorSet)data;
@@ -78996,7 +81915,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDescriptorSetLayout handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDescriptorSetLayout_lock.lock_shared();
                     if(!(client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout.contains( (uintptr_t)data ))){
@@ -79021,21 +81940,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDescriptorSetLayout)data);
-                    VkDescriptorSetLayout_lock.lock_shared();
-                    if (server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout.contains(data)){
-                        result=(VkDescriptorSetLayout)server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[data];
-                        debug_printf("Deserializing to VkDescriptorSetLayout %p...\n",result);
-                        VkDescriptorSetLayout_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDescriptorSetLayout)NULL;
+                        debug_printf("VkDescriptorSetLayout is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDescriptorSetLayout_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDescriptorSetLayout));
-                        debug_printf("Mapping to VkDescriptorSetLayout %p...\n",handle);
-                        VkDescriptorSetLayout_lock.lock();
-                        server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[data]=(uintptr_t)handle;
-                        client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)handle]=data;
-                        VkDescriptorSetLayout_lock.unlock();
-                        
-                        result=(VkDescriptorSetLayout)handle; //This is highly dangerous -- I'm basically casting VkDescriptorSetLayout* to VkDescriptorSetLayout. I should do *((VkDescriptorSetLayout*)alloc_icd_object())
+                        VkDescriptorSetLayout_lock.lock_shared();
+                        if (server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout.contains(data)){
+                            result=(VkDescriptorSetLayout)server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[data];
+                            debug_printf("Deserializing to VkDescriptorSetLayout %p...\n",result);
+                            VkDescriptorSetLayout_lock.unlock_shared();
+                        }else{
+                            VkDescriptorSetLayout_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDescriptorSetLayout));
+                            debug_printf("Mapping to VkDescriptorSetLayout %p...\n",handle);
+                            VkDescriptorSetLayout_lock.lock();
+                            server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[data]=(uintptr_t)handle;
+                            client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)handle]=data;
+                            VkDescriptorSetLayout_lock.unlock();
+                            
+                            result=(VkDescriptorSetLayout)handle; //This is highly dangerous -- I'm basically casting VkDescriptorSetLayout* to VkDescriptorSetLayout. I should do *((VkDescriptorSetLayout*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDescriptorSetLayout)data;
@@ -79081,7 +82005,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDescriptorPool handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDescriptorPool_lock.lock_shared();
                     if(!(client_VkDescriptorPool_to_server_VkDescriptorPool.contains( (uintptr_t)data ))){
@@ -79106,21 +82030,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDescriptorPool)data);
-                    VkDescriptorPool_lock.lock_shared();
-                    if (server_VkDescriptorPool_to_client_VkDescriptorPool.contains(data)){
-                        result=(VkDescriptorPool)server_VkDescriptorPool_to_client_VkDescriptorPool[data];
-                        debug_printf("Deserializing to VkDescriptorPool %p...\n",result);
-                        VkDescriptorPool_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDescriptorPool)NULL;
+                        debug_printf("VkDescriptorPool is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDescriptorPool_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDescriptorPool));
-                        debug_printf("Mapping to VkDescriptorPool %p...\n",handle);
-                        VkDescriptorPool_lock.lock();
-                        server_VkDescriptorPool_to_client_VkDescriptorPool[data]=(uintptr_t)handle;
-                        client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)handle]=data;
-                        VkDescriptorPool_lock.unlock();
-                        
-                        result=(VkDescriptorPool)handle; //This is highly dangerous -- I'm basically casting VkDescriptorPool* to VkDescriptorPool. I should do *((VkDescriptorPool*)alloc_icd_object())
+                        VkDescriptorPool_lock.lock_shared();
+                        if (server_VkDescriptorPool_to_client_VkDescriptorPool.contains(data)){
+                            result=(VkDescriptorPool)server_VkDescriptorPool_to_client_VkDescriptorPool[data];
+                            debug_printf("Deserializing to VkDescriptorPool %p...\n",result);
+                            VkDescriptorPool_lock.unlock_shared();
+                        }else{
+                            VkDescriptorPool_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDescriptorPool));
+                            debug_printf("Mapping to VkDescriptorPool %p...\n",handle);
+                            VkDescriptorPool_lock.lock();
+                            server_VkDescriptorPool_to_client_VkDescriptorPool[data]=(uintptr_t)handle;
+                            client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)handle]=data;
+                            VkDescriptorPool_lock.unlock();
+                            
+                            result=(VkDescriptorPool)handle; //This is highly dangerous -- I'm basically casting VkDescriptorPool* to VkDescriptorPool. I should do *((VkDescriptorPool*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDescriptorPool)data;
@@ -79166,7 +82095,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkFence handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkFence_lock.lock_shared();
                     if(!(client_VkFence_to_server_VkFence.contains( (uintptr_t)data ))){
@@ -79191,21 +82120,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkFence)data);
-                    VkFence_lock.lock_shared();
-                    if (server_VkFence_to_client_VkFence.contains(data)){
-                        result=(VkFence)server_VkFence_to_client_VkFence[data];
-                        debug_printf("Deserializing to VkFence %p...\n",result);
-                        VkFence_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkFence)NULL;
+                        debug_printf("VkFence is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkFence_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkFence));
-                        debug_printf("Mapping to VkFence %p...\n",handle);
-                        VkFence_lock.lock();
-                        server_VkFence_to_client_VkFence[data]=(uintptr_t)handle;
-                        client_VkFence_to_server_VkFence[(uintptr_t)handle]=data;
-                        VkFence_lock.unlock();
-                        
-                        result=(VkFence)handle; //This is highly dangerous -- I'm basically casting VkFence* to VkFence. I should do *((VkFence*)alloc_icd_object())
+                        VkFence_lock.lock_shared();
+                        if (server_VkFence_to_client_VkFence.contains(data)){
+                            result=(VkFence)server_VkFence_to_client_VkFence[data];
+                            debug_printf("Deserializing to VkFence %p...\n",result);
+                            VkFence_lock.unlock_shared();
+                        }else{
+                            VkFence_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkFence));
+                            debug_printf("Mapping to VkFence %p...\n",handle);
+                            VkFence_lock.lock();
+                            server_VkFence_to_client_VkFence[data]=(uintptr_t)handle;
+                            client_VkFence_to_server_VkFence[(uintptr_t)handle]=data;
+                            VkFence_lock.unlock();
+                            
+                            result=(VkFence)handle; //This is highly dangerous -- I'm basically casting VkFence* to VkFence. I should do *((VkFence*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkFence)data;
@@ -79251,7 +82185,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkSemaphore handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkSemaphore_lock.lock_shared();
                     if(!(client_VkSemaphore_to_server_VkSemaphore.contains( (uintptr_t)data ))){
@@ -79276,21 +82210,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSemaphore)data);
-                    VkSemaphore_lock.lock_shared();
-                    if (server_VkSemaphore_to_client_VkSemaphore.contains(data)){
-                        result=(VkSemaphore)server_VkSemaphore_to_client_VkSemaphore[data];
-                        debug_printf("Deserializing to VkSemaphore %p...\n",result);
-                        VkSemaphore_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkSemaphore)NULL;
+                        debug_printf("VkSemaphore is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkSemaphore_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkSemaphore));
-                        debug_printf("Mapping to VkSemaphore %p...\n",handle);
-                        VkSemaphore_lock.lock();
-                        server_VkSemaphore_to_client_VkSemaphore[data]=(uintptr_t)handle;
-                        client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)handle]=data;
-                        VkSemaphore_lock.unlock();
-                        
-                        result=(VkSemaphore)handle; //This is highly dangerous -- I'm basically casting VkSemaphore* to VkSemaphore. I should do *((VkSemaphore*)alloc_icd_object())
+                        VkSemaphore_lock.lock_shared();
+                        if (server_VkSemaphore_to_client_VkSemaphore.contains(data)){
+                            result=(VkSemaphore)server_VkSemaphore_to_client_VkSemaphore[data];
+                            debug_printf("Deserializing to VkSemaphore %p...\n",result);
+                            VkSemaphore_lock.unlock_shared();
+                        }else{
+                            VkSemaphore_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkSemaphore));
+                            debug_printf("Mapping to VkSemaphore %p...\n",handle);
+                            VkSemaphore_lock.lock();
+                            server_VkSemaphore_to_client_VkSemaphore[data]=(uintptr_t)handle;
+                            client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)handle]=data;
+                            VkSemaphore_lock.unlock();
+                            
+                            result=(VkSemaphore)handle; //This is highly dangerous -- I'm basically casting VkSemaphore* to VkSemaphore. I should do *((VkSemaphore*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkSemaphore)data;
@@ -79336,7 +82275,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkEvent handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkEvent_lock.lock_shared();
                     if(!(client_VkEvent_to_server_VkEvent.contains( (uintptr_t)data ))){
@@ -79361,21 +82300,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkEvent)data);
-                    VkEvent_lock.lock_shared();
-                    if (server_VkEvent_to_client_VkEvent.contains(data)){
-                        result=(VkEvent)server_VkEvent_to_client_VkEvent[data];
-                        debug_printf("Deserializing to VkEvent %p...\n",result);
-                        VkEvent_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkEvent)NULL;
+                        debug_printf("VkEvent is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkEvent_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkEvent));
-                        debug_printf("Mapping to VkEvent %p...\n",handle);
-                        VkEvent_lock.lock();
-                        server_VkEvent_to_client_VkEvent[data]=(uintptr_t)handle;
-                        client_VkEvent_to_server_VkEvent[(uintptr_t)handle]=data;
-                        VkEvent_lock.unlock();
-                        
-                        result=(VkEvent)handle; //This is highly dangerous -- I'm basically casting VkEvent* to VkEvent. I should do *((VkEvent*)alloc_icd_object())
+                        VkEvent_lock.lock_shared();
+                        if (server_VkEvent_to_client_VkEvent.contains(data)){
+                            result=(VkEvent)server_VkEvent_to_client_VkEvent[data];
+                            debug_printf("Deserializing to VkEvent %p...\n",result);
+                            VkEvent_lock.unlock_shared();
+                        }else{
+                            VkEvent_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkEvent));
+                            debug_printf("Mapping to VkEvent %p...\n",handle);
+                            VkEvent_lock.lock();
+                            server_VkEvent_to_client_VkEvent[data]=(uintptr_t)handle;
+                            client_VkEvent_to_server_VkEvent[(uintptr_t)handle]=data;
+                            VkEvent_lock.unlock();
+                            
+                            result=(VkEvent)handle; //This is highly dangerous -- I'm basically casting VkEvent* to VkEvent. I should do *((VkEvent*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkEvent)data;
@@ -79421,7 +82365,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkQueryPool handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkQueryPool_lock.lock_shared();
                     if(!(client_VkQueryPool_to_server_VkQueryPool.contains( (uintptr_t)data ))){
@@ -79446,21 +82390,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkQueryPool)data);
-                    VkQueryPool_lock.lock_shared();
-                    if (server_VkQueryPool_to_client_VkQueryPool.contains(data)){
-                        result=(VkQueryPool)server_VkQueryPool_to_client_VkQueryPool[data];
-                        debug_printf("Deserializing to VkQueryPool %p...\n",result);
-                        VkQueryPool_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkQueryPool)NULL;
+                        debug_printf("VkQueryPool is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkQueryPool_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkQueryPool));
-                        debug_printf("Mapping to VkQueryPool %p...\n",handle);
-                        VkQueryPool_lock.lock();
-                        server_VkQueryPool_to_client_VkQueryPool[data]=(uintptr_t)handle;
-                        client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)handle]=data;
-                        VkQueryPool_lock.unlock();
-                        
-                        result=(VkQueryPool)handle; //This is highly dangerous -- I'm basically casting VkQueryPool* to VkQueryPool. I should do *((VkQueryPool*)alloc_icd_object())
+                        VkQueryPool_lock.lock_shared();
+                        if (server_VkQueryPool_to_client_VkQueryPool.contains(data)){
+                            result=(VkQueryPool)server_VkQueryPool_to_client_VkQueryPool[data];
+                            debug_printf("Deserializing to VkQueryPool %p...\n",result);
+                            VkQueryPool_lock.unlock_shared();
+                        }else{
+                            VkQueryPool_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkQueryPool));
+                            debug_printf("Mapping to VkQueryPool %p...\n",handle);
+                            VkQueryPool_lock.lock();
+                            server_VkQueryPool_to_client_VkQueryPool[data]=(uintptr_t)handle;
+                            client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)handle]=data;
+                            VkQueryPool_lock.unlock();
+                            
+                            result=(VkQueryPool)handle; //This is highly dangerous -- I'm basically casting VkQueryPool* to VkQueryPool. I should do *((VkQueryPool*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkQueryPool)data;
@@ -79506,7 +82455,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkFramebuffer handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkFramebuffer_lock.lock_shared();
                     if(!(client_VkFramebuffer_to_server_VkFramebuffer.contains( (uintptr_t)data ))){
@@ -79531,21 +82480,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkFramebuffer)data);
-                    VkFramebuffer_lock.lock_shared();
-                    if (server_VkFramebuffer_to_client_VkFramebuffer.contains(data)){
-                        result=(VkFramebuffer)server_VkFramebuffer_to_client_VkFramebuffer[data];
-                        debug_printf("Deserializing to VkFramebuffer %p...\n",result);
-                        VkFramebuffer_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkFramebuffer)NULL;
+                        debug_printf("VkFramebuffer is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkFramebuffer_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkFramebuffer));
-                        debug_printf("Mapping to VkFramebuffer %p...\n",handle);
-                        VkFramebuffer_lock.lock();
-                        server_VkFramebuffer_to_client_VkFramebuffer[data]=(uintptr_t)handle;
-                        client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)handle]=data;
-                        VkFramebuffer_lock.unlock();
-                        
-                        result=(VkFramebuffer)handle; //This is highly dangerous -- I'm basically casting VkFramebuffer* to VkFramebuffer. I should do *((VkFramebuffer*)alloc_icd_object())
+                        VkFramebuffer_lock.lock_shared();
+                        if (server_VkFramebuffer_to_client_VkFramebuffer.contains(data)){
+                            result=(VkFramebuffer)server_VkFramebuffer_to_client_VkFramebuffer[data];
+                            debug_printf("Deserializing to VkFramebuffer %p...\n",result);
+                            VkFramebuffer_lock.unlock_shared();
+                        }else{
+                            VkFramebuffer_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkFramebuffer));
+                            debug_printf("Mapping to VkFramebuffer %p...\n",handle);
+                            VkFramebuffer_lock.lock();
+                            server_VkFramebuffer_to_client_VkFramebuffer[data]=(uintptr_t)handle;
+                            client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)handle]=data;
+                            VkFramebuffer_lock.unlock();
+                            
+                            result=(VkFramebuffer)handle; //This is highly dangerous -- I'm basically casting VkFramebuffer* to VkFramebuffer. I should do *((VkFramebuffer*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkFramebuffer)data;
@@ -79591,7 +82545,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkRenderPass handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkRenderPass_lock.lock_shared();
                     if(!(client_VkRenderPass_to_server_VkRenderPass.contains( (uintptr_t)data ))){
@@ -79616,21 +82570,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkRenderPass)data);
-                    VkRenderPass_lock.lock_shared();
-                    if (server_VkRenderPass_to_client_VkRenderPass.contains(data)){
-                        result=(VkRenderPass)server_VkRenderPass_to_client_VkRenderPass[data];
-                        debug_printf("Deserializing to VkRenderPass %p...\n",result);
-                        VkRenderPass_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkRenderPass)NULL;
+                        debug_printf("VkRenderPass is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkRenderPass_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkRenderPass));
-                        debug_printf("Mapping to VkRenderPass %p...\n",handle);
-                        VkRenderPass_lock.lock();
-                        server_VkRenderPass_to_client_VkRenderPass[data]=(uintptr_t)handle;
-                        client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)handle]=data;
-                        VkRenderPass_lock.unlock();
-                        
-                        result=(VkRenderPass)handle; //This is highly dangerous -- I'm basically casting VkRenderPass* to VkRenderPass. I should do *((VkRenderPass*)alloc_icd_object())
+                        VkRenderPass_lock.lock_shared();
+                        if (server_VkRenderPass_to_client_VkRenderPass.contains(data)){
+                            result=(VkRenderPass)server_VkRenderPass_to_client_VkRenderPass[data];
+                            debug_printf("Deserializing to VkRenderPass %p...\n",result);
+                            VkRenderPass_lock.unlock_shared();
+                        }else{
+                            VkRenderPass_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkRenderPass));
+                            debug_printf("Mapping to VkRenderPass %p...\n",handle);
+                            VkRenderPass_lock.lock();
+                            server_VkRenderPass_to_client_VkRenderPass[data]=(uintptr_t)handle;
+                            client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)handle]=data;
+                            VkRenderPass_lock.unlock();
+                            
+                            result=(VkRenderPass)handle; //This is highly dangerous -- I'm basically casting VkRenderPass* to VkRenderPass. I should do *((VkRenderPass*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkRenderPass)data;
@@ -79676,7 +82635,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkPipelineCache handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkPipelineCache_lock.lock_shared();
                     if(!(client_VkPipelineCache_to_server_VkPipelineCache.contains( (uintptr_t)data ))){
@@ -79701,21 +82660,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPipelineCache)data);
-                    VkPipelineCache_lock.lock_shared();
-                    if (server_VkPipelineCache_to_client_VkPipelineCache.contains(data)){
-                        result=(VkPipelineCache)server_VkPipelineCache_to_client_VkPipelineCache[data];
-                        debug_printf("Deserializing to VkPipelineCache %p...\n",result);
-                        VkPipelineCache_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkPipelineCache)NULL;
+                        debug_printf("VkPipelineCache is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkPipelineCache_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkPipelineCache));
-                        debug_printf("Mapping to VkPipelineCache %p...\n",handle);
-                        VkPipelineCache_lock.lock();
-                        server_VkPipelineCache_to_client_VkPipelineCache[data]=(uintptr_t)handle;
-                        client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)handle]=data;
-                        VkPipelineCache_lock.unlock();
-                        
-                        result=(VkPipelineCache)handle; //This is highly dangerous -- I'm basically casting VkPipelineCache* to VkPipelineCache. I should do *((VkPipelineCache*)alloc_icd_object())
+                        VkPipelineCache_lock.lock_shared();
+                        if (server_VkPipelineCache_to_client_VkPipelineCache.contains(data)){
+                            result=(VkPipelineCache)server_VkPipelineCache_to_client_VkPipelineCache[data];
+                            debug_printf("Deserializing to VkPipelineCache %p...\n",result);
+                            VkPipelineCache_lock.unlock_shared();
+                        }else{
+                            VkPipelineCache_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkPipelineCache));
+                            debug_printf("Mapping to VkPipelineCache %p...\n",handle);
+                            VkPipelineCache_lock.lock();
+                            server_VkPipelineCache_to_client_VkPipelineCache[data]=(uintptr_t)handle;
+                            client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)handle]=data;
+                            VkPipelineCache_lock.unlock();
+                            
+                            result=(VkPipelineCache)handle; //This is highly dangerous -- I'm basically casting VkPipelineCache* to VkPipelineCache. I should do *((VkPipelineCache*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkPipelineCache)data;
@@ -79761,7 +82725,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkIndirectCommandsLayoutNV handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkIndirectCommandsLayoutNV_lock.lock_shared();
                     if(!(client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV.contains( (uintptr_t)data ))){
@@ -79786,21 +82750,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkIndirectCommandsLayoutNV)data);
-                    VkIndirectCommandsLayoutNV_lock.lock_shared();
-                    if (server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV.contains(data)){
-                        result=(VkIndirectCommandsLayoutNV)server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[data];
-                        debug_printf("Deserializing to VkIndirectCommandsLayoutNV %p...\n",result);
-                        VkIndirectCommandsLayoutNV_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkIndirectCommandsLayoutNV)NULL;
+                        debug_printf("VkIndirectCommandsLayoutNV is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkIndirectCommandsLayoutNV_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkIndirectCommandsLayoutNV));
-                        debug_printf("Mapping to VkIndirectCommandsLayoutNV %p...\n",handle);
-                        VkIndirectCommandsLayoutNV_lock.lock();
-                        server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[data]=(uintptr_t)handle;
-                        client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)handle]=data;
-                        VkIndirectCommandsLayoutNV_lock.unlock();
-                        
-                        result=(VkIndirectCommandsLayoutNV)handle; //This is highly dangerous -- I'm basically casting VkIndirectCommandsLayoutNV* to VkIndirectCommandsLayoutNV. I should do *((VkIndirectCommandsLayoutNV*)alloc_icd_object())
+                        VkIndirectCommandsLayoutNV_lock.lock_shared();
+                        if (server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV.contains(data)){
+                            result=(VkIndirectCommandsLayoutNV)server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[data];
+                            debug_printf("Deserializing to VkIndirectCommandsLayoutNV %p...\n",result);
+                            VkIndirectCommandsLayoutNV_lock.unlock_shared();
+                        }else{
+                            VkIndirectCommandsLayoutNV_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkIndirectCommandsLayoutNV));
+                            debug_printf("Mapping to VkIndirectCommandsLayoutNV %p...\n",handle);
+                            VkIndirectCommandsLayoutNV_lock.lock();
+                            server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[data]=(uintptr_t)handle;
+                            client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)handle]=data;
+                            VkIndirectCommandsLayoutNV_lock.unlock();
+                            
+                            result=(VkIndirectCommandsLayoutNV)handle; //This is highly dangerous -- I'm basically casting VkIndirectCommandsLayoutNV* to VkIndirectCommandsLayoutNV. I should do *((VkIndirectCommandsLayoutNV*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkIndirectCommandsLayoutNV)data;
@@ -79846,7 +82815,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDescriptorUpdateTemplate handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDescriptorUpdateTemplate_lock.lock_shared();
                     if(!(client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate.contains( (uintptr_t)data ))){
@@ -79871,21 +82840,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDescriptorUpdateTemplate)data);
-                    VkDescriptorUpdateTemplate_lock.lock_shared();
-                    if (server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate.contains(data)){
-                        result=(VkDescriptorUpdateTemplate)server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[data];
-                        debug_printf("Deserializing to VkDescriptorUpdateTemplate %p...\n",result);
-                        VkDescriptorUpdateTemplate_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDescriptorUpdateTemplate)NULL;
+                        debug_printf("VkDescriptorUpdateTemplate is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDescriptorUpdateTemplate_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDescriptorUpdateTemplate));
-                        debug_printf("Mapping to VkDescriptorUpdateTemplate %p...\n",handle);
-                        VkDescriptorUpdateTemplate_lock.lock();
-                        server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[data]=(uintptr_t)handle;
-                        client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)handle]=data;
-                        VkDescriptorUpdateTemplate_lock.unlock();
-                        
-                        result=(VkDescriptorUpdateTemplate)handle; //This is highly dangerous -- I'm basically casting VkDescriptorUpdateTemplate* to VkDescriptorUpdateTemplate. I should do *((VkDescriptorUpdateTemplate*)alloc_icd_object())
+                        VkDescriptorUpdateTemplate_lock.lock_shared();
+                        if (server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate.contains(data)){
+                            result=(VkDescriptorUpdateTemplate)server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[data];
+                            debug_printf("Deserializing to VkDescriptorUpdateTemplate %p...\n",result);
+                            VkDescriptorUpdateTemplate_lock.unlock_shared();
+                        }else{
+                            VkDescriptorUpdateTemplate_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDescriptorUpdateTemplate));
+                            debug_printf("Mapping to VkDescriptorUpdateTemplate %p...\n",handle);
+                            VkDescriptorUpdateTemplate_lock.lock();
+                            server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[data]=(uintptr_t)handle;
+                            client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)handle]=data;
+                            VkDescriptorUpdateTemplate_lock.unlock();
+                            
+                            result=(VkDescriptorUpdateTemplate)handle; //This is highly dangerous -- I'm basically casting VkDescriptorUpdateTemplate* to VkDescriptorUpdateTemplate. I should do *((VkDescriptorUpdateTemplate*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDescriptorUpdateTemplate)data;
@@ -79931,7 +82905,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDescriptorUpdateTemplateKHR handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDescriptorUpdateTemplateKHR_lock.lock_shared();
                     if(!(client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR.contains( (uintptr_t)data ))){
@@ -79956,21 +82930,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDescriptorUpdateTemplateKHR)data);
-                    VkDescriptorUpdateTemplateKHR_lock.lock_shared();
-                    if (server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR.contains(data)){
-                        result=(VkDescriptorUpdateTemplateKHR)server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[data];
-                        debug_printf("Deserializing to VkDescriptorUpdateTemplateKHR %p...\n",result);
-                        VkDescriptorUpdateTemplateKHR_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDescriptorUpdateTemplateKHR)NULL;
+                        debug_printf("VkDescriptorUpdateTemplateKHR is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDescriptorUpdateTemplateKHR_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDescriptorUpdateTemplateKHR));
-                        debug_printf("Mapping to VkDescriptorUpdateTemplateKHR %p...\n",handle);
-                        VkDescriptorUpdateTemplateKHR_lock.lock();
-                        server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[data]=(uintptr_t)handle;
-                        client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)handle]=data;
-                        VkDescriptorUpdateTemplateKHR_lock.unlock();
-                        
-                        result=(VkDescriptorUpdateTemplateKHR)handle; //This is highly dangerous -- I'm basically casting VkDescriptorUpdateTemplateKHR* to VkDescriptorUpdateTemplateKHR. I should do *((VkDescriptorUpdateTemplateKHR*)alloc_icd_object())
+                        VkDescriptorUpdateTemplateKHR_lock.lock_shared();
+                        if (server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR.contains(data)){
+                            result=(VkDescriptorUpdateTemplateKHR)server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[data];
+                            debug_printf("Deserializing to VkDescriptorUpdateTemplateKHR %p...\n",result);
+                            VkDescriptorUpdateTemplateKHR_lock.unlock_shared();
+                        }else{
+                            VkDescriptorUpdateTemplateKHR_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDescriptorUpdateTemplateKHR));
+                            debug_printf("Mapping to VkDescriptorUpdateTemplateKHR %p...\n",handle);
+                            VkDescriptorUpdateTemplateKHR_lock.lock();
+                            server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[data]=(uintptr_t)handle;
+                            client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)handle]=data;
+                            VkDescriptorUpdateTemplateKHR_lock.unlock();
+                            
+                            result=(VkDescriptorUpdateTemplateKHR)handle; //This is highly dangerous -- I'm basically casting VkDescriptorUpdateTemplateKHR* to VkDescriptorUpdateTemplateKHR. I should do *((VkDescriptorUpdateTemplateKHR*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDescriptorUpdateTemplateKHR)data;
@@ -80016,7 +82995,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkSamplerYcbcrConversion handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkSamplerYcbcrConversion_lock.lock_shared();
                     if(!(client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion.contains( (uintptr_t)data ))){
@@ -80041,21 +83020,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSamplerYcbcrConversion)data);
-                    VkSamplerYcbcrConversion_lock.lock_shared();
-                    if (server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion.contains(data)){
-                        result=(VkSamplerYcbcrConversion)server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[data];
-                        debug_printf("Deserializing to VkSamplerYcbcrConversion %p...\n",result);
-                        VkSamplerYcbcrConversion_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkSamplerYcbcrConversion)NULL;
+                        debug_printf("VkSamplerYcbcrConversion is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkSamplerYcbcrConversion_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkSamplerYcbcrConversion));
-                        debug_printf("Mapping to VkSamplerYcbcrConversion %p...\n",handle);
-                        VkSamplerYcbcrConversion_lock.lock();
-                        server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[data]=(uintptr_t)handle;
-                        client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)handle]=data;
-                        VkSamplerYcbcrConversion_lock.unlock();
-                        
-                        result=(VkSamplerYcbcrConversion)handle; //This is highly dangerous -- I'm basically casting VkSamplerYcbcrConversion* to VkSamplerYcbcrConversion. I should do *((VkSamplerYcbcrConversion*)alloc_icd_object())
+                        VkSamplerYcbcrConversion_lock.lock_shared();
+                        if (server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion.contains(data)){
+                            result=(VkSamplerYcbcrConversion)server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[data];
+                            debug_printf("Deserializing to VkSamplerYcbcrConversion %p...\n",result);
+                            VkSamplerYcbcrConversion_lock.unlock_shared();
+                        }else{
+                            VkSamplerYcbcrConversion_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkSamplerYcbcrConversion));
+                            debug_printf("Mapping to VkSamplerYcbcrConversion %p...\n",handle);
+                            VkSamplerYcbcrConversion_lock.lock();
+                            server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[data]=(uintptr_t)handle;
+                            client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)handle]=data;
+                            VkSamplerYcbcrConversion_lock.unlock();
+                            
+                            result=(VkSamplerYcbcrConversion)handle; //This is highly dangerous -- I'm basically casting VkSamplerYcbcrConversion* to VkSamplerYcbcrConversion. I should do *((VkSamplerYcbcrConversion*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkSamplerYcbcrConversion)data;
@@ -80101,7 +83085,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkSamplerYcbcrConversionKHR handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkSamplerYcbcrConversionKHR_lock.lock_shared();
                     if(!(client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR.contains( (uintptr_t)data ))){
@@ -80126,21 +83110,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSamplerYcbcrConversionKHR)data);
-                    VkSamplerYcbcrConversionKHR_lock.lock_shared();
-                    if (server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR.contains(data)){
-                        result=(VkSamplerYcbcrConversionKHR)server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[data];
-                        debug_printf("Deserializing to VkSamplerYcbcrConversionKHR %p...\n",result);
-                        VkSamplerYcbcrConversionKHR_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkSamplerYcbcrConversionKHR)NULL;
+                        debug_printf("VkSamplerYcbcrConversionKHR is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkSamplerYcbcrConversionKHR_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkSamplerYcbcrConversionKHR));
-                        debug_printf("Mapping to VkSamplerYcbcrConversionKHR %p...\n",handle);
-                        VkSamplerYcbcrConversionKHR_lock.lock();
-                        server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[data]=(uintptr_t)handle;
-                        client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)handle]=data;
-                        VkSamplerYcbcrConversionKHR_lock.unlock();
-                        
-                        result=(VkSamplerYcbcrConversionKHR)handle; //This is highly dangerous -- I'm basically casting VkSamplerYcbcrConversionKHR* to VkSamplerYcbcrConversionKHR. I should do *((VkSamplerYcbcrConversionKHR*)alloc_icd_object())
+                        VkSamplerYcbcrConversionKHR_lock.lock_shared();
+                        if (server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR.contains(data)){
+                            result=(VkSamplerYcbcrConversionKHR)server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[data];
+                            debug_printf("Deserializing to VkSamplerYcbcrConversionKHR %p...\n",result);
+                            VkSamplerYcbcrConversionKHR_lock.unlock_shared();
+                        }else{
+                            VkSamplerYcbcrConversionKHR_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkSamplerYcbcrConversionKHR));
+                            debug_printf("Mapping to VkSamplerYcbcrConversionKHR %p...\n",handle);
+                            VkSamplerYcbcrConversionKHR_lock.lock();
+                            server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[data]=(uintptr_t)handle;
+                            client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)handle]=data;
+                            VkSamplerYcbcrConversionKHR_lock.unlock();
+                            
+                            result=(VkSamplerYcbcrConversionKHR)handle; //This is highly dangerous -- I'm basically casting VkSamplerYcbcrConversionKHR* to VkSamplerYcbcrConversionKHR. I should do *((VkSamplerYcbcrConversionKHR*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkSamplerYcbcrConversionKHR)data;
@@ -80186,7 +83175,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkValidationCacheEXT handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkValidationCacheEXT_lock.lock_shared();
                     if(!(client_VkValidationCacheEXT_to_server_VkValidationCacheEXT.contains( (uintptr_t)data ))){
@@ -80211,21 +83200,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkValidationCacheEXT)data);
-                    VkValidationCacheEXT_lock.lock_shared();
-                    if (server_VkValidationCacheEXT_to_client_VkValidationCacheEXT.contains(data)){
-                        result=(VkValidationCacheEXT)server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[data];
-                        debug_printf("Deserializing to VkValidationCacheEXT %p...\n",result);
-                        VkValidationCacheEXT_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkValidationCacheEXT)NULL;
+                        debug_printf("VkValidationCacheEXT is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkValidationCacheEXT_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkValidationCacheEXT));
-                        debug_printf("Mapping to VkValidationCacheEXT %p...\n",handle);
-                        VkValidationCacheEXT_lock.lock();
-                        server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[data]=(uintptr_t)handle;
-                        client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)handle]=data;
-                        VkValidationCacheEXT_lock.unlock();
-                        
-                        result=(VkValidationCacheEXT)handle; //This is highly dangerous -- I'm basically casting VkValidationCacheEXT* to VkValidationCacheEXT. I should do *((VkValidationCacheEXT*)alloc_icd_object())
+                        VkValidationCacheEXT_lock.lock_shared();
+                        if (server_VkValidationCacheEXT_to_client_VkValidationCacheEXT.contains(data)){
+                            result=(VkValidationCacheEXT)server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[data];
+                            debug_printf("Deserializing to VkValidationCacheEXT %p...\n",result);
+                            VkValidationCacheEXT_lock.unlock_shared();
+                        }else{
+                            VkValidationCacheEXT_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkValidationCacheEXT));
+                            debug_printf("Mapping to VkValidationCacheEXT %p...\n",handle);
+                            VkValidationCacheEXT_lock.lock();
+                            server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[data]=(uintptr_t)handle;
+                            client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)handle]=data;
+                            VkValidationCacheEXT_lock.unlock();
+                            
+                            result=(VkValidationCacheEXT)handle; //This is highly dangerous -- I'm basically casting VkValidationCacheEXT* to VkValidationCacheEXT. I should do *((VkValidationCacheEXT*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkValidationCacheEXT)data;
@@ -80271,7 +83265,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkAccelerationStructureKHR handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkAccelerationStructureKHR_lock.lock_shared();
                     if(!(client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR.contains( (uintptr_t)data ))){
@@ -80296,21 +83290,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkAccelerationStructureKHR)data);
-                    VkAccelerationStructureKHR_lock.lock_shared();
-                    if (server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR.contains(data)){
-                        result=(VkAccelerationStructureKHR)server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[data];
-                        debug_printf("Deserializing to VkAccelerationStructureKHR %p...\n",result);
-                        VkAccelerationStructureKHR_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkAccelerationStructureKHR)NULL;
+                        debug_printf("VkAccelerationStructureKHR is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkAccelerationStructureKHR_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkAccelerationStructureKHR));
-                        debug_printf("Mapping to VkAccelerationStructureKHR %p...\n",handle);
-                        VkAccelerationStructureKHR_lock.lock();
-                        server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[data]=(uintptr_t)handle;
-                        client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)handle]=data;
-                        VkAccelerationStructureKHR_lock.unlock();
-                        
-                        result=(VkAccelerationStructureKHR)handle; //This is highly dangerous -- I'm basically casting VkAccelerationStructureKHR* to VkAccelerationStructureKHR. I should do *((VkAccelerationStructureKHR*)alloc_icd_object())
+                        VkAccelerationStructureKHR_lock.lock_shared();
+                        if (server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR.contains(data)){
+                            result=(VkAccelerationStructureKHR)server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[data];
+                            debug_printf("Deserializing to VkAccelerationStructureKHR %p...\n",result);
+                            VkAccelerationStructureKHR_lock.unlock_shared();
+                        }else{
+                            VkAccelerationStructureKHR_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkAccelerationStructureKHR));
+                            debug_printf("Mapping to VkAccelerationStructureKHR %p...\n",handle);
+                            VkAccelerationStructureKHR_lock.lock();
+                            server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[data]=(uintptr_t)handle;
+                            client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)handle]=data;
+                            VkAccelerationStructureKHR_lock.unlock();
+                            
+                            result=(VkAccelerationStructureKHR)handle; //This is highly dangerous -- I'm basically casting VkAccelerationStructureKHR* to VkAccelerationStructureKHR. I should do *((VkAccelerationStructureKHR*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkAccelerationStructureKHR)data;
@@ -80356,7 +83355,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkAccelerationStructureNV handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkAccelerationStructureNV_lock.lock_shared();
                     if(!(client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV.contains( (uintptr_t)data ))){
@@ -80381,21 +83380,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkAccelerationStructureNV)data);
-                    VkAccelerationStructureNV_lock.lock_shared();
-                    if (server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV.contains(data)){
-                        result=(VkAccelerationStructureNV)server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[data];
-                        debug_printf("Deserializing to VkAccelerationStructureNV %p...\n",result);
-                        VkAccelerationStructureNV_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkAccelerationStructureNV)NULL;
+                        debug_printf("VkAccelerationStructureNV is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkAccelerationStructureNV_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkAccelerationStructureNV));
-                        debug_printf("Mapping to VkAccelerationStructureNV %p...\n",handle);
-                        VkAccelerationStructureNV_lock.lock();
-                        server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[data]=(uintptr_t)handle;
-                        client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)handle]=data;
-                        VkAccelerationStructureNV_lock.unlock();
-                        
-                        result=(VkAccelerationStructureNV)handle; //This is highly dangerous -- I'm basically casting VkAccelerationStructureNV* to VkAccelerationStructureNV. I should do *((VkAccelerationStructureNV*)alloc_icd_object())
+                        VkAccelerationStructureNV_lock.lock_shared();
+                        if (server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV.contains(data)){
+                            result=(VkAccelerationStructureNV)server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[data];
+                            debug_printf("Deserializing to VkAccelerationStructureNV %p...\n",result);
+                            VkAccelerationStructureNV_lock.unlock_shared();
+                        }else{
+                            VkAccelerationStructureNV_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkAccelerationStructureNV));
+                            debug_printf("Mapping to VkAccelerationStructureNV %p...\n",handle);
+                            VkAccelerationStructureNV_lock.lock();
+                            server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[data]=(uintptr_t)handle;
+                            client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)handle]=data;
+                            VkAccelerationStructureNV_lock.unlock();
+                            
+                            result=(VkAccelerationStructureNV)handle; //This is highly dangerous -- I'm basically casting VkAccelerationStructureNV* to VkAccelerationStructureNV. I should do *((VkAccelerationStructureNV*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkAccelerationStructureNV)data;
@@ -80441,7 +83445,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkPerformanceConfigurationINTEL handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkPerformanceConfigurationINTEL_lock.lock_shared();
                     if(!(client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL.contains( (uintptr_t)data ))){
@@ -80466,21 +83470,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPerformanceConfigurationINTEL)data);
-                    VkPerformanceConfigurationINTEL_lock.lock_shared();
-                    if (server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL.contains(data)){
-                        result=(VkPerformanceConfigurationINTEL)server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[data];
-                        debug_printf("Deserializing to VkPerformanceConfigurationINTEL %p...\n",result);
-                        VkPerformanceConfigurationINTEL_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkPerformanceConfigurationINTEL)NULL;
+                        debug_printf("VkPerformanceConfigurationINTEL is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkPerformanceConfigurationINTEL_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkPerformanceConfigurationINTEL));
-                        debug_printf("Mapping to VkPerformanceConfigurationINTEL %p...\n",handle);
-                        VkPerformanceConfigurationINTEL_lock.lock();
-                        server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[data]=(uintptr_t)handle;
-                        client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)handle]=data;
-                        VkPerformanceConfigurationINTEL_lock.unlock();
-                        
-                        result=(VkPerformanceConfigurationINTEL)handle; //This is highly dangerous -- I'm basically casting VkPerformanceConfigurationINTEL* to VkPerformanceConfigurationINTEL. I should do *((VkPerformanceConfigurationINTEL*)alloc_icd_object())
+                        VkPerformanceConfigurationINTEL_lock.lock_shared();
+                        if (server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL.contains(data)){
+                            result=(VkPerformanceConfigurationINTEL)server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[data];
+                            debug_printf("Deserializing to VkPerformanceConfigurationINTEL %p...\n",result);
+                            VkPerformanceConfigurationINTEL_lock.unlock_shared();
+                        }else{
+                            VkPerformanceConfigurationINTEL_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkPerformanceConfigurationINTEL));
+                            debug_printf("Mapping to VkPerformanceConfigurationINTEL %p...\n",handle);
+                            VkPerformanceConfigurationINTEL_lock.lock();
+                            server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[data]=(uintptr_t)handle;
+                            client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)handle]=data;
+                            VkPerformanceConfigurationINTEL_lock.unlock();
+                            
+                            result=(VkPerformanceConfigurationINTEL)handle; //This is highly dangerous -- I'm basically casting VkPerformanceConfigurationINTEL* to VkPerformanceConfigurationINTEL. I should do *((VkPerformanceConfigurationINTEL*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkPerformanceConfigurationINTEL)data;
@@ -80526,7 +83535,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDeferredOperationKHR handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDeferredOperationKHR_lock.lock_shared();
                     if(!(client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR.contains( (uintptr_t)data ))){
@@ -80551,21 +83560,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDeferredOperationKHR)data);
-                    VkDeferredOperationKHR_lock.lock_shared();
-                    if (server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR.contains(data)){
-                        result=(VkDeferredOperationKHR)server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[data];
-                        debug_printf("Deserializing to VkDeferredOperationKHR %p...\n",result);
-                        VkDeferredOperationKHR_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDeferredOperationKHR)NULL;
+                        debug_printf("VkDeferredOperationKHR is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDeferredOperationKHR_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDeferredOperationKHR));
-                        debug_printf("Mapping to VkDeferredOperationKHR %p...\n",handle);
-                        VkDeferredOperationKHR_lock.lock();
-                        server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[data]=(uintptr_t)handle;
-                        client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)handle]=data;
-                        VkDeferredOperationKHR_lock.unlock();
-                        
-                        result=(VkDeferredOperationKHR)handle; //This is highly dangerous -- I'm basically casting VkDeferredOperationKHR* to VkDeferredOperationKHR. I should do *((VkDeferredOperationKHR*)alloc_icd_object())
+                        VkDeferredOperationKHR_lock.lock_shared();
+                        if (server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR.contains(data)){
+                            result=(VkDeferredOperationKHR)server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[data];
+                            debug_printf("Deserializing to VkDeferredOperationKHR %p...\n",result);
+                            VkDeferredOperationKHR_lock.unlock_shared();
+                        }else{
+                            VkDeferredOperationKHR_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDeferredOperationKHR));
+                            debug_printf("Mapping to VkDeferredOperationKHR %p...\n",handle);
+                            VkDeferredOperationKHR_lock.lock();
+                            server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[data]=(uintptr_t)handle;
+                            client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)handle]=data;
+                            VkDeferredOperationKHR_lock.unlock();
+                            
+                            result=(VkDeferredOperationKHR)handle; //This is highly dangerous -- I'm basically casting VkDeferredOperationKHR* to VkDeferredOperationKHR. I should do *((VkDeferredOperationKHR*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDeferredOperationKHR)data;
@@ -80611,7 +83625,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkPrivateDataSlot handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkPrivateDataSlot_lock.lock_shared();
                     if(!(client_VkPrivateDataSlot_to_server_VkPrivateDataSlot.contains( (uintptr_t)data ))){
@@ -80636,21 +83650,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPrivateDataSlot)data);
-                    VkPrivateDataSlot_lock.lock_shared();
-                    if (server_VkPrivateDataSlot_to_client_VkPrivateDataSlot.contains(data)){
-                        result=(VkPrivateDataSlot)server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[data];
-                        debug_printf("Deserializing to VkPrivateDataSlot %p...\n",result);
-                        VkPrivateDataSlot_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkPrivateDataSlot)NULL;
+                        debug_printf("VkPrivateDataSlot is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkPrivateDataSlot_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkPrivateDataSlot));
-                        debug_printf("Mapping to VkPrivateDataSlot %p...\n",handle);
-                        VkPrivateDataSlot_lock.lock();
-                        server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[data]=(uintptr_t)handle;
-                        client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)handle]=data;
-                        VkPrivateDataSlot_lock.unlock();
-                        
-                        result=(VkPrivateDataSlot)handle; //This is highly dangerous -- I'm basically casting VkPrivateDataSlot* to VkPrivateDataSlot. I should do *((VkPrivateDataSlot*)alloc_icd_object())
+                        VkPrivateDataSlot_lock.lock_shared();
+                        if (server_VkPrivateDataSlot_to_client_VkPrivateDataSlot.contains(data)){
+                            result=(VkPrivateDataSlot)server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[data];
+                            debug_printf("Deserializing to VkPrivateDataSlot %p...\n",result);
+                            VkPrivateDataSlot_lock.unlock_shared();
+                        }else{
+                            VkPrivateDataSlot_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkPrivateDataSlot));
+                            debug_printf("Mapping to VkPrivateDataSlot %p...\n",handle);
+                            VkPrivateDataSlot_lock.lock();
+                            server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[data]=(uintptr_t)handle;
+                            client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)handle]=data;
+                            VkPrivateDataSlot_lock.unlock();
+                            
+                            result=(VkPrivateDataSlot)handle; //This is highly dangerous -- I'm basically casting VkPrivateDataSlot* to VkPrivateDataSlot. I should do *((VkPrivateDataSlot*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkPrivateDataSlot)data;
@@ -80696,7 +83715,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkPrivateDataSlotEXT handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkPrivateDataSlotEXT_lock.lock_shared();
                     if(!(client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT.contains( (uintptr_t)data ))){
@@ -80721,21 +83740,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkPrivateDataSlotEXT)data);
-                    VkPrivateDataSlotEXT_lock.lock_shared();
-                    if (server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT.contains(data)){
-                        result=(VkPrivateDataSlotEXT)server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[data];
-                        debug_printf("Deserializing to VkPrivateDataSlotEXT %p...\n",result);
-                        VkPrivateDataSlotEXT_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkPrivateDataSlotEXT)NULL;
+                        debug_printf("VkPrivateDataSlotEXT is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkPrivateDataSlotEXT_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkPrivateDataSlotEXT));
-                        debug_printf("Mapping to VkPrivateDataSlotEXT %p...\n",handle);
-                        VkPrivateDataSlotEXT_lock.lock();
-                        server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[data]=(uintptr_t)handle;
-                        client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)handle]=data;
-                        VkPrivateDataSlotEXT_lock.unlock();
-                        
-                        result=(VkPrivateDataSlotEXT)handle; //This is highly dangerous -- I'm basically casting VkPrivateDataSlotEXT* to VkPrivateDataSlotEXT. I should do *((VkPrivateDataSlotEXT*)alloc_icd_object())
+                        VkPrivateDataSlotEXT_lock.lock_shared();
+                        if (server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT.contains(data)){
+                            result=(VkPrivateDataSlotEXT)server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[data];
+                            debug_printf("Deserializing to VkPrivateDataSlotEXT %p...\n",result);
+                            VkPrivateDataSlotEXT_lock.unlock_shared();
+                        }else{
+                            VkPrivateDataSlotEXT_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkPrivateDataSlotEXT));
+                            debug_printf("Mapping to VkPrivateDataSlotEXT %p...\n",handle);
+                            VkPrivateDataSlotEXT_lock.lock();
+                            server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[data]=(uintptr_t)handle;
+                            client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)handle]=data;
+                            VkPrivateDataSlotEXT_lock.unlock();
+                            
+                            result=(VkPrivateDataSlotEXT)handle; //This is highly dangerous -- I'm basically casting VkPrivateDataSlotEXT* to VkPrivateDataSlotEXT. I should do *((VkPrivateDataSlotEXT*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkPrivateDataSlotEXT)data;
@@ -80781,7 +83805,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkCuModuleNVX handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkCuModuleNVX_lock.lock_shared();
                     if(!(client_VkCuModuleNVX_to_server_VkCuModuleNVX.contains( (uintptr_t)data ))){
@@ -80806,21 +83830,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkCuModuleNVX)data);
-                    VkCuModuleNVX_lock.lock_shared();
-                    if (server_VkCuModuleNVX_to_client_VkCuModuleNVX.contains(data)){
-                        result=(VkCuModuleNVX)server_VkCuModuleNVX_to_client_VkCuModuleNVX[data];
-                        debug_printf("Deserializing to VkCuModuleNVX %p...\n",result);
-                        VkCuModuleNVX_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkCuModuleNVX)NULL;
+                        debug_printf("VkCuModuleNVX is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkCuModuleNVX_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkCuModuleNVX));
-                        debug_printf("Mapping to VkCuModuleNVX %p...\n",handle);
-                        VkCuModuleNVX_lock.lock();
-                        server_VkCuModuleNVX_to_client_VkCuModuleNVX[data]=(uintptr_t)handle;
-                        client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)handle]=data;
-                        VkCuModuleNVX_lock.unlock();
-                        
-                        result=(VkCuModuleNVX)handle; //This is highly dangerous -- I'm basically casting VkCuModuleNVX* to VkCuModuleNVX. I should do *((VkCuModuleNVX*)alloc_icd_object())
+                        VkCuModuleNVX_lock.lock_shared();
+                        if (server_VkCuModuleNVX_to_client_VkCuModuleNVX.contains(data)){
+                            result=(VkCuModuleNVX)server_VkCuModuleNVX_to_client_VkCuModuleNVX[data];
+                            debug_printf("Deserializing to VkCuModuleNVX %p...\n",result);
+                            VkCuModuleNVX_lock.unlock_shared();
+                        }else{
+                            VkCuModuleNVX_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkCuModuleNVX));
+                            debug_printf("Mapping to VkCuModuleNVX %p...\n",handle);
+                            VkCuModuleNVX_lock.lock();
+                            server_VkCuModuleNVX_to_client_VkCuModuleNVX[data]=(uintptr_t)handle;
+                            client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)handle]=data;
+                            VkCuModuleNVX_lock.unlock();
+                            
+                            result=(VkCuModuleNVX)handle; //This is highly dangerous -- I'm basically casting VkCuModuleNVX* to VkCuModuleNVX. I should do *((VkCuModuleNVX*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkCuModuleNVX)data;
@@ -80866,7 +83895,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkCuFunctionNVX handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkCuFunctionNVX_lock.lock_shared();
                     if(!(client_VkCuFunctionNVX_to_server_VkCuFunctionNVX.contains( (uintptr_t)data ))){
@@ -80891,21 +83920,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkCuFunctionNVX)data);
-                    VkCuFunctionNVX_lock.lock_shared();
-                    if (server_VkCuFunctionNVX_to_client_VkCuFunctionNVX.contains(data)){
-                        result=(VkCuFunctionNVX)server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[data];
-                        debug_printf("Deserializing to VkCuFunctionNVX %p...\n",result);
-                        VkCuFunctionNVX_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkCuFunctionNVX)NULL;
+                        debug_printf("VkCuFunctionNVX is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkCuFunctionNVX_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkCuFunctionNVX));
-                        debug_printf("Mapping to VkCuFunctionNVX %p...\n",handle);
-                        VkCuFunctionNVX_lock.lock();
-                        server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[data]=(uintptr_t)handle;
-                        client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)handle]=data;
-                        VkCuFunctionNVX_lock.unlock();
-                        
-                        result=(VkCuFunctionNVX)handle; //This is highly dangerous -- I'm basically casting VkCuFunctionNVX* to VkCuFunctionNVX. I should do *((VkCuFunctionNVX*)alloc_icd_object())
+                        VkCuFunctionNVX_lock.lock_shared();
+                        if (server_VkCuFunctionNVX_to_client_VkCuFunctionNVX.contains(data)){
+                            result=(VkCuFunctionNVX)server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[data];
+                            debug_printf("Deserializing to VkCuFunctionNVX %p...\n",result);
+                            VkCuFunctionNVX_lock.unlock_shared();
+                        }else{
+                            VkCuFunctionNVX_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkCuFunctionNVX));
+                            debug_printf("Mapping to VkCuFunctionNVX %p...\n",handle);
+                            VkCuFunctionNVX_lock.lock();
+                            server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[data]=(uintptr_t)handle;
+                            client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)handle]=data;
+                            VkCuFunctionNVX_lock.unlock();
+                            
+                            result=(VkCuFunctionNVX)handle; //This is highly dangerous -- I'm basically casting VkCuFunctionNVX* to VkCuFunctionNVX. I should do *((VkCuFunctionNVX*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkCuFunctionNVX)data;
@@ -80951,7 +83985,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkOpticalFlowSessionNV handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkOpticalFlowSessionNV_lock.lock_shared();
                     if(!(client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV.contains( (uintptr_t)data ))){
@@ -80976,21 +84010,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkOpticalFlowSessionNV)data);
-                    VkOpticalFlowSessionNV_lock.lock_shared();
-                    if (server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV.contains(data)){
-                        result=(VkOpticalFlowSessionNV)server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[data];
-                        debug_printf("Deserializing to VkOpticalFlowSessionNV %p...\n",result);
-                        VkOpticalFlowSessionNV_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkOpticalFlowSessionNV)NULL;
+                        debug_printf("VkOpticalFlowSessionNV is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkOpticalFlowSessionNV_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkOpticalFlowSessionNV));
-                        debug_printf("Mapping to VkOpticalFlowSessionNV %p...\n",handle);
-                        VkOpticalFlowSessionNV_lock.lock();
-                        server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[data]=(uintptr_t)handle;
-                        client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)handle]=data;
-                        VkOpticalFlowSessionNV_lock.unlock();
-                        
-                        result=(VkOpticalFlowSessionNV)handle; //This is highly dangerous -- I'm basically casting VkOpticalFlowSessionNV* to VkOpticalFlowSessionNV. I should do *((VkOpticalFlowSessionNV*)alloc_icd_object())
+                        VkOpticalFlowSessionNV_lock.lock_shared();
+                        if (server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV.contains(data)){
+                            result=(VkOpticalFlowSessionNV)server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[data];
+                            debug_printf("Deserializing to VkOpticalFlowSessionNV %p...\n",result);
+                            VkOpticalFlowSessionNV_lock.unlock_shared();
+                        }else{
+                            VkOpticalFlowSessionNV_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkOpticalFlowSessionNV));
+                            debug_printf("Mapping to VkOpticalFlowSessionNV %p...\n",handle);
+                            VkOpticalFlowSessionNV_lock.lock();
+                            server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[data]=(uintptr_t)handle;
+                            client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)handle]=data;
+                            VkOpticalFlowSessionNV_lock.unlock();
+                            
+                            result=(VkOpticalFlowSessionNV)handle; //This is highly dangerous -- I'm basically casting VkOpticalFlowSessionNV* to VkOpticalFlowSessionNV. I should do *((VkOpticalFlowSessionNV*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkOpticalFlowSessionNV)data;
@@ -81036,7 +84075,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkMicromapEXT handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkMicromapEXT_lock.lock_shared();
                     if(!(client_VkMicromapEXT_to_server_VkMicromapEXT.contains( (uintptr_t)data ))){
@@ -81061,21 +84100,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkMicromapEXT)data);
-                    VkMicromapEXT_lock.lock_shared();
-                    if (server_VkMicromapEXT_to_client_VkMicromapEXT.contains(data)){
-                        result=(VkMicromapEXT)server_VkMicromapEXT_to_client_VkMicromapEXT[data];
-                        debug_printf("Deserializing to VkMicromapEXT %p...\n",result);
-                        VkMicromapEXT_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkMicromapEXT)NULL;
+                        debug_printf("VkMicromapEXT is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkMicromapEXT_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkMicromapEXT));
-                        debug_printf("Mapping to VkMicromapEXT %p...\n",handle);
-                        VkMicromapEXT_lock.lock();
-                        server_VkMicromapEXT_to_client_VkMicromapEXT[data]=(uintptr_t)handle;
-                        client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)handle]=data;
-                        VkMicromapEXT_lock.unlock();
-                        
-                        result=(VkMicromapEXT)handle; //This is highly dangerous -- I'm basically casting VkMicromapEXT* to VkMicromapEXT. I should do *((VkMicromapEXT*)alloc_icd_object())
+                        VkMicromapEXT_lock.lock_shared();
+                        if (server_VkMicromapEXT_to_client_VkMicromapEXT.contains(data)){
+                            result=(VkMicromapEXT)server_VkMicromapEXT_to_client_VkMicromapEXT[data];
+                            debug_printf("Deserializing to VkMicromapEXT %p...\n",result);
+                            VkMicromapEXT_lock.unlock_shared();
+                        }else{
+                            VkMicromapEXT_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkMicromapEXT));
+                            debug_printf("Mapping to VkMicromapEXT %p...\n",handle);
+                            VkMicromapEXT_lock.lock();
+                            server_VkMicromapEXT_to_client_VkMicromapEXT[data]=(uintptr_t)handle;
+                            client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)handle]=data;
+                            VkMicromapEXT_lock.unlock();
+                            
+                            result=(VkMicromapEXT)handle; //This is highly dangerous -- I'm basically casting VkMicromapEXT* to VkMicromapEXT. I should do *((VkMicromapEXT*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkMicromapEXT)data;
@@ -81121,7 +84165,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkShaderEXT handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkShaderEXT_lock.lock_shared();
                     if(!(client_VkShaderEXT_to_server_VkShaderEXT.contains( (uintptr_t)data ))){
@@ -81146,21 +84190,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkShaderEXT)data);
-                    VkShaderEXT_lock.lock_shared();
-                    if (server_VkShaderEXT_to_client_VkShaderEXT.contains(data)){
-                        result=(VkShaderEXT)server_VkShaderEXT_to_client_VkShaderEXT[data];
-                        debug_printf("Deserializing to VkShaderEXT %p...\n",result);
-                        VkShaderEXT_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkShaderEXT)NULL;
+                        debug_printf("VkShaderEXT is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkShaderEXT_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkShaderEXT));
-                        debug_printf("Mapping to VkShaderEXT %p...\n",handle);
-                        VkShaderEXT_lock.lock();
-                        server_VkShaderEXT_to_client_VkShaderEXT[data]=(uintptr_t)handle;
-                        client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)handle]=data;
-                        VkShaderEXT_lock.unlock();
-                        
-                        result=(VkShaderEXT)handle; //This is highly dangerous -- I'm basically casting VkShaderEXT* to VkShaderEXT. I should do *((VkShaderEXT*)alloc_icd_object())
+                        VkShaderEXT_lock.lock_shared();
+                        if (server_VkShaderEXT_to_client_VkShaderEXT.contains(data)){
+                            result=(VkShaderEXT)server_VkShaderEXT_to_client_VkShaderEXT[data];
+                            debug_printf("Deserializing to VkShaderEXT %p...\n",result);
+                            VkShaderEXT_lock.unlock_shared();
+                        }else{
+                            VkShaderEXT_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkShaderEXT));
+                            debug_printf("Mapping to VkShaderEXT %p...\n",handle);
+                            VkShaderEXT_lock.lock();
+                            server_VkShaderEXT_to_client_VkShaderEXT[data]=(uintptr_t)handle;
+                            client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)handle]=data;
+                            VkShaderEXT_lock.unlock();
+                            
+                            result=(VkShaderEXT)handle; //This is highly dangerous -- I'm basically casting VkShaderEXT* to VkShaderEXT. I should do *((VkShaderEXT*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkShaderEXT)data;
@@ -81206,7 +84255,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDisplayKHR handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDisplayKHR_lock.lock_shared();
                     if(!(client_VkDisplayKHR_to_server_VkDisplayKHR.contains( (uintptr_t)data ))){
@@ -81231,21 +84280,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDisplayKHR)data);
-                    VkDisplayKHR_lock.lock_shared();
-                    if (server_VkDisplayKHR_to_client_VkDisplayKHR.contains(data)){
-                        result=(VkDisplayKHR)server_VkDisplayKHR_to_client_VkDisplayKHR[data];
-                        debug_printf("Deserializing to VkDisplayKHR %p...\n",result);
-                        VkDisplayKHR_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDisplayKHR)NULL;
+                        debug_printf("VkDisplayKHR is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDisplayKHR_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDisplayKHR));
-                        debug_printf("Mapping to VkDisplayKHR %p...\n",handle);
-                        VkDisplayKHR_lock.lock();
-                        server_VkDisplayKHR_to_client_VkDisplayKHR[data]=(uintptr_t)handle;
-                        client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)handle]=data;
-                        VkDisplayKHR_lock.unlock();
-                        
-                        result=(VkDisplayKHR)handle; //This is highly dangerous -- I'm basically casting VkDisplayKHR* to VkDisplayKHR. I should do *((VkDisplayKHR*)alloc_icd_object())
+                        VkDisplayKHR_lock.lock_shared();
+                        if (server_VkDisplayKHR_to_client_VkDisplayKHR.contains(data)){
+                            result=(VkDisplayKHR)server_VkDisplayKHR_to_client_VkDisplayKHR[data];
+                            debug_printf("Deserializing to VkDisplayKHR %p...\n",result);
+                            VkDisplayKHR_lock.unlock_shared();
+                        }else{
+                            VkDisplayKHR_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDisplayKHR));
+                            debug_printf("Mapping to VkDisplayKHR %p...\n",handle);
+                            VkDisplayKHR_lock.lock();
+                            server_VkDisplayKHR_to_client_VkDisplayKHR[data]=(uintptr_t)handle;
+                            client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)handle]=data;
+                            VkDisplayKHR_lock.unlock();
+                            
+                            result=(VkDisplayKHR)handle; //This is highly dangerous -- I'm basically casting VkDisplayKHR* to VkDisplayKHR. I should do *((VkDisplayKHR*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDisplayKHR)data;
@@ -81291,7 +84345,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDisplayModeKHR handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDisplayModeKHR_lock.lock_shared();
                     if(!(client_VkDisplayModeKHR_to_server_VkDisplayModeKHR.contains( (uintptr_t)data ))){
@@ -81316,21 +84370,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDisplayModeKHR)data);
-                    VkDisplayModeKHR_lock.lock_shared();
-                    if (server_VkDisplayModeKHR_to_client_VkDisplayModeKHR.contains(data)){
-                        result=(VkDisplayModeKHR)server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[data];
-                        debug_printf("Deserializing to VkDisplayModeKHR %p...\n",result);
-                        VkDisplayModeKHR_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDisplayModeKHR)NULL;
+                        debug_printf("VkDisplayModeKHR is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDisplayModeKHR_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDisplayModeKHR));
-                        debug_printf("Mapping to VkDisplayModeKHR %p...\n",handle);
-                        VkDisplayModeKHR_lock.lock();
-                        server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[data]=(uintptr_t)handle;
-                        client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)handle]=data;
-                        VkDisplayModeKHR_lock.unlock();
-                        
-                        result=(VkDisplayModeKHR)handle; //This is highly dangerous -- I'm basically casting VkDisplayModeKHR* to VkDisplayModeKHR. I should do *((VkDisplayModeKHR*)alloc_icd_object())
+                        VkDisplayModeKHR_lock.lock_shared();
+                        if (server_VkDisplayModeKHR_to_client_VkDisplayModeKHR.contains(data)){
+                            result=(VkDisplayModeKHR)server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[data];
+                            debug_printf("Deserializing to VkDisplayModeKHR %p...\n",result);
+                            VkDisplayModeKHR_lock.unlock_shared();
+                        }else{
+                            VkDisplayModeKHR_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDisplayModeKHR));
+                            debug_printf("Mapping to VkDisplayModeKHR %p...\n",handle);
+                            VkDisplayModeKHR_lock.lock();
+                            server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[data]=(uintptr_t)handle;
+                            client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)handle]=data;
+                            VkDisplayModeKHR_lock.unlock();
+                            
+                            result=(VkDisplayModeKHR)handle; //This is highly dangerous -- I'm basically casting VkDisplayModeKHR* to VkDisplayModeKHR. I should do *((VkDisplayModeKHR*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDisplayModeKHR)data;
@@ -81376,7 +84435,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkSurfaceKHR handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkSurfaceKHR_lock.lock_shared();
                     if(!(client_VkSurfaceKHR_to_server_VkSurfaceKHR.contains( (uintptr_t)data ))){
@@ -81401,21 +84460,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSurfaceKHR)data);
-                    VkSurfaceKHR_lock.lock_shared();
-                    if (server_VkSurfaceKHR_to_client_VkSurfaceKHR.contains(data)){
-                        result=(VkSurfaceKHR)server_VkSurfaceKHR_to_client_VkSurfaceKHR[data];
-                        debug_printf("Deserializing to VkSurfaceKHR %p...\n",result);
-                        VkSurfaceKHR_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkSurfaceKHR)NULL;
+                        debug_printf("VkSurfaceKHR is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkSurfaceKHR_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkSurfaceKHR));
-                        debug_printf("Mapping to VkSurfaceKHR %p...\n",handle);
-                        VkSurfaceKHR_lock.lock();
-                        server_VkSurfaceKHR_to_client_VkSurfaceKHR[data]=(uintptr_t)handle;
-                        client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)handle]=data;
-                        VkSurfaceKHR_lock.unlock();
-                        
-                        result=(VkSurfaceKHR)handle; //This is highly dangerous -- I'm basically casting VkSurfaceKHR* to VkSurfaceKHR. I should do *((VkSurfaceKHR*)alloc_icd_object())
+                        VkSurfaceKHR_lock.lock_shared();
+                        if (server_VkSurfaceKHR_to_client_VkSurfaceKHR.contains(data)){
+                            result=(VkSurfaceKHR)server_VkSurfaceKHR_to_client_VkSurfaceKHR[data];
+                            debug_printf("Deserializing to VkSurfaceKHR %p...\n",result);
+                            VkSurfaceKHR_lock.unlock_shared();
+                        }else{
+                            VkSurfaceKHR_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkSurfaceKHR));
+                            debug_printf("Mapping to VkSurfaceKHR %p...\n",handle);
+                            VkSurfaceKHR_lock.lock();
+                            server_VkSurfaceKHR_to_client_VkSurfaceKHR[data]=(uintptr_t)handle;
+                            client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)handle]=data;
+                            VkSurfaceKHR_lock.unlock();
+                            
+                            result=(VkSurfaceKHR)handle; //This is highly dangerous -- I'm basically casting VkSurfaceKHR* to VkSurfaceKHR. I should do *((VkSurfaceKHR*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkSurfaceKHR)data;
@@ -81461,7 +84525,7 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkSwapchainKHR handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkSwapchainKHR_lock.lock_shared();
                     if(!(client_VkSwapchainKHR_to_server_VkSwapchainKHR.contains( (uintptr_t)data ))){
@@ -81486,21 +84550,26 @@ std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetIns
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkSwapchainKHR)data);
-                    VkSwapchainKHR_lock.lock_shared();
-                    if (server_VkSwapchainKHR_to_client_VkSwapchainKHR.contains(data)){
-                        result=(VkSwapchainKHR)server_VkSwapchainKHR_to_client_VkSwapchainKHR[data];
-                        debug_printf("Deserializing to VkSwapchainKHR %p...\n",result);
-                        VkSwapchainKHR_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkSwapchainKHR)NULL;
+                        debug_printf("VkSwapchainKHR is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkSwapchainKHR_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkSwapchainKHR));
-                        debug_printf("Mapping to VkSwapchainKHR %p...\n",handle);
-                        VkSwapchainKHR_lock.lock();
-                        server_VkSwapchainKHR_to_client_VkSwapchainKHR[data]=(uintptr_t)handle;
-                        client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)handle]=data;
-                        VkSwapchainKHR_lock.unlock();
-                        
-                        result=(VkSwapchainKHR)handle; //This is highly dangerous -- I'm basically casting VkSwapchainKHR* to VkSwapchainKHR. I should do *((VkSwapchainKHR*)alloc_icd_object())
+                        VkSwapchainKHR_lock.lock_shared();
+                        if (server_VkSwapchainKHR_to_client_VkSwapchainKHR.contains(data)){
+                            result=(VkSwapchainKHR)server_VkSwapchainKHR_to_client_VkSwapchainKHR[data];
+                            debug_printf("Deserializing to VkSwapchainKHR %p...\n",result);
+                            VkSwapchainKHR_lock.unlock_shared();
+                        }else{
+                            VkSwapchainKHR_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkSwapchainKHR));
+                            debug_printf("Mapping to VkSwapchainKHR %p...\n",handle);
+                            VkSwapchainKHR_lock.lock();
+                            server_VkSwapchainKHR_to_client_VkSwapchainKHR[data]=(uintptr_t)handle;
+                            client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)handle]=data;
+                            VkSwapchainKHR_lock.unlock();
+                            
+                            result=(VkSwapchainKHR)handle; //This is highly dangerous -- I'm basically casting VkSwapchainKHR* to VkSwapchainKHR. I should do *((VkSwapchainKHR*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkSwapchainKHR)data;
@@ -81547,7 +84616,7 @@ deregisterSwapchain(client_handle);
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDebugReportCallbackEXT handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDebugReportCallbackEXT_lock.lock_shared();
                     if(!(client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT.contains( (uintptr_t)data ))){
@@ -81572,21 +84641,26 @@ deregisterSwapchain(client_handle);
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDebugReportCallbackEXT)data);
-                    VkDebugReportCallbackEXT_lock.lock_shared();
-                    if (server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT.contains(data)){
-                        result=(VkDebugReportCallbackEXT)server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[data];
-                        debug_printf("Deserializing to VkDebugReportCallbackEXT %p...\n",result);
-                        VkDebugReportCallbackEXT_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDebugReportCallbackEXT)NULL;
+                        debug_printf("VkDebugReportCallbackEXT is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDebugReportCallbackEXT_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDebugReportCallbackEXT));
-                        debug_printf("Mapping to VkDebugReportCallbackEXT %p...\n",handle);
-                        VkDebugReportCallbackEXT_lock.lock();
-                        server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[data]=(uintptr_t)handle;
-                        client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)handle]=data;
-                        VkDebugReportCallbackEXT_lock.unlock();
-                        
-                        result=(VkDebugReportCallbackEXT)handle; //This is highly dangerous -- I'm basically casting VkDebugReportCallbackEXT* to VkDebugReportCallbackEXT. I should do *((VkDebugReportCallbackEXT*)alloc_icd_object())
+                        VkDebugReportCallbackEXT_lock.lock_shared();
+                        if (server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT.contains(data)){
+                            result=(VkDebugReportCallbackEXT)server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[data];
+                            debug_printf("Deserializing to VkDebugReportCallbackEXT %p...\n",result);
+                            VkDebugReportCallbackEXT_lock.unlock_shared();
+                        }else{
+                            VkDebugReportCallbackEXT_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDebugReportCallbackEXT));
+                            debug_printf("Mapping to VkDebugReportCallbackEXT %p...\n",handle);
+                            VkDebugReportCallbackEXT_lock.lock();
+                            server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[data]=(uintptr_t)handle;
+                            client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)handle]=data;
+                            VkDebugReportCallbackEXT_lock.unlock();
+                            
+                            result=(VkDebugReportCallbackEXT)handle; //This is highly dangerous -- I'm basically casting VkDebugReportCallbackEXT* to VkDebugReportCallbackEXT. I should do *((VkDebugReportCallbackEXT*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDebugReportCallbackEXT)data;
@@ -81632,7 +84706,7 @@ deregisterSwapchain(client_handle);
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkDebugUtilsMessengerEXT handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkDebugUtilsMessengerEXT_lock.lock_shared();
                     if(!(client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT.contains( (uintptr_t)data ))){
@@ -81657,21 +84731,26 @@ deregisterSwapchain(client_handle);
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkDebugUtilsMessengerEXT)data);
-                    VkDebugUtilsMessengerEXT_lock.lock_shared();
-                    if (server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT.contains(data)){
-                        result=(VkDebugUtilsMessengerEXT)server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[data];
-                        debug_printf("Deserializing to VkDebugUtilsMessengerEXT %p...\n",result);
-                        VkDebugUtilsMessengerEXT_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkDebugUtilsMessengerEXT)NULL;
+                        debug_printf("VkDebugUtilsMessengerEXT is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkDebugUtilsMessengerEXT_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkDebugUtilsMessengerEXT));
-                        debug_printf("Mapping to VkDebugUtilsMessengerEXT %p...\n",handle);
-                        VkDebugUtilsMessengerEXT_lock.lock();
-                        server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[data]=(uintptr_t)handle;
-                        client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)handle]=data;
-                        VkDebugUtilsMessengerEXT_lock.unlock();
-                        
-                        result=(VkDebugUtilsMessengerEXT)handle; //This is highly dangerous -- I'm basically casting VkDebugUtilsMessengerEXT* to VkDebugUtilsMessengerEXT. I should do *((VkDebugUtilsMessengerEXT*)alloc_icd_object())
+                        VkDebugUtilsMessengerEXT_lock.lock_shared();
+                        if (server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT.contains(data)){
+                            result=(VkDebugUtilsMessengerEXT)server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[data];
+                            debug_printf("Deserializing to VkDebugUtilsMessengerEXT %p...\n",result);
+                            VkDebugUtilsMessengerEXT_lock.unlock_shared();
+                        }else{
+                            VkDebugUtilsMessengerEXT_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkDebugUtilsMessengerEXT));
+                            debug_printf("Mapping to VkDebugUtilsMessengerEXT %p...\n",handle);
+                            VkDebugUtilsMessengerEXT_lock.lock();
+                            server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[data]=(uintptr_t)handle;
+                            client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)handle]=data;
+                            VkDebugUtilsMessengerEXT_lock.unlock();
+                            
+                            result=(VkDebugUtilsMessengerEXT)handle; //This is highly dangerous -- I'm basically casting VkDebugUtilsMessengerEXT* to VkDebugUtilsMessengerEXT. I should do *((VkDebugUtilsMessengerEXT*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkDebugUtilsMessengerEXT)data;
@@ -81717,7 +84796,7 @@ deregisterSwapchain(client_handle);
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkVideoSessionKHR handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkVideoSessionKHR_lock.lock_shared();
                     if(!(client_VkVideoSessionKHR_to_server_VkVideoSessionKHR.contains( (uintptr_t)data ))){
@@ -81742,21 +84821,26 @@ deregisterSwapchain(client_handle);
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkVideoSessionKHR)data);
-                    VkVideoSessionKHR_lock.lock_shared();
-                    if (server_VkVideoSessionKHR_to_client_VkVideoSessionKHR.contains(data)){
-                        result=(VkVideoSessionKHR)server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[data];
-                        debug_printf("Deserializing to VkVideoSessionKHR %p...\n",result);
-                        VkVideoSessionKHR_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkVideoSessionKHR)NULL;
+                        debug_printf("VkVideoSessionKHR is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkVideoSessionKHR_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkVideoSessionKHR));
-                        debug_printf("Mapping to VkVideoSessionKHR %p...\n",handle);
-                        VkVideoSessionKHR_lock.lock();
-                        server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[data]=(uintptr_t)handle;
-                        client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)handle]=data;
-                        VkVideoSessionKHR_lock.unlock();
-                        
-                        result=(VkVideoSessionKHR)handle; //This is highly dangerous -- I'm basically casting VkVideoSessionKHR* to VkVideoSessionKHR. I should do *((VkVideoSessionKHR*)alloc_icd_object())
+                        VkVideoSessionKHR_lock.lock_shared();
+                        if (server_VkVideoSessionKHR_to_client_VkVideoSessionKHR.contains(data)){
+                            result=(VkVideoSessionKHR)server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[data];
+                            debug_printf("Deserializing to VkVideoSessionKHR %p...\n",result);
+                            VkVideoSessionKHR_lock.unlock_shared();
+                        }else{
+                            VkVideoSessionKHR_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkVideoSessionKHR));
+                            debug_printf("Mapping to VkVideoSessionKHR %p...\n",handle);
+                            VkVideoSessionKHR_lock.lock();
+                            server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[data]=(uintptr_t)handle;
+                            client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)handle]=data;
+                            VkVideoSessionKHR_lock.unlock();
+                            
+                            result=(VkVideoSessionKHR)handle; //This is highly dangerous -- I'm basically casting VkVideoSessionKHR* to VkVideoSessionKHR. I should do *((VkVideoSessionKHR*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkVideoSessionKHR)data;
@@ -81802,7 +84886,7 @@ deregisterSwapchain(client_handle);
             #ifdef CLIENT
                 if (data==NULL){
                     result=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\n",result);
+                    debug_printf("VkVideoSessionParametersKHR handle is NULL, serializing to %p...\n",result);
                 }else{
                     VkVideoSessionParametersKHR_lock.lock_shared();
                     if(!(client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR.contains( (uintptr_t)data ))){
@@ -81827,21 +84911,26 @@ deregisterSwapchain(client_handle);
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\n",(VkVideoSessionParametersKHR)data);
-                    VkVideoSessionParametersKHR_lock.lock_shared();
-                    if (server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR.contains(data)){
-                        result=(VkVideoSessionParametersKHR)server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[data];
-                        debug_printf("Deserializing to VkVideoSessionParametersKHR %p...\n",result);
-                        VkVideoSessionParametersKHR_lock.unlock_shared();
+                    if (data==(uintptr_t)NULL){
+                        result=(VkVideoSessionParametersKHR)NULL;
+                        debug_printf("VkVideoSessionParametersKHR is NULL, deserializing to %p...\n", NULL);
                     }else{
-                        VkVideoSessionParametersKHR_lock.unlock_shared();
-                        auto handle=malloc(sizeof(VkVideoSessionParametersKHR));
-                        debug_printf("Mapping to VkVideoSessionParametersKHR %p...\n",handle);
-                        VkVideoSessionParametersKHR_lock.lock();
-                        server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[data]=(uintptr_t)handle;
-                        client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)handle]=data;
-                        VkVideoSessionParametersKHR_lock.unlock();
-                        
-                        result=(VkVideoSessionParametersKHR)handle; //This is highly dangerous -- I'm basically casting VkVideoSessionParametersKHR* to VkVideoSessionParametersKHR. I should do *((VkVideoSessionParametersKHR*)alloc_icd_object())
+                        VkVideoSessionParametersKHR_lock.lock_shared();
+                        if (server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR.contains(data)){
+                            result=(VkVideoSessionParametersKHR)server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[data];
+                            debug_printf("Deserializing to VkVideoSessionParametersKHR %p...\n",result);
+                            VkVideoSessionParametersKHR_lock.unlock_shared();
+                        }else{
+                            VkVideoSessionParametersKHR_lock.unlock_shared();
+                            auto handle=malloc(sizeof(VkVideoSessionParametersKHR));
+                            debug_printf("Mapping to VkVideoSessionParametersKHR %p...\n",handle);
+                            VkVideoSessionParametersKHR_lock.lock();
+                            server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[data]=(uintptr_t)handle;
+                            client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)handle]=data;
+                            VkVideoSessionParametersKHR_lock.unlock();
+                            
+                            result=(VkVideoSessionParametersKHR)handle; //This is highly dangerous -- I'm basically casting VkVideoSessionParametersKHR* to VkVideoSessionParametersKHR. I should do *((VkVideoSessionParametersKHR*)alloc_icd_object())
+                        }
                     }
                 #else
                     result=(VkVideoSessionParametersKHR)data;

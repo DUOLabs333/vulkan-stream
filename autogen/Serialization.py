@@ -140,9 +140,13 @@ for name, struct in parsed.items():
             }});
         }}else{{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{{
-                auto result= new {name};
-                deserialize_struct(json, result[0]);
-                member=result;
+                if (member==NULL){{
+                    auto result= new {name};
+                    result->pNext=NULL;
+                    member=result;
+                }}
+
+                deserialize_struct(json, *(({name}* )member));
                 return;
             }});
         }}
