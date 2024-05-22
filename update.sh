@@ -15,6 +15,20 @@ tar -xvzf boost*.tar.gz -C external
 rm boost*.tar.gz
 mv external/boost* external/boost
 
+echo "Building boost"
+pushd external/boost
+
+./bootstrap.sh --prefix=build --with-libraries=json
+./b2 install variant=release link=static
+
+mkdir todelete
+mv * todelete/
+mv todelete/build .
+rm -rf todelete
+
+popd
+
+
 echo "Building lz4..."
 (cd external/lz4 && make liblz4.a)
 

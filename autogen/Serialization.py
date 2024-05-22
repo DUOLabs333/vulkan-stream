@@ -3,7 +3,6 @@ import copy, re
 
 write("#include <vulkan/vulkan.h>",header=True)
 write(f"""
-#include <boost/json/src.hpp>
 #include <boost/json.hpp>
 
 #include <Serialization.hpp>
