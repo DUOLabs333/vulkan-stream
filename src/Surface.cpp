@@ -427,11 +427,12 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
         auto present_info=queue_info.queue.front();
         queue_info.queue.pop();
         queue_info.queue_mutex.unlock();
-        
+
         if (present_info.fence==VK_NULL_HANDLE){
             swapchain_to_info.erase((uintptr_t)swapchain);
             break;
         }
+
         auto device=info.device; //The image can come from a different device
         
 	if(device_to_info[(uintptr_t)device].present_skip.load()==true){ //Skip presentation
@@ -439,6 +440,7 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
 		continue;
 	}
 
+	        printf("We're displaying something!\n");
         vkWaitForFences(device,1, &present_info.fence,VK_TRUE, VK_STREAM_TIMEOUT);
         
         auto image=info.images[present_info.index];

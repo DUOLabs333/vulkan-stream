@@ -140,9 +140,14 @@ for name, struct in parsed.items():
             }});
         }}else{{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{{
+                #ifdef CLIENT
                 if (member==NULL){{
+                #else
+                if (true){{ //The server needs pNext initalized at all times
+                #endif
                     auto result= new {name};
                     result->pNext=NULL;
+
                     member=result;
                 }}
 
