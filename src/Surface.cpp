@@ -15,6 +15,7 @@ typedef struct {
 std::atomic_int c;
 std::mutex mu;
 std::condition_variable cv;
+std::atomic_bool skip;
 } DeviceCounterInfo;
 
 typedef struct {
@@ -45,6 +46,7 @@ VkQueue queue = VK_NULL_HANDLE;
 uint32_t queue_family_index;
 DeviceCounterInfo counter_info;
 std::unordered_map<VkDeviceSize,VkBuffer> buffers;
+std::atomic_bool present_skip; //Whether associated swapchains should skip the actual presenting
 } DeviceInfo;
 
 std::unordered_map<uintptr_t, SurfaceInfo> surface_to_info;
@@ -106,13 +108,20 @@ void updateCounter(VkDevice device, int direction){
     }
 }
 void waitForCounterIdle(VkDevice device){
-    auto& counter_info=device_to_info[(uintptr_t)device].counter_info;
-    if (counter_info.c.load()==0){ //Happens when there's no present currently enqueued.
+    auto& device_info=device_to_info[(uintptr_t)device];
+    auto& counter_info=device_info.counter_info;
+
+    if (counter_info.c.load()==0){ //Indicates that there is no present currently enqueued.
         return;
     }
+    
+    device_info.present_skip=true; //Want to skip the presentation of image on the swapchain
+
     std::unique_lock<std::mutex> lk(counter_info.mu);
     
     counter_info.cv.wait(lk);
+
+    device_info.present_skip=false;
 }
 
 VkDeviceSize getImageSize(VkDevice device, VkImage image){
@@ -407,9 +416,9 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
     std::unique_lock<std::mutex> lock(queue_info.notify_mutex);
     while(true){
         queue_info.queue_mutex.lock_shared();
-        if(!queue_info.queue.empty()){
+        if(!queue_info.queue.empty()){ //Queue is not empty, so we can immediately go and pull item from it
             queue_info.queue_mutex.unlock_shared();
-        }else{
+        }else{ //Queue is empty, so wait for a new item
             queue_info.queue_mutex.unlock_shared();
             queue_info.notify_condition.wait(lock);
         }
@@ -423,8 +432,13 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
             swapchain_to_info.erase((uintptr_t)swapchain);
             break;
         }
-        auto device=info.device;
+        auto device=info.device; //The image can come from a different device
         
+	if(device_to_info[(uintptr_t)device].present_skip.load()==true){ //Skip presentation
+		updateCounter(device, -1);
+		continue;
+	}
+
         vkWaitForFences(device,1, &present_info.fence,VK_TRUE, VK_STREAM_TIMEOUT);
         
         auto image=info.images[present_info.index];
