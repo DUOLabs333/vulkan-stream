@@ -121,19 +121,14 @@ auto key = (uintptr_t)image;
 if (image_to_size.contains(key)){
     return image_to_size[key];
 }
-auto subresource=VkImageSubresource{
-.aspectMask=VK_IMAGE_ASPECT_COLOR_BIT,
-.mipLevel=0,
-.arrayLayer=0
-};
 
-VkSubresourceLayout layout={};
+VkMemoryRequirements memory_reqirements={};
+
+vkGetImageMemoryRequirements(device, image, &memory_reqirements);
 
 
-vkGetImageSubresourceLayout(device, image, &subresource, &layout);
-
-image_to_size[key]=layout.size;
-return layout.size;
+image_to_size[key]=memory_reqirements.size;
+return memory_reqirements.size;
 
 }
 
