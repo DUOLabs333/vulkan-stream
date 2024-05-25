@@ -95,6 +95,7 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
 	    surface_info.info=info;
 
 	    free(reply);
+	    
             break;
             }
         #endif

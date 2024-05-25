@@ -550,7 +550,11 @@ for name, command in parsed.items():
     write(syncRanges(name))
     
     if name=="vkFreeMemory":
-        write("vkUnmapMemory(device,memory);")
+        write("""
+        if (devicememory_to_offset.contains((uintptr_t)memory)){
+        vkUnmapMemory(device,memory);
+        }
+              """)
         
     write(deregisterDeviceMemoryMap(name))
     write(f"""
