@@ -23,6 +23,8 @@ typedef struct {
 typedef struct {
     xcb_connection_t* connection;
     xcb_window_t window;
+    xcb_gcontext_t gc;
+    uint8_t depth;
 } XcbSurfaceInfo;
 #endif
 

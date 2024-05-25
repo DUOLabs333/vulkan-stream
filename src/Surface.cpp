@@ -81,7 +81,18 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
             {
             debug_printf("Actual type: %s\n",info.type().name());
             auto xcb_info=std::any_cast<const VkXcbSurfaceCreateInfoKHR*>(info);
-            surface_info.info=XcbSurfaceInfo{.connection=xcb_info->connection,.window=xcb_info->window};
+            auto info=XcbSurfaceInfo{.connection=xcb_info->connection,.window=xcb_info->window};
+
+	    info.gc=xcb_generate_id(info.connection);
+            xcb_create_gc(info.connection, info.gc, info.window, 0, NULL);
+
+	    xcb_get_geometry_cookie_t cookie = xcb_get_geometry(info.connection, info.window);
+
+	    xcb_get_geometry_reply_t *reply = xcb_get_geometry_reply(info.connection, cookie, NULL);
+
+	    info.depth=reply->depth;
+
+	    surface_info.info=info;
             break;
             }
         #endif
@@ -446,11 +457,12 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
         auto image=info.images[present_info.index];
         auto extent=info.extent;
         debug_printf("Image Extent: %d, %d\n",extent.width,extent.height);
-        
+
         void* data=NULL;
         VkDeviceSize size;
         getImageData(device, image, &data, size, extent); //Returns pointer holding the data
         debug_printf("Memory %p: Displaying!\n",data);
+	
         auto& surface=info.surface;
         
         if (!surface_to_info.contains((uintptr_t)surface)){
@@ -464,6 +476,7 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
             #ifdef VK_USE_PLATFORM_XLIB_KHR
             case Xlib:
             {
+	    debug_printf("Displaying with Xlib!\n");
             auto info=std::any_cast<XlibSurfaceInfo>(surface_info.info);
             auto display=info.dpy;
             auto window=info.window;
@@ -488,13 +501,9 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
                 auto info=std::any_cast<XcbSurfaceInfo>(surface_info.info);
                 auto connection=info.connection;
                 auto window=info.window;
-                
-                xcb_gcontext_t gc = xcb_generate_id(connection);
-                xcb_create_gc(connection, gc, window, 0, NULL);
-                
-                auto screen=xcb_setup_roots_iterator(xcb_get_setup(connection)).data;
-                auto depth = screen->root_depth; //This is important --- nothing will show on screen otherwise
-                
+                auto depth=info.depth; //This is important --- nothing will show on screen otherwise
+		auto gc=info.gc;
+
                 // Create an XCB image
                 xcb_image_t *x_image = xcb_image_create_native(connection, extent.width, extent.height, XCB_IMAGE_FORMAT_Z_PIXMAP, depth, data, size, (uint8_t*)data);
                 
@@ -506,7 +515,6 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
                 
                 // Flush and free resources
                 xcb_flush(connection);
-                xcb_free_gc(connection, gc);
                 break;
             }
             #endif
