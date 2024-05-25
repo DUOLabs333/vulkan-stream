@@ -93,6 +93,8 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
 	    info.depth=reply->depth;
 
 	    surface_info.info=info;
+
+	    free(reply);
             break;
             }
         #endif
