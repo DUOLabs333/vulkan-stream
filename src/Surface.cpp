@@ -454,7 +454,6 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
 		continue;
 	}
 
-	        printf("We're displaying something!\n");
         vkWaitForFences(device,1, &present_info.fence,VK_TRUE, VK_STREAM_TIMEOUT);
         
         auto image=info.images[present_info.index];

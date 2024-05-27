@@ -1,6 +1,7 @@
 
 #include <boost/json.hpp>
-
+#include <boost/json/src.hpp>
+      
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
@@ -33,17 +34,17 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkInternalAllocationNotification;
-uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkAllocationFunction;
 uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkDebugReportCallbackEXT;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
-uintptr_t PFN_vkReallocationFunction;
 uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
 } pUserData_struct;
 
 PFN_vkVoidFunction handle_pNext(VkStructureType sType, bool serialize){
@@ -58,9 +59,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkApplicationInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -80,9 +86,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceQueueCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -102,9 +113,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -124,9 +140,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkInstanceCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -146,9 +167,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryAllocateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -168,9 +194,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMappedMemoryRange;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -190,9 +221,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkWriteDescriptorSet;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -212,9 +248,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyDescriptorSet;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -234,9 +275,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferUsageFlags2CreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -256,9 +302,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -278,9 +329,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferViewCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -300,9 +356,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryBarrier;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -322,9 +383,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferMemoryBarrier;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -344,9 +410,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageMemoryBarrier;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -366,9 +437,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -388,9 +464,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageViewCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -410,9 +491,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBindSparseInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -432,9 +518,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkShaderModuleCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -454,9 +545,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorSetLayoutCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -476,9 +572,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorPoolCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -498,9 +599,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorSetAllocateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -520,9 +626,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineShaderStageCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -542,9 +653,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkComputePipelineCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -564,9 +680,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkComputePipelineIndirectBufferInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -586,9 +707,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineCreateFlags2CreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -608,9 +734,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineVertexInputStateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -630,9 +761,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineInputAssemblyStateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -652,9 +788,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineTessellationStateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -674,9 +815,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineViewportStateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -696,9 +842,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineRasterizationStateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -718,9 +869,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineMultisampleStateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -740,9 +896,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineColorBlendStateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -762,9 +923,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineDynamicStateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -784,9 +950,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineDepthStencilStateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -806,9 +977,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkGraphicsPipelineCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -828,9 +1004,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineCacheCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -850,9 +1031,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineLayoutCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -872,9 +1058,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -894,9 +1085,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCommandPoolCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -916,9 +1112,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCommandBufferAllocateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -938,9 +1139,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCommandBufferInheritanceInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -960,9 +1166,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCommandBufferBeginInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -982,9 +1193,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassBeginInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1004,9 +1220,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1026,9 +1247,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkEventCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1048,9 +1274,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFenceCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1070,9 +1301,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSemaphoreCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1092,9 +1328,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkQueryPoolCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1114,9 +1355,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFramebufferCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1136,9 +1382,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubmitInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1158,9 +1409,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplayModeCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1180,9 +1436,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplaySurfaceCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1202,9 +1463,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplayPresentInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1224,9 +1490,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkXlibSurfaceCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1246,9 +1517,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkXcbSurfaceCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1268,9 +1544,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSwapchainCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1290,9 +1571,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPresentInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1312,9 +1598,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDebugReportCallbackCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1334,9 +1625,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkValidationFlagsEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1356,9 +1652,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkValidationFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1378,9 +1679,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineRasterizationStateRasterizationOrderAMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1400,9 +1706,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDebugMarkerObjectNameInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1422,9 +1733,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDebugMarkerObjectTagInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1444,9 +1760,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDebugMarkerMarkerInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1466,9 +1787,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDedicatedAllocationImageCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1488,9 +1814,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDedicatedAllocationBufferCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1510,9 +1841,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDedicatedAllocationMemoryAllocateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1532,9 +1868,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExternalMemoryImageCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1554,9 +1895,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExportMemoryAllocateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1576,9 +1922,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1598,9 +1949,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1620,9 +1976,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDevicePrivateDataCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1642,9 +2003,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPrivateDataSlotCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1664,9 +2030,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePrivateDataFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1686,9 +2057,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1708,9 +2084,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMultiDrawPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1730,9 +2111,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkGraphicsShaderGroupCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1752,9 +2138,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkGraphicsPipelineShaderGroupsCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1774,9 +2165,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkIndirectCommandsLayoutTokenNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1796,9 +2192,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkIndirectCommandsLayoutCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1818,9 +2219,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkGeneratedCommandsInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1840,9 +2246,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkGeneratedCommandsMemoryRequirementsInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1862,9 +2273,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineIndirectDeviceAddressInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1884,9 +2300,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFeatures2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1906,9 +2327,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceProperties2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1928,9 +2354,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFormatProperties2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1950,9 +2381,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageFormatProperties2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1972,9 +2408,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageFormatInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -1994,9 +2435,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkQueueFamilyProperties2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2016,9 +2462,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMemoryProperties2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2038,9 +2489,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSparseImageFormatProperties2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2060,9 +2516,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSparseImageFormatInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2082,9 +2543,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePushDescriptorPropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2104,9 +2570,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDriverProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2126,9 +2597,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPresentRegionsKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2148,9 +2624,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVariablePointersFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2170,9 +2651,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExternalImageFormatInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2192,9 +2678,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExternalImageFormatProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2214,9 +2705,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExternalBufferInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2236,9 +2732,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExternalBufferProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2258,9 +2759,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceIDProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2280,9 +2786,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExternalMemoryImageCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2302,9 +2813,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExternalMemoryBufferCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2324,9 +2840,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExportMemoryAllocateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2346,9 +2867,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImportMemoryFdInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2368,9 +2894,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryFdPropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2390,9 +2921,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryGetFdInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2412,9 +2948,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExternalSemaphoreInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2434,9 +2975,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExternalSemaphoreProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2456,9 +3002,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExportSemaphoreCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2478,9 +3029,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImportSemaphoreFdInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2500,9 +3056,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSemaphoreGetFdInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2522,9 +3083,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExternalFenceInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2544,9 +3110,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExternalFenceProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2566,9 +3137,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExportFenceCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2588,9 +3164,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImportFenceFdInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2610,9 +3191,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFenceGetFdInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2632,9 +3218,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMultiviewFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2654,9 +3245,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMultiviewProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2676,9 +3272,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassMultiviewCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2698,9 +3299,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSurfaceCapabilities2EXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2720,9 +3326,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplayPowerInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2742,9 +3353,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceEventInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2764,9 +3380,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplayEventInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2786,9 +3407,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSwapchainCounterCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2808,9 +3434,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceGroupProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2830,9 +3461,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryAllocateFlagsInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2852,9 +3488,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBindBufferMemoryInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2874,9 +3515,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBindBufferMemoryDeviceGroupInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2896,9 +3542,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBindImageMemoryInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2918,9 +3569,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBindImageMemoryDeviceGroupInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2940,9 +3596,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceGroupRenderPassBeginInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2962,9 +3623,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceGroupCommandBufferBeginInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -2984,9 +3650,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceGroupSubmitInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3006,9 +3677,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceGroupBindSparseInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3028,9 +3704,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceGroupPresentCapabilitiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3050,9 +3731,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageSwapchainCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3072,9 +3758,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBindImageMemorySwapchainInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3094,9 +3785,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAcquireNextImageInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3116,9 +3812,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceGroupPresentInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3138,9 +3839,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceGroupDeviceCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3160,9 +3866,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceGroupSwapchainCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3182,9 +3893,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorUpdateTemplateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3204,9 +3920,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePresentIdFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3226,9 +3947,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPresentIdKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3248,9 +3974,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePresentWaitFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3270,9 +4001,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkHdrMetadataEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3292,9 +4028,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplayNativeHdrSurfaceCapabilitiesAMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3314,9 +4055,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSwapchainDisplayNativeHdrCreateInfoAMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3336,9 +4082,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPresentTimesInfoGOOGLE;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3358,9 +4109,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineViewportWScalingStateCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3380,9 +4136,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineViewportSwizzleStateCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3402,9 +4163,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDiscardRectanglePropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3424,9 +4190,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineDiscardRectangleStateCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3446,9 +4217,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3468,9 +4244,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassInputAttachmentAspectCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3490,9 +4271,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSurfaceInfo2KHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3512,9 +4298,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSurfaceCapabilities2KHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3534,9 +4325,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSurfaceFormat2KHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3556,9 +4352,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplayProperties2KHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3578,9 +4379,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplayPlaneProperties2KHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3600,9 +4406,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplayModeProperties2KHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3622,9 +4433,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplayPlaneInfo2KHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3644,9 +4460,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDisplayPlaneCapabilities2KHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3666,9 +4487,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSharedPresentSurfaceCapabilitiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3688,9 +4514,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevice16BitStorageFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3710,9 +4541,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSubgroupProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3732,9 +4568,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3754,9 +4595,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferMemoryRequirementsInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3776,9 +4622,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceBufferMemoryRequirements;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3798,9 +4649,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageMemoryRequirementsInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3820,9 +4676,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageSparseMemoryRequirementsInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3842,9 +4703,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceImageMemoryRequirements;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3864,9 +4730,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryRequirements2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3886,9 +4757,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSparseImageMemoryRequirements2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3908,9 +4784,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePointClippingProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3930,9 +4811,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryDedicatedRequirements;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3952,9 +4838,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryDedicatedAllocateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3974,9 +4865,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageViewUsageCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -3996,9 +4892,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageViewSlicedCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4018,9 +4919,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineTessellationDomainOriginStateCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4040,9 +4946,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerYcbcrConversionInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4062,9 +4973,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerYcbcrConversionCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4084,9 +5000,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBindImagePlaneMemoryInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4106,9 +5027,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImagePlaneMemoryRequirementsInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4128,9 +5054,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSamplerYcbcrConversionFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4150,9 +5081,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerYcbcrConversionImageFormatProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4172,9 +5108,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkTextureLODGatherFormatPropertiesAMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4194,9 +5135,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkConditionalRenderingBeginInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4216,9 +5162,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkProtectedSubmitInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4238,9 +5189,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceProtectedMemoryFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4260,9 +5216,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceProtectedMemoryProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4282,9 +5243,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceQueueInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4304,9 +5270,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineCoverageToColorStateCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4326,9 +5297,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSamplerFilterMinmaxProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4348,9 +5324,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSampleLocationsInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4370,9 +5351,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassSampleLocationsBeginInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4392,9 +5378,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineSampleLocationsStateCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4414,9 +5405,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSampleLocationsPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4436,9 +5432,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMultisamplePropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4458,9 +5459,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerReductionModeCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4480,9 +5486,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4502,9 +5513,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMultiDrawFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4524,9 +5540,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4546,9 +5567,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineColorBlendAdvancedStateCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4568,9 +5594,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceInlineUniformBlockFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4590,9 +5621,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceInlineUniformBlockProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4612,9 +5648,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkWriteDescriptorSetInlineUniformBlock;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4634,9 +5675,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorPoolInlineUniformBlockCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4656,9 +5702,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineCoverageModulationStateCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4678,9 +5729,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageFormatListCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4700,9 +5756,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkValidationCacheCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4722,9 +5783,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkShaderModuleValidationCacheCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4744,9 +5810,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMaintenance3Properties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4766,9 +5837,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMaintenance4Features;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4788,9 +5864,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMaintenance4Properties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4810,9 +5891,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMaintenance5FeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4832,9 +5918,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMaintenance5PropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4854,9 +5945,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderingAreaInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4876,9 +5972,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorSetLayoutSupport;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4898,9 +5999,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderDrawParametersFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4920,9 +6026,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderFloat16Int8Features;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4942,9 +6053,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFloatControlsProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4964,9 +6080,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceHostQueryResetFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -4986,9 +6107,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceQueueGlobalPriorityCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5008,9 +6134,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5030,9 +6161,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkQueueFamilyGlobalPriorityPropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5052,9 +6188,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDebugUtilsObjectNameInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5074,9 +6215,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDebugUtilsObjectTagInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5096,9 +6242,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDebugUtilsLabelEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5118,9 +6269,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDebugUtilsMessengerCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5140,9 +6296,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDebugUtilsMessengerCallbackDataEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5162,9 +6323,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDeviceMemoryReportFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5184,9 +6350,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceDeviceMemoryReportCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5206,9 +6377,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceMemoryReportCallbackDataEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5228,9 +6404,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImportMemoryHostPointerInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5250,9 +6431,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryHostPointerPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5272,9 +6458,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExternalMemoryHostPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5294,9 +6485,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceConservativeRasterizationPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5316,9 +6512,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCalibratedTimestampInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5338,9 +6539,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderCorePropertiesAMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5360,9 +6566,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderCoreProperties2AMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5382,9 +6593,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineRasterizationConservativeStateCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5404,9 +6620,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDescriptorIndexingFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5426,9 +6647,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDescriptorIndexingProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5448,9 +6674,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorSetLayoutBindingFlagsCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5470,9 +6701,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorSetVariableDescriptorCountAllocateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5492,9 +6728,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorSetVariableDescriptorCountLayoutSupport;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5514,9 +6755,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAttachmentDescription2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5536,9 +6782,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAttachmentReference2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5558,9 +6809,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubpassDescription2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5580,9 +6836,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubpassDependency2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5602,9 +6863,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassCreateInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5624,9 +6890,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubpassBeginInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5646,9 +6917,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubpassEndInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5668,9 +6944,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceTimelineSemaphoreFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5690,9 +6971,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceTimelineSemaphoreProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5712,9 +6998,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSemaphoreTypeCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5734,9 +7025,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkTimelineSemaphoreSubmitInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5756,9 +7052,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSemaphoreWaitInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5778,9 +7079,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSemaphoreSignalInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5800,9 +7106,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineVertexInputDivisorStateCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5822,9 +7133,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5844,9 +7160,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePCIBusInfoPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5866,9 +7187,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCommandBufferInheritanceConditionalRenderingInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5888,9 +7214,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevice8BitStorageFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5910,9 +7241,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceConditionalRenderingFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5932,9 +7268,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVulkanMemoryModelFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5954,9 +7295,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderAtomicInt64Features;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5976,9 +7322,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderAtomicFloatFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -5998,9 +7349,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6020,9 +7376,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6042,9 +7403,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkQueueFamilyCheckpointPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6064,9 +7430,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCheckpointDataNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6086,9 +7457,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDepthStencilResolveProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6108,9 +7484,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubpassDescriptionDepthStencilResolve;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6130,9 +7511,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageViewASTCDecodeModeEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6152,9 +7538,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceASTCDecodeFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6174,9 +7565,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceTransformFeedbackFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6196,9 +7592,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceTransformFeedbackPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6218,9 +7619,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineRasterizationStateStreamCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6240,9 +7646,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6262,9 +7673,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineRepresentativeFragmentTestStateCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6284,9 +7700,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExclusiveScissorFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6306,9 +7727,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineViewportExclusiveScissorStateCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6328,9 +7754,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCornerSampledImageFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6350,9 +7781,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceComputeShaderDerivativesFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6372,9 +7808,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderImageFootprintFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6394,9 +7835,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6416,9 +7862,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCopyMemoryIndirectFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6438,9 +7889,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCopyMemoryIndirectPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6460,9 +7916,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMemoryDecompressionFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6482,9 +7943,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMemoryDecompressionPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6504,9 +7970,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineViewportShadingRateImageStateCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6526,9 +7997,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShadingRateImageFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6548,9 +8024,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShadingRateImagePropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6570,9 +8051,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceInvocationMaskFeaturesHUAWEI;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6592,9 +8078,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineViewportCoarseSampleOrderStateCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6614,9 +8105,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMeshShaderFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6636,9 +8132,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMeshShaderPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6658,9 +8159,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMeshShaderFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6680,9 +8186,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMeshShaderPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6702,9 +8213,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRayTracingShaderGroupCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6724,9 +8240,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRayTracingShaderGroupCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6746,9 +8267,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRayTracingPipelineCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6768,9 +8294,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRayTracingPipelineCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6790,9 +8321,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkGeometryTrianglesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6812,9 +8348,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkGeometryAABBNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6834,9 +8375,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkGeometryNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6856,9 +8402,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6878,9 +8429,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6900,9 +8456,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBindAccelerationStructureMemoryInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6922,9 +8483,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkWriteDescriptorSetAccelerationStructureKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6944,9 +8510,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkWriteDescriptorSetAccelerationStructureNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6966,9 +8537,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureMemoryRequirementsInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -6988,9 +8564,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceAccelerationStructureFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7010,9 +8591,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRayTracingPipelineFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7032,9 +8618,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRayQueryFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7054,9 +8645,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceAccelerationStructurePropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7076,9 +8672,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRayTracingPipelinePropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7098,9 +8699,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRayTracingPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7120,9 +8726,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7142,9 +8753,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDrmFormatModifierPropertiesListEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7164,9 +8780,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageDrmFormatModifierInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7186,9 +8807,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageDrmFormatModifierListCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7208,9 +8834,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageDrmFormatModifierExplicitCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7230,9 +8861,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageDrmFormatModifierPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7252,9 +8888,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageStencilUsageCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7274,9 +8915,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceMemoryOverallocationCreateInfoAMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7296,9 +8942,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentDensityMapFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7318,9 +8969,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentDensityMap2FeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7340,9 +8996,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7362,9 +9023,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentDensityMapPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7384,9 +9050,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentDensityMap2PropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7406,9 +9077,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7428,9 +9104,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassFragmentDensityMapCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7450,9 +9131,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubpassFragmentDensityMapOffsetEndInfoQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7472,9 +9158,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceScalarBlockLayoutFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7494,9 +9185,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSurfaceProtectedCapabilitiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7516,9 +9212,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceUniformBufferStandardLayoutFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7538,9 +9239,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDepthClipEnableFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7560,9 +9266,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineRasterizationDepthClipStateCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7582,9 +9293,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMemoryBudgetPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7604,9 +9320,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMemoryPriorityFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7626,9 +9347,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryPriorityAllocateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7648,9 +9374,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7670,9 +9401,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceBufferDeviceAddressFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7692,9 +9428,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceBufferDeviceAddressFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7714,9 +9455,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferDeviceAddressInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7736,9 +9482,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferOpaqueCaptureAddressCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7758,9 +9509,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferDeviceAddressCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7780,9 +9536,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageViewImageFormatInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7802,9 +9563,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFilterCubicImageViewImageFormatPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7824,9 +9590,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImagelessFramebufferFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7846,9 +9617,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFramebufferAttachmentsCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7868,9 +9644,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFramebufferAttachmentImageInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7890,9 +9671,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassAttachmentBeginInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7912,9 +9698,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceTextureCompressionASTCHDRFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7934,9 +9725,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCooperativeMatrixFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7956,9 +9752,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCooperativeMatrixPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -7978,9 +9779,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCooperativeMatrixPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8000,9 +9806,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceYcbcrImageArraysFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8022,9 +9833,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageViewHandleInfoNVX;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8044,9 +9860,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageViewAddressPropertiesNVX;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8066,9 +9887,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineCreationFeedbackCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8088,9 +9914,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePresentBarrierFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8110,9 +9941,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSurfaceCapabilitiesPresentBarrierNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8132,9 +9968,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSwapchainPresentBarrierCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8154,9 +9995,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePerformanceQueryFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8176,9 +10022,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePerformanceQueryPropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8198,9 +10049,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPerformanceCounterKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8220,9 +10076,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPerformanceCounterDescriptionKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8242,9 +10103,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkQueryPoolPerformanceCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8264,9 +10130,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAcquireProfilingLockInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8286,9 +10157,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPerformanceQuerySubmitInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8308,9 +10184,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkHeadlessSurfaceCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8330,9 +10211,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCoverageReductionModeFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8352,9 +10238,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineCoverageReductionStateCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8374,9 +10265,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFramebufferMixedSamplesCombinationNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8396,9 +10292,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8418,9 +10319,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkInitializePerformanceApiInfoINTEL;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8440,9 +10346,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkQueryPoolPerformanceQueryCreateInfoINTEL;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8462,9 +10373,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPerformanceMarkerInfoINTEL;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8484,9 +10400,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPerformanceStreamMarkerInfoINTEL;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8506,9 +10427,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPerformanceOverrideInfoINTEL;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8528,9 +10454,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPerformanceConfigurationAcquireInfoINTEL;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8550,9 +10481,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderClockFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8572,9 +10508,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceIndexTypeUint8FeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8594,9 +10535,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderSMBuiltinsPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8616,9 +10562,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderSMBuiltinsFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8638,9 +10589,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8660,9 +10616,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8682,9 +10643,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAttachmentReferenceStencilLayout;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8704,9 +10670,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8726,9 +10697,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAttachmentDescriptionStencilLayout;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8748,9 +10724,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8770,9 +10751,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8792,9 +10778,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineExecutablePropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8814,9 +10805,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineExecutableInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8836,9 +10832,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineExecutableStatisticKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8858,9 +10859,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineExecutableInternalRepresentationKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8880,9 +10886,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8902,9 +10913,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8924,9 +10940,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceTexelBufferAlignmentProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8946,9 +10967,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSubgroupSizeControlFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8968,9 +10994,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSubgroupSizeControlProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -8990,9 +11021,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineShaderStageRequiredSubgroupSizeCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9012,9 +11048,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubpassShadingPipelineCreateInfoHUAWEI;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9034,9 +11075,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSubpassShadingPropertiesHUAWEI;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9056,9 +11102,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9078,9 +11129,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryOpaqueCaptureAddressAllocateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9100,9 +11156,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceMemoryOpaqueCaptureAddressInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9122,9 +11183,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceLineRasterizationFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9144,9 +11210,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceLineRasterizationPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9166,9 +11237,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineRasterizationLineStateCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9188,9 +11264,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePipelineCreationCacheControlFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9210,9 +11291,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVulkan11Features;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9232,9 +11318,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVulkan11Properties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9254,9 +11345,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVulkan12Features;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9276,9 +11372,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVulkan12Properties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9298,9 +11399,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVulkan13Features;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9320,9 +11426,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVulkan13Properties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9342,9 +11453,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineCompilerControlCreateInfoAMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9364,9 +11480,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCoherentMemoryFeaturesAMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9386,9 +11507,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceToolProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9408,9 +11534,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerCustomBorderColorCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9430,9 +11561,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCustomBorderColorPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9452,9 +11588,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCustomBorderColorFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9474,9 +11615,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerBorderColorComponentMappingCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9496,9 +11642,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceBorderColorSwizzleFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9518,9 +11669,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureGeometryTrianglesDataKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9540,9 +11696,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureGeometryAabbsDataKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9562,9 +11723,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureGeometryInstancesDataKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9584,9 +11750,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureGeometryKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9606,9 +11777,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureBuildGeometryInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9628,9 +11804,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9650,9 +11831,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureDeviceAddressInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9672,9 +11858,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureVersionInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9694,9 +11885,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyAccelerationStructureInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9716,9 +11912,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyAccelerationStructureToMemoryInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9738,9 +11939,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyMemoryToAccelerationStructureInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9760,9 +11966,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRayTracingPipelineInterfaceCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9782,9 +11993,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineLibraryCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9804,9 +12020,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExtendedDynamicStateFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9826,9 +12047,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExtendedDynamicState2FeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9848,9 +12074,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExtendedDynamicState3FeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9870,9 +12101,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExtendedDynamicState3PropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9892,9 +12128,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassTransformBeginInfoQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9914,9 +12155,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyCommandTransformInfoQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9936,9 +12182,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCommandBufferInheritanceRenderPassTransformInfoQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9958,9 +12209,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDiagnosticsConfigFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -9980,9 +12236,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceDiagnosticsConfigCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10002,9 +12263,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10024,9 +12290,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10046,9 +12317,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRobustness2FeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10068,9 +12344,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRobustness2PropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10090,9 +12371,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageRobustnessFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10112,9 +12398,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10134,9 +12425,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevice4444FormatsFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10156,9 +12452,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSubpassShadingFeaturesHUAWEI;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10178,9 +12479,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10200,9 +12506,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferCopy2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10222,9 +12533,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageCopy2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10244,9 +12560,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageBlit2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10266,9 +12587,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferImageCopy2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10288,9 +12614,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageResolve2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10310,9 +12641,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyBufferInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10332,9 +12668,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyImageInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10354,9 +12695,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBlitImageInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10376,9 +12722,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyBufferToImageInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10398,9 +12749,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyImageToBufferInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10420,9 +12776,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkResolveImageInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10442,9 +12803,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10464,9 +12830,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFragmentShadingRateAttachmentInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10486,9 +12857,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineFragmentShadingRateStateCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10508,9 +12884,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentShadingRateFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10530,9 +12911,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentShadingRatePropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10552,9 +12938,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentShadingRateKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10574,9 +12965,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderTerminateInvocationFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10596,9 +12992,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10618,9 +13019,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10640,9 +13046,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineFragmentShadingRateEnumStateCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10662,9 +13073,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureBuildSizesInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10684,9 +13100,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImage2DViewOf3DFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10706,9 +13127,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10728,9 +13154,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10750,9 +13181,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10772,9 +13208,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMutableDescriptorTypeCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10794,9 +13235,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDepthClipControlFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10816,9 +13262,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineViewportDepthClipControlCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10838,9 +13289,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10860,9 +13316,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceExternalMemoryRDMAFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10882,9 +13343,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVertexInputBindingDescription2EXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10904,9 +13370,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVertexInputAttributeDescription2EXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10926,9 +13397,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceColorWriteEnableFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10948,9 +13424,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineColorWriteCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10970,9 +13451,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryBarrier2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -10992,9 +13478,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageMemoryBarrier2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11014,9 +13505,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferMemoryBarrier2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11036,9 +13532,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDependencyInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11058,9 +13559,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSemaphoreSubmitInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11080,9 +13586,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCommandBufferSubmitInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11102,9 +13613,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubmitInfo2;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11124,9 +13640,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkQueueFamilyCheckpointProperties2NV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11146,9 +13667,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCheckpointData2NV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11168,9 +13694,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSynchronization2Features;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11190,9 +13721,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceHostImageCopyFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11212,9 +13748,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceHostImageCopyPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11234,9 +13775,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryToImageCopyEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11256,9 +13802,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageToMemoryCopyEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11278,9 +13829,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyMemoryToImageInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11300,9 +13856,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyImageToMemoryInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11322,9 +13883,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyImageToImageInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11344,9 +13910,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkHostImageLayoutTransitionInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11366,9 +13937,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubresourceHostMemcpySizeEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11388,9 +13964,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkHostImageCopyDevicePerformanceQueryEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11410,9 +13991,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11432,9 +14018,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceLegacyDitheringFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11454,9 +14045,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11476,9 +14072,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubpassResolvePerformanceQueryEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11498,9 +14099,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMultisampledRenderToSingleSampledInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11520,9 +14126,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePipelineProtectedAccessFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11542,9 +14153,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkQueueFamilyVideoPropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11564,9 +14180,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkQueueFamilyQueryResultStatusPropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11586,9 +14207,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoProfileListInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11608,9 +14234,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceVideoFormatInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11630,9 +14261,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoFormatPropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11652,9 +14288,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoProfileInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11674,9 +14315,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoCapabilitiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11696,9 +14342,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoSessionMemoryRequirementsKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11718,9 +14369,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBindVideoSessionMemoryInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11740,9 +14396,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoPictureResourceInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11762,9 +14423,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoReferenceSlotInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11784,9 +14450,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeCapabilitiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11806,9 +14477,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeUsageInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11828,9 +14504,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11850,9 +14531,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH264ProfileInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11872,9 +14558,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH264CapabilitiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11894,9 +14585,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH264SessionParametersAddInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11916,9 +14612,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH264SessionParametersCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11938,9 +14639,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH264PictureInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11960,9 +14666,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH264DpbSlotInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -11982,9 +14693,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH265ProfileInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12004,9 +14720,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH265CapabilitiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12026,9 +14747,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH265SessionParametersAddInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12048,9 +14774,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH265SessionParametersCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12070,9 +14801,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH265PictureInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12092,9 +14828,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoDecodeH265DpbSlotInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12114,9 +14855,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoSessionCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12136,9 +14882,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoSessionParametersCreateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12158,9 +14909,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoSessionParametersUpdateInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12180,9 +14936,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoBeginCodingInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12202,9 +14963,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoEndCodingInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12224,9 +14990,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkVideoCodingControlInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12246,9 +15017,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceInheritedViewportScissorFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12268,9 +15044,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCommandBufferInheritanceViewportScissorInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12290,9 +15071,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12312,9 +15098,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceProvokingVertexFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12334,9 +15125,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceProvokingVertexPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12356,9 +15152,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineRasterizationProvokingVertexStateCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12378,9 +15179,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCuModuleCreateInfoNVX;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12400,9 +15206,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCuFunctionCreateInfoNVX;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12422,9 +15233,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCuLaunchInfoNVX;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12444,9 +15260,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDescriptorBufferFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12466,9 +15287,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDescriptorBufferPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12488,9 +15314,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12510,9 +15341,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorAddressInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12532,9 +15368,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorBufferBindingInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12554,9 +15395,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorBufferBindingPushDescriptorBufferHandleEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12576,9 +15422,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorGetInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12598,9 +15449,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBufferCaptureDescriptorDataInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12620,9 +15476,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageCaptureDescriptorDataInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12642,9 +15503,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageViewCaptureDescriptorDataInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12664,9 +15530,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerCaptureDescriptorDataInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12686,9 +15557,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureCaptureDescriptorDataInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12708,9 +15584,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkOpaqueCaptureDescriptorDataCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12730,9 +15611,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderIntegerDotProductFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12752,9 +15638,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderIntegerDotProductProperties;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12774,9 +15665,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDrmPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12796,9 +15692,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12818,9 +15719,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12840,9 +15746,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRayTracingMotionBlurFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12862,9 +15773,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureGeometryMotionTrianglesDataNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12884,9 +15800,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureMotionInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12906,9 +15827,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryGetRemoteAddressInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12928,9 +15854,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12950,9 +15881,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFormatProperties3;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12972,9 +15908,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDrmFormatModifierPropertiesList2EXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -12994,9 +15935,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineRenderingCreateInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13016,9 +15962,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderingInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13038,9 +15989,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderingAttachmentInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13060,9 +16016,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderingFragmentShadingRateAttachmentInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13082,9 +16043,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderingFragmentDensityMapAttachmentInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13104,9 +16070,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDynamicRenderingFeatures;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13126,9 +16097,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCommandBufferInheritanceRenderingInfo;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13148,9 +16124,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAttachmentSampleCountInfoAMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13170,9 +16151,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMultiviewPerViewAttributesInfoNVX;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13192,9 +16178,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageViewMinLodFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13214,9 +16205,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageViewMinLodCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13236,9 +16232,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13258,9 +16259,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceLinearColorAttachmentFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13280,9 +16286,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13302,9 +16313,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13324,9 +16340,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkGraphicsPipelineLibraryCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13346,9 +16367,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13368,9 +16394,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorSetBindingReferenceVALVE;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13390,9 +16421,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDescriptorSetLayoutHostMappingInfoVALVE;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13412,9 +16448,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13434,9 +16475,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13456,9 +16502,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineShaderStageModuleIdentifierCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13478,9 +16529,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkShaderModuleIdentifierEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13500,9 +16556,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageCompressionControlEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13522,9 +16583,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageCompressionControlFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13544,9 +16610,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageCompressionPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13566,9 +16637,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13588,9 +16664,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageSubresource2KHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13610,9 +16691,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSubresourceLayout2KHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13632,9 +16718,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassCreationControlEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13654,9 +16745,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassCreationFeedbackCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13676,9 +16772,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkRenderPassSubpassFeedbackCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13698,9 +16799,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13720,9 +16826,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMicromapBuildInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13742,9 +16853,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMicromapCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13764,9 +16880,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMicromapVersionInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13786,9 +16907,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyMicromapInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13808,9 +16934,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyMicromapToMemoryInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13830,9 +16961,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCopyMemoryToMicromapInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13852,9 +16988,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMicromapBuildSizesInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13874,9 +17015,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceOpacityMicromapFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13896,9 +17042,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceOpacityMicromapPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13918,9 +17069,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAccelerationStructureTrianglesOpacityMicromapEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13940,9 +17096,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelinePropertiesIdentifierEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13962,9 +17123,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePipelinePropertiesFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -13984,9 +17150,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14006,9 +17177,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkExternalMemoryAcquireUnmodifiedEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14028,9 +17204,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14050,9 +17231,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePipelineRobustnessFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14072,9 +17258,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPipelineRobustnessCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14094,9 +17285,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePipelineRobustnessPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14116,9 +17312,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkImageViewSampleWeightCreateInfoQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14138,9 +17339,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageProcessingFeaturesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14160,9 +17366,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageProcessingPropertiesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14182,9 +17393,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceTilePropertiesFeaturesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14204,9 +17420,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkTilePropertiesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14226,9 +17447,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceAmigoProfilingFeaturesSEC;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14248,9 +17474,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkAmigoProfilingSubmitInfoSEC;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14270,9 +17501,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14292,9 +17528,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDepthClampZeroOneFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14314,9 +17555,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceAddressBindingReportFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14336,9 +17582,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceAddressBindingCallbackDataEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14358,9 +17609,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceOpticalFlowFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14380,9 +17636,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceOpticalFlowPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14402,9 +17663,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkOpticalFlowImageFormatInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14424,9 +17690,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkOpticalFlowImageFormatPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14446,9 +17717,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkOpticalFlowSessionCreateInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14468,9 +17744,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkOpticalFlowSessionCreatePrivateDataInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14490,9 +17771,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkOpticalFlowExecuteInfoNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14512,9 +17798,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFaultFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14534,9 +17825,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceFaultCountsEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14556,9 +17852,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceFaultInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14578,9 +17879,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14600,9 +17906,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDepthBiasInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14622,9 +17933,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDepthBiasRepresentationInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14644,9 +17960,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14666,9 +17987,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14688,9 +18014,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkFrameBoundaryEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14710,9 +18041,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceFrameBoundaryFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14732,9 +18068,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14754,9 +18095,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSurfacePresentModeEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14776,9 +18122,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSurfacePresentScalingCapabilitiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14798,9 +18149,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSurfacePresentModeCompatibilityEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14820,9 +18176,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14842,9 +18203,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSwapchainPresentFenceInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14864,9 +18230,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSwapchainPresentModesCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14886,9 +18257,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSwapchainPresentModeInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14908,9 +18284,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSwapchainPresentScalingCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14930,9 +18311,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkReleaseSwapchainImagesInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14952,9 +18338,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDepthBiasControlFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14974,9 +18365,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -14996,9 +18392,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15018,9 +18419,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDirectDriverLoadingInfoLUNARG;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15040,9 +18446,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDirectDriverLoadingListLUNARG;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15062,9 +18473,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15084,9 +18500,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15106,9 +18527,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkDeviceImageSubresourceInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15128,9 +18554,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderCorePropertiesARM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15150,9 +18581,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15172,9 +18608,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15194,9 +18635,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkQueryLowLatencySupportNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15216,9 +18662,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryMapInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15238,9 +18689,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkMemoryUnmapInfoKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15260,9 +18716,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderObjectFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15282,9 +18743,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderObjectPropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15304,9 +18770,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkShaderCreateInfoEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15326,9 +18797,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderTileImageFeaturesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15348,9 +18824,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceShaderTileImagePropertiesEXT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15370,9 +18851,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCooperativeMatrixFeaturesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15392,9 +18878,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkCooperativeMatrixPropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15414,9 +18905,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCooperativeMatrixPropertiesKHR;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15436,9 +18932,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCubicClampFeaturesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15458,9 +18959,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceYcbcrDegammaFeaturesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15480,9 +18986,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15502,9 +19013,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceCubicWeightsFeaturesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15524,9 +19040,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerCubicWeightsCreateInfoQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15546,9 +19067,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkBlitImageCubicWeightsInfoQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15568,9 +19094,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageProcessing2FeaturesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15590,9 +19121,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceImageProcessing2PropertiesQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15612,9 +19148,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkSamplerBlockMatchWindowCreateInfoQCOM;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15634,9 +19175,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
@@ -15656,9 +19202,14 @@ switch (sType){
             });
         }else{
               return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                #ifdef CLIENT
                 if (member==NULL){
+                #else
+                if (true){ //The server needs pNext initalized at all times
+                #endif
                     auto result= new VkPhysicalDeviceLayeredDriverPropertiesMSFT;
                     result->pNext=NULL;
+
                     member=result;
                 }
 
