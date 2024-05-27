@@ -379,7 +379,7 @@ for name, command in parsed.items():
     write("//Will only be called by the client")
     write(f'debug_printf("Executing {name}\\n");')
     
-    memory_operation_lock=False
+    memory_operation_lock=False #Effectively disable the lock --- the code is kept in as we may need it later
     if memory_operation_lock:
         write("MemoryOperationLock.lock();")
     if memory_map_lock==1:
@@ -550,11 +550,7 @@ for name, command in parsed.items():
     write(syncRanges(name))
     
     if name=="vkFreeMemory":
-        write("""
-        if (devicememory_to_offset.contains((uintptr_t)memory)){
-        vkUnmapMemory(device,memory);
-        }
-              """)
+        write("vkUnmapMemory(device,memory);")
         
     write(deregisterDeviceMemoryMap(name))
     write(f"""
