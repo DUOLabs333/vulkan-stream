@@ -34,18 +34,28 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
-uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkVoidFunction;
-uintptr_t PFN_vkDebugReportCallbackEXT;
 uintptr_t PFN_vkInternalFreeNotification;
 uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkInternalAllocationNotification;
 uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkVoidFunction;
 uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
+uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkAllocationFunction;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkFreeFunction;
 } pUserData_struct;
+std::unordered_map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAllocationNotification;
+std::unordered_map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotification;
+std::unordered_map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
+std::unordered_map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
+std::unordered_map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
+std::unordered_map<uintptr_t,PFN_vkVoidFunction> id_to_PFN_vkVoidFunction;
+std::unordered_map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallbackEXT;
+std::unordered_map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsMessengerCallbackEXT;
+std::unordered_map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemoryReportCallbackEXT;
+std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcAddrLUNARG;
 
 PFN_vkVoidFunction handle_pNext(VkStructureType sType, bool serialize){
 switch (sType){
@@ -20824,10 +20834,35 @@ auto& apiVersion_json=json["apiVersion"];
         }
         }();}();
 json["PFN_vkAllocationFunction"]=(uintptr_t)(member.pfnAllocation);
+
+                #ifdef CLIENT
+                id_to_PFN_vkAllocationFunction[(uintptr_t)(member.pfnAllocation)]=member.pfnAllocation;
+                #endif
+                
 json["PFN_vkReallocationFunction"]=(uintptr_t)(member.pfnReallocation);
+
+                #ifdef CLIENT
+                id_to_PFN_vkReallocationFunction[(uintptr_t)(member.pfnReallocation)]=member.pfnReallocation;
+                #endif
+                
 json["PFN_vkFreeFunction"]=(uintptr_t)(member.pfnFree);
+
+                #ifdef CLIENT
+                id_to_PFN_vkFreeFunction[(uintptr_t)(member.pfnFree)]=member.pfnFree;
+                #endif
+                
 json["PFN_vkInternalAllocationNotification"]=(uintptr_t)(member.pfnInternalAllocation);
+
+                #ifdef CLIENT
+                id_to_PFN_vkInternalAllocationNotification[(uintptr_t)(member.pfnInternalAllocation)]=member.pfnInternalAllocation;
+                #endif
+                
 json["PFN_vkInternalFreeNotification"]=(uintptr_t)(member.pfnInternalFree);
+
+                #ifdef CLIENT
+                id_to_PFN_vkInternalFreeNotification[(uintptr_t)(member.pfnInternalFree)]=member.pfnInternalFree;
+                #endif
+                
 }
 
         void deserialize_pUserData(boost::json::object& json, VkAllocationCallbacks& member){
@@ -32276,6 +32311,11 @@ auto& pResults_json=json["pResults"];
         }
         }();}();
 json["PFN_vkDebugReportCallbackEXT"]=(uintptr_t)(member.pfnCallback);
+
+                #ifdef CLIENT
+                id_to_PFN_vkDebugReportCallbackEXT[(uintptr_t)(member.pfnCallback)]=member.pfnCallback;
+                #endif
+                
 }
 
         void deserialize_pUserData(boost::json::object& json, VkDebugReportCallbackCreateInfoEXT& member){
@@ -44030,6 +44070,11 @@ auto& color_json=json["color"];
         }
         }();}();
 json["PFN_vkDebugUtilsMessengerCallbackEXT"]=(uintptr_t)(member.pfnUserCallback);
+
+                #ifdef CLIENT
+                id_to_PFN_vkDebugUtilsMessengerCallbackEXT[(uintptr_t)(member.pfnUserCallback)]=member.pfnUserCallback;
+                #endif
+                
 }
 
         void deserialize_pUserData(boost::json::object& json, VkDebugUtilsMessengerCreateInfoEXT& member){
@@ -44450,6 +44495,11 @@ auto& deviceMemoryReport_json=json["deviceMemoryReport"];
         }
         }();}();
 json["PFN_vkDeviceMemoryReportCallbackEXT"]=(uintptr_t)(member.pfnUserCallback);
+
+                #ifdef CLIENT
+                id_to_PFN_vkDeviceMemoryReportCallbackEXT[(uintptr_t)(member.pfnUserCallback)]=member.pfnUserCallback;
+                #endif
+                
 }
 
         void deserialize_pUserData(boost::json::object& json, VkDeviceDeviceMemoryReportCreateInfoEXT& member){
@@ -82315,7 +82365,6 @@ auto& underlyingAPI_json=json["underlyingAPI"];
             }
             }();member.underlyingAPI=(VkLayeredDriverUnderlyingApiMSFT)temp_EgQvhBH;}();}();
 }
-std::unordered_map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAllocationNotification;
 
     void serialize_PFN_vkInternalAllocationNotification(boost::json::object&, const PFN_vkInternalAllocationNotification&){
         //Will only be called by the client
@@ -82409,7 +82458,12 @@ return;
 
             void handle_PFN_vkInternalAllocationNotification(boost::json::object& json){
             //Will only be called by the client
-            
+
+             printf("Handling PFN_vkInternalAllocationNotification!\n");
+
+             auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+             printf("JSON: %s\n", line.c_str());
+
             // Recieved data from server's PFN_vkInternalAllocationNotification wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkInternalAllocationNotification[value_to<uintptr_t>(json["id"])];
         
@@ -82483,6 +82537,9 @@ json.clear();
 [&](){[&](){[&](){json["allocationScope"]=allocationScope;}();}();}();
 
 writeToConn(json);
+json=readFromConn();
+writeToConn(json);
+printf("Finished handling PFN_vkInternalAllocationNotification!\n");
 };
 
         void deserialize_PFN_vkInternalAllocationNotification(boost::json::object& json, PFN_vkInternalAllocationNotification& member){
@@ -82491,7 +82548,6 @@ writeToConn(json);
             member=PFN_vkInternalAllocationNotification_wrapper;
             };
         
-std::unordered_map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotification;
 
     void serialize_PFN_vkInternalFreeNotification(boost::json::object&, const PFN_vkInternalFreeNotification&){
         //Will only be called by the client
@@ -82585,7 +82641,12 @@ return;
 
             void handle_PFN_vkInternalFreeNotification(boost::json::object& json){
             //Will only be called by the client
-            
+
+             printf("Handling PFN_vkInternalFreeNotification!\n");
+
+             auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+             printf("JSON: %s\n", line.c_str());
+
             // Recieved data from server's PFN_vkInternalFreeNotification wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkInternalFreeNotification[value_to<uintptr_t>(json["id"])];
         
@@ -82659,6 +82720,9 @@ json.clear();
 [&](){[&](){[&](){json["allocationScope"]=allocationScope;}();}();}();
 
 writeToConn(json);
+json=readFromConn();
+writeToConn(json);
+printf("Finished handling PFN_vkInternalFreeNotification!\n");
 };
 
         void deserialize_PFN_vkInternalFreeNotification(boost::json::object& json, PFN_vkInternalFreeNotification& member){
@@ -82667,7 +82731,6 @@ writeToConn(json);
             member=PFN_vkInternalFreeNotification_wrapper;
             };
         
-std::unordered_map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
 
     void serialize_PFN_vkReallocationFunction(boost::json::object&, const PFN_vkReallocationFunction&){
         //Will only be called by the client
@@ -82815,7 +82878,12 @@ return result;
 
             void handle_PFN_vkReallocationFunction(boost::json::object& json){
             //Will only be called by the client
-            
+
+             printf("Handling PFN_vkReallocationFunction!\n");
+
+             auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+             printf("JSON: %s\n", line.c_str());
+
             // Recieved data from server's PFN_vkReallocationFunction wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkReallocationFunction[value_to<uintptr_t>(json["id"])];
         
@@ -82933,13 +83001,14 @@ json.clear();
         }
         }();}();
 writeToConn(json);
+json=readFromConn();
 
-            json=readFromConn();
             registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(json["mem"]) );
             
             json.clear();
-            writeToConn(json); //Send empty message to signal to the server the mapping is done.
             
+writeToConn(json);
+printf("Finished handling PFN_vkReallocationFunction!\n");
 };
 
         void deserialize_PFN_vkReallocationFunction(boost::json::object& json, PFN_vkReallocationFunction& member){
@@ -82948,7 +83017,6 @@ writeToConn(json);
             member=PFN_vkReallocationFunction_wrapper;
             };
         
-std::unordered_map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
 
     void serialize_PFN_vkAllocationFunction(boost::json::object&, const PFN_vkAllocationFunction&){
         //Will only be called by the client
@@ -83064,7 +83132,12 @@ return result;
 
             void handle_PFN_vkAllocationFunction(boost::json::object& json){
             //Will only be called by the client
-            
+
+             printf("Handling PFN_vkAllocationFunction!\n");
+
+             auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+             printf("JSON: %s\n", line.c_str());
+
             // Recieved data from server's PFN_vkAllocationFunction wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkAllocationFunction[value_to<uintptr_t>(json["id"])];
         
@@ -83149,13 +83222,14 @@ json.clear();
         }
         }();}();
 writeToConn(json);
+json=readFromConn();
 
-            json=readFromConn();
             registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(json["mem"]) );
             
             json.clear();
-            writeToConn(json); //Send empty message to signal to the server the mapping is done.
             
+writeToConn(json);
+printf("Finished handling PFN_vkAllocationFunction!\n");
 };
 
         void deserialize_PFN_vkAllocationFunction(boost::json::object& json, PFN_vkAllocationFunction& member){
@@ -83164,7 +83238,6 @@ writeToConn(json);
             member=PFN_vkAllocationFunction_wrapper;
             };
         
-std::unordered_map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
 
     void serialize_PFN_vkFreeFunction(boost::json::object&, const PFN_vkFreeFunction&){
         //Will only be called by the client
@@ -83260,7 +83333,12 @@ return;
 
             void handle_PFN_vkFreeFunction(boost::json::object& json){
             //Will only be called by the client
-            
+
+             printf("Handling PFN_vkFreeFunction!\n");
+
+             auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+             printf("JSON: %s\n", line.c_str());
+
             // Recieved data from server's PFN_vkFreeFunction wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkFreeFunction[value_to<uintptr_t>(json["id"])];
         
@@ -83334,6 +83412,9 @@ json.clear();
         }();}();
 
 writeToConn(json);
+json=readFromConn();
+writeToConn(json);
+printf("Finished handling PFN_vkFreeFunction!\n");
 };
 
         void deserialize_PFN_vkFreeFunction(boost::json::object& json, PFN_vkFreeFunction& member){
@@ -83342,7 +83423,6 @@ writeToConn(json);
             member=PFN_vkFreeFunction_wrapper;
             };
         
-std::unordered_map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallbackEXT;
 
     void serialize_PFN_vkDebugReportCallbackEXT(boost::json::object&, const PFN_vkDebugReportCallbackEXT&){
         //Will only be called by the client
@@ -83486,7 +83566,12 @@ return result;
 
             void handle_PFN_vkDebugReportCallbackEXT(boost::json::object& json){
             //Will only be called by the client
-            
+
+             printf("Handling PFN_vkDebugReportCallbackEXT!\n");
+
+             auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+             printf("JSON: %s\n", line.c_str());
+
             // Recieved data from server's PFN_vkDebugReportCallbackEXT wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkDebugReportCallbackEXT[value_to<uintptr_t>(json["id"])];
         
@@ -83636,6 +83721,9 @@ json.clear();
         }();}();
 [&](){[&](){json["result"]=result;}();}();
 writeToConn(json);
+json=readFromConn();
+writeToConn(json);
+printf("Finished handling PFN_vkDebugReportCallbackEXT!\n");
 };
 
         void deserialize_PFN_vkDebugReportCallbackEXT(boost::json::object& json, PFN_vkDebugReportCallbackEXT& member){
@@ -83644,7 +83732,6 @@ writeToConn(json);
             member=PFN_vkDebugReportCallbackEXT_wrapper;
             };
         
-std::unordered_map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsMessengerCallbackEXT;
 
     void serialize_PFN_vkDebugUtilsMessengerCallbackEXT(boost::json::object&, const PFN_vkDebugUtilsMessengerCallbackEXT&){
         //Will only be called by the client
@@ -83751,7 +83838,12 @@ return result;
 
             void handle_PFN_vkDebugUtilsMessengerCallbackEXT(boost::json::object& json){
             //Will only be called by the client
-            
+
+             printf("Handling PFN_vkDebugUtilsMessengerCallbackEXT!\n");
+
+             auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+             printf("JSON: %s\n", line.c_str());
+
             // Recieved data from server's PFN_vkDebugUtilsMessengerCallbackEXT wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkDebugUtilsMessengerCallbackEXT[value_to<uintptr_t>(json["id"])];
         
@@ -83839,6 +83931,9 @@ json.clear();
         }();}();
 [&](){[&](){json["result"]=result;}();}();
 writeToConn(json);
+json=readFromConn();
+writeToConn(json);
+printf("Finished handling PFN_vkDebugUtilsMessengerCallbackEXT!\n");
 };
 
         void deserialize_PFN_vkDebugUtilsMessengerCallbackEXT(boost::json::object& json, PFN_vkDebugUtilsMessengerCallbackEXT& member){
@@ -83847,7 +83942,6 @@ writeToConn(json);
             member=PFN_vkDebugUtilsMessengerCallbackEXT_wrapper;
             };
         
-std::unordered_map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemoryReportCallbackEXT;
 
     void serialize_PFN_vkDeviceMemoryReportCallbackEXT(boost::json::object&, const PFN_vkDeviceMemoryReportCallbackEXT&){
         //Will only be called by the client
@@ -83924,7 +84018,12 @@ return;
 
             void handle_PFN_vkDeviceMemoryReportCallbackEXT(boost::json::object& json){
             //Will only be called by the client
-            
+
+             printf("Handling PFN_vkDeviceMemoryReportCallbackEXT!\n");
+
+             auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+             printf("JSON: %s\n", line.c_str());
+
             // Recieved data from server's PFN_vkDeviceMemoryReportCallbackEXT wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkDeviceMemoryReportCallbackEXT[value_to<uintptr_t>(json["id"])];
         
@@ -83990,6 +84089,9 @@ json.clear();
         }();}();
 
 writeToConn(json);
+json=readFromConn();
+writeToConn(json);
+printf("Finished handling PFN_vkDeviceMemoryReportCallbackEXT!\n");
 };
 
         void deserialize_PFN_vkDeviceMemoryReportCallbackEXT(boost::json::object& json, PFN_vkDeviceMemoryReportCallbackEXT& member){
@@ -83998,7 +84100,6 @@ writeToConn(json);
             member=PFN_vkDeviceMemoryReportCallbackEXT_wrapper;
             };
         
-std::unordered_map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcAddrLUNARG;
 
     void serialize_PFN_vkGetInstanceProcAddrLUNARG(boost::json::object&, const PFN_vkGetInstanceProcAddrLUNARG&){
         //Will only be called by the client

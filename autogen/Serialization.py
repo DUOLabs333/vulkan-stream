@@ -120,6 +120,11 @@ for member in pUserData_members:
     write(f"uintptr_t {member};")
 write("} pUserData_struct;")
 
+for name,funcpointer in parsed.items():
+    if funcpointer["kind"]!="funcpointer":
+        continue
+    write(f"std::unordered_map<uintptr_t,{name}> id_to_{name};")
+
 #Return Null if not found
 
 write("""
@@ -271,6 +276,11 @@ for name, struct in parsed.items():
         for member in members:
             if member["type"] in pUserData_members:
                 write(f"""json["{member["type"]}"]=(uintptr_t)(member.{member["name"]});""")
+                write(f"""
+                #ifdef CLIENT
+                id_to_{member["type"]}[(uintptr_t)(member.{member["name"]})]=member.{member["name"]};
+                #endif
+                """)
         write("}")
         
         write(f"""
@@ -359,8 +369,6 @@ for name,funcpointer in parsed.items():
         continue
 
     header=re.sub(r"^(.*?)\(", "(", funcpointer["header"])
-
-    write(f"std::unordered_map<uintptr_t,{name}> id_to_{name};")
     
     write(f"""
     void serialize_{name}(boost::json::object&, const {name}&){{
@@ -371,7 +379,7 @@ for name,funcpointer in parsed.items():
     
     write(f"""void serialize_{name}(boost::json::object&, const {name}&);""",header=True)
     
-    if name!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (as well as that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
+    if name!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (and that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
         
         write(f"""
         auto {name}_wrapper{header}{{
@@ -401,16 +409,14 @@ for name,funcpointer in parsed.items():
         write("json.clear();")
         
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
-            write("registerAllocatedMem(result,size);")
-            write('json["mem"]=(uintptr_t)result;')
-        else:
-            write('json.erase("mem");')
-        
-        write("""
-        writeToConn(json); //Send (possible) memory to client so it can store it
-        readFromConn(); //Get the confirmation that the client has registered the memory
-        """)
-            
+            write("""
+            registerAllocatedMem(result,size);
+            json["mem"]=(uintptr_t)result;
+
+            writeToConn(json); //Send memory to client so it can store it
+            readFromConn(); //Get the confirmation that the client has registered the memory
+            """)
+
         write("SyncAllocations();")
         if not is_void(funcpointer):
             write("return result;")
@@ -421,7 +427,11 @@ for name,funcpointer in parsed.items():
         write(f"""
             void handle_{name}(boost::json::object& json){{
             //Will only be called by the client
-            
+
+             debug_printf("Handling {name}!\\n");
+
+             auto line=boost::json::serialize(json,boost::json::serialize_options{{.allow_infinity_and_nan=true}});
+
             // Recieved data from server's {name} wrapper, and will execute the actual function
             auto funcpointer=id_to_{name}[value_to<uintptr_t>(json["id"])];
         """)
@@ -448,14 +458,15 @@ for name,funcpointer in parsed.items():
         write("writeToConn(json);")
         
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
-            write(f"""
+            write("""
             json=readFromConn();
             registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(json["mem"]) );
-            
+
             json.clear();
-            writeToConn(json); //Send empty message to signal to the server the mapping is done.
+            writeToConn(json); //Send empty message to signal to the server the mapping is complete
             """)
-        
+
+        write(f"""debug_printf("Finished handling {name}!\\n");""")
         write("};")
                 
         write(f"""
