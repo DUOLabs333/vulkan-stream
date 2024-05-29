@@ -636,6 +636,13 @@ VKDESTROYSHADEREXT=2729,
 VKGETSHADERBINARYDATAEXT=2730,
 VKCMDBINDSHADERSEXT=2731,
 VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR=2733,
+VKGETEXECUTIONGRAPHPIPELINESCRATCHSIZEAMDX=2734,
+VKGETEXECUTIONGRAPHPIPELINENODEINDEXAMDX=2735,
+VKCREATEEXECUTIONGRAPHPIPELINESAMDX=2736,
+VKCMDINITIALIZEGRAPHSCRATCHMEMORYAMDX=2737,
+VKCMDDISPATCHGRAPHAMDX=2738,
+VKCMDDISPATCHGRAPHINDIRECTAMDX=2739,
+VKCMDDISPATCHGRAPHINDIRECTCOUNTAMDX=2740,
 VKCMDBINDDESCRIPTORSETS2KHR=2741,
 VKCMDPUSHCONSTANTS2KHR=2742,
 VKCMDPUSHDESCRIPTORSET2KHR=2743,
@@ -2906,6 +2913,10 @@ void* copyVkStruct (const void* data);
         void deserialize_struct(boost::json::object&, VkDeviceOrHostAddressConstKHR&);
     
 
+        void serialize_struct(boost::json::object&, const VkDeviceOrHostAddressConstAMDX&);
+        void deserialize_struct(boost::json::object&, VkDeviceOrHostAddressConstAMDX&);
+    
+
         void serialize_struct(boost::json::object&, const VkAccelerationStructureGeometryTrianglesDataKHR&);
         void deserialize_struct(boost::json::object&, VkAccelerationStructureGeometryTrianglesDataKHR&);
     
@@ -3044,6 +3055,14 @@ void* copyVkStruct (const void* data);
 
         void serialize_struct(boost::json::object&, const VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR&);
         void deserialize_struct(boost::json::object&, VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR&);
+    
+
+        void serialize_struct(boost::json::object&, const VkPhysicalDevicePortabilitySubsetFeaturesKHR&);
+        void deserialize_struct(boost::json::object&, VkPhysicalDevicePortabilitySubsetFeaturesKHR&);
+    
+
+        void serialize_struct(boost::json::object&, const VkPhysicalDevicePortabilitySubsetPropertiesKHR&);
+        void deserialize_struct(boost::json::object&, VkPhysicalDevicePortabilitySubsetPropertiesKHR&);
     
 
         void serialize_struct(boost::json::object&, const VkPhysicalDevice4444FormatsFeaturesEXT&);
@@ -4022,6 +4041,18 @@ void* copyVkStruct (const void* data);
         void deserialize_struct(boost::json::object&, VkAccelerationStructureTrianglesOpacityMicromapEXT&);
     
 
+        void serialize_struct(boost::json::object&, const VkPhysicalDeviceDisplacementMicromapFeaturesNV&);
+        void deserialize_struct(boost::json::object&, VkPhysicalDeviceDisplacementMicromapFeaturesNV&);
+    
+
+        void serialize_struct(boost::json::object&, const VkPhysicalDeviceDisplacementMicromapPropertiesNV&);
+        void deserialize_struct(boost::json::object&, VkPhysicalDeviceDisplacementMicromapPropertiesNV&);
+    
+
+        void serialize_struct(boost::json::object&, const VkAccelerationStructureTrianglesDisplacementMicromapNV&);
+        void deserialize_struct(boost::json::object&, VkAccelerationStructureTrianglesDisplacementMicromapNV&);
+    
+
         void serialize_struct(boost::json::object&, const VkPipelinePropertiesIdentifierEXT&);
         void deserialize_struct(boost::json::object&, VkPipelinePropertiesIdentifierEXT&);
     
@@ -4316,6 +4347,34 @@ void* copyVkStruct (const void* data);
 
         void serialize_struct(boost::json::object&, const VkPhysicalDeviceCooperativeMatrixPropertiesKHR&);
         void deserialize_struct(boost::json::object&, VkPhysicalDeviceCooperativeMatrixPropertiesKHR&);
+    
+
+        void serialize_struct(boost::json::object&, const VkPhysicalDeviceShaderEnqueuePropertiesAMDX&);
+        void deserialize_struct(boost::json::object&, VkPhysicalDeviceShaderEnqueuePropertiesAMDX&);
+    
+
+        void serialize_struct(boost::json::object&, const VkPhysicalDeviceShaderEnqueueFeaturesAMDX&);
+        void deserialize_struct(boost::json::object&, VkPhysicalDeviceShaderEnqueueFeaturesAMDX&);
+    
+
+        void serialize_struct(boost::json::object&, const VkExecutionGraphPipelineCreateInfoAMDX&);
+        void deserialize_struct(boost::json::object&, VkExecutionGraphPipelineCreateInfoAMDX&);
+    
+
+        void serialize_struct(boost::json::object&, const VkPipelineShaderStageNodeCreateInfoAMDX&);
+        void deserialize_struct(boost::json::object&, VkPipelineShaderStageNodeCreateInfoAMDX&);
+    
+
+        void serialize_struct(boost::json::object&, const VkExecutionGraphPipelineScratchSizeAMDX&);
+        void deserialize_struct(boost::json::object&, VkExecutionGraphPipelineScratchSizeAMDX&);
+    
+
+        void serialize_struct(boost::json::object&, const VkDispatchGraphInfoAMDX&);
+        void deserialize_struct(boost::json::object&, VkDispatchGraphInfoAMDX&);
+    
+
+        void serialize_struct(boost::json::object&, const VkDispatchGraphCountInfoAMDX&);
+        void deserialize_struct(boost::json::object&, VkDispatchGraphCountInfoAMDX&);
     
 
         void serialize_struct(boost::json::object&, const VkBindMemoryStatusKHR&);

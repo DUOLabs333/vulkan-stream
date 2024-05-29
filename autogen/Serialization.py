@@ -167,7 +167,7 @@ for name, struct in parsed.items():
     
 write("""
 default:
-    printf("sType %d not in array!\\n", sType); 
+    debug_printf("sType %d not in (de)serialization switch!\\n", sType); 
     return NULL;
 }
 }
@@ -196,7 +196,7 @@ void deserialize_pNext(boost::json::object& json, void*& member ){
         member=NULL;
         return;
     }
-    printf("Deserialized structure: %d\\n", value_to<int>(json["sType"]));
+    debug_printf("Deserializing structure: %d\\n", value_to<int>(json["sType"]));
     auto deserialize_function=(void(*)(boost::json::object&, void*&))(handle_pNext(static_cast<VkStructureType>(value_to<int>(json["sType"])),false));
     
     return deserialize_function(json, member);
