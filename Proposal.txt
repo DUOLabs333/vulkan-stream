@@ -1,3 +1,5 @@
+*Idea: Mount drive, and share through files. Mount on host and guest. Maybe use ext4/ext3 driver? Make each file 500kb in size. Research different flush options in QEMU (maybe directsync?). Maybe also look into virtiofs https://gitlab.com/slp/virtiofsd/-/tree/macos-poc?ref_type=heads. Use only for Sync commands, as it is very large (in this case, use network just for communication)
+
 A client<->server flow looks like this:
 	1. The client calls a Vulkan function
 	2. The driver sends a command object to the server

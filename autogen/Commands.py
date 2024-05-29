@@ -264,8 +264,11 @@ for name, command in parsed.items():
         pCreateInfo->ppEnabledExtensionNames=extensions_list;
         pCreateInfo->enabledExtensionCount=extensions_length;            
         """)
+
     write(return_prefix+"call_function"+"("+call_arguments+")"+";")
+
     write("}")
+
     if (name=="vkGetInstanceProcAddr"):
         write('debug_printf("Getting %s\\n",pName);')
     
@@ -616,6 +619,30 @@ for name, command in parsed.items():
                 }}
             #endif
             """)
+    elif name=="vkEnumerateDeviceExtensionProperties":
+        write("""
+        if(pProperties){
+        std::vector<VkExtensionProperties> extensions_list;
+        extensions_list.reserve(*pPropertyCount);
+
+        int extensions_index=0;
+        
+        for(int i=0; i< *pPropertyCount; i++){
+            extensions_list.push_back(pProperties[i]);
+        }
+
+        for (auto extension: extensions_list){
+            if(!strcmp(extension.extensionName, "VK_KHR_portability_subset")){
+                *pPropertyCount--;
+                continue;
+            }
+
+            pProperties[extensions_index]=extension;
+            extensions_index++;
+        }
+        }
+
+        """)
     
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
       

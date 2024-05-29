@@ -149,7 +149,7 @@ for name, struct in parsed.items():
                 #ifdef CLIENT
                 if (member==NULL){{
                 #else
-                if (true){{ //The server needs pNext initalized at all times
+                if (true){{ //The server needs pNext to be initalized, no matter what
                 #endif
                     auto result= new {name};
                     result->pNext=NULL;
@@ -167,6 +167,7 @@ for name, struct in parsed.items():
     
 write("""
 default:
+    printf("sType %d not in array!\\n", sType); 
     return NULL;
 }
 }
@@ -195,7 +196,7 @@ void deserialize_pNext(boost::json::object& json, void*& member ){
         member=NULL;
         return;
     }
-    
+    printf("Deserialized structure: %d\\n", value_to<int>(json["sType"]));
     auto deserialize_function=(void(*)(boost::json::object&, void*&))(handle_pNext(static_cast<VkStructureType>(value_to<int>(json["sType"])),false));
     
     return deserialize_function(json, member);
