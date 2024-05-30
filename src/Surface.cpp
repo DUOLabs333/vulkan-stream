@@ -225,12 +225,15 @@ return command_buffer;
 }
 
 VkBuffer getBuffer(VkDevice device, VkDeviceSize& size){ //Gets buffer that is at least as big as *size
+//Should really be swapchain to buffer, as a device could have multiple swapchains running at the same time
+
 auto& info=device_to_info[(uintptr_t)device];
 
 if (info.buffers.contains(size)){
     return info.buffers[size];
 }
 
+//Checks if a buffer is bigger than the size, and if so uses that.
 /*
 std::vector<VkDeviceSize> keys(info.buffers.size());
 for (auto& [key, value] : info.buffers){
@@ -430,7 +433,7 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
     std::unique_lock<std::mutex> lock(queue_info.notify_mutex);
     while(true){
         queue_info.queue_mutex.lock_shared();
-        if(!queue_info.queue.empty()){ //Queue is not empty, so we can immediately go and pull item from it
+        if(!queue_info.queue.empty()){ //Queue is not empty, so we can immediately go and pull an item from it
             queue_info.queue_mutex.unlock_shared();
         }else{ //Queue is empty, so wait for a new item
             queue_info.queue_mutex.unlock_shared();

@@ -21,6 +21,13 @@ typedef struct StreamStructure{
 """,header=True)
 
 write("""
+typedef struct StreamStructure2{
+    VkStructureType sType;
+    void* pNext;
+} StreamStructure2;
+""",header=True)
+
+write("""
 enum StreamType {
 SYNC = 0,
 """,header=True)
@@ -167,7 +174,7 @@ for name, struct in parsed.items():
     
 write("""
 default:
-    debug_printf("sType %d not in (de)serialization switch!\\n", sType); 
+    debug_printf("sType %d not in switch! Serialization: %d\\n", sType, serialize); 
     return NULL;
 }
 }
@@ -196,11 +203,22 @@ void deserialize_pNext(boost::json::object& json, void*& member ){
         member=NULL;
         return;
     }
-    debug_printf("Deserializing structure: %d\\n", value_to<int>(json["sType"]));
-    auto deserialize_function=(void(*)(boost::json::object&, void*&))(handle_pNext(static_cast<VkStructureType>(value_to<int>(json["sType"])),false));
-    
-    return deserialize_function(json, member);
 
+    auto sType=static_cast<VkStructureType>(value_to<int>(json["sType"]));
+    debug_printf("Deserializing structure: %d\\n", static_cast<int>(sType));
+
+    auto deserialize_function=(void(*)(boost::json::object&, void*&))(handle_pNext(sType,false));
+
+      #ifdef CLIENT
+    if (member!=NULL && sType!=static_cast<VkBaseInStructure*>(member)->sType){ //This must mean that the pNext chain sent to the server skipped this struct, so we skip it on the client too
+    #else
+    if(false){ //On the server, pNext is not default-constructed, so we can not rely on it being NULL. However, we still must deserialize it
+    #endif
+        auto chain=reinterpret_cast<StreamStructure2*>(member);
+        return deserialize_pNext(json, (chain->pNext));
+    }else{
+        return deserialize_function(json, member);
+    }
 }
 """)
 

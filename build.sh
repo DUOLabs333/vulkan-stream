@@ -5,7 +5,6 @@ else
 	export CLIENT=1
 fi
 
-export VK_HEADER_FLAGS=$VK_HEADER_FLAGS" -DVK_ENABLE_BETA_EXTENSIONS"
 (cd parse && python3 parse.py)
 (cd autogen && ls *.py | xargs -L 1 python3)
 
