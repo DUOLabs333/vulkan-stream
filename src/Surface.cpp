@@ -2,6 +2,7 @@
 #include <condition_variable>
 #include <cstdint>
 #include <cstdio>
+#include <mutex>
 #include <vector>
 #include <cstdlib>
 #include <vulkan/vulkan_core.h>
@@ -23,9 +24,31 @@ VkFence fence;
 uint32_t index;
 } PresentInfo;
 
+class ConditionVariableWrapper { //To avoid the issue of cv's destructor being called before it has exited its wait
+	std::mutex mu;
+        std::condition_variable cv;
+
+	public:
+	std::atomic<bool> destructed=false; //Indicates whether destructor has been called
+	void notify(){
+		cv.notify_all();
+	}
+
+	void wait(){
+		std::unique_lock lock(mu);
+		cv.wait(lock);
+	}
+	 ~ConditionVariableWrapper(){
+		 destructed=true;
+		 notify();
+	 }
+};
+
 typedef struct {
 std::queue<PresentInfo> queue;
 std::shared_mutex queue_mutex;
+
+ConditionVariableWrapper notify;
 
 std::mutex notify_mutex; //Notifies when the queue (when checking if empty, lock queue_mutex and only unlock it just before 
 std::condition_variable notify_condition;
@@ -418,7 +441,9 @@ auto& queue_info= info.queue_info;
 
 queue_info.queue_mutex.lock();
 queue_info.queue.push({fence, index});
-queue_info.notify_condition.notify_all();
+
+queue_info.notify.notify();
+//queue_info.notify_condition.notify_all();
 if (fence!=VK_NULL_HANDLE){
     updateCounter(info.device, 1);
 }
@@ -430,21 +455,25 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
     auto& info=swapchain_to_info[(uintptr_t)swapchain];
     auto& queue_info=info.queue_info;
     
-    std::unique_lock<std::mutex> lock(queue_info.notify_mutex);
+    //std::unique_lock<std::mutex> lock(queue_info.notify_mutex);
     while(true){
         queue_info.queue_mutex.lock_shared();
         if(!queue_info.queue.empty()){ //Queue is not empty, so we can immediately go and pull an item from it
             queue_info.queue_mutex.unlock_shared();
         }else{ //Queue is empty, so wait for a new item
             queue_info.queue_mutex.unlock_shared();
-            queue_info.notify_condition.wait(lock);
+            //queue_info.notify_condition.wait(lock);
+	    queue_info.notify.wait();
+
+	    if (queue_info.notify.destructed){ //The only time when this is set to true is when the program is exiting, so you can safely return early. 
+		    return;
+ 		}
         }
         
         queue_info.queue_mutex.lock();
         auto present_info=queue_info.queue.front();
         queue_info.queue.pop();
         queue_info.queue_mutex.unlock();
-
         if (present_info.fence==VK_NULL_HANDLE){
             swapchain_to_info.erase((uintptr_t)swapchain);
             break;
@@ -494,6 +523,7 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
             
             GC gc = XCreateGC(display, window, 0, NULL);
             XPutImage(display, window, gc, x_image, 0, 0, 0, 0, extent.width, extent.height);
+	    XFlush(info.dpy);
             XFreeGC(display, gc);
             break;
             }
