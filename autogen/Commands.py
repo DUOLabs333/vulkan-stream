@@ -18,17 +18,26 @@ write("""
 #include <Server.hpp>
 #include <Synchronization.hpp>
 
-std::unordered_map<uintptr_t, VkDeviceSize> devicememory_to_size;
-std::unordered_map<uintptr_t, bool> devicememory_to_coherent;
-std::unordered_map<uintptr_t, VkDeviceSize> devicememory_to_offset;
+typedef struct DeviceMemoryInfo {
+      VkDeviceSize size;
+      bool coherent;
+      VkDeviceSize offset;
+      bool mapped=false;
+} DeviceMemoryInfo;
+
+std::unordered_map<uintptr_t, DeviceMemoryInfo> devicememory_to_info;
+
 std::unordered_map<uintptr_t, VkPhysicalDeviceMemoryProperties> device_to_memory_properties;
 
 void saveDeviceMemoryInfo(VkDevice device, VkDeviceMemory memory, int type_index, VkDeviceSize size){
-    devicememory_to_size[(uintptr_t)memory]=size;
+
+    auto& info=devicememory_to_info[(uintptr_t)memory];
+    info.size=size;
     
     auto memory_flags=device_to_memory_properties[(uintptr_t)device].memoryTypes[type_index].propertyFlags;
     
-    devicememory_to_coherent[(uintptr_t)memory]=((memory_flags & VK_MEMORY_PROPERTY_HOST_COHERENT_BIT) == VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+    info.coherent=((memory_flags & VK_MEMORY_PROPERTY_HOST_COHERENT_BIT) == VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+
 }
 
 void saveDeviceInfo(VkDevice device, VkPhysicalDevice physical_device){
@@ -72,14 +81,17 @@ def registerDeviceMemoryMap(name,mem):
             *ppData=malloc({size});
         #endif
         
-        auto coherent=devicememory_to_coherent[(uintptr_t){memory}];
+        auto& memory_info=devicememory_to_info[(uintptr_t){memory}];
+        memory_info.mapped=true;
+        auto coherent=memory_info.coherent;
+
         *ppData=registerDeviceMemoryMap(server_memory, {memory}, {size},*ppData, {mem}, coherent);
         
         #ifndef CLIENT
             json["mem"]={mem};
         #endif
         
-        devicememory_to_offset[(uintptr_t)({memory})]={offset};
+        memory_info.offset={offset};
         
         #ifndef CLIENT
             *ppData=NULL; //It's faster to malloc on the client and sync than it is to send the memory at once
@@ -95,7 +107,8 @@ def deregisterDeviceMemoryMap(name):
             memory=f"pMemoryUnmapInfo->{memory}"
         return f"""
         deregisterDeviceMemoryMap({memory});
-        devicememory_to_offset.erase((uintptr_t)({memory}));
+
+        devicememory_to_info[(uintptr_t)({memory})].mapped=false;
         """
     else:
         return ""
@@ -125,7 +138,7 @@ def syncRanges(name):
     {guard}
         for(int i=0; i< memoryRangeCount; i++){{
             auto range=pMemoryRanges[i];
-            SyncOne(range.memory, range.offset-devicememory_to_offset[(uintptr_t)range.memory], range.size, false);
+            SyncOne(range.memory, range.offset-devicememory_to_info[(uintptr_t)range.memory].offset, range.size, false);
         }}
     #endif
     """
@@ -459,14 +472,14 @@ for name, command in parsed.items():
     if name=="vkMapMemory":
         write("""
         if (size==VK_WHOLE_SIZE){
-            size=devicememory_to_size[(uintptr_t)memory]-offset;
+            size=devicememory_to_info[(uintptr_t)memory].size-offset;
         }
         """)
     elif name=="vkMapMemory2KHR":
         write("""
         if (pMemoryMapInfo->size==VK_WHOLE_SIZE){
             VkMemoryMapInfoKHR new_map_info=*pMemoryMapInfo;
-            new_map_info.size=devicememory_to_size[(uintptr_t)new_map_info.memory]-new_map_info.offset;
+            new_map_info.size=devicememory_to_info[(uintptr_t)new_map_info.memory].size-new_map_info.offset;
             pMemoryMapInfo=&new_map_info;
         }
         """)
@@ -554,10 +567,10 @@ for name, command in parsed.items():
     if name=="vkFreeMemory":
         write("""
         MemoryMapLock.lock_shared();
-        bool memory_exists=devicememory_to_size.contains((uintptr_t)memory);
+        bool memory_is_mapped=(devicememory_to_info.contains((uintptr_t)memory) && devicememory_to_info[(uintptr_t)memory].mapped);
         MemoryMapLock.unlock_shared();
 
-        if (memory_exists){ //Only unmap memory if it was mapped in the first place, avoiding warnings on the server
+        if (memory_is_mapped){ //Only unmap memory if it was mapped in the first place, avoiding warnings on the server
             vkUnmapMemory(device,memory);
         }
         """)
@@ -762,6 +775,12 @@ for name, command in parsed.items():
                 }}
                 """)
             else:
+                if handle["type"]=="VkDeviceMemory":
+                    write(f"""
+                    MemoryMapLock.lock();
+                    devicememory_to_info.erase((uintptr_t)({handle["name"]}));
+                    MemoryMapLock.unlock();
+                    """)
                 write(f"""delete_{handle["type"]}({handle["name"]});""")
     
     
