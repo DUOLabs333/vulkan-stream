@@ -24,34 +24,27 @@ VkFence fence;
 uint32_t index;
 } PresentInfo;
 
-class ConditionVariableWrapper { //To avoid the issue of cv's destructor being called before it has exited its wait
-	std::mutex mu;
-        std::condition_variable cv;
+
+class condition_variable_2: public std::condition_variable {
+	std::atomic<bool> destructed=false;
 
 	public:
-	std::atomic<bool> destructed=false; //Indicates whether destructor has been called
-	void notify(){
-		cv.notify_all();
+	~condition_variable_2(){
+		destructed=true;
+		notify_all();
 	}
 
-	void wait(){
-		std::unique_lock lock(mu);
-		cv.wait(lock);
+	bool is_destructed(){
+		return destructed;
 	}
-	 ~ConditionVariableWrapper(){
-		 destructed=true;
-		 notify();
-	 }
 };
 
 typedef struct {
 std::queue<PresentInfo> queue;
 std::shared_mutex queue_mutex;
 
-ConditionVariableWrapper notify;
-
 std::mutex notify_mutex; //Notifies when the queue (when checking if empty, lock queue_mutex and only unlock it just before 
-std::condition_variable notify_condition;
+condition_variable_2 notify_condition;
 } SwapchainQueueInfo;
 
 typedef struct {
@@ -442,8 +435,7 @@ auto& queue_info= info.queue_info;
 queue_info.queue_mutex.lock();
 queue_info.queue.push({fence, index});
 
-queue_info.notify.notify();
-//queue_info.notify_condition.notify_all();
+queue_info.notify_condition.notify_all();
 if (fence!=VK_NULL_HANDLE){
     updateCounter(info.device, 1);
 }
@@ -455,17 +447,16 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
     auto& info=swapchain_to_info[(uintptr_t)swapchain];
     auto& queue_info=info.queue_info;
     
-    //std::unique_lock<std::mutex> lock(queue_info.notify_mutex);
+    std::unique_lock<std::mutex> lock(queue_info.notify_mutex);
     while(true){
         queue_info.queue_mutex.lock_shared();
         if(!queue_info.queue.empty()){ //Queue is not empty, so we can immediately go and pull an item from it
             queue_info.queue_mutex.unlock_shared();
         }else{ //Queue is empty, so wait for a new item
             queue_info.queue_mutex.unlock_shared();
-            //queue_info.notify_condition.wait(lock);
-	    queue_info.notify.wait();
-
-	    if (queue_info.notify.destructed){ //The only time when this is set to true is when the program is exiting, so you can safely return early. 
+            queue_info.notify_condition.wait(lock);
+	     
+	    if (queue_info.notify_condition.is_destructed()){ //The only time when this is set to true and you reach this part of the code is when the program is exiting, so you can safely return early. 
 		    return;
  		}
         }

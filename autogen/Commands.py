@@ -409,8 +409,7 @@ for name, command in parsed.items():
         continue
     if name=="vkGetPhysicalDeviceXcbPresentationSupportKHR":
         write("return VK_TRUE;") #Just stub it out, as since displaying is done with headless surfaces, this will always work
-        
-    
+
     write(f"""
     boost::json::object json;
     json.reserve({len(command["params"])}+3);
