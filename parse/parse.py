@@ -35,7 +35,7 @@ def get_length(item,info):
             else:
                 result=None
     
-    max_length=item.find("enum").text if not(item.find("enum") is None) else ""
+    max_length=",".join([enum.text for enum in item.findall("enum")])
     
     info["max_length"]=split_length_string(max_length)
     
