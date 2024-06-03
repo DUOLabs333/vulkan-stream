@@ -1,4 +1,5 @@
 #include <vulkan/vulkan.h>
+#define amin(a, b) (a > b ? b: a)
 
 typedef struct StreamStructure{
     VkStructureType sType;

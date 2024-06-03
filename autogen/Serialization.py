@@ -2,6 +2,9 @@ from utils import *
 import copy, re
 
 write("#include <vulkan/vulkan.h>",header=True)
+
+write("#define amin(a, b) (a > b ? b: a)", header=True)
+
 write(f"""
 #include <boost/json.hpp>
 #include <boost/json/src.hpp>

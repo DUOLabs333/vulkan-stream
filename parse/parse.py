@@ -15,7 +15,10 @@ def clean(string):
 def clean_header(header):
     header=header.replace("\n"," ")
     return re.sub(r"\s+"," ", header).strip()
-    
+
+def split_length_string(length):
+    return length.split(",")[::-1] if length!="" else []
+
 def get_length(item,info):
     name_element=item.find("name")
     num_indirection=info["num_indirection"]
@@ -31,23 +34,24 @@ def get_length(item,info):
                 result=name_tail.removeprefix("[").removesuffix("]").replace("][",",")
             else:
                 result=None
-                
+    
+    max_length=item.find("enum").text if not(item.find("enum") is None) else ""
+    
+    info["max_length"]=split_length_string(max_length)
+    
     if "altlen" in item.attrib:
         length=item.attrib["altlen"]
     elif "len" in item.attrib:
         length=item.attrib["len"]
-    elif not(item.find("enum") is None):
-        length=item.find("enum").text
+    elif max_length!="":
+        length=max_length
     elif result is not None:
         length=result
     else:
         length=""
-    
-    result=[]
-    
-    if length!="":
-        result=length.split(",")[::-1]
-    
+
+    result=split_length_string(length)
+        
     if result==[] and num_indirection>0:
         result=["1"]*num_indirection
         if info["type"] in ["void","char"]:

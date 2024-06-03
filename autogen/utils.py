@@ -61,6 +61,7 @@ def convert(variable, value, info, serialize, initialize=False):
     length=info["length"]
     type=info['type']
     kind=parsed[type]["kind"]
+    max_length=info.get("max_length",[])
     
     def args():
         curr_frame=inspect.currentframe()
@@ -136,13 +137,21 @@ def convert(variable, value, info, serialize, initialize=False):
     elif len(length)>0:
         size=length.pop()
         temp_iterator=random_string(info)
+
+        max_size=max_length.pop() if len(max_length)>0 else None
         
         if size=="null-terminated":
             if serialize:
-                size=f"strlen({variable})+1"
+                if not max_size:
+                    size=f"strlen({variable})+1"
+                else:
+                    size=f"strnlen({variable}, {max_size}-1)+1"
             else:
                 size=f"""{value}.get_array().size()"""
-                
+        else:
+            if serialize and max_size:
+                size=f"amin({size}, {max_size})"
+            
         if deserialize and num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
                 result+=f"""{variable}=({type+("*"*num_indirection)})malloc({size}*sizeof({type+("*"*(num_indirection-1))}));"""
