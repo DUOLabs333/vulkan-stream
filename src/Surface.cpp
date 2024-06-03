@@ -449,17 +449,18 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
     
     std::unique_lock<std::mutex> lock(queue_info.notify_mutex);
     while(true){
+
         queue_info.queue_mutex.lock_shared();
-        if(!queue_info.queue.empty()){ //Queue is not empty, so we can immediately go and pull an item from it
-            queue_info.queue_mutex.unlock_shared();
-        }else{ //Queue is empty, so wait for a new item
-            queue_info.queue_mutex.unlock_shared();
-            queue_info.notify_condition.wait(lock);
+	bool empty=queue_info.queue.empty();
+	queue_info.queue_mutex.unlock_shared();
+
+	if (empty){ //Queue is empty, so wait for a new item
+		queue_info.notify_condition.wait(lock);
+	}
 	     
-	    if (queue_info.notify_condition.is_destructed()){ //The only time when this is set to true and you reach this part of the code is when the program is exiting, so you can safely return early. 
-		    return;
- 		}
-        }
+    	if (queue_info.notify_condition.is_destructed()){ //The only time when this is set to true and you reach this part of the code is when the program is exiting, so you can safely return early. 
+	    return;
+	}
         
         queue_info.queue_mutex.lock();
         auto present_info=queue_info.queue.front();

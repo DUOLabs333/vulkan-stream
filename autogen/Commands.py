@@ -552,7 +552,15 @@ for name, command in parsed.items():
     write(syncRanges(name))
     
     if name=="vkFreeMemory":
-        write("vkUnmapMemory(device,memory);")
+        write("""
+        MemoryMapLock.lock_shared();
+        bool memory_exists=devicememory_to_size.contains((uintptr_t)memory);
+        MemoryMapLock.unlock_shared();
+
+        if (memory_exists){ //Only unmap memory if it was mapped in the first place, avoiding warnings on the server
+            vkUnmapMemory(device,memory);
+        }
+        """)
         
     write(deregisterDeviceMemoryMap(name))
     write(f"""
