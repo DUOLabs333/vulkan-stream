@@ -3,8 +3,12 @@ The only setup that is supported is with a MacOS computer as the server and a Li
 On MacOS, the server must have MoltenVK >= 1.2.7/1.3.275
 
 To compile:
-	Simply run `build.sh`, and everything should work.
+	1. Clone my tools repo (https://github.com/DUOLabs333/tools) in the same parent directory as this repo
+	2. Download all dependencies with `update.sh`
+	3. Run `build.sh`.
+	4. Profit
 
+	
 	Caveats:
 		If you do not use Nix on the server, set `VK_LIB_PATH` to the path where the Vulkan loader resides. Make sure that the loader can pick up MoltenVK when being loaded.
 

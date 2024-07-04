@@ -5,8 +5,7 @@ else
 	export CLIENT=1
 fi
 
-(cd parse && python3 parse.py)
-(cd autogen && ls *.py | xargs -L 1 python3)
+python3 ../tools/build.py parse autogen
 
-CLEAN=1 python3 build.py
-python3 build.py
+CLEAN=1 python3 ../tools/build.py main
+python3 ../tools/build.py main
