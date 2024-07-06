@@ -22,10 +22,10 @@ class main(BuildBase):
         self.SHARED_LIBS=(["vulkan"] if CLIENT=="0" else (["xcb","X11","xcb-image"] if PLATFORM=="linux" else []))
 
         if CLIENT:
-            self.IS_LIB=True
+            self.OUTPUT_TYPE=LIB
             self.OUTPUT_NAME="vulkan_stream.so"
         else:
-            self.IS_LIB=False
+            self.OUTPUT_TYPE=EXE
             self.OUTPUT_NAME="vulkan_stream"
 
 def run_file(path):
