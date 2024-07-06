@@ -25,7 +25,7 @@ class main(BuildBase):
             self.IS_LIB=True
             self.OUTPUT_NAME="vulkan_stream.so"
         else:
-            self.IS_LIB=FALSE
+            self.IS_LIB=False
             self.OUTPUT_NAME="vulkan_stream"
 
 def run_file(path):
