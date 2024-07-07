@@ -4,8 +4,6 @@ import os
 
 #Proto-make (only recompile if changed), but I don't want to have to deal with setting up make/cmake
 
-CLIENT=string_to_bool(os.environ.get("CLIENT","0"))
-
 VK_LIB_PATH=os.path.expanduser(os.environ.get("VK_LIB_PATH","~/.nix-profile/lib"))
 
 class main(BuildBase):
@@ -16,10 +14,11 @@ class main(BuildBase):
 
     STATIC_LIBS=[get_dep_path("lz4", "lib/liblz4.a"), get_dep_path("Turbo-Base64", "libtb64.a")]
 
+    FLAGS = os.environ["VK_HEADER_FLAGS"].split(" ")
+
 
     def __init__(self):
-        self.FLAGS=(["-DCLIENT"] if CLIENT else [])+os.environ["VK_HEADER_FLAGS"].split(" ")
-        self.SHARED_LIBS=(["vulkan"] if CLIENT=="0" else (["xcb","X11","xcb-image"] if PLATFORM=="linux" else []))
+        self.SHARED_LIBS=(["vulkan"] if not CLIENT else (["xcb","X11","xcb-image"] if PLATFORM=="linux" else []))
 
         if CLIENT:
             self.OUTPUT_TYPE=LIB
