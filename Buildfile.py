@@ -16,16 +16,11 @@ class main(BuildBase):
 
     FLAGS = os.environ["VK_HEADER_FLAGS"].split(" ")
 
+    SHARED_LIBS=(["vulkan"] if not CLIENT else (["xcb","X11","xcb-image"] if PLATFORM=="linux" else []))
 
-    def __init__(self):
-        self.SHARED_LIBS=(["vulkan"] if not CLIENT else (["xcb","X11","xcb-image"] if PLATFORM=="linux" else []))
+    OUTPUT_NAME="vulkan_stream"
 
-        if CLIENT:
-            self.OUTPUT_TYPE=LIB
-            self.OUTPUT_NAME="vulkan_stream.so"
-        else:
-            self.OUTPUT_TYPE=EXE
-            self.OUTPUT_NAME="vulkan_stream"
+    OUTPUT_TYPE=LIB if CLIENT else EXE
 
 def run_file(path):
     exec(open(path,"r").read(), {"__name__": "__main__"})
