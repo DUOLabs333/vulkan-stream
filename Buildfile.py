@@ -1,18 +1,13 @@
-from sys import platform as PLATFORM
-import subprocess
 import os
+from runpy import run_path
 
-#Proto-make (only recompile if changed), but I don't want to have to deal with setting up make/cmake
-
-VK_LIB_PATH=os.path.expanduser(os.environ.get("VK_LIB_PATH","~/.nix-profile/lib"))
+conn=import_build("../tools")
 
 class main(BuildBase):
     SRC_FILES=["autogen/*","src/*", get_dep_path("shm_open_anon", "shm_open_anon.c"), get_dep_path("simdjson", "src/simdjson.cpp")]
-    INCLUDE_PATHS=["autogen","src", get_dep_path("shm_open_anon", ""), get_dep_path("Vulkan-Headers", "include"), get_dep_path("asio", "asio/include"), get_dep_path("boost",""), get_dep_path("lz4","lib"), get_dep_path("komnihash", ""), get_dep_path("Turbo-Base64", ""), get_dep_path("simdjson", "include")]
+    INCLUDE_PATHS=["autogen","src", get_dep_path("shm_open_anon", ""), get_dep_path("Vulkan-Headers", "include"), get_dep_path("boost",""), conn.library, get_dep_path("komnihash", ""), get_dep_path("Turbo-Base64", ""), get_dep_path("simdjson", "include")]
 
-    SHARED_LIBS_PATHS=[VK_LIB_PATH]
-
-    STATIC_LIBS=[get_dep_path("lz4", "lib/liblz4.a"), get_dep_path("Turbo-Base64", "libtb64.a")]
+    STATIC_LIBS=[conn.library, get_dep_path("Turbo-Base64", "libtb64.a")]
 
     FLAGS = os.environ["VK_HEADER_FLAGS"].split(" ")
 
@@ -22,9 +17,6 @@ class main(BuildBase):
 
     OUTPUT_TYPE=LIB if CLIENT else EXE
 
-def run_file(path):
-    exec(open(path,"r").read(), {"__name__": "__main__"})
-
 class autogen:
 
     def build(cls):
@@ -33,10 +25,10 @@ class autogen:
             if not file.endswith(".py"):
                 continue
 
-            run_file(file)
+            run_path(file)
 
 class parse:
     def build(cls):
         os.chdir("parse")
-        run_file("parse.py")
+        run_path("parse.py")
 

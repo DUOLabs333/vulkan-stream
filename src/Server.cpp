@@ -1,19 +1,18 @@
-#include <boost/json.hpp>
-
 #include "Server.hpp"
-#include <ThreadStruct.hpp>
-#include <Synchronization.hpp>
-#include <simdjson.h>
-#include <Serialization.hpp>
-#include <Commands.hpp>
+#include "ThreadStruct.hpp"
+#include "Synchronization.hpp"
+#include "../autogen/Serialization.hpp"
+#include "../autogen/Commands.hpp"
+
+#include <memory>
 #include <thread>
 #include <string_view>
-
-#include <sstream>
 #include <random>
-#include <asio/read.hpp>
-#include <asio/write.hpp>
-#include <lz4.h>
+#include <simdjson.h>
+#include <boost/json.hpp>
+#include <format>
+#include <functional>
+#include <glaze/glaze.hpp>
 
 typedef std::chrono::high_resolution_clock Time1;
 typedef std::chrono::duration<float> fsec;
@@ -26,8 +25,8 @@ auto uuid=distrib(gen);
 class RWError : public std::exception {
     std::string message;
     public:
-    RWError (asio::error_code ec){
-        message=ec.message();
+    RWError (bool read){
+	    message=std::format("Something has gone wrong with {}ing through the network", read ? "read" : "write");
     }
     std::string what () {
         return message;
@@ -35,20 +34,19 @@ class RWError : public std::exception {
 };
 
 #ifndef CLIENT
-    asio::io_context server_context;
-    void handleConnection(tcp::socket* socket){
+    void handleConnection(AsioConn* conn){
         //Will only be called by the server
-        
-        socket->set_option( asio::ip::tcp::no_delay( true) );
-        currStruct()->conn=socket;
+
+	auto& curr=currStruct();
+        curr.conn=conn;
         
         boost::json::object json;
         while(true){
             try{
             json=readFromConn();
             
-            if (currStruct()->uuid==-1){
-                currStruct()->uuid=value_to<int>(json["uuid"]);
+            if (curr.uuid==-1){
+                curr.uuid=value_to<int>(json["uuid"]);
             }
             
             if (static_cast<StreamType>(value_to<int>(json["stream_type"]))==SYNC){
@@ -60,7 +58,6 @@ class RWError : public std::exception {
             
             }
             catch (const RWError& e){
-                currStruct()->conn->close();
                 deleteCurrStruct();
                 break;
             }
@@ -69,158 +66,91 @@ class RWError : public std::exception {
     }
     
     void startServer(){
-        setAddressandPort();
-        tcp::acceptor acceptor(server_context, tcp::endpoint(asio::ip::make_address(address), std::stoi(port)));
-       
+	auto server=asio_server_init(0);       
         for (;;){
-            auto socket=new tcp::socket(server_context);
-            
-            acceptor.accept(*socket);
-            std::thread(handleConnection, socket).detach();
+            auto conn=asio_server_accept(server);
+
+            std::thread(handleConnection, conn).detach();
         }
+
+	asio_close(server);
     }
     
 #endif
 
+void readFromConn(std::function<void(ThreadStruct& curr, std::string_view&)> func){
+	auto& curr=currStruct();
+	bool err;
+	char* buf;
+	int len;
 
-void serializeInt(std::array<uint8_t,8>& buf, int i, uint32_t val) { //Assumes that val is a 32-bit number (almost always true). Serializes in little endian in endian-agnostic way
-    buf[i+0] = (val) & 0xFF;
-    buf[i+1] = (val >> 8) & 0xFF;
-    buf[i+2] = (val >> 16) & 0xFF;
-    buf[i+3] = (val >> 24) & 0xFF;
+	asio_read(&buf, &len, &err);
+
+	if (err){
+		throw RWError(true);
+	}
+	auto line=std::string_view(buf, len);
+
+	func(curr, line);
 }
-
-uint32_t deserializeInt(std::array<uint8_t,8>& buf, int i){ //Deserialzes from little endian in endian-agnostic way
-    return buf[i+0] | (buf[i+1] << 8) | (buf[i+2] << 16) | (buf[i+3] << 24);
-}
-
 boost::json::object readFromConn(){
-    auto curr=currStruct();
-    asio::error_code ec;
-    
-    uint8_t is_compressed=0;
-    asio::read(*(curr->conn), std::vector<asio::mutable_buffer>{asio::buffer(&is_compressed,1),asio::buffer(curr->size_buf, 8)}, ec);
-    if (ec){
-        throw RWError(ec);
-    }
-    
-    auto compressed_size=deserializeInt(curr->size_buf, 0);
-    auto input_size=deserializeInt(curr->size_buf, 4);
-    
-
-    auto compressed_data=(char*)malloc(compressed_size);
-    char* input;
-
-    asio::read(*(curr->conn), asio::buffer(compressed_data, compressed_size), ec);
-
-    if (ec){
-        throw RWError(ec);
-    }
-    
-    if (is_compressed){
-        input=(char*)malloc(input_size);
-        LZ4_decompress_safe(compressed_data, input, compressed_size, input_size);
-    }else{
-        input=compressed_data;
-    }
-    
-    auto line=std::string_view(input,input_size);
-    auto simdjson_line=simdjson::padded_string(line);
-    
-    auto doc=curr->simdparser.iterate(simdjson_line);
-    auto object = doc.get_object();
-    
-    boost::json::object json;
-    for (auto field: object){
-        auto key=field.unescaped_key().value();
-        if (key=="uuid"){
-            json[key]=field.value().get_uint64().value();
-            continue;
-        }
-        if (key=="stream_type"){ //Use Boost for anything that isn't a Sync
-            auto stream_type=field.value().get_uint64().value();
-            if (stream_type!= static_cast<int>(SYNC)){
-                 curr->parser.write(line);
-                 json=curr->parser.release().get_object();
-                 curr->parser.reset();
-                 break;
-            }else{
-                json[key]=stream_type;
-                continue;
-            }
-        }
-        if (key=="devicememory" || key=="mem"){
-            json[key]=field.value().get_uint64().value();
-        }else if (key=="unmap"){
-            json[key]=field.value().get_bool().value();
-        }else{
-            auto& boost_array=json[key].emplace_array();
-            auto simd_value=field.value().get_array();
-            simdjson::ondemand::array simd_array;
-            if (simd_value.error()){
-                continue;
-            }else{
-                simd_array=simd_value.value();
-            }
-            for (auto elem: simd_array){
-                if (key=="buffers"){
-                    boost_array.emplace_back(std::string(elem.value().get_string().value()));
-                }else{
-                    boost_array.emplace_back(elem.value().get_uint64().value());
-                }
-            }
-    }
-        }
-    
-    free(input);
-    
-    if(is_compressed){
-        free(compressed_data);
-    }
+	boost::json::object json;
+    auto func = [&] (ThreadStruct& curr, std::string_view& line) {
+	curr.parser.write(line);
+        json=curr.parser.release().get_object();
+        curr.parser.reset();
+    };
+	
+    readFromConn(func);
     return json;
 }
 
-
-static int COMPRESSION_CUTOFF= 1000000/4; //Conditionally compress at all json >COMPRESSION_CUTOFF
-//static int COMPRESSION_CUTOFF= std::numeric_limits<int>::max(); //Effectively disable compression
+void readFromConn(Sync& sync){
+	auto func = [&] (ThreadStruct&, std::string_view& line){
+		glz::read_json(sync, line);
+	};
+	
+	readFromConn(func);
+}
 
 void writeToConn(boost::json::object& json){
-    auto curr=currStruct();
+    auto& curr=currStruct();
     
     json["uuid"]=uuid;
     
-    auto line=boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true});
+    curr.serializer.reset(&json);
+    size_t size=0;
+    static int BUFFER_STEP_SIZE = 4000; //By what step should we grow the buffer each time.
 
-    auto input_size=line.size();
-    auto input=line.c_str();
-    
-    char* compressed_data;
-    int compressed_size;
-    uint8_t is_compressed;
-    
-    if (input_size>=COMPRESSION_CUTOFF){
-        auto max_compressed_size=LZ4_compressBound(input_size);
-        compressed_data=(char*)malloc(max_compressed_size);
-        
-        compressed_size=LZ4_compress_default(input, compressed_data, input_size, max_compressed_size);
-        is_compressed=1;
-    }else{
-        compressed_size=input_size;
-        compressed_data=const_cast<char*>(input); //Unsafe, but we should not be editing input
-        is_compressed=0;
+    char* output_buf;
+    uint32_t capacity = 0;
+    while(!curr.serializer.done()){
+	    output_buf=asio_get_buf(curr.conn, &capacity);
+	    auto str=curr.serializer.read(output_buf+size, capacity-size);
+	    size+=str.size();
+
+	    capacity+=BUFFER_STEP_SIZE;
     }
-    
-    serializeInt(curr->size_buf, 0, compressed_size);
-    serializeInt(curr->size_buf, 4, input_size);
-    asio::error_code ec;
-    
-    asio::write(*(curr->conn), std::vector<asio::const_buffer>{asio::buffer(&is_compressed,1),asio::buffer(curr->size_buf,8), asio::buffer(compressed_data,compressed_size)}, ec);
-    
-    if (ec){
-        throw RWError(ec);
+
+    bool err;
+
+    asio_write(curr.conn, output_buf, size, &err);
+
+    if (err){
+        throw RWError(false);
     }
-    
-    if(is_compressed){
-        free(compressed_data);
-    }
+}
+
+void writeToConn(Sync& sync){
+	auto& curr=currStruct();
+	#if 1
+	auto json=boost::json::value_from<Sync>(sync); //If this doesn't work, read below for a hacky work around
+	#else
+		glz::write_json(sync, curr.glaze_str);
+		curr.parser.write(line);
+		auto json=curr.parser.release().get_object();
+		curr.parser.reset();
+	#endif
+
+	return writeToConn(json);
 }
