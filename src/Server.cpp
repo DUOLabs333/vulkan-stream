@@ -143,14 +143,16 @@ void writeToConn(boost::json::object& json){
 
 void writeToConn(Sync& sync){
 	auto& curr=currStruct();
+	
 	#if 1
-	auto json=boost::json::value_from<Sync>(sync); //If this doesn't work, read below for a hacky work around
+	    auto json=boost::json::value_from<Sync>(sync); //If this doesn't work, read below for a hacky work around
 	#else
 		glz::write_json(sync, curr.glaze_str);
 		curr.parser.write(line);
 		auto json=curr.parser.release().get_object();
 		curr.parser.reset();
-	#endif
-
+	#endif 
+    	json["stream_type"]=static_cast<int>(SYNC);
+	
 	return writeToConn(json);
 }

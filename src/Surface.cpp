@@ -65,20 +65,20 @@ std::unordered_map<VkDeviceSize,VkBuffer> buffers;
 std::atomic_bool present_skip; //Whether associated swapchains should skip the actual presenting
 } DeviceInfo;
 
-std::unordered_map<uintptr_t, SurfaceInfo> surface_to_info;
-std::unordered_map<uintptr_t, SwapchainInfo> swapchain_to_info;
-std::unordered_map<uintptr_t, DeviceInfo> device_to_info;
+std::unordered_map<uint64_t, SurfaceInfo> surface_to_info;
+std::unordered_map<uint64_t, SwapchainInfo> swapchain_to_info;
+std::unordered_map<uint64_t, DeviceInfo> device_to_info;
 
 //device maps to a map of different sized buffers
 //Each buffer maps to a devicememory
 //Each devicememory maps to a pointer
 
-std::unordered_map<uintptr_t, VkDeviceSize> image_to_size;
-std::unordered_map<uintptr_t, VkDeviceMemory> buffer_to_devicememory;
-std::unordered_map<uintptr_t, void*> devicememory_to_mapped;
+std::unordered_map<uint64_t, VkDeviceSize> image_to_size;
+std::unordered_map<uint64_t, VkDeviceMemory> buffer_to_devicememory;
+std::unordered_map<uint64_t, void*> devicememory_to_mapped;
 
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
-    auto& surface_info=surface_to_info[(uintptr_t)pSurface];
+    auto& surface_info=surface_to_info[(uint64_t)pSurface];
     surface_info.type=type;
     
     switch (type){
@@ -121,15 +121,15 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
 }
 
 VkDevice getSwapchainDevice(VkSwapchainKHR swapchain){
-    return swapchain_to_info[(uintptr_t)swapchain].device;
+    return swapchain_to_info[(uint64_t)swapchain].device;
 }
 
 void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device){
-    device_to_info[(uintptr_t)device].physical_device=phyiscal_device;
+    device_to_info[(uint64_t)device].physical_device=phyiscal_device;
 }
  
 void updateCounter(VkDevice device, int direction){
-    auto& counter_info=device_to_info[(uintptr_t)device].counter_info;
+    auto& counter_info=device_to_info[(uint64_t)device].counter_info;
     
     counter_info.c+=direction;
     
@@ -138,7 +138,7 @@ void updateCounter(VkDevice device, int direction){
     }
 }
 void waitForCounterIdle(VkDevice device){
-    auto& device_info=device_to_info[(uintptr_t)device];
+    auto& device_info=device_to_info[(uint64_t)device];
     auto& counter_info=device_info.counter_info;
 
     if (counter_info.c.load()==0){ //Indicates that there is no present currently enqueued.
@@ -155,7 +155,7 @@ void waitForCounterIdle(VkDevice device){
 }
 
 VkDeviceSize getImageSize(VkDevice device, VkImage image){
-auto key = (uintptr_t)image;
+auto key = (uint64_t)image;
 
 if (image_to_size.contains(key)){
     return image_to_size[key];
@@ -172,8 +172,8 @@ return memory_reqirements.size;
 }
 
 VkQueue getQueue(VkDevice device,uint32_t& pIndex){
-auto& info=device_to_info[(uintptr_t)device];
-auto key=(uintptr_t)device;
+auto& info=device_to_info[(uint64_t)device];
+auto key=(uint64_t)device;
 if (info.queue!=VK_NULL_HANDLE){
     pIndex=info.queue_family_index;
     return info.queue;
@@ -206,7 +206,7 @@ return queue;
 }
 
 VkCommandBuffer getCommandBuffer(VkDevice device){ 
-auto& info=device_to_info[(uintptr_t)device];
+auto& info=device_to_info[(uint64_t)device];
 if (info.command_buffer!=VK_NULL_HANDLE){
     return info.command_buffer;
 }
@@ -243,7 +243,7 @@ return command_buffer;
 VkBuffer getBuffer(VkDevice device, VkDeviceSize& size){ //Gets buffer that is at least as big as *size
 //Should really be swapchain to buffer, as a device could have multiple swapchains running at the same time
 
-auto& info=device_to_info[(uintptr_t)device];
+auto& info=device_to_info[(uint64_t)device];
 
 if (info.buffers.contains(size)){
     return info.buffers[size];
@@ -311,7 +311,7 @@ VkDeviceMemory memory;
 vkAllocateMemory(device,&memory_allocate_info,NULL, &memory);
 vkBindBufferMemory(device, buffer,memory,0);
 
-buffer_to_devicememory[(uintptr_t)buffer]=memory;
+buffer_to_devicememory[(uint64_t)buffer]=memory;
 return buffer;      
 }
 
@@ -404,8 +404,8 @@ size=getImageSize(device, image);
 VkDeviceSize buffer_size=size;
 auto buffer=getBuffer(device,buffer_size);
 
-auto memory=buffer_to_devicememory[(uintptr_t)buffer];
-auto key=(uintptr_t)memory;
+auto memory=buffer_to_devicememory[(uint64_t)buffer];
+auto key=(uint64_t)memory;
 
 if (devicememory_to_mapped.contains(key)){
     *data=devicememory_to_mapped[key];
@@ -429,7 +429,7 @@ return;
 }
 
 void pushToQueue(VkFence fence, VkSwapchainKHR swapchain, uint32_t index){
-auto& info= swapchain_to_info[(uintptr_t)swapchain];
+auto& info= swapchain_to_info[(uint64_t)swapchain];
 auto& queue_info= info.queue_info;
 
 queue_info.queue_mutex.lock();
@@ -444,7 +444,7 @@ queue_info.queue_mutex.unlock();
 }
 
 void HandleSwapchainQueue(VkSwapchainKHR swapchain){
-    auto& info=swapchain_to_info[(uintptr_t)swapchain];
+    auto& info=swapchain_to_info[(uint64_t)swapchain];
     auto& queue_info=info.queue_info;
     
     std::unique_lock<std::mutex> lock(queue_info.notify_mutex);
@@ -467,13 +467,13 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
         queue_info.queue.pop();
         queue_info.queue_mutex.unlock();
         if (present_info.fence==VK_NULL_HANDLE){
-            swapchain_to_info.erase((uintptr_t)swapchain);
+            swapchain_to_info.erase((uint64_t)swapchain);
             break;
         }
 
         auto device=info.device; //The image can come from a different device
         
-	if(device_to_info[(uintptr_t)device].present_skip.load()==true){ //Skip presentation
+	if(device_to_info[(uint64_t)device].present_skip.load()==true){ //Skip presentation
 		updateCounter(device, -1);
 		continue;
 	}
@@ -491,11 +491,11 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
 	
         auto& surface=info.surface;
         
-        if (!surface_to_info.contains((uintptr_t)surface)){
+        if (!surface_to_info.contains((uint64_t)surface)){
             continue;
         }
         
-        auto& surface_info=surface_to_info[(uintptr_t)surface];
+        auto& surface_info=surface_to_info[(uint64_t)surface];
         
         switch (surface_info.type){
         
@@ -557,7 +557,7 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
 }
 
 void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapchainCreateInfoKHR* create_info){
-    auto& info=swapchain_to_info[(uintptr_t)swapchain];
+    auto& info=swapchain_to_info[(uint64_t)swapchain];
     
     info.surface=create_info->surface;
     info.extent=create_info->imageExtent;

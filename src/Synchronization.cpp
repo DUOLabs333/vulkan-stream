@@ -19,31 +19,83 @@ extern "C" {
     #include <sys/mman.h>
 #endif
 
-std::unordered_map<uintptr_t,int> allocated_mems;
-std::unordered_map<uintptr_t,uintptr_t> client_to_server_mem;
-std::unordered_map<uintptr_t,uintptr_t> server_to_client_mem;
+std::unordered_map<uint64_t,int> allocated_mems;
+std::unordered_map<uint64_t,uint64_t> client_to_server_mem;
+std::unordered_map<uint64_t,uint64_t> server_to_client_mem;
 
 typedef struct {
 int fd;
 VkDeviceSize size;
 void* mem;
-uintptr_t server_devicememory; //So we can tell the server what deviceMemory to delete when unmapping
+uint64_t server_devicememory; //So we can tell the server what deviceMemory to delete when unmapping
 uint64_t prev_hash =0;
 bool coherent;
 } MemInfo;
 
-typedef std::unordered_map<uintptr_t,MemInfo*> mem_info_map;
-#ifdef CLIENT
-    mem_info_map devicememory_to_mem_info;
-#else
-    std::unordered_map<int, mem_info_map> uuid_to_map;
-#endif
+template<typename K, typename V>
+class Map {
+	private:
+	typedef std::unordered_map<K, V> map_type;
+	#ifdef CLIENT
+		map_type _map;
+	#else
+		std::unordered_map<int, map_type> _map;
+	#endif
+	public:
+		V& operator[](const K key){
+			#ifdef CLIENT
+				return _map[key];
+			#else
+				return _map[currStruct().uuid][key];
+			#end
+		}
 
-uint64_t HashMem(void* mem, uintptr_t start, uintptr_t length) {
+		bool contains(const K key){
+			#ifdef CLIENT
+				return _map.contains(key);
+			#else
+				auto uuid=currStruct().uuid;
+				return _map.contains(uuid) && _map[uuid].contains(key);
+			#end
+		}
+
+		void erase(const K key){
+			#ifdef CLIENT
+				_map.erase(key);
+			#else	
+				auto uuid=currStruct().uuid;
+				_map[uuid].erase(key);
+				if (_map[uuid].empty()){
+					_map.erase(uuid);
+				}
+			#end
+		}
+
+		map_type::iterator begin(){
+			#ifdef CLIENT
+				return _map.begin();
+			#else
+				return _map[currStruct().uuid].begin();
+			#endif
+		}
+
+		map_type::iterator end(){
+			#ifdef CLIENT
+				return _map.end();
+			#else
+				return _map[currStruct().uuid].end();
+			#endif
+		}
+			
+}		
+
+Map<uintptr_t,MemInfo> devicememory_to_mem_info;
+
+uint64_t HashMem(void* mem, uint64_t start, uint64_t length) {
     return komihash((char*)mem+start, length, 500);
 }
 
-void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_mem){
+void registerClientServerMemoryMapping(uint64_t client_mem, uint64_t server_mem){
     debug_printf("Memory mapping in progress...\n");
 
     client_to_server_mem[client_mem]=server_mem;
@@ -51,7 +103,7 @@ void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_me
 
 }
 
-void deregisterClientServerMemoryMapping(uintptr_t client_mem){
+void deregisterClientServerMemoryMapping(uint64_t client_mem){
     debug_printf("Memory unmapping in progress...\n");
 
     auto server_mem=client_to_server_mem[client_mem];
@@ -62,71 +114,59 @@ void deregisterClientServerMemoryMapping(uintptr_t client_mem){
 
 }
 
-void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem, bool coherent){
-debug_printf("DeviceMemory mapping in progress...\n");
-auto info=new MemInfo();
-info->size=size;
-info->coherent=coherent;
-#ifdef CLIENT
-    info->fd=shm_open_anon(); //Make new place for memory
-    ftruncate(info->fd,info->size);
-    
-    info->mem=mmap(NULL,info->size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, info->fd,0);
-    
-    auto client_mem=(uintptr_t)(info->mem);
-    
-    registerClientServerMemoryMapping(client_mem, server_mem);
-    
-    memcpy(info->mem,mem,info->size);
-    
-    info->server_devicememory=server_memory;
-    devicememory_to_mem_info[(uintptr_t)memory]=info;
-    
-    free(mem); //Important: This only applies to the client --- the memory must still be alive on the server
-#else
-info->mem=(void*)server_mem;
-uuid_to_map[currStruct()->uuid][(uintptr_t)memory]=info;
-#endif
+void* registerDeviceMemoryMap(uint64_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uint64_t server_mem, bool coherent){
+	debug_printf("DeviceMemory mapping in progress...\n");
+	
+	auto& info=devicememory_to_mem_info[(uint64_t)memory];
 
-return info->mem;
+	info.size=size;
+	info.coherent=coherent;
+	#ifdef CLIENT
+	    info.fd=shm_open_anon(); //Make new place for memory
+	    ftruncate(info.fd,info.size);
+	    
+	    info.mem=mmap(NULL,info.size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, info.fd,0);
+	    
+	    auto client_mem=(uint64_t)(info.mem);
+	    
+	    registerClientServerMemoryMapping(client_mem, server_mem);
+	    
+	    memcpy(info.mem,mem,info.size);
+	    
+	    info.server_devicememory=server_memory;    
+	    free(mem); //Important: This only applies to the client --- the memory must still be alive on the server
+	#else
+		info.mem=(void*)server_mem;
+	#endif
+
+	return info.mem;
 }
 
 void deregisterDeviceMemoryMap(VkDeviceMemory memory){
 debug_printf("DeviceMemory unmapping in progress...\n");
-auto key=(uintptr_t)memory;
+	auto key=(uint64_t)memory;
 
-#ifdef CLIENT
-    if (!devicememory_to_mem_info.contains(key)){ //Already deregistered
-        return;
-    }
-    auto info=devicememory_to_mem_info[key];
-    SyncOne(memory, 0, VK_WHOLE_SIZE, true);
-    deregisterClientServerMemoryMapping((uintptr_t)(info->mem));
-    munmap(info->mem, info->size);
-    close(info->fd);
-    devicememory_to_mem_info.erase(key);
-#else
-    if (!uuid_to_map.contains(currStruct()->uuid) || !uuid_to_map[currStruct()->uuid].contains(key) ){ //Already deregistered
-        return;
-    }
-    auto info=uuid_to_map[currStruct()->uuid][key];
-    uuid_to_map[currStruct()->uuid].erase(key);
-#endif
+	if (!devicememory_to_mem_info.contains(key)){ //Already deregistered
+		return;
+	}
 
+	#ifdef CLIENT
+	    auto& info=devicememory_to_mem_info[key];
+	    SyncOne(memory, 0, VK_WHOLE_SIZE, true);
+	    deregisterClientServerMemoryMapping((uint64_t)(info.mem));
+	    munmap(info.mem, info.size);
+	    close(info.fd);
+	#endif
 
-delete info;
-
+	devicememory_to_mem_info.erase(key);
 }
 
 void registerAllocatedMem(void* mem, int size){
-    allocated_mems[(uintptr_t)mem]=size;
+    allocated_mems[(uint64_t)mem]=size;
 }
-void handle_sync_response(boost::json::object& json){
+void handle_sync_response(Sync& sync){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
-    
-    Sync sync;
-    deserialize_Sync(json, sync);
-    
+
     #ifdef CLIENT
         void* mem=(char*)server_to_client_mem[sync.mem];
     #else
@@ -138,7 +178,7 @@ void handle_sync_response(boost::json::object& json){
         tb64dec(reinterpret_cast<const unsigned char*>(sync.buffers[i].data()), sync.buffers[i].size(), reinterpret_cast<unsigned char*>((char*)mem+sync.starts[i]));
     }
     
-    json.clear();
+    boost::json::object json;
     writeToConn(json);
 }
 
@@ -146,8 +186,9 @@ void handle_sync_init(boost::json::object& json){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
     
     Sync sync;
-    deserialize_Sync(json, sync);
-    
+    auto str=boost::json::serialize(json);
+    glz::read_json(sync,str);
+
     #ifdef CLIENT
         if (!server_to_client_mem.contains(sync.mem)){
             debug_printf("Panic! It's not found!\n");
@@ -173,22 +214,20 @@ void handle_sync_init(boost::json::object& json){
         }
     }
     
-    serialize_Sync(json, sync);
-    writeToConn(json);
+    writeToConn(sync);
     
-    json=readFromConn();
-    handle_sync_response(json);
+    handle_sync_response(sync);
     
     if (sync.devicememory!=0 && !sync.unmap && starts.size()>0){
         #ifdef CLIENT
             auto server_devicememory=boost::json::value(sync.devicememory);
             VkDeviceMemory client_devicememory;
             deserialize_VkDeviceMemory(server_devicememory, client_devicememory);
-            auto info=devicememory_to_mem_info[(uintptr_t)client_devicememory];
-        #else
-            auto info=uuid_to_map[currStruct()->uuid][sync.devicememory];
-        #endif
-        info->prev_hash=HashMem(info->mem, 0, info->size);
+	#endif
+
+	
+        auto& info=devicememory_to_mem_info[(uint64_t)client_devicememory];
+        info.prev_hash=HashMem(info.mem, 0, info.size);
     }
     
     #ifndef CLIENT
@@ -200,12 +239,9 @@ void handle_sync_init(boost::json::object& json){
     
 }
 
-void handle_sync_request(boost::json::object& json){
+void handle_sync_request(Sync& sync){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
-    
-    Sync sync;
-    deserialize_Sync(json, sync);
-    
+        
     #ifdef CLIENT
         void* mem=(void*)server_to_client_mem[sync.mem];
     #else
@@ -237,13 +273,12 @@ void handle_sync_request(boost::json::object& json){
         }
     }
     
-    serialize_Sync(json, sync);
-    writeToConn(json);
+    writeToConn(sync);
     
     readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
 }
 
-void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, bool unmap){
+void SyncOne(uint64_t devicememory, void* mem, int offset, size_t length, bool unmap){
 
     //int parts=floor(sqrt(length));
     //int parts=10;
@@ -255,7 +290,7 @@ void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, bool 
     
      if (devicememory!=0){
         #ifdef CLIENT
-            sync.devicememory=devicememory_to_mem_info[devicememory]->server_devicememory;
+            sync.devicememory=devicememory_to_mem_info[devicememory].server_devicememory;
         #else
             sync.devicememory=devicememory;
         #endif
@@ -267,9 +302,9 @@ void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, bool 
     sync.unmap=unmap;
     
     #ifdef CLIENT
-        sync.mem=client_to_server_mem[(uintptr_t)mem];
+        sync.mem=client_to_server_mem[(uint64_t)mem];
     #else
-        sync.mem=(uintptr_t)mem;
+        sync.mem=(uint64_t)mem;
     #endif
     
     for (int i=0; i<remainder; i++){
@@ -288,46 +323,37 @@ void SyncOne(uintptr_t devicememory, void* mem, int offset, size_t length, bool 
     
     boost::json::object json;
     
-    serialize_Sync(json, sync);
-    writeToConn(json);
-    
-    json=readFromConn();
-    handle_sync_request(json);
+    writeToConn(sync);
+    readFromConn(sync);
+    handle_sync_request(sync);
 }
 
 void SyncOne(VkDeviceMemory memory, int offset, VkDeviceSize size, bool unmap){
-    auto devicememory=(uintptr_t)memory;
+    auto devicememory=(uint64_t)memory;
     
-    #ifdef CLIENT
-        auto info=devicememory_to_mem_info[devicememory];
-    #else
-        auto info=uuid_to_map[currStruct()->uuid][devicememory];
-    #endif
-    
+    auto& info=devicememory_to_mem_info[devicememory];
+
+
     if (size==VK_WHOLE_SIZE){
-        size=info->size-offset;
+        size=info.size-offset;
     }
     
     if (!unmap){
-        auto hash=HashMem(info->mem, 0, info->size);
-        if (hash==info->prev_hash){
+        auto hash=HashMem(info.mem, 0, info.size);
+        if (hash==info.prev_hash){
             return;
         }
-        info->prev_hash=hash;
+        info.prev_hash=hash;
     }
-    SyncOne(devicememory, info->mem, offset, size, unmap);
+    SyncOne(devicememory, info.mem, offset, size, unmap);
 }
 
 void SyncAll(){
-#ifdef CLIENT
-for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
-#else
-for (auto& [devicememory, mem_info] : uuid_to_map[currStruct()->uuid]){
-#endif
-    if (mem_info->coherent){
-        SyncOne((VkDeviceMemory)devicememory, 0, VK_WHOLE_SIZE, false);
-    }
-}
+	for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
+	    if (mem_info.coherent){
+		SyncOne((VkDeviceMemory)devicememory, 0, VK_WHOLE_SIZE, false);
+	    }
+	}
 }
 
 void SyncAllocations(){

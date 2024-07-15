@@ -11,8 +11,11 @@ std::shared_mutex thread_lock;
 ThreadStruct& currStruct(){
     auto thread_id=std::this_thread::get_id();
     
-    thread_lock.lock();
+    thread_lock.lock_shared();
     auto contains=thread_to_struct.contains(thread_id);
+    thread_lock.unlock_shared();
+
+    thread_lock.lock();
     auto& result=thread_to_struct[thread_id];
     thread_lock.unlock();
 

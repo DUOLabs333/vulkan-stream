@@ -25,16 +25,16 @@ typedef struct DeviceMemoryInfo {
       bool mapped=false;
 } DeviceMemoryInfo;
 
-std::unordered_map<uintptr_t, DeviceMemoryInfo> devicememory_to_info;
+std::unordered_map<uint64_t, DeviceMemoryInfo> devicememory_to_info;
 
-std::unordered_map<uintptr_t, VkPhysicalDeviceMemoryProperties> device_to_memory_properties;
+std::unordered_map<uint64_t, VkPhysicalDeviceMemoryProperties> device_to_memory_properties;
 
 void saveDeviceMemoryInfo(VkDevice device, VkDeviceMemory memory, int type_index, VkDeviceSize size){
 
-    auto& info=devicememory_to_info[(uintptr_t)memory];
+    auto& info=devicememory_to_info[(uint64_t)memory];
     info.size=size;
     
-    auto memory_flags=device_to_memory_properties[(uintptr_t)device].memoryTypes[type_index].propertyFlags;
+    auto memory_flags=device_to_memory_properties[(uint64_t)device].memoryTypes[type_index].propertyFlags;
     
     info.coherent=((memory_flags & VK_MEMORY_PROPERTY_HOST_COHERENT_BIT) == VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
 
@@ -44,7 +44,7 @@ void saveDeviceInfo(VkDevice device, VkPhysicalDevice physical_device){
     auto memory_properties=VkPhysicalDeviceMemoryProperties{};
     vkGetPhysicalDeviceMemoryProperties(physical_device,&memory_properties);
     
-    device_to_memory_properties[(uintptr_t)device]=memory_properties;
+    device_to_memory_properties[(uint64_t)device]=memory_properties;
 }
 
 #include <Surface.hpp>
@@ -75,13 +75,13 @@ def registerDeviceMemoryMap(name,mem):
         boost::json::value server_memory_json;
         serialize_VkDeviceMemory(server_memory_json, {memory});
         
-        auto server_memory=value_to<uintptr_t>(server_memory_json); 
+        auto server_memory=value_to<uint64_t>(server_memory_json); 
         
         #ifdef CLIENT
             *ppData=malloc({size});
         #endif
         
-        auto& memory_info=devicememory_to_info[(uintptr_t){memory}];
+        auto& memory_info=devicememory_to_info[(uint64_t){memory}];
         memory_info.mapped=true;
         auto coherent=memory_info.coherent;
 
@@ -108,7 +108,7 @@ def deregisterDeviceMemoryMap(name):
         return f"""
         deregisterDeviceMemoryMap({memory});
 
-        devicememory_to_info[(uintptr_t)({memory})].mapped=false;
+        devicememory_to_info[(uint64_t)({memory})].mapped=false;
         """
     else:
         return ""
@@ -138,7 +138,7 @@ def syncRanges(name):
     {guard}
         for(int i=0; i< memoryRangeCount; i++){{
             auto range=pMemoryRanges[i];
-            SyncOne(range.memory, range.offset-devicememory_to_info[(uintptr_t)range.memory].offset, range.size, false);
+            SyncOne(range.memory, range.offset-devicememory_to_info[(uint64_t)range.memory].offset, range.size, false);
         }}
     #endif
     """
@@ -289,11 +289,11 @@ for name, command in parsed.items():
     write(f"""json["stream_type"]={name.upper()};""")
     
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
-        write("""json["result"]=(uintptr_t)result;""")
+        write("""json["result"]=(uint64_t)result;""")
     else:
         write(convert("result","""json["result"]""",command, serialize=True))
     
-    write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
+    write(registerDeviceMemoryMap(name,"(uint64_t)(*ppData)"))
     
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
@@ -349,7 +349,7 @@ VkInstance instance;
 VkDevice device;
 } parent_handle_struct;
 
-std::unordered_map<uintptr_t,parent_handle_struct> handle_to_parent_handle_struct;
+std::unordered_map<uint64_t,parent_handle_struct> handle_to_parent_handle_struct;
 
 """)
 write("""extern "C" {""")
@@ -438,7 +438,7 @@ for name, command in parsed.items():
     #Just set the children's struct to the parent
     if parsed[head["type"]]["kind"]=="handle":
         write(f"""
-        auto parent=handle_to_parent_handle_struct[(uintptr_t){head["name"]}];
+        auto parent=handle_to_parent_handle_struct[(uint64_t){head["name"]}];
         
         if (parent.device!=NULL){{
             parent_json["type"]=PARENT_DEVICE;
@@ -451,7 +451,7 @@ for name, command in parsed.items():
     else:
         write("""
         parent_json["type"]=PARENT_INSTANCE;
-        parent_json["handle"]=(uintptr_t)NULL;
+        parent_json["handle"]=(uint64_t)NULL;
         """)
     
     if name=="vkEnumerateInstanceExtensionProperties":
@@ -472,14 +472,14 @@ for name, command in parsed.items():
     if name=="vkMapMemory":
         write("""
         if (size==VK_WHOLE_SIZE){
-            size=devicememory_to_info[(uintptr_t)memory].size-offset;
+            size=devicememory_to_info[(uint64_t)memory].size-offset;
         }
         """)
     elif name=="vkMapMemory2KHR":
         write("""
         if (pMemoryMapInfo->size==VK_WHOLE_SIZE){
             VkMemoryMapInfoKHR new_map_info=*pMemoryMapInfo;
-            new_map_info.size=devicememory_to_info[(uintptr_t)new_map_info.memory].size-new_map_info.offset;
+            new_map_info.size=devicememory_to_info[(uint64_t)new_map_info.memory].size-new_map_info.offset;
             pMemoryMapInfo=&new_map_info;
         }
         """)
@@ -567,7 +567,7 @@ for name, command in parsed.items():
     if name=="vkFreeMemory":
         write("""
         MemoryMapLock.lock_shared();
-        bool memory_is_mapped=(devicememory_to_info.contains((uintptr_t)memory) && devicememory_to_info[(uintptr_t)memory].mapped);
+        bool memory_is_mapped=(devicememory_to_info.contains((uint64_t)memory) && devicememory_to_info[(uint64_t)memory].mapped);
         MemoryMapLock.unlock_shared();
 
         if (memory_is_mapped){ //Only unmap memory if it was mapped in the first place, avoiding warnings on the server
@@ -672,7 +672,7 @@ for name, command in parsed.items():
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 debug_printf("Retrieving {command_name}...\\n");
-                result= (value_to<uintptr_t>(json["result"])!=(uintptr_t)NULL) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
+                result= (value_to<uint64_t>(json["result"])!=(uint64_t)NULL) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
             }}
             """)
@@ -701,20 +701,20 @@ for name, command in parsed.items():
                 break
                 
             if handle["type"]=="VkDevice":
-                write(f"""handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]={{.instance=NULL,.device=(*{handle["name"]}) }};""")
+                write(f"""handle_to_parent_handle_struct[(uint64_t)(*{handle["name"]})]={{.instance=NULL,.device=(*{handle["name"]}) }};""")
             elif handle["type"]=="VkInstance":
-                write(f"""handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]={{.instance=(*{handle["name"]}),.device=NULL}};""")
+                write(f"""handle_to_parent_handle_struct[(uint64_t)(*{handle["name"]})]={{.instance=(*{handle["name"]}),.device=NULL}};""")
             elif len(handle["length"])>0 and handle["length"][-1]!="":
                 write(f"""
                 if ({handle["name"]}!=NULL){{
                     for (int i=0; i<{handle["length"][-1]}; i++){{
-                        handle_to_parent_handle_struct[(uintptr_t)({handle["name"]}[i])]=parent;
+                        handle_to_parent_handle_struct[(uint64_t)({handle["name"]}[i])]=parent;
                     }}
                 }}
                 """)
             else:
                 write(f"""
-                handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]=parent;
+                handle_to_parent_handle_struct[(uint64_t)(*{handle["name"]})]=parent;
                 """)
     if name=="vkCreateSwapchainKHR":
         write("registerSwapchain(*pSwapchain,device, pCreateInfo);")
@@ -727,7 +727,7 @@ for name, command in parsed.items():
     if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
     
-    write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(json["mem"])"""))
+    write(registerDeviceMemoryMap(name, """value_to<uint64_t>(json["mem"])"""))
     
     if name.startswith("vkMapMemory"):
         write("""
@@ -778,7 +778,7 @@ for name, command in parsed.items():
                 if handle["type"]=="VkDeviceMemory":
                     write(f"""
                     MemoryMapLock.lock();
-                    devicememory_to_info.erase((uintptr_t)({handle["name"]}));
+                    devicememory_to_info.erase((uint64_t)({handle["name"]}));
                     MemoryMapLock.unlock();
                     """)
                 write(f"""delete_{handle["type"]}({handle["name"]});""")

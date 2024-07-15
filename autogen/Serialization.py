@@ -44,41 +44,15 @@ write("};",header=True)
 
 write("""
 typedef struct {
-uintptr_t devicememory = 0;
-uintptr_t mem;
+uint64_t devicememory = 0;
+uint64_t mem;
 std::vector<size_t> starts;
 std::vector<size_t> lengths;
 std::vector<uint64_t> hashes;
 std::vector<std::string> buffers;
 bool unmap = false;
 } Sync;
-
-void serialize_Sync(boost::json::object&, Sync&);
-void deserialize_Sync(boost::json::object&, Sync&);
 """,header=True)
-
-write("""
-void serialize_Sync(boost::json::object& json, Sync& sync){
-    json["devicememory"]=sync.devicememory;
-    json["mem"]=sync.mem;
-    json["hashes"]=boost::json::value_from(sync.hashes);
-    json["lengths"]=boost::json::value_from(sync.lengths);
-    json["starts"]=boost::json::value_from(sync.starts);
-    json["buffers"]=boost::json::value_from(sync.buffers);
-    json["unmap"]=sync.unmap;
-    json["stream_type"]=static_cast<int>(SYNC);
-}
-
-void deserialize_Sync(boost::json::object& json, Sync& sync){
-    sync.devicememory=boost::json::value_to<uintptr_t>(json["devicememory"]);
-    sync.mem=boost::json::value_to<uintptr_t>(json["mem"]);
-    sync.hashes=boost::json::value_to<std::vector<uint64_t>>(json["hashes"]);
-    sync.lengths=boost::json::value_to<std::vector<size_t>>(json["lengths"]);
-    sync.starts=boost::json::value_to<std::vector<size_t>>(json["starts"]);
-    sync.buffers=boost::json::value_to<std::vector<std::string>>(json["buffers"]);
-    sync.unmap=boost::json::value_to<bool>(json["unmap"]);
-}
-""")
 
 write("""
 #include <shared_mutex>
@@ -127,13 +101,13 @@ typedef struct {
 """)
 
 for member in pUserData_members:
-    write(f"uintptr_t {member};")
+    write(f"uint64_t {member};")
 write("} pUserData_struct;")
 
 for name,funcpointer in parsed.items():
     if funcpointer["kind"]!="funcpointer":
         continue
-    write(f"std::unordered_map<uintptr_t,{name}> id_to_{name};")
+    write(f"std::unordered_map<uint64_t,{name}> id_to_{name};")
 
 #Return Null if not found
 
@@ -164,10 +138,10 @@ for name, struct in parsed.items():
                     auto result= new {name};
                     result->pNext=NULL;
 
-                    member=result;
+ member=result;
                 }}
 
-                deserialize_struct(json, *(({name}* )member));
+    deserialize_struct(json, *(({name}* )member));
                 return;
             }});
         }}
@@ -297,10 +271,10 @@ for name, struct in parsed.items():
         
         for member in members:
             if member["type"] in pUserData_members:
-                write(f"""json["{member["type"]}"]=(uintptr_t)(member.{member["name"]});""")
+                write(f"""json["{member["type"]}"]=(uint64_t)(member.{member["name"]});""")
                 write(f"""
                 #ifdef CLIENT
-                id_to_{member["type"]}[(uintptr_t)(member.{member["name"]})]=member.{member["name"]};
+                id_to_{member["type"]}[(uint64_t)(member.{member["name"]})]=member.{member["name"]};
                 #endif
                 """)
         write("}")
@@ -316,7 +290,7 @@ for name, struct in parsed.items():
         write(convert("pUserData->pUserData",'json["pUserData"]',pUserData_info,serialize=False,initialize=True))
         for member in members:
             if member["type"] in pUserData_members:
-                write(f"""pUserData->{member["type"]}=(value_to<uintptr_t>(json["{member["type"]}"]));""")
+                write(f"""pUserData->{member["type"]}=(value_to<uint64_t>(json["{member["type"]}"]));""")
         write("""
         #endif
         member.pUserData=pUserData;
@@ -433,7 +407,7 @@ for name,funcpointer in parsed.items():
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write("""
             registerAllocatedMem(result,size);
-            json["mem"]=(uintptr_t)result;
+            json["mem"]=(uint64_t)result;
 
             writeToConn(json); //Send memory to client so it can store it
             readFromConn(); //Get the confirmation that the client has registered the memory
@@ -455,7 +429,7 @@ for name,funcpointer in parsed.items():
              auto line=boost::json::serialize(json,boost::json::serialize_options{{.allow_infinity_and_nan=true}});
 
             // Recieved data from server's {name} wrapper, and will execute the actual function
-            auto funcpointer=id_to_{name}[value_to<uintptr_t>(json["id"])];
+            auto funcpointer=id_to_{name}[value_to<uint64_t>(json["id"])];
         """)
         
         #Just in case if they change when executing (none of the variables are const)
@@ -482,7 +456,7 @@ for name,funcpointer in parsed.items():
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write("""
             json=readFromConn();
-            registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(json["mem"]) );
+            registerClientServerMemoryMapping((uint64_t)result, value_to<uint64_t>(json["mem"]) );
 
             json.clear();
             writeToConn(json); //Send empty message to signal to the server the mapping is complete
@@ -518,30 +492,30 @@ for handle in parsed:
         #The loader may want to write to this handle, so we make our own in our address space, so there won't be a semgnetation fault.
         write(f"""
         #ifdef CLIENT
-            std::unordered_map<uintptr_t,uintptr_t> client_{handle}_to_server_{handle};
-            std::unordered_map<uintptr_t,uintptr_t> server_{handle}_to_client_{handle};
+            std::unordered_map<uint64_t,uint64_t> client_{handle}_to_server_{handle};
+            std::unordered_map<uint64_t,uint64_t> server_{handle}_to_client_{handle};
             std::shared_mutex {handle}_lock;
             
         #endif
         """)
         write(f"""
         void serialize_{handle}(boost::json::value& json, const {handle}& data){{
-            uintptr_t result;
+            uint64_t result;
             #ifdef CLIENT
                 if (data==NULL){{
-                    result=(uintptr_t)NULL;
+                    result=(uint64_t)NULL;
                     debug_printf("{handle} handle is NULL, serializing to %p...\\n",result);
                 }}else{{
                     {handle}_lock.lock_shared();
-                    if(!(client_{handle}_to_server_{handle}.contains( (uintptr_t)data ))){{
+                    if(!(client_{handle}_to_server_{handle}.contains( (uint64_t)data ))){{
                         debug_printf("Panic: {handle} %p not found!\\n",data);
                     }}
-                     debug_printf("Serializing {handle} %p...\\n",({handle})client_{handle}_to_server_{handle}[(uintptr_t)data]);
-                    result=client_{handle}_to_server_{handle}[(uintptr_t)data];
+                     debug_printf("Serializing {handle} %p...\\n",({handle})client_{handle}_to_server_{handle}[(uint64_t)data]);
+                    result=client_{handle}_to_server_{handle}[(uint64_t)data];
                     {handle}_lock.unlock_shared();
                 }}
             #else
-                result=(uintptr_t)data;
+                result=(uint64_t)data;
             #endif
         """)
         write("""
@@ -554,26 +528,27 @@ for handle in parsed:
         write(f"""
           void deserialize_{handle}(boost::json::value& json, {handle}& member){{
                 {handle} result;
-                auto data=value_to<uintptr_t>(json);
+                auto data=value_to<uint64_t>(json);
                 
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\\n",({handle})data);
-                    if (data==(uintptr_t)NULL){{
+                    if (data==(uint64_t)NULL){{
                         result=({handle})NULL;
                         debug_printf("{handle} is NULL, deserializing to %p...\\n", NULL);
                     }}else{{
                         {handle}_lock.lock_shared();
-                        if (server_{handle}_to_client_{handle}.contains(data)){{
+                        auto contains=server_{handle}_to_client_{handle}.contains(data);
+                        {handle}_lock.unlock_shared();
+
+                        if (contains){{
                             result=({handle})server_{handle}_to_client_{handle}[data];
                             debug_printf("Deserializing to {handle} %p...\\n",result);
-                            {handle}_lock.unlock_shared();
                         }}else{{
-                            {handle}_lock.unlock_shared();
                             auto handle=malloc(sizeof({handle}));
                             debug_printf("Mapping to {handle} %p...\\n",handle);
                             {handle}_lock.lock();
-                            server_{handle}_to_client_{handle}[data]=(uintptr_t)handle;
-                            client_{handle}_to_server_{handle}[(uintptr_t)handle]=data;
+                            server_{handle}_to_client_{handle}[data]=(uint64_t)handle;
+                            client_{handle}_to_server_{handle}[(uint64_t)handle]=data;
                             {handle}_lock.unlock();
                             
                             result=({handle})handle; //This is highly dangerous -- I'm basically casting {handle}* to {handle}. I should do *(({handle}*)alloc_icd_object())
@@ -591,7 +566,7 @@ for handle in parsed:
                     #ifdef CLIENT
                     
                     {handle}_lock.lock_shared();
-                    auto server_handle=client_{handle}_to_server_{handle}[(uintptr_t)client_handle];
+                    auto server_handle=client_{handle}_to_server_{handle}[(uint64_t)client_handle];
                     
                     {{
                         auto client_handle=server_{handle}_to_client_{handle}[server_handle]; //Need to get non-const {handle} so we can free it;
@@ -601,7 +576,7 @@ for handle in parsed:
                     {handle}_lock.unlock_shared();
                     
                     {handle}_lock.lock();
-                    client_{handle}_to_server_{handle}.erase((uintptr_t)client_handle);
+                    client_{handle}_to_server_{handle}.erase((uint64_t)client_handle);
                     server_{handle}_to_client_{handle}.erase(server_handle);
                     {handle}_lock.unlock();
                     
