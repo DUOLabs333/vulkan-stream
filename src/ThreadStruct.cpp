@@ -23,7 +23,7 @@ ThreadStruct& currStruct(){
         result.uuid=-1;
         
         #ifdef CLIENT
-            result->conn=asio_connect(0);
+            result.conn=asio_connect(0);
         #endif
     }
     

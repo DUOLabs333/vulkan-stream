@@ -1,5 +1,8 @@
+
+#pragma once
 #include <vulkan/vulkan.h>
 #define amin(a, b) (a > b ? b: a)
+
 
 typedef struct StreamStructure{
     VkStructureType sType;
@@ -658,9 +661,11 @@ VKCMDSETRENDERINGATTACHMENTLOCATIONSKHR=2752,
 VKCMDSETRENDERINGINPUTATTACHMENTINDICESKHR=2753,
 };
 
+#include <vector>
+#include <string>
 typedef struct {
-uintptr_t devicememory = 0;
-uintptr_t mem;
+uint64_t devicememory = 0;
+uint64_t mem;
 std::vector<size_t> starts;
 std::vector<size_t> lengths;
 std::vector<uint64_t> hashes;
@@ -668,11 +673,9 @@ std::vector<std::string> buffers;
 bool unmap = false;
 } Sync;
 
-void serialize_Sync(boost::json::object&, Sync&);
-void deserialize_Sync(boost::json::object&, Sync&);
-
 
 #include <shared_mutex>
+#include <mutex>
 #include <unordered_map>
 template<typename Key, typename Value>
 class ConcurrentMap : public std::unordered_map<Key, Value> {

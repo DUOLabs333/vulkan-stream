@@ -12,7 +12,7 @@ header_lines=[]
 import json
 import copy
 import random, string
-import re
+import re, os
 
 parsed=json.load(open("../parse/parsed.json"))
 
@@ -259,15 +259,25 @@ def write(line,header=False):
         lines.append(line)
     else:
         header_lines.append(line)
-    
+
+def get_modified_time(path):
+    return int(os.path.getmtime(path))
 def write_to_file():
-    with open(output_basename+".cpp","w+") as f:
-        for line in lines:
-            f.write(line+"\n")
+    modified_time=get_modified_time(output_basename+".py")
     
-    with open(output_basename+".hpp","w+") as f:
-        for line in header_lines:
-            f.write(line+"\n")
+    output_cpp=output_basename+".cpp"
+    output_hpp=output_basename+".hpp"
+    if not (os.path.exists(output_cpp) and (modified_time==get_modified_time(output_cpp))):
+        with open(output_cpp,"w+") as f:
+            for line in lines:
+                f.write(line+"\n")
+        os.utime(output_cpp, (modified_time, modified_time)) 
+    
+    if not (os.path.exists(output_hpp) and (modified_time==get_modified_time(output_hpp))):
+        with open(output_hpp,"w+") as f:
+            for line in header_lines:
+                f.write(line+"\n")
+        os.utime(output_hpp, (modified_time, modified_time))
             
 if __name__!="__main__":
     atexit.register(write_to_file)

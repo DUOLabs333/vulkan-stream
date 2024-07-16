@@ -1,9 +1,11 @@
 from utils import *
 import copy, re
-
-write("#include <vulkan/vulkan.h>",header=True)
-
-write("#define amin(a, b) (a > b ? b: a)", header=True)
+write("""
+#pragma once
+#include <vulkan/vulkan.h>
+#include <boost/json/fwd.hpp>
+#define amin(a, b) (a > b ? b: a)
+""", header=True)
 
 write(f"""
 #include <boost/json.hpp>
@@ -43,6 +45,8 @@ write("};",header=True)
 
 
 write("""
+#include <vector>
+#include <string>
 typedef struct {
 uint64_t devicememory = 0;
 uint64_t mem;
@@ -56,6 +60,7 @@ bool unmap = false;
 
 write("""
 #include <shared_mutex>
+#include <mutex>
 #include <unordered_map>
 template<typename Key, typename Value>
 class ConcurrentMap : public std::unordered_map<Key, Value> {

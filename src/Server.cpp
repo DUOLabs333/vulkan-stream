@@ -1,3 +1,5 @@
+#include <glaze/glaze.hpp>
+#include <boost/json.hpp>
 #include "Server.hpp"
 #include "ThreadStruct.hpp"
 #include "Synchronization.hpp"
@@ -9,10 +11,8 @@
 #include <string_view>
 #include <random>
 #include <simdjson.h>
-#include <boost/json.hpp>
 #include <format>
 #include <functional>
-#include <glaze/glaze.hpp>
 
 typedef std::chrono::high_resolution_clock Time1;
 typedef std::chrono::duration<float> fsec;
@@ -84,7 +84,7 @@ void readFromConn(std::function<void(ThreadStruct& curr, std::string_view&)> fun
 	char* buf;
 	int len;
 
-	asio_read(&buf, &len, &err);
+	asio_read(curr.conn, &buf, &len, &err);
 
 	if (err){
 		throw RWError(true);
@@ -144,11 +144,11 @@ void writeToConn(boost::json::object& json){
 void writeToConn(Sync& sync){
 	auto& curr=currStruct();
 	
-	#if 1
+	#if 0
 	    auto json=boost::json::value_from<Sync>(sync); //If this doesn't work, read below for a hacky work around
 	#else
 		glz::write_json(sync, curr.glaze_str);
-		curr.parser.write(line);
+		curr.parser.write(curr.glaze_str);
 		auto json=curr.parser.release().get_object();
 		curr.parser.reset();
 	#endif 

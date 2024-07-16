@@ -3,18 +3,18 @@
 
 #include <komihash.h>
 #include <boost/json.hpp>
+#include <glaze/glaze.hpp>
 #include <turbob64.h>
-#include <Server.hpp>
 #include <vulkan/vulkan.h>
-#include <Serialization.hpp>
-#include <Synchronization.hpp>
+#include "Server.hpp"
+#include "Synchronization.hpp"
 #include <unordered_map>
 extern "C" {
 #include <shm_open_anon.h>
 }
 
 #ifndef CLIENT
-    #include <ThreadStruct.hpp>
+    #include "ThreadStruct.hpp"
 #else
     #include <sys/mman.h>
 #endif
@@ -47,7 +47,7 @@ class Map {
 				return _map[key];
 			#else
 				return _map[currStruct().uuid][key];
-			#end
+			#endif
 		}
 
 		bool contains(const K key){
@@ -56,7 +56,7 @@ class Map {
 			#else
 				auto uuid=currStruct().uuid;
 				return _map.contains(uuid) && _map[uuid].contains(key);
-			#end
+			#endif
 		}
 
 		void erase(const K key){
@@ -68,7 +68,7 @@ class Map {
 				if (_map[uuid].empty()){
 					_map.erase(uuid);
 				}
-			#end
+			#endif
 		}
 
 		map_type::iterator begin(){
@@ -87,7 +87,7 @@ class Map {
 			#endif
 		}
 			
-}		
+};	
 
 Map<uintptr_t,MemInfo> devicememory_to_mem_info;
 
@@ -185,7 +185,7 @@ void handle_sync_response(Sync& sync){
 void handle_sync_init(boost::json::object& json){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
     
-    Sync sync;
+    Sync sync; //Hacky workaround for the lack of reflection available in boost
     auto str=boost::json::serialize(json);
     glz::read_json(sync,str);
 

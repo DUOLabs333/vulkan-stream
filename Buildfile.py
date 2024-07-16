@@ -1,11 +1,15 @@
 import os
-from runpy import run_path
+import sys
+import subprocess
+conn=import_build("../asio_c")
 
-conn=import_build("../tools")
+
+def run_path(path):
+    return subprocess.run([sys.executable, path])
 
 class main(BuildBase):
     SRC_FILES=["autogen/*","src/*", get_dep_path("shm_open_anon", "shm_open_anon.c"), get_dep_path("simdjson", "src/simdjson.cpp")]
-    INCLUDE_PATHS=["autogen","src", get_dep_path("shm_open_anon", ""), get_dep_path("Vulkan-Headers", "include"), get_dep_path("boost",""), conn.library, get_dep_path("komnihash", ""), get_dep_path("Turbo-Base64", ""), get_dep_path("simdjson", "include")]
+    INCLUDE_PATHS=["autogen","src", get_dep_path("shm_open_anon", ""), get_dep_path("Vulkan-Headers", "include"), get_dep_path("boost",""), conn.library, get_dep_path("komihash", ""), get_dep_path("Turbo-Base64", ""), get_dep_path("simdjson", "include")]
 
     STATIC_LIBS=[conn.library, get_dep_path("Turbo-Base64", "libtb64.a")]
 
@@ -17,17 +21,18 @@ class main(BuildBase):
 
     OUTPUT_TYPE=LIB if CLIENT else EXE
 
-class autogen:
+class autogen(BuildBase):
 
     def build(cls):
         os.chdir("autogen")
+
         for file in os.listdir(os.getcwd()):
             if not file.endswith(".py"):
                 continue
 
             run_path(file)
 
-class parse:
+class parse(BuildBase):
     def build(cls):
         os.chdir("parse")
         run_path("parse.py")
