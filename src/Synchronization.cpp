@@ -219,14 +219,15 @@ void handle_sync_init(boost::json::object& json){
     handle_sync_response(sync);
     
     if (sync.devicememory!=0 && !sync.unmap && starts.size()>0){
+    	VkDeviceMemory target_devicememory;
         #ifdef CLIENT
             auto server_devicememory=boost::json::value(sync.devicememory);
-            VkDeviceMemory client_devicememory;
-            deserialize_VkDeviceMemory(server_devicememory, client_devicememory);
+            deserialize_VkDeviceMemory(server_devicememory, target_devicememory);
+	#else
+		target_devicememory=(VkDeviceMemory)sync.devicememory;
 	#endif
 
-	
-        auto& info=devicememory_to_mem_info[(uint64_t)client_devicememory];
+        auto& info=devicememory_to_mem_info[(uint64_t)target_devicememory];
         info.prev_hash=HashMem(info.mem, 0, info.size);
     }
     
