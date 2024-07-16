@@ -4,8 +4,8 @@ import subprocess
 conn=import_build("../asio_c")
 
 
-def run_path(path):
-    return subprocess.run([sys.executable, path])
+def run_path(path,env=None):
+    return subprocess.run([sys.executable, path], env=env)
 
 class main(BuildBase):
     SRC_FILES=["autogen/*","src/*", get_dep_path("shm_open_anon", "shm_open_anon.c"), get_dep_path("simdjson", "src/simdjson.cpp")]
@@ -35,5 +35,5 @@ class autogen(BuildBase):
 class parse(BuildBase):
     def build(cls):
         os.chdir("parse")
-        run_path("parse.py")
+        run_path("parse.py",env=os.environ | {"VK_HEADER_PATH": get_dep_path("Vulkan-Headers","")})
 

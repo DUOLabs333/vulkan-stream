@@ -4,8 +4,10 @@ import xml.etree.ElementTree as ET
 from pprint import pprint
 import re
 import json
-import textwrap
-vk=ET.parse("../external/Vulkan-Headers/registry/vk.xml").getroot()
+import textwrap, os
+
+VK_HEADER_PATH=os.environ.get("VK_HEADER_PATH",".")
+vk=ET.parse(os.path.join(VK_HEADER_PATH,"registry/vk.xml")).getroot()
 
 parsed={}
         
@@ -298,7 +300,7 @@ for name in parsed:
 from ahocorapy.keywordtree import KeywordTree
 import os, string, subprocess
 
-header=subprocess.run(["g++", "-E", "-P"]+os.environ.get("VK_HEADER_FLAGS","").split(" ")+["-I","../external/Vulkan-Headers/include","../external/Vulkan-Headers/include/vulkan/vulkan.h"],capture_output=True,text=True).stdout
+header=subprocess.run(["g++", "-E", "-P"]+os.environ.get("VK_HEADER_FLAGS","").split(" ")+["-I",os.path.join(VK_HEADER_PATH, "include"), os.path.join(VK_HEADER_PATH,"include/vulkan/vulkan.h")],capture_output=True,text=True).stdout
 
 
 word_boundary=(string.punctuation+string.whitespace).replace("_","")
