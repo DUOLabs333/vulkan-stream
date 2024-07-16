@@ -1,6 +1,7 @@
 
 #pragma once
 #include <vulkan/vulkan.h>
+#include <boost/json/fwd.hpp>
 #define amin(a, b) (a > b ? b: a)
 
 
@@ -671,6 +672,8 @@ std::vector<size_t> lengths;
 std::vector<uint64_t> hashes;
 std::vector<std::string> buffers;
 bool unmap = false;
+int stream_type = static_cast<int>(SYNC);
+int uuid;
 } Sync;
 
 

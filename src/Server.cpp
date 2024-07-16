@@ -145,14 +145,24 @@ void writeToConn(Sync& sync){
 	auto& curr=currStruct();
 	
 	#if 0
-	    auto json=boost::json::value_from<Sync>(sync); //If this doesn't work, read below for a hacky work around
+		#if 0
+		    auto json=boost::json::value_from<Sync>(sync); //If this doesn't work, read below for a hacky work around
+		#else
+			glz::write_json(sync, curr.glaze_str);
+			curr.parser.write(curr.glaze_str);
+			auto json=curr.parser.release().get_object();
+			curr.parser.reset();
+		#endif 
+		json["stream_type"]=static_cast<int>(SYNC);
+		return writeToConn(json);
 	#else
+		sync.uuid=uuid;
 		glz::write_json(sync, curr.glaze_str);
-		curr.parser.write(curr.glaze_str);
-		auto json=curr.parser.release().get_object();
-		curr.parser.reset();
-	#endif 
-    	json["stream_type"]=static_cast<int>(SYNC);
-	
-	return writeToConn(json);
+		bool err;
+		asio_write(curr.conn, curr.glaze_str.data(), curr.glaze_str.size(),&err);
+
+		if (err){
+        		throw RWError(false);
+    	}
+	#endif
 }
