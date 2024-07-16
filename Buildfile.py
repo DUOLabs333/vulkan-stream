@@ -9,7 +9,7 @@ def run_path(path,env=None):
 
 class main(BuildBase):
     SRC_FILES=["autogen/*","src/*", get_dep_path("shm_open_anon", "shm_open_anon.c"), get_dep_path("simdjson", "src/simdjson.cpp")]
-    INCLUDE_PATHS=["autogen","src", get_dep_path("shm_open_anon", ""), get_dep_path("Vulkan-Headers", "include"), get_dep_path("boost",""), conn.library, get_dep_path("komihash", ""), get_dep_path("Turbo-Base64", ""), get_dep_path("simdjson", "include")]
+    INCLUDE_PATHS=["autogen","src", get_dep_path("shm_open_anon", ""), get_dep_path("Vulkan-Headers", "include"), get_dep_path("boost",""), conn.library, get_dep_path("komihash", ""), get_dep_path("Turbo-Base64", ""), get_dep_path("simdjson", "include"), get_dep_path("glaze", "include")]
 
     STATIC_LIBS=[conn.library, get_dep_path("Turbo-Base64", "libtb64.a")]
 
