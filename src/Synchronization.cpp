@@ -215,7 +215,8 @@ void handle_sync_init(boost::json::object& json){
     }
     
     writeToConn(sync);
-    
+    readFromConn(sync);
+
     handle_sync_response(sync);
     
     if (sync.devicememory!=0 && !sync.unmap && starts.size()>0){
