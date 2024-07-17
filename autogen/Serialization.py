@@ -55,8 +55,6 @@ std::vector<size_t> lengths;
 std::vector<uint64_t> hashes;
 std::vector<std::string> buffers;
 bool unmap = false;
-int stream_type = static_cast<int>(SYNC);
-int uuid;
 } Sync;
 """,header=True)
 

@@ -9,5 +9,4 @@ parsed.json
 perf*.data*
 id1
 autogen/*.*pp
-parse/parsed.json
 parse/vulkan_header.h
