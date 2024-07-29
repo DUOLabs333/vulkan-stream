@@ -2,6 +2,8 @@
 #include <cstdint>
 
 #include <komihash.h>
+#include <xxhash.h>
+
 #include <boost/json.hpp>
 #include <glaze/glaze.hpp>
 #include <turbob64.h>
@@ -92,6 +94,7 @@ class Map {
 Map<uintptr_t,MemInfo> devicememory_to_mem_info;
 
 uint64_t HashMem(void* mem, uint64_t start, uint64_t length) {
+    return XXH3_64bits((char*)mem+start,length);
     return komihash((char*)mem+start, length, 500);
 }
 
