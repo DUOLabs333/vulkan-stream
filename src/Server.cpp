@@ -33,6 +33,47 @@ class RWError : public std::exception {
     }
 };
 
+typedef struct{
+	int stream_type;
+	int uuid;
+
+} MsgHeader;
+
+template<>
+struct glz::meta<MsgHeader>
+{
+	static constexpr auto partial_read=true;
+};
+void readFromConn(std::string_view& line){
+	auto& curr=currStruct();
+	bool err;
+	char* buf;
+	int len;
+
+	asio_read(curr.conn, &buf, &len, &err);
+
+	if (err){
+		throw RWError(true);
+	}
+	
+	line=std::string_view(buf, len);
+}
+
+boost::json::object parseJSON(std::string_view& line){
+	auto& curr=currStruct();
+	curr.parser.write(line);
+        auto json=curr.parser.release().get_object();
+        curr.parser.reset();
+
+	return json;
+}
+
+Sync parseSync(std::string_view& line){
+	Sync sync;
+	glz::read<glz::opts{.error_on_unknown_keys=false}>(sync, line);
+	return sync;
+}
+
 #ifndef CLIENT
     void handleConnection(AsioConn* conn){
         //Will only be called by the server
@@ -40,19 +81,24 @@ class RWError : public std::exception {
 	auto& curr=currStruct();
         curr.conn=conn;
         
-        boost::json::object json;
         while(true){
             try{
-            json=readFromConn();
+	    std::string_view line;
+	    readFromConn(line);
+		
+	    MsgHeader header;
+	    glz::read<glz::opts{.error_on_unknown_keys=false}>(header,line);
             
             if (curr.uuid==-1){
-                curr.uuid=value_to<int>(json["uuid"]);
+                curr.uuid=header.uuid;
             }
             
-            if (static_cast<StreamType>(value_to<int>(json["stream_type"]))==SYNC){
-                handle_sync_init(json);
+            if (static_cast<StreamType>(header.stream_type)==SYNC){
+	    	auto sync=parseSync(line);
+                handle_sync_init(sync);
             }
             else{
+	    	auto json=parseJSON(line);
                 handle_command(json);
             }
             
@@ -78,39 +124,17 @@ class RWError : public std::exception {
     
 #endif
 
-void readFromConn(std::function<void(ThreadStruct& curr, std::string_view&)> func){
-	auto& curr=currStruct();
-	bool err;
-	char* buf;
-	int len;
-
-	asio_read(curr.conn, &buf, &len, &err);
-
-	if (err){
-		throw RWError(true);
-	}
-	auto line=std::string_view(buf, len);
-
-	func(curr, line);
-}
 boost::json::object readFromConn(){
-	boost::json::object json;
-    auto func = [&] (ThreadStruct& curr, std::string_view& line) {
-	curr.parser.write(line);
-        json=curr.parser.release().get_object();
-        curr.parser.reset();
-    };
-	
-    readFromConn(func);
+    std::string_view line;
+    readFromConn(line);
+    auto json=parseJSON(line);
     return json;
 }
 
-void readFromConn(Sync& sync){
-	auto func = [&] (ThreadStruct&, std::string_view& line){
-		glz::read_json(sync, line);
-	};
-	
-	readFromConn(func);
+void readFromConn(Sync& sync){	
+    std::string_view line;
+    readFromConn(line);
+    sync=parseSync(line);
 }
 
 void writeToConn(boost::json::object& json){
@@ -144,14 +168,11 @@ void writeToConn(boost::json::object& json){
 void writeToConn(Sync& sync){
 	auto& curr=currStruct();
 	
-	#if 0
-	    auto json=boost::json::value_from<Sync>(sync); //If this doesn't work, read below for a hacky work around
-	#else
-		glz::write_json(sync, curr.glaze_str);
-		curr.parser.write(curr.glaze_str);
-		auto json=curr.parser.release().get_object();
-		curr.parser.reset();
-	#endif 
+	glz::write_json(sync, curr.glaze_str);
+	curr.parser.write(curr.glaze_str);
+	auto json=curr.parser.release().get_object();
+	curr.parser.reset();
+
     	json["stream_type"]=static_cast<int>(SYNC);
 	
 	return writeToConn(json);

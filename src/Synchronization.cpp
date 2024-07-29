@@ -185,12 +185,8 @@ void handle_sync_response(Sync& sync){
     writeToConn(json);
 }
 
-void handle_sync_init(boost::json::object& json){
+void handle_sync_init(Sync& sync){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
-    
-    Sync sync; //Hacky workaround for the lack of reflection available in boost
-    auto str=boost::json::serialize(json);
-    glz::read_json(sync,str);
 
     #ifdef CLIENT
         if (!server_to_client_mem.contains(sync.mem)){
@@ -242,6 +238,14 @@ void handle_sync_init(boost::json::object& json){
     #endif
         
     
+}
+
+void handle_sync_init(boost::json::object& json){
+	Sync sync; //Hacky workaround for the lack of reflection available in boost
+	auto str=boost::json::serialize(json);
+	glz::read_json(sync,str);
+
+	return handle_sync_init(sync);
 }
 
 void handle_sync_request(Sync& sync){

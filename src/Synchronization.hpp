@@ -2,6 +2,7 @@
 #include <debug.hpp>
 #include <vulkan/vulkan_core.h>
 
+void handle_sync_init(Sync&);
 void handle_sync_init(boost::json::object&);
 void SyncAll();
 void SyncOne(VkDeviceMemory memory, int offset, VkDeviceSize size, bool unmap);
