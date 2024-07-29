@@ -1,12 +1,13 @@
 #include <cstddef>
 #include <cstdint>
 
-#include <komihash.h>
+
 #include <xxhash.h>
+#include <turbob64.h>
 
 #include <boost/json.hpp>
 #include <glaze/glaze.hpp>
-#include <turbob64.h>
+
 #include <vulkan/vulkan.h>
 #include "Server.hpp"
 #include "Synchronization.hpp"
@@ -95,7 +96,6 @@ Map<uintptr_t,MemInfo> devicememory_to_mem_info;
 
 uint64_t HashMem(void* mem, uint64_t start, uint64_t length) {
     return XXH3_64bits((char*)mem+start,length);
-    return komihash((char*)mem+start, length, 500);
 }
 
 void registerClientServerMemoryMapping(uint64_t client_mem, uint64_t server_mem){
@@ -255,27 +255,23 @@ void handle_sync_request(Sync& sync){
     
     sync.buffers.resize(sync.starts.size());
     
-    std::array<std::tuple<int, char*>, 3> temp_buffers;
+    char* temp_buffer=NULL;
     
     if (sync.lengths.size()>=1){
-        auto length=sync.lengths[0];
-        temp_buffers= {{ {length-1, new char[tb64enclen(length-1)]},  {length, new char[tb64enclen(length)]},  {length+1, new char[tb64enclen(length+1)]} }};
+        temp_buffer=new char[tb64enclen(sync.lengths[0]+1)];
     }
     
     for(int i=0; i<sync.starts.size(); i++){
         auto length=sync.lengths[i];
         auto start=sync.starts[i];
+
+        auto encoded_size=tb64enc(reinterpret_cast<unsigned char*>((char*)mem+start), length, reinterpret_cast<unsigned char*>(temp_buffer));
         
-        auto buffer=std::get<1>(temp_buffers[length-std::get<0>(temp_buffers[0])]);
-        auto encoded_size=tb64enc(reinterpret_cast<unsigned char*>((char*)mem+start), length, reinterpret_cast<unsigned char*>(buffer));
-        
-        sync.buffers[i]=std::string(buffer,buffer+encoded_size);
+        sync.buffers[i]=std::move(std::string(temp_buffer,temp_buffer+encoded_size));
     }
     
-    if (sync.lengths.size()>=1){
-        for(auto& elem: temp_buffers){
-            delete[] std::get<1>(elem);
-        }
+    if (temp_buffer!=NULL){
+    	delete[] temp_buffer;
     }
     
     writeToConn(sync);
