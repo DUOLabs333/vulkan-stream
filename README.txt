@@ -1,16 +1,15 @@
-The only setup that is supported is with a MacOS computer as the server and a Linux computer as the client (though other setups shouldn't be too hard)
+The only setup that is supported is with a MacOS computer as the server and a Linux computer as the client (though other setups shouldn't be too hard t adjust the program for)
 
-On MacOS, the server must have MoltenVK >= 1.2.7/1.3.275
+On MacOS, the server must have MoltenVK >= 1.2.7, and vulkan-loader >= 1.3.275
 
 To compile:
-	1. Clone my tools repo (https://github.com/DUOLabs333/tools) in the same parent directory as this repo
-	2. Download all dependencies with `update.sh`
-	3. Run `build.sh`.
-	4. Profit
+	1. Clone my tools repo (https://github.com/DUOLabs333/tools) and asio_c (https://github.com/DUOLabs333/asio_c) in the same parent directory as this repo
+	2. Run `build.sh`.
+	3. Profit
 
 	
 	Caveats:
-		If you do not use Nix on the server, set `VK_LIB_PATH` to the path where the Vulkan loader resides. Make sure that the loader can pick up MoltenVK when being loaded.
+		If you do not use Nix on the server, and the loader is in a non-standard location, set `VK_LIB_PATH` to the path where the Vulkan loader resides. Make sure that the loader can pick up MoltenVK when being loaded.
 
 		For maximum performance, compile with `DEBUG=0`
 
