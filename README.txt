@@ -3,9 +3,11 @@ The only setup that is supported is with a MacOS computer as the server and a Li
 On MacOS, the server must have MoltenVK >= 1.2.7, and vulkan-loader >= 1.3.275
 
 To compile:
-	1. Clone my tools repo (https://github.com/DUOLabs333/tools) and asio_c (https://github.com/DUOLabs333/asio_c) in the same parent directory as this repo
-	2. Run `build.sh`.
-	3. Profit
+	On both the server and client:
+		1. Clone this repo
+		1. Clone my tools repo (https://github.com/DUOLabs333/tools) and asio_c (https://github.com/DUOLabs333/asio_c) in the same parent directory where your cloned this repo
+		2. Run `build.sh`.
+		3. Profit
 
 	
 	Caveats:

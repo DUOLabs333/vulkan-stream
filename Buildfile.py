@@ -3,6 +3,14 @@ import sys
 import subprocess
 conn=import_build("../asio_c")
 
+VK_HEADER_FLAGS=os.environ.get("VK_HEADER_FLAGS", "")
+
+if PLATFORM=="darwin":
+    VK_HEADER_FLAGS+=" -DVK_USE_PLATFORM_METAL_EXT"
+else:
+    VK_HEADER_FLAGS+=" -DVK_USE_PLATFORM_XCB_KHR -DVK_USE_PLATFORM_XLIB_KHR"
+
+VK_HEADER_FLAGS=VK_HEADER_FLAGS.strip().split(" ")
 
 def run_path(path,env=None):
     return subprocess.run([sys.executable, path], env=env)
@@ -13,7 +21,7 @@ class main(BuildBase):
 
     STATIC_LIBS=[conn.library, get_dep_path("Turbo-Base64", "libtb64.a"), get_dep_path("xxHash-3", "libxxhash.a")]
 
-    FLAGS = os.environ["VK_HEADER_FLAGS"].split(" ")
+    FLAGS = VK_HEADER_FLAGS
 
     SHARED_LIBS=(["vulkan"] if not CLIENT else (["xcb","X11","xcb-image"] if PLATFORM=="linux" else []))
 
