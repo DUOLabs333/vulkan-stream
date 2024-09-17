@@ -240,6 +240,7 @@ void handle_sync_init(Sync& sync){
     
 }
 
+//What we want to do instead is add an extra step --- init will just be called, so no json needs to be parsed anymore. Then, the next step is to begin the init in earnest. In short --- _init() -> (parse next response) -> continue. So, if you send a request, it will likely just be ({.stream_type=SYNC, .init=true})
 void handle_sync_init(boost::json::object& json){
 	Sync sync; //Hacky workaround for the lack of reflection available in boost
 	auto str=boost::json::serialize(json);

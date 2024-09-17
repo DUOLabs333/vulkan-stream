@@ -48,6 +48,8 @@ write("""
 #include <vector>
 #include <string>
 typedef struct {
+int stream_type; //Maybe find some way of serializing MsgHeader to json::object directly. In that case, we can just add MsgHeader directly as a member here
+int uuid;
 uint64_t devicememory = 0;
 uint64_t mem;
 std::vector<size_t> starts;

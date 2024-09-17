@@ -48,7 +48,7 @@ void readFromConn(std::string_view& line){
 	auto& curr=currStruct();
 	bool err;
 	char* buf;
-	int len;
+int len;
 
 	asio_read(curr.conn, &buf, &len, &err);
 
@@ -123,7 +123,7 @@ Sync parseSync(std::string_view& line){
     }
     
 #endif
-
+//Write a function that uses a function (std::string_view)
 boost::json::object readFromConn(){
     std::string_view line;
     readFromConn(line);
@@ -141,6 +141,8 @@ void writeToConn(boost::json::object& json){
     auto& curr=currStruct();
     
     json["uuid"]=uuid;
+
+    bool err;
     
     curr.serializer.reset(&json);
     size_t size=0;
@@ -156,24 +158,26 @@ void writeToConn(boost::json::object& json){
 	    capacity+=BUFFER_STEP_SIZE;
     }
 
-    bool err;
-
     asio_write(curr.conn, output_buf, size, &err);
 
     if (err){
         throw RWError(false);
     }
 }
-
+//If this works, make a writeToConn that takes a function (ThreadStruct&) and returns tuple(char*, size)  to abstract the small differences between the different writes
 void writeToConn(Sync& sync){
 	auto& curr=currStruct();
 	
-	glz::write_json(sync, curr.glaze_str);
-	curr.parser.write(curr.glaze_str);
-	auto json=curr.parser.release().get_object();
-	curr.parser.reset();
-
-    	json["stream_type"]=static_cast<int>(SYNC);
+	sync.stream_type = static_cast<int>(SYNC);
+	sync.uuid = uuid;
 	
-	return writeToConn(json);
+	bool err;
+	glz::write_json(sync, curr.glaze_str);
+
+	asio_write(curr.conn, curr.glaze_str.data(), curr.glaze_str.size(), &err);
+
+	if (err){
+        	throw RWError(false);
+    	}
+
 }
