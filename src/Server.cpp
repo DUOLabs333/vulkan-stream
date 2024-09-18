@@ -93,11 +93,17 @@ Sync parseSync(std::string_view& line){
                 curr.uuid=header.uuid;
             }
             
-            if (static_cast<StreamType>(header.stream_type)==SYNC){
+	    auto stream_type = static_cast<StreamType>(header.stream_type);
+            if (stream_type == SYNC){
 	    	auto sync=parseSync(line);
                 handle_sync_init(sync);
-            }
-            else{
+            }else if (stream_type == CMD_BUFFER_BATCH){
+	    	for (auto& cmd: parseJSON(line)["cmds"].get_array()){
+			auto json = cmd.get_object();
+			json["batched"] = true;
+			handle_command(json);
+		}
+	    }else{
 	    	auto json=parseJSON(line);
                 handle_command(json);
             }
@@ -123,7 +129,7 @@ Sync parseSync(std::string_view& line){
     }
     
 #endif
-//Write a function that uses a function (std::string_view)
+//TODO: Write a function that uses a function (std::string_view)
 boost::json::object readFromConn(){
     std::string_view line;
     readFromConn(line);
@@ -164,7 +170,7 @@ void writeToConn(boost::json::object& json){
         throw RWError(false);
     }
 }
-//If this works, make a writeToConn that takes a function (ThreadStruct&) and returns tuple(char*, size)  to abstract the small differences between the different writes
+//TODO: If this works, make a writeToConn that takes a function (ThreadStruct&) and returns tuple(char*, size)  to abstract the small differences between the different writes
 void writeToConn(Sync& sync){
 	auto& curr=currStruct();
 	

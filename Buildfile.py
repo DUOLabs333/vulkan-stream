@@ -10,6 +10,8 @@ if PLATFORM=="darwin":
 else:
     VK_HEADER_FLAGS+=" -DVK_USE_PLATFORM_XCB_KHR -DVK_USE_PLATFORM_XLIB_KHR"
 
+os.environ["VK_HEADER_FLAGS"]=VK_HEADER_FLAGS
+
 VK_HEADER_FLAGS=VK_HEADER_FLAGS.strip().split(" ")
 
 def run_path(path,env=None):

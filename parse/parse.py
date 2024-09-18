@@ -63,7 +63,7 @@ def get_length(item,info):
     
     info["length"]=result
 
-global_id=1
+global_id=2
 for item in vk.findall("./types/type"):
     result={}
     kind=item.attrib.get("category","")

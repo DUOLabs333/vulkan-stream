@@ -14,9 +14,10 @@ write("""
 #include <unordered_map>
 #include <vulkan/vulkan.h>
 
-#include <Serialization.hpp>
-#include <Server.hpp>
+#include "Serialization.hpp"
+#include "Server.hpp"
 #include <Synchronization.hpp>
+#include <Batch.hpp>
 
 typedef struct DeviceMemoryInfo {
       VkDeviceSize size;
@@ -166,7 +167,7 @@ for name, command in parsed.items():
         
         write(param["header"]+";")
         write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False,initialize=True))
-
+    write("bool batched = json.contains(\"batched\");")
     write(f"""
     PFN_{name} call_function;
     
@@ -310,7 +311,9 @@ for name, command in parsed.items():
     write(saveDeviceInfo(name))
     
     write("""
-        writeToConn(json);
+        if (!batched){ //TODO: Later, we can see if only serializing when !batched can speed things up further
+            writeToConn(json);
+        }
     }""")
 
 write("""
@@ -589,42 +592,64 @@ for name, command in parsed.items():
         """)
         
     write(deregisterDeviceMemoryMap(name))
-    write(f"""
-        writeToConn(json);
-        
-        while(true){{
-            json=readFromConn();
-            
-            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
-                case (SYNC):
-                    handle_sync_init(json);
-                    continue;
-                case ({name.upper()}):
-                    break; 
-    """)
-    for funcpointer in parsed:
-        if parsed[funcpointer]["kind"]!="funcpointer":
-            continue
-        if funcpointer in ["PFN_vkGetInstanceProcAddrLUNARG","PFN_vkVoidFunction"]: #This isn't a normal funcpointer --- only makes sense on the server
-            continue
-        write(f"""
-         case ({funcpointer.upper()}):
-            handle_{funcpointer}(json);
-            continue;
-        """)
-    
-    write("""
-        default:
-            debug_printf("Unkown message: %d!\\n", value_to<int>(json["stream_type"]));
-            continue;
-        }
-        
-        break;
-        }
-    """)
+
+    write("bool cmd_buffer_push = false;")
+    should_write = True
+
+    if(name.startswith("vkCmd") and (is_void(command))):
+        should_write = False
+        write("addToBatch(commandBuffer, json); //TODO: See if we can use std::moves later to avoid copies. This should lock c2i_mutex, and append json")
+        write("cmd_buffer_push = (lengthOfBatch(commandBuffer) >= 50);")
+
+    elif name.startswith("vkCmd") or (name == "vkEndCommandBuffer"):
+        write("cmd_buffer_push = true;")
     
     for param in command["params"]:
-        write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
+        if (param["type"] == "VkCommandBuffer") and (param["name"] == "commandBuffer"):
+            write("""
+                    if(cmd_buffer_push){
+                        sendBatch(commandBuffer);
+                    }
+                """)
+            break
+    
+    if should_write:
+        write(f"""
+            writeToConn(json);
+            
+            while(true){{
+                json=readFromConn();
+                
+                switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
+                    case (SYNC):
+                        handle_sync_init(json);
+                        continue;
+                    case ({name.upper()}):
+                        break; 
+        """)
+        for funcpointer in parsed:
+            if parsed[funcpointer]["kind"]!="funcpointer":
+                continue
+            if funcpointer in ["PFN_vkGetInstanceProcAddrLUNARG","PFN_vkVoidFunction"]: #This isn't a normal funcpointer --- only makes sense on the server
+                continue
+            write(f"""
+             case ({funcpointer.upper()}):
+                handle_{funcpointer}(json);
+                continue;
+            """)
+        
+        write("""
+            default:
+                debug_printf("Unkown message: %d!\\n", value_to<int>(json["stream_type"]));
+                continue;
+            }
+            
+            break;
+            }
+        """)
+        
+        for param in command["params"]:
+            write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
     
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
@@ -653,7 +678,8 @@ for name, command in parsed.items():
             #endif
             """)
     
-    
+    if (name=="vkResetCommandBuffer"):
+        write("clearBatch(commandBuffer);")
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
       
         write(f"{command['type']} result;")

@@ -35,6 +35,7 @@ typedef struct StreamStructure2{
 write("""
 enum StreamType {
 SYNC = 0,
+CMD_BUFFER_BATCH = 1,
 """,header=True)
 for i, name in enumerate(parsed):
     if parsed[name].get("kind","") not in ["command", "funcpointer"]:
