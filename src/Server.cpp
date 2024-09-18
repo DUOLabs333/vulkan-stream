@@ -98,11 +98,15 @@ Sync parseSync(std::string_view& line){
 	    	auto sync=parseSync(line);
                 handle_sync_init(sync);
             }else if (stream_type == CMD_BUFFER_BATCH){
-	    	for (auto& cmd: parseJSON(line)["cmds"].get_array()){
-			auto json = cmd.get_object();
+	    	auto batch = parseJSON(line);
+	    	for (auto& cmd: batch["cmds"].get_array()){
+			auto& json = cmd.get_object();
 			json["batched"] = true;
 			handle_command(json);
 		}
+		boost::json::object json;
+		json["stream_type"] = CMD_BUFFER_BATCH;
+		writeToConn(json);
 	    }else{
 	    	auto json=parseJSON(line);
                 handle_command(json);

@@ -4,7 +4,7 @@ void addToBatch(VkCommandBuffer commandBuffer, boost::json::object json);
 
 void addToBatch(VkCommandBuffer commandBuffer, boost::json::object json);
 
-std::size_t lengthOfBatch(VkCommandBuffer commandBuffer);
+bool pushHintBatch(VkCommandBuffer commandBuffer);
 
 void sendBatch(VkCommandBuffer commandBuffer);
 

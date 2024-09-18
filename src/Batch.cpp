@@ -26,10 +26,10 @@ void addToBatch(VkCommandBuffer commandBuffer, boost::json::object json){
 	array.push_back(json);
 }
 
-std::size_t lengthOfBatch(VkCommandBuffer commandBuffer){
+bool pushHintBatch(VkCommandBuffer commandBuffer){
 	auto [array, lock ] = getBatch(commandBuffer);
 
-	return array.size();
+	return array.size() >= 1;
 }
 
 void sendBatch(VkCommandBuffer commandBuffer){

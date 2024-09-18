@@ -593,61 +593,63 @@ for name, command in parsed.items():
         
     write(deregisterDeviceMemoryMap(name))
 
-    write("bool cmd_buffer_push = false;")
-    should_write = True
+    write("bool should_push_cmd_buffer = false;")
 
+    is_batchable_cmd = False #Is this command something we're going to batch? 
     if(name.startswith("vkCmd") and (is_void(command))):
-        should_write = False
-        write("addToBatch(commandBuffer, json); //TODO: See if we can use std::moves later to avoid copies. This should lock c2i_mutex, and append json")
-        write("cmd_buffer_push = (lengthOfBatch(commandBuffer) >= 50);")
+        is_batchable_cmd = True
+        write("addToBatch(commandBuffer, json); //TODO: See if we can use std::moves later to avoid copies")
+        write("should_push_cmd_buffer = pushHintBatch(commandBuffer);")
 
     elif name.startswith("vkCmd") or (name == "vkEndCommandBuffer"):
-        write("cmd_buffer_push = true;")
+        write("should_push_cmd_buffer = true;")
     
     for param in command["params"]:
         if (param["type"] == "VkCommandBuffer") and (param["name"] == "commandBuffer"):
             write("""
-                    if(cmd_buffer_push){
+                    if(should_push_cmd_buffer){
                         sendBatch(commandBuffer);
                     }
                 """)
             break
     
-    if should_write:
+    if not is_batchable_cmd:
+        write("writeToConn(json);")
+    write(f"""
+        while(true){{
+            json=readFromConn();
+            
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
+                case (SYNC):
+                    handle_sync_init(json);
+                    continue;
+                case ({name.upper()}):
+                    break;
+                case (CMD_BUFFER_BATCH):
+                    {'break' if is_batchable_cmd else 'continue'};
+    """)
+    for funcpointer in parsed:
+        if parsed[funcpointer]["kind"]!="funcpointer":
+            continue
+        if funcpointer in ["PFN_vkGetInstanceProcAddrLUNARG","PFN_vkVoidFunction"]: #This isn't a normal funcpointer --- only makes sense on the server
+            continue
         write(f"""
-            writeToConn(json);
-            
-            while(true){{
-                json=readFromConn();
-                
-                switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
-                    case (SYNC):
-                        handle_sync_init(json);
-                        continue;
-                    case ({name.upper()}):
-                        break; 
+         case ({funcpointer.upper()}):
+            handle_{funcpointer}(json);
+            continue;
         """)
-        for funcpointer in parsed:
-            if parsed[funcpointer]["kind"]!="funcpointer":
-                continue
-            if funcpointer in ["PFN_vkGetInstanceProcAddrLUNARG","PFN_vkVoidFunction"]: #This isn't a normal funcpointer --- only makes sense on the server
-                continue
-            write(f"""
-             case ({funcpointer.upper()}):
-                handle_{funcpointer}(json);
-                continue;
-            """)
+    
+    write("""
+        default:
+            debug_printf("Unkown message: %d!\\n", value_to<int>(json["stream_type"]));
+            continue;
+        }
         
-        write("""
-            default:
-                debug_printf("Unkown message: %d!\\n", value_to<int>(json["stream_type"]));
-                continue;
-            }
-            
-            break;
-            }
-        """)
-        
+        break;
+        }
+    """)
+    
+    if not is_batchable_cmd:
         for param in command["params"]:
             write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
     
