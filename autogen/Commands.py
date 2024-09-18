@@ -395,6 +395,9 @@ for name, command in parsed.items():
     write("//Will only be called by the client")
     write(f'debug_printf("Executing {name}\\n");')
     
+    if(name.startswith("vkCmd")):
+        write("printf(\"vkCmd!\\n\");")
+
     memory_operation_lock=False #Effectively disable the lock --- the code is kept in as we may need it later
     if memory_operation_lock:
         write("MemoryOperationLock.lock();")
@@ -491,37 +494,45 @@ for name, command in parsed.items():
         
     elif name=="vkQueuePresentKHR":
         write("""
-        auto new_info=(VkPresentInfoKHR*)copyVkStruct(pPresentInfo);
+        auto present_info=(VkPresentInfoKHR*)copyVkStruct(pPresentInfo);
         
-        auto parent_struct=(StreamStructure*)new_info;
-        void* curr_struct=copyVkStruct(parent_struct->pNext);
+        auto parent_struct=(StreamStructure*)present_info;
+        void* curr_struct=NULL;
         VkSwapchainPresentFenceInfoEXT* swapchain_fence_info=NULL;
+        std::unique_ptr<VkFence> fences_ptr = NULL;
         
-        while(curr_struct!=NULL){
-            parent_struct->pNext=curr_struct;
-            if (((StreamStructure*)curr_struct)->sType==VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT){
-                swapchain_fence_info=(VkSwapchainPresentFenceInfoEXT*)curr_struct;
+        while(true){
+            curr_struct = copyVkStruct(parent_struct->pNext);
+
+            if(curr_struct == NULL){ //Nowhere else to go;
+                break;
             }
+
+            if(((StreamStructure*)curr_struct)->sType==VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT){ //Found the present info -- can stop copying
+                swapchain_fence_info=(VkSwapchainPresentFenceInfoEXT*)curr_struct;
+                break;
+            }
+
             parent_struct=(StreamStructure*)curr_struct;
-            curr_struct=copyVkStruct(parent_struct->pNext);
         }
+
             
          if (swapchain_fence_info==NULL){
             swapchain_fence_info=new VkSwapchainPresentFenceInfoEXT;
             swapchain_fence_info->sType=VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT;
             swapchain_fence_info->pNext=NULL;
-            swapchain_fence_info->swapchainCount=0;
-            swapchain_fence_info->pFences=NULL;
+
+            swapchain_fence_info->swapchainCount=present_info->swapchainCount;
+
+            fences_ptr = std::unique_ptr<VkFence>(new VkFence[swapchain_fence_info->swapchainCount]);
+
+            std::fill_n(fences_ptr.get(), swapchain_fence_info->swapchainCount, VK_NULL_HANDLE);
+            swapchain_fence_info->pFences=fences_ptr.get();
             parent_struct->pNext=swapchain_fence_info;
-         }
-         
-         auto old_count=swapchain_fence_info->swapchainCount;
-         auto fences_list=(VkFence*)memdup(swapchain_fence_info->pFences,old_count*sizeof(VkFence));
-         
-         swapchain_fence_info->swapchainCount=new_info->swapchainCount;
-         auto new_count=swapchain_fence_info->swapchainCount;
-         fences_list=(VkFence*)realloc(fences_list,new_count*sizeof(VkFence));
-         swapchain_fence_info->pFences=fences_list;
+         }else{
+            fences_ptr = std::unique_ptr<VkFence>((VkFence*)memdup(swapchain_fence_info->pFences,(swapchain_fence_info->swapchainCount)*sizeof(VkFence)));
+            swapchain_fence_info->pFences = fences_ptr.get();
+        }
          
          auto fence_create_info=VkFenceCreateInfo{
          .sType=VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,
@@ -529,15 +540,17 @@ for name, command in parsed.items():
          .flags=0
          };
          
-         for (int i=0; i< new_count; i++){
-            if ((i>= old_count) || (fences_list[i]==VK_NULL_HANDLE)){
-                vkCreateFence(getSwapchainDevice(new_info->pSwapchains[i]),&fence_create_info, NULL, &(fences_list[i]));
+         auto fences_list = fences_ptr.get();
+
+         for (int i=0; i< swapchain_fence_info->swapchainCount; i++){
+            if ((fences_list[i]==VK_NULL_HANDLE)){
+                vkCreateFence(getSwapchainDevice(present_info->pSwapchains[i]),&fence_create_info, NULL, &(fences_list[i]));
             }
             
             pushToQueue(fences_list[i], pPresentInfo->pSwapchains[i], pPresentInfo->pImageIndices[i]);
          }
          
-         VkPresentInfoKHR* pPresentInfo=new_info;
+         VkPresentInfoKHR* pPresentInfo=present_info;
         """)
     elif name=="vkCreateSwapchainKHR":
         write("""

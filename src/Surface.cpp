@@ -1,4 +1,5 @@
 #include "Surface.hpp"
+#include <chrono>
 #include <condition_variable>
 #include <cstdint>
 #include <cstdio>
@@ -457,7 +458,7 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
 	if (empty){ //Queue is empty, so wait for a new item
 		queue_info.notify_condition.wait(lock);
 	}
-	auto start = std::chrono::system_clock::now();     
+	auto start = std::chrono::steady_clock::now();     
     	if (queue_info.notify_condition.is_destructed()){ //The only time when this is set to true and you reach this part of the code is when the program is exiting, so you can safely return early. 
 	    return;
 	}
@@ -551,7 +552,7 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
         }
         
         updateCounter(device, -1);
-	auto end = std::chrono::system_clock::now();
+	auto end = std::chrono::steady_clock::now();
 
 	const auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 	printf("ms/frame: %lu\n", duration.count());

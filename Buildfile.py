@@ -23,7 +23,7 @@ class main(BuildBase):
 
     FLAGS = VK_HEADER_FLAGS
 
-    SHARED_LIBS=(["vulkan"] if not CLIENT else (["xcb","X11","xcb-image"] if PLATFORM=="linux" else []))
+    SHARED_LIBS=(["vulkan"] if not CLIENT else (["xcb","X11","xcb-image", "profiler"] if PLATFORM=="linux" else []))
 
     OUTPUT_NAME="vulkan_stream"
 
