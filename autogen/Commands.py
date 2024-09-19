@@ -45,7 +45,7 @@ void saveDeviceInfo(VkDevice device, VkPhysicalDevice physical_device){
     auto memory_properties=VkPhysicalDeviceMemoryProperties{};
     vkGetPhysicalDeviceMemoryProperties(physical_device,&memory_properties);
     
-    device_to_memory_properties[(uint64_t)device]=memory_properties;
+ device_to_memory_properties[(uint64_t)device]=memory_properties;
 }
 
 #include <Surface.hpp>
@@ -398,9 +398,6 @@ for name, command in parsed.items():
     write("//Will only be called by the client")
     write(f'debug_printf("Executing {name}\\n");')
     
-    if(name.startswith("vkCmd")):
-        write("printf(\"vkCmd!\\n\");")
-
     memory_operation_lock=False #Effectively disable the lock --- the code is kept in as we may need it later
     if memory_operation_lock:
         write("MemoryOperationLock.lock();")
@@ -596,14 +593,20 @@ for name, command in parsed.items():
     write("bool should_push_cmd_buffer = false;")
 
     is_batchable_cmd = False #Is this command something we're going to batch? 
-    if(name.startswith("vkCmd") and (is_void(command))):
-        is_batchable_cmd = True
-        write("addToBatch(commandBuffer, json); //TODO: See if we can use std::moves later to avoid copies")
-        write("should_push_cmd_buffer = pushHintBatch(commandBuffer);")
 
-    elif name.startswith("vkCmd") or (name == "vkEndCommandBuffer"):
+    if name.startswith("vkCmd"):
+        if is_void(command):
+            is_batchable_cmd = True
+            write("should_push_cmd_buffer = pushHintBatch(commandBuffer);")
+        else:
+           write("should_push_cmd_buffer = true;")
+
+    if (is_batchable_cmd):
+        write("addToBatch(commandBuffer, json); //TODO: See if we can use std::moves later to avoid copies")
+
+    if (name == "vkEndCommandBuffer"):
         write("should_push_cmd_buffer = true;")
-    
+
     for param in command["params"]:
         if (param["type"] == "VkCommandBuffer") and (param["name"] == "commandBuffer"):
             write("""
@@ -613,10 +616,10 @@ for name, command in parsed.items():
                 """)
             break
     
-    if not is_batchable_cmd:
+    if not is_batchable_cmd: #There's no need to write if we're batching it
         write("writeToConn(json);")
     write(f"""
-        while(true){{
+        while(true && !({+(is_batchable_cmd)} && !should_push_cmd_buffer)){{
             json=readFromConn();
             
             switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
@@ -649,7 +652,7 @@ for name, command in parsed.items():
         }
     """)
     
-    if not is_batchable_cmd:
+    if not is_batchable_cmd: #Nothing to deserialize
         for param in command["params"]:
             write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
     

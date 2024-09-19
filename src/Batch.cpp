@@ -9,31 +9,30 @@ std::mutex mu;
 
 typedef struct {
 	boost::json::array array;
-	std::mutex mu;
+	std::recursive_mutex mu;
 } info;
 std::unordered_map<VkCommandBuffer, info> map;
-std::tuple<boost::json::array&, std::unique_lock<std::mutex>> getBatch(VkCommandBuffer commandBuffer){
-	mu.lock();	
-	auto& item = map[commandBuffer];
-	mu.unlock();
 
-	return std::forward_as_tuple(item.array, std::unique_lock<std::mutex>(item.mu));
-}
+#define GET_BATCH\
+	mu.lock();\
+	auto& info = map[commandBuffer];\
+	mu.unlock();\
+	auto& array = info.array;\
+	auto lock = std::unique_lock(info.mu);
+
 void addToBatch(VkCommandBuffer commandBuffer, boost::json::object json){
-
-	auto [array, lock ] = getBatch(commandBuffer);
-
+	GET_BATCH;
 	array.push_back(json);
 }
 
 bool pushHintBatch(VkCommandBuffer commandBuffer){
-	auto [array, lock ] = getBatch(commandBuffer);
+	GET_BATCH
 
-	return array.size() >= 1;
+	return array.size() >= 20;
 }
 
 void sendBatch(VkCommandBuffer commandBuffer){
-	auto [array, lock ] = getBatch(commandBuffer);
+	GET_BATCH
 
 	boost::json::object json;
 
@@ -42,10 +41,13 @@ void sendBatch(VkCommandBuffer commandBuffer){
 	json["cmds"]=array;
 	
 	writeToConn(json);
+
+	clearBatch(commandBuffer);
 }
 
 void clearBatch(VkCommandBuffer commandBuffer){	
-	auto [array, lock ] = getBatch(commandBuffer);
+	GET_BATCH
+	
 	array.clear();
 }
 
