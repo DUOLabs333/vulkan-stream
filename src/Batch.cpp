@@ -27,9 +27,10 @@ void addToBatch(VkCommandBuffer commandBuffer, boost::json::object json){
 
 bool pushHintBatch(VkCommandBuffer commandBuffer){
 	GET_BATCH
+	
+	return array.size() >= 100; //PROFILE: Maybe this should be profiled to find the best value
 
-	//return array.size() >= 0; //PROFILE: Maybe this should be profiled to find the best value
-	return array.size() >= 30;
+	//return array.size() >= 0;
 }
 
 void sendBatch(VkCommandBuffer commandBuffer){

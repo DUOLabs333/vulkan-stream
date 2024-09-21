@@ -286,9 +286,9 @@ void handle_sync_request(Sync& sync){
 
 void SyncOne(uint64_t devicememory, void* mem, int offset, size_t length, bool unmap){
 
-    //int parts=floor(sqrt(length));
+    int parts=floor(sqrt(length));
     //int parts=10;
-    int parts=1; //PROFILE: See if any other number does better
+    //int parts=1; //PROFILE: See if any other number does better
     auto d=length/parts;
     auto remainder=length%parts;
     
