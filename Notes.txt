@@ -1,0 +1,3 @@
+Profiler didn't point me to the biggest source of slowness since they couldn't tell me about IO. I only got the idea that vkCmd could be the problem as I saw in perf that vkCmdBindDescriptorSets was the vk-command that took up the most CPU time, which meant it was likely being called a lot.
+
+However, did cause me to optimize JSON handling for the synchronization hot-path, transportation channel, and hashing, so win-win?

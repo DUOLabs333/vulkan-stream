@@ -148,6 +148,10 @@ write("#ifndef CLIENT")
 write("""
 auto get_instance_proc_addr=vkGetInstanceProcAddr;
 auto get_device_proc_addr=vkGetDeviceProcAddr;
+
+#ifdef VK_USE_PLATFORM_METAL_EXT
+int dummy=setenv("MVK_CONFIG_USE_METAL_ARGUMENT_BUFFERS", "1",0);
+#endif
 """)
 
 for name, command in parsed.items():
@@ -428,7 +432,6 @@ for name, command in parsed.items():
 
     write(f"""
     boost::json::object json;
-    json.reserve({len(command["params"])}+3);
     
     json["stream_type"]={name.upper()};
     
