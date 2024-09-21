@@ -710,9 +710,6 @@ for name, command in parsed.items():
         #endif
         """)
         for command_name in parsed:
-            if "alias" in parsed[command_name]:
-                command_name=parsed[command_name]["alias"]
-            
             if parsed[command_name]["kind"]!="command":
                 continue
             
