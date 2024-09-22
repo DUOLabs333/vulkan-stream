@@ -178,18 +178,24 @@ for name, command in parsed.items():
     auto parent_json=json["parent"].get_object();
     auto parent_type=static_cast<ParentHandleType>(value_to<int>(parent_json["type"]));
     auto& parent_handle=parent_json["handle"];
-    
-    if(parent_type==PARENT_INSTANCE){{
-        VkInstance parent;
-        deserialize_VkInstance(parent_handle,parent);
-        call_function=(PFN_{name})get_instance_proc_addr(parent,"{name}");
-    }}else if(parent_type==PARENT_DEVICE){{
-        VkDevice parent;
-        deserialize_VkDevice(parent_handle,parent);
-        call_function=(PFN_{name})get_device_proc_addr(parent,"{name}");
-    }}  
-    """
-    )
+    //TODO: If call_function is NULL, try again with {{name}}KHR (and maybe with
+""")
+
+    for parent in ["instance", "device"]:
+        vk_handle = f"Vk{parent.title()}"
+        get_function = lambda name_: f"call_function=(PFN_{name})get_{parent}_proc_addr(parent, \"{name_}\");"
+
+        write(f"""
+        if(parent_type==PARENT_{parent.upper()}){{
+            {vk_handle} parent;
+            deserialize_{vk_handle}(parent_handle, parent);
+            {get_function(name)}
+
+            if (call_function==NULL){{
+                {get_function(name+"KHR")}
+            }}
+        }}
+        """)
     
     call_arguments=", ".join([param["name"] for param in command["params"]])
     
@@ -572,7 +578,36 @@ for name, command in parsed.items():
             submitCount=1;
         }
         """)
-        
+    
+    if name == "vkAllocateMemory":
+        write("""
+        //TODO: Abstract this transversal behind a function that takes a callback 
+        VkMemoryAllocateInfo* temp_info = (VkMemoryAllocateInfo*)copyVkStruct(pAllocateInfo);
+
+        StreamStructure* parent_struct = (StreamStructure*)temp_info;
+
+        void* curr_struct = NULL;
+
+        while(true){
+
+            curr_struct = copyVkStruct(parent_struct->pNext);
+
+            if (curr_struct == NULL){
+                break;
+            }
+            if(((StreamStructure*)curr_struct)->sType == VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO){
+                parent_struct->pNext=((StreamStructure*)curr_struct)->pNext;
+                break;
+            }
+
+            parent_struct=(StreamStructure*)curr_struct;
+
+        }
+
+        VkMemoryAllocateInfo* pAllocateInfo = temp_info;
+
+
+        """)
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
     write("}")
