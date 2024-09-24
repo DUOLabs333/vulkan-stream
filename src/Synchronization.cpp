@@ -272,7 +272,7 @@ void handle_sync_request(Sync& sync){
 
         auto encoded_size=tb64enc(reinterpret_cast<unsigned char*>((char*)mem+start), length, reinterpret_cast<unsigned char*>(temp_buffer));
         
-        sync.buffers[i]=std::move(std::string(temp_buffer,temp_buffer+encoded_size));
+        sync.buffers[i]=std::string(temp_buffer,temp_buffer+encoded_size);
     }
     
     if (temp_buffer!=NULL){
