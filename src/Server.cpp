@@ -10,7 +10,6 @@
 #include <thread>
 #include <string_view>
 #include <random>
-#include <simdjson.h>
 #include <format>
 #include <functional>
 

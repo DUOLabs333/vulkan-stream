@@ -3,7 +3,8 @@
 
 
 #include <xxhash.h>
-#include <turbob64.h>
+#include <simdutf.cpp>
+#include <simdutf.h>
 
 #include <boost/json.hpp>
 #include <glaze/glaze.hpp>
@@ -34,6 +35,19 @@ uint64_t server_devicememory; //So we can tell the server what deviceMemory to d
 uint64_t prev_hash =0;
 bool coherent;
 } MemInfo;
+
+
+struct NoInitChar //Solves problem of C++ vector default-initializing upon resize
+{
+    char value;
+    NoInitChar() {
+        // do nothing
+        static_assert(sizeof *this == sizeof value, "invalid size");
+        static_assert(__alignof *this == __alignof value, "invalid alignment");
+    }
+};
+
+thread_local std::vector<NoInitChar> sync_temp_buffer;
 
 template<typename K, typename V>
 class Map {
@@ -91,6 +105,7 @@ class Map {
 		}
 			
 };	
+
 
 Map<uintptr_t,MemInfo> devicememory_to_mem_info;
 
@@ -178,7 +193,7 @@ void handle_sync_response(Sync& sync){
     
     for(int i=0; i < sync.starts.size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
-        tb64dec(reinterpret_cast<const unsigned char*>(sync.buffers[i].data()), sync.buffers[i].size(), reinterpret_cast<unsigned char*>((char*)mem+sync.starts[i]));
+        simdutf::base64_to_binary(sync.buffers[i].data(), sync.buffers[i].size(), (char*)mem+sync.starts[i]);
     }
     
     boost::json::object json;
@@ -258,25 +273,20 @@ void handle_sync_request(Sync& sync){
         void* mem=(void*)(sync.mem);
     #endif
     
-    sync.buffers.resize(sync.starts.size());
-    
-    char* temp_buffer=NULL;
-    
-    if (sync.lengths.size()>=1){
-        temp_buffer=new char[tb64enclen(sync.lengths[0]+1)];
+
+    if (sync.lengths.size()>0){
+        sync_temp_buffer.resize(simdutf::base64_length_from_binary(sync.lengths[0]+1));
     }
+
+    char* temp_buffer = reinterpret_cast<char*>(sync_temp_buffer.data());
     
     for(int i=0; i<sync.starts.size(); i++){
         auto length=sync.lengths[i];
         auto start=sync.starts[i];
 
-        auto encoded_size=tb64enc(reinterpret_cast<unsigned char*>((char*)mem+start), length, reinterpret_cast<unsigned char*>(temp_buffer));
+        auto encoded_size=simdutf::binary_to_base64((char*)(mem)+start, length, temp_buffer);
         
-        sync.buffers[i]=std::string(temp_buffer,temp_buffer+encoded_size);
-    }
-    
-    if (temp_buffer!=NULL){
-    	delete[] temp_buffer;
+        sync.buffers.emplace_back(temp_buffer,temp_buffer+encoded_size);
     }
     
     writeToConn(sync);

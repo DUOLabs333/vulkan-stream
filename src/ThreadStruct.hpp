@@ -4,7 +4,6 @@
 #include <set>
 #include "debug.hpp"
 #include <boost/json.hpp>
-#include <simdjson.h>
 #include <asio_c.h>
 #include <memory>
 
@@ -12,7 +11,6 @@ typedef struct {
 	AsioConn* conn;
     boost::json::parser parser = {{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}};
     boost::json::serializer serializer = {{.allow_infinity_and_nan=true}};
-    simdjson::ondemand::parser simdparser;
     int uuid;
 
     std::string glaze_str;
