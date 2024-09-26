@@ -1,11 +1,10 @@
 #include <boost/json.hpp>
 #include <mutex>
-#include <tuple>
 
 #include "Batch.hpp"
-#include "Server.hpp"
+#include <Server.hpp>
 
-std::mutex mu;
+static std::mutex mu;
 
 typedef struct {
 	boost::json::array array;
@@ -28,9 +27,9 @@ void addToBatch(VkCommandBuffer commandBuffer, boost::json::object json){
 bool pushHintBatch(VkCommandBuffer commandBuffer){
 	GET_BATCH
 	
-	return array.size() >= 100; //PROFILE: Maybe this should be profiled to find the best value
-
-	//return array.size() >= 0;
+	 return array.size() >= 100; //PROFILE: Maybe this should be profiled to find the best value
+	//return false; //Never push Cmd
+	//return array.size() >= 0; //Always push Cmd
 }
 
 void sendBatch(VkCommandBuffer commandBuffer){

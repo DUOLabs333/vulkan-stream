@@ -18,8 +18,8 @@ def run_path(path,env=None):
     return subprocess.run([sys.executable, path], env=env)
 
 class main(BuildBase):
-    SRC_FILES=["autogen/*","src/*", get_dep_path("shm_open_anon", "shm_open_anon.c")]
-    INCLUDE_PATHS=["autogen","src", get_dep_path("shm_open_anon"), get_dep_path("Vulkan-Headers", "include"), get_dep_path("boost"), conn.library, get_dep_path("simdutf", "singleheader"),get_dep_path("glaze", "include"), get_dep_path("xxHash-3")]
+    SRC_FILES=["autogen/*","src/*", "optimization/*", get_dep_path("shm_open_anon", "shm_open_anon.c")]
+    INCLUDE_PATHS=["autogen","src", "optimization", get_dep_path("shm_open_anon"), get_dep_path("Vulkan-Headers", "include"), get_dep_path("boost"), conn.library, get_dep_path("simdutf", "singleheader"),get_dep_path("glaze", "include"), get_dep_path("xxHash-3")]
 
     STATIC_LIBS=[conn.library, get_dep_path("xxHash-3", "libxxhash.a")]
 

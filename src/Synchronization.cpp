@@ -142,6 +142,7 @@ void* registerDeviceMemoryMap(uint64_t server_memory, VkDeviceMemory memory, VkD
 	#ifdef CLIENT
 	    info.fd=shm_open_anon(); //Make new place for memory
 	    ftruncate(info.fd,info.size);
+		
 	    
 	    info.mem=mmap(NULL,info.size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, info.fd,0);
 	    
@@ -174,6 +175,7 @@ debug_printf("DeviceMemory unmapping in progress...\n");
 	    deregisterClientServerMemoryMapping((uint64_t)(info.mem));
 	    munmap(info.mem, info.size);
 	    close(info.fd);
+	    
 	#endif
 
 	devicememory_to_mem_info.erase(key);
@@ -296,8 +298,8 @@ void handle_sync_request(Sync& sync){
 
 void SyncOne(uint64_t devicememory, void* mem, int offset, size_t length, bool unmap){
 
-    int parts=floor(sqrt(length));
-    //int parts=10;
+    //int parts=floor(sqrt(length));
+    int parts=10;
     //int parts=1; //PROFILE: See if any other number does better
     auto d=length/parts;
     auto remainder=length%parts;
