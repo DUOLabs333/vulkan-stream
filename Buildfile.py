@@ -14,6 +14,9 @@ os.environ["VK_HEADER_FLAGS"]=VK_HEADER_FLAGS
 
 VK_HEADER_FLAGS=VK_HEADER_FLAGS.strip().split(" ")
 
+
+VULKAN_SDK=os.environ.get("VULKAN_SDK", None)
+
 def run_path(path,env=None):
     return subprocess.run([sys.executable, path], env=env)
 
@@ -30,6 +33,8 @@ class main(BuildBase):
     OUTPUT_NAME="vulkan_stream"
 
     OUTPUT_TYPE=LIB if CLIENT else EXE
+
+    RPATH = [VULKAN_SDK] if ((VULKAN_SDK!=None) and CLIENT) else []
 
 class autogen(BuildBase):
 
