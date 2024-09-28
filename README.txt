@@ -11,7 +11,7 @@ To compile:
 
 	
 	Caveats:
-		If you do not use Nix on the server, and the loader is in a non-standard location, set `VK_LIB_PATH` to the path where the Vulkan loader resides. Make sure that the loader can pick up MoltenVK when being loaded.
+		Make sure that the loader can pick up MoltenVK when being loaded.
 
 		For maximum performance, compile with `DEBUG=0`
 
@@ -21,4 +21,4 @@ To use:
 	On the server, simply run `./vulkan_stream`. On the client, simply run `VK_ICD_FILENAMES=./stream_icd.aarch64.json <application>`
 
 	Caveats:
-		On both the server and the client, set `STREAM_ADDRESS` and `STREAM_PORT` to values that both the server can connect on, and the client can connect to.
+		On both the server and the client, set `CONN_STREAM_ADDRESS` and `CONN_STREAM_PORT` to values that both the server can connect on, and the client can connect to.
