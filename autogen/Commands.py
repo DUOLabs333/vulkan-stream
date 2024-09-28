@@ -62,7 +62,7 @@ enum ParentHandleType {
 };
 
 """)
-def registerDeviceMemoryMap(name,mem, info = None):
+def registerDeviceMemoryMap(name,mem):
     if name.startswith("vkMapMemory"):
         memory="memory"
         size="size"
@@ -71,9 +71,7 @@ def registerDeviceMemoryMap(name,mem, info = None):
             memory=f"pMemoryMapInfo->{memory}"
             size=f"pMemoryMapInfo->{size}"
             offset=f"pMemoryMapInfo->{offset}"
-        
-        if info is not None:
-            info.update(locals())
+            
         return f"""
         boost::json::value server_memory_json;
         serialize_VkDeviceMemory(server_memory_json, {memory});
@@ -98,13 +96,6 @@ def registerDeviceMemoryMap(name,mem, info = None):
         
         #ifndef CLIENT
             *ppData=NULL; //It's faster to malloc on the client and sync than it is to send the memory at once
-        #endif
-
-        #ifdef CLIENT
-            {{
-                auto json = readFromConn();
-                handle_sync_init(json);
-            }}
         #endif
         """
     else:
@@ -313,8 +304,7 @@ for name, command in parsed.items():
     else:
         write(convert("result","""json["result"]""",command, serialize=True))
     
-    info = {}
-    write(registerDeviceMemoryMap(name,"(uint64_t)(*ppData)", info))
+    write(registerDeviceMemoryMap(name,"(uint64_t)(*ppData)"))
     
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
@@ -334,13 +324,7 @@ for name, command in parsed.items():
         if (!batched){ //TODO: Later, we can see if only serializing when !batched can speed things up further
             writeToConn(json);
         }
-    """)
-
-    if name.startswith("vkMapMemory"):
-        write(f"""
-        SyncOne({info['memory']}, 0, VK_WHOLE_SIZE, false);
-        """)
-    write("}")
+    }""")
 
 write("""
 void handle_command(boost::json::object json){
@@ -823,6 +807,29 @@ for name, command in parsed.items():
         write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
     
     write(registerDeviceMemoryMap(name, """value_to<uint64_t>(json["mem"])"""))
+    
+    if name.startswith("vkMapMemory"):
+        write("""
+        auto range=VkMappedMemoryRange{
+            .sType=VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE,
+            .pNext=NULL,
+        """)
+        if "2" not in name:
+            write("""
+            .memory=memory,
+            .offset=offset,
+            .size=size
+            """)
+        else:
+            write("""
+            .memory=pMemoryMapInfo->memory,
+            .offset=pMemoryMapInfo->offset,
+            .size=pMemoryMapInfo->size
+            """)
+        write("""
+        };
+        vkInvalidateMappedMemoryRanges(device, 1, &range);
+        """)
         
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")
