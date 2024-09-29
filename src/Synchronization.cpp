@@ -1,7 +1,6 @@
 #include <cstddef>
 #include <cstdint>
 
-
 #include <xxhash.h>
 #include <simdutf.cpp>
 #include <simdutf.h>
@@ -9,10 +8,10 @@
 #include <boost/json.hpp>
 #include <glaze/glaze.hpp>
 
-#include <vulkan/vulkan.h>
+#include <vulkan/vulkan_core.h>
 #include "Server.hpp"
 #include "Synchronization.hpp"
-#include <unordered_map>
+
 extern "C" {
 #include <shm_open_anon.h>
 }
@@ -198,12 +197,18 @@ void handle_sync_response(Sync& sync){
         simdutf::base64_to_binary(sync.buffers[i].data(), sync.buffers[i].size(), (char*)mem+sync.starts[i]);
     }
     
-    boost::json::object json;
-    writeToConn(json);
+    {
+    Sync sync;
+    writeToConn(sync);
+    }
 }
 
-void handle_sync_init(Sync& sync){
+void handle_sync_init(boost::json::object& json){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
+
+
+    Sync sync;
+    readFromConn(sync);
 
     #ifdef CLIENT
         if (!server_to_client_mem.contains(sync.mem)){
@@ -257,15 +262,6 @@ void handle_sync_init(Sync& sync){
     
 }
 
-//What we want to do instead is add an extra step --- init will just be called, so no json needs to be parsed anymore. Then, the next step is to begin the init in earnest. In short --- _init() -> (parse next response) -> continue. So, if you send a request, it will likely just be ({.stream_type=SYNC, .init=true})
-void handle_sync_init(boost::json::object& json){
-	Sync sync; //Hacky workaround for the lack of reflection available in boost
-	auto str=boost::json::serialize(json);
-	glz::read_json(sync,str);
-
-	return handle_sync_init(sync);
-}
-
 void handle_sync_request(Sync& sync){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
         
@@ -293,7 +289,7 @@ void handle_sync_request(Sync& sync){
     
     writeToConn(sync);
     
-    readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
+    readFromConn(sync); //Wait for the other computer to return that it's finished setting the bytes.
 }
 
 void SyncOne(uint64_t devicememory, void* mem, int offset, size_t length, bool unmap){
@@ -339,8 +335,11 @@ void SyncOne(uint64_t devicememory, void* mem, int offset, size_t length, bool u
         offset+=d;
     }
     
-    boost::json::object json;
-    
+    {
+    Sync sync;
+    writeToConn(sync);
+    }
+
     writeToConn(sync);
     readFromConn(sync);
     handle_sync_request(sync);

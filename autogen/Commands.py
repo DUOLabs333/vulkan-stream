@@ -493,7 +493,7 @@ for name, command in parsed.items():
         uint32_t len_of_properties_array=*pPropertyCount;
         """)
     
-    if name=="vkMapMemory":
+    if name=="vkMapMemory": 
         write("""
         if (size==VK_WHOLE_SIZE){
             size=devicememory_to_info[(uint64_t)memory].size-offset;

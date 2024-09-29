@@ -67,8 +67,7 @@ boost::json::object parseJSON(std::string_view& line){
 	return json;
 }
 
-Sync parseSync(std::string_view& line){
-	Sync sync;
+Sync parseSync(std::string_view& line, Sync& sync){
 	glz::read<glz::opts{.error_on_unknown_keys=false}>(sync, line);
 	return sync;
 }
@@ -94,8 +93,8 @@ Sync parseSync(std::string_view& line){
             
 	    auto stream_type = static_cast<StreamType>(header.stream_type);
             if (stream_type == SYNC){
-	    	auto sync=parseSync(line);
-                handle_sync_init(sync);
+	    	auto json=parseJSON(line);
+                handle_sync_init(json);
             }else if (stream_type == CMD_BUFFER_BATCH){
 	    	auto batch = parseJSON(line);
 	    	for (auto& cmd: batch["cmds"].get_array()){
@@ -143,7 +142,7 @@ boost::json::object readFromConn(){
 void readFromConn(Sync& sync){	
     std::string_view line;
     readFromConn(line);
-    sync=parseSync(line);
+    parseSync(line, sync);
 }
 
 void writeToConn(boost::json::object& json){
