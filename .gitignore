@@ -10,3 +10,5 @@ perf*.data*
 id1
 autogen/*.*pp
 parse/vulkan_header.h
+hash/target
+Cargo.lock

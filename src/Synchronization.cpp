@@ -13,6 +13,10 @@
 #include "Synchronization.hpp"
 
 extern "C" {
+#include "../hash/rhash.h"
+}
+
+extern "C" {
 #include <shm_open_anon.h>
 }
 
@@ -109,7 +113,8 @@ class Map {
 Map<uintptr_t,MemInfo> devicememory_to_mem_info;
 
 uint64_t HashMem(void* mem, uint64_t start, uint64_t length) {
-    return XXH3_64bits((char*)mem+start,length);
+     return RHash((uint8_t*)mem+start, length);
+    //return XXH3_64bits((char*)mem+start,length);
 }
 
 void registerClientServerMemoryMapping(uint64_t client_mem, uint64_t server_mem){
