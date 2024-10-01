@@ -17,7 +17,7 @@ write("""
 #include "Serialization.hpp"
 #include "Server.hpp"
 #include <Synchronization.hpp>
-#include <Batch.hpp>
+#include <CmdBatch.hpp>
 
 typedef struct DeviceMemoryInfo {
       VkDeviceSize size;
@@ -647,12 +647,12 @@ for name, command in parsed.items():
     if name.startswith("vkCmd"):
         if is_void(command):
             is_batchable_cmd = True
-            write("should_push_cmd_buffer = pushHintBatch(commandBuffer);")
+            write("should_push_cmd_buffer = pushHintCmdBatch(commandBuffer);")
         else:
            write("should_push_cmd_buffer = true;")
 
     if (is_batchable_cmd):
-        write("addToBatch(commandBuffer, json); //TODO: See if we can use std::moves later to avoid copies")
+        write("addToCmdBatch(commandBuffer, json); //TODO: See if we can use std::moves later to avoid copies")
 
     if (name == "vkEndCommandBuffer"):
         write("should_push_cmd_buffer = true;")
@@ -661,7 +661,7 @@ for name, command in parsed.items():
         if (param["type"] == "VkCommandBuffer") and (param["name"] == "commandBuffer"):
             write("""
                     if(should_push_cmd_buffer){
-                        sendBatch(commandBuffer);
+                        sendCmdBatch(commandBuffer);
                     }
                 """)
             break
@@ -734,7 +734,7 @@ for name, command in parsed.items():
             """)
     
     if (name=="vkResetCommandBuffer"):
-        write("clearBatch(commandBuffer);")
+        write("clearCmdBatch(commandBuffer);")
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
       
         write(f"{command['type']} result;")

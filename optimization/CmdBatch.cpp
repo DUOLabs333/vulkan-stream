@@ -1,7 +1,7 @@
 #include <boost/json.hpp>
 #include <mutex>
 
-#include "Batch.hpp"
+#include "CmdBatch.hpp"
 #include <Server.hpp>
 
 static std::mutex mu;
@@ -19,12 +19,12 @@ std::unordered_map<VkCommandBuffer, info> map;
 	auto& array = info.array;\
 	auto lock = std::unique_lock(info.mu);
 
-void addToBatch(VkCommandBuffer commandBuffer, boost::json::object json){
+void addToCmdBatch(VkCommandBuffer commandBuffer, boost::json::object json){
 	GET_BATCH;
 	array.push_back(json);
 }
 
-bool pushHintBatch(VkCommandBuffer commandBuffer){
+bool pushHintCmdBatch(VkCommandBuffer commandBuffer){
 	GET_BATCH
 	
 	 return array.size() >= 100; //PROFILE: Maybe this should be profiled to find the best value
@@ -32,7 +32,7 @@ bool pushHintBatch(VkCommandBuffer commandBuffer){
 	//return array.size() >= 0; //Always push Cmd
 }
 
-void sendBatch(VkCommandBuffer commandBuffer){
+void sendCmdBatch(VkCommandBuffer commandBuffer){
 	GET_BATCH
 
 	boost::json::object json;
@@ -46,7 +46,7 @@ void sendBatch(VkCommandBuffer commandBuffer){
 	clearBatch(commandBuffer);
 }
 
-void clearBatch(VkCommandBuffer commandBuffer){	
+void clearCmdBatch(VkCommandBuffer commandBuffer){	
 	GET_BATCH
 	
 	array.clear();
