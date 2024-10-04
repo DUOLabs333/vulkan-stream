@@ -29,7 +29,7 @@ bool pushHintCmdBatch(VkCommandBuffer commandBuffer){
 	
 	 return array.size() >= 100; //PROFILE: Maybe this should be profiled to find the best value
 	//return false; //Never push Cmd
-	//return array.size() >= 0; //Always push Cmd
+	//return true; //Always push Cmd
 }
 
 void sendCmdBatch(VkCommandBuffer commandBuffer){

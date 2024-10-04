@@ -372,7 +372,6 @@ write("""
 typedef struct {
 VkInstance instance;
 VkDevice device;
-std::string appName;
 } parent_handle_struct;
 
 std::unordered_map<uint64_t,parent_handle_struct> handle_to_parent_handle_struct; //TODO: Add locking to this
@@ -642,24 +641,6 @@ for name, command in parsed.items():
     write(deregisterDeviceMemoryMap(name))
 
     #BEGIN: Optimizations
-    if name == "vkDestroyBuffer":
-        write("""
-            if (addToBufferCache(buffer)){ //Checks if the corresponding device is marked as "no more buffers", and that the appName is in the set marked for this optimization. If so, marks the buffer as being available to use (because of this, the map used should be map to multimap (maybe later, we can discriminate on size, so it would be map to multimapmap to multimap). If the combined size of the buffers for the parent device is greater than 10M, delete them all.
-                return;
-            }   
-        """)
-
-    if name == "vkDestroyDevice":
-        write("""
-            deleteFromBufferCache(device); //Marks it as "don't accept anything else", then deletes (vkDestroyBuffer) all buffers in device 
-        """)
-    if name == "vkCreateBuffer":
-        write(f"""
-        auto is_buffer_cached = getFromBufferCache(device, json["pCreateInfo"], handle_to_parent_handle_struct[(uint64_t)device].appName);
-        """) #Returns if there's a buffer already cached that matches the requirements. If so, json["pBuffer"] is changed to match it. For now, only works if appName == "VulkanDrv". Also, map device to appName in a separate map
-    else:
-        write("bool is_buffer_cached = false;")
-
     write("bool should_push_cmd_buffer = false;")
 
     is_batchable_cmd = False #Is this command something we're going to batch? 
@@ -687,13 +668,9 @@ for name, command in parsed.items():
             break
     
     if not is_batchable_cmd: #There's no need to write if we're batching it
-        write("""
-        if (!is_buffer_cached){
-            writeToConn(json);
-        }
-        """)
+        write("writeToConn(json);")
     write(f"""
-        while(true && !({+(is_batchable_cmd)} && !should_push_cmd_buffer) && !is_buffer_cached){{
+        while(true && !({+(is_batchable_cmd)} && !should_push_cmd_buffer)){{
             json=readFromConn();
             
             switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
@@ -729,15 +706,6 @@ for name, command in parsed.items():
     if not is_batchable_cmd: #Nothing to deserialize
         for param in command["params"]:
             write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
-
-    write("""
-        if (is_buffer_cached){
-            return;
-        }else{
-        """)
-    if( name == "vkCreateBuffer"):
-        write(f"registerInBufferCache(device, *pBuffer);")
-    write("}")
 
     #END: Optimizations
     
@@ -827,7 +795,7 @@ for name, command in parsed.items():
                 break
                 
             if handle["type"]=="VkDevice":
-                write(f"""handle_to_parent_handle_struct[(uint64_t)(*{handle["name"]})]={{.instance=NULL,.device=(*{handle["name"]}), .appName=handle_to_parent_handle_struct[(uint64_t)instance].appName}};""")
+                write(f"""handle_to_parent_handle_struct[(uint64_t)(*{handle["name"]})]={{.instance=NULL,.device=(*{handle["name"]})}};""")
             elif handle["type"]=="VkInstance":
                 write(f"""handle_to_parent_handle_struct[(uint64_t)(*{handle["name"]})]={{.instance=(*{handle["name"]}),.device=NULL}};""")
             elif len(handle["length"])>0 and handle["length"][-1]!="":
@@ -886,8 +854,6 @@ for name, command in parsed.items():
                     """)
                 write(f"""delete_{handle["type"]}({handle["name"]});""")
     
-    
-    #TODO: Move this stuff into RAII, so it's run even if the function ends early. Only the result thing doesn't need to
     if memory_map_lock==1:
         write("MemoryMapLock.unlock();")
     elif memory_map_lock==2:
