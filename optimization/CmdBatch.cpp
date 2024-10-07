@@ -43,7 +43,7 @@ void sendCmdBatch(VkCommandBuffer commandBuffer){
 	
 	writeToConn(json);
 
-	clearBatch(commandBuffer);
+	clearCmdBatch(commandBuffer);
 }
 
 void clearCmdBatch(VkCommandBuffer commandBuffer){	

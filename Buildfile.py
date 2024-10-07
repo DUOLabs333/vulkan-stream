@@ -34,7 +34,7 @@ class main(BuildBase):
 
     OUTPUT_TYPE=LIB if CLIENT else EXE
 
-    RPATH = [VULKAN_SDK] if ((VULKAN_SDK!=None) and (not CLIENT)) else []
+    RPATH = [VULKAN_SDK+"/macOS/lib"] if ((VULKAN_SDK!=None) and (not CLIENT)) else []
 
 class autogen(BuildBase):
 
