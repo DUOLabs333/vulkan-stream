@@ -27,7 +27,6 @@ std::unordered_map<uint64_t,uint64_t> client_to_server_mem;
 std::unordered_map<uint64_t,uint64_t> server_to_client_mem;
 
 typedef struct {
-int fd;
 VkDeviceSize size;
 void* mem;
 uint64_t server_devicememory; //So we can tell the server what deviceMemory to delete when unmapping
@@ -139,12 +138,8 @@ void* registerDeviceMemoryMap(uint64_t server_memory, VkDeviceMemory memory, VkD
 	info.size=size;
 	info.coherent=coherent;
 	#ifdef CLIENT
-	    info.fd=shm_open_anon(); //Make new place for memory
-	    ftruncate(info.fd,info.size);
-		
-	    
-	    info.mem=mmap(NULL,info.size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, info.fd,0);
-	    
+	    info.mem = malloc(info.size);
+
 	    auto client_mem=(uint64_t)(info.mem);
 	    
 	    registerClientServerMemoryMapping(client_mem, server_mem);
@@ -172,9 +167,8 @@ debug_printf("DeviceMemory unmapping in progress...\n");
 	    auto& info=devicememory_to_mem_info[key];
 	    SyncOne(memory, 0, VK_WHOLE_SIZE, true);
 	    deregisterClientServerMemoryMapping((uint64_t)(info.mem));
-	    munmap(info.mem, info.size);
-	    close(info.fd);
-	    
+
+	    free(info.mem);	    
 	#endif
 
 	devicememory_to_mem_info.erase(key);
