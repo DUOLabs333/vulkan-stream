@@ -27,8 +27,8 @@ void addToCmdBatch(VkCommandBuffer commandBuffer, boost::json::object json){
 bool pushHintCmdBatch(VkCommandBuffer commandBuffer){
 	GET_BATCH
 	
-	 return array.size() >= 100; //PROFILE: Maybe this should be profiled to find the best value
-	//return false; //Never push Cmd
+	 //return array.size() >= 100; //PROFILE: Maybe this should be profiled to find the best value
+	return false; //Never push Cmd. Offers the best performance, at the potential cost of being non-compliant.
 	//return true; //Always push Cmd
 }
 
