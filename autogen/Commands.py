@@ -300,6 +300,47 @@ for name, command in parsed.items():
         pCreateInfo->ppEnabledExtensionNames=extensions_list;
         pCreateInfo->enabledExtensionCount=extensions_length;            
         """)
+    elif name=="vkCreateDescriptorSetLayout":
+        write("""
+            #ifdef VK_USE_PLATFORM_METAL_EXT
+            //This is temporary until MoltenVK fixes variable combined image samplers. See https://github.com/KhronosGroup/MoltenVK/issues/2374.
+
+            //TODO: To make this stable (that is, not run out of pool space early), what you want to do is save the created layout on the server side, wait until an allocate descriptor sets comes in. If the descriptor layout is in the map (that is, if it was originally created to be variable), make a new layout with the same info used to create it but with the descriptorCount set to the actual number. Then, we pass that layout in as the one used to create the descriptor set.   
+
+            auto create_info = (VkDescriptorSetLayoutCreateInfo*)copyVkStruct(pCreateInfo);
+            auto parent_struct=(StreamStructure*)create_info;
+            void* curr_struct=NULL;
+             VkDescriptorSetLayoutBindingFlagsCreateInfo* binding_info = NULL;
+
+             while(true){
+                    curr_struct = copyVkStruct(parent_struct->pNext);
+                    if(curr_struct == NULL){ //Nowhere else to go;
+                            break;
+                    }
+                    parent_struct->pNext=curr_struct;
+
+                    if((((StreamStructure*)curr_struct)->sType) == VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO){
+                            binding_info=(VkDescriptorSetLayoutBindingFlagsCreateInfo*)curr_struct;
+
+                            auto binding_flags_size=binding_info->bindingCount*sizeof(VkDescriptorBindingFlags);
+                            auto binding_flags=(VkDescriptorBindingFlags*) malloc(binding_flags_size);
+                            memcpy(binding_flags, binding_info->pBindingFlags, binding_flags_size);
+                            binding_info->pBindingFlags=binding_flags;
+
+                            for(int i = 0; i < binding_info->bindingCount; i++){
+                                    if(create_info->pBindings[i].descriptorType==VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER){
+                                            binding_flags[i] &= ~VK_DESCRIPTOR_BINDING_VARIABLE_DESCRIPTOR_COUNT_BIT_EXT;
+                                    }
+                            }
+                        break;
+                    }
+
+                    parent_struct=(StreamStructure*)curr_struct;
+            }
+
+            auto pCreateInfo=create_info;
+            #endif
+        """)
 
     write(return_prefix+"call_function"+"("+call_arguments+")"+";")
 
