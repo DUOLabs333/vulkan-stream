@@ -190,7 +190,7 @@ for name, command in parsed.items():
     auto parent_json=json["parent"].get_object();
     auto parent_type=static_cast<ParentHandleType>(value_to<int>(parent_json["type"]));
     auto& parent_handle=parent_json["handle"];
-    //TODO: If call_function is NULL, try again with {{name}}KHR (and maybe with
+    //TODO: If call_function is NULL, try again with {name}KHR (and maybe with
 """)
 
     for parent in ["instance", "device"]:
