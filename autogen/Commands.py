@@ -604,7 +604,7 @@ for name, command in parsed.items():
          
          auto fences_list = fences_ptr.get();
 
-         for (int i=0; i< swapchain_fence_info->swapchainCount; i++){
+         for (int i=0; i< swapchain_fence_info->swapchainCount; i++){ //TODO: Maybe we can cache fences and reuse them if it turns out that we are creating a lot of them per Present
             if ((fences_list[i]==VK_NULL_HANDLE)){
                 vkCreateFence(getSwapchainDevice(present_info->pSwapchains[i]),&fence_create_info, NULL, &(fences_list[i]));
             }
@@ -634,7 +634,7 @@ for name, command in parsed.items():
     
     if name == "vkAllocateMemory":
         write("""
-        //TODO: Abstract this transversal behind a function that takes a callback 
+        //TODO: Abstract this transversal behind a function that takes a callback (ie, takes an object, goes through each pNext, looks for a specific sType, then runs a callback that takes parent_struct and curr_struct). Additionally, don't use copyVkStruct (will just lead to memory leaks) -- instead, do a (Python) macro of (type, variable) that will do a dereference, then copy, then reference (with &).
         VkMemoryAllocateInfo* temp_info = (VkMemoryAllocateInfo*)copyVkStruct(pAllocateInfo);
 
         StreamStructure* parent_struct = (StreamStructure*)temp_info;
