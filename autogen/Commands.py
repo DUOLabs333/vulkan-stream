@@ -282,6 +282,10 @@ for name, command in parsed.items():
         #ifdef VK_USE_PLATFORM_METAL_EXT
             //extensions_set.insert(std::string(VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME)); //VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME is in vulkan_beta, so we can't include it yet
             extensions_set.insert("VK_KHR_portability_subset");
+
+            extensions_set.erase("VK_EXT_extended_dynamic_state"); //Really should only be deleted if macos < 14.0
+            extensions_set.erase("VK_EXT_extended_dynamic_state2"); //Really should only be deleted if macos < 14.0
+            extensions_set.erase("VK_EXT_extended_dynamic_state3"); //Really should only be deleted if macos < 14.0
         #endif
         
         auto extensions_length=extensions_set.size();
@@ -298,7 +302,67 @@ for name, command in parsed.items():
         }
 
         pCreateInfo->ppEnabledExtensionNames=extensions_list;
-        pCreateInfo->enabledExtensionCount=extensions_length;            
+        pCreateInfo->enabledExtensionCount=extensions_length;
+
+         /*
+        #ifdef VK_USE_PLATFORM_METAL_EXT
+            bool is_portability_features = false; //Is VkPhysicalDevicePortabilitySubsetFeatures already in the pNext chain?
+            VkBaseOutStructure* parent = NULL;
+
+            {
+                auto curr = (VkBaseOutStructure*)pCreateInfo;
+
+                while (curr != NULL){
+                    if (curr->sType == VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR){
+                        is_portability_features = true;
+                        break;
+                    }
+
+                    parent = curr;
+                    curr = parent->pNext;
+                }
+            }
+
+            VkPhysicalDevicePortabilitySubsetFeaturesKHR portability_features = {.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR, .pNext = NULL};
+
+            if(!is_portability_features){
+                VkPhysicalDeviceFeatures2 device_features = {.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2, .pNext=&portability_features};
+                vkGetPhysicalDeviceFeatures2(physicalDevice, &device_features);
+
+                parent->pNext = reinterpret_cast<VkBaseOutStructure*>(&portability_features);
+            }   
+        #endif
+        */
+
+        /*
+        #ifdef VK_USE_PLATFORM_METAL_EXT
+            bool is_portability_features = false; //Is VkPhysicalDevicePortabilitySubsetFeatures already in the pNext chain?
+
+            {
+                auto curr = (VkBaseOutStructure*)pCreateInfo;
+
+                while (curr != NULL){
+                    if (curr->sType == VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR){
+                        is_portability_features = true;
+                        break;
+                    }
+
+                    curr = curr->pNext;
+                }
+            }
+
+            VkPhysicalDevicePortabilitySubsetFeaturesKHR portability_features = {.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR, .pNext = NULL};
+
+            if(!is_portability_features){
+                VkPhysicalDeviceFeatures2 device_features = {.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2, .pNext=&portability_features};
+                vkGetPhysicalDeviceFeatures2(physicalDevice, &device_features);
+
+                portability_features.pNext = const_cast<void*>(pCreateInfo->pNext); //Dangerous, I know.
+
+                pCreateInfo->pNext=&portability_features;
+            }   
+        #endif   
+        */
         """)
     elif name=="vkCreateDescriptorSetLayout":
         write("""
