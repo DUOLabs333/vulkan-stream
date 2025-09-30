@@ -17,7 +17,7 @@ VK_HEADER_FLAGS=VK_HEADER_FLAGS.strip().split(" ")
 
 VULKAN_SDK=os.environ.get("VULKAN_SDK", None)
 
-def run_path(path,env=None):
+def run_path(path, env=None):
     return subprocess.run([sys.executable, path], env=env)
 
 class main(BuildBase):
@@ -40,7 +40,7 @@ class autogen(BuildBase):
 
     def build(cls):
         os.chdir("autogen")
-
+        
         for file in os.listdir(os.getcwd()):
             if not file.endswith(".py"):
                 continue

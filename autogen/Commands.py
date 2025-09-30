@@ -156,6 +156,59 @@ def syncRanges(name):
     #endif
     """
 
+'''
+write("""
+template <typename T> T* structTransveral(T* var, VkStructureType sType, std::function<void(T*, StreamStructure*, StreamStructure*)>) {
+auto temp_info=(T*)copyVkStruct(var);
+
+StreamStructure* parent_struct = (StreamStructure*)temp_info;
+StreamStructure* curr_struct = NULL;
+
+while(true){
+        curr_struct=copyVkStruct(parent_struct->pNext);
+        if(curr_struct == NULL){ //Nowhere else to go;
+                break;
+        }
+        parent_struct->pNext=curr_struct;
+
+        if(curr_struct->sType==sType){
+            callback(temp_info, parent_struct, curr_struct);
+            break;
+        }
+
+        parent_struct=curr_struct;
+    }
+}
+
+return temp_info;
+}
+""")
+'''
+
+def structTransveral(struct, sType, callback): #Abstracts the transversal of a VkStructure, where you stop when you get to a particular type and do some action.
+    return f"""
+    auto temp_info=*{struct};
+    auto {struct}=&temp_info; //I'm not sure why this works;
+
+    StreamStructure* parent_struct = (StreamStructure*){struct};
+    StreamStructure* curr_struct = NULL;
+
+    while(true){{
+        curr_struct=(StreamStructure*)copyVkStruct(parent_struct->pNext);
+        if(curr_struct == NULL){{ //Nowhere else to go;
+                break;
+        }}
+        parent_struct->pNext=curr_struct;
+
+        if(curr_struct->sType=={sType}){{
+            {callback}
+            break;
+        }}
+
+        parent_struct=curr_struct;
+    }}
+    """
+
 write("#ifndef CLIENT")
 write("""
 auto get_instance_proc_addr=vkGetInstanceProcAddr;
@@ -303,107 +356,28 @@ for name, command in parsed.items():
 
         pCreateInfo->ppEnabledExtensionNames=extensions_list;
         pCreateInfo->enabledExtensionCount=extensions_length;
-
-         /*
-        #ifdef VK_USE_PLATFORM_METAL_EXT
-            bool is_portability_features = false; //Is VkPhysicalDevicePortabilitySubsetFeatures already in the pNext chain?
-            VkBaseOutStructure* parent = NULL;
-
-            {
-                auto curr = (VkBaseOutStructure*)pCreateInfo;
-
-                while (curr != NULL){
-                    if (curr->sType == VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR){
-                        is_portability_features = true;
-                        break;
-                    }
-
-                    parent = curr;
-                    curr = parent->pNext;
-                }
-            }
-
-            VkPhysicalDevicePortabilitySubsetFeaturesKHR portability_features = {.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR, .pNext = NULL};
-
-            if(!is_portability_features){
-                VkPhysicalDeviceFeatures2 device_features = {.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2, .pNext=&portability_features};
-                vkGetPhysicalDeviceFeatures2(physicalDevice, &device_features);
-
-                parent->pNext = reinterpret_cast<VkBaseOutStructure*>(&portability_features);
-            }   
-        #endif
-        */
-
-        /*
-        #ifdef VK_USE_PLATFORM_METAL_EXT
-            bool is_portability_features = false; //Is VkPhysicalDevicePortabilitySubsetFeatures already in the pNext chain?
-
-            {
-                auto curr = (VkBaseOutStructure*)pCreateInfo;
-
-                while (curr != NULL){
-                    if (curr->sType == VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR){
-                        is_portability_features = true;
-                        break;
-                    }
-
-                    curr = curr->pNext;
-                }
-            }
-
-            VkPhysicalDevicePortabilitySubsetFeaturesKHR portability_features = {.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR, .pNext = NULL};
-
-            if(!is_portability_features){
-                VkPhysicalDeviceFeatures2 device_features = {.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2, .pNext=&portability_features};
-                vkGetPhysicalDeviceFeatures2(physicalDevice, &device_features);
-
-                portability_features.pNext = const_cast<void*>(pCreateInfo->pNext); //Dangerous, I know.
-
-                pCreateInfo->pNext=&portability_features;
-            }   
-        #endif   
-        */
         """)
     elif name=="vkCreateDescriptorSetLayout":
-        write("""
+        write(f"""
             #ifdef VK_USE_PLATFORM_METAL_EXT
             //This is temporary until MoltenVK fixes variable combined image samplers. See https://github.com/KhronosGroup/MoltenVK/issues/2374.
 
             //TODO: To make this stable (that is, not run out of pool space early), what you want to do is save the created layout on the server side, wait until an allocate descriptor sets comes in. If the descriptor layout is in the map (that is, if it was originally created to be variable), make a new layout with the same info used to create it but with the descriptorCount set to the actual number. Then, we pass that layout in as the one used to create the descriptor set.   
 
-            auto create_info = (VkDescriptorSetLayoutCreateInfo*)copyVkStruct(pCreateInfo);
-            auto parent_struct=(StreamStructure*)create_info;
-            void* curr_struct=NULL;
-             VkDescriptorSetLayoutBindingFlagsCreateInfo* binding_info = NULL;
+            {structTransveral("pCreateInfo", "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO", 
+            '''
+                    auto binding_info=(VkDescriptorSetLayoutBindingFlagsCreateInfo*)curr_struct;
+                    auto binding_flags=memdup(binding_info->pBindingFlags, binding_info->bindingCount*sizeof(VkDescriptorBindingFlags));
+                    binding_info->pBindingFlags=binding_flags;
 
-             while(true){
-                    curr_struct = copyVkStruct(parent_struct->pNext);
-                    if(curr_struct == NULL){ //Nowhere else to go;
-                            break;
-                    }
-                    parent_struct->pNext=curr_struct;
-
-                    if((((StreamStructure*)curr_struct)->sType) == VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO){
-                            binding_info=(VkDescriptorSetLayoutBindingFlagsCreateInfo*)curr_struct;
-
-                            auto binding_flags_size=binding_info->bindingCount*sizeof(VkDescriptorBindingFlags);
-                            auto binding_flags=(VkDescriptorBindingFlags*) malloc(binding_flags_size);
-                            memcpy(binding_flags, binding_info->pBindingFlags, binding_flags_size);
-                            binding_info->pBindingFlags=binding_flags;
-
-                            for(int i = 0; i < binding_info->bindingCount; i++){
-                                    if(create_info->pBindings[i].descriptorType==VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER){
-                                            binding_flags[i] &= ~VK_DESCRIPTOR_BINDING_VARIABLE_DESCRIPTOR_COUNT_BIT_EXT;
-                                    }
+                    for(int i = 0; i < binding_info->bindingCount; i++){
+                            if(pCreateInfo->pBindings[i].descriptorType==VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER){
+                                    binding_flags[i] &= ~VK_DESCRIPTOR_BINDING_VARIABLE_DESCRIPTOR_COUNT_BIT_EXT;
                             }
-                        break;
                     }
-
-                    parent_struct=(StreamStructure*)curr_struct;
-            }
-
-            auto pCreateInfo=create_info;
+            ''')}
             #endif
+
         """)
 
     write(return_prefix+"call_function"+"("+call_arguments+")"+";")
@@ -618,69 +592,55 @@ for name, command in parsed.items():
     if name.startswith("vkMapMemory"):
         write("*ppData=NULL;") #We're going to overwrite it anyway
         
-    elif name=="vkQueuePresentKHR":
-        write("""
-        auto present_info=(VkPresentInfoKHR*)copyVkStruct(pPresentInfo);
+    elif name=="vkQueuePresentKHR": #Need the fences in order to know when can I start presenting the images
+        write(f"""
         
-        auto parent_struct=(StreamStructure*)present_info;
-        void* curr_struct=NULL;
         VkSwapchainPresentFenceInfoEXT* swapchain_fence_info=NULL;
         std::unique_ptr<VkFence> fences_ptr = NULL;
+
         
-        while(true){
-            curr_struct = copyVkStruct(parent_struct->pNext);
-
-            if(curr_struct == NULL){ //Nowhere else to go;
-                break;
-            }
-
-            if(((StreamStructure*)curr_struct)->sType==VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT){ //Found the present info -- can stop copying
-                swapchain_fence_info=(VkSwapchainPresentFenceInfoEXT*)curr_struct;
-                break;
-            }
-
-            parent_struct=(StreamStructure*)curr_struct;
-        }
-
-            
-         if (swapchain_fence_info==NULL){
+        {structTransveral("pPresentInfo", "VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT", 
+        '''
+        swapchain_fence_info=(VkSwapchainPresentFenceInfoEXT*)curr_struct;
+        '''
+        )}
+        
+        if (swapchain_fence_info==NULL){{
             swapchain_fence_info=new VkSwapchainPresentFenceInfoEXT;
             swapchain_fence_info->sType=VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT;
             swapchain_fence_info->pNext=NULL;
 
-            swapchain_fence_info->swapchainCount=present_info->swapchainCount;
+            swapchain_fence_info->swapchainCount=pPresentInfo->swapchainCount;
 
             fences_ptr = std::unique_ptr<VkFence>(new VkFence[swapchain_fence_info->swapchainCount]);
 
             std::fill_n(fences_ptr.get(), swapchain_fence_info->swapchainCount, VK_NULL_HANDLE);
             swapchain_fence_info->pFences=fences_ptr.get();
             parent_struct->pNext=swapchain_fence_info;
-         }else{
+         }}else{{
             fences_ptr = std::unique_ptr<VkFence>((VkFence*)memdup(swapchain_fence_info->pFences,(swapchain_fence_info->swapchainCount)*sizeof(VkFence)));
             swapchain_fence_info->pFences = fences_ptr.get();
-        }
+        }}
          
-         auto fence_create_info=VkFenceCreateInfo{
+         auto fence_create_info=VkFenceCreateInfo{{
          .sType=VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,
          .pNext=NULL,
          .flags=0
-         };
+         }};
          
          auto fences_list = fences_ptr.get();
 
-         for (int i=0; i< swapchain_fence_info->swapchainCount; i++){ //TODO: Maybe we can cache fences and reuse them if it turns out that we are creating a lot of them per Present
-            if ((fences_list[i]==VK_NULL_HANDLE)){
-                vkCreateFence(getSwapchainDevice(present_info->pSwapchains[i]),&fence_create_info, NULL, &(fences_list[i]));
-            }
+         for (int i=0; i< swapchain_fence_info->swapchainCount; i++){{ //TODO: Maybe we can cache fences and reuse them if it turns out that we are creating a lot of them per Present
+            if ((fences_list[i]==VK_NULL_HANDLE)){{
+                vkCreateFence(getSwapchainDevice(pPresentInfo->pSwapchains[i]),&fence_create_info, NULL, &(fences_list[i]));
+            }}
             
             pushToQueue(fences_list[i], pPresentInfo->pSwapchains[i], pPresentInfo->pImageIndices[i]);
-         }
-         
-         VkPresentInfoKHR* pPresentInfo=present_info;
+         }}
         """)
     elif name=="vkCreateSwapchainKHR":
         write("""
-        VkSwapchainCreateInfoKHR temp_info=*pCreateInfo;
+        auto temp_info=*pCreateInfo;
         
         temp_info.imageUsage|=VK_IMAGE_USAGE_TRANSFER_SRC_BIT;
         
@@ -697,33 +657,11 @@ for name, command in parsed.items():
         """)
     
     if name == "vkAllocateMemory":
-        write("""
-        //TODO: Abstract this transversal behind a function that takes a callback (ie, takes an object, goes through each pNext, looks for a specific sType, then runs a callback that takes parent_struct and curr_struct). Additionally, don't use copyVkStruct (will just lead to memory leaks) -- instead, do a (Python) macro of (type, variable) that will do a dereference, then copy, then reference (with &).
-        VkMemoryAllocateInfo* temp_info = (VkMemoryAllocateInfo*)copyVkStruct(pAllocateInfo);
-
-        StreamStructure* parent_struct = (StreamStructure*)temp_info;
-
-        void* curr_struct = NULL;
-
-        while(true){
-
-            curr_struct = copyVkStruct(parent_struct->pNext);
-
-            if (curr_struct == NULL){
-                break;
-            }
-            if(((StreamStructure*)curr_struct)->sType == VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO){
-                parent_struct->pNext=((StreamStructure*)curr_struct)->pNext;
-                break;
-            }
-
-            parent_struct=(StreamStructure*)curr_struct;
-
-        }
-
-        VkMemoryAllocateInfo* pAllocateInfo = temp_info;
-
-
+        write(f"""
+        {structTransveral("pAllocateInfo", "VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO",
+        '''
+        parent_struct->pNext=curr_struct->pNext; //We can just skip this struct
+        ''')}
         """)
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
