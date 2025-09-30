@@ -221,17 +221,46 @@ for name, struct in parsed.items():
 write("};")
 
 write("""
-void* memdup(const void* mem, size_t size) { 
+thread_local struct { //TODO: The idea is that every memdup(track=true) should be allocated using Arena. Then, at the end of sending function/calling function (guest/host respectivelty), then the arena is freed.
+std::unique_ptr<uint8_t> start = NULL;
+int size=100*1000; //100K
+int length=0;
+
+void* _malloc(int len){
+	if (start==NULL){ //Initialize at first use.
+		start=std::unique_ptr<uint8_t>((uint8_t*)malloc(size));
+	}
+	auto result=start.get()+length;
+
+	length+=len;
+	assert((length<=size, "The combined size of the segments are larger than the entire size of the arena! This should not happen (you should try increasing the size of the arena)."));
+	return result;
+	}
+
+void _free(){
+    if (length<=0.7*size){ //Can play with the numbers
+        return;
+    }
+	length=0;
+}
+} ArenaAllocator;
+""")
+
+write("""
+void* memdup(const void* mem, size_t size, bool track) {
+	printf("Allocated!\\n");
+   
    void* out = malloc(size);
 
-   if(out != NULL)
+   if(out != NULL){
        memcpy(out, mem, size);
+   }
+    
 
    return out;
 }
 """)
-
-write("void* memdup(const void* mem, size_t size);", header=True)
+write("void* memdup(const void* mem, size_t size, bool track=true);", header=True)
 
 write("""
 void* copyVkStruct (const void* data){
@@ -240,9 +269,9 @@ void* copyVkStruct (const void* data){
         if (curr==NULL){
         return NULL;
         }
-        auto structure_type=((StreamStructure*)curr)->sType;
+        auto structure_type=((StreamStructure2*)curr)->sType;
         if (!structure_type_to_size.contains(structure_type)){
-            curr=((StreamStructure*)curr)->pNext;
+            curr=((StreamStructure2*)curr)->pNext;
             continue;
         }
         
@@ -254,8 +283,8 @@ void* copyVkStruct (const void* data){
     
 }
 """)
-write("void* copyVkStruct (const void* data);",header=True)
 
+write("void* copyVkStruct(const void* data);",header=True)
 
 for name, struct in parsed.items():
     if is_not_struct(name, struct):
