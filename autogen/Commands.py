@@ -190,11 +190,11 @@ def structTransveral(struct, sType, callback): #Abstracts the transversal of a V
     auto temp_info=*{struct};
     auto {struct}=&temp_info; //I'm not sure why this works;
 
-    StreamStructure* parent_struct = (StreamStructure*){struct};
-    StreamStructure* curr_struct = NULL;
+    StreamStructure2* parent_struct = (StreamStructure2*){struct};
+    StreamStructure2* curr_struct = NULL;
 
     while(true){{
-        curr_struct=(StreamStructure*)copyVkStruct(parent_struct->pNext);
+        curr_struct=(StreamStructure2*)copyVkStruct(parent_struct->pNext);
         if(curr_struct == NULL){{ //Nowhere else to go;
                 break;
         }}
@@ -615,11 +615,9 @@ for name, command in parsed.items():
             fences_ptr = std::unique_ptr<VkFence>(new VkFence[swapchain_fence_info->swapchainCount]);
 
             std::fill_n(fences_ptr.get(), swapchain_fence_info->swapchainCount, VK_NULL_HANDLE);
-            swapchain_fence_info->pFences=fences_ptr.get();
             parent_struct->pNext=swapchain_fence_info;
          }}else{{
-            fences_ptr = std::unique_ptr<VkFence>((VkFence*)memdup(swapchain_fence_info->pFences,(swapchain_fence_info->swapchainCount)*sizeof(VkFence)));
-            swapchain_fence_info->pFences = fences_ptr.get();
+            fences_ptr = std::unique_ptr<VkFence>((VkFence*)memdup(swapchain_fence_info->pFences,(swapchain_fence_info->swapchainCount)*sizeof(VkFence), false));
         }}
          
          auto fence_create_info=VkFenceCreateInfo{{
@@ -629,8 +627,9 @@ for name, command in parsed.items():
          }};
          
          auto fences_list = fences_ptr.get();
+         swapchain_fence_info->pFences = fences_list;
 
-         for (int i=0; i< swapchain_fence_info->swapchainCount; i++){{ //TODO: Maybe we can cache fences and reuse them if it turns out that we are creating a lot of them per Present
+         for (int i=0; i< swapchain_fence_info->swapchainCount; i++){{ //TODO: Maybe we can cache fences and reuse them if it turns out that we are creating a lot of them per Present (EDIT: Yes we do, even in Surface.cpp)
             if ((fences_list[i]==VK_NULL_HANDLE)){{
                 vkCreateFence(getSwapchainDevice(pPresentInfo->pSwapchains[i]),&fence_create_info, NULL, &(fences_list[i]));
             }}
