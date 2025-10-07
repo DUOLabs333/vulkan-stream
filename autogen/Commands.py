@@ -367,7 +367,7 @@ for name, command in parsed.items():
             {structTransveral("pCreateInfo", "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO", 
             '''
                     auto binding_info=(VkDescriptorSetLayoutBindingFlagsCreateInfo*)curr_struct;
-                    auto binding_flags=memdup(binding_info->pBindingFlags, binding_info->bindingCount*sizeof(VkDescriptorBindingFlags));
+                    auto binding_flags=(VkDescriptorBindingFlags*)memdup(binding_info->pBindingFlags, binding_info->bindingCount*sizeof(VkDescriptorBindingFlags));
                     binding_info->pBindingFlags=binding_flags;
 
                     for(int i = 0; i < binding_info->bindingCount; i++){
