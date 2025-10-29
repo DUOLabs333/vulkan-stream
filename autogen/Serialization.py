@@ -546,9 +546,11 @@ for handle in parsed:
                     {handle}_lock.lock_shared();
                     if(!(client_{handle}_to_server_{handle}.contains( (uint64_t)data ))){{
                         debug_printf("Panic: {handle} %p not found!\\n",data);
-                    }}
+                        result=(uint64_t)NULL;
+                    }}else{{
                      debug_printf("Serializing {handle} %p...\\n",({handle})client_{handle}_to_server_{handle}[(uint64_t)data]);
                     result=client_{handle}_to_server_{handle}[(uint64_t)data];
+                    }}
                     {handle}_lock.unlock_shared();
                 }}
             #else

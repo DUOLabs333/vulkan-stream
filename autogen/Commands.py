@@ -52,7 +52,7 @@ void saveDeviceInfo(VkDevice device, VkPhysicalDevice physical_device){
 
 typedef std::shared_mutex Lock;
 
-Lock MemoryMapLock;
+Lock MemoryMapLock; //Specifically locks devicememory_to_info
 Lock MemoryOperationLock; //This is not needed (but may be preferred, at the expense of unneccessary locking)
 
 
@@ -581,7 +581,7 @@ for name, command in parsed.items():
     elif name=="vkMapMemory2KHR":
         write("""
         if (pMemoryMapInfo->size==VK_WHOLE_SIZE){
-            VkMemoryMapInfoKHR new_map_info=*pMemoryMapInfo;
+            VkMemoryMapInfoKHR new_map_info=*pMemoryMapInfo; //TODO: Move this line outside of the if-ststement --- otherwise, pMemoryMapInfo will be pointing to a place in memory that may no longer be valid
             new_map_info.size=devicememory_to_info[(uint64_t)new_map_info.memory].size-new_map_info.offset;
             pMemoryMapInfo=&new_map_info;
         }
@@ -629,7 +629,7 @@ for name, command in parsed.items():
          auto fences_list = fences_ptr.get();
          swapchain_fence_info->pFences = fences_list;
 
-         for (int i=0; i< swapchain_fence_info->swapchainCount; i++){{ //TODO: Maybe we can cache fences and reuse them if it turns out that we are creating a lot of them per Present (EDIT: Yes we do, even in Surface.cpp)
+         for (int i=0; i< swapchain_fence_info->swapchainCount; i++){{ //TODO: Maybe we can cache fences and reuse them if it turns out that we are creating a lot of them per Present (EDIT: Yes we do, even in Surface.cpp). Only do the reset in vkWaitForFences with VK_STREAM_TIMEOUT upon VK_SUCCESS (which we already have code for), as this allows us to signal to the server side that it should be reset
             if ((fences_list[i]==VK_NULL_HANDLE)){{
                 vkCreateFence(getSwapchainDevice(pPresentInfo->pSwapchains[i]),&fence_create_info, NULL, &(fences_list[i]));
             }}

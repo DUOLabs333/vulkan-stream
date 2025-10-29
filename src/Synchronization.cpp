@@ -23,6 +23,7 @@ extern "C" {
 #endif
 
 std::unordered_map<uint64_t,int> allocated_mems;
+
 std::unordered_map<uint64_t,uint64_t> client_to_server_mem;
 std::unordered_map<uint64_t,uint64_t> server_to_client_mem;
 
@@ -343,7 +344,6 @@ void SyncOne(VkDeviceMemory memory, int offset, VkDeviceSize size, bool unmap){
     auto devicememory=(uint64_t)memory;
     
     auto& info=devicememory_to_mem_info[devicememory];
-
 
     if (size==VK_WHOLE_SIZE){
         size=info.size-offset;
