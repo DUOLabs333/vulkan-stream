@@ -1,6 +1,6 @@
 The only setup that is supported is with a MacOS computer as the server and a Linux computer as the client (though other setups shouldn't be too hard t adjust the program for)
 
-On MacOS, the server must have MoltenVK >= 1.2.7, and vulkan-loader >= 1.3.275
+On MacOS, the server must have MoltenVK >= 1.3.0s, and vulkan-loader >= 1.3.275
 
 To compile:
 	On both the server and client:
