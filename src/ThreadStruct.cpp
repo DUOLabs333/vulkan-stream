@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <shared_mutex>
 
-std::unordered_map<std::thread::id,ThreadStruct> thread_to_struct;
+std::unordered_map<std::thread::id,ThreadStruct> thread_to_struct; //TODO: Make ThreadStruct thread_local instead of needing an unordered_map
 std::shared_mutex thread_lock;
 
 ThreadStruct& currStruct(){

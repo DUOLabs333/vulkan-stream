@@ -223,7 +223,7 @@ write("};")
 write("""
 thread_local struct { //TODO: The idea is that every memdup(track=true) should be allocated using Arena. Then, at the end of sending function/calling function (guest/host respectivelty), then the arena is freed.
 std::unique_ptr<uint8_t> start = NULL;
-int size=100*1000; //100K
+int size=100*1000; //100K, maybe try different lengths
 int length=0;
 
 void* _malloc(int len){
@@ -238,7 +238,7 @@ void* _malloc(int len){
 	}
 
 void _free(){
-    if (length<=0.7*size){ //Can play with the numbers
+    if (length>=0.7*size){ //TODO: Should play with the numbers
         return;
     }
 	length=0;

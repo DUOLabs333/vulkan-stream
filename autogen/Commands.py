@@ -484,7 +484,7 @@ for name, command in parsed.items():
         write(f"return {alias}({', '.join(params_list)});")
         write("}")
         continue
-    
+    #TODO: Maybe see if we can cache the result for a few functions (eg, GetDeviceFeatures)
     memory_map_lock=0
     memory_operation_lock=False
     if re.match(r"^vk(Unmap|Map)Memory(|2KHR)$", name) is not None:
@@ -824,7 +824,7 @@ for name, command in parsed.items():
         if not is_void(command):
             write(command["type"]+"*"*command["num_indirection"]+" result;")
             write(convert("result",f"""json["result"]""",command | {"name":"result"},serialize=False,initialize=True))
-        
+    #TODO: Maybe move everything after deserialization here to a "defer" like construct (eg, a custom destructor of a singleton struct that is defined and instantiated at the beginning of the function)
     for creation_function in ["vkAllocate(.*)s","vkCreate(.*)","vkEnumerate(.*)s","vkGetDeviceQueue(|2)"]:
         if re.match("^"+creation_function+"$",name) is not None:
             matched=False
