@@ -44,12 +44,11 @@ struct glz::meta<MsgHeader>
 	static constexpr auto partial_read=true;
 };
 void readFromConn(std::string_view& line){
-	auto& curr=currStruct();
 	bool err;
 	char* buf;
 int len;
 
-	asio_read(curr.conn, &buf, &len, &err);
+	asio_read(currStruct.conn, &buf, &len, &err);
 
 	if (err){
 		throw RWError(true);
@@ -59,10 +58,9 @@ int len;
 }
 
 boost::json::object parseJSON(std::string_view& line){
-	auto& curr=currStruct();
-	curr.parser.write(line);
-        auto json=curr.parser.release().get_object();
-        curr.parser.reset();
+	currStruct.parser.write(line);
+        auto json=currStruct.parser.release().get_object();
+        currStruct.parser.reset();
 
 	return json;
 }
@@ -76,8 +74,7 @@ Sync parseSync(std::string_view& line, Sync& sync){
     void handleConnection(AsioConn* conn){
         //Will only be called by the server
 
-	auto& curr=currStruct();
-        curr.conn=conn;
+        currStruct.conn=conn;
         
         while(true){
             try{
@@ -87,8 +84,8 @@ Sync parseSync(std::string_view& line, Sync& sync){
 	    MsgHeader header;
 	    glz::read<glz::opts{.error_on_unknown_keys=false}>(header,line);
             
-            if (curr.uuid==-1){
-                curr.uuid=header.uuid;
+            if (currStruct.uuid==-1){
+                currStruct.uuid=header.uuid;
             }
             
 	    auto stream_type = static_cast<StreamType>(header.stream_type);
@@ -112,7 +109,6 @@ Sync parseSync(std::string_view& line, Sync& sync){
             
             }
             catch (const RWError& e){
-                deleteCurrStruct();
                 break;
             }
             
@@ -146,27 +142,26 @@ void readFromConn(Sync& sync){
 }
 
 void writeToConn(boost::json::object& json){
-    auto& curr=currStruct();
     
     json["uuid"]=uuid;
 
     bool err;
     
-    curr.serializer.reset(&json);
+    currStruct.serializer.reset(&json);
     size_t size=0;
     static int BUFFER_STEP_SIZE = 4000; //By what step should we grow the buffer each time.
 
     char* output_buf;
     uint32_t capacity = 0;
-    while(!curr.serializer.done()){
-	    output_buf=asio_get_buf(curr.conn, &capacity);
-	    auto str=curr.serializer.read(output_buf+size, capacity-size);
+    while(!currStruct.serializer.done()){
+	    output_buf=asio_get_buf(currStruct.conn, &capacity);
+	    auto str=currStruct.serializer.read(output_buf+size, capacity-size);
 	    size+=str.size();
 
 	    capacity+=BUFFER_STEP_SIZE;
     }
 
-    asio_write(curr.conn, output_buf, size, &err);
+    asio_write(currStruct.conn, output_buf, size, &err);
 
     if (err){
         throw RWError(false);
@@ -174,15 +169,14 @@ void writeToConn(boost::json::object& json){
 }
 //TODO: If this works, make a writeToConn that takes a function (ThreadStruct&) and returns tuple(char*, size)  to abstract the small differences between the different writes
 void writeToConn(Sync& sync){
-	auto& curr=currStruct();
 	
 	sync.stream_type = static_cast<int>(SYNC);
 	sync.uuid = uuid;
 	
 	bool err;
-	glz::write_json(sync, curr.glaze_str);
+	glz::write_json(sync, currStruct.glaze_str);
 
-	asio_write(curr.conn, curr.glaze_str.data(), curr.glaze_str.size(), &err);
+	asio_write(currStruct.conn, currStruct.glaze_str.data(), currStruct.glaze_str.size(), &err);
 
 	if (err){
         	throw RWError(false);

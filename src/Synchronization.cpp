@@ -62,7 +62,7 @@ class Map {
 			#ifdef CLIENT
 				return _map[key];
 			#else
-				return _map[currStruct().uuid][key];
+				return _map[currStruct.uuid][key];
 			#endif
 		}
 
@@ -70,7 +70,7 @@ class Map {
 			#ifdef CLIENT
 				return _map.contains(key);
 			#else
-				auto uuid=currStruct().uuid;
+				auto uuid=currStruct.uuid;
 				return _map.contains(uuid) && _map[uuid].contains(key);
 			#endif
 		}
@@ -79,7 +79,7 @@ class Map {
 			#ifdef CLIENT
 				_map.erase(key);
 			#else	
-				auto uuid=currStruct().uuid;
+				auto uuid=currStruct.uuid;
 				_map[uuid].erase(key);
 				if (_map[uuid].empty()){
 					_map.erase(uuid);
@@ -91,7 +91,7 @@ class Map {
 			#ifdef CLIENT
 				return _map.begin();
 			#else
-				return _map[currStruct().uuid].begin();
+				return _map[currStruct.uuid].begin();
 			#endif
 		}
 
@@ -99,7 +99,7 @@ class Map {
 			#ifdef CLIENT
 				return _map.end();
 			#else
-				return _map[currStruct().uuid].end();
+				return _map[currStruct.uuid].end();
 			#endif
 		}
 			
