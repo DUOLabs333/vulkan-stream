@@ -53,7 +53,6 @@ void saveDeviceInfo(VkDevice device, VkPhysicalDevice physical_device){
 typedef std::shared_mutex Lock;
 
 Lock MemoryMapLock; //Specifically locks devicememory_to_info
-Lock MemoryOperationLock; //This is not needed (but may be preferred, at the expense of unneccessary locking)
 
 
 enum ParentHandleType {
@@ -243,7 +242,6 @@ for name, command in parsed.items():
     auto parent_json=json["parent"].get_object();
     auto parent_type=static_cast<ParentHandleType>(value_to<int>(parent_json["type"]));
     auto& parent_handle=parent_json["handle"];
-    //TODO: If call_function is NULL, try again with {name}KHR (and maybe with
 """)
 
     for parent in ["instance", "device"]:
@@ -485,45 +483,40 @@ for name, command in parsed.items():
         write("}")
         continue
     #TODO: Maybe see if we can cache the result for a few functions (eg, GetDeviceFeatures)
-    memory_map_lock=0
-    memory_operation_lock=False
+
+    memory_map_lock=None
     if re.match(r"^vk(Unmap|Map)Memory(|2KHR)$", name) is not None:
-        memory_map_lock=1 #Lock for writing
-        memory_operation_lock=True
+        memory_map_lock="unique" #Lock for writing
     elif (name=="vkQueueSubmit") or (name=="vkWaitForFences"):
-        memory_map_lock=2 #Lock for reading
-        memory_operation_lock=True
+        memory_map_lock="shared" #Lock for reading
         
-    write("__attribute__((visibility (\"hidden\"))) "+command["header"]+"{") #All core Vulkan API functions must be hidden
+    write("__attribute__((visibility (\"hidden\"))) "+command["header"]+"{") #All (core) Vulkan API functions must be hidden
+
+    if memory_map_lock!=None:
+        write(f"std::{memory_map_lock}_lock lk(MemoryMapLock);")
+
+    write(f'debug_printf("Executing {name}\\n");');
+
+    write(f'{"auto return_value=" if not is_void(command) else ""}[&](){{')
         
-    write("//Will only be called by the client")
-    write(f'debug_printf("Executing {name}\\n");')
+    write("//Will only be called by the client")    
     
-    memory_operation_lock=False #Effectively disable the lock --- the code is kept in as we may need it later
-    if memory_operation_lock:
-        write("MemoryOperationLock.lock();")
-    if memory_map_lock==1:
-        write("MemoryMapLock.lock();")
-    elif memory_map_lock==2:
-        write("MemoryMapLock.lock_shared();")
-        
     wsi_match=re.match(r"^vkCreate(Xlib|Xcb)SurfaceKHR$",name)
     if wsi_match is not None:
-        write("""
-        auto create_info=VkHeadlessSurfaceCreateInfoEXT{.sType=VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT, .pNext=NULL, .flags=0};
-        auto result=vkCreateHeadlessSurfaceEXT(instance,&create_info,pAllocator,pSurface);
-        if (result!=VK_SUCCESS){
-            return result;
-        }
-        """)
-        
         write(f"""
+        {{
+        auto create_info=VkHeadlessSurfaceCreateInfoEXT{{.sType=VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT, .pNext=NULL, .flags=0}};
+        auto result=vkCreateHeadlessSurfaceEXT(instance,&create_info,pAllocator,pSurface);
+        if (result!=VK_SUCCESS){{
+            return result;
+        }}
+
         registerSurface(*pSurface,pCreateInfo,{wsi_match.group(1)});
         
         return result;
+
         }}
         """)
-        continue
     if name=="vkGetPhysicalDeviceXcbPresentationSupportKHR":
         write("return VK_TRUE;") #Just stub it out, as since displaying is done with headless surfaces, this will always work
 
@@ -580,8 +573,8 @@ for name, command in parsed.items():
         """)
     elif name=="vkMapMemory2KHR":
         write("""
+        VkMemoryMapInfoKHR new_map_info=*pMemoryMapInfo;
         if (pMemoryMapInfo->size==VK_WHOLE_SIZE){
-            VkMemoryMapInfoKHR new_map_info=*pMemoryMapInfo; //TODO: Move this line outside of the if-ststement --- otherwise, pMemoryMapInfo will be pointing to a place in memory that may no longer be valid
             new_map_info.size=devicememory_to_info[(uint64_t)new_map_info.memory].size-new_map_info.offset;
             pMemoryMapInfo=&new_map_info;
         }
@@ -694,8 +687,11 @@ for name, command in parsed.items():
         else:
            write("should_push_cmd_buffer = true;")
 
-    if (is_batchable_cmd):
+    if is_batchable_cmd:
         write("addToCmdBatch(commandBuffer, json); //TODO: See if we can use std::moves later to avoid copies")
+
+        if is_void(command):
+            write("return; //Nothing else to do here")
 
     if (name == "vkEndCommandBuffer"):
         write("should_push_cmd_buffer = true;")
@@ -709,10 +705,9 @@ for name, command in parsed.items():
                 """)
             break
     
-    if not is_batchable_cmd: #There's no need to write if we're batching it
-        write("writeToConn(json);")
+    write("writeToConn(json);")
     write(f"""
-        while(true && !({+(is_batchable_cmd)} && !should_push_cmd_buffer)){{
+        while(true){{
             json=readFromConn();
             
             switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
@@ -722,7 +717,7 @@ for name, command in parsed.items():
                 case ({name.upper()}):
                     break;
                 case (CMD_BUFFER_BATCH):
-                    {'break' if is_batchable_cmd else 'continue'};
+                    continue;
     """)
     for funcpointer in parsed:
         if parsed[funcpointer]["kind"]!="funcpointer":
@@ -745,9 +740,9 @@ for name, command in parsed.items():
         }
     """)
     
-    if not is_batchable_cmd: #Nothing to deserialize
-        for param in command["params"]:
-            write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
+    
+    for param in command["params"]:
+        write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
 
     #END: Optimizations
     
@@ -824,7 +819,7 @@ for name, command in parsed.items():
         if not is_void(command):
             write(command["type"]+"*"*command["num_indirection"]+" result;")
             write(convert("result",f"""json["result"]""",command | {"name":"result"},serialize=False,initialize=True))
-    #TODO: Maybe move everything after deserialization here to a "defer" like construct (eg, a custom destructor of a singleton struct that is defined and instantiated at the beginning of the function)
+
     for creation_function in ["vkAllocate(.*)s","vkCreate(.*)","vkEnumerate(.*)s","vkGetDeviceQueue(|2)"]:
         if re.match("^"+creation_function+"$",name) is not None:
             matched=False
@@ -896,22 +891,19 @@ for name, command in parsed.items():
                     """)
                 write(f"""delete_{handle["type"]}({handle["name"]});""")
     
-    if memory_map_lock==1:
-        write("MemoryMapLock.unlock();")
-    elif memory_map_lock==2:
-        write("MemoryMapLock.unlock_shared();")
-    if memory_operation_lock:
-        write("MemoryOperationLock.unlock();")
-        
-    write(f'debug_printf("Ending {name}...\\n");')
     if not is_void(command):
-        if command["type"]=="VkResult":
-            write(f'debug_printf("Return value of {name} is: %s...\\n",string_VkResult(result));')
         write("return result;")
+    write("}();")
+
+    write(f'debug_printf("Ending {name}...\\n");')
+    if command.get("type")=="VkResult":
+        write(f'debug_printf("Return value of {name} is: %s...\\n",string_VkResult(return_value));');
+    
+    if not is_void(command):
+        write("return return_value;")
     write("}")
 write("}")
 write("#endif")
-
 
 write("""
 #ifndef CLIENT
@@ -920,4 +912,3 @@ int main(int argc, char** argv){
 }
 #endif
 """)
-    
