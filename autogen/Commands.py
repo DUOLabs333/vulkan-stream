@@ -18,6 +18,7 @@ write("""
 #include "Server.hpp"
 #include <Synchronization.hpp>
 #include <CmdBatch.hpp>
+#include <DeletionBatch.hpp>
 
 typedef struct DeviceMemoryInfo {
       VkDeviceSize size;
@@ -497,28 +498,9 @@ for name, command in parsed.items():
 
     write(f'debug_printf("Executing {name}\\n");');
 
-    write(f'{"auto return_value=" if not is_void(command) else ""}[&](){{')
-        
-    write("//Will only be called by the client")    
-    
-    wsi_match=re.match(r"^vkCreate(Xlib|Xcb)SurfaceKHR$",name)
-    if wsi_match is not None:
-        write(f"""
-        {{
-        auto create_info=VkHeadlessSurfaceCreateInfoEXT{{.sType=VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT, .pNext=NULL, .flags=0}};
-        auto result=vkCreateHeadlessSurfaceEXT(instance,&create_info,pAllocator,pSurface);
-        if (result!=VK_SUCCESS){{
-            return result;
-        }}
+    write("bool full_function=false;")
 
-        registerSurface(*pSurface,pCreateInfo,{wsi_match.group(1)});
-        
-        return result;
-
-        }}
-        """)
-    if name=="vkGetPhysicalDeviceXcbPresentationSupportKHR":
-        write("return VK_TRUE;") #Just stub it out, as since displaying is done with headless surfaces, this will always work
+    #Has to be outside the lambda, because some of the code that runs after the lambda relies on it
 
     write(f"""
     boost::json::object json;
@@ -549,7 +531,47 @@ for name, command in parsed.items():
         parent_json["type"]=PARENT_INSTANCE;
         parent_json["handle"]=(uint64_t)NULL;
         """)
+    #After here, we should never use parent_json (adding any key to json may end up causing a rehash, invalidating all references)
+    write("uint32_t len_of_properties_array;") #Only used for vkEnumerateInstanceExtensionProperties
+
+    deletion_handle=None #If this is a deletion function, what handle is being deleted
+
+    for deletion_function in ["vkFree(.*)","vkDestroy(.*)"]:
+        if re.match("^"+deletion_function+"$",name) is not None:
+            matched=False
+            for param in reversed(command["params"]):
+                if (parsed[param["type"]]["kind"]=="handle"):
+                    deletion_handle=param
+                    matched=True
+                    break
+            if not matched:
+                break
+
+    write(f'{"auto return_value=" if not is_void(command) else ""}[&](){{')
+        
+    write("//Will only be called by the client")    
     
+    wsi_match=re.match(r"^vkCreate(Xlib|Xcb)SurfaceKHR$",name)
+    if wsi_match is not None:
+        write(f"""
+        {{
+        auto create_info=VkHeadlessSurfaceCreateInfoEXT{{.sType=VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT, .pNext=NULL, .flags=0}};
+        auto result=vkCreateHeadlessSurfaceEXT(instance,&create_info,pAllocator,pSurface);
+        if (result!=VK_SUCCESS){{
+            return result;
+        }}
+
+        registerSurface(*pSurface,pCreateInfo,{wsi_match.group(1)});
+        
+        return result;
+
+        }}
+        """)
+    if name=="vkGetPhysicalDeviceXcbPresentationSupportKHR":
+        write("return VK_TRUE;") #Just stub it out, as since displaying is done with headless surfaces, this will always work
+    
+    write("full_function=true;") #Execute the code after the lambda ends
+
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
         if(pProperties==NULL){
@@ -562,7 +584,7 @@ for name, command in parsed.items():
             }
         }
         
-        uint32_t len_of_properties_array=*pPropertyCount;
+        len_of_properties_array=*pPropertyCount;
         """)
     
     if name=="vkMapMemory": 
@@ -676,34 +698,53 @@ for name, command in parsed.items():
     write(deregisterDeviceMemoryMap(name))
 
     #BEGIN: Optimizations
-    write("bool should_push_cmd_buffer = false;")
-
-    is_batchable_cmd = False #Is this command something we're going to batch? 
+    write("bool should_push_cmd_batch = false;")
+    write("bool should_push_deletion_batch = false;")
 
     if name.startswith("vkCmd"):
         if is_void(command):
-            is_batchable_cmd = True
-            write("should_push_cmd_buffer = pushHintCmdBatch(commandBuffer);")
+            write("""
+            should_push_cmd_batch = pushHintCmdBatch(commandBuffer);
+
+            if (!should_push_cmd_batch){
+                addToCmdBatch(commandBuffer, json); //TODO: See if we can use std::moves later to avoid copies
+                return; //Nothing else to do here
+            }
+            """)
         else:
-           write("should_push_cmd_buffer = true;")
+           write("should_push_cmd_batch = true;")
 
-    if is_batchable_cmd:
-        write("addToCmdBatch(commandBuffer, json); //TODO: See if we can use std::moves later to avoid copies")
+    if deletion_handle:
+        write("should_push_deletion_batch = pushHintDeletionBatch();")
 
-        if is_void(command):
-            write("return; //Nothing else to do here")
+        if name=="vkDestroyInstance":
+            write("should_push_deletion_batch=true;")
+
+        elif is_void(command):
+            write(f"""
+            if (!should_push_deletion_batch){{
+                addToDeletionBatch((uint64_t)({deletion_handle["name"]}), json); //TODO: See if we can use std::moves later to avoid copies
+                return; //Nothing else to do here
+            }}
+            """)
 
     if (name == "vkEndCommandBuffer"):
-        write("should_push_cmd_buffer = true;")
+        write("should_push_cmd_batch = true;")
 
     for param in command["params"]:
         if (param["type"] == "VkCommandBuffer") and (param["name"] == "commandBuffer"):
             write("""
-                    if(should_push_cmd_buffer){
+                    if(should_push_cmd_batch){
                         sendCmdBatch(commandBuffer);
                     }
                 """)
             break
+
+    write("""
+    if (should_push_deletion_batch){
+        sendDeletionBatch();
+    }
+    """)
     
     write("writeToConn(json);")
     write(f"""
@@ -744,37 +785,6 @@ for name, command in parsed.items():
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
 
-    #END: Optimizations
-    
-    if name=="vkEnumerateInstanceExtensionProperties":
-        write("""
-        std::set<std::string> propertiesSet;
-        for(uint32_t i=0; i<*pPropertyCount; i++){
-            propertiesSet.insert(std::string(pProperties[i].extensionName));
-        }
-        """)
-        
-        WSI=[]
-        for platform in ["XLIB","XCB"]:
-            WSI.append([f"VK_USE_PLATFORM_{platform}_KHR",f"VK_KHR_{platform}_SURFACE_EXTENSION_NAME", f"VK_KHR_{platform}_SURFACE_SPEC_VERSION"])
-        
-        for wsi in WSI:  #Add corresponding WSI extensions as needed
-            write(f"""
-            #ifdef {wsi[0]}
-                if(!propertiesSet.contains(std::string({wsi[1]}))){{
-                    if (*pPropertyCount<len_of_properties_array){{
-                        auto property=VkExtensionProperties();
-                        strcpy(property.extensionName,{wsi[1]});
-                        property.specVersion={wsi[2]};
-                        pProperties[*pPropertyCount]=property;
-                        *pPropertyCount=*pPropertyCount+1;
-                    }}
-                }}
-            #endif
-            """)
-    
-    if (name=="vkResetCommandBuffer"):
-        write("clearCmdBatch(commandBuffer);")
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
       
         write(f"{command['type']} result;")
@@ -820,6 +830,44 @@ for name, command in parsed.items():
             write(command["type"]+"*"*command["num_indirection"]+" result;")
             write(convert("result",f"""json["result"]""",command | {"name":"result"},serialize=False,initialize=True))
 
+
+    #END: Optimizations
+    
+    if not is_void(command):
+        write("return result;")
+    write("}();")
+    
+    write("if (full_function){")
+    if name=="vkEnumerateInstanceExtensionProperties":
+        write("""
+        std::set<std::string> propertiesSet;
+        for(uint32_t i=0; i<*pPropertyCount; i++){
+            propertiesSet.insert(std::string(pProperties[i].extensionName));
+        }
+        """)
+        
+        WSI=[]
+        for platform in ["XLIB","XCB"]:
+            WSI.append([f"VK_USE_PLATFORM_{platform}_KHR",f"VK_KHR_{platform}_SURFACE_EXTENSION_NAME", f"VK_KHR_{platform}_SURFACE_SPEC_VERSION"])
+        
+        for wsi in WSI:  #Add corresponding WSI extensions as needed
+            write(f"""
+            #ifdef {wsi[0]}
+                if(!propertiesSet.contains(std::string({wsi[1]}))){{
+                    if (*pPropertyCount<len_of_properties_array){{
+                        auto property=VkExtensionProperties();
+                        strcpy(property.extensionName,{wsi[1]});
+                        property.specVersion={wsi[2]};
+                        pProperties[*pPropertyCount]=property;
+                        *pPropertyCount=*pPropertyCount+1;
+                    }}
+                }}
+            #endif
+            """)
+    
+    if (name=="vkResetCommandBuffer"):
+        write("clearCmdBatch(commandBuffer);")
+    
     for creation_function in ["vkAllocate(.*)s","vkCreate(.*)","vkEnumerate(.*)s","vkGetDeviceQueue(|2)"]:
         if re.match("^"+creation_function+"$",name) is not None:
             matched=False
@@ -863,17 +911,8 @@ for name, command in parsed.items():
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")
     
-    for deletion_function in ["vkFree(.*)","vkDestroy(.*)"]:
-        if re.match("^"+deletion_function+"$",name) is not None:
-            matched=False
-            for param in reversed(command["params"]):
-                if (parsed[param["type"]]["kind"]=="handle"):
-                    handle=param
-                    matched=True
-                    break
-            if not matched:
-                break
-            
+    if deletion_handle is not None: #This is a deletion function   
+            handle=deletion_handle
             if len(handle["length"])>0:
                 write(f"""
                 if ({handle["name"]}!=NULL){{
@@ -890,10 +929,12 @@ for name, command in parsed.items():
                     MemoryMapLock.unlock();
                     """)
                 write(f"""delete_{handle["type"]}({handle["name"]});""")
-    
-    if not is_void(command):
-        write("return result;")
-    write("}();")
+
+    if name=="vkCreateBuffer":
+        write("updateDeletionBatchPushHint((uint64_t)(*pBuffer), pCreateInfo->size);")
+    elif name=="vkAllocateMemory":
+        write("updateDeletionBatchPushHint((uint64_t)(*pMemory),pAllocateInfo->allocationSize);")
+    write("}")
 
     write(f'debug_printf("Ending {name}...\\n");')
     if command.get("type")=="VkResult":
