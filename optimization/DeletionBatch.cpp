@@ -38,7 +38,7 @@ void sendDeletionBatch(){
 	json["stream_type"]=CMD_BUFFER_BATCH;
 	ACQUIRE_LOCK
 	
-	printf("Deleting! Size is %lu\n", array.size());
+	debug_printf("Deleting! Size is %lu\n", array.size());
 
 	json["cmds"]=array;
 	writeToConn(json);

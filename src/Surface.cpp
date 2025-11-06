@@ -87,8 +87,13 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
         case Xlib:
             {
             debug_printf("Actual type: %s\n",info.type().name());
-            auto xlib_info=std::any_cast<const VkXlibSurfaceCreateInfoKHR*>(info);
-            surface_info.info=XlibSurfaceInfo{.dpy=xlib_info->dpy,.window=xlib_info->window};
+            auto create_info=std::any_cast<const VkXlibSurfaceCreateInfoKHR*>(info);
+
+	    auto xlib_info=XlibSurfaceInfo{.dpy=create_info->dpy,.window=create_info->window};
+            xlib_info.gc=XCreateGC(xlib_info.dpy, xlib_info.window, 0, NULL);
+	    xlib_info.images_mutex=std::make_shared<decltype(xlib_info.images_mutex)::element_type>();
+
+	    surface_info.info=xlib_info;
             break;
             }
         #endif
@@ -459,10 +464,6 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
 		queue_info.notify_condition.wait(lock);
 	}
 
-	#if 0
-	auto start = std::chrono::steady_clock::now();
-	#endif
-
     	if (queue_info.notify_condition.is_destructed()){ //The only time when this is set to true and you reach this part of the code is when the program is exiting, so you can safely return early. 
 	    return;
 	}
@@ -511,17 +512,44 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
             auto info=std::any_cast<XlibSurfaceInfo>(surface_info.info);
             auto display=info.dpy;
             auto window=info.window;
-            
+	    
             XWindowAttributes attributes;
             XGetWindowAttributes(display, window, &attributes);
+
+	    auto image_info=std::make_tuple(attributes.visual, attributes.depth, extent.width, extent.height);
+
+	     XImage* x_image;
+	     XShmSegmentInfo shminfo;
+	     int shm_size;
+
+	     {
+	     	std::unique_lock lk(*info.images_mutex);
+	     	if (info.images.contains(image_info)){
+			std::tie(x_image, shminfo, shm_size)=info.images[image_info];
+		}else{
+			x_image=XShmCreateImage(display, attributes.visual, attributes.depth, ZPixmap, NULL, &shminfo, extent.width, extent.height);
+			shm_size=x_image->bytes_per_line * x_image->height;
+			shminfo.shmid=shmget(IPC_PRIVATE, shm_size, IPC_CREAT | 0777);
+			shminfo.shmaddr = x_image->data = (char*)shmat(shminfo.shmid, 0, 0);
+			shminfo.readOnly = False;
+
+			XShmAttach(display, &shminfo);
+			
+			info.images[image_info]=std::make_tuple(x_image, shminfo, shm_size);
+
+	    	}
+	}
+
+	     memcpy(shminfo.shmaddr, data, shm_size);
+	     XShmPutImage(info.dpy, info.window, info.gc, x_image, 0, 0, 0, 0, extent.width, extent.height, False);
             
-            XImage *x_image = XCreateImage(display, attributes.visual, attributes.depth,
-                             ZPixmap, 0, (char *)data, extent.width, extent.height, 32, 0);
+	    //For systems without X11 SHM extension
+            /*
+	    XImage *x_image = XCreateImage(display, attributes.visual, attributes.depth, ZPixmap, 0, (char *)data, extent.width, extent.height, 32, 0);
             
-            GC gc = XCreateGC(display, window, 0, NULL);
-            XPutImage(display, window, gc, x_image, 0, 0, 0, 0, extent.width, extent.height);
+            XPutImage(display, window, info.gc, x_image, 0, 0, 0, 0, extent.width, extent.height);
 	    XFlush(info.dpy);
-            XFreeGC(display, gc);
+	    */
             break;
             }
             #endif
@@ -557,11 +585,14 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
         
         updateCounter(device, -1);
 
-	#if 0
-	auto end = std::chrono::steady_clock::now();
 
-	const auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-	printf("ms/frame: %lu\n", duration.count());
+	#if 1
+	auto end = std::chrono::steady_clock::now();
+	if (surface_info.now.has_value()){
+		const auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - surface_info.now.value());
+		printf("[INFO] ms/frame: %lu\n", duration.count());
+	}
+	surface_info.now=end;
 	#endif
         
     }

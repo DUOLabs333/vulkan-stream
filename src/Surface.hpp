@@ -5,14 +5,39 @@
 #include <iostream>
 #include <shared_mutex>
 #include <debug.hpp>
+#include <memory>
+#include <optional>
 
 enum SurfaceType {Xlib, Xcb};
 
-//Automate generation of this file
+struct hash_tuple {
+
+    template <class T1, class T2, class T3, class T4>
+
+    size_t operator()(
+        const std::tuple<T1, T2, T3, T4>& x)
+        const
+    {
+        return (uint64_t)(std::get<0>(x))
+               ^ std::get<1>(x)
+               ^ std::get<2>(x)
+               ^ std::get<3>(x);
+    }
+};
+
 #ifdef VK_USE_PLATFORM_XLIB_KHR
+#include <X11/extensions/XShm.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <cstring>
+
 typedef struct {
     Display* dpy;
     Window window;
+    GC gc;
+    std::unordered_map<std::tuple<Visual*, int, uint32_t, uint32_t>, std::tuple<XImage*, XShmSegmentInfo, int>, hash_tuple> images;
+
+    std::shared_ptr<std::mutex> images_mutex;
 } XlibSurfaceInfo;
 #endif 
 
@@ -31,6 +56,7 @@ typedef struct {
 typedef struct {
     SurfaceType type;
     std::any info;
+    std::optional<std::chrono::time_point<std::chrono::steady_clock>> now;
 } SurfaceInfo;
 
 static uint64_t VK_STREAM_TIMEOUT= std::numeric_limits<uint64_t>::max()-33; //Special marker for special behavior
