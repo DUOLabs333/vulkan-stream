@@ -515,8 +515,9 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
 	    
             XWindowAttributes attributes;
             XGetWindowAttributes(display, window, &attributes);
-
-	    auto image_info=std::make_tuple(attributes.visual, attributes.depth, extent.width, extent.height);
+	    
+	    #if 0
+	    auto image_info=std::make_tuple(attributes.visual, attributes.depth, extent.width, extent.height); //TODO: Instead of .visual, may have to do XVisualIDFromVisual(.visual), as two visuals can be the same and have different pointers. This would cause the amount of shared segments created to increase dramatically
 
 	     XImage* x_image;
 	     XShmSegmentInfo shminfo;
@@ -530,6 +531,7 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
 			x_image=XShmCreateImage(display, attributes.visual, attributes.depth, ZPixmap, NULL, &shminfo, extent.width, extent.height);
 			shm_size=x_image->bytes_per_line * x_image->height;
 			shminfo.shmid=shmget(IPC_PRIVATE, shm_size, IPC_CREAT | 0777);
+			//May need a shmctl(IPC_RMID,...) to make sure it's deleted when the process ends
 			shminfo.shmaddr = x_image->data = (char*)shmat(shminfo.shmid, 0, 0);
 			shminfo.readOnly = False;
 
@@ -542,14 +544,14 @@ void HandleSwapchainQueue(VkSwapchainKHR swapchain){
 
 	     memcpy(shminfo.shmaddr, data, shm_size);
 	     XShmPutImage(info.dpy, info.window, info.gc, x_image, 0, 0, 0, 0, extent.width, extent.height, False);
+            #else //For systems without X11 SHM extension
             
-	    //For systems without X11 SHM extension
-            /*
 	    XImage *x_image = XCreateImage(display, attributes.visual, attributes.depth, ZPixmap, 0, (char *)data, extent.width, extent.height, 32, 0);
             
             XPutImage(display, window, info.gc, x_image, 0, 0, 0, 0, extent.width, extent.height);
 	    XFlush(info.dpy);
-	    */
+	    #endif
+	    
             break;
             }
             #endif
