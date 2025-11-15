@@ -351,7 +351,7 @@ vkCmdPipelineBarrier(command_buffer, stage_mask, stage_mask, VK_DEPENDENCY_BY_RE
 
 }
 
-void copyImageToBuffer(VkDevice device, VkImage image, VkExtent2D extent){
+auto copyImageToBuffer(VkDevice device, VkImage image, VkExtent2D extent){
 
 auto command_buffer=getCommandBuffer(device);
 auto begin_command_buffer_info=VkCommandBufferBeginInfo{.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,.pNext=NULL,.flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT,.pInheritanceInfo=NULL};
@@ -359,8 +359,9 @@ vkBeginCommandBuffer(command_buffer,&begin_command_buffer_info);
 
 transferImageToLayout(command_buffer,image,VK_IMAGE_LAYOUT_PRESENT_SRC_KHR, VK_IMAGE_LAYOUT_GENERAL);
 
-VkDeviceSize size=getImageSize(device, image);
-auto buffer=getBuffer(device,size);
+auto image_size=getImageSize(device, image);
+auto buffer_size=image_size;
+auto buffer=getBuffer(device,buffer_size);
  
 auto region=VkBufferImageCopy{
 .bufferOffset=0,
@@ -399,16 +400,15 @@ auto queue_submit_info=VkSubmitInfo{
 vkQueueSubmit(queue,VK_STREAM_SUBMIT_COUNT,&queue_submit_info,fence);
 
 vkWaitForFences(device,1,&fence,VK_TRUE, VK_STREAM_TIMEOUT);
+
+return std::make_tuple(buffer, image_size, buffer_size);
 }
 
 
 void getImageData(VkDevice device, VkImage image, void** data, VkDeviceSize& size, VkExtent2D extent){
-copyImageToBuffer(device,image,extent);
 
-size=getImageSize(device, image);
-
-VkDeviceSize buffer_size=size;
-auto buffer=getBuffer(device,buffer_size);
+auto [buffer, image_size, buffer_size] = copyImageToBuffer(device,image,extent);
+size=image_size;
 
 auto memory=buffer_to_devicememory[(uint64_t)buffer];
 auto key=(uint64_t)memory;
